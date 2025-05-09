@@ -2,119 +2,136 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
-	"strings"
-	"strconv"
 	"net/url"
+	"os"
+	"strconv"
+	"strings"
+
+	"github.com/labstack/echo/v4"
+	"gopkg.in/yaml.v3"
+)
+type Config struct {
+    AvailableYears []int `yaml:"AVAILABLE_YEARS"`
+}
+
+var (
+    config []byte
+    configData Config
+    err error
+    AVAILABLE_YEARS []int
+    LATEST_YEAR int
 )
 
-// GBBINFO-JPN対応年度
-var AVAILABLE_YEARS = []int{2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017}
+func init() {
+    // config.yamlを読み込む
+    config, err = os.ReadFile("config.yaml")
+    if err != nil {
+        log.Fatalf("Failed to read config.yaml: %v", err)
+    }
+    // config.yamlを "構造体" に変換
+    err = yaml.Unmarshal(config, &configData)
+    if err != nil {
+        log.Fatalf("Failed to parse config.yaml: %v", err)
+    }
+    AVAILABLE_YEARS = configData.AvailableYears
+    LATEST_YEAR = AVAILABLE_YEARS[0]
+}
 
 // handleRequest: すべてのハンドラ関数の起点
-func handleRequest(w http.ResponseWriter, r *http.Request) {
+func handleRequest(c echo.Context) error {
     // queryがあれば取得
-    query := r.URL.Query()
+    query := c.QueryParams()
 
     // strings.Splitは文字列のスライス（[]string）を返す
     // インデックスでアクセスするとstring型になる
-    var content string = strings.Split(r.URL.Path, "/")[2]
+    var content string = strings.Split(c.Request().URL.Path, "/")[2]
 
     // 年の取得 (othersページの場合は"others"が入る)
-    yearStr := strings.Split(r.URL.Path, "/")[1]
+    yearStr := strings.Split(c.Path(), "/")[1]
     year, err := strconv.Atoi(yearStr)
 
     // othersページの場合、別ハンドラに渡す
     if yearStr == "others" {
-        handleOthers(w, r, query)
-        return
+        return handleOthers(c, query)
     }
     // yearの数値変換エラー そもそもこのエラーは起こらないはず
     if err != nil {
-        http.Error(w, "Invalid year format", http.StatusBadRequest)
-        return
+        return c.String(http.StatusBadRequest, "Invalid year format")
     }
 
     // 2022年のみ、GBBが中止されているので、すべてtopにリダイレクト
     if year == 2022 && content != "top" {
-        http.Redirect(w, r, "/2022/top", http.StatusSeeOther)
-        return
+        return c.Redirect(http.StatusSeeOther, "/2022/top")
     }
 
     // ルートはtopにリダイレクト
-    if r.URL.Path == "/" {
-        var latest_year int = AVAILABLE_YEARS[len(AVAILABLE_YEARS)-1]
-        var latest_top_path string = "/" + strconv.Itoa(latest_year) + "/top"
-        http.Redirect(w, r, latest_top_path, http.StatusSeeOther)
-        return
+    if c.Path() == "/" {
+        var latest_top_path string = "/" + strconv.Itoa(LATEST_YEAR) + "/top"
+        return c.Redirect(http.StatusSeeOther, latest_top_path)
     }
 
     // 特定の処理が必要なページは、別ハンドラに渡す
     switch content {
         case "top":
-            handleTop(w, r, query)
-            return
+            return handleTop(c, query)
         case "participants":
-            handleParticipants(w, r, query)
-            return
+            return handleParticipants(c, query)
         case "result":
-            handleResult(w, r, query)
-            return
+            return handleResult(c, query)
         case "rule":
-            handleRule(w, r, query)
-            return
+            return handleRule(c, query)
         // 以下クエリパラメータ不要
         case "japan":
-            handleJapan(w, r)
-            return
+            return handleJapan(c)
         case "korea":
-            handleKorea(w, r)
-            return
+            return handleKorea(c)
         case "world_map":
-            handleWorldMap(w, r)
-            return
+            return handleWorldMap(c)
     }
 
     // htmlファイルを返す
     var file_path string = "templates/" + content + ".html"
-    http.ServeFile(w, r, file_path)
+    return c.File(file_path)
 }
 
 // 仮のハンドラ関数
-func handleTop(w http.ResponseWriter, r *http.Request, query url.Values) {
-    fmt.Fprintf(w, "トップページ")
+func handleTop(c echo.Context, query url.Values) error {
+    return c.String(http.StatusOK, "トップページ")
 }
 
-func handleParticipants(w http.ResponseWriter, r *http.Request, query url.Values) {
-    fmt.Fprintf(w, "参加者一覧ページ")
+func handleParticipants(c echo.Context, query url.Values) error {
+    return c.String(http.StatusOK, "参加者一覧ページ")
 }
 
-func handleResult(w http.ResponseWriter, r *http.Request, query url.Values) {
-    fmt.Fprintf(w, "結果ページ")
+func handleResult(c echo.Context, query url.Values) error {
+    return c.String(http.StatusOK, "結果ページ")
 }
 
-func handleRule(w http.ResponseWriter, r *http.Request, query url.Values) {
-    fmt.Fprintf(w, "ルールページ")
+func handleRule(c echo.Context, query url.Values) error {
+    return c.String(http.StatusOK, "ルールページ")
 }
 
-func handleJapan(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "日本代表ページ")
+func handleJapan(c echo.Context) error {
+    return c.String(http.StatusOK, "日本代表ページ")
 }
 
-func handleKorea(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "韓国代表ページ")
+func handleKorea(c echo.Context) error {
+    return c.String(http.StatusOK, "韓国代表ページ")
 }
 
-func handleWorldMap(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "世界地図ページ")
+func handleWorldMap(c echo.Context) error {
+    return c.String(http.StatusOK, "世界地図ページ")
 }
 
-func handleOthers(w http.ResponseWriter, r *http.Request, query url.Values) {
-    fmt.Fprintf(w, "その他ページ")
+func handleOthers(c echo.Context, query url.Values) error {
+    return c.String(http.StatusOK, "その他ページ")
 }
 
 func main() {
-    http.HandleFunc("/", handleRequest)
-    http.ListenAndServe(":10000", nil)
+	e := echo.New()
+	e.GET("/", handleRequest)
+	e.Start(":10000")
 	fmt.Println("Server started at http://localhost:10000")
 }
