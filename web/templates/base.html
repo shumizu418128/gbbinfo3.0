@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<!--
+               ■■■                               
+■                 ■                    ■         
+■     ■■                               ■     ■■  
+■      ■      ■■■■■■                   ■      ■  
+■       ■        ■■                    ■       ■ 
+■       ■        ■       ■■■■■■■■■■■   ■       ■ 
+■       ■■      ■■■                    ■       ■■
+■■  ■          ■  ■                    ■■  ■     
+ ■ ■          ■   ■                     ■ ■      
+  ■■         ■    ■■■■                   ■■      
+ ■■■■■■■                      ■■                 
+ ■     ■      ■■■■■■■■     ■■■■■■                
+ ■■■■■■■    ■■■   ■           ■■                 
+ ■     ■         ■           ■■                  
+ ■■■■■■■        ■           ■■■■■      ■■■■■     
+ ■     ■        ■          ■■■   ■■   ■    ■■■■■ 
+ ■■■■■■■        ■         ■■      ■              
+   ■ ■          ■           ■■■   ■              
+  ■  ■           ■          ■  ■ ■               
+  ■  ■  ■■        ■■■        ■■■■                
+■■   ■■■■                                        
+-->
+<html lang="ja">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="{{_('Swissbeatboxが主催するHuman Beatboxの世界大会「Grand Beatbox Battle」の各種情報を、見やすくまとめたサイトです。')}}">
+    <link rel="stylesheet" href="/static/css/base.css" />
+    <link rel="stylesheet" href="/static/css/components.css" />
+    <link rel="stylesheet" href="/static/css/search.css" />
+    <link rel="stylesheet" href="/static/css/table.css" />
+    <link rel="canonical" href="{% block canonical %}{% endblock %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <meta name="twitter:title" content="{% block twitter_title %}{% endblock %}" />
+    <meta name="twitter:description" content="{{_('Swissbeatboxが主催するHuman Beatboxの世界大会「Grand Beatbox Battle」の各種情報を、見やすくまとめたサイトです。')}}" />
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image" content="https://gbbinfo-jpn.onrender.com/static/images/background.webp" />
+    <meta property="og:title" content="{% block og_title %}{% endblock %}" />
+    <meta property="og:description" content="{{_('Swissbeatboxが主催するHuman Beatboxの世界大会「Grand Beatbox Battle」の各種情報を、見やすくまとめたサイトです。')}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{% block og_url %}{% endblock %}" />
+    <meta property="og:image" content="https://gbbinfo-jpn.onrender.com/static/images/background.webp" />
+    <meta property="og:image:secure_url" content="https://gbbinfo-jpn.onrender.com/static/images/background.webp" />
+    <meta property="og:site_name" content="GBBINFO-JPN" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="theme-color" content="#ff6417" />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='favicon.ico') }}"
+      type="image/x-icon"
+    />
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='favicon.ico') }}"
+      type="image/x-icon"
+    />
+    <link rel="manifest" href="/manifest.json" />
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("/service-worker.js").then(
+            function (registration) {
+              console.log(
+                "ServiceWorkerが正常に登録されました: ",
+                registration.scope
+              );
+            },
+            function (err) {
+              console.log("ServiceWorkerの登録に失敗しました: ", err);
+            }
+          );
+        });
+      }
+    </script>
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "q30ags8e1y");
+    </script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-YWXGGR0MST"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-YWXGGR0MST");
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7390637277632194"
+    crossorigin="anonymous"></script>
+    <script async src="https://fundingchoicesmessages.google.com/i/pub-7390637277632194?ers=1"></script><script>(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
+
+    {% block head %}{% endblock %}
+  </head>
+  <body>
+    <div class="hamburger-menu" onclick="toggleMenu(this)">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <p>MENU</p>
+    </div>
+    <div class="menu">
+      <p>MENU</p>
+      <div class="button-container">
+        <a href="/"><button>Home & {{ _('これだけガイド') }}</button></a>
+        <a href="/{{ year }}/participants"><button>{{_('Wildcard結果')}} & {{_('出場者')}}</button></a>
+        <a href="/{{ year }}/rule"><button>{{_('ルール')}} & {{_('審査員')}}</button></a>
+        <a href="/others/how_to_plan"><button>{{_('現地観戦計画のたてかた')}}</button></a>
+        <a href="/{{ year }}/time_schedule"><button>{{_('タイムスケジュール')}}</button></a>
+        <a href="/{{ year }}/japan"><button>{{_('日本代表')}}</button></a>
+        <a href="/{{ year }}/ticket"><button>{{_('会場')}} & {{_('チケット')}}</button></a>
+        <a href="/{{ year }}/stream"><button>{{_('当日配信')}}</button></a>
+        <a href="/{{ year }}/result"><button>{{_('大会結果')}}</button></a>
+      </div>
+
+      <p>LANGUAGE</p>
+      <div class="button-container">
+        {% for lang_code, lang_name in lang_names.items() %}
+          <a href="/lang?referrer={{ current_url }}&lang={{ lang_code }}">
+            <button>{{ lang_name }}</button>
+          </a>
+        {% endfor %}
+      </div>
+
+    </div>
+    <header>
+      <nav>
+        <img src="/static/images/header.webp" alt="ヘッダー"/>
+        <ul>
+          <a class="menu-link" href="/{{year}}/top"><li>Home & {{ _('これだけガイド') }}</li></a>
+          <div class="nav_dropdown_container">
+            <li>
+              {{ _('年度選択') }}
+              <ul class="nav_dropdown">
+                {% for y in available_years|reverse %}
+                  <a href="/{{ y }}/top"><li class="past_gbb">{{ y }}</li></a>
+                {% endfor %}
+              </ul>
+            </li>
+          </div>
+          <div class="nav_dropdown_container">
+            <li>
+              LANGUAGE
+              <ul class="nav_dropdown">
+                {% for lang_code, lang_name in lang_names.items() %}
+                  <a href="/lang?referrer={{ current_url }}&lang={{ lang_code }}"><li class="past_gbb">{{ lang_name }}</li></a>
+                {% endfor %}
+              </ul>
+            </li>
+          </div>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="progress-scroll" style="top: 41px"></div>
+      <div class="background-progress-scroll" style="top: 41px"></div>
+
+      {% if is_latest_year is false %}
+        {% include 'includes/popup_ended.html' %}
+        {% include 'includes/ended.html' %}
+      {% elif is_early_access is true %}
+        {% include 'includes/popup_early_access.html' %}
+        {% include 'includes/early_access.html' %}
+      {% endif %}
+
+      {% block content %}{% endblock %}
+
+      <div style="margin: 40px 0;"></div>
+      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-show-count="false">Tweet</a>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+      {% if is_latest_year is false %}
+        {% include 'includes/ended.html' %}
+      {% elif is_early_access is true %}
+        {% include 'includes/early_access.html' %}
+      {% endif %}
+
+      <p style="text-align: center">{{ _('GBBまでの残り時間') }}</p>
+      <p id="countdown" style="text-align: center; font-size: 24px"></p>
+
+      {% if is_latest_year is false %}
+        <hr>
+        <h3>GBB {{ year }} {{ _('なんでも検索') }}</h3>
+        <p style="text-align: center;">{{ _('GBB {year} の検索のみ可能です').format(year=year) }}<br>{{ _('GBB {year} は終了しました').format(year=year) }}</p>
+        <form id="search-form-bottom" class="search-container" action="/{{ year }}/search">
+          <input type="text" name="question" id="question-bottom" placeholder="{{ _('例：GBB {year} の最終結果は？').format(year=year) }}" required>
+          <button type="submit"></button>
+        </form>
+        <div class="suggestions"></div>
+        <div class="button-container">
+          <a href="/"><button type="button">{{ _('GBB最新情報の検索はこちら') }}</button></a>
+        </div>
+        <hr>
+      {% else %}
+        <h2>GBB {{ year }} {{ _('なんでも検索') }}</h2>
+        <p style="text-align: center;">{{ _('GBB {year} について検索してみよう').format(year=year) }}</p>
+        <form id="search-form-bottom" class="search-container" action="/{{ year }}/search">
+          <input type="text" name="question" id="question-bottom" placeholder="{{ _('例：現地観戦計画のたてかた') }}" required>
+          <button type="submit"></button>
+        </form>
+        <div class="suggestions"></div>
+      {% endif %}
+
+      <div id="loading" class="loading"></div>
+      <div style="margin: 40px 0;"></div>
+
+      <div class="button-container">
+        <a href="javascript:void(0);"><button id="installButton" class="button_top" style="visibility: hidden;">{{ _('ホーム画面に追加') }}</button></a>
+      </div>
+      <p>
+        {{ _('GBBINFO-JPNはPWAに対応しています。') }}<br />{{ _('ブラウザメニューを開き、「ホーム画面に追加」をタップすると、アプリとしてインストールできます。') }}
+      </p>
+
+      <div class="button-container">
+        <a href="/"><button style="background-image: url('/static/images/button/junno2.webp'); background-position: top;" class="bg-pic">
+          <svg class="bg-pic" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0044CC"><path d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z"/></svg>
+          <span class="button-text-with-icon">{{ _('ホームへもどる') }}<br>{{ _('これだけガイド') }}</span>
+        </button></a>
+      </div>
+      <div style="margin: 100px 0;"></div>
+
+      <h3>{{ _('対応言語') }} / LANGUAGE</h3>
+      <div class="button-container">
+        {% for lang_code, lang_name in lang_names.items() %}
+          <a href="/lang?referrer={{ current_url }}&lang={{ lang_code }}">
+            <button>{{ lang_name }}</button>
+          </a>
+        {% endfor %}
+      </div>
+      <hr>
+      <a href="https://qiita.com/tari3210/items/0561e91774863d165af0" target="_blank" rel="noopener noreferrer">GBBINFO-JPNの設計図</a>
+      <br>
+      <a href="https://twitter.com/tari_3210_" target="_blank" rel="noopener noreferrer">当サイト管理人 Twitter</a>
+      <br>
+      <a href="/others/about">{{ _('GBBINFO-JPNについて') }}</a>
+      <br>
+      <a href="/others/past_info">過去のGBB情報対応状況</a>
+      <br>
+      <a href="/others/translation">{{ _('各ページの翻訳提供について') }}</a>
+
+      <footer>
+        <p>
+          GBBINFO-JPN 2.0<br />UNofficial website made by tari3210<br />NOT swissbeatbox
+        </p>
+      </footer>
+
+      <div class="progress-scroll" style="bottom: 50px"></div>
+      <div class="background-progress-scroll" style="bottom: 50px"></div>
+    </main>
+
+    <div style="width: 100%; height: 80vh; position: relative; z-index: -1; display: flex; flex-direction: column; justify-content: flex-start; align-items: center;">
+      <div style="
+        background-color: rgba(255, 255, 255, 0.5);
+        padding: 10px;
+        border-radius: 15px;
+        text-align: center;
+        margin: 30vh auto;
+      ">
+        <p>{{ _('いい景色だろ？') }}</p>
+      </div>
+    </div>
+
+    {% include 'includes/bottom_navigation.html' %}
+
+    <select class="headerDropdown" style="display: none; height: 41px"></select>
+
+    <script src="/static/scripts/timer.js"></script>
+    <script src="/static/scripts/navigation.js"></script>
+    <script src="/static/scripts/ui.js"></script>
+    <script src="/static/scripts/search_function.js"></script>
+
+    <script>
+      if (window.location.pathname.includes('/participants') && window.location.search.includes('value')) {
+          // flask変数を入れて実行するために、あえてwindow.onloadを使う
+          searchParticipants({{ year }});
+      }
+    </script>
+
+  </body>
+</html>
