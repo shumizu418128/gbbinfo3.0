@@ -50,6 +50,41 @@ func (h *RequestHandler) Handle(c echo.Context) error {
 
     // 年度・内容をハンドラに渡す
 
+    // 日本代表 query不要
+    if content == "japan" {
+        return h.japanHandler.Handle(c, year, content)
+    }
+
+    // 韓国代表 query不要
+    if content == "korea" {
+        return h.koreaHandler.Handle(c, year, content)
+    }
+
+    // others
+    if content == "others" {
+        return h.othersHandler.Handle(c, year, content, query)
+    }
+
+    // 出場者
+    if content == "participants" {
+        return h.participantsHandler.Handle(c, year, content, query)
+    }
+
+    // 大会結果 query不要
+    if content == "results" {
+        return h.resultsHandler.Handle(c, year, content)
+    }
+
+    // ルール
+    if content == "rule" {
+        return h.ruleHandler.Handle(c, year, content, query)
+    }
+
+    // 世界地図 query不要
+    if content == "worldmap" {
+        return h.worldmapHandler.Handle(c, year, content)
+    }
+
     // 特に対応が必要ない場合はdefaultHandlerに渡す
     return h.defaultHandler.Handle(c, year, content, query)
 
