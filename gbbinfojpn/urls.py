@@ -15,7 +15,6 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf import settings
-from django.contrib import admin
 from django.urls import path
 from . import views
 
@@ -23,6 +22,7 @@ urlpatterns = [
     path("", views.hello_world, name="hello_world"),
 ]
 
-# ローカル環境でのみ管理画面URLを追加
+# ローカル環境でのみdatabase専用管理画面URLを追加
 if settings.DEBUG:
-    urlpatterns.append(path('admin/', admin.site.urls))
+    from .database.admin import database_admin_site
+    urlpatterns.append(path('database/', database_admin_site.urls))

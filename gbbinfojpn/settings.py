@@ -28,7 +28,8 @@ else:
     SECRET_KEY = os.getenv("SECRET_KEY")
 
 ALLOWED_HOSTS = [
-    "127.0.0.1:8000",
+    "127.0.0.1",
+    "localhost",
     "gbbinfo-jpn.onrender.com",
 ]
 
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "gbbinfojpn.database",
 ]
 
 MIDDLEWARE = [
