@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -19,14 +20,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-# TODO: 環境変数にする
-SECRET_KEY = "test"
+if os.getenv("ENVIRONMENT_CHECK") == "qawsedrftgyhujikolp":
+    DEBUG = True
+    SECRET_KEY = "test"
+else:
+    DEBUG = False
+    SECRET_KEY = os.getenv("SECRET_KEY")
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "127.0.0.1:8000",
+    "gbbinfo-jpn.onrender.com",
+]
 
 
 # Application definition
@@ -43,6 +47,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",  # 国際化ミドルウェア
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -63,6 +68,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.i18n",  # 国際化コンテキスト
             ],
         },
     },
@@ -104,13 +110,26 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "ja"  # デフォルト言語を日本語に
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Tokyo"  # タイムゾーンを日本時間に
 
-USE_I18N = True
+USE_I18N = True  # 国際化を有効化
+
+USE_L10N = True  # ローカル化を有効化
 
 USE_TZ = True
+
+# サポートする言語
+LANGUAGES = [
+    ('ja', '日本語'),
+    ('en', 'English'),
+]
+
+# 翻訳ファイルの場所
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
 
 
 # Static files (CSS, JavaScript, Images)
