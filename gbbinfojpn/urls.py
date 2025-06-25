@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.conf import settings
 from django.urls import path
-from . import views
+from .app import views
 
 urlpatterns = [
     path("", views.hello_world, name="hello_world"),
