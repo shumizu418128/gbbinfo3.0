@@ -6,6 +6,7 @@ SupabaseとのAPIやりとり用
 import os
 from typing import Any, Dict, List, Optional
 
+from dotenv import load_dotenv
 from supabase import Client, create_client
 
 
@@ -19,6 +20,7 @@ class SupabaseService:
     def client(self) -> Client:
         """Supabaseクライアントのインスタンスを取得"""
         if self._client is None:
+            load_dotenv()
             supabase_url = os.getenv("SUPABASE_URL")
             supabase_key = os.getenv("SUPABASE_ANON_KEY")
 
@@ -26,6 +28,7 @@ class SupabaseService:
                 raise ValueError("SUPABASE_URLとSUPABASE_ANON_KEYの環境変数が必要です")
 
             self._client = create_client(supabase_url, supabase_key)
+            print(self._client)
 
         return self._client
 

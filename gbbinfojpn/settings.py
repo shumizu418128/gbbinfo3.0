@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 import os
 from pathlib import Path
-from gbbinfojpn.database.models.routers import DatabaseRouter
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,6 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 if os.getenv("ENVIRONMENT_CHECK") == "qawsedrftgyhujikolp":
     DEBUG = True
     SECRET_KEY = "test"
+    load_dotenv()
 else:
     DEBUG = False
     SECRET_KEY = os.getenv("SECRET_KEY")
@@ -104,7 +105,7 @@ DATABASES = {
 }
 
 # データベースルーター設定
-DATABASE_ROUTERS = [DatabaseRouter]
+DATABASE_ROUTERS = ["gbbinfojpn.database.models.routers.DatabaseRouter"]
 
 
 # Password validation

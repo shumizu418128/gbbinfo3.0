@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 
-from ..models.models import DatabaseEntry, WebContent
+from ..models.models import DatabaseEntry, TestData, WebContent
 from ..models.supabase_client import supabase_service
 
 
@@ -119,5 +119,22 @@ def health_check(request):
                 "status": "healthy" if (sqlite_ok and supabase_ok) else "partial",
             }
         )
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)
+
+
+def test_data_list(request):
+    """testテーブルのデータ一覧を表示"""
+    try:
+        # Supabaseのtestテーブルからデータを取得
+        test_data = TestData.get_test_data()
+        print(test_data)
+
+        context = {
+            "test_data": test_data,
+            "title": "Testテーブルデータ一覧",
+        }
+
+        return render(request, "database/test_data_list.html", context)
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=500)
