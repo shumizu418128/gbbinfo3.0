@@ -15,9 +15,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
+import os
+from django.contrib import admin
 from django.urls import path
 from . import views
 
 urlpatterns = [
     path("", views.hello_world, name="hello_world"),
 ]
+
+# ローカル環境でのみ管理画面URLを追加
+if os.getenv("ENVIRONMENT_CHECK") == "qawsedrftgyhujikolp":
+    urlpatterns.append(path('admin/', admin.site.urls))
