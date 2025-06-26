@@ -19,7 +19,6 @@ from django.conf import settings
 from django.urls import include, path
 
 from .app import views
-from .database.controllers import urls as database_urls
 
 urlpatterns = [
     path("", views.hello_world, name="hello_world"),
@@ -27,7 +26,6 @@ urlpatterns = [
 
 # ローカル環境でのみdatabase専用管理画面URLを追加
 if settings.DEBUG:
-    from .database.admin import database_admin_site
+    from .database.controllers import urls as database_urls
 
-    urlpatterns.append(path("database/", database_admin_site.urls))
     urlpatterns.append(path("db/", include(database_urls)))

@@ -85,11 +85,6 @@ WSGI_APPLICATION = "gbbinfojpn.wsgi.application"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    # SQLite - 管理画面のユーザー認証とセッション用
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    },
     # Supabase - ウェブアプリケーションのデータ用
     "supabase": {
         "ENGINE": "django.db.backends.postgresql",
