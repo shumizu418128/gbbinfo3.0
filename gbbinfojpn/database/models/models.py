@@ -38,42 +38,6 @@ class DatabaseEntry(models.Model):
         return supabase_service.insert_data("database_databaseentry", data)
 
 
-class WebContent(models.Model):
-    """
-    ウェブコンテンツ用モデル
-    Supabaseで管理されるウェブ表示用データ
-    """
-
-    title = models.CharField(max_length=300, verbose_name="コンテンツタイトル")
-    content = models.TextField(verbose_name="コンテンツ内容")
-    category = models.CharField(max_length=100, verbose_name="カテゴリ")
-    tags = models.TextField(blank=True, verbose_name="タグ（カンマ区切り）")
-    published = models.BooleanField(default=False, verbose_name="公開済み")
-    view_count = models.IntegerField(default=0, verbose_name="閲覧数")
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name="作成日時")
-    updated_at = models.DateTimeField(auto_now=True, verbose_name="更新日時")
-
-    class Meta:
-        verbose_name = "ウェブコンテンツ"
-        verbose_name_plural = "ウェブコンテンツ"
-        ordering = ["-created_at"]
-
-    def __str__(self):
-        return self.title
-
-    @classmethod
-    def get_published_content(cls):
-        """公開済みコンテンツをSupabaseから取得"""
-        return supabase_service.get_table_data("database_webcontent", published=True)
-
-    def increment_view_count(self):
-        """閲覧数をSupabaseで直接増加"""
-        if self.pk:
-            return supabase_service.update_data(
-                "database_webcontent", {"view_count": self.view_count + 1}, id=self.pk
-            )
-
-
 class TestData(models.Model):
     """
     Supabaseのtestテーブル用モデル
