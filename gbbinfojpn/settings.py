@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 import os
 from pathlib import Path
+
 from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -85,14 +86,14 @@ WSGI_APPLICATION = "gbbinfojpn.wsgi.application"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    # Supabase - ウェブアプリケーションのデータ用
-    "supabase": {
+    # Supabaseをdefaultとして利用
+    "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": os.getenv("SUPABASE_DB_NAME"),
         "USER": os.getenv("SUPABASE_DB_USER"),
         "PASSWORD": os.getenv("SUPABASE_DB_PASSWORD"),
         "HOST": os.getenv("SUPABASE_DB_HOST"),
-        "PORT": os.getenv("SUPABASE_DB_PORT", "5432"),
+        "PORT": os.getenv("SUPABASE_DB_PORT"),
         "OPTIONS": {
             "sslmode": "require",
         },
