@@ -120,7 +120,9 @@ def health_check(request):
             }
         )
     except Exception as e:
-        return JsonResponse({"error": str(e)}, status=500)
+        import logging
+        logging.error("An error occurred during health check:", exc_info=True)
+        return JsonResponse({"error": "An internal error has occurred."}, status=500)
 
 
 def test_data_list(request):
