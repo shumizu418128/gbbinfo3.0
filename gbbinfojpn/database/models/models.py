@@ -109,8 +109,12 @@ class Year(models.Model):
     """
 
     year = models.IntegerField(primary_key=True, validators=[MinValueValidator(2013)])
-    starts_at = models.DateTimeField(null=True, blank=True, help_text="開始日時 未定・中止の場合はnull")
-    ends_at = models.DateTimeField(null=True, blank=True, help_text="終了日時 未定・中止の場合はnull")
+    starts_at = models.DateTimeField(
+        null=True, blank=True, help_text="開始日時 未定・中止の場合はnull"
+    )
+    ends_at = models.DateTimeField(
+        null=True, blank=True, help_text="終了日時 未定・中止の場合はnull"
+    )
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -466,7 +470,7 @@ class TournamentResult(models.Model):
 
     Example:
         >>> result = TournamentResult.objects.create(
-        ...     competition=solo_competition,
+        ...     competition_rule=solo_competition_rule,
         ...     round='Final',
         ...     winner=participant1,
         ...     loser=participant2
@@ -495,7 +499,7 @@ class TournamentResult(models.Model):
     class Meta:
         db_table = "tournament_results"
         indexes = [
-            models.Index(fields=["competition"]),
+            models.Index(fields=["competition_rule"]),
             models.Index(fields=["round"]),
             models.Index(fields=["winner"]),
             models.Index(fields=["loser"]),
@@ -514,7 +518,7 @@ class RankingResult(models.Model):
     ラウンドごとの順位を管理できます。
 
     Attributes:
-        competition (ForeignKey): 所属する競技。Competitionモデルとの外部キー関係。
+        competition_rule (ForeignKey): 所属する競技。CompetitionRuleモデルとの外部キー関係。
         round (str): ラウンド名（例：'Final', 'Semi-Final'）。
         participant (ForeignKey): 参加者。Participantモデルとの外部キー関係。
         rank (int): 順位。1以上の値。
@@ -523,7 +527,7 @@ class RankingResult(models.Model):
 
     Example:
         >>> result = RankingResult.objects.create(
-        ...     competition=producer_competition,
+        ...     competition_rule=producer_competition_rule,
         ...     round='Final',
         ...     participant=producer1,
         ...     rank=1
@@ -548,9 +552,9 @@ class RankingResult(models.Model):
 
     class Meta:
         db_table = "ranking_results"
-        unique_together = ["competition", "round", "participant"]
+        unique_together = ["competition_rule", "round", "participant"]
         indexes = [
-            models.Index(fields=["competition"]),
+            models.Index(fields=["competition_rule"]),
             models.Index(fields=["round"]),
             models.Index(fields=["participant"]),
             models.Index(fields=["rank"]),
@@ -596,7 +600,7 @@ class TestData(models.Model):
         return f"TestData {self.id}: {self.value[:50]}"
 
     @classmethod
-    def get_test_data(cls, **filters):
+    def get_all_data(cls, **filters):
         """Supabaseのtestテーブルから直接データを取得します。
 
         Args:
@@ -611,4 +615,4 @@ class TestData(models.Model):
             >>> # 特定の条件でフィルタリング
             >>> filtered_data = TestData.get_test_data(value__contains='test')
         """
-        return supabase_service.get_table_data("test", **filters)
+        return supabase_service.get_all_data("test", **filters)

@@ -6,10 +6,11 @@ SupabaseとのAPIやりとり用
 import os
 from typing import Any, Dict, List, Optional
 
-from dotenv import load_dotenv
 from supabase import Client, create_client
 
 from gbbinfojpn import settings
+
+ALL_DATA = "*"
 
 
 class SupabaseService:
@@ -17,7 +18,6 @@ class SupabaseService:
 
     def __init__(self):
         """SupabaseServiceクラスの初期化"""
-        load_dotenv()  # Supabaseの環境変数はサーバーに置かない
         self._client: Optional[Client] = None
 
     @property
@@ -66,7 +66,7 @@ class SupabaseService:
 
         return self._client
 
-    def get_table_data(self, table_name: str, **filters) -> List[Dict[str, Any]]:
+    def get_all_data(self, table_name: str, **filters) -> List[Dict[str, Any]]:
         """テーブルからデータを取得
 
         Args:
@@ -81,7 +81,7 @@ class SupabaseService:
             >>> data = service.get_table_data("users", status="active")
         """
         try:
-            query = self.read_only_client.table(table_name).select("*")
+            query = self.read_only_client.table(table_name).select(ALL_DATA)
 
             # フィルター条件を適用
             for key, value in filters.items():

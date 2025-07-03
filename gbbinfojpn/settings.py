@@ -60,7 +60,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "gbbinfojpn.urls"
+ROOT_URLCONF = 'gbbinfojpn.urls'
 
 TEMPLATES = [
     {
