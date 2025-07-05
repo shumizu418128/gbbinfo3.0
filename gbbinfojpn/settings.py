@@ -30,12 +30,12 @@ else:
     DEBUG = False
     SECRET_KEY = os.getenv("SECRET_KEY")
 
-ALLOWED_HOSTS = [
-    "127.0.0.1",
-    "localhost",
-    "gbbinfo-jpn.onrender.com",
-]
+ALLOWED_HOSTS = []
 
+# この環境変数はRenderによって自動で設定される
+RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 # Application definition
 
