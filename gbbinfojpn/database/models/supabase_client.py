@@ -4,7 +4,7 @@ SupabaseとのAPIやりとり用
 """
 
 import os
-from typing import Any, Dict, List, Optional
+from typing import Optional
 
 from supabase import Client, create_client
 
@@ -66,8 +66,9 @@ class SupabaseService:
 
         return self._client
 
-    def get_all_data(self, table_name: str, **filters) -> List[Dict[str, Any]]:
+    def get_data(self, table_name: str, **filters):
         """テーブルからデータを取得
+        この処理のみREAD_ONLY_CLIENTを使用
 
         Args:
             table_name (str): 取得対象のテーブル名
@@ -93,17 +94,16 @@ class SupabaseService:
             print(f"データ取得エラー: {e}")
             return []
 
-    def insert_data(
-        self, table_name: str, data: Dict[str, Any]
-    ) -> Optional[Dict[str, Any]]:
+    def insert_data(self, table_name: str, data: dict):
         """テーブルにデータを挿入
+        この処理はADMIN_CLIENTを使用
 
         Args:
             table_name (str): 挿入対象のテーブル名
-            data (Dict[str, Any]): 挿入するデータ
+            data (dict): 挿入するデータ
 
         Returns:
-            Optional[Dict[str, Any]]: 挿入されたデータ。エラー時はNone
+            Optional[dict]: 挿入されたデータ。エラー時はNone
 
         Example:
             >>> service = SupabaseService()
@@ -117,18 +117,17 @@ class SupabaseService:
             print(f"データ挿入エラー: {e}")
             return None
 
-    def update_data(
-        self, table_name: str, data: Dict[str, Any], **filters
-    ) -> Optional[List[Dict[str, Any]]]:
+    def update_data(self, table_name: str, data: dict, **filters):
         """テーブルのデータを更新
+        この処理はADMIN_CLIENTを使用
 
         Args:
             table_name (str): 更新対象のテーブル名
-            data (Dict[str, Any]): 更新するデータ
+            data (dict): 更新するデータ
             **filters: 更新対象を特定するフィルター条件
 
         Returns:
-            Optional[List[Dict[str, Any]]]: 更新されたデータのリスト。エラー時はNone
+            Optional[list[dict]]: 更新されたデータのリスト。エラー時はNone
 
         Example:
             >>> service = SupabaseService()
@@ -148,8 +147,9 @@ class SupabaseService:
             print(f"データ更新エラー: {e}")
             return None
 
-    def delete_data(self, table_name: str, **filters) -> bool:
+    def delete_data(self, table_name: str, **filters):
         """テーブルからデータを削除
+        この処理はADMIN_CLIENTを使用・標準入力による確認が必要
 
         Args:
             table_name (str): 削除対象のテーブル名

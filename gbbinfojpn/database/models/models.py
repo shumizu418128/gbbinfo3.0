@@ -600,11 +600,8 @@ class TestData(models.Model):
         return f"TestData {self.id}: {self.value[:50]}"
 
     @classmethod
-    def get_all_data(cls, **filters):
+    def get_all_data(cls):
         """Supabaseのtestテーブルから直接データを取得します。
-
-        Args:
-            **filters: フィルタリング条件。Supabaseのクエリパラメータとして使用されます。
 
         Returns:
             list: Supabaseから取得したデータのリスト。
@@ -615,4 +612,4 @@ class TestData(models.Model):
             >>> # 特定の条件でフィルタリング
             >>> filtered_data = TestData.get_test_data(value__contains='test')
         """
-        return supabase_service.get_all_data("test", **filters)
+        return supabase_service.get_data("test")
