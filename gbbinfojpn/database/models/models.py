@@ -330,12 +330,12 @@ class Participant(models.Model):
 
     @property
     def members_list(self):
-        """メンバーリストを表示順序で取得します。
+        """メンバーリストを名前順で取得します。
 
         Returns:
-            QuerySet: 表示順序でソートされたメンバーのQuerySet。
+            QuerySet: 名前順でソートされたメンバーのQuerySet。
         """
-        return self.members.all().order_by("display_order")
+        return self.members.all().order_by("name")
 
     @property
     def members_names(self):
@@ -351,12 +351,12 @@ class ParticipantMember(models.Model):
     """参加者のメンバー情報を管理するモデルクラス（チーム戦用）。
 
     このクラスは、チーム戦で参加する場合の個別メンバー情報を管理します。
-    各メンバーの名前と表示順序を設定できます。
+    各メンバーの名前と国籍を設定できます。
 
     Attributes:
         participant (ForeignKey): 所属する参加者。Participantモデルとの外部キー関係。
         name (str): メンバー名。
-        display_order (int): 表示順序。デフォルトは1。
+        country (ForeignKey): 所属国。Countryモデルとの外部キー関係。
         created_at (DateTimeField): レコード作成日時。自動設定されます。
         updated_at (DateTimeField): レコード更新日時。自動更新されます。
 
@@ -364,21 +364,21 @@ class ParticipantMember(models.Model):
         >>> member = ParticipantMember.objects.create(
         ...     participant=team_participant,
         ...     name='Member1',
-        ...     display_order=1
+        ...     country=japan
         ... )
         >>> member
         Member1 (Beatbox Crew)
 
     Note:
         - participantとnameの組み合わせで一意制約が設定されています
-        - メンバーはdisplay_orderでソートされます
+        - メンバーは名前でソートされます
     """
 
     participant = models.ForeignKey(
         Participant, related_name="members", on_delete=models.CASCADE
     )
     name = models.CharField(max_length=100, help_text="メンバー名")
-    display_order = models.IntegerField(default=1)
+    country = models.ForeignKey(Country, on_delete=models.CASCADE)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -389,69 +389,14 @@ class ParticipantMember(models.Model):
         indexes = [
             models.Index(fields=["participant"]),
             models.Index(fields=["name"]),
+            models.Index(fields=["country"]),
         ]
-        ordering = ["display_order"]
+        ordering = ["name"]
         verbose_name = "チームメンバー"
         verbose_name_plural = "チームメンバー一覧"
 
     def __str__(self):
         return f"{self.name} ({self.participant.name})"
-
-
-class CompetitionRule(models.Model):
-    """GBB大会の競技形式を管理するモデルクラス。
-
-    このクラスは、各年度・カテゴリにおける競技形式（トーナメント/ランキング）を管理します。
-
-    Attributes:
-        year (ForeignKey): 大会年度。Yearモデルとの外部キー関係。
-        category (ForeignKey): 競技カテゴリ。Categoryモデルとの外部キー関係。
-        format (str): 競技形式。'tournament'（トーナメント）または'ranking'（ランキング）。
-        created_at (DateTimeField): レコード作成日時。自動設定されます。
-        updated_at (DateTimeField): レコード更新日時。自動更新されます。
-
-    Constants:
-        FORMAT_CHOICES: 競技形式の選択肢
-            - 'tournament': トーナメント形式
-            - 'ranking': ランキング形式
-
-    Example:
-        >>> competition = Competition.objects.create(
-        ...     year=year_2024,
-        ...     category=solo_category,
-        ...     format='tournament'
-        ... )
-        >>> competition
-        2024 Solo (トーナメント)
-
-    Note:
-        - yearとcategoryの組み合わせで一意制約が設定されています
-    """
-
-    FORMAT_CHOICES = [
-        ("tournament", "トーナメント"),
-        ("ranking", "ランキング"),
-    ]
-
-    year = models.ForeignKey(Year, on_delete=models.CASCADE)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    format = models.CharField(max_length=20, choices=FORMAT_CHOICES)
-
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    class Meta:
-        db_table = "competitions"
-        unique_together = ["year", "category"]
-        indexes = [
-            models.Index(fields=["year"]),
-            models.Index(fields=["category"]),
-        ]
-        verbose_name = "形式"
-        verbose_name_plural = "形式一覧"
-
-    def __str__(self):
-        return f"{self.year} {self.category} ({self.get_format_display()})"
 
 
 class TournamentResult(models.Model):
@@ -461,16 +406,26 @@ class TournamentResult(models.Model):
     勝者と敗者、ラウンド情報を管理できます。
 
     Attributes:
-        competition (ForeignKey): 所属する競技。Competitionモデルとの外部キー関係。
+        year (ForeignKey): 大会年度。Yearモデルとの外部キー関係。
+        category (ForeignKey): 競技カテゴリ。Categoryモデルとの外部キー関係。
         round (str): ラウンド名（例：'Final', 'Semi-Final', 'Quarter-Final'）。
         winner (ForeignKey): 勝者。Participantモデルとの外部キー関係。
         loser (ForeignKey): 敗者。Participantモデルとの外部キー関係。
         created_at (DateTimeField): レコード作成日時。自動設定されます。
         updated_at (DateTimeField): レコード更新日時。自動更新されます。
 
+    Constants:
+        ROUND_CHOICES: ラウンドの選択肢
+            - 'Final': 決勝
+            - 'Semi-Final': 準決勝
+            - 'Small-Final': 3位決定戦
+            - 'Quarter-Final': 準々決勝
+            - 'Round 16': ベスト16
+
     Example:
         >>> result = TournamentResult.objects.create(
-        ...     competition_rule=solo_competition_rule,
+        ...     year=year_2024,
+        ...     category=solo_category,
         ...     round='Final',
         ...     winner=participant1,
         ...     loser=participant2
@@ -479,13 +434,25 @@ class TournamentResult(models.Model):
         Final: Beatboxer1 vs Beatboxer2
 
     Note:
+        - year、category、round、winnerの組み合わせで一意制約が設定されています
         - 複数のインデックスが設定されており、検索パフォーマンスが最適化されています
     """
 
-    competition_rule = models.ForeignKey(
-        CompetitionRule, related_name="tournament_results", on_delete=models.CASCADE
+    ROUND_CHOICES = [
+        ("Final", "決勝"),
+        ("Semi-Final", "準決勝"),
+        ("Small-Final", "3位決定戦"),
+        ("Quarter-Final", "準々決勝"),
+        ("Round 16", "ベスト16"),
+    ]
+
+    year = models.ForeignKey(Year, on_delete=models.CASCADE, help_text="大会年度")
+    category = models.ForeignKey(
+        Category, on_delete=models.CASCADE, help_text="競技カテゴリ"
     )
-    round = models.CharField(max_length=50, help_text="ラウンド名")
+    round = models.CharField(
+        max_length=30, choices=ROUND_CHOICES, help_text="ラウンド名"
+    )
     winner = models.ForeignKey(
         Participant, related_name="wins", on_delete=models.CASCADE
     )
@@ -498,8 +465,11 @@ class TournamentResult(models.Model):
 
     class Meta:
         db_table = "tournament_results"
+        unique_together = ["year", "category", "round", "winner"]
         indexes = [
-            models.Index(fields=["competition_rule"]),
+            models.Index(fields=["year"]),
+            models.Index(fields=["category"]),
+            models.Index(fields=["year", "category"]),
             models.Index(fields=["round"]),
             models.Index(fields=["winner"]),
             models.Index(fields=["loser"]),
@@ -508,7 +478,7 @@ class TournamentResult(models.Model):
         verbose_name_plural = "トーナメント結果一覧"
 
     def __str__(self):
-        return f"{self.round}: {self.winner.name} vs {self.loser.name}"
+        return f"{self.year} {self.category} {self.get_round_display()}: {self.winner.name} vs {self.loser.name}"
 
 
 class RankingResult(models.Model):
@@ -518,32 +488,49 @@ class RankingResult(models.Model):
     ラウンドごとの順位を管理できます。
 
     Attributes:
-        competition_rule (ForeignKey): 所属する競技。CompetitionRuleモデルとの外部キー関係。
-        round (str): ラウンド名（例：'Final', 'Semi-Final'）。
+        year (ForeignKey): 大会年度。Yearモデルとの外部キー関係。
+        category (ForeignKey): 競技カテゴリ。Categoryモデルとの外部キー関係。
+        round (str): ラウンド名（例：'Day 1', 'Day 2', 'Total'）。
         participant (ForeignKey): 参加者。Participantモデルとの外部キー関係。
         rank (int): 順位。1以上の値。
         created_at (DateTimeField): レコード作成日時。自動設定されます。
         updated_at (DateTimeField): レコード更新日時。自動更新されます。
 
+    Constants:
+        ROUND_CHOICES: ラウンドの選択肢
+            - 'Day 1': 1日目
+            - 'Day 2': 2日目
+            - 'Total': 総合結果
+
     Example:
         >>> result = RankingResult.objects.create(
-        ...     competition_rule=producer_competition_rule,
-        ...     round='Final',
+        ...     year=year_2024,
+        ...     category=producer_category,
+        ...     round='Total',
         ...     participant=producer1,
         ...     rank=1
         ... )
         >>> result
-        Final: 1位 Producer1
+        2024 Producer Total: 1位 Producer1
 
     Note:
-        - competition、round、participantの組み合わせで一意制約が設定されています
+        - year、category、round、participantの組み合わせで一意制約が設定されています
         - rankフィールドは1以上の値のみ有効です
     """
 
-    competition_rule = models.ForeignKey(
-        CompetitionRule, related_name="ranking_results", on_delete=models.CASCADE
+    ROUND_CHOICES = [
+        ("Day 1", "1日目"),
+        ("Day 2", "2日目"),
+        ("Total", "総合結果"),
+    ]
+
+    year = models.ForeignKey(Year, on_delete=models.CASCADE, help_text="大会年度")
+    category = models.ForeignKey(
+        Category, on_delete=models.CASCADE, help_text="競技カテゴリ"
     )
-    round = models.CharField(max_length=50, help_text="ラウンド名")
+    round = models.CharField(
+        max_length=30, choices=ROUND_CHOICES, help_text="ラウンド名"
+    )
     participant = models.ForeignKey(Participant, on_delete=models.CASCADE)
     rank = models.IntegerField(validators=[MinValueValidator(1)])
 
@@ -552,9 +539,11 @@ class RankingResult(models.Model):
 
     class Meta:
         db_table = "ranking_results"
-        unique_together = ["competition_rule", "round", "participant"]
+        unique_together = ["year", "category", "round", "participant"]
         indexes = [
-            models.Index(fields=["competition_rule"]),
+            models.Index(fields=["year"]),
+            models.Index(fields=["category"]),
+            models.Index(fields=["year", "category"]),
             models.Index(fields=["round"]),
             models.Index(fields=["participant"]),
             models.Index(fields=["rank"]),
@@ -563,7 +552,7 @@ class RankingResult(models.Model):
         verbose_name_plural = "ランキング一覧"
 
     def __str__(self):
-        return f"{self.round}: {self.rank}位 {self.participant.name}"
+        return f"{self.year} {self.category} {self.get_round_display()}: {self.rank}位 {self.participant.name}"
 
 
 class TestData(models.Model):
