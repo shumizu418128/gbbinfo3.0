@@ -25,3 +25,30 @@ python manage.py runserver
 ```
 python manage.py test
 ```
+
+---
+
+## databaseアプリ
+
+`gbbinfojpn/database`
+
+- **models/** : データ構造（DBテーブル）定義のみを記述します。
+    - `models.py` : Django ORMによるDBテーブル定義。
+    - `supabase_client.py` : Supabase等の外部サービスと連携するためのクライアントクラス・サービスを記述します。Djangoモデルとは独立して、API経由でデータ取得・更新を行う用途で利用します。
+- **views/**  : データ取得・ビジネスロジック・リクエスト処理を記述します。Django ORMやsupabase_clientを利用してデータを取得し、テンプレートやAPIレスポンスとして返却します。
+- **templates/**: HTML等の出力テンプレートを配置します。
+
+```
+gbbinfojpn/
+  └─ database/
+      ├─ models/
+      │    ├─ models.py
+      │    └─ supabase_client.py   # Supabase等外部サービス用クライアント
+      ├─ views/
+      │    └─ views.py
+      ├─ templates/
+      │    └─ database/
+      │         └─ *.html
+      ├─ urls.py
+      └─ ...
+```
