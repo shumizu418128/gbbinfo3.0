@@ -3,8 +3,6 @@ from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils import timezone
 
-from .supabase_client import supabase_service
-
 
 class Country(models.Model):
     """国情報を管理するモデルクラス。
@@ -13,7 +11,7 @@ class Country(models.Model):
     各国のISOコード、地理座標、多言語名称を管理します。
 
     Attributes:
-        iso_code (int): ISO国コード。一意の値として設定されます。
+        iso_code (int): ISO国コード。主キーとして設定されます。
         latitude (Decimal, optional): 緯度。最大8桁、小数点以下6桁。
         longitude (Decimal, optional): 経度。最大9桁、小数点以下6桁。
         names (JSONField): 多言語名称を格納するJSONフィールド。
@@ -21,27 +19,25 @@ class Country(models.Model):
         created_at (DateTimeField): レコード作成日時。自動設定されます。
         updated_at (DateTimeField): レコード更新日時。自動更新されます。
 
-    Example:
-        >>> country = Country.objects.create(
-        ...     iso_code=392,
-        ...     latitude=35.6762,
-        ...     longitude=139.6503,
-        ...     names={'en': 'Japan', 'ja': '日本', 'ko': '일본'}
-        ... )
-        >>> country.get_name('ja')
-        '日本'
-
     Note:
-        - iso_codeフィールドには一意制約が設定されています
+        - iso_codeフィールドは主キーとして設定されています
         - namesフィールドはJSONFieldを使用して多言語対応を実現しています
     """
 
-    iso_code = models.IntegerField(unique=True, help_text="ISO国コード")
+    iso_code = models.IntegerField(primary_key=True, help_text="ISO国コード")
     latitude = models.DecimalField(
-        max_digits=8, decimal_places=6, null=True, blank=True
+        max_digits=8,
+        decimal_places=6,
+        null=True,
+        blank=True,
+        help_text="緯度（地図表示用）",
     )
     longitude = models.DecimalField(
-        max_digits=9, decimal_places=6, null=True, blank=True
+        max_digits=9,
+        decimal_places=6,
+        null=True,
+        blank=True,
+        help_text="経度（地図表示用）",
     )
     names = JSONField(help_text="多言語名称 {en: 'Japan', ja: '日本', ...}")
 
@@ -59,24 +55,10 @@ class Country(models.Model):
     def __str__(self):
         return self.names.get("en", f"Country {self.iso_code}")
 
-    def get_name(self, language="ja"):
-        """指定された言語の国名を取得します。
-
-        Args:
-            language (str): 取得したい言語コード。デフォルトは'ja'。
-
-        Returns:
-            str: 指定された言語の国名。該当する言語がない場合は英語名を返します。
-                英語名もない場合は空文字列を返します。
-
-        Example:
-            >>> country = Country.objects.get(iso_code=392)
-            >>> country.get_name('ja')
-            '日本'
-            >>> country.get_name('en')
-            'Japan'
-        """
-        return self.names.get(language, self.names.get("en", ""))
+    @property
+    def has_coordinates(self):
+        """座標データを持っているかどうかを判定します。"""
+        return self.latitude is not None and self.longitude is not None
 
 
 class Year(models.Model):
@@ -260,25 +242,10 @@ class Participant(models.Model):
         created_at (DateTimeField): レコード作成日時。自動設定されます。
         updated_at (DateTimeField): レコード更新日時。自動更新されます。
 
-    Properties:
-        members_list: メンバーリストを表示順序で取得します。
-        members_names: メンバー名をカンマ区切りで取得します。
-
-    Example:
-        >>> participant = Participant.objects.create(
-        ...     name='Beatbox Crew',
-        ...     year=year_2024,
-        ...     category=solo_category,
-        ...     ticket_class=seed_ticket,
-        ...     country=japan
-        ... )
-        >>> participant.members_names
-        'Member1, Member2, Member3'
-
     Note:
         - name、year、categoryの組み合わせで一意制約が設定されています
         - キャンセル時は自動的にcancelled_atが設定されます
-        - 複数のインデックスが設定されており、検索パフォーマンスが最適化されています
+        - メンバー情報は members 関連マネージャーでアクセス可能です
     """
 
     name = models.CharField(max_length=100, help_text="参加者名（グループ名）")
@@ -316,35 +283,14 @@ class Participant(models.Model):
     def save(self, *args, **kwargs):
         """参加者情報を保存します。
 
-        キャンセルフラグが変更された場合、自動的にcancelled_atフィールドを更新します。
-
-        Args:
-            *args: 位置引数
-            **kwargs: キーワード引数
+        キャンセルフラグの変更に応じてcancelled_atフィールドを自動設定します。
+        これはデータ整合性を保つためのモデル層の責務です。
         """
         if self.is_cancelled and not self.cancelled_at:
             self.cancelled_at = timezone.now()
         elif not self.is_cancelled:
             self.cancelled_at = None
         super().save(*args, **kwargs)
-
-    @property
-    def members_list(self):
-        """メンバーリストを名前順で取得します。
-
-        Returns:
-            QuerySet: 名前順でソートされたメンバーのQuerySet。
-        """
-        return self.members.all().order_by("name")
-
-    @property
-    def members_names(self):
-        """メンバー名をカンマ区切りで取得します。
-
-        Returns:
-            str: メンバー名をカンマ区切りで連結した文字列。
-        """
-        return ", ".join([member.name for member in self.members_list])
 
 
 class ParticipantMember(models.Model):
@@ -553,52 +499,3 @@ class RankingResult(models.Model):
 
     def __str__(self):
         return f"{self.year} {self.category} {self.get_round_display()}: {self.rank}位 {self.participant.name}"
-
-
-class TestData(models.Model):
-    """Supabaseのtestテーブル用モデルクラス。
-
-    このクラスは、Supabaseのtestテーブルとの連携を目的としたモデルです。
-    Djangoのマイグレーション管理対象外として設定されており、
-    Supabaseから直接データを取得・操作できます。
-
-    Attributes:
-        value (TextField): テキストデータ。
-        created_at (DateTimeField): レコード作成日時。自動設定されます。
-
-    Example:
-        >>> test_data = TestData.get_test_data()
-        >>> for data in test_data:
-        ...     print(f"ID: {data['id']}, Value: {data['value']}")
-
-    Note:
-        - managed=Falseが設定されており、Djangoのマイグレーション管理対象外です
-        - Supabaseとの連携にはsupabase_serviceを使用します
-    """
-
-    value = models.TextField(verbose_name="テキスト")
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name="作成日時")
-
-    class Meta:
-        verbose_name = "テストデータ"
-        verbose_name_plural = "テストデータ"
-        ordering = ["-created_at"]
-        managed = False  # Djangoのマイグレーション管理対象外
-
-    def __str__(self):
-        return f"TestData {self.id}: {self.value[:50]}"
-
-    @classmethod
-    def get_all_data(cls):
-        """Supabaseのtestテーブルから直接データを取得します。
-
-        Returns:
-            list: Supabaseから取得したデータのリスト。
-
-        Example:
-            >>> # 全データを取得
-            >>> all_data = TestData.get_test_data()
-            >>> # 特定の条件でフィルタリング
-            >>> filtered_data = TestData.get_test_data(value__contains='test')
-        """
-        return supabase_service.get_data("test")
