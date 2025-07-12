@@ -66,12 +66,13 @@ class SupabaseService:
 
         return self._client
 
-    def get_data(self, table_name: str, **filters):
+    def get_data(self, table_name: str, order_by: str = None, **filters):
         """テーブルからデータを取得
         この処理のみREAD_ONLY_CLIENTを使用
 
         Args:
             table_name (str): 取得対象のテーブル名
+            order_by (str, optional): 並び替え対象のカラム名。降順の場合は'-'を先頭につける。
             **filters: フィルター条件（キー=値の形式）
 
         Returns:
@@ -80,6 +81,7 @@ class SupabaseService:
         Example:
             >>> service = SupabaseService()
             >>> data = service.get_table_data("users", status="active")
+            >>> data = service.get_table_data("users", order_by="-created_at")
         """
         try:
             query = self.read_only_client.table(table_name).select(ALL_DATA)
@@ -87,6 +89,13 @@ class SupabaseService:
             # フィルター条件を適用
             for key, value in filters.items():
                 query = query.eq(key, value)
+
+            # 並び替え条件を適用
+            if order_by:
+                if order_by.startswith("-"):
+                    query = query.order(order_by[1:], desc=True)
+                else:
+                    query = query.order(order_by)
 
             response = query.execute()
             return response.data
@@ -117,13 +126,14 @@ class SupabaseService:
             print(f"データ挿入エラー: {e}")
             return None
 
-    def update_data(self, table_name: str, data: dict, **filters):
+    def update_data(self, table_name: str, data: dict, order_by: str = None, **filters):
         """テーブルのデータを更新
         この処理はADMIN_CLIENTを使用
 
         Args:
             table_name (str): 更新対象のテーブル名
             data (dict): 更新するデータ
+            order_by (str, optional): 並び替え対象のカラム名。降順の場合は'-'を先頭につける。
             **filters: 更新対象を特定するフィルター条件
 
         Returns:
@@ -133,6 +143,7 @@ class SupabaseService:
             >>> service = SupabaseService()
             >>> update_data = {"status": "inactive"}
             >>> result = service.update_data("users", update_data, id=123)
+            >>> result = service.update_data("users", update_data, order_by="-updated_at", id=123)
         """
         try:
             query = self.admin_client.table(table_name).update(data)
@@ -140,6 +151,13 @@ class SupabaseService:
             # フィルター条件を適用
             for key, value in filters.items():
                 query = query.eq(key, value)
+
+            # 並び替え条件を適用
+            if order_by:
+                if order_by.startswith("-"):
+                    query = query.order(order_by[1:], desc=True)
+                else:
+                    query = query.order(order_by)
 
             response = query.execute()
             return response.data
