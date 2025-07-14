@@ -21,28 +21,6 @@ class SupabaseService:
         self._client: Optional[Client] = None
 
     @property
-    def read_only_client(self) -> Client:
-        """Supabaseクライアントのインスタンスを取得（読み取り専用）
-
-        Returns:
-            Client: Supabaseクライアントのインスタンス
-
-        Raises:
-            ValueError: 環境変数SUPABASE_URLまたはSUPABASE_ANON_KEYが設定されていない場合
-        """
-        if self._client is None:
-            supabase_url = os.getenv("SUPABASE_URL")
-            supabase_key = os.getenv("SUPABASE_ANON_KEY")
-
-            if not supabase_url or not supabase_key:
-                raise ValueError("SUPABASE_URLとSUPABASE_ANON_KEYの環境変数が必要です")
-
-            self._client = create_client(supabase_url, supabase_key)
-            print(self._client)
-
-        return self._client
-
-    @property
     def admin_client(self) -> Client:
         """Supabaseクライアントのインスタンスを取得（管理者権限）
 
@@ -62,16 +40,21 @@ class SupabaseService:
                 )
 
             self._client = create_client(supabase_url, supabase_key)
-            print(self._client)
 
         return self._client
 
-    def get_data(self, table_name: str, order_by: str = None, **filters):
+    def get_data(
+        self,
+        table: str,
+        columns: Optional[list] = None,
+        order_by: str = None,
+        **filters,
+    ):
         """テーブルからデータを取得
-        この処理のみREAD_ONLY_CLIENTを使用
 
         Args:
-            table_name (str): 取得対象のテーブル名
+            table (str): 取得対象のテーブル名
+            columns (Optional[list]): 取得するカラムのリスト。Noneの場合は全てのカラムを取得
             order_by (str, optional): 並び替え対象のカラム名。降順の場合は'-'を先頭につける。
             **filters: フィルター条件（キー=値の形式）
 
@@ -80,35 +63,37 @@ class SupabaseService:
 
         Example:
             >>> service = SupabaseService()
-            >>> data = service.get_table_data("users", status="active")
-            >>> data = service.get_table_data("users", order_by="-created_at")
+            >>> data = service.get_data("users", columns=["id", "name"], status="active")
+            >>> data = service.get_data("users", order_by="-created_at")
         """
-        try:
-            query = self.read_only_client.table(table_name).select(ALL_DATA)
+        # テーブルを取得、カラムを指定
+        if columns is None:
+            query = self.admin_client.table(table).select(ALL_DATA)
+        else:
+            # リストの場合はカンマ区切りの文字列に変換
+            columns_str = ",".join(columns)
+            query = self.admin_client.table(table).select(columns_str)
 
-            # フィルター条件を適用
-            for key, value in filters.items():
-                query = query.eq(key, value)
+        # フィルター条件を適用
+        for key, value in filters.items():
+            query = query.eq(key, value)
 
-            # 並び替え条件を適用
-            if order_by:
-                if order_by.startswith("-"):
-                    query = query.order(order_by[1:], desc=True)
-                else:
-                    query = query.order(order_by)
+        # 並び替え条件を適用
+        if order_by:
+            if order_by.startswith("-"):
+                query = query.order(order_by[1:], desc=True)
+            else:
+                query = query.order(order_by)
 
-            response = query.execute()
-            return response.data
-        except Exception as e:
-            print(f"データ取得エラー: {e}")
-            return []
+        # 用意したqueryを実行し、データを取得
+        response = query.execute()
+        return response.data
 
-    def insert_data(self, table_name: str, data: dict):
+    def insert_data(self, table: str, data: dict):
         """テーブルにデータを挿入
-        この処理はADMIN_CLIENTを使用
 
         Args:
-            table_name (str): 挿入対象のテーブル名
+            table (str): 挿入対象のテーブル名
             data (dict): 挿入するデータ
 
         Returns:
@@ -119,19 +104,14 @@ class SupabaseService:
             >>> new_user = {"name": "John", "email": "john@example.com"}
             >>> result = service.insert_data("users", new_user)
         """
-        try:
-            response = self.admin_client.table(table_name).insert(data).execute()
-            return response.data[0] if response.data else None
-        except Exception as e:
-            print(f"データ挿入エラー: {e}")
-            return None
+        response = self.admin_client.table(table).insert(data).execute()
+        return response.data[0] if response.data else None
 
-    def update_data(self, table_name: str, data: dict, order_by: str = None, **filters):
+    def update_data(self, table: str, data: dict, order_by: str = None, **filters):
         """テーブルのデータを更新
-        この処理はADMIN_CLIENTを使用
 
         Args:
-            table_name (str): 更新対象のテーブル名
+            table (str): 更新対象のテーブル名
             data (dict): 更新するデータ
             order_by (str, optional): 並び替え対象のカラム名。降順の場合は'-'を先頭につける。
             **filters: 更新対象を特定するフィルター条件
@@ -145,32 +125,28 @@ class SupabaseService:
             >>> result = service.update_data("users", update_data, id=123)
             >>> result = service.update_data("users", update_data, order_by="-updated_at", id=123)
         """
-        try:
-            query = self.admin_client.table(table_name).update(data)
+        query = self.admin_client.table(table).update(data)
 
-            # フィルター条件を適用
-            for key, value in filters.items():
-                query = query.eq(key, value)
+        # フィルター条件を適用
+        for key, value in filters.items():
+            query = query.eq(key, value)
 
-            # 並び替え条件を適用
-            if order_by:
-                if order_by.startswith("-"):
-                    query = query.order(order_by[1:], desc=True)
-                else:
-                    query = query.order(order_by)
+        # 並び替え条件を適用
+        if order_by:
+            if order_by.startswith("-"):
+                query = query.order(order_by[1:], desc=True)
+            else:
+                query = query.order(order_by)
 
-            response = query.execute()
-            return response.data
-        except Exception as e:
-            print(f"データ更新エラー: {e}")
-            return None
+        response = query.execute()
+        return response.data
 
-    def delete_data(self, table_name: str, **filters):
+    def delete_data(self, table: str, **filters):
         """テーブルからデータを削除
         この処理はADMIN_CLIENTを使用・標準入力による確認が必要
 
         Args:
-            table_name (str): 削除対象のテーブル名
+            table (str): 削除対象のテーブル名
             **filters: 削除対象を特定するフィルター条件
 
         Returns:
@@ -190,23 +166,19 @@ class SupabaseService:
             return False
 
         # データ削除確認
-        print(f"delete: {table_name}, {filters}")
+        print(f"delete: {table}, {filters}")
         password = input("***are you sure you want to delete?*** (YES/no): ")
         if password != "YES":
             return False
 
-        try:
-            query = self.admin_client.table(table_name).delete()
+        query = self.admin_client.table(table).delete()
 
-            # フィルター条件を適用
-            for key, value in filters.items():
-                query = query.eq(key, value)
+        # フィルター条件を適用
+        for key, value in filters.items():
+            query = query.eq(key, value)
 
-            query.execute()
-            return True
-        except Exception as e:
-            print(f"データ削除エラー: {e}")
-            return False
+        query.execute()
+        return True
 
 
 # グローバルインスタンス
