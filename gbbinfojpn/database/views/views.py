@@ -8,8 +8,8 @@ from datetime import datetime
 from django.http import HttpRequest
 from django.shortcuts import redirect, render
 
-from ..models.supabase_client import supabase_service
-from . import cache
+from gbbinfojpn.database.models.supabase_client import supabase_service
+from gbbinfojpn.database.views import cache  # cacheであることを明示
 
 
 def sort_key(x):

@@ -5,8 +5,8 @@
 
 from django.core.cache import cache
 
-from ..models.supabase_client import supabase_service
-from ...common.filter_eq import Operator
+from gbbinfojpn.common.filter_eq import Operator
+from gbbinfojpn.database.models.supabase_client import supabase_service
 
 
 def get_category_by_year(filter_cancelled_year: bool = False):
