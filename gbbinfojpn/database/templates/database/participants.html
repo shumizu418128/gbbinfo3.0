@@ -87,6 +87,27 @@
             <h1>{{ title }}</h1>
         </div>
 
+        <div class="filter-container">
+            <form action="{% url 'database:participants' %}" method="get" onchange="this.submit()">
+                <select name="category">
+                    {% for category in available_categories %}
+                        {% for id, name in category.items %}
+                            <option value="{{ id }}" {% if selected_category_id == id %}selected{% endif %}>
+                                {{ name }}
+                            </option>
+                        {% endfor %}
+                    {% endfor %}
+                </select>
+                <select name="year">
+                    {% for year in available_years %}
+                        <option value="{{ year }}" {% if selected_year == year %}selected{% endif %}>
+                            {{ year }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </form>
+        </div>
+
         <div class="content">
             {% if participants_data %}
                 <div class="data-summary">
@@ -96,9 +117,9 @@
                 <table class="data-table">
                     <thead>
                         <tr>
-                            <th class="name-cell">参加者名</th>
-                            <th class="iso-cell">国</th>
-                            <th class="ticket-cell">出場権</th>
+                            <th class="name-cell" style="width:33%;">参加者名</th>
+                            <th class="iso-cell" style="width:33%;">国</th>
+                            <th class="ticket-cell" style="width:33%;">出場権</th>
                         </tr>
                     </thead>
                     <tbody>

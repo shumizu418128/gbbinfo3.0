@@ -43,12 +43,52 @@ class SupabaseService:
 
         return self._client
 
+    def _apply_filter(self, query, field: str, operator: str, value):
+        """フィルター条件をクエリに適用
+
+        Args:
+            query: Supabaseクエリオブジェクト
+            field (str): フィルター対象のフィールド名
+            operator (str): 演算子（gt, gte, lt, lte, neq, like, ilike, is, is_not, in など）
+            value: フィルター値
+
+        Returns:
+            適用後のクエリオブジェクト
+        """
+        if operator == "gt":
+            return query.gt(field, value)
+        elif operator == "gte":
+            return query.gte(field, value)
+        elif operator == "lt":
+            return query.lt(field, value)
+        elif operator == "lte":
+            return query.lte(field, value)
+        elif operator == "neq":
+            return query.neq(field, value)
+        elif operator == "like":
+            return query.like(field, value)
+        elif operator == "ilike":
+            return query.ilike(field, value)
+        elif operator == "is":
+            return query.is_(field, value)
+        elif operator == "is_not":
+            return query.not_.is_(field, value)
+        elif operator == "in":
+            return query.in_(field, value)
+        elif operator == "contains":
+            return query.contains(field, value)
+        else:
+            # 未対応の演算子の場合は等価条件にフォールバック
+            return query.eq(field, value)
+
     def get_data(
         self,
         table: str,
         columns: Optional[list] = None,
         order_by: str = None,
-        **filters,
+        join_tables: Optional[dict] = None,
+        filters: Optional[dict] = None,
+        **filters_eq,
     ):
         """テーブルからデータを取得
 
@@ -56,26 +96,81 @@ class SupabaseService:
             table (str): 取得対象のテーブル名
             columns (Optional[list]): 取得するカラムのリスト。Noneの場合は全てのカラムを取得
             order_by (str, optional): 並び替え対象のカラム名。降順の場合は'-'を先頭につける。
-            **filters: フィルター条件（キー=値の形式）
+            join_tables (Optional[dict]): JOINするテーブルの設定
+                例: {"Country": ["names", "iso_code"], "Category": ["name"]}
+                または {"Country": "*", "Category": "*"} で全カラム取得
+            filters (Optional[dict]): 高度なフィルター条件
+                例: {
+                    "age__gt": 18,  # age > 18
+                    "name__like": "%John%",  # name LIKE '%John%'
+                    "status__neq": "inactive",  # status != 'inactive'
+                    "categories__is_not": None,  # categories IS NOT NULL
+                    "tags__in": ["tag1", "tag2"],  # tags IN ('tag1', 'tag2')
+                }
+            **filters_eq: 等価フィルター条件（従来の形式、キー=値）
 
         Returns:
             List[Dict[str, Any]]: 取得したデータのリスト。エラー時は空リスト
 
         Example:
             >>> service = SupabaseService()
+            >>> # 従来の方法（等価条件のみ）
             >>> data = service.get_data("users", columns=["id", "name"], status="active")
-            >>> data = service.get_data("users", order_by="-created_at")
+            >>> # 高度なフィルター
+            >>> data = service.get_data("users", filters={"age__gt": 18, "name__like": "%John%"})
+            >>> # categoriesがNULLでないものを取得
+            >>> data = service.get_data("Year", filters={"categories__is_not": None})
         """
-        # テーブルを取得、カラムを指定
-        if columns is None:
-            query = self.admin_client.table(table).select(ALL_DATA)
-        else:
-            # リストの場合はカンマ区切りの文字列に変換
-            columns_str = ",".join(columns)
-            query = self.admin_client.table(table).select(columns_str)
+        # カラム指定の構築
+        if join_tables:
+            # JOINありの場合
+            select_parts = []
 
-        # フィルター条件を適用
-        for key, value in filters.items():
+            # メインテーブルのカラム
+            if columns is None:
+                select_parts.append(ALL_DATA)
+            else:
+                select_parts.extend(columns)
+
+            # JOINテーブルのカラム
+            for join_table, join_columns in join_tables.items():
+                # すべてのカラムを取得
+                if join_columns == ALL_DATA:
+                    select_parts.append(f"{join_table}({ALL_DATA})")
+
+                # カラムリストが指定されている場合
+                elif isinstance(join_columns, list):
+                    join_columns_str = ",".join(join_columns)
+                    select_parts.append(f"{join_table}({join_columns_str})")
+
+                # カラム名が指定されている場合
+                else:
+                    select_parts.append(f"{join_table}({join_columns})")
+
+            columns_str = ",".join(select_parts)
+
+        else:
+            # JOINなしの場合（従来の処理）
+            if columns is None:
+                columns_str = ALL_DATA
+            else:
+                columns_str = ",".join(columns)
+
+        # クエリを構築
+        query = self.admin_client.table(table).select(columns_str)
+
+        # 高度なフィルター条件を適用
+        if filters:
+            for filter_key, value in filters.items():
+                if "__" in filter_key:
+                    field, operator = filter_key.split("__", 1)
+                    query = self._apply_filter(query, field, operator, value)
+                else:
+                    # __がない場合は等価条件として扱う
+                    query = query.eq(filter_key, value)
+
+        # 等価フィルター条件を適用（従来の形式）
+        for key, value in filters_eq.items():
             query = query.eq(key, value)
 
         # 並び替え条件を適用
@@ -107,14 +202,22 @@ class SupabaseService:
         response = self.admin_client.table(table).insert(data).execute()
         return response.data[0] if response.data else None
 
-    def update_data(self, table: str, data: dict, order_by: str = None, **filters):
+    def update_data(
+        self,
+        table: str,
+        data: dict,
+        order_by: str = None,
+        filters: Optional[dict] = None,
+        **filters_eq,
+    ):
         """テーブルのデータを更新
 
         Args:
             table (str): 更新対象のテーブル名
             data (dict): 更新するデータ
             order_by (str, optional): 並び替え対象のカラム名。降順の場合は'-'を先頭につける。
-            **filters: 更新対象を特定するフィルター条件
+            filters (Optional[dict]): 高度なフィルター条件
+            **filters_eq: 等価フィルター条件（従来の形式）
 
         Returns:
             Optional[list[dict]]: 更新されたデータのリスト。エラー時はNone
@@ -123,12 +226,21 @@ class SupabaseService:
             >>> service = SupabaseService()
             >>> update_data = {"status": "inactive"}
             >>> result = service.update_data("users", update_data, id=123)
-            >>> result = service.update_data("users", update_data, order_by="-updated_at", id=123)
+            >>> result = service.update_data("users", update_data, filters={"age__gt": 18})
         """
         query = self.admin_client.table(table).update(data)
 
-        # フィルター条件を適用
-        for key, value in filters.items():
+        # 高度なフィルター条件を適用
+        if filters:
+            for filter_key, value in filters.items():
+                if "__" in filter_key:
+                    field, operator = filter_key.split("__", 1)
+                    query = self._apply_filter(query, field, operator, value)
+                else:
+                    query = query.eq(filter_key, value)
+
+        # 等価フィルター条件を適用
+        for key, value in filters_eq.items():
             query = query.eq(key, value)
 
         # 並び替え条件を適用
@@ -141,13 +253,14 @@ class SupabaseService:
         response = query.execute()
         return response.data
 
-    def delete_data(self, table: str, **filters):
+    def delete_data(self, table: str, filters: Optional[dict] = None, **filters_eq):
         """テーブルからデータを削除
         この処理はADMIN_CLIENTを使用・標準入力による確認が必要
 
         Args:
             table (str): 削除対象のテーブル名
-            **filters: 削除対象を特定するフィルター条件
+            filters (Optional[dict]): 高度なフィルター条件
+            **filters_eq: 等価フィルター条件（従来の形式）
 
         Returns:
             bool: 削除が成功した場合はTrue、失敗した場合はFalse
@@ -159,6 +272,7 @@ class SupabaseService:
         Example:
             >>> service = SupabaseService()
             >>> success = service.delete_data("users", id=123)
+            >>> success = service.delete_data("users", filters={"age__lt": 18})
         """
 
         # ローカル環境のみ
@@ -166,15 +280,25 @@ class SupabaseService:
             return False
 
         # データ削除確認
-        print(f"delete: {table}, {filters}")
+        all_filters = {**(filters or {}), **filters_eq}
+        print(f"delete: {table}, {all_filters}")
         password = input("***are you sure you want to delete?*** (YES/no): ")
         if password != "YES":
             return False
 
         query = self.admin_client.table(table).delete()
 
-        # フィルター条件を適用
-        for key, value in filters.items():
+        # 高度なフィルター条件を適用
+        if filters:
+            for filter_key, value in filters.items():
+                if "__" in filter_key:
+                    field, operator = filter_key.split("__", 1)
+                    query = self._apply_filter(query, field, operator, value)
+                else:
+                    query = query.eq(filter_key, value)
+
+        # 等価フィルター条件を適用
+        for key, value in filters_eq.items():
             query = query.eq(key, value)
 
         query.execute()
