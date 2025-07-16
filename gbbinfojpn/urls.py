@@ -1,8 +1,6 @@
 from django.conf import settings
-from django.urls import include, path
-
-
 from django.http import HttpResponse
+from django.urls import include, path
 
 urlpatterns = [
     # システム監視
