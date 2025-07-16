@@ -11,8 +11,6 @@ from django.shortcuts import redirect, render
 from ..models.supabase_client import supabase_service
 from . import cache
 
-ALL_DATA = "*"
-
 
 def sort_key(x):
     """

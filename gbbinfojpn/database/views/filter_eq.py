@@ -1,4 +1,4 @@
-class operator:
+class Operator:
     # 比較演算子
     GREATER_THAN = "gt"  # より大きい
     GREATER_THAN_OR_EQUAL_TO = "gte"  # 以上

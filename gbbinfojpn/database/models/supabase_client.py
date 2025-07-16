@@ -9,6 +9,7 @@ from typing import Optional
 from supabase import Client, create_client
 
 from gbbinfojpn import settings
+from gbbinfojpn.database.views.filter_eq import Operator
 
 ALL_DATA = "*"
 
@@ -55,27 +56,27 @@ class SupabaseService:
         Returns:
             適用後のクエリオブジェクト
         """
-        if operator == "gt":
+        if operator == Operator.GREATER_THAN:
             return query.gt(field, value)
-        elif operator == "gte":
+        elif operator == Operator.GREATER_THAN_OR_EQUAL_TO:
             return query.gte(field, value)
-        elif operator == "lt":
+        elif operator == Operator.LESS_THAN:
             return query.lt(field, value)
-        elif operator == "lte":
+        elif operator == Operator.LESS_THAN_OR_EQUAL_TO:
             return query.lte(field, value)
-        elif operator == "neq":
+        elif operator == Operator.NOT_EQUAL:
             return query.neq(field, value)
-        elif operator == "like":
+        elif operator == Operator.LIKE:
             return query.like(field, value)
-        elif operator == "ilike":
+        elif operator == Operator.ILIKE:
             return query.ilike(field, value)
-        elif operator == "is":
+        elif operator == Operator.IS:
             return query.is_(field, value)
-        elif operator == "is_not":
+        elif operator == Operator.IS_NOT:
             return query.not_.is_(field, value)
-        elif operator == "in":
+        elif operator == Operator.IN_:
             return query.in_(field, value)
-        elif operator == "contains":
+        elif operator == Operator.CONTAINS:
             return query.contains(field, value)
         else:
             # 未対応の演算子の場合は等価条件にフォールバック

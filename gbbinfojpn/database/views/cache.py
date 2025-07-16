@@ -6,7 +6,7 @@
 from django.core.cache import cache
 
 from ..models.supabase_client import supabase_service
-from .filter_eq import operator
+from .filter_eq import Operator
 
 
 def get_category_by_year(filter_cancelled_year: bool = False):
@@ -29,7 +29,7 @@ def get_category_by_year(filter_cancelled_year: bool = False):
 
     # キャンセル年度を除外する場合はフィルターを適用
     if filter_cancelled_year:
-        filters = {f"categories_{operator.IS_NOT}": None}
+        filters = {f"categories_{Operator.IS_NOT}": None}
     else:
         filters = {}
 
