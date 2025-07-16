@@ -9,7 +9,7 @@ from typing import Optional
 from supabase import Client, create_client
 
 from gbbinfojpn import settings
-from gbbinfojpn.database.views.filter_eq import Operator
+from gbbinfojpn.common.filter_eq import Operator
 
 ALL_DATA = "*"
 

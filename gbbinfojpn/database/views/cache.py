@@ -6,7 +6,7 @@
 from django.core.cache import cache
 
 from ..models.supabase_client import supabase_service
-from .filter_eq import Operator
+from ...common.filter_eq import Operator
 
 
 def get_category_by_year(filter_cancelled_year: bool = False):
