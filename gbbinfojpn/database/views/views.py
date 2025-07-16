@@ -9,7 +9,7 @@ from django.http import HttpRequest
 from django.shortcuts import redirect, render
 
 from ..models.supabase_client import supabase_service
-from .cache import get_categories_for_year, get_category_by_year
+from . import cache
 
 ALL_DATA = "*"
 
@@ -22,11 +22,11 @@ def sort_key(x):
         x (dict): 参加者データの辞書
 
     Returns:
-        tuple: ソート用のタプル (GBB優先度, isocode優先度, ワイルドカード優先度)
+        tuple: ソート用のタプル (GBB優先度, iso code優先度, ワイルドカード優先度)
     """
     # GBBが含まれていれば最優先（0）、含まれていなければ1
     gbb_priority = 0 if "GBB" in x["ticket_class"] else 1
-    # isocodeが0なら最下位（1）、それ以外は0
+    # iso codeが0なら最下位（1）、それ以外は0
     iso_priority = (
         1 if x.get("Country", {}).get("iso_code", x.get("iso_code")) == 0 else 0
     )
@@ -96,8 +96,8 @@ def participants(request: HttpRequest):
 
     # 現在選択されている年度のカテゴリ（テンプレート表示用）
     # キャンセル年度フィルターを有効化
-    categories_cache = get_categories_for_year(param_year)
-    years_cache = get_category_by_year(filter_cancelled_year=True)
+    categories_cache = cache.get_categories_for_year(param_year)
+    years_cache = cache.get_category_by_year(filter_cancelled_year=True)
 
     available_years = list(years_cache.keys())
 
