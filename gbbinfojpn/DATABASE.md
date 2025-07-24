@@ -12,6 +12,27 @@ create table public."Category" (
   constraint Category_name_key unique (name)
 ) TABLESPACE pg_default;
 ```
+- **id**
+  各カテゴリを一意に識別するための番号です。自動的に1から順番に割り振られます。
+
+- **name**
+  カテゴリの名前です。例：「Loopstation」「Solo」など。重複する名前は登録できません。
+
+- **display_order**
+  カテゴリを表示する際の順番を指定するための数字です。数字が小さいほど先に表示されます。
+
+- **created_at**
+  このカテゴリが作成された日時です。自動的に記録されます。
+
+- **updated_at**
+  このカテゴリが最後に更新された日時です。自動的に記録されます。
+
+- **Category_pkey**
+  「id」カラムがこのテーブルの主キー（重複しない一意の値）であることを示します。
+
+- **Category_name_key**
+  「name」カラムが重複しないこと（ユニークであること）を保証します。
+
 
 ## Country
 ```sql
@@ -27,6 +48,33 @@ create table public."Country" (
   constraint Country_names_key unique (names)
 ) TABLESPACE pg_default;
 ```
+- **iso_code**
+  各国を一意に識別するための番号（ISOコード）です。この値が主キーとなり、重複しません。
+
+- **latitude**
+  国の緯度を表す数値です。地図上で国の位置を示すために使います。
+
+- **longitude**
+  国の経度を表す数値です。地図上で国の位置を示すために使います。
+
+- **names**
+  各言語ごとの国名を格納したデータです。たとえば日本語や英語など、複数の言語で国名を保存できます。
+
+- **created_at**
+  この国データが作成された日時です。自動的に記録されます。
+
+- **updated_at**
+  この国データが最後に更新された日時です。自動的に記録されます。
+
+- **Country_pkey**
+  「iso_code」カラムがこのテーブルの主キー（重複しない一意の値）であることを示します。
+
+- **Country_iso_code_key**
+  「iso_code」カラムが重複しないこと（ユニークであること）を保証します。
+
+- **Country_names_key**
+  「names」カラムが重複しないこと（ユニークであること）を保証します。
+
 
 ## Participant
 ```sql
@@ -46,6 +94,45 @@ create table public."Participant" (
   constraint Participant_year_fkey foreign KEY (year) references "Year" (year) on delete CASCADE
 ) TABLESPACE pg_default;
 ```
+- **id**
+  各参加者を一意に識別するための番号です。自動的に割り振られ、重複しません（主キー）。
+
+- **name**
+  参加者の名前です。必ず入力されます。
+
+- **year**
+  参加した年を表す数字です。たとえば「2023」など。
+
+- **iso_code**
+  参加者の国を示す番号（ISOコード）です。Countryテーブルの「iso_code」と対応しています。
+
+- **is_cancelled**
+  参加がキャンセルされたかどうかを示す情報です。キャンセルされていれば「true」、そうでなければ「false」になります。初期値は「false」です。
+
+- **created_at**
+  この参加者データが作成された日時です。自動的に記録されます。
+
+- **updated_at**
+  この参加者データが最後に更新された日時です。自動的に記録されます。
+
+- **category**
+  参加者が属するカテゴリを示す番号です。Categoryテーブルの「id」と対応しています。
+
+- **ticket_class**
+  参加者の出場権の種類を表す文字列です（例：「GBB」「Wildcard」など）。
+
+- **Participant_pkey**
+  「id」カラムがこのテーブルの主キー（重複しない一意の値）であることを示します。
+
+- **Participant_category_fkey**
+  「category」カラムがCategoryテーブルの「id」とつながっていることを示します。カテゴリが削除されると、関連する参加者データも削除されます。
+
+- **Participant_iso_code_fkey**
+  「iso_code」カラムがCountryテーブルの「iso_code」とつながっていることを示します。国データが削除されると、関連する参加者データも削除されます。
+
+- **Participant_year_fkey**
+  「year」カラムがYearテーブルの「year」とつながっていることを示します。年データが削除されると、関連する参加者データも削除されます。
+
 
 ## ParticipantMember
 ```sql
@@ -61,6 +148,33 @@ create table public."ParticipantMember" (
   constraint ParticipantMember_participant_fkey foreign KEY (participant) references "Participant" (id) on delete CASCADE
 ) TABLESPACE pg_default;
 ```
+- **id**
+  各メンバーを一意に識別するための番号です。自動的に割り振られます。
+
+- **participant**
+  このメンバーが所属している参加者（Participantテーブル）のIDです。必ず入力されます。
+
+- **name**
+  メンバーの名前です。必ず入力されます。
+
+- **iso_code**
+  メンバーの国を示す番号（ISOコード）です。Countryテーブルの「iso_code」と対応しています。
+
+- **created_at**
+  このメンバーのデータが作成された日時です。自動的に記録されます。
+
+- **updated_at**
+  このメンバーのデータが最後に更新された日時です。自動的に記録されます。
+
+- **ParticipantMember_pkey**
+  「id」カラムがこのテーブルの主キー（重複しない一意の値）であることを示します。
+
+- **ParticipantMember_iso_code_fkey**
+  「iso_code」カラムがCountryテーブルの「iso_code」とつながっていることを示します。国データが削除されると、関連するメンバーデータも削除されます。
+
+- **ParticipantMember_participant_fkey**
+  「participant」カラムがParticipantテーブルの「id」とつながっていることを示します。参加者データが削除されると、関連するメンバーデータも削除されます。
+
 
 ## RankingResult
 ```sql
@@ -79,6 +193,42 @@ create table public."RankingResult" (
   constraint RankingResult_year_fkey foreign KEY (year) references "Year" (year) on delete CASCADE
 ) TABLESPACE pg_default;
 ```
+- **id**
+  各ランキング結果を一意に識別するための番号です。自動的に割り振られます。
+
+- **year**
+  このランキング結果がどの年のものかを示します。Yearテーブルの「year」と対応しています。
+
+- **category**
+  このランキング結果がどのカテゴリ（種目）に属するかを示します。Categoryテーブルの「id」と対応しています。
+
+- **round**
+  ラウンド（例：予選、決勝など）を表す文字列です。入力は任意です。
+
+- **participant**
+  このランキング結果に関連する参加者（Participantテーブル）のIDです。必ず入力されます。
+
+- **rank**
+  参加者の順位を表します。必ず入力されます。
+
+- **created_at**
+  このランキング結果のデータが作成された日時です。自動的に記録されます。
+
+- **updated_at**
+  このランキング結果のデータが最後に更新された日時です。自動的に記録されます。
+
+- **RankingResult_pkey**
+  「id」カラムがこのテーブルの主キー（重複しない一意の値）であることを示します。
+
+- **RankingResult_category_fkey**
+  「category」カラムがCategoryテーブルの「id」とつながっていることを示します。カテゴリデータが削除されると、関連するランキング結果も削除されます。
+
+- **RankingResult_participant_fkey**
+  「participant」カラムがParticipantテーブルの「id」とつながっていることを示します。参加者データが削除されると、関連するランキング結果も削除されます。
+
+- **RankingResult_year_fkey**
+  「year」カラムがYearテーブルの「year」とつながっていることを示します。年データが削除されると、関連するランキング結果も削除されます。
+
 
 ## TournamentResult
 ```sql
@@ -98,6 +248,45 @@ create table public."TournamentResult" (
   constraint TournamentResult_year_fkey foreign KEY (year) references "Year" (year) on delete CASCADE
 ) TABLESPACE pg_default;
 ```
+- **id**
+  このテーブルの各試合結果を一意に識別するための番号です。自動的に割り振られます。
+
+- **year**
+  この試合が行われた年度を表します。Yearテーブルの「year」と対応しています。
+
+- **category**
+  この試合がどのカテゴリ（種目）で行われたかを示します。Categoryテーブルの「id」と対応しています。
+
+- **round**
+  試合が行われたラウンド（例：予選、準決勝、決勝など）を表す文字列です。
+
+- **winner**
+  この試合の勝者となった参加者のIDです。Participantテーブルの「id」と対応しています。
+
+- **loser**
+  この試合の敗者となった参加者のIDです。Participantテーブルの「id」と対応しています。
+
+- **created_at**
+  この試合結果のデータが作成された日時です。自動的に記録されます。
+
+- **updated_at**
+  この試合結果のデータが最後に更新された日時です。自動的に記録されます。
+
+- **TournamentResult_pkey**
+  「id」カラムがこのテーブルの主キー（重複しない一意の値）であることを示します。
+
+- **TournamentResult_category_fkey**
+  「category」カラムがCategoryテーブルの「id」とつながっていることを示します。カテゴリデータが削除されると、関連する試合結果も削除されます。
+
+- **TournamentResult_loser_fkey**
+  「loser」カラムがParticipantテーブルの「id」とつながっていることを示します。参加者データが削除されると、関連する試合結果も削除されます。
+
+- **TournamentResult_winner_fkey**
+  「winner」カラムがParticipantテーブルの「id」とつながっていることを示します。参加者データが削除されると、関連する試合結果も削除されます。
+
+- **TournamentResult_year_fkey**
+  「year」カラムがYearテーブルの「year」とつながっていることを示します。年データが削除されると、関連する試合結果も削除されます。
+
 
 ## Year
 ```sql
@@ -112,6 +301,30 @@ create table public."Year" (
   constraint Year_year_key unique (year)
 ) TABLESPACE pg_default;
 ```
+- **year**
+  この年の大会を一意に識別するための西暦（例：2024年など）です。このカラムが主キーとなっており、同じ年は重複しません。
+
+- **starts_at**
+  その年の大会が始まる日時を表します。まだ未定の場合は空欄になることもあります。
+
+- **ends_at**
+  その年の大会が終わる日時を表します。まだ未定の場合は空欄になることもあります。
+
+- **created_at**
+  この年のデータが最初に登録された日時です。自動的に記録されます。
+
+- **updated_at**
+  この年のデータが最後に更新された日時です。自動的に記録されます。
+
+- **categories**
+  その年に行われるカテゴリ（種目）のIDがリスト形式で入っています。複数のカテゴリがある場合はカンマ区切りで格納されます。
+
+- **Year_pkey**
+  「year」カラムがこのテーブルの主キー（重複しない一意の値）であることを示します。
+
+- **Year_year_key**
+  「year」カラムが一意であることを保証する制約です。主キーと同じく、同じ年が重複して登録されることを防ぎます。
+
 
 ## test
 原則使わない
