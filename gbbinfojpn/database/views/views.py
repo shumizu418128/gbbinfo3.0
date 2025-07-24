@@ -56,14 +56,6 @@ def participants(request: HttpRequest):
     # 年度を降順にソート
     available_years.sort(reverse=True)
 
-    # クエリパラメータが無い場合
-    if param_category_name is None or param_year == -1:
-        param_category_name = "Loopstation"
-        param_year = max(available_years)
-        return redirect(
-            f"/database/participants?category={param_category_name}&year={param_year}"
-        )
-
     # 年度が有効か確認
     if param_year not in available_years:
         param_year = max(available_years)
