@@ -103,6 +103,9 @@ def participants(request: HttpRequest):
     # 取得したデータを処理
     for participant in participants_data:
         try:
+            # 名前は全員大文字
+            participant["name"] = participant["name"].upper()
+
             # 国名の処理
             country_names = participant["Country"]["names"]
 
