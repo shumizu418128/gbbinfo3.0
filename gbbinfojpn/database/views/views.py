@@ -53,6 +53,9 @@ def participants(request: HttpRequest):
     available_years = list(
         cache.get_category_by_year(filter_cancelled_year=True).keys()
     )
+    # 年度を降順にソート
+    available_years.sort(reverse=True)
+
     # クエリパラメータが無い場合
     if param_category_name is None or param_year == -1:
         param_category_name = "Loopstation"
@@ -123,7 +126,7 @@ def participants(request: HttpRequest):
     context = {
         "participants_data": participants_data,
         "available_categories": categories_for_year,
-        "available_years": sorted(available_years, reverse=True),
+        "available_years": available_years,
         "selected_category_name": param_category_name,
         "selected_year": param_year,
         "title": "参加者一覧",
