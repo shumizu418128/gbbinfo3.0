@@ -29,7 +29,7 @@ def get_category_by_year(filter_cancelled_year: bool = False):
 
     # キャンセル年度を除外する場合はフィルターを適用
     if filter_cancelled_year:
-        filters = {f"categories_{Operator.IS_NOT}": None}
+        filters = {f"categories__{Operator.IS_NOT}": None}
     else:
         filters = {}
 
@@ -79,6 +79,44 @@ def get_all_categories():
         cache.set(cache_key, categories_dict)
 
     return categories_dict
+
+
+def get_category_name_to_id_mapping():
+    """
+    カテゴリのname→idマッピング辞書を返す
+
+    Returns:
+        dict: {name: id} の形式の辞書。カテゴリが存在しない場合は空辞書。
+
+    Note:
+        - get_all_categories()を利用してid→nameマッピングを取得し、逆引き辞書を作成。
+    """
+    id_to_name = get_all_categories()
+    return {name: category_id for category_id, name in id_to_name.items()}
+
+
+def get_category_id_by_name(category_name: str) -> int:
+    """
+    カテゴリ名からIDを取得する
+
+    Args:
+        category_name (str): カテゴリ名
+
+    Returns:
+        int: カテゴリID
+
+    Raises:
+        ValueError: 指定されたカテゴリ名が存在しない場合
+    """
+    name_to_id = get_category_name_to_id_mapping()
+    if category_name not in name_to_id:
+        raise ValueError(f"指定されたカテゴリ名が存在しません: {category_name}")
+
+    id = name_to_id[category_name]
+    if not isinstance(id, int):
+        raise ValueError(f"カテゴリIDが整数ではありません: {id}")
+
+    return id
 
 
 def get_categories_for_year(year: int):

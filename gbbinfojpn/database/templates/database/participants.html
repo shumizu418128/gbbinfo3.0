@@ -91,11 +91,9 @@
             <form action="{% url 'database:participants' %}" method="get" onchange="this.submit()">
                 <select name="category">
                     {% for category in available_categories %}
-                        {% for id, name in category.items %}
-                            <option value="{{ id }}" {% if selected_category_id == id %}selected{% endif %}>
-                                {{ name }}
-                            </option>
-                        {% endfor %}
+                        <option value="{{ category }}" {% if selected_category_name == category %}selected{% endif %}>
+                            {{ category }}
+                        </option>
                     {% endfor %}
                 </select>
                 <select name="year">

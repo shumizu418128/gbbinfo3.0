@@ -38,7 +38,6 @@ if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 # Application definition
-
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -138,6 +137,7 @@ LANGUAGES = [
     ("ja", "日本語"),
     ("en", "English"),
 ]
+SUPPORTED_LANGUAGE_CODES = [code for code, _ in LANGUAGES]
 
 # 翻訳ファイルの場所
 LOCALE_PATHS = [

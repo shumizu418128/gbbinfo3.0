@@ -3,8 +3,6 @@
 Supabaseからデータを取得し、htmlを返す
 """
 
-from datetime import datetime
-
 from django.http import HttpRequest
 from django.shortcuts import redirect, render
 
@@ -47,17 +45,44 @@ def participants(request: HttpRequest):
         HttpResponse: 参加者一覧ページのレンダリング結果
     """
 
-    # クエリパラメータがない場合はデフォルト値を設定
-    if request.GET.get("category") is None or request.GET.get("year") is None:
-        param_category_id = 1
-        param_year = datetime.now().year
+    # クエリパラメータを取得
+    param_category_name = request.GET.get("category")
+    param_year = int(request.GET.get("year", "-1"))
+
+    # 年度一覧を取得
+    available_years = list(
+        cache.get_category_by_year(filter_cancelled_year=True).keys()
+    )
+    # クエリパラメータが無い場合
+    if param_category_name is None or param_year == -1:
+        param_category_name = "Loopstation"
+        param_year = max(available_years)
         return redirect(
-            f"/database/participants?category={param_category_id}&year={param_year}"
+            f"/database/participants?category={param_category_name}&year={param_year}"
         )
 
-    # クエリパラメータを取得
-    param_category_id = int(request.GET.get("category"))
-    param_year = int(request.GET.get("year"))
+    # 年度が有効か確認
+    if param_year not in available_years:
+        param_year = max(available_years)
+        return redirect(
+            f"/database/participants?category={param_category_name}&year={param_year}"
+        )
+
+    # カテゴリ一覧
+    categories_for_year_dict = cache.get_categories_for_year(param_year)
+    categories_for_year = [
+        category for dict in categories_for_year_dict for category in dict.values()
+    ]
+
+    # カテゴリ名が有効か確認
+    if param_category_name not in categories_for_year:
+        param_category_name = "Loopstation"  # Loopを最優先に
+        return redirect(
+            f"/database/participants?category={param_category_name}&year={param_year}"
+        )
+
+    # カテゴリ名をIDに変換
+    param_category_id = cache.get_category_id_by_name(param_category_name)
 
     # JOINを使って参加者データと関連データを一度に取得
     # カテゴリがNULLの参加者を除外
@@ -76,6 +101,8 @@ def participants(request: HttpRequest):
 
     participants_data.sort(key=sort_key)
 
+    # ここでは日本語に設定
+    # 本番ではsetting.SUPPORTED_LANGUAGE_CODESから取得
     language = "ja"
 
     # 取得したデータを処理
@@ -92,18 +119,12 @@ def participants(request: HttpRequest):
             )
         participant.pop("Country")
 
-    # 現在選択されている年度のカテゴリ（テンプレート表示用）
-    # キャンセル年度フィルターを有効化
-    categories_cache = cache.get_categories_for_year(param_year)
-    years_cache = cache.get_category_by_year(filter_cancelled_year=True)
-
-    available_years = list(years_cache.keys())
-
+    # テンプレートに渡すデータ
     context = {
         "participants_data": participants_data,
-        "available_categories": categories_cache,
-        "available_years": available_years,
-        "selected_category_id": param_category_id,
+        "available_categories": categories_for_year,
+        "available_years": sorted(available_years, reverse=True),
+        "selected_category_name": param_category_name,
         "selected_year": param_year,
         "title": "参加者一覧",
     }
