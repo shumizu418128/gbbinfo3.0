@@ -120,7 +120,21 @@ def get_category_id_by_name(category_name: str) -> int:
 
 
 def get_categories_for_year(year: int):
-    """指定年度のカテゴリ一覧を取得"""
+    """
+    指定した年度のカテゴリ一覧を取得する
+
+    Args:
+        year (int): 取得したい年度
+
+    Returns:
+        list[dict]: 指定年度のカテゴリ情報のリスト。各要素は {category_id: category_name} の辞書。
+
+    Raises:
+        ValueError: 指定された年度のカテゴリ情報が存在しない場合
+
+    Note:
+        - 年度ごとのカテゴリIDリストと、全カテゴリのID→名前マッピングを利用してカテゴリ情報を返す。
+    """
 
     # 年度データ {year: [category_id, ...]}
     categories_per_year = get_category_by_year(filter_cancelled_year=True)

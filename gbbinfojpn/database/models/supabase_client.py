@@ -15,10 +15,19 @@ ALL_DATA = "*"
 
 
 class SupabaseService:
-    """Supabaseとのやり取りを管理するサービスクラス"""
+    """Supabaseとのやり取りを管理するサービスクラス
+
+    SupabaseのAPIを利用して、データベース操作（取得・挿入・更新・削除など）を行うためのサービスクラス。
+
+    Attributes:
+        _client (Optional[Client]): Supabaseクライアントのインスタンス（管理者権限用）
+    """
 
     def __init__(self):
-        """SupabaseServiceクラスの初期化"""
+        """SupabaseServiceクラスの初期化
+
+        インスタンス生成時にSupabaseクライアントを初期化する（遅延初期化）。
+        """
         self._client: Optional[Client] = None
 
     @property
