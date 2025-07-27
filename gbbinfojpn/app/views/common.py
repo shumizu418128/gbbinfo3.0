@@ -29,12 +29,4 @@ def common(request: HttpRequest, year: int, content: str):
     Returns:
         HttpResponse: レンダリングされたテンプレート
     """
-    # ここでは、contentに応じた処理を行うことができます。
-    # 例えば、contentが"top"ならトップページのデータを取得して表示するなど。
-
-    context = {
-        "year": year,
-        "content": content,
-    }
-
-    return render(request, f"app/{content}.html", context)
+    return render(request, f"{year}/{content}.html")

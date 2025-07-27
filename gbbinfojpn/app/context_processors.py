@@ -63,9 +63,6 @@ def common_variables(request: HttpRequest):
     is_latest_year_flag = None
     is_early_access_flag = None
 
-    # スクロール位置を取得
-    scroll = request.GET.get("scroll")
-
     # 年度が最新 or 試験公開年度か検証
     try:
         year = int(year_str)
@@ -86,5 +83,6 @@ def common_variables(request: HttpRequest):
         "is_early_access": is_early_access_flag,
         "is_local": settings.IS_LOCAL,
         "is_pull_request": settings.IS_PULL_REQUEST,
-        "scroll": scroll,
+        "query_params": dict(request.GET),
+        "year": year_str,
     }
