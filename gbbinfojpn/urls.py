@@ -5,6 +5,7 @@ from django.urls import include, path
 urlpatterns = [
     # システム監視
     path("health/", lambda _: HttpResponse("OK"), name="health_check"),
+    path("", include("gbbinfojpn.app.urls", namespace="app")),
 ]
 
 if settings.DEBUG:

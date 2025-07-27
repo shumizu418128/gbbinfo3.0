@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+from datetime import datetime
 import os
 from pathlib import Path
 
@@ -25,10 +26,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 if os.getenv("ENVIRONMENT_CHECK") == "qawsedrftgyhujikolp":
     DEBUG = True
     SECRET_KEY = "test"
+    IS_LOCAL = True
+    IS_PULL_REQUEST = False
     load_dotenv()
 else:
     DEBUG = False
     SECRET_KEY = os.getenv("SECRET_KEY")
+    IS_LOCAL = False
+    IS_PULL_REQUEST = os.getenv("IS_PULL_REQUEST") == "True"
 
 ALLOWED_HOSTS = []
 
@@ -64,7 +69,7 @@ ROOT_URLCONF = "gbbinfojpn.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "app" / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -73,6 +78,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "django.template.context_processors.i18n",  # 国際化コンテキスト
+                "gbbinfojpn.app.context_processors.common_variables",
             ],
         },
     },
@@ -156,3 +162,5 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 APPEND_SLASH = False
+
+LAST_UPDATED = datetime.now()
