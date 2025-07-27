@@ -10,8 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
-from datetime import datetime
 import os
+from datetime import datetime
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -138,17 +138,62 @@ USE_L10N = True  # ローカル化を有効化
 
 USE_TZ = True
 
-# サポートする言語
+
+LOCALE_PATHS = [
+    BASE_DIR / "locale",
+]
+
 LANGUAGES = [
     ("ja", "日本語"),
     ("en", "English"),
 ]
 SUPPORTED_LANGUAGE_CODES = [code for code, _ in LANGUAGES]
 
-# 翻訳ファイルの場所
-LOCALE_PATHS = [
-    BASE_DIR / "locale",
-]
+
+def _check_locale_paths_and_languages():
+    """
+    LOCALE_PATHS内の各フォルダ（言語コード）とSUPPORTED_LANGUAGE_CODESが一致しているかを検証します。
+    ただし、日本語（'ja'）は例外としてチェック対象外とします。
+    一致しない場合は例外を発生させます。
+
+    Raises:
+        Exception: サポートされていない言語コードのlocaleフォルダが存在する場合、または
+                  SUPPORTED_LANGUAGE_CODESに存在するがlocaleフォルダがない場合。
+                  （いずれも日本語は例外）
+    """
+    locale_dirs = []
+    for path in LOCALE_PATHS:
+        if os.path.isdir(path):
+            for entry in os.listdir(path):
+                full_path = os.path.join(path, entry)
+                if os.path.isdir(full_path):
+                    locale_dirs.append(entry)
+    locale_dirs_set = set(locale_dirs)
+    supported_set = set(SUPPORTED_LANGUAGE_CODES)
+
+    # 日本語（'ja'）は例外として除外
+    locale_dirs_set_no_ja = locale_dirs_set - {"ja"}
+    supported_set_no_ja = supported_set - {"ja"}
+
+    # localeディレクトリにあるが、SUPPORTED_LANGUAGE_CODESにないもの
+    extra_locales = locale_dirs_set_no_ja - supported_set_no_ja
+    # SUPPORTED_LANGUAGE_CODESにあるが、localeディレクトリにないもの
+    missing_locales = supported_set_no_ja - locale_dirs_set_no_ja
+
+    error_msgs = []
+    if extra_locales:
+        error_msgs.append(
+            f"LOCALE_PATHSに存在するがSUPPORTED_LANGUAGE_CODESに含まれていない言語コード: {sorted(extra_locales)}"
+        )
+    if missing_locales:
+        error_msgs.append(
+            f"SUPPORTED_LANGUAGE_CODESに存在するがLOCALE_PATHSにフォルダが存在しない言語コード: {sorted(missing_locales)}"
+        )
+    if error_msgs:
+        raise Exception("ロケール設定エラー:\n" + "\n".join(error_msgs))
+
+
+_check_locale_paths_and_languages()
 
 
 # Static files (CSS, JavaScript, Images)
