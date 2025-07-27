@@ -52,3 +52,68 @@ gbbinfojpn/
       ├─ urls.py
       └─ ...
 ```
+
+# Djangoにおける翻訳ファイルの準備方法
+
+Djangoプロジェクトで多言語対応を行うための翻訳ファイル（.po, .mo）の準備手順を以下にまとめます。
+
+## 1. 設定ファイルの確認
+
+`settings.py` の `LANGUAGES` と `LOCALE_PATHS` を確認・設定してください。
+
+```python
+LANGUAGES = [
+    ('ja', 'Japanese'),
+    ('en', 'English'),
+    # 必要な言語を追加
+]
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
+```
+
+## 2. メッセージ抽出
+
+プロジェクトルート（`manage.py`がある場所）で、以下のコマンドを実行して翻訳対象のメッセージを抽出します。
+
+```sh
+python manage.py makemessages -l ja  # 日本語用
+python manage.py makemessages -l en  # 英語用
+```
+
+- `-l` オプションで言語コードを指定します。
+- 必要な言語ごとにコマンドを実行してください。
+
+## 3. 翻訳ファイル（.po）の編集
+
+`locale/<言語コード>/LC_MESSAGES/django.po` ファイルが生成されるので、msgstr部分に翻訳を記入します。
+
+例：
+```po
+msgid "Hello"
+msgstr "こんにちは"
+```
+
+## 4. 翻訳ファイルのコンパイル
+
+編集が終わったら、以下のコマンドで .po ファイルを .mo ファイルにコンパイルします。
+
+```sh
+python manage.py compilemessages
+```
+
+## 5. アプリケーションでの利用
+
+DjangoのテンプレートやPythonコード内で、`{% trans %}` タグや `gettext` 関数を使って翻訳を呼び出します。
+
+例：
+- テンプレート: `{% trans "Hello" %}`
+- Python: `from django.utils.translation import gettext as _; _('Hello')`
+
+---
+
+### 補足
+- .potファイルはDjangoの標準運用では不要です。
+- 翻訳ファイルのディレクトリ構成は `locale/<言語コード>/LC_MESSAGES/` です。
+- 詳細はDjango公式ドキュメント「国際化とローカリゼーション」を参照してください。

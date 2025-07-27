@@ -1,3 +1,7 @@
+{% load static %}
+{% load i18n %}
+
+{% block title %}GBBINFO-JPN - Grand Beatbox Battle Information{% endblock %}
 <!DOCTYPE html>
 <!--
                ■■■                               
@@ -27,7 +31,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="UTF-8" />
     <title>{% block title %}{% endblock %}</title>
-    <meta name="description" content="{{_('Swissbeatboxが主催するHuman Beatboxの世界大会「Grand Beatbox Battle」の各種情報を、見やすくまとめたサイトです。')}}">
+    <meta name="description" content="{% trans 'Swissbeatboxが主催するHuman Beatboxの世界大会「Grand Beatbox Battle」の各種情報を、見やすくまとめたサイトです。' %}">
     <link rel="stylesheet" href="/static/css/base.css" />
     <link rel="stylesheet" href="/static/css/components.css" />
     <link rel="stylesheet" href="/static/css/search.css" />
@@ -37,11 +41,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
     <meta name="twitter:title" content="{% block twitter_title %}{% endblock %}" />
-    <meta name="twitter:description" content="{{_('Swissbeatboxが主催するHuman Beatboxの世界大会「Grand Beatbox Battle」の各種情報を、見やすくまとめたサイトです。')}}" />
+    <meta name="twitter:description" content="{% trans 'Swissbeatboxが主催するHuman Beatboxの世界大会「Grand Beatbox Battle」の各種情報を、見やすくまとめたサイトです。' %}" />
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:image" content="https://gbbinfo-jpn.onrender.com/static/images/background.webp" />
     <meta property="og:title" content="{% block og_title %}{% endblock %}" />
-    <meta property="og:description" content="{{_('Swissbeatboxが主催するHuman Beatboxの世界大会「Grand Beatbox Battle」の各種情報を、見やすくまとめたサイトです。')}}" />
+    <meta property="og:description" content="{% trans 'Swissbeatboxが主催するHuman Beatboxの世界大会「Grand Beatbox Battle」の各種情報を、見やすくまとめたサイトです。' %}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{% block og_url %}{% endblock %}" />
     <meta property="og:image" content="https://gbbinfo-jpn.onrender.com/static/images/background.webp" />
@@ -51,12 +55,12 @@
     <meta name="theme-color" content="#ff6417" />
     <link
       rel="icon"
-      href="{{ url_for('static', filename='favicon.ico') }}"
+      href="{% static 'favicon.ico' %}"
       type="image/x-icon"
     />
     <link
       rel="shortcut icon"
-      href="{{ url_for('static', filename='favicon.ico') }}"
+      href="{% static 'favicon.ico' %}"
       type="image/x-icon"
     />
     <link rel="manifest" href="/manifest.json" />
@@ -112,19 +116,19 @@
     <div class="menu">
       <p>MENU</p>
       <div class="button-container" style="margin-top: 10px;">
-        <a href="/"><button>Home & {{ _('これだけガイド') }}</button></a>
-        <a href="/{{ year }}/participants"><button>{{_('Wildcard結果')}} & {{_('出場者')}}</button></a>
-        <a href="/{{ year }}/rule"><button>{{_('ルール')}} & {{_('審査員')}}</button></a>
-        <a href="/others/how_to_plan"><button>{{_('現地観戦計画のたてかた')}}</button></a>
+        <a href="/"><button>Home & {% trans 'これだけガイド' %}</button></a>
+        <a href="/{{ year }}/participants"><button>{% trans 'Wildcard結果' %} & {% trans '出場者' %}</button></a>
+        <a href="/{{ year }}/rule"><button>{% trans 'ルール' %} & {% trans '審査員' %}</button></a>
+        <a href="/others/how_to_plan"><button>{% trans '現地観戦計画のたてかた' %}</button></a>
       </div>
       <div class="button-container">
-        <a href="/{{ year }}/time_schedule"><button>{{_('タイムスケジュール')}}</button></a>
-        <a href="/{{ year }}/japan"><button>{{_('日本代表')}}</button></a>
-        <a href="/{{ year }}/ticket"><button>{{_('会場')}} & {{_('チケット')}}</button></a>
-        <a href="/{{ year }}/stream"><button>{{_('当日配信')}}</button></a>
+        <a href="/{{ year }}/time_schedule"><button>{% trans 'タイムスケジュール' %}</button></a>
+        <a href="/{{ year }}/japan"><button>{% trans '日本代表' %}</button></a>
+        <a href="/{{ year }}/ticket"><button>{% trans '会場' %} & {% trans 'チケット' %}</button></a>
+        <a href="/{{ year }}/stream"><button>{% trans '当日配信' %}</button></a>
       </div>
       <div class="button-container">
-        <a href="/{{ year }}/result"><button>{{_('大会結果')}}</button></a>
+        <a href="/{{ year }}/result"><button>{% trans '大会結果' %}</button></a>
       </div>
 
       <p>LANGUAGE</p>
@@ -141,10 +145,10 @@
       <nav>
         <img src="/static/images/header.webp" alt="ヘッダー"/>
         <ul>
-          <a class="menu-link" href="/{{year}}/top"><li>Home & {{ _('これだけガイド') }}</li></a>
+          <a class="menu-link" href="/{{year}}/top"><li>Home & {% trans 'これだけガイド' %}</li></a>
           <div class="nav_dropdown_container">
             <li>
-              {{ _('年度選択') }}
+              {% trans '年度選択' %}
               <ul class="nav_dropdown">
                 {% for y in available_years|reverse %}
                   <a href="/{{ y }}/top"><li class="past_gbb">{{ y }}</li></a>
@@ -192,8 +196,8 @@
 
       {% if is_translated is false %}
         <div class="post-it">
-          <strong>【{{ _('翻訳未提供') }}】</strong><br>
-          {{ _('このページは翻訳が提供されていません。現在は原文の日本語を表示しています。') }}
+          <strong>【{% trans '翻訳未提供' %}】</strong><br>
+          {% trans 'このページは翻訳が提供されていません。現在は原文の日本語を表示しています。' %}
         </div>
       {% endif %}
 
@@ -209,27 +213,27 @@
         {% include 'includes/early_access.html' %}
       {% endif %}
 
-      <p style="text-align: center">{{ _('GBBまでの残り時間') }}</p>
+      <p style="text-align: center">{% trans 'GBBまでの残り時間' %}</p>
       <p id="countdown" style="text-align: center; font-size: 24px"></p>
 
       {% if is_latest_year is false %}
         <hr>
-        <h3>GBB {{ year }} {{ _('なんでも検索') }}</h3>
-        <p style="text-align: center;">{{ _('GBB {year} の検索のみ可能です').format(year=year) }}<br>{{ _('GBB {year} は終了しました').format(year=year) }}</p>
+        <h3>GBB {{ year }} {% trans 'なんでも検索' %}</h3>
+        <p style="text-align: center;">{% blocktrans with year=year %}GBB {{ year }} の検索のみ可能です{% endblocktrans %}<br>{% blocktrans with year=year %}GBB {{ year }} は終了しました{% endblocktrans %}</p>
         <form id="search-form-bottom" class="search-container" action="/{{ year }}/search" method="POST">
-          <input type="text" name="question" id="question-bottom" placeholder="{{ _('例：GBB {year} の最終結果は？').format(year=year) }}" required>
+          <input type="text" name="question" id="question-bottom" placeholder="{% blocktrans with year=year %}例：GBB {{ year }} の最終結果は？{% endblocktrans %}" required>
           <button type="submit"></button>
         </form>
         <div class="suggestions"></div>
         <div class="button-container">
-          <a href="/"><button type="button">{{ _('GBB最新情報の検索はこちら') }}</button></a>
+          <a href="/"><button type="button">{% trans 'GBB最新情報の検索はこちら' %}</button></a>
         </div>
         <hr>
       {% else %}
-        <h2>GBB {{ year }} {{ _('なんでも検索') }}</h2>
-        <p style="text-align: center;">{{ _('GBB {year} について検索してみよう').format(year=year) }}</p>
+        <h2>GBB {{ year }} {% trans 'なんでも検索' %}</h2>
+        <p style="text-align: center;">{% blocktrans with year=year %}GBB {{ year }} について検索してみよう{% endblocktrans %}</p>
         <form id="search-form-bottom" class="search-container" action="/{{ year }}/search" method="POST">
-          <input type="text" name="question" id="question-bottom" placeholder="{{ _('例：現地観戦計画のたてかた') }}" required>
+          <input type="text" name="question" id="question-bottom" placeholder="{% trans '例：現地観戦計画のたてかた' %}" required>
           <button type="submit"></button>
         </form>
         <div class="suggestions"></div>
@@ -239,16 +243,16 @@
       <div style="margin: 40px 0;"></div>
 
       <div class="button-container">
-        <a href="javascript:void(0);"><button id="installButton" class="button_top" style="visibility: hidden;">{{ _('ホーム画面に追加') }}</button></a>
+        <a href="javascript:void(0);"><button id="installButton" class="button_top" style="visibility: hidden;">{% trans 'ホーム画面に追加' %}</button></a>
       </div>
       <p>
-        {{ _('GBBINFO-JPNはPWAに対応しています。') }}<br />{{ _('ブラウザメニューを開き、「ホーム画面に追加」をタップすると、アプリとしてインストールできます。') }}
+        {% trans 'GBBINFO-JPNはPWAに対応しています。' %}<br />{% trans 'ブラウザメニューを開き、「ホーム画面に追加」をタップすると、アプリとしてインストールできます。' %}
       </p>
 
       <div class="button-container">
         <a href="/"><button style="background-image: url('/static/images/button/junno2.webp'); background-position: top;" class="bg-pic">
           <svg class="bg-pic" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0044CC"><path d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z"/></svg>
-          <span class="button-text-with-icon">{{ _('ホームへもどる') }}<br>{{ _('これだけガイド') }}</span>
+          <span class="button-text-with-icon">{% trans 'ホームへもどる' %}<br>{% trans 'これだけガイド' %}</span>
         </button></a>
       </div>
       <div style="margin: 100px 0;"></div>
@@ -262,11 +266,11 @@
         {% endfor %}
       </div>
       <hr>
-      <a href="https://twitter.com/tari_3210_" target="_blank" rel="noopener noreferrer">{{ _('GBBINFO-JPN開発者 Twitter') }}</a>
+      <a href="https://twitter.com/tari_3210_" target="_blank" rel="noopener noreferrer">{% trans 'GBBINFO-JPN開発者 Twitter' %}</a>
       <br>
-      <a href="/others/about">{{ _('GBBINFO-JPNについて') }}</a>
+      <a href="/others/about">{% trans 'GBBINFO-JPNについて' %}</a>
       <br>
-      <a href="/others/translation">{{ _('各ページの翻訳提供について') }}</a>
+      <a href="/others/translation">{% trans '各ページの翻訳提供について' %}</a>
       <br>
       <br>
       <a href="/others/past_info">過去のGBB情報対応状況</a>
@@ -291,7 +295,7 @@
         text-align: center;
         margin: 30vh auto;
       ">
-        <p>{{ _('いい景色だろ？') }}</p>
+        <p>{% trans 'いい景色だろ？' %}</p>
       </div>
     </div>
 
