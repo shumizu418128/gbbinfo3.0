@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% block title %}GBB {{ year }} {% trans 'これだけガイド' %} - GBBINFO-JPN{% endblock %}
 {% block twitter_title %}GBB {{ year }} {% trans 'これだけガイド' %} - GBBINFO-JPN{% endblock %}
 {% block og_title %}GBB {{ year }} {% trans 'これだけガイド' %} - GBBINFO-JPN{% endblock %}
@@ -16,7 +17,7 @@
     <a href="/{{ year }}/time_schedule"><button>{% trans 'タイムスケジュール' %}</button></a>
   </div>
   <hr>
-{% elif year != available_years[-1] and is_latest_year is true %}
+{% elif is_gbb_ended is true %}
   <div style="text-align: center;">
     <p>GBB {{ year }} {% trans '終了しました' %}<br>GBB {{ year|add:1 }} {% trans 'ページ 先行公開中！' %}</p>
   </div>

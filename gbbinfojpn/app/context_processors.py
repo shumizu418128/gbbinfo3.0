@@ -1,8 +1,10 @@
 from datetime import datetime
 
+from dateutil import parser
 from django.conf import settings
 from django.core.cache import cache
 from django.http import HttpRequest
+from django.utils import timezone
 
 from gbbinfojpn.app.models.supabase_client import supabase_service
 from gbbinfojpn.common.filter_eq import Operator
@@ -71,12 +73,50 @@ def is_translated(url, language):
     if language == "ja":
         return True
 
-    cache_key = f"translated_urls_{language}"
+    # 常に英語のファイルを検証
+    cache_key = "translated_urls_en"
+
     translated_urls = cache.get(cache_key)
     if translated_urls is None:
         raise Exception("translated_urlsがキャッシュされていません")
 
     return url in translated_urls
+
+
+def is_gbb_ended(year):
+    """
+    指定された年度がGBB終了年度かを判定します。
+
+    Args:
+        year (int): 判定する年度
+
+    Returns:
+        bool: GBB終了年度の場合はTrue、それ以外はFalse
+    """
+    year_data = supabase_service.get_data(
+        table="Year",
+        columns=["year", "ends_at"],
+        filters={f"year__{Operator.EQUAL}": year},
+    )
+    # 最新年度GBBの終了日を取得
+    latest_year_ends_at = year_data[0]["ends_at"]
+
+    # 最新年度終了日がない場合、1つ前のGBB終了日を取得
+    if latest_year_ends_at is None:
+        latest_year_ends_at = year_data[1]["ends_at"]
+
+    # latest_year_ends_atが文字列の場合はdatetime型に変換
+    if isinstance(latest_year_ends_at, str):
+        latest_year_ends_at = parser.parse(latest_year_ends_at)
+
+    # タイムゾーンを考慮した現在時刻を取得
+    now = timezone.now()
+
+    # latest_year_ends_atがナイーブな場合はタイムゾーンを適用
+    if latest_year_ends_at and timezone.is_naive(latest_year_ends_at):
+        latest_year_ends_at = timezone.make_aware(latest_year_ends_at)
+
+    return latest_year_ends_at < now
 
 
 def common_variables(request: HttpRequest):
@@ -114,6 +154,7 @@ def common_variables(request: HttpRequest):
         "is_early_access": is_early_access_flag,
         "is_local": settings.IS_LOCAL,
         "is_pull_request": settings.IS_PULL_REQUEST,
+        "is_gbb_ended": is_gbb_ended(year),
         "query_params": dict(request.GET),
         "year": year,
     }

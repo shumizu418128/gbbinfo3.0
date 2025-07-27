@@ -1,7 +1,6 @@
 {% load static %}
 {% load i18n %}
 
-{% block title %}GBBINFO-JPN - Grand Beatbox Battle Information{% endblock %}
 <!DOCTYPE html>
 <!--
                ■■■                               
@@ -133,7 +132,7 @@
 
       <p>LANGUAGE</p>
       <div class="button-container" style="margin-top: 10px;">
-        {% for lang_code, lang_name in lang_names.items() %}
+        {% for lang_code, lang_name in lang_names.items %}
           <a href="/lang?referrer={{ current_url }}&lang={{ lang_code }}">
             <button>{{ lang_name }}</button>
           </a>
@@ -150,7 +149,7 @@
             <li>
               {% trans '年度選択' %}
               <ul class="nav_dropdown">
-                {% for y in available_years|reverse %}
+                {% for y in available_years %}
                   <a href="/{{ y }}/top"><li class="past_gbb">{{ y }}</li></a>
                 {% endfor %}
               </ul>
@@ -160,7 +159,7 @@
             <li>
               LANGUAGE
               <ul class="nav_dropdown">
-                {% for lang_code, lang_name in lang_names.items() %}
+                {% for lang_code, lang_name in lang_names.items %}
                   <a href="/lang?referrer={{ current_url }}&lang={{ lang_code }}"><li class="past_gbb">{{ lang_name }}</li></a>
                 {% endfor %}
               </ul>
@@ -259,7 +258,7 @@
 
       <h3>LANGUAGES</h3>
       <div class="button-container">
-        {% for lang_code, lang_name in lang_names.items() %}
+        {% for lang_code, lang_name in lang_names.items %}
           <a href="/lang?referrer={{ current_url }}&lang={{ lang_code }}">
             <button>{{ lang_name }}</button>
           </a>
