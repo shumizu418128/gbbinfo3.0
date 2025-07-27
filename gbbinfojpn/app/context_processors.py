@@ -84,5 +84,5 @@ def common_variables(request: HttpRequest):
         "is_local": settings.IS_LOCAL,
         "is_pull_request": settings.IS_PULL_REQUEST,
         "query_params": dict(request.GET),
-        "year": year_str,
+        "year": year,
     }
