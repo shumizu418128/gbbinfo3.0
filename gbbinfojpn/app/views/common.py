@@ -1,17 +1,23 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpRequest, HttpResponseRedirect
 from django.shortcuts import render
 
-# TODO: available_yearsについて、DBから自動取得
-# TODO: gbbinfojpn.databaseは使わない
+from gbbinfojpn.app.models.supabase_client import supabase_service
+from gbbinfojpn.common.filter_eq import Operator
 
 
-def redirect_to_latest_top(request):
-    available_years = []
-    latest_year = available_years[-1]
+def redirect_to_latest_top(request: HttpRequest):
+    year_data = supabase_service.get_data(
+        table="Year",
+        columns=["year"],
+        filters={f"categories__{Operator.IS_NOT}": None},
+    )
+    available_years = [item["year"] for item in year_data]
+    available_years.sort(reverse=True)
+    latest_year = available_years[0]
     return HttpResponseRedirect(f"/{latest_year}/top")
 
 
-def common(request, year, content):
+def common(request: HttpRequest, year: int, content: str):
     """
     共通のビュー処理。特定のコンテンツを年度ごとに表示する。
 

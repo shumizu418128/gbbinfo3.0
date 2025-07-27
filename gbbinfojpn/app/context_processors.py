@@ -1,5 +1,7 @@
 from datetime import datetime
+
 from django.conf import settings
+from django.http import HttpRequest
 
 
 def get_available_years():
@@ -45,7 +47,8 @@ def is_translated(url, language):
     # TODO: 翻訳ファイルがあるかどうかを判定する
     return False
 
-def common_variables(request):
+
+def common_variables(request: HttpRequest):
     """
     全テンプレートで共通して使う変数を返すコンテキストプロセッサ
 
@@ -60,6 +63,9 @@ def common_variables(request):
     is_latest_year_flag = None
     is_early_access_flag = None
 
+    # スクロール位置を取得
+    scroll = request.GET.get("scroll")
+
     # 年度が最新 or 試験公開年度か検証
     try:
         year = int(year_str)
@@ -68,16 +74,17 @@ def common_variables(request):
     except Exception:
         pass
 
-    return dict(
-        available_years=get_available_years(),
-        available_langs=settings.LANGUAGES,
-        lang_names=settings.SUPPORTED_LANGUAGE_CODES,
-        last_updated=settings.LAST_UPDATED,
-        current_url=request.path,
-        language=request.session.get("language"),
-        is_translated=is_translated(request.path, request.session.get("language")),
-        is_latest_year=is_latest_year_flag,
-        is_early_access=is_early_access_flag,
-        is_local=settings.IS_LOCAL,
-        is_pull_request=settings.IS_PULL_REQUEST,
-    )
+    return {
+        "available_years": get_available_years(),
+        "available_langs": settings.LANGUAGES,
+        "lang_names": settings.SUPPORTED_LANGUAGE_CODES,
+        "last_updated": settings.LAST_UPDATED,
+        "current_url": request.path,
+        "language": request.session.get("language"),
+        "is_translated": is_translated(request.path, request.session.get("language")),
+        "is_latest_year": is_latest_year_flag,
+        "is_early_access": is_early_access_flag,
+        "is_local": settings.IS_LOCAL,
+        "is_pull_request": settings.IS_PULL_REQUEST,
+        "scroll": scroll,
+    }
