@@ -8,8 +8,8 @@ from collections import defaultdict
 from django.http import HttpRequest
 from django.shortcuts import redirect, render
 
+from gbbinfojpn.common.filter_eq import Operator
 from gbbinfojpn.database.models.supabase_client import supabase_service
-from gbbinfojpn.database.views import cache  # cacheであることを明示
 
 
 def sort_key(x):
@@ -52,9 +52,13 @@ def participants(request: HttpRequest):
     param_year = int(request.GET.get("year", "-1"))
 
     # 年度一覧を取得
-    available_years = list(
-        cache.get_category_by_year(filter_cancelled_year=True).keys()
+    year_data = supabase_service.get_data(
+        table="Year",
+        columns=["year", "categories"],
+        filters={f"categories__{Operator.IS_NOT}": None},
     )
+    available_years = [item["year"] for item in year_data]
+
     # 年度を降順にソート
     available_years.sort(reverse=True)
 
@@ -66,7 +70,10 @@ def participants(request: HttpRequest):
         )
 
     # カテゴリ一覧
-    categories_for_year_dict = cache.get_categories_for_year(param_year)
+    categories_for_year_dict = supabase_service.get_data(
+        table="Category",
+        columns=["id", "name"],
+    )
     categories_for_year = [
         category for dict in categories_for_year_dict for category in dict.values()
     ]
@@ -79,7 +86,13 @@ def participants(request: HttpRequest):
         )
 
     # カテゴリ名をIDに変換
-    param_category_id = cache.get_category_id_by_name(param_category_name)
+    param_category_id = None
+    for category in categories_for_year_dict:
+        if category["name"] == param_category_name:
+            param_category_id = category["id"]
+            break
+    if param_category_id is None:
+        raise ValueError(f"カテゴリ名が見つかりません: {param_category_name}")
 
     # JOINを使って参加者データと関連データを一度に取得
     # カテゴリがNULLの参加者を除外
@@ -150,9 +163,13 @@ def results(request: HttpRequest):
     param_year = int(request.GET.get("year", "-1"))
 
     # 年度一覧を取得
-    available_years = list(
-        cache.get_category_by_year(filter_cancelled_year=True).keys()
+    year_data = supabase_service.get_data(
+        table="Year",
+        columns=["year", "categories"],
+        filters={f"categories__{Operator.IS_NOT}": None},
     )
+    available_years = [item["year"] for item in year_data]
+
     # 年度を降順にソート
     available_years.sort(reverse=True)
 
@@ -164,7 +181,10 @@ def results(request: HttpRequest):
         )
 
     # カテゴリ一覧
-    categories_for_year_dict = cache.get_categories_for_year(param_year)
+    categories_for_year_dict = supabase_service.get_data(
+        table="Category",
+        columns=["id", "name"],
+    )
     categories_for_year = [
         category for dict in categories_for_year_dict for category in dict.values()
     ]
@@ -177,7 +197,13 @@ def results(request: HttpRequest):
         )
 
     # カテゴリ名をIDに変換
-    param_category_id = cache.get_category_id_by_name(param_category_name)
+    param_category_id = None
+    for category in categories_for_year_dict:
+        if category["name"] == param_category_name:
+            param_category_id = category["id"]
+            break
+    if param_category_id is None:
+        raise ValueError(f"カテゴリ名が見つかりません: {param_category_name}")
 
     # データベースの内容から順位制かトーナメント制かを判定
     # まずRankingResultテーブルにデータがあるかチェック
