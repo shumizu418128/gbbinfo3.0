@@ -3,12 +3,24 @@ from datetime import datetime
 from django.conf import settings
 from django.http import HttpRequest
 
+from gbbinfojpn.app.models.supabase_client import supabase_service
+from gbbinfojpn.common.filter_eq import Operator
+
 
 def get_available_years():
-    # TODO: DBから自動取得できるようにする
-    # TODO: gbbinfojpn.databaseは使わない
-    # TODO: とったコードはcacheに入れる
-    available_years = []
+    """
+    年度一覧を取得する関数。
+
+    Returns:
+        list: 利用可能な年度（降順）のリスト
+    """
+    year_data = supabase_service.get_data(
+        table="Year",
+        columns=["year"],
+        filters={f"categories__{Operator.IS_NOT}": None},
+    )
+    available_years = [item["year"] for item in year_data]
+    available_years.sort(reverse=True)
 
     return available_years
 
