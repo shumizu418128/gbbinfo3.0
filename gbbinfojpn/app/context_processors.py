@@ -144,8 +144,7 @@ def common_variables(request: HttpRequest):
 
     return {
         "available_years": get_available_years(),
-        "available_langs": settings.LANGUAGES,
-        "lang_names": settings.SUPPORTED_LANGUAGE_CODES,
+        "lang_names": settings.LANGUAGES,
         "last_updated": settings.LAST_UPDATED,
         "current_url": request.path,
         "language": request.session.get("language"),
