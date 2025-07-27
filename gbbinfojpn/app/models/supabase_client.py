@@ -241,6 +241,10 @@ class SupabaseService:
 
         # 用意したqueryを実行し、データを取得
         response = query.execute()
+
+        # 取得したデータをキャッシュに保存
+        cache.set(cache_key, response.data, timeout=15 * MINUTE)
+
         return response.data
 
 

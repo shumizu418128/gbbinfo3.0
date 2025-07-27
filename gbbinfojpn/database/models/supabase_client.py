@@ -3,19 +3,15 @@ Supabaseクライアント設定
 SupabaseとのAPIやりとり用
 """
 
-import hashlib
-import json
 import os
 from typing import Optional
 
 from django.conf import settings
-from django.core.cache import cache
 from supabase import Client, create_client
 
 from gbbinfojpn.common.filter_eq import Operator
 
 ALL_DATA = "*"
-MINUTE = 60
 
 
 class SupabaseService:
@@ -95,38 +91,6 @@ class SupabaseService:
             # 未対応の演算子の場合は等価条件にフォールバック
             return query.eq(field, value)
 
-    def _generate_cache_key(
-        self,
-        table: str,
-        columns: Optional[list] = None,
-        order_by: str = None,
-        join_tables: Optional[dict] = None,
-        filters: Optional[dict] = None,
-        **filters_eq,
-    ) -> str:
-        """キャッシュキーを生成する
-
-        Args:
-            各get_dataメソッドのパラメータと同じ
-
-        Returns:
-            str: ハッシュ化されたキャッシュキー
-        """
-        # パラメータを辞書にまとめる
-        params = {
-            "table": table,
-            "columns": sorted(columns) if columns else None,
-            "order_by": order_by,
-            "join_tables": join_tables,
-            "filters": filters,
-            "filters_eq": dict(sorted(filters_eq.items())),
-        }
-
-        # JSON文字列に変換してハッシュ化
-        params_str = json.dumps(params, sort_keys=True, ensure_ascii=False)
-        cache_key = hashlib.md5(params_str.encode("utf-8")).hexdigest()
-        return f"supabase_data_{cache_key}"
-
     def get_data(
         self,
         table: str,
@@ -167,21 +131,6 @@ class SupabaseService:
             >>> # categoriesがNULLでないものを取得
             >>> data = service.get_data("Year", filters={"categories__is_not": None})
         """
-        # キャッシュキーを生成
-        cache_key = self._generate_cache_key(
-            table=table,
-            columns=columns,
-            order_by=order_by,
-            join_tables=join_tables,
-            filters=filters,
-            **filters_eq,
-        )
-
-        # キャッシュから取得を試行 あるなら返す
-        cached_data = cache.get(cache_key)
-        if cached_data is not None:
-            return cached_data
-
         # カラム指定の構築
         if join_tables:
             # JOINありの場合
@@ -244,9 +193,6 @@ class SupabaseService:
         # 用意したqueryを実行し、データを取得
         response = query.execute()
         data = response.data
-
-        # 取得したデータをキャッシュに保存
-        cache.set(cache_key, data, timeout=15 * MINUTE)
 
         return data
 
