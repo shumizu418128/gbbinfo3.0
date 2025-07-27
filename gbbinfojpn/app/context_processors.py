@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from django.conf import settings
+from django.core.cache import cache
 from django.http import HttpRequest
 
 from gbbinfojpn.app.models.supabase_client import supabase_service
@@ -56,8 +57,26 @@ def is_early_access(year):
 
 
 def is_translated(url, language):
-    # TODO: 翻訳ファイルがあるかどうかを判定する
-    return False
+    """
+    指定されたURLが翻訳ファイルに存在するかを判定する。
+
+    Args:
+        url (str): 判定するURL
+        language (str): 判定する言語
+
+    Returns:
+        bool: 翻訳ファイルに存在する場合はTrue、それ以外はFalse
+    """
+    # 日本語は常にTrue
+    if language == "ja":
+        return True
+
+    cache_key = f"translated_urls_{language}"
+    translated_urls = cache.get(cache_key)
+    if translated_urls is None:
+        raise Exception("translated_urlsがキャッシュされていません")
+
+    return url in translated_urls
 
 
 def common_variables(request: HttpRequest):
