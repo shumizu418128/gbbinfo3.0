@@ -8,10 +8,10 @@ import json
 import os
 from typing import Optional
 
+from django.conf import settings
 from django.core.cache import cache
 from supabase import Client, create_client
 
-from gbbinfojpn import settings
 from gbbinfojpn.common.filter_eq import Operator
 
 ALL_DATA = "*"
