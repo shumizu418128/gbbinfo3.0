@@ -66,7 +66,7 @@
     <script>
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", function () {
-          navigator.serviceWorker.register("/service-worker.js").then(
+          navigator.serviceWorker.register("{% static 'service-worker.js' %}").then(
             function (registration) {
               console.log(
                 "ServiceWorkerが正常に登録されました: ",
@@ -132,7 +132,7 @@
 
       <p>LANGUAGE</p>
       <div class="button-container" style="margin-top: 10px;">
-        {% for lang_code, lang_name in lang_names.items %}
+        {% for lang_code, lang_name in lang_names %}
           <a href="/lang?referrer={{ current_url }}&lang={{ lang_code }}">
             <button>{{ lang_name }}</button>
           </a>
@@ -159,7 +159,7 @@
             <li>
               LANGUAGE
               <ul class="nav_dropdown">
-                {% for lang_code, lang_name in lang_names.items %}
+                {% for lang_code, lang_name in lang_names %}
                   <a href="/lang?referrer={{ current_url }}&lang={{ lang_code }}"><li class="past_gbb">{{ lang_name }}</li></a>
                 {% endfor %}
               </ul>
@@ -172,28 +172,28 @@
       <div class="progress-scroll" style="top: 41px"></div>
       <div class="background-progress-scroll" style="top: 41px"></div>
 
-      {% if is_latest_year is false %}
+      {% if is_latest_year is False %}
         {% include 'includes/popup_ended.html' %}
         {% include 'includes/ended.html' %}
-      {% elif is_early_access is true %}
+      {% elif is_early_access is True %}
         {% include 'includes/popup_early_access.html' %}
         {% include 'includes/early_access.html' %}
       {% endif %}
 
-      {% if is_local is true %}
+      {% if is_local is True %}
         <div class="post-it" style="font-size: 30px;">
           <strong>【 TEST PAGE - LOCAL 】</strong>
         </div>
       {% endif %}
 
-      {% if is_pull_request is true %}
+      {% if is_pull_request is True %}
         <div class="post-it" style="font-size: 30px;">
           <strong>【 TEST PAGE - PULL REQUEST 】</strong>
           <a href="https://github.com/shumizu418128/gbbinfo2.0/pulls" target="_blank" rel="noopener noreferrer">gbbinfo2.0/pulls</a>
         </div>
       {% endif %}
 
-      {% if is_translated is false %}
+      {% if is_translated is False %}
         <div class="post-it">
           <strong>【{% trans '翻訳未提供' %}】</strong><br>
           {% trans 'このページは翻訳が提供されていません。現在は原文の日本語を表示しています。' %}
@@ -206,16 +206,16 @@
       <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-show-count="false">Tweet</a>
       <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-      {% if is_latest_year is false %}
+      {% if is_latest_year is False %}
         {% include 'includes/ended.html' %}
-      {% elif is_early_access is true %}
+      {% elif is_early_access is True %}
         {% include 'includes/early_access.html' %}
       {% endif %}
 
       <p style="text-align: center">{% trans 'GBBまでの残り時間' %}</p>
       <p id="countdown" style="text-align: center; font-size: 24px"></p>
 
-      {% if is_latest_year is false %}
+      {% if is_latest_year is False %}
         <hr>
         <h3>GBB {{ year }} {% trans 'なんでも検索' %}</h3>
         <p style="text-align: center;">{% blocktrans with year=year %}GBB {{ year }} の検索のみ可能です{% endblocktrans %}<br>{% blocktrans with year=year %}GBB {{ year }} は終了しました{% endblocktrans %}</p>
