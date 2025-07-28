@@ -1,5 +1,6 @@
 from django.http import HttpRequest, HttpResponseRedirect
 from django.shortcuts import render
+from django.template import TemplateDoesNotExist
 
 from gbbinfojpn.app.models.supabase_client import supabase_service
 from gbbinfojpn.common.filter_eq import Operator
@@ -29,4 +30,8 @@ def common(request: HttpRequest, year: int, content: str):
     Returns:
         HttpResponse: レンダリングされたテンプレート
     """
-    return render(request, f"{year}/{content}.html")
+    try:
+        return render(request, f"{year}/{content}.html")
+    except TemplateDoesNotExist:
+        # TODO: 404.htmlを表示する
+        return
