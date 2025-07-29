@@ -13,7 +13,7 @@ def _cache_translated_urls():
     """
     language = "en"
 
-    po_file_path = f"{settings.LOCALE_PATHS[0]}/{language}/LC_MESSAGES/messages.po"
+    po_file_path = f"{settings.LOCALE_PATHS[0]}/{language}/LC_MESSAGES/django.po"
 
     # キャッシュにない場合は読み込み
     translated_urls = set()
@@ -63,4 +63,3 @@ def _cache_translated_urls():
                 translated_urls.add("/" + path)
 
     cache.set(f"translated_urls_{language}", translated_urls)
-

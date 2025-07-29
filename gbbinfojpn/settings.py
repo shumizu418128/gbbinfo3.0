@@ -146,20 +146,20 @@ LOCALE_PATHS = [
 
 LANGUAGES = [
     ("ja", "日本語"),
-    ("de", "Deutsch"),
+    ("ko", "한국어"),
     ("en", "English"),
+    ("de", "Deutsch"),
     ("es", "Español"),
     ("fr", "Français"),
     ("hi", "हिन्दी"),
     ("hu", "Magyar"),
     ("it", "Italiano"),
-    ("ko", "한국어"),
     ("ms", "Bahasa MY"),
     ("no", "Norsk"),
     ("ta", "தமிழ்"),
     ("th", "ไทย"),
-    ("zh_Hans_CN", "简体中文"),
-    ("zh_Hant_TW", "繁體中文"),
+    ("zh-hans", "简体中文"),
+    ("zh-hant", "繁體中文"),
 ]
 SUPPORTED_LANGUAGE_CODES = [code for code, _ in LANGUAGES]
 
