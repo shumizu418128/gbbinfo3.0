@@ -80,6 +80,8 @@ LOCALE_PATHS = [
 ```sh
 python manage.py makemessages -l ja  # 日本語用
 python manage.py makemessages -l en  # 英語用
+python manage.py makemessages -a  # 全言語一括処理
+# locale/ 配下のすべての言語ディレクトリが対象
 ```
 
 - `-l` オプションで言語コードを指定します。
