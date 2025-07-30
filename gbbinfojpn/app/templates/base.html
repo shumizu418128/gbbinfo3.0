@@ -29,7 +29,11 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="UTF-8" />
-    <title>{% block title %}{% endblock %}</title>
+    <title>
+      {% if is_local %}【LOCAL】{% endif %}
+      {% if is_pull_request %}【PR】{% endif %}
+      {% block title %}{% endblock %}
+    </title>
     <meta name="description" content="{% trans 'Swissbeatboxが主催するHuman Beatboxの世界大会「Grand Beatbox Battle」の各種情報を、見やすくまとめたサイトです。' %}">
     <link rel="stylesheet" href="/static/css/base.css" />
     <link rel="stylesheet" href="/static/css/components.css" />
