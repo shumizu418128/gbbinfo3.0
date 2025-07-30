@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block title %}GBB {{ year }} {{ _('大会結果') }} - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBB {{ year }} {{ _('大会結果') }} - GBBINFO-JPN{% endblock %}
+{% block og_title %}GBB {{ year }} {{ _('大会結果') }} - GBBINFO-JPN{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/result{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/result{% endblock %}
+{% block content %}
+<h1>GBB {{ year }} {{ _('大会結果') }}</h1>
+
+{% if all_category %}
+  <form method="GET" action="{{ url_for('result', year=year, category=category) }}" class="participants_form">
+    <label for="category">{{ _('部門選択') }}</label>
+    <select name="category" id="category" class="filter-select" onchange="this.form.submit()">
+      {% for c in all_category %}
+        <option value="{{ c }}" {% if request.args.get('category') == c %}selected{% endif %}>{{ c }}</option>
+      {% endfor %}
+    </select>
+  </form>
+{% endif %}
+
+{% if result and format == "tournament" %}
+  {% for round_name, matches in result.items() %}
+    <h2>{{ request.args.get('category') }} - {{ round_name }}</h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 50%; color: rgb(255, 100, 23);">{{ _('勝ち') }}</th>
+          <th style="width: 10%;"></th>
+          <th style="width: 40%;">{{ _('負け') }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for match in matches %}
+          <tr>
+            <td class="winner">{{ match.win }}</td>
+            <td>vs</td>
+            <td>{{ match.lose }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endfor %}
+{% elif result and format == "ranking" %}
+  {% for round_name, rows in result.items() %}
+    <h2>{{ request.args.get('category') }} - {{ round_name }}</h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 20%;">{{ _('順位') }}</th>
+          <th style="width: 80%;">{{ _('名前') }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in rows %}
+          <tr>
+            <td>{{ row.rank }}</td>
+            <td>{{ row.name }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endfor %}
+{% else %}
+  <p>{{ _('～発表次第更新～') }}</p>
+{% endif %}
+
+{% if all_category %}
+  <form method="GET" action="{{ url_for('result', year=year, category=category) }}" class="participants_form">
+    <label for="category">{{ _('部門選択') }}</label>
+    <select name="category" id="category" class="filter-select" onchange="this.form.submit()">
+      {% for c in all_category %}
+        <option value="{{ c }}" {% if request.args.get('category') == c %}selected{% endif %}>{{ c }}</option>
+      {% endfor %}
+    </select>
+  </form>
+{% endif %}
+
+<form method="GET" class="participants_form">
+<label for="year">{{ _('その他の年度を確認：') }}</label>
+<select name="year" id="year" class="filter-select" onchange="redirect_year('result')">
+  {% for y in available_years|reverse %}
+    <option value="{{ y }}" {% if year == y %}selected{% endif %}>{{ y }}</option>
+  {% endfor %}
+</select>
+</form>
+
+<div class="button-container">
+  <a href="/{{ year }}/rule"><button type="button">{{ _('出場権詳細') }}</button></a>
+  <a href="/{{ year }}/rule"><button type="button">{{ _('ルール & 審査員') }}</button></a>
+  <a href="/{{ year }}/participants"><button>{{_('Wildcard結果')}} & {{_('出場者')}}</button></a>
+</div>
+
+{% endblock %}

@@ -33,5 +33,21 @@ def content_view(request: HttpRequest, year: int, content: str):
     try:
         return render(request, f"{year}/{content}.html")
     except TemplateDoesNotExist:
-        # TODO: 404.htmlを表示する
-        return
+        return not_found_page_view(request)
+
+
+def not_found_page_view(request: HttpRequest, exception=None):
+    """
+    404ページを表示する。
+
+    Args:
+        request (HttpRequest): リクエストオブジェクト
+        year (int): 年度
+
+    Returns:
+        HttpResponse: 404ページのレンダリング
+    """
+    context = {
+        "is_translated": True,
+    }
+    return render(request, "common/404.html", context, status=404)

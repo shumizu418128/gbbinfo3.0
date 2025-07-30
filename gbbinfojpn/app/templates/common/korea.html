@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block title %}GBB {{ year }} {{ _('韓国代表') }} - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBB {{ year }} {{ _('韓国代表') }} - GBBINFO-JPN{% endblock %}
+{% block og_title %}GBB {{ year }} {{ _('韓国代表') }} - GBBINFO-JPN{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/korea{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/korea{% endblock %}
+{% block content %}
+<h1>GBB {{ year }} {{ _('韓国代表') }}</h1>
+
+{% if is_latest_year is true %}
+  <div style="text-align: center;">
+    <p>{{ last_updated }}</p>
+  </div>
+{% endif %}
+
+{% if participants %}
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 33%;">{{ _('名前') }}</th>
+        <th style="width: 34%;">{{ _('部門') }}</th>
+        <th style="width: 33%;">{{ _('出場権') }}</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for participant in participants %}
+      <tr>
+        <td>
+          {% if participant.members != "" %}
+            {% if participant.is_cancelled %}
+              【{{ _('辞退') }}】<br><s>{{ participant.name }}</s>
+              <div class="member-list"><s>[{{ participant.members }}]</s></div>
+            {% else %}
+              {{ participant.name }}
+              <div class="member-list">[{{ participant.members }}]</div>
+            {% endif %}
+
+          {% else %}
+            {% if participant.is_cancelled %}
+              【{{ _('辞退') }}】<br><s>{{ participant.name }}</s>
+            {% else %}
+              {{ participant.name }}
+            {% endif %}
+          {% endif %}
+
+        </td>
+        <td>
+          {% if participant.is_cancelled %}
+            <s>{{ participant.category }}</s>
+          {% else %}
+            {{ participant.category }}
+          {% endif %}
+        </td>
+        <td {% if participant.ticket_class|length > 11 %} style="font-size: 12px;" {% endif %}>
+          {% if participant.is_cancelled %}
+          <s>{{ participant.ticket_class }}</s>
+          {% else %}
+          {{ participant.ticket_class }}
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p>{{ _('韓国代表なし') }}</p>
+{% endif %}
+<br>
+
+<div class="button-container">
+  <a href="/{{year}}/participants"><button>GBB {{ year }} {{ _('全出場者一覧') }}<br></button></a>
+  <a href="/{{year}}/rule"><button>{{ _('出場権詳細') }}</button></a>
+  <a href="/{{year}}/rule"><button>GBB {{ year }} {{ _('ルール & 審査員') }}</button></a>
+  <a href="/{{year}}/rule?scroll=result_date"><button>{{ _('Wildcard結果発表日') }}</button></a>
+</div>
+
+<h2>GBB {{ year }} {{ _('出場者世界地図') }}</h2>
+<p>{{ _('国旗をタップorクリックすると、詳細を確認できます。') }}</p>
+<iframe src="{{ url_for('world_map', year=year) }}" width="100%" height="400px" frameborder="0"></iframe>
+
+<form method="GET" class="participants_form">
+<label for="year">{{ _('その他の年度を確認：') }}</label>
+<select name="year" id="year" class="filter-select" onchange="redirect_year('korea')">
+  {% for y in available_years|reverse %}
+    <option value="{{ y }}" {% if year == y %}selected{% endif %}>{{ y }}</option>
+  {% endfor %}
+</select>
+</form>
+
+{% endblock %}

@@ -1,6 +1,8 @@
 from django.http import HttpRequest
 from django.shortcuts import render
+from django.template import TemplateDoesNotExist
 
+from gbbinfojpn.app.views import common
 from gbbinfojpn.common.filter_eq import Operator
 from gbbinfojpn.database.models.supabase_client import supabase_service
 
@@ -44,4 +46,7 @@ def rules_view(request: HttpRequest, year: int):
         "other_seed": other_seed,
         "cancelled": cancelled,
     }
-    return render(request, f"{year}/rule.html", context)
+    try:
+        return render(request, f"{year}/rule.html", context)
+    except TemplateDoesNotExist:
+        return common.not_found_page_view(request)

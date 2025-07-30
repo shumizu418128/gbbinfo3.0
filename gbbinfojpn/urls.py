@@ -18,3 +18,6 @@ if settings.DEBUG:
             ),
         ),
     )
+
+# 404ハンドラーの設定
+handler404 = "gbbinfojpn.app.views.common.not_found_page_view"
