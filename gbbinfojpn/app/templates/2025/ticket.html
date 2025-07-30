@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}GBB {{ year }} {% trans "会場 & チケット" %} - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBB {{ year }} {% trans "会場 & チケット" %} - GBBINFO-JPN{% endblock %}
+{% block og_title %}GBB {{ year }} {% trans "会場 & チケット" %} - GBBINFO-JPN{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/ticket{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/ticket{% endblock %}
+{% block content %}
+<h1>GBB {{ year }} {% trans "会場 & チケット" %}</h1>
+
+<p>GBB {{ year }} {% trans "会場" %}：EX THEATER ROPPONGI</p>
+<p>7toSmoke {% trans "会場" %}：Spotify O-EAST</p>
+<p>{% trans "チケット" %}：</p>
+
+<h2>{% trans "譲渡希望ツイート" %}</h2>
+<div class="post-it">
+    {% trans "譲渡に関するトラブルについて、当サイトは一切の責任を負いません。また、連絡の仲介も一切行いません。" %}<br>
+    {% trans "購入を希望する場合、ご本人様へ直接DM or リプライにてご連絡ください。" %}
+</div>
+<p>{% trans "10月1日 掲載募集開始予定" %}</p>
+<p>{% trans "譲渡希望ツイートの掲載をご希望の場合、GBBINFO-JPN開発者 TwitterへDMにてご連絡ください。" %}</p>
+<a href="https://twitter.com/tari_3210_" target="_blank" rel="noopener noreferrer">{% trans "GBBINFO-JPN開発者 Twitter" %}</a>
+
+<div class="button-container">
+    <a href="/{{year}}/rule"><button>GBB {{ year }} {% trans "ルール & 審査員" %}</button></a>
+    <a href="/{{year}}/participants"><button>{% trans "Wildcard結果" %} & {% trans "出場者" %}</button></a>
+    <a href="/{{year}}/japan"><button>{% trans "日本代表" %}</button></a>
+    <a href="/{{year}}/time_schedule"><button>{% trans "タイムスケジュール" %}</button></a>
+</div>
+
+{% endblock %}

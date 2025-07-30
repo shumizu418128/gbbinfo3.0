@@ -27,7 +27,7 @@
   {% if is_latest_year is False %}
     <div id="search-menu-nav" class="search-menu-nav-past" style="display: none;">
       <button class="close-button" onclick="toggleSearchMenu()">✖</button>
-      <h3>GBB {{ year }} {{ _('なんでも検索') }}</h3>
+      <h3>GBB {{ year }} {% trans "なんでも検索" %}</h3>
       <p style="text-align: center;">
         {% blocktrans with year=year %}GBB {{ year }} の検索のみ可能です{% endblocktrans %}<br>
         {% blocktrans with year=year %}GBB {{ year }} は終了しました{% endblocktrans %}
@@ -38,16 +38,16 @@
       </form>
       <div class="suggestions" style="bottom: 140px;"></div>
       <div class="button-container" style="margin: 15px;">
-        <a href="/"><button type="button">{{ _('GBB最新情報の検索はこちら') }}</button></a>
+        <a href="/"><button type="button">{% trans "GBB最新情報の検索はこちら" %}</button></a>
       </div>
     </div>
   {% else %}
     <div id="search-menu-nav" class="search-menu-nav-latest" style="display: none;">
       <button class="close-button" onclick="toggleSearchMenu()">✖</button>
-      <h2 style="margin-top: 25px" id="bottom-search-menu">GBB {{ year }} {{ _('なんでも検索') }}</h2>
+      <h2 style="margin-top: 25px" id="bottom-search-menu">GBB {{ year }} {% trans "なんでも検索" %}</h2>
       <p style="text-align: center;">{% blocktrans with year=year %}GBB {{ year }} について検索してみよう{% endblocktrans %}</p>
       <form id="search-form-nav" class="search-container" action="/{{ year }}/search" method="POST">
-        <input type="text" name="question" id="question-nav" placeholder="{{ _('例：現地観戦計画のたてかた') }}" required>
+        <input type="text" name="question" id="question-nav" placeholder="{% trans "例：現地観戦計画のたてかた" %}" required>
         <button type="submit"></button>
       </form>
       <div class="suggestions" style="bottom: 70px;"></div>

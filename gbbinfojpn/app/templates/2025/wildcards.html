@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}GBB {{ year }} {% trans "Wildcard一覧" %} - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBB {{ year }} {% trans "Wildcard一覧" %} - GBBINFO-JPN{% endblock %}
+{% block og_title %}GBB {{ year }} {% trans "Wildcard一覧" %} - GBBINFO-JPN{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/wildcards{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/wildcards{% endblock %}
+{% block content %}
+<h1>GBB {{ year }} {% trans "Wildcard一覧" %}</h1>
+
+<p>{% trans "各部門の締め切り期日は、中央ヨーロッパ時刻を基準に表記しています。" %}</p>
+
+<div class="button-container">
+  <a href="/{{ year }}/participants"><button>{% trans "Wildcard結果" %} & {% trans "出場者" %}</button></a>
+  <a href="/{{ year }}/rule"><button>{% trans "ルール" %} & {% trans "審査員" %}</button></a>
+</div>
+
+<ul>
+  <li>3/22 {% trans "締め切り" %}</li>
+  <li style="list-style: none; display: inline">
+    <ul>
+      <li>
+        <a
+          href="https://youtube.com/playlist?list=PL-lF9xAI7Ut0yUF8WY5IuX6o4xRKyMBAC&si=fTFD58Khv3Yo-cBZ"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Loopstation</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://youtube.com/playlist?list=PL-lF9xAI7Ut1qGFSr93tDkjt3bADme5YG&si=ThPVQLBzJjUgkXFR"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Solo</a
+        >
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<ul>
+  <li>3/29 {% trans "締め切り" %}</li>
+  <li style="list-style: none; display: inline">
+    <ul>
+      <li>
+        <a
+          href="https://youtube.com/playlist?list=PL-lF9xAI7Ut0elAJ0t6yb6K1gxs5eTEZO&si=ffI74p6dFyw0oJRH"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Producer</a
+        >
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<ul>
+  <li>4/5 {% trans "締め切り" %}</li>
+  <li style="list-style: none; display: inline">
+    <ul>
+      <li>
+        <a
+          href="https://youtube.com/playlist?list=PL-lF9xAI7Ut2lTXuqCIDXYT7noqSEHMfn&si=mlhsKNsVKRZ7_rU9"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Tag Team</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://youtube.com/playlist?list=PL-lF9xAI7Ut0zfjRaQ3Sd7X-dqdu7IEg2&si=5rEBEO3fntxPxtpU"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Crew</a
+        >
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<div class="button-container">
+  <a href="/{{ year }}/participants"><button>{% trans "Wildcard結果" %} & {% trans "出場者" %}</button></a>
+  <a href="/{{ year }}/rule"><button>{% trans "ルール" %} & {% trans "審査員" %}</button></a>
+</div>
+
+<h2>{% trans "注意事項" %}</h2>
+<p>
+  {% trans "今回公開するWildcard一覧は、有志が作成した、非公式のものです。" %}
+  <a href="https://twitter.com/_NURUYU_" target="_blank" title="https://twitter.com/_NURUYU_" rel="noopener noreferrer">{% trans "作成者：ぬる湯さん" %}</a>
+</p>
+
+<p>
+  {% trans "すべて手作業で制作されたものであるため、重複や欠落がある可能性があります。" %}
+</p>
+<p>
+  {% trans "また、この再生リストにある動画が必ずしもWildcardとして申請された動画であるとは限りません（毎年必ず出場者の手続きミスで失格者が出ます）。" %}
+</p>
+
+<h3>ビト森 GBB鑑賞会</h3>
+<div style="text-align: center;">
+  <p>Wildcardを見る会<br>Wildcard結果発表を見る会<br>ビト森にて随時開催中！</p>
+</div>
+<div class="button-container">
+  <a href="/{{ year }}/bitomori"><button style="background-image: url('/static/images/button/bitomori.webp');" class="bg-pic">
+    <svg class="bg-pic" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0044CC"><path d="m380-340 280-180-280-180v360Zm-60 220v-80H160q-33 0-56.5-23.5T80-280v-480q0-33 23.5-56.5T160-840h640q33 0 56.5 23.5T880-760v480q0 33-23.5 56.5T800-200H640v80H320Z"/></svg>
+    <span class="button-text-with-icon">ビト森 GBB鑑賞会</span>
+  </button></a>
+</div>
+
+<div class="button-container">
+  <a href="/others/how_to_plan"><button>{% trans "現地観戦計画のたてかた" %}</button></a>
+  <a href="/{{ year }}/japan"><button>{% trans "日本代表" %}</button></a>
+</div>
+
+{% endblock %}

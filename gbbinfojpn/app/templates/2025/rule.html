@@ -1,0 +1,354 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}GBB {{ year }} {% trans "ルール" %} - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBB {{ year }} {% trans "ルール" %} - GBBINFO-JPN{% endblock %}
+{% block og_title %}GBB {{ year }} {% trans "ルール" %} - GBBINFO-JPN{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/rule{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/rule{% endblock %}
+{% block content %}
+<h1>GBB {{ year }} {% trans "ルール" %}</h1>
+<p>
+  {% blocktrans with year=year %}Swissbeatbox公式サイトにて、GBB {{ year }} で実施される部門・Wildcardのルールについて発表がありました。{% endblocktrans %}<br />
+  {% trans "ソースサイト：" %}<a href="https://swissbeatbox.com/newsfeed/gbb-2025-wildcard-competition/" target="_blank" rel="noopener noreferrer">
+    GBB 2025 Wildcard Competition
+  </a>
+</p>
+
+<div class="button-container">
+  <a href="/others/how_to_plan"><button>{% trans "現地観戦計画のたてかた" %}</button></a>
+  <a href="/{{ year }}/wildcards"><button>{% trans "Wildcard一覧" %}</button></a>
+</div>
+<div class="button-container">
+  <a href="/{{ year }}/wildcard_regulation"><button>{% trans "【Beatboxer向け】Wildcardレギュレーション解説" %}</button></a>
+</div>
+
+<div>
+  <h2>{% trans "目次" %}</h2>
+  <ol>
+    <li>
+      <a href="#p01">{% trans "注意事項" %}</a>
+    </li>
+
+    <li>
+      <a href="#p02">{% trans "開催部門一覧" %}</a>
+    </li>
+
+    <li>
+      <a href="#p03">{% trans "出場シード権 獲得条件" %}</a>
+    </li>
+
+    <li>
+      <a href="#p05">{% trans "Wildcard ルール" %}</a>
+    </li>
+
+    <li>
+      <a href="#p06">GBB {{ year }} {% trans "本戦審査員一覧" %}</a>
+    </li>
+
+    <li>
+      <a href="#p07">{% trans "Wildcard審査員一覧" %}</a>
+    </li>
+  </ol>
+</div>
+
+<h2 id="p01">{% trans "注意事項" %}</h2>
+<p>
+  {% trans "以下に示す内容は、あくまでもBeatboxファンが知っておくとよりGBBを楽しめる知識として紹介するものです。" %}<br />
+  {% trans "一部内容において、わかりやすさを優先します。" %}<strong>{% trans "これにより、正確さに欠ける表現を用いることがあります。" %}</strong>
+</p>
+<p>
+  {% trans "当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねます。" %}<br />
+  {% trans "Wildcardを提出する方は、" %}<strong><span style="color: #ff0000">
+    {% trans "必ずご自身でルールを今一度ご確認ください。" %}</span></strong>
+</p>
+
+<div class="button-container">
+  <a href="/others/how_to_plan"><button>{% trans "現地観戦計画のたてかた" %}</button></a>
+  <a href="/{{ year }}/participants"><button>{% trans "Wildcard結果" %} & {% trans "出場者" %}</button></a>
+</div>
+
+<h2 id="p02" name="category">{% trans "開催部門一覧" %}</h2>
+<table>
+  <thead>
+    <tr>
+      <th style="width: 30%">{% trans "部門" %}</th>
+      <th style="width: 30%">Wildcard</th>
+      <th style="width: 25%">{% trans "シード" %}</th>
+      <th style="width: 15%">{% trans "計" %}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Solo</td>
+      <td>6</td>
+      <td>10</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td>Loopstation</td>
+      <td>5</td>
+      <td>3</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>Crew</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3<br></td>
+    </tr>
+    <tr>
+      <td>Producer</td>
+      <td>2</td>
+      <td></td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Tag Team</td>
+      <td>5</td>
+      <td>3</td>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+  {% trans "上記のデータは、ルール発表時現在の情報です。実際は、辞退などにより、出場者数が変動します。" %}
+</p>
+<p>{% trans "忘れられたTag Team Loopstation..." %}😭</p>
+
+<h3>{% trans "Producerとは" %}</h3>
+<p>
+  {% trans "Loopstationのセカンドデバイス（Loopstationに接続する端末）ありの部門で、GBB23で「Producer showcase」として新設されました。その代わり、Loopstation部門においてセカンドデバイスの使用が禁止されます。" %}
+</p>
+
+<div class="button-container">
+  <a href="/{{ year }}/wildcard_regulation"><button>{% trans "【Beatboxer向け】Wildcardレギュレーション解説" %}</button></a>
+</div>
+
+<h2 id="p03" name="seeds">{% trans "出場シード権 獲得条件" %}</h2>
+<p>
+  {% trans "Wildcardを勝ち上がる以外の方法でGBB出場権を得る方法（シード権）と、その該当者は以下の通りです。" %}
+</p>
+
+<!-- TODO: テンプレートのデータ構造を見直す 現時点ではFlask-babelの形式になっている -->
+{% for index in range(participants_list|length) %}
+  {% set participants = participants_list[index] %}
+    {% if index == 0 %}
+      <h3>{% trans "シード権 - GBB" %}</h3>
+    {% elif index == 1 %}
+      <h3>{% trans "シード権 - その他" %}</h3>
+    {% elif index == 2 %}
+      <h3>{% trans "シード権辞退者一覧" %}</h3>
+    {% endif %}
+  {% if participants|length > 0 %}
+    <table>
+      <thead>
+      <tr>
+        <th style="width: 33%;">{% trans "名前" %}</th>
+        <th style="width: 34%;">{% trans "部門" %}</th>
+        <th style="width: 33%;">{% trans "出場権" %}</th>
+      </tr>
+      </thead>
+      <tbody>
+        {% for participant in participants %}
+        <tr>
+          <td>
+            {% if participant.members != "" %}
+
+            {% if participant.is_cancelled %}
+              【{% trans "辞退" %}】<br><s>{{ participant.name }}</s>
+              <div class="member-list"><s>[{{ participant.members }}]</s></div>
+            {% else %}
+              {{ participant.name }}
+              <div class="member-list">[{{ participant.members }}]</div>
+            {% endif %}
+
+            {% else %}
+              {% if participant.is_cancelled %}
+                【{% trans "辞退" %}】<br><s>{{ participant.name }}</s>
+              {% else %}
+                {{ participant.name }}
+              {% endif %}
+            {% endif %}
+
+          </td>
+          <td>
+            {% if participant.is_cancelled %}
+              <s>{{ participant.category }}</s>
+            {% else %}
+              {{ participant.category }}
+            {% endif %}
+          </td>
+          <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
+            {% if participant.is_cancelled %}
+              <s>{{ participant.ticket_class }}</s>
+            {% else %}
+              {{ participant.ticket_class }}
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div class="button-container">
+      <a href="/{{ year }}/participants"><button>{% trans "Wildcard結果" %}</button></a>
+      <a href="/{{ year }}/participants"><button>{% trans "出場者一覧" %}</button></a>
+    </div>
+  {% else %}
+    <p>{% trans "～発表次第更新～" %}</p>
+  {% endif %}
+  <div style="margin: 40px 0;"></div>
+{% endfor %}
+
+<p>{% trans "シード権を持つ人が辞退した場合、原則として、該当シード権は消滅し、Wildcard下位からの繰り上げが行われます。" %}</p>
+
+<div class="button-container">
+  <a href="/others/how_to_plan"><button>{% trans "現地観戦計画のたてかた" %}</button></a>
+  <a href="/{{ year }}/japan"><button>{% trans "日本代表" %}</button></a>
+</div>
+
+<h2 id="p05" name="result_date">{% trans "Wildcard ルール" %}</h2>
+<table>
+  <thead>
+    <tr>
+      <th>{% trans "部門" %}</th>
+      <th>{% trans "ルール" %}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{% trans "全部門共通" %}</td>
+      <td style="font-size: 14px;">{% trans "提出受付開始日時" %} 2/15<br>{% trans "制限時間を超過した場合、1秒につき最終順位を1つ下げる" %}<br>{% trans "制限時間を使い切らず余らせた場合、3秒につき最終順位を1つ下げる" %}</td>
+    </tr>
+    <tr>
+      <td>Solo</td>
+      <td style="font-size: 14px;">{% trans "制限時間" %} 2:10<br />{% trans "提出期限" %} 3/22 (23:59 CET)<br />{% trans "結果発表" %} 4/16 (18:00 JST)</td>
+    </tr>
+    <tr>
+      <td>Tag Team</td>
+      <td style="font-size: 14px;">{% trans "制限時間" %} 2:10<br />{% trans "提出期限" %} 4/5 (23:59 CET)<br />{% trans "結果発表" %} 4/24 {% trans "時間未定" %}</td>
+    </tr>
+    <tr>
+      <td>Loopstation</td>
+      <td style="font-size: 14px;">{% trans "制限時間" %} 3:30<br />{% trans "提出期限" %} 3/22 (23:59 CET)<br />{% trans "結果発表" %} 4/19 (18:00 JST)<br />{% trans "RC505 mki, mkiiのみ" %}</td>
+    </tr>
+    <tr>
+      <td>Producer</td>
+      <td style="font-size: 14px;">{% trans "制限時間" %} 3:30<br />{% trans "提出期限" %} 3/29 (23:59 CET)<br />{% trans "結果発表" %} 4/22 {% trans "時間未定" %}<br />{% trans "デバイス制限なし" %}</td>
+    </tr>
+    <tr>
+      <td>Crew</td>
+      <td style="font-size: 14px;">{% trans "制限時間" %} 3:10<br />{% trans "提出期限" %} 4/5 (23:59 CET)<br />{% trans "結果発表" %} 4/26 {% trans "時間未定" %}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="post-it">
+  {% trans "※中央ヨーロッパ時間には、サマータイムがあります。2025年のサマータイムは3/30からです。" %}<br />
+  {% trans "Tag Team部門・Crew部門参加希望の方はご注意ください。" %}
+</div>
+
+<h3>ビト森 GBB鑑賞会</h3>
+<div style="text-align: center;">
+  <p>Wildcardを見る会<br>Wildcard結果発表を見る会<br>ビト森にて随時開催中！</p>
+</div>
+<div class="button-container">
+  <a href="/{{ year }}/bitomori"><button style="background-image: url('/static/images/button/bitomori.webp');" class="bg-pic">
+    <svg class="bg-pic" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0044CC"><path d="m380-340 280-180-280-180v360Zm-60 220v-80H160q-33 0-56.5-23.5T80-280v-480q0-33 23.5-56.5T160-840h640q33 0 56.5 23.5T880-760v480q0 33-23.5 56.5T800-200H640v80H320Z"/></svg>
+    <span class="button-text-with-icon">ビト森 GBB鑑賞会</span>
+  </button></a>
+</div>
+
+<div class="button-container">
+  <a href="/others/how_to_plan"><button>{% trans "現地観戦計画のたてかた" %}</button></a>
+  <a href="/others/result_stream"><button>{% trans "Wildcard結果発表配信" %}</button></a>
+</div>
+
+<h2 id="p06" name="judges">{% trans "本戦審査員一覧" %}</h2>
+<div style="text-align: center;">
+  <a href="#p07">{% trans "Wildcard審査員一覧はこちら" %}</a>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 50%">{% trans "部門" %}</th>
+      <th style="width: 50%">{% trans "審査員" %}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Solo</td>
+      <td>RIVER'<br>PE4ENKATA<br>D-LOW<br>BALL-ZEE<br>TRUNG BAO</td>
+    </tr>
+    <tr>
+      <td>Tag Team</td>
+      <td>COLAPS<br>D-LOW<br>JOHN T<br>ALEXINHO<br>ZHANG ZE</td>
+    </tr>
+    <tr>
+      <td>Loopstation</td>
+      <td>SO-SO<br>SARO<br>KBA<br>INKIE<br>BEARDYMAN</td>
+    </tr>
+    <tr>
+      <td>Producer</td>
+      <td>{% trans "～発表次第更新～" %}</td>
+    </tr>
+    <tr>
+      <td>Crew</td>
+      <td>SO-SO<br>D-LOW<br>MB14<br>BALL-ZEE<br>ZHANG ZE</td>
+    </tr>
+    <tr>
+      <td>7toSmoke</td>
+      <td>{% trans "審査員不明" %}<br />{% trans "例年発表なし" %}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="button-container">
+  <a href="/others/how_to_plan"><button>{% trans "現地観戦計画のたてかた" %}</button></a>
+  <a href="/{{ year }}/participants"><button>{% trans "Wildcard結果" %} & {% trans "出場者" %}</button></a>
+</div>
+
+<h2 id="p07">{% trans "Wildcard審査員一覧" %}</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 50%">{% trans "部門" %}</th>
+      <th style="width: 50%">{% trans "審査員" %}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Solo</td>
+      <td>FOOTBOXG<br>D-LOW<br>TRUNG BAO</td>
+    </tr>
+    <tr>
+      <td>Tag Team</td>
+      <td>D-LOW<br>COLAPS<br>YAMORI</td>
+    </tr>
+    <tr>
+      <td>Loopstation</td>
+      <td>BREZ<br>KRISTOF<br>FROSTY</td>
+    </tr>
+    <tr>
+      <td>Producer</td>
+      <td>KBA<br>KRISTOF<br>FROSTY</td>
+    </tr>
+    <tr>
+      <td>Crew</td>
+      <td>KRISTOF<br>D-LOW<br>ZHANG ZE</td>
+    </tr>
+  </tbody>
+</table>
+
+<div style="text-align: center;">
+  <a href="#p06">GBB {{ year }} {% trans "本戦審査員一覧はこちら" %}</a>
+</div>
+
+<div class="button-container">
+  <a href="/others/how_to_plan"><button>{% trans "現地観戦計画のたてかた" %}</button></a>
+  <a href="/{{ year }}/wildcards"><button>{% trans "Wildcard一覧" %}</button></a>
+</div>
+
+{% endblock %}

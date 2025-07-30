@@ -1,6 +1,6 @@
 {% load i18n %}
 
-<p style="text-align: center; font-size: 36px; font-weight: bold;">GBB {{ year }}<br>{{ _('先行公開中') }}</p>
+<p style="text-align: center; font-size: 36px; font-weight: bold;">GBB {{ year }}<br>{% trans "先行公開中" %}</p>
 <p style="text-align: center;">{% blocktrans with year=year %}ここは、まだ情報が少ないGBB {{ year }} のページです{% endblocktrans %}</p>
 <div class="button-container">
     <a href="/"><button type="button">{% blocktrans with prev_year=year|add:"-1" %}GBB {{ prev_year }} の情報はこちら{% endblocktrans %}</button></a>
