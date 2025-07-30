@@ -2,12 +2,12 @@ from datetime import datetime
 
 from dateutil import parser
 from django.conf import settings
-from django.core.cache import cache
 from django.http import HttpRequest
 from django.utils import timezone
 
 from gbbinfojpn.app.models.supabase_client import supabase_service
 from gbbinfojpn.common.filter_eq import Operator
+from gbbinfojpn.app.translation import TRANSLATED_URLS
 
 
 def get_available_years():
@@ -73,14 +73,8 @@ def is_translated(url, language):
     if language == "ja":
         return True
 
-    # 常に英語のファイルを検証
-    cache_key = "translated_urls_en"
-
-    translated_urls = cache.get(cache_key)
-    if translated_urls is None:
-        raise Exception("translated_urlsがキャッシュされていません")
-
-    return url in translated_urls
+    # 定数から翻訳されたURLを取得
+    return url in TRANSLATED_URLS
 
 
 def is_gbb_ended(year):

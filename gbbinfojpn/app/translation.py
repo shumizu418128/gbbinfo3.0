@@ -1,28 +1,26 @@
 import re
 
 from django.conf import settings
-from django.core.cache import cache
 
 from gbbinfojpn.app.models.supabase_client import supabase_service
 from gbbinfojpn.common.filter_eq import Operator
 
 
-def _cache_translated_urls():
+def _get_translated_urls():
     """
-    翻訳が存在するページのパス一覧をキャッシュします
+    翻訳が存在するページのパス一覧を取得します
     """
     language = "en"
 
     po_file_path = f"{settings.LOCALE_PATHS[0]}/{language}/LC_MESSAGES/django.po"
 
-    # キャッシュにない場合は読み込み
     translated_urls = set()
 
     try:
         with open(po_file_path, "r", encoding="utf-8") as f:
             po_content = f.read()
     except FileNotFoundError:
-        return
+        return set()
 
     exclude_words = [r":\d+", "templates/", ".html"]
 
@@ -62,4 +60,15 @@ def _cache_translated_urls():
 
                 translated_urls.add("/" + path)
 
-    cache.set(f"translated_urls_{language}", translated_urls)
+    return translated_urls
+
+
+# 定数として翻訳されたURLを定義
+TRANSLATED_URLS = None
+
+def initialize_translated_urls():
+    """
+    翻訳されたURLの定数を初期化します（アプリ起動時に呼び出される）
+    """
+    global TRANSLATED_URLS
+    TRANSLATED_URLS = _get_translated_urls()
