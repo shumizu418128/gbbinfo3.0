@@ -10,6 +10,8 @@ class Operator:
     # 部分一致
     LIKE = "like"  # 部分一致
     ILIKE = "ilike"  # 大文字小文字を区別しない部分一致
+    NOT_LIKE = "not_like"  # 部分一致の否定
+    NOT_ILIKE = "not_ilike"  # 大文字小文字を区別しない部分一致の否定
 
     # NULL判定
     IS = "is"  # Noneと等しい

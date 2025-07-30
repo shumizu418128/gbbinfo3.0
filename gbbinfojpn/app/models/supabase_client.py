@@ -81,6 +81,10 @@ class SupabaseService:
             return query.like(field, value)
         elif operator == Operator.ILIKE:
             return query.ilike(field, value)
+        elif operator == Operator.NOT_LIKE:
+            return query.not_.like(field, value)
+        elif operator == Operator.NOT_ILIKE:
+            return query.not_.ilike(field, value)
         elif operator == Operator.IS:
             return query.is_(field, value)
         elif operator == Operator.IS_NOT:

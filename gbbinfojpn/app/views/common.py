@@ -6,7 +6,7 @@ from gbbinfojpn.app.models.supabase_client import supabase_service
 from gbbinfojpn.common.filter_eq import Operator
 
 
-def redirect_to_latest_top(request: HttpRequest):
+def top_redirect_view(request: HttpRequest):
     year_data = supabase_service.get_data(
         table="Year",
         columns=["year"],
@@ -18,7 +18,7 @@ def redirect_to_latest_top(request: HttpRequest):
     return HttpResponseRedirect(f"/{latest_year}/top")
 
 
-def common(request: HttpRequest, year: int, content: str):
+def content_view(request: HttpRequest, year: int, content: str):
     """
     共通のビュー処理。特定のコンテンツを年度ごとに表示する。
 
