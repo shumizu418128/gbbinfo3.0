@@ -123,6 +123,10 @@ def common_variables(request: HttpRequest):
     Returns:
         dict: テンプレートに渡す共通変数
     """
+    # databaseアプリ内では使用しない
+    if request.path.startswith("/database/"):
+        return {}
+
     # 年度が公開範囲内か検証
     year_str = request.path.split("/")[1]
     is_latest_year_flag = None

@@ -29,6 +29,26 @@
             margin: 0;
             font-size: 2em;
         }
+        .filter-container {
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .filter-container form {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .filter-container select {
+            padding: 8px 12px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            background-color: white;
+            font-size: 14px;
+            color: #495057;
+        }
         .content {
             padding: 20px;
         }
@@ -84,7 +104,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>{{ title }}</h1>
+            <h1>出場者一覧</h1>
         </div>
 
         <div class="filter-container">

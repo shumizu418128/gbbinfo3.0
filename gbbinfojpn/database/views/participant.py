@@ -72,8 +72,14 @@ def participants_view(request: HttpRequest):
         table="Category",
         columns=["id", "name"],
     )
+    for data in year_data:
+        if data["year"] == param_year:
+            categories_for_year_ids = data["categories"]
+            break
     categories_for_year = [
-        category for dict in categories_for_year_dict for category in dict.values()
+        category["name"]
+        for category in categories_for_year_dict
+        if category["id"] in categories_for_year_ids
     ]
 
     # カテゴリ名が有効か確認
