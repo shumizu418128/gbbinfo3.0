@@ -208,7 +208,7 @@ _check_locale_paths_and_languages()
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = "/static/"
-STATICFILES_DIRS = [BASE_DIR / "app" / "static"]
+STATICFILES_DIRS = [BASE_DIR / "gbbinfojpn" / "app" / "static"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
