@@ -84,6 +84,7 @@ def participants_view(request: HttpRequest, year: int):
     participants_data = supabase_service.get_data(
         table="Participant",
         columns=["name", "category", "ticket_class", "is_cancelled"],
+        order_by="is_cancelled",  # キャンセルしていない人を上に
         join_tables={
             "Category": ["id", "name"],
             "ParticipantMember": ["participant", "name"],
