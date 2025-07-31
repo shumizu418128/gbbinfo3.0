@@ -1,22 +1,23 @@
-<form method="GET" action="{{ url_for('participants', year=year) }}" class="participants_form">
+{% load i18n %}
+<form method="GET" action="/{{ year }}/participants" class="participants_form">
     <label for="category">{% trans "部門選択" %}</label>
     <select name="category" id="category" class="filter-select" onchange="this.form.submit()">
         {% for c in all_category %}
-        <option value="{{ c }}" {% if request.args.get('category') == c %}selected{% endif %}>{{ c }}</option>
+        <option value="{{ c }}" {% if category == c %}selected{% endif %}>{{ c }}</option>
         {% endfor %}
     </select>
     <br>
     <label for="ticket_class">{% trans "情報選択" %}</label>
     <select name="ticket_class" id="ticket_class" class="filter-select" onchange="this.form.submit()">
-        <option value="all" {% if request.args.get('ticket_class') == 'all' %}selected{% endif %}>{% trans "全出場者" %}</option>
-        <option value="wildcard" {% if request.args.get('ticket_class') == 'wildcard' %}selected{% endif %}>{% trans "Wildcard結果" %}</option>
-        <option value="seed_right" {% if request.args.get('ticket_class') == 'seed_right' %}selected{% endif %}>{% trans "シード権" %}</option>
+        <option value="all" {% if ticket_class == 'all' %}selected{% endif %}>{% trans "全出場者" %}</option>
+        <option value="wildcard" {% if ticket_class == 'wildcard' %}selected{% endif %}>{% trans "Wildcard結果" %}</option>
+        <option value="seed_right" {% if ticket_class == 'seed_right' %}selected{% endif %}>{% trans "シード権" %}</option>
     </select>
     <br>
     <label for="cancel">{% trans "表示選択" %}</label>
     <select name="cancel" id="cancel" class="filter-select" onchange="this.form.submit()">
-        <option value="show" {% if request.args.get('cancel') == 'show' %}selected{% endif %}>{% trans "出場者・辞退者" %}</option>
-        <option value="hide" {% if request.args.get('cancel') == 'hide' %}selected{% endif %}>{% trans "出場者のみ" %}</option>
-        <option value="only_cancelled" {% if request.args.get('cancel') == 'only_cancelled' %}selected{% endif %}>{% trans "辞退者のみ" %}</option>
+        <option value="show" {% if cancel == 'show' %}selected{% endif %}>{% trans "出場者・辞退者" %}</option>
+        <option value="hide" {% if cancel == 'hide' %}selected{% endif %}>{% trans "出場者のみ" %}</option>
+        <option value="only_cancelled" {% if cancel == 'only_cancelled' %}selected{% endif %}>{% trans "辞退者のみ" %}</option>
     </select>
 </form>

@@ -8,6 +8,7 @@ import json
 import os
 from typing import Optional
 
+import pandas as pd
 from django.core.cache import cache
 from supabase import Client, create_client
 
@@ -136,6 +137,7 @@ class SupabaseService:
         order_by: str = None,
         join_tables: Optional[dict] = None,
         filters: Optional[dict] = None,
+        pandas: bool = False,
         **filters_eq,
     ):
         """テーブルからデータを取得（キャッシュ機能付き）
@@ -155,6 +157,7 @@ class SupabaseService:
                     "categories__is_not": None,  # categories IS NOT NULL
                     "tags__in": ["tag1", "tag2"],  # tags IN ('tag1', 'tag2')
                 }
+            pandas (bool): データをpandasのDataFrameとして取得するかどうか
             **filters_eq: 等価フィルター条件（従来の形式、キー=値）
 
         Returns:
@@ -182,7 +185,10 @@ class SupabaseService:
         # キャッシュから取得を試行 あるなら返す
         cached_data = cache.get(cache_key)
         if cached_data is not None:
-            return cached_data
+            if pandas:
+                return pd.DataFrame(cached_data, index=None)
+            else:
+                return cached_data
 
         # カラム指定の構築
         if join_tables:
@@ -249,7 +255,10 @@ class SupabaseService:
         # 取得したデータをキャッシュに保存
         cache.set(cache_key, response.data, timeout=15 * MINUTE)
 
-        return response.data
+        if pandas:
+            return pd.DataFrame(response.data, index=None)
+        else:
+            return response.data
 
 
 # グローバルインスタンス

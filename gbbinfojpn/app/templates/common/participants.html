@@ -11,31 +11,31 @@
 
 <h1>GBB {{ year }} {{ _('Wildcard結果 & 出場者') }}</h1>
 
-{% if is_latest_year is true %}
+{% if is_latest_year is True %}
   <div style="text-align: center;">
     <p>{{ last_updated }}</p>
   </div>
 {% endif %}
 
-{% if all_category == [] %}
+{% if not all_category %}
   <p style="text-align: center;">{{ _('～発表次第更新～') }}</p>
   <div style="height: 100px;"></div>
 {% else %}
   {% include "includes/participants_form.html" %}
 
-  {% if request.args.get('ticket_class') == "wildcard" %}
-    <h2>{{ request.args.get('category') }} {{ _('Wildcard結果') }}</h2>
-  {% elif request.args.get("ticket_class") == "seed_right" %}
-    <h2>{{ request.args.get('category') }} {{ _('シード権獲得者') }}</h2>
-  {% elif request.args.get("ticket_class") == "all" %}
-    <h2>{{ request.args.get('category') }} {{ _('全出場者一覧') }}</h2>
+  {% if ticket_class == "wildcard" %}
+    <h2>{{ category }} {{ _('Wildcard結果') }}</h2>
+  {% elif ticket_class == "seed_right" %}
+    <h2>{{ category }} {{ _('シード権獲得者') }}</h2>
+  {% elif ticket_class == "all" %}
+    <h2>{{ category }} {{ _('全出場者一覧') }}</h2>
   {% endif %}
 
-  {% if request.args.get('cancel') == "hide" %}
+  {% if cancel == "hide" %}
     <div class="post-it">{{ _('出場者のみ') }}</div>
-  {% elif request.args.get('cancel') == "only_cancelled" %}
+  {% elif cancel == "only_cancelled" %}
     <div class="post-it">{{ _('辞退者のみ') }}</div>
-  {% elif request.args.get('cancel') == "show" %}
+  {% elif cancel == "show" %}
     <div class="post-it">{{ _('出場者 & 辞退者を表示') }}</div>
   {% endif %}
 
@@ -109,7 +109,7 @@
   <a href="/{{ year }}/wildcards"><button>{{_('Wildcard一覧')}}</button></a>
 </div>
 
-{% if all_category != [] %}
+{% if all_category %}
   <h2 name="search_participants">{{ _('出場者検索') }}</h2>
   <p>GBB {{ year }} {{ _('出場者名を検索できます') }}<br>{{ _('半角英数字推奨') }}</p>
   <form id="search-participants" class="search-container" onsubmit="return false;">
@@ -132,7 +132,7 @@
 
   <h2>{{ _('出場者世界地図') }}</h2>
   <p>GBB {{ year }} {{ _('全出場者を地図にマッピングしました。') }}<br>{{ _('国旗をタップorクリックすると、詳細を確認できます。') }}</p>
-  <iframe src="{{ url_for('world_map', year=year) }}" width="100%" height="400px" frameborder="0"></iframe>
+  <iframe src="/{{ year }}/world_map" width="100%" height="400px" frameborder="0"></iframe>
 {% endif %}
 
 <h2>{{ _('国別出場者数') }}</h2>
@@ -144,7 +144,7 @@
 <form method="GET" class="participants_form">
 <label for="year">{{ _('その他の年度を確認：') }}</label>
 <select name="year" id="year" class="filter-select" onchange="redirect_year('participants')">
-  {% for y in available_years|reverse %}
+  {% for y in available_years %}
     <option value="{{ y }}" {% if year == y %}selected{% endif %}>{{ y }}</option>
   {% endfor %}
 </select>
