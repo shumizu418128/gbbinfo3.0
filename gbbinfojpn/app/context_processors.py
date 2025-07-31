@@ -40,7 +40,8 @@ def is_latest_year(year):
     """
     dt_now = datetime.now()
     now = dt_now.year
-    return year == max(get_available_years()) or year == now
+    latest_year = max(get_available_years())
+    return now <= year <= latest_year
 
 
 def is_early_access(year):
