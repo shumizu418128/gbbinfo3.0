@@ -6,8 +6,8 @@ from django.http import HttpRequest
 from django.utils import timezone
 
 from gbbinfojpn.app.models.supabase_client import supabase_service
-from gbbinfojpn.common.filter_eq import Operator
 from gbbinfojpn.app.translation import TRANSLATED_URLS
+from gbbinfojpn.common.filter_eq import Operator
 
 
 def get_available_years():

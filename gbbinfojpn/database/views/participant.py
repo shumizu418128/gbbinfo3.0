@@ -97,7 +97,9 @@ def participants_view(request: HttpRequest):
         )
 
     # カテゴリ名からidを取得
-    param_category_id = int(category_data[category_data["name"] == param_category_name]["id"].values[0])
+    param_category_id = int(
+        category_data[category_data["name"] == param_category_name]["id"].values[0]
+    )
 
     # 出場者データを取得
     participants_data = supabase_service.get_data(

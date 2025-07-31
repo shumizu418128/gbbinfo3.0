@@ -6,8 +6,8 @@ SupabaseとのAPIやりとり用
 import os
 from typing import Optional
 
-from django.conf import settings
 import pandas as pd
+from django.conf import settings
 from supabase import Client, create_client
 
 from gbbinfojpn.common.filter_eq import Operator
