@@ -128,24 +128,40 @@
 
         <div class="content">
             {% if participants_data %}
-                <div class="data-summary">
-                    <strong>総参加者数:</strong> {{ participants_data|length }}名
-                </div>
-
                 <table class="data-table">
                     <thead>
                         <tr>
-                            <th class="name-cell" style="width:33%;">参加者名</th>
-                            <th class="iso-cell" style="width:33%;">国</th>
-                            <th class="ticket-cell" style="width:33%;">出場権</th>
+                            <th style="width:10%;"></th>
+                            <th class="name-cell" style="width:30%;">参加者名</th>
+                            <th class="iso-cell" style="width:30%;">国</th>
+                            <th class="ticket-cell" style="width:30%;">出場権</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for participant in participants_data %}
                         <tr>
-                            <td class="name-cell">{{ participant.name }}</td>
-                            <td class="iso-cell">{{ participant.country }}</td>
-                            <td class="ticket-cell">{{ participant.ticket_class }}</td>
+                            <td class="name-cell">{% if participant.is_cancelled %}✕{% endif %}</td>
+                            <td class="name-cell">
+                                {% if participant.is_cancelled %}
+                                    <s>{{ participant.name }}</s>
+                                {% else %}
+                                    {{ participant.name }}
+                                {% endif %}
+                            </td>
+                            <td class="iso-cell">
+                                {% if participant.is_cancelled %}
+                                    <s>{{ participant.country }}</s>
+                                {% else %}
+                                    {{ participant.country }}
+                                {% endif %}
+                            </td>
+                            <td class="ticket-cell">
+                                {% if participant.is_cancelled %}
+                                    <s>{{ participant.ticket_class }}</s>
+                                {% else %}
+                                    {{ participant.ticket_class }}
+                                {% endif %}
+                            </td>
                         </tr>
                         {% endfor %}
                     </tbody>

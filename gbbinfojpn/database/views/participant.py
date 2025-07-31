@@ -10,25 +10,19 @@ from gbbinfojpn.common.filter_eq import Operator
 from gbbinfojpn.database.models.supabase_client import supabase_service
 
 
-def sort_key(x):
-    """
-    参加者データのソートキーを生成する
+def wildcard_rank_sort(x):
+    """出場者データの'ticket_class'が'Wildcard'の場合はランキング順の整数値を返し、それ以外は無限大を返す。
 
     Args:
-        x (dict): 参加者データの辞書
+        x (dict): 出場者データの辞書
 
     Returns:
-        tuple: ソート用のタプル (GBB優先度, iso code優先度, ワイルドカード優先度)
+        int or float: Wildcardの場合はランキング順の整数値、それ以外はfloat('inf')
     """
-    # GBBが含まれていれば最優先（0）、含まれていなければ1
-    gbb_priority = 0 if "GBB" in x["ticket_class"] else 1
-    # iso codeが0なら最下位（1）、それ以外は0
-    iso_priority = (
-        1 if x.get("Country", {}).get("iso_code", x.get("iso_code")) == 0 else 0
-    )
-    # Wildcardが含まれていれば最下位（1）、含まれていなければ0
-    wildcard_priority = 1 if "Wildcard" in x["ticket_class"] else 0
-    return (gbb_priority, iso_priority, wildcard_priority)
+    if "Wildcard" in x["ticket_class"]:
+        return int(x["ticket_class"].replace("Wildcard ", ""))
+    else:
+        return float("inf")
 
 
 def participants_view(request: HttpRequest):
@@ -104,11 +98,10 @@ def participants_view(request: HttpRequest):
     # 出場者データを取得
     participants_data = supabase_service.get_data(
         table="Participant",
-        columns=["name", "category", "ticket_class", "is_cancelled"],
+        columns=["name", "category", "ticket_class", "is_cancelled", "iso_code"],
         order_by="is_cancelled",  # キャンセルしていない人を上に
         join_tables={
             "Category": ["id", "name"],
-            "ParticipantMember": ["participant", "name"],
             "Country": ["iso_code", "names"],
         },
         filters={
@@ -116,9 +109,17 @@ def participants_view(request: HttpRequest):
             "category": param_category_id,
         },
     )
+    participants_data.sort(
+        key=lambda x: (
+            x["is_cancelled"],  # キャンセルした人は下
+            x["iso_code"] == 0,  # 出場者未定枠は下
+            "Wildcard" in x["ticket_class"],  # Wildcard通過者は下
+            wildcard_rank_sort(x),  # Wildcardのランキング順にする
+            "GBB" not in x["ticket_class"],  # GBBによるシードは上
+        )
+    )
 
-    # 言語を取得
-    language = request.LANGUAGE_CODE
+    language = "ja"
 
     for participant in participants_data:
         # 全員の名前を大文字に変換
@@ -127,12 +128,6 @@ def participants_view(request: HttpRequest):
         # カテゴリ名を取り出す
         participant["category"] = participant["Category"]["name"]
         participant.pop("Category")
-
-        # メンバー名を取り出す
-        participant["members"] = ", ".join(
-            member["name"].upper() for member in participant["ParticipantMember"]
-        )
-        participant.pop("ParticipantMember")
 
         # 国名を取り出す
         participant["country"] = participant["Country"]["names"][language]

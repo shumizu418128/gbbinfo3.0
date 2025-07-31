@@ -8,6 +8,21 @@ VALID_TICKET_CLASSES = ["all", "wildcard", "seed_right"]
 VALID_CANCEL = ["show", "hide", "only_cancelled"]
 
 
+def wildcard_rank_sort(x):
+    """出場者データの'ticket_class'が'Wildcard'の場合はランキング順の整数値を返し、それ以外は無限大を返す。
+
+    Args:
+        x (dict): 出場者データの辞書
+
+    Returns:
+        int or float: Wildcardの場合はランキング順の整数値、それ以外はfloat('inf')
+    """
+    if "Wildcard" in x["ticket_class"]:
+        return int(x["ticket_class"].replace("Wildcard ", ""))
+    else:
+        return float("inf")
+
+
 def participants_view(request: HttpRequest, year: int):
     """
     指定された年度の出場者ページを表示します。
@@ -107,9 +122,11 @@ def participants_view(request: HttpRequest, year: int):
     )
     participants_data.sort(
         key=lambda x: (
-            x["is_cancelled"],
-            x["iso_code"] == 0,
-            "Wildcard" in x["ticket_class"],
+            x["is_cancelled"],  # キャンセルした人は下
+            x["iso_code"] == 0,  # 出場者未定枠は下
+            "Wildcard" in x["ticket_class"],  # Wildcard通過者は下
+            wildcard_rank_sort(x),  # Wildcardのランキング順にする
+            "GBB" not in x["ticket_class"],  # GBBによるシードは上
         )
     )
 
