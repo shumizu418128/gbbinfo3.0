@@ -4,7 +4,7 @@ from django.template import TemplateDoesNotExist
 
 from gbbinfojpn.app.views import common
 from gbbinfojpn.common.filter_eq import Operator
-from gbbinfojpn.database.models.supabase_client import supabase_service
+from gbbinfojpn.app.models.supabase_client import supabase_service
 
 
 def rules_view(request: HttpRequest, year: int):
