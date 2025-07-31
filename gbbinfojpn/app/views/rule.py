@@ -22,17 +22,19 @@ def rules_view(request: HttpRequest, year: int):
         },
     )
 
-    # 全員の名前を大文字に変換・カテゴリ名を取り出す
-    for participant in participants_data:
-        participant["name"] = participant["name"].upper()
-        participant["category"] = participant["Category"]["name"]
-        participant.pop("Category")
-
-    # GBBでのシード権、その他でのシード権、シード権辞退者に分類
     gbb_seed = []
     other_seed = []
     cancelled = []
+
     for participant in participants_data:
+        # 全員の名前を大文字に変換
+        participant["name"] = participant["name"].upper()
+
+        # カテゴリ名を取り出す
+        participant["category"] = participant["Category"]["name"]
+        participant.pop("Category")
+
+        # シード権辞退者、GBBでのシード権、その他でのシード権に分類
         if participant["is_cancelled"]:
             cancelled.append(participant)
         elif "GBB" in participant["ticket_class"]:
