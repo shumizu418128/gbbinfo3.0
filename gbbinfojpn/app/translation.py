@@ -51,8 +51,9 @@ def _get_translated_urls():
                         table="Year",
                         columns=["year"],
                         filters={f"categories__{Operator.IS_NOT}": None},
+                        pandas=True,
                     )
-                    available_years = [item["year"] for item in year_data]
+                    available_years = year_data["year"].tolist()
                     for year in available_years:
                         formatted_path = f"/{year}/{path.replace('common/', '')}"
                         translated_urls.add(formatted_path)
@@ -65,6 +66,7 @@ def _get_translated_urls():
 
 # 定数として翻訳されたURLを定義
 TRANSLATED_URLS = None
+
 
 def initialize_translated_urls():
     """

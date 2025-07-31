@@ -67,20 +67,27 @@ def participants_view(request: HttpRequest):
             f"/database/participants?category={param_category_name}&year={param_year}"
         )
 
-    # カテゴリ一覧
-    categories_for_year_dict = supabase_service.get_data(
+    # その年のカテゴリ一覧を取得
+    year_data_for_categories = supabase_service.get_data(
+        table="Year",
+        columns=["categories"],
+        filters={
+            "year": param_year,
+        },
+        pandas=True,
+    )
+    all_categories_for_year_id = year_data_for_categories["categories"].tolist()[0]
+
+    # idから名前を取得
+    category_data = supabase_service.get_data(
         table="Category",
         columns=["id", "name"],
+        filters={
+            f"id__{Operator.IN_}": all_categories_for_year_id,
+        },
+        pandas=True,
     )
-    for data in year_data:
-        if data["year"] == param_year:
-            categories_for_year_ids = data["categories"]
-            break
-    categories_for_year = [
-        category["name"]
-        for category in categories_for_year_dict
-        if category["id"] in categories_for_year_ids
-    ]
+    categories_for_year = category_data["name"].tolist()
 
     # カテゴリ名が有効か確認
     if param_category_name not in categories_for_year:
@@ -89,23 +96,18 @@ def participants_view(request: HttpRequest):
             f"/database/participants?category={param_category_name}&year={param_year}"
         )
 
-    # カテゴリ名をIDに変換
-    param_category_id = None
-    for category in categories_for_year_dict:
-        if category["name"] == param_category_name:
-            param_category_id = category["id"]
-            break
-    if param_category_id is None:
-        raise ValueError(f"カテゴリ名が見つかりません: {param_category_name}")
+    # カテゴリ名からidを取得
+    param_category_id = int(category_data[category_data["name"] == param_category_name]["id"].values[0])
 
-    # JOINを使って参加者データと関連データを一度に取得
-    # カテゴリがNULLの参加者を除外
+    # 出場者データを取得
     participants_data = supabase_service.get_data(
         table="Participant",
-        columns=["id", "name", "ticket_class"],
+        columns=["name", "category", "ticket_class", "is_cancelled"],
+        order_by="is_cancelled",  # キャンセルしていない人を上に
         join_tables={
-            "Country": ["names", "iso_code"],
             "Category": ["id", "name"],
+            "ParticipantMember": ["participant", "name"],
+            "Country": ["iso_code", "names"],
         },
         filters={
             "year": param_year,
@@ -113,27 +115,25 @@ def participants_view(request: HttpRequest):
         },
     )
 
-    participants_data.sort(key=sort_key)
+    # 言語を取得
+    language = request.LANGUAGE_CODE
 
-    # ここでは日本語に設定
-    # 本番ではsetting.SUPPORTED_LANGUAGE_CODESから取得
-    language = "ja"
-
-    # 取得したデータを処理
     for participant in participants_data:
-        try:
-            # 名前は全員大文字
-            participant["name"] = participant["name"].upper()
+        # 全員の名前を大文字に変換
+        participant["name"] = participant["name"].upper()
 
-            # 国名の処理
-            country_names = participant["Country"]["names"]
+        # カテゴリ名を取り出す
+        participant["category"] = participant["Category"]["name"]
+        participant.pop("Category")
 
-            # 指定した言語の国名があればそれを使用、なければエラー
-            participant["country"] = country_names[language]
-        except KeyError:
-            raise ValueError(
-                f"国名（{language}）が見つかりません: {participant['iso_code']}"
-            )
+        # メンバー名を取り出す
+        participant["members"] = ", ".join(
+            member["name"].upper() for member in participant["ParticipantMember"]
+        )
+        participant.pop("ParticipantMember")
+
+        # 国名を取り出す
+        participant["country"] = participant["Country"]["names"][language]
         participant.pop("Country")
 
     # テンプレートに渡すデータ

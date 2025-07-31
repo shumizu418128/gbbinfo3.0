@@ -7,6 +7,7 @@ import os
 from typing import Optional
 
 from django.conf import settings
+import pandas as pd
 from supabase import Client, create_client
 
 from gbbinfojpn.common.filter_eq import Operator
@@ -102,6 +103,7 @@ class SupabaseService:
         order_by: str = None,
         join_tables: Optional[dict] = None,
         filters: Optional[dict] = None,
+        pandas: bool = False,
         **filters_eq,
     ):
         """テーブルからデータを取得（キャッシュ機能付き）
@@ -197,6 +199,9 @@ class SupabaseService:
         # 用意したqueryを実行し、データを取得
         response = query.execute()
         data = response.data
+
+        if pandas:
+            return pd.DataFrame(data, index=None)
 
         return data
 
