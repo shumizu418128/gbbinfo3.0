@@ -1,9 +1,10 @@
+from datetime import datetime
+
 from django.http import HttpRequest, HttpResponseRedirect
 from django.shortcuts import render
 from django.template import TemplateDoesNotExist
 
-from gbbinfojpn.app.models.supabase_client import supabase_service
-from gbbinfojpn.common.filter_eq import Operator
+from gbbinfojpn.app.context_processors import get_available_years
 
 
 def top_redirect_view(request: HttpRequest):
@@ -16,14 +17,11 @@ def top_redirect_view(request: HttpRequest):
     Returns:
         HttpResponseRedirect: 最新年度のトップページへのリダイレクトレスポンス
     """
-    year_data = supabase_service.get_data(
-        table="Year",
-        columns=["year"],
-        filters={f"categories__{Operator.IS_NOT}": None},
-    )
-    available_years = [item["year"] for item in year_data]
-    available_years.sort(reverse=True)
-    latest_year = available_years[0]
+    available_years = get_available_years()
+    if datetime.now().year in available_years:
+        latest_year = datetime.now().year
+    else:
+        latest_year = max(available_years)
     return HttpResponseRedirect(f"/{latest_year}/top")
 
 
