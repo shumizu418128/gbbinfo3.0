@@ -44,8 +44,6 @@ if RENDER_EXTERNAL_HOSTNAME:
 
 # Application definition
 INSTALLED_APPS = [
-    "django.contrib.contenttypes",
-    "django.contrib.sessions",
     "django.contrib.staticfiles",
     "gbbinfojpn.database",
     "gbbinfojpn.app",
@@ -217,4 +215,4 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 APPEND_SLASH = False
 
-LAST_UPDATED = datetime.now()
+LAST_UPDATED = "UPDATE " + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " JST"
