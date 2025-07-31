@@ -97,14 +97,20 @@ def participants_view(request: HttpRequest, year: int):
     # 出場者データを取得
     participants_data = supabase_service.get_data(
         table="Participant",
-        columns=["name", "category", "ticket_class", "is_cancelled"],
-        order_by="is_cancelled",  # キャンセルしていない人を上に
+        columns=["name", "category", "ticket_class", "is_cancelled", "iso_code"],
         join_tables={
             "Category": ["id", "name"],
             "ParticipantMember": ["participant", "name"],
             "Country": ["iso_code", "names"],
         },
         filters=filters,
+    )
+    participants_data.sort(
+        key=lambda x: (
+            x["is_cancelled"],
+            x["iso_code"] == 0,
+            "Wildcard" in x["ticket_class"],
+        )
     )
 
     # 言語を取得
