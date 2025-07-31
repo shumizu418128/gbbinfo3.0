@@ -2,12 +2,23 @@ from django.http import HttpRequest
 from django.shortcuts import render
 from django.template import TemplateDoesNotExist
 
+from gbbinfojpn.app.models.supabase_client import supabase_service
 from gbbinfojpn.app.views import common
 from gbbinfojpn.common.filter_eq import Operator
-from gbbinfojpn.app.models.supabase_client import supabase_service
 
 
 def rules_view(request: HttpRequest, year: int):
+    """
+    指定された年度のルールページに表示するシード権獲得者リストを取得し、テンプレートに渡して表示します。
+
+    Args:
+        request (HttpRequest): リクエストオブジェクト
+        year (int): 対象年度
+
+    Returns:
+        HttpResponse: ルールページのテンプレートをレンダリングしたレスポンス。
+                      テンプレートが存在しない場合は404ページを返します。
+    """
     # シード権獲得者を取得
     participants_data = supabase_service.get_data(
         table="Participant",

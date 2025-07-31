@@ -7,6 +7,15 @@ from gbbinfojpn.common.filter_eq import Operator
 
 
 def top_redirect_view(request: HttpRequest):
+    """
+    最新の年度のトップページへリダイレクトするビュー。
+
+    Args:
+        request (HttpRequest): リクエストオブジェクト
+
+    Returns:
+        HttpResponseRedirect: 最新年度のトップページへのリダイレクトレスポンス
+    """
     year_data = supabase_service.get_data(
         table="Year",
         columns=["year"],
