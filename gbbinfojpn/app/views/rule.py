@@ -12,6 +12,7 @@ def rules_view(request: HttpRequest, year: int):
     participants_data = supabase_service.get_data(
         table="Participant",
         columns=["name", "category", "is_cancelled", "ticket_class"],
+        order_by="category",  # カテゴリでソート
         join_tables={
             "Category": ["id", "name"],
         },
