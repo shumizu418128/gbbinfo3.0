@@ -8,7 +8,15 @@ from gbbinfojpn.common.filter_eq import Operator
 
 def _get_translated_urls():
     """
-    翻訳が存在するページのパス一覧を取得します
+    翻訳済みページのURLパス一覧を取得する内部関数。
+
+    Returns:
+        set: 翻訳が存在するページのURLパスのセット
+
+    Note:
+        英語（en）のdjango.poファイルをパースし、翻訳対象となるテンプレートパスから
+        実際のURLパスを抽出します。common/配下のテンプレートは年度ごとに展開されます。
+        除外条件（base.html, includes, 404.html等）も適用されます。
     """
     language = "en"
 
@@ -70,7 +78,14 @@ TRANSLATED_URLS = None
 
 def initialize_translated_urls():
     """
-    翻訳されたURLの定数を初期化します（アプリ起動時に呼び出される）
+    翻訳されたURLの定数を初期化します（アプリ起動時に呼び出される）。
+
+    Note:
+        _get_translated_urls() 関数を呼び出し、翻訳済みページのURLパス一覧を取得します。
+        取得したURLパス一覧を TRANSLATED_URLS 定数に格納します。
+
+    Returns:
+        None
     """
     global TRANSLATED_URLS
     TRANSLATED_URLS = _get_translated_urls()
