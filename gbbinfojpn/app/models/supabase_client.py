@@ -115,14 +115,25 @@ class SupabaseService:
         Returns:
             str: ハッシュ化されたキャッシュキー
         """
+
         # パラメータを辞書にまとめる
+        def make_json_serializable(obj):
+            if isinstance(obj, dict):
+                return {k: make_json_serializable(obj[k]) for k in sorted(obj)}
+            elif isinstance(obj, list):
+                return [make_json_serializable(v) for v in obj]
+            elif isinstance(obj, set):
+                return sorted(list(obj))
+            else:
+                return obj
+
         params = {
             "table": table,
             "columns": sorted(columns) if columns else None,
             "order_by": order_by,
-            "join_tables": join_tables,
-            "filters": filters,
-            "filters_eq": dict(sorted(filters_eq.items())),
+            "join_tables": make_json_serializable(join_tables),
+            "filters": make_json_serializable(filters),
+            "filters_eq": make_json_serializable(dict(sorted(filters_eq.items()))),
         }
 
         # JSON文字列に変換してハッシュ化

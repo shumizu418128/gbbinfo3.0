@@ -8,19 +8,19 @@
 <h1>GBB {{ year }} {{ _('大会結果') }}</h1>
 
 {% if all_category %}
-  <form method="GET" action="{{ url_for('result', year=year, category=category) }}" class="participants_form">
+  <form method="get" action="/{{ year }}/result" class="participants_form">
     <label for="category">{{ _('部門選択') }}</label>
     <select name="category" id="category" class="filter-select" onchange="this.form.submit()">
       {% for c in all_category %}
-        <option value="{{ c }}" {% if request.args.get('category') == c %}selected{% endif %}>{{ c }}</option>
+        <option value="{{ c }}" {% if category == c %}selected{% endif %}>{{ c }}</option>
       {% endfor %}
     </select>
   </form>
 {% endif %}
 
-{% if result and format == "tournament" %}
-  {% for round_name, matches in result.items() %}
-    <h2>{{ request.args.get('category') }} - {{ round_name }}</h2>
+{% if result_type == "tournament" %}
+  {% for round, data in result_data.items %}
+    <h2>{{ category }} - {{ round }}</h2>
     <table>
       <thead>
         <tr>
@@ -30,19 +30,19 @@
         </tr>
       </thead>
       <tbody>
-        {% for match in matches %}
+        {% for match in data %}
           <tr>
-            <td class="winner">{{ match.win }}</td>
+            <td class="winner">{{ match.winner }}</td>
             <td>vs</td>
-            <td>{{ match.lose }}</td>
+            <td>{{ match.loser }}</td>
           </tr>
         {% endfor %}
       </tbody>
     </table>
   {% endfor %}
-{% elif result and format == "ranking" %}
-  {% for round_name, rows in result.items() %}
-    <h2>{{ request.args.get('category') }} - {{ round_name }}</h2>
+{% elif result_type == "ranking" %}
+  {% for round, data in result_data.items %}
+    <h2>{{ category }} - {{ round }}</h2>
     <table>
       <thead>
         <tr>
@@ -51,10 +51,10 @@
         </tr>
       </thead>
       <tbody>
-        {% for row in rows %}
+        {% for result in data %}
           <tr>
-            <td>{{ row.rank }}</td>
-            <td>{{ row.name }}</td>
+            <td>{{ result.rank }}</td>
+            <td>{{ result.name }}</td>
           </tr>
         {% endfor %}
       </tbody>
@@ -65,11 +65,11 @@
 {% endif %}
 
 {% if all_category %}
-  <form method="GET" action="{{ url_for('result', year=year, category=category) }}" class="participants_form">
+  <form method="GET" action="/{{ year }}/result" class="participants_form">
     <label for="category">{{ _('部門選択') }}</label>
     <select name="category" id="category" class="filter-select" onchange="this.form.submit()">
       {% for c in all_category %}
-        <option value="{{ c }}" {% if request.args.get('category') == c %}selected{% endif %}>{{ c }}</option>
+        <option value="{{ c }}" {% if category == c %}selected{% endif %}>{{ c }}</option>
       {% endfor %}
     </select>
   </form>
@@ -78,7 +78,7 @@
 <form method="GET" class="participants_form">
 <label for="year">{{ _('その他の年度を確認：') }}</label>
 <select name="year" id="year" class="filter-select" onchange="redirect_year('result')">
-  {% for y in available_years|reverse %}
+  {% for y in available_years %}
     <option value="{{ y }}" {% if year == y %}selected{% endif %}>{{ y }}</option>
   {% endfor %}
 </select>

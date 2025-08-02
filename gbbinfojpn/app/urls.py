@@ -4,7 +4,7 @@ databaseアプリのURL設定
 
 from django.urls import path
 
-from gbbinfojpn.app.views import common, language, participants, rule
+from gbbinfojpn.app.views import common, language, participants, result, rule
 
 app_name = "app"
 
@@ -16,6 +16,11 @@ urlpatterns = [
     path("<int:year>/rule", rule.rules_view, name="rule"),
     path(
         "<int:year>/participants", participants.participants_view, name="participants"
+    ),
+    path(
+        "<int:year>/result",
+        result.result_view,
+        name="result",
     ),
     # その他通常ページ
     path("<int:year>/<str:content>", common.content_view, name="common"),
