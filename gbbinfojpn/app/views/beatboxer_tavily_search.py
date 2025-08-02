@@ -57,54 +57,59 @@ def beatboxer_tavily_search(
         IndexError: 指定したIDの出場者が存在しない場合
 
     """
+    # パラメータのバリデーション
     if beatboxer_id is None and beatboxer_name is None:
         raise ValueError("beatboxer_idまたはbeatboxer_nameが必要です")
 
+    # beatboxer_nameが指定されていない場合は、beatboxer_idから取得
     if beatboxer_name is None:
         beatboxer_name = get_beatboxer_name(beatboxer_id)
 
-    # tavilyで検索
-    result = tavily_service.search(beatboxer_name)["results"]
+    # Tavily APIで検索を実行
+    search_results = tavily_service.search(beatboxer_name)["results"]
 
-    account_urls = []
-    account_urls_primary_domain = {}
-    final_urls = []
-    final_urls_primary_domain = {}
+    # 結果を格納するリスト
+    account_urls = []  # アカウントURL（@を含むもの）
+    final_urls = []  # 最終的な選定URL
 
-    # 1. アカウントURLを確認
-    for item in result:
-        # プライマリドメインを取得し、もとの結果辞書に追加
+    # 処理済みのプライマリドメインを記録
+    account_domains_seen = set()
+    final_domains_seen = set()
+
+    # 各検索結果にプライマリドメイン情報を追加
+    for item in search_results:
         primary_domain = get_primary_domain(item["url"])
         item["primary_domain"] = primary_domain
 
-        # アカウントURLかどうかを確認
+    # ステップ1: アカウントURLの収集（@を含むURLまたはタイトル）
+    for item in search_results:
+        primary_domain = item["primary_domain"]
         is_account_url = ("@" in item["url"]) or ("@" in item["title"])
+        is_new_domain = primary_domain not in account_domains_seen
 
-        # アカウントURLとしてまだ追加されていない場合のみ追加
-        is_new_domain_for_account_urls = (
-            primary_domain not in account_urls_primary_domain
-        )
-
-        if is_account_url and is_new_domain_for_account_urls:
+        if is_account_url and is_new_domain:
             account_urls.append(item)
-            account_urls_primary_domain[primary_domain] = item
+            account_domains_seen.add(primary_domain)
 
-        # まだそのプライマリドメインが記録されていない場合のみ追加（最初に見つかったものが1位）
-        if primary_domain not in final_urls_primary_domain and item not in account_urls:
-            final_urls_primary_domain[primary_domain] = item
+    # ステップ2: プライマリドメインごとの代表URLを収集
+    for item in search_results:
+        primary_domain = item["primary_domain"]
+        is_new_domain = primary_domain not in final_domains_seen
+        is_not_account_url = item not in account_urls
 
-    # 2. プライマリドメインごとの1位をfinal_urlsに追加（重複チェック）
-    for domain_item in final_urls_primary_domain.values():
-        if domain_item not in final_urls and domain_item not in account_urls:
-            final_urls.append(domain_item)
+        if is_new_domain and is_not_account_url:
+            final_urls.append(item)
+            final_domains_seen.add(primary_domain)
 
-    # URLが3つ以上取得できた場合はおわり
+    # 3件以上取得できた場合はおわり
     if len(final_urls) >= 3:
         return (account_urls, final_urls)
 
-    # 3つ未満の場合は、残りは検索順位順で追加し、最低3つとする
-    for item in result:
-        if item not in final_urls and item not in account_urls:
+    # ステップ3: 最低3件を確保するため、不足分を検索順で補完
+    for item in search_results:
+        is_not_included = item not in final_urls and item not in account_urls
+
+        if is_not_included:
             final_urls.append(item)
             if len(final_urls) >= 3:
                 break
