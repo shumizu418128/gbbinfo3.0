@@ -255,17 +255,10 @@ class SupabaseService:
 
         # 並び替え条件を適用
         if order_by:
-            if isinstance(order_by, list):
-                for column in order_by:
-                    if column.startswith("-"):
-                        query = query.order(column[1:], desc=True)
-                    else:
-                        query = query.order(column)
+            if order_by.startswith("-"):
+                query = query.order(order_by[1:], desc=True)
             else:
-                if order_by.startswith("-"):
-                    query = query.order(order_by[1:], desc=True)
-                else:
-                    query = query.order(order_by)
+                query = query.order(order_by)
 
         # 用意したqueryを実行し、データを取得
         response = query.execute()
