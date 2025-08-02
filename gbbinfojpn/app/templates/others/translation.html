@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}{% trans "各ページの翻訳提供について" %} - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}{% trans "各ページの翻訳提供について" %} - GBBINFO-JPN{% endblock %}
+{% block og_title %}{% trans "各ページの翻訳提供について" %} - GBBINFO-JPN{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/others/translation{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/others/translation{% endblock %}
+
+{% block content %}
+<h1>{% trans "各ページの翻訳提供について" %}</h1>
+<p>{% trans "GBBINFO-JPNは、一部を除き、各ページの翻訳をAI Geminiを用いて提供しています。" %}</p>
+<p>{% trans "AIによる翻訳のため、誤りがある可能性があります。" %}</p>
+<p>{% trans "翻訳を提供しているページは、以下の通りです。" %}</p>
+
+<ul>
+    <li>{% trans "対応年度：2024年以降" %}
+        <ul>
+            <li>{% trans "Wildcard結果 & 出場者" %}</li>
+            <li>{% trans "ルール & 審査員" %}</li>
+            <li>{% trans "タイムスケジュール" %}</li>
+            <li>{% trans "日本代表" %}</li>
+            <li>{% trans "会場 & チケット" %}</li>
+            <li>{% trans "当日配信" %}</li>
+            <li>{% trans "大会結果" %}</li>
+            <li>{% trans "Wildcard一覧" %}</li>
+        </ul>
+    </li>
+</ul>
+
+<p>{% trans "なお、翻訳対応言語は、アクセス状況に応じて随時追加予定です。" %}</p>
+
+<p>{% trans "翻訳を提供していないページは、原文である日本語で表示されます。" %}</p>
+
+{% endblock %}

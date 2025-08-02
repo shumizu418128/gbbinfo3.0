@@ -33,5 +33,6 @@ urlpatterns = [
         name="korea",
     ),
     # その他通常ページ
+    path("others/<str:content>", common.other_content_view, name="others"),
     path("<int:year>/<str:content>", common.content_view, name="common"),
 ]

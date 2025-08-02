@@ -128,31 +128,31 @@ def common_variables(request: HttpRequest):
     if request.path.startswith("/database/"):
         return {}
 
-    # 年度が公開範囲内か検証
     year_str = request.path.split("/")[1]
-    is_latest_year_flag = None
-    is_early_access_flag = None
+    available_years = get_available_years()
 
     # 年度が最新 or 試験公開年度か検証
     try:
         year = int(year_str)
-        is_latest_year_flag = is_latest_year(year)
-        is_early_access_flag = is_early_access(year)
     except Exception:
-        pass
+        year = datetime.now().year
+
+    is_latest_year_flag = is_latest_year(year)
+    is_early_access_flag = is_early_access(year)
 
     return {
-        "available_years": get_available_years(),
+        "year": year,
+        "available_years": available_years,
+        # 言語のタプルリスト [("ja", "日本語"), ("en", "English"), ...]
         "lang_names": settings.LANGUAGES,
-        "last_updated": settings.LAST_UPDATED,
-        "current_url": request.path,
+        # 現在の言語コード
         "language": request.LANGUAGE_CODE,
         "is_translated": is_translated(request.path, request.LANGUAGE_CODE),
+        "current_url": request.path,
+        "last_updated": settings.LAST_UPDATED,
         "is_latest_year": is_latest_year_flag,
         "is_early_access": is_early_access_flag,
+        "is_gbb_ended": is_gbb_ended(year),
         "is_local": settings.IS_LOCAL,
         "is_pull_request": settings.IS_PULL_REQUEST,
-        "is_gbb_ended": is_gbb_ended(year),
-        "query_params": dict(request.GET),
-        "year": year,
     }

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Wildcard結果発表配信 - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}Wildcard結果発表配信 - GBBINFO-JPN{% endblock %}
+{% block og_title %}Wildcard結果発表配信 - GBBINFO-JPN{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/others/result_stream{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/others/result_stream{% endblock %}
+
+{% block content %}
+<h1>Wildcard結果発表配信</h1>
+<p>GBBのWildcard審査結果は、例年、Swissbeatboxの公式YouTubeチャンネルで公開されます。世界中のトップクラスのBeatboxerが、こぞってGBB各部門のWildcardを提出します。しかし、近年Wildcard出場枠が減少傾向にあり、過去にGBB出場経験がある有名なBeatboxerが、出場どころか上位にすら入れないことも当たり前になってきました。</p>
+<p>そのため、結果が発表されると、毎年必ず結果に対する不満が噴出し、YouTubeコメント欄は批判的な意見や誹謗中傷で溢れ返ります。GBB23 Wildcard結果発表ライブのコメント欄では、例年以上に批判的な意見や誹謗中傷が多くみられ、SNS上でも非難が殺到しました。</p>
+<p>Wildcard結果発表のコメント欄は、<strong><span style="color: #ff0000;">精神衛生に悪影響を及ぼします。</span></strong>GBBINFO-JPNは、今後結果発表<span style="color: #ff0000;"><strong>配信のURLを一切掲載せず、</strong></span>Wildcard結果のみ掲載します。</p>
+<p>Wildcard結果発表を見る際は、YouTubeコメント欄を絶対に見ないでください。</p>
+<p><span style="color: #ff0000;"><strong><span style="font-size: 24px;">後悔しますよ、マジで</span></strong></span></p>
+
+<div class="button-container">
+    <a href="/{{ year }}/rule"><button type="button">GBB {{ year }} {% trans "ルール & 審査員" %}</button></a>
+    <a href="/{{ year }}/rule?scroll=result_date"><button type="button">{% trans "Wildcard結果発表日" %}</button></a>
+</div>
+
+<img alt="自己防衛" height="100%" src="https://live.staticflickr.com/65535/53462882364_331151250a_o.jpg" style="display: block; margin: auto;" width="100%" />
+<p><a href="https://twitter.com/tpyclub/status/1746820254637171013" target="_blank" rel="noopener noreferrer" title="https://twitter.com/tpyclub/status/1746820254637171013">https://twitter.com/tpyclub/status/1746820254637171013</a></p>
+<p>Wildcard結果発表を見る際は、YouTubeコメント欄を絶対に見ないでください。</p>
+<p>つまり、自己防衛。</p>
+
+<h3>ビト森 GBB鑑賞会</h3>
+<div style="text-align: center;">
+    <p>Wildcardを見る会<br>Wildcard結果発表を見る会<br>ビト森にて随時開催中！</p>
+</div>
+<div class="button-container">
+    <a href="/{{ year }}/bitomori"><button style="background-image: url('/static/images/button/bitomori.webp');" class="bg-pic">
+        <svg class="bg-pic" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0044CC"><path d="m380-340 280-180-280-180v360Zm-60 220v-80H160q-33 0-56.5-23.5T80-280v-480q0-33 23.5-56.5T160-840h640q33 0 56.5 23.5T880-760v480q0 33-23.5 56.5T800-200H640v80H320Z"/></svg>
+        <span class="button-text-with-icon">ビト森 GBB鑑賞会</span>
+    </button></a>
+</div>
+
+<div class="button-container">
+    <a href="/{{ year }}/participants"><button>{% trans "Wildcard結果" %} & {% trans "出場者" %}</button></a>
+    <a href="/{{ year }}/wildcards"><button>{% trans "Wildcard一覧" %}</button></a>
+</div>
+
+{% endblock %}

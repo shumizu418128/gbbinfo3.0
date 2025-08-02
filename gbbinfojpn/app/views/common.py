@@ -43,6 +43,15 @@ def content_view(request: HttpRequest, year: int, content: str):
         return not_found_page_view(request)
 
 
+def other_content_view(request: HttpRequest, content: str):
+    """
+    その他のコンテンツを表示する。
+    """
+    try:
+        return render(request, f"others/{content}.html")
+    except TemplateDoesNotExist:
+        return not_found_page_view(request)
+
 def not_found_page_view(request: HttpRequest, exception=None):
     """
     404ページを表示する。
