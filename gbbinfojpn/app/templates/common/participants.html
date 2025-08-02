@@ -1,7 +1,8 @@
 {% extends "base.html" %}
-{% block title %}GBB {{ year }} {{ _('Wildcard結果 & 出場者') }} - GBBINFO-JPN{% endblock %}
-{% block twitter_title %}GBB {{ year }} {{ _('Wildcard結果 & 出場者') }} - GBBINFO-JPN{% endblock %}
-{% block og_title %}GBB {{ year }} {{ _('Wildcard結果 & 出場者') }} - GBBINFO-JPN{% endblock %}
+{% load i18n %}
+{% block title %}GBB {{ year }} {% trans "Wildcard結果 & 出場者" %} - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBB {{ year }} {% trans "Wildcard結果 & 出場者" %} - GBBINFO-JPN{% endblock %}
+{% block og_title %}GBB {{ year }} {% trans "Wildcard結果 & 出場者" %} - GBBINFO-JPN{% endblock %}
 {% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/participants{% endblock %}
 {% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/participants{% endblock %}
 {% block head %}
@@ -9,7 +10,7 @@
 {% endblock %}
 {% block content %}
 
-<h1>GBB {{ year }} {{ _('Wildcard結果 & 出場者') }}</h1>
+<h1>GBB {{ year }} {% trans "Wildcard結果 & 出場者" %}</h1>
 
 {% if is_latest_year is True %}
   <div style="text-align: center;">
@@ -18,34 +19,34 @@
 {% endif %}
 
 {% if not all_category %}
-  <p style="text-align: center;">{{ _('～発表次第更新～') }}</p>
+  <p style="text-align: center;">{% trans "～発表次第更新～" %}</p>
   <div style="height: 100px;"></div>
 {% else %}
   {% include "includes/participants_form.html" %}
 
   {% if ticket_class == "wildcard" %}
-    <h2>{{ category }} {{ _('Wildcard結果') }}</h2>
+    <h2>{{ category }} {% trans "Wildcard結果" %}</h2>
   {% elif ticket_class == "seed_right" %}
-    <h2>{{ category }} {{ _('シード権獲得者') }}</h2>
+    <h2>{{ category }} {% trans "シード権獲得者" %}</h2>
   {% elif ticket_class == "all" %}
-    <h2>{{ category }} {{ _('全出場者一覧') }}</h2>
+    <h2>{{ category }} {% trans "全出場者一覧" %}</h2>
   {% endif %}
 
   {% if cancel == "hide" %}
-    <div class="post-it">{{ _('出場者のみ') }}</div>
+    <div class="post-it">{% trans "出場者のみ" %}</div>
   {% elif cancel == "only_cancelled" %}
-    <div class="post-it">{{ _('辞退者のみ') }}</div>
+    <div class="post-it">{% trans "辞退者のみ" %}</div>
   {% elif cancel == "show" %}
-    <div class="post-it">{{ _('出場者 & 辞退者を表示') }}</div>
+    <div class="post-it">{% trans "出場者 & 辞退者を表示" %}</div>
   {% endif %}
 
   {% if participants %}
     <table>
       <thead>
         <tr>
-          <th style="width: 33%;">{{ _('名前') }}</th>
-          <th style="width: 34%;">{{ _('国') }}</th>
-          <th style="width: 33%;">{{ _('出場権') }}</th>
+          <th style="width: 33%;">{% trans "名前" %}</th>
+          <th style="width: 34%;">{% trans "国" %}</th>
+          <th style="width: 33%;">{% trans "出場権" %}</th>
         </tr>
       </thead>
       <tbody>
@@ -54,7 +55,7 @@
             <td>
               {% if participant.members != "" %}
                 {% if participant.is_cancelled %}
-                  【{{ _('辞退') }}】<br><s>{{ participant.name }}</s>
+                  【{% trans "辞退" %}】<br><s>{{ participant.name }}</s>
                   <div class="member-list"><s>[{{ participant.members }}]</s></div>
                 {% else %}
                   {{ participant.name }}
@@ -63,7 +64,7 @@
 
               {% else %}
                 {% if participant.is_cancelled %}
-                  【{{ _('辞退') }}】<br><s>{{ participant.name }}</s>
+                  【{% trans "辞退" %}】<br><s>{{ participant.name }}</s>
                 {% else %}
                   {{ participant.name }}
                 {% endif %}
@@ -88,7 +89,7 @@
       </tbody>
     </table>
   {% else %}
-    <p style="text-align: center;">{{ _('～発表次第更新～') }}</p>
+    <p style="text-align: center;">{% trans "～発表次第更新～" %}</p>
     <div style="height: 200px;"></div>
   {% endif %}
     {% include "includes/participants_form.html" %}
@@ -104,45 +105,45 @@
     <svg class="bg-pic" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0044CC"><path d="m380-340 280-180-280-180v360Zm-60 220v-80H160q-33 0-56.5-23.5T80-280v-480q0-33 23.5-56.5T160-840h640q33 0 56.5 23.5T880-760v480q0 33-23.5 56.5T800-200H640v80H320Z"/></svg>
     <span class="button-text-with-icon">ビト森 GBB鑑賞会</span>
   </button></a>
-  <a href="/{{year}}/rule"><button>{{ _('出場権詳細') }}</button></a>
-  <a href="/{{year}}/rule?scroll=result_date"><button>{{ _('Wildcard結果発表日') }}</button></a>
-  <a href="/{{ year }}/wildcards"><button>{{_('Wildcard一覧')}}</button></a>
+  <a href="/{{year}}/rule"><button>{% trans "出場権詳細" %}</button></a>
+  <a href="/{{year}}/rule?scroll=result_date"><button>{% trans "Wildcard結果発表日" %}</button></a>
+  <a href="/{{ year }}/wildcards"><button>{% trans "Wildcard一覧" %}</button></a>
 </div>
 
 {% if all_category %}
-  <h2 name="search_participants">{{ _('出場者検索') }}</h2>
-  <p>GBB {{ year }} {{ _('出場者名を検索できます') }}<br>{{ _('半角英数字推奨') }}</p>
+  <h2 name="search_participants">{% trans "出場者検索" %}</h2>
+  <p>GBB {{ year }} {% trans "出場者名を検索できます" %}<br>{% trans "半角英数字推奨" %}</p>
   <form id="search-participants" class="search-container" onsubmit="return false;">
-    <input type="text" name="keyword" id="keyword" value="{{ value }}" placeholder="{{ _('出場者検索') }}" oninput="searchParticipants(year={{year}})">
+    <input type="text" name="keyword" id="keyword" value="{{ value }}" placeholder="{% trans "出場者検索" %}" oninput="searchParticipants(year={{year}})">
   </form>
   <div id="loading" class="loading"></div>
 
-  <h3 id="search-participants-result-h3">{{ _('検索結果') }}</h3>
+  <h3 id="search-participants-result-h3">{% trans "検索結果" %}</h3>
   <div id="exact-match-message" style="text-align: center;"></div>
   <table>
     <thead>
       <tr>
-        <th style="width: 33%;">{{ _('名前') }}</th>
-        <th style="width: 34%;">{{ _('部門') }}</th>
-        <th style="width: 33%;">{{ _('出場権') }}</th>
+        <th style="width: 33%;">{% trans "名前" %}</th>
+        <th style="width: 34%;">{% trans "部門" %}</th>
+        <th style="width: 33%;">{% trans "出場権" %}</th>
       </tr>
     </thead>
     <tbody id="participants-search-result"></tbody>
   </table>
 
-  <h2>{{ _('出場者世界地図') }}</h2>
-  <p>GBB {{ year }} {{ _('全出場者を地図にマッピングしました。') }}<br>{{ _('国旗をタップorクリックすると、詳細を確認できます。') }}</p>
+  <h2>{% trans "出場者世界地図" %}</h2>
+  <p>GBB {{ year }} {% trans "全出場者を地図にマッピングしました。" %}<br>{% trans "国旗をタップorクリックすると、詳細を確認できます。" %}</p>
   <iframe src="/{{ year }}/world_map" width="100%" height="400px" frameborder="0"></iframe>
 {% endif %}
 
-<h2>{{ _('国別出場者数') }}</h2>
+<h2>{% trans "国別出場者数" %}</h2>
 <canvas class="chart" id="countryChart"></canvas>
 
-<h2>{{ _('カテゴリー別出場者数') }}</h2>
+<h2>{% trans "カテゴリー別出場者数" %}</h2>
 <canvas class="chart" id="categoryChart" height="300"></canvas>
 
 <form method="GET" class="participants_form">
-<label for="year">{{ _('その他の年度を確認：') }}</label>
+<label for="year">{% trans "その他の年度を確認：" %}</label>
 <select name="year" id="year" class="filter-select" onchange="redirect_year('participants')">
   {% for y in available_years %}
     <option value="{{ y }}" {% if year == y %}selected{% endif %}>{{ y }}</option>

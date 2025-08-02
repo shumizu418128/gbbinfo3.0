@@ -159,3 +159,55 @@ def participants_view(request: HttpRequest, year: int):
         "cancel": cancel,
     }
     return render(request, "common/participants.html", context)
+
+
+def participants_country_specific_view(request: HttpRequest, year: int):
+    # URLから国名を取得
+    url = request.path
+    country_name = url.split("/")[-1]  # 最後の要素が国名
+    if country_name == "japan":
+        iso_code = 392
+    if country_name == "korea":
+        iso_code = 410
+
+    # 出場者データを取得
+    participants_data = supabase_service.get_data(
+        table="Participant",
+        columns=["name", "category", "ticket_class", "is_cancelled", "iso_code"],
+        join_tables={
+            "Category": ["id", "name"],
+            "ParticipantMember": ["participant", "name"],
+        },
+        filters={
+            "year": year,
+            "iso_code": iso_code,
+        },
+    )
+    participants_data.sort(
+        key=lambda x: (
+            x["is_cancelled"],  # キャンセルした人は下
+            x["category"],  # カテゴリでソート
+            "Wildcard" in x["ticket_class"],  # Wildcard通過者は下
+            wildcard_rank_sort(x),  # Wildcardのランキング順にする
+            "GBB" not in x["ticket_class"],  # GBBによるシードは上
+        )
+    )
+
+    for participant in participants_data:
+        # 全員の名前を大文字に変換
+        participant["name"] = participant["name"].upper()
+
+        # カテゴリ名を取り出す
+        participant["category"] = participant["Category"]["name"]
+        participant.pop("Category")
+
+        # メンバー名を取り出す
+        participant["members"] = ", ".join(
+            member["name"].upper() for member in participant["ParticipantMember"]
+        )
+        participant.pop("ParticipantMember")
+
+    context = {
+        "participants": participants_data,
+    }
+    return render(request, f"common/{country_name}.html", context)

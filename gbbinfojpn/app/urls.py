@@ -22,6 +22,16 @@ urlpatterns = [
         result.result_view,
         name="result",
     ),
+    path(
+        "<int:year>/japan",
+        participants.participants_country_specific_view,
+        name="japan",
+    ),
+    path(
+        "<int:year>/korea",
+        participants.participants_country_specific_view,
+        name="korea",
+    ),
     # その他通常ページ
     path("<int:year>/<str:content>", common.content_view, name="common"),
 ]
