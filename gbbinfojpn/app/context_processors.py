@@ -148,7 +148,7 @@ def common_variables(request: HttpRequest):
         # 現在の言語コード
         "language": request.LANGUAGE_CODE,
         "is_translated": is_translated(request.path, request.LANGUAGE_CODE),
-        "current_url": request.path,
+        "current_url": request.get_full_path(),
         "last_updated": settings.LAST_UPDATED,
         "is_latest_year": is_latest_year_flag,
         "is_early_access": is_early_access_flag,
