@@ -136,6 +136,11 @@ def participants_view(request: HttpRequest, year: int):
             participant["country"] = participant["Country"]["names"][language]
             participant.pop("Country")
 
+        if participant["ParticipantMember"]:
+            participant["is_team"] = True
+        else:
+            participant["is_team"] = False
+
         participants_data_edited.append(participant)
 
     context = {
