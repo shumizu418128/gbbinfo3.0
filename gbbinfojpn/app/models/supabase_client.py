@@ -33,9 +33,9 @@ class SupabaseService:
 
         インスタンス生成時にSupabaseクライアントを初期化する（遅延初期化）。
         """
-        self._client: Optional[Client] = None
+        self._read_only_client: Optional[Client] = None
+        self._admin_client: Optional[Client] = None
 
-    @property
     def read_only_client(self) -> Client:
         """Supabaseクライアントのインスタンスを取得（読み取り専用）
 
@@ -51,6 +51,21 @@ class SupabaseService:
 
             if not supabase_url or not supabase_key:
                 raise ValueError("SUPABASE_URLとSUPABASE_ANON_KEYの環境変数が必要です")
+
+            self._client = create_client(supabase_url, supabase_key)
+
+        return self._client
+
+    def admin_client(self) -> Client:
+        """Supabaseクライアントのインスタンスを取得（管理者権限）"""
+        if self._admin_client is None:
+            supabase_url = os.getenv("SUPABASE_URL")
+            supabase_key = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
+
+            if not supabase_url or not supabase_key:
+                raise ValueError(
+                    "SUPABASE_URLとSUPABASE_SERVICE_ROLE_KEYの環境変数が必要です"
+                )
 
             self._client = create_client(supabase_url, supabase_key)
 
@@ -281,6 +296,35 @@ class SupabaseService:
             return pd.DataFrame(response.data, index=None)
         else:
             return response.data
+
+    # 以下、Tavilyのデータを管理するメソッド
+
+    def get_tavily_data(self, cache_key: str):
+        """Tavilyのデータを取得する"""
+        search_result = cache.get(cache_key)
+        if search_result is not None:
+            return json.loads(search_result)
+
+        query = self.admin_client.table("Tavily").select()
+        query = query.eq("cache_key", cache_key)
+        response = query.execute()
+
+        cache.set(cache_key, json.loads(response.data), timeout=None)
+        return json.loads(response.data)
+
+    def insert_tavily_data(self, cache_key: str, search_result: dict):
+        """Tavilyのデータを挿入する"""
+
+        # キャッシュに保存
+        cache.set(cache_key, search_result, timeout=None)
+
+        data = {
+            "cache_key": cache_key,
+            "search_result": json.dumps(search_result),
+        }
+
+        query = self.admin_client.table("Tavily").insert(data)
+        query.execute()
 
 
 # グローバルインスタンス

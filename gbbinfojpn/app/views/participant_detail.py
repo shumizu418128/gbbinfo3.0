@@ -1,7 +1,6 @@
 import re
 from urllib.parse import parse_qs, urlparse
 
-from django.core.cache import cache
 from django.http import HttpRequest, JsonResponse
 from django.shortcuts import render
 
@@ -117,13 +116,13 @@ def beatboxer_tavily_search(
         f"tavily_search_{re.sub(r'[^a-zA-Z0-9_-]', '_', beatboxer_name.strip())}"
     )
 
-    # キャッシュから結果を取得
-    cached_result = cache.get(cache_key)
-    if cached_result is not None:
-        return cached_result
+    # キャッシュとデータベースから結果を取得
+    search_results = supabase_service.get_tavily_data(cache_key)
 
-    # Tavily APIで検索を実行
-    search_results = tavily_service.search(beatboxer_name)["results"]
+    # ないならTavilyで検索して保存
+    if search_results is None:
+        search_results = tavily_service.search(beatboxer_name)
+        supabase_service.insert_tavily_data(cache_key, search_results)
 
     # 結果を格納するリスト
     account_urls = []  # アカウントURL（@を含むもの）
@@ -166,8 +165,6 @@ def beatboxer_tavily_search(
     # 3件以上取得できた場合はおわり
     if len(final_urls) >= 3:
         result = (account_urls, final_urls, youtube_embed_url)
-        # キャッシュに保存（24時間）
-        cache.set(cache_key, result, timeout=None)
         return result
 
     # ステップ3: 最低3件を確保するため、不足分を検索順で補完
@@ -180,8 +177,6 @@ def beatboxer_tavily_search(
                 break
 
     result = (account_urls, final_urls, youtube_embed_url)
-    # キャッシュに保存（24時間）
-    cache.set(cache_key, result, timeout=None)
     return result
 
 

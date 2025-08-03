@@ -37,7 +37,7 @@ class TavilyService:
             include_favicon=True,
             exclude_domains=EXCLUDE_DOMAINS,
         )
-        return result
+        return result["results"]
 
 
 # グローバルインスタンス
