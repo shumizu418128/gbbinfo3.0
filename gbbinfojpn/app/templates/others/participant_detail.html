@@ -10,19 +10,13 @@
 <h1>GBB {{ beatboxer_detail.year }} {{ beatboxer_detail.name }}</h1>
 <div class="youtube-embed-video"></div>
 
-{% if beatboxer_detail.is_cancelled %}
-    <div class="post-it">
-        <p>{{ beatboxer_detail.name }}: GBB {{ beatboxer_detail.year }} {% trans "【辞退】" %}</p>
-    </div>
-{% endif %}
-
 {% if mode == "single" or mode == "team" %}
     <table>
         <thead>
             <tr>
-                <th></th>
+                <th>{% if beatboxer_detail.is_cancelled %}{% trans "【辞退】" %}{% endif %}</th>
                 {% if beatboxer_detail.is_cancelled %}
-                    <th>{% trans "【辞退】" %}<br><s>{{ beatboxer_detail.name }}</s></th>
+                    <th><s>{{ beatboxer_detail.name }}</s></th>
                 {% else %}
                     <th>{{ beatboxer_detail.name }}</th>
                 {% endif %}
@@ -138,17 +132,11 @@
                 <tr>
                     {% if past_participation.is_cancelled %}
                         <td><s>{{ past_participation.year }}</s></td>
-                    {% else %}
-                        <td>{{ past_participation.year }}</td>
-                    {% endif %}
-                    {% if past_participation.is_cancelled %}
                         <td>{% trans "【辞退】" %}<br><a href="/others/participant_detail?id={{ past_participation.id }}&mode={{ past_participation.mode }}">{{ past_participation.name }}</a></td>
-                    {% else %}
-                        <td><a href="/others/participant_detail?id={{ past_participation.id }}&mode={{ past_participation.mode }}">{{ past_participation.name }}</a></td>
-                    {% endif %}
-                    {% if past_participation.is_cancelled %}
                         <td><s>{{ past_participation.category }}</s></td>
                     {% else %}
+                        <td>{{ past_participation.year }}</td>
+                        <td><a href="/others/participant_detail?id={{ past_participation.id }}&mode={{ past_participation.mode }}">{{ past_participation.name }}</a></td>
                         <td>{{ past_participation.category }}</td>
                     {% endif %}
                 </tr>
@@ -174,6 +162,32 @@
     <a href="/{{beatboxer_detail.year}}/rule"><button>GBB {{ beatboxer_detail.year }} {% trans "ルール & 審査員" %}</button></a>
     <a href="/{{beatboxer_detail.year}}/rule?scroll=result_date"><button>{% trans "Wildcard結果発表日" %}</button></a>
 </div>
+
+<h2>GBB {{ beatboxer_detail.year }} {{ beatboxer_detail.category }} {% trans "出場者一覧" %}</h2>
+<table>
+    <thead>
+        <tr>
+            <th style="width:33%">{% trans "名前" %}</th>
+            <th style="width:34%">{% trans "国" %}</th>
+            <th style="width:33%">{% trans "出場権" %}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for participant in same_year_category_participants %}
+            <tr>
+                {% if participant.is_cancelled %}
+                    <td>{% trans "【辞退】" %}<br><a href="/others/participant_detail?id={{ participant.id }}&mode={{ same_year_category_mode }}">{{ participant.name }}</a></td>
+                    <td><s>{{ participant.country }}</s></td>
+                    <td><s>{{ participant.ticket_class }}</s></td>
+                {% else %}
+                    <td><a href="/others/participant_detail?id={{ participant.id }}&mode={{ same_year_category_mode }}">{{ participant.name }}</a></td>
+                    <td>{{ participant.country }}</td>
+                    <td>{{ participant.ticket_class }}</td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
 {% csrf_token %}
 <script src="/static/scripts/participant_detail.js"></script>

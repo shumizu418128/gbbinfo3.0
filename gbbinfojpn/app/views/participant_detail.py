@@ -7,7 +7,7 @@ from django.shortcuts import render
 from gbbinfojpn.app.models.supabase_client import supabase_service
 from gbbinfojpn.app.models.tavily_client import tavily_service
 from gbbinfojpn.common.filter_eq import Operator
-from gbbinfojpn.common.participant_edit import team_multi_country
+from gbbinfojpn.common.participant_edit import team_multi_country, wildcard_rank_sort
 
 
 def get_primary_domain(url: str) -> str:
@@ -120,7 +120,7 @@ def beatboxer_tavily_search(
     search_results = supabase_service.get_tavily_data(cache_key)
 
     # ないならTavilyで検索して保存
-    if search_results is None:
+    if len(search_results) == 0:
         search_results = tavily_service.search(beatboxer_name)
         supabase_service.insert_tavily_data(cache_key, search_results)
 
@@ -143,7 +143,7 @@ def beatboxer_tavily_search(
             video_id = extract_youtube_video_id(item["url"])
             if video_id:
                 youtube_embed_url = (
-                    f"https://www.youtube.com/embed/{video_id}?amp;controls=0"
+                    f"https://www.youtube.com/embed/{video_id}?controls=0&hd=1&vq=hd720"
                 )
 
         # ステップ1: アカウントURLの収集（@を含むURLまたはタイトル）
@@ -253,7 +253,7 @@ def participant_detail_view(request: HttpRequest):
             ],
             join_tables={
                 "Country": ["iso_code", "names"],
-                "Category": ["name"],
+                "Category": ["id", "name"],
                 "ParticipantMember": ["id", "name", "Country(names)"],
             },
             filters={
@@ -280,7 +280,6 @@ def participant_detail_view(request: HttpRequest):
 
         # 部門名を取得
         beatboxer_detail["category"] = beatboxer_detail["Category"]["name"]
-        beatboxer_detail.pop("Category")
 
         # チームメンバーの国名を取得
         if beatboxer_detail["ParticipantMember"]:
@@ -348,15 +347,48 @@ def participant_detail_view(request: HttpRequest):
                     "is_cancelled": past_participation_member["Participant"][
                         "is_cancelled"
                     ],
-                    "mode": "team_member",
+                    "mode": "team",
                 }
             )
     past_data.sort(key=lambda x: (x["year"], x["category_id"]))
+
+    # 対象Beatboxerと同じ年・部門の出場者一覧を取得
+    # 部門を調べる
+    if mode == "team_member":
+        category_id = beatboxer_detail["Participant"]["category"]
+    else:
+        category_id = beatboxer_detail["Category"]["id"]
+
+    same_year_category_participants = supabase_service.get_data(
+        table="Participant",
+        columns=["id", "name", "is_cancelled", "ticket_class", "iso_code"],
+        join_tables={
+            "Country": ["names"],
+        },
+        filters={
+            "year": beatboxer_detail["year"],
+            "category": category_id,
+        },
+    )
+    for participant in same_year_category_participants:
+        participant["country"] = participant["Country"]["names"][language]
+
+    same_year_category_participants.sort(
+        key=lambda x: (
+            x["is_cancelled"],  # キャンセルした人は下
+            x["iso_code"] == 0,  # 出場者未定枠は下
+            "Wildcard" in x["ticket_class"],  # Wildcard通過者は下
+            wildcard_rank_sort(x),  # Wildcardのランキング順にする
+            "GBB" not in x["ticket_class"],  # GBBによるシードは上
+        )
+    )
 
     context = {
         "beatboxer_detail": beatboxer_detail,
         "mode": mode,
         "past_participation_data": past_data,
+        "same_year_category_participants": same_year_category_participants,
+        "same_year_category_mode": "single" if mode == "single" else "team",
     }
 
     return render(request, "others/participant_detail.html", context)

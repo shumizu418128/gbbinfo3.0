@@ -20,12 +20,27 @@ function embedYouTubeVideo(videoUrl) {
     const youtubeContainer = document.querySelector('.youtube-embed-video');
 
     if (videoUrl && youtubeContainer) {
-        // YouTube動画を左右方向中央に配置する
+        // YouTube動画を左右方向中央に配置する（16:9アスペクト比維持）
         const wrapper = document.createElement('div');
         wrapper.style.display = 'flex';
         wrapper.style.justifyContent = 'center';
         wrapper.style.alignItems = 'center';
         wrapper.style.width = '100%';
+
+        // 16:9アスペクト比を維持するコンテナ
+        const aspectRatioContainer = document.createElement('div');
+        aspectRatioContainer.style.position = 'relative';
+        aspectRatioContainer.style.width = '100%';
+        aspectRatioContainer.style.maxWidth = '560px';
+
+        // モダンブラウザではaspect-ratioを使用
+        if (CSS.supports('aspect-ratio', '16 / 9')) {
+            aspectRatioContainer.style.aspectRatio = '16 / 9';
+        } else {
+            // 古いブラウザ向けのフォールバック（paddingトリック）
+            aspectRatioContainer.style.paddingBottom = '56.25%'; // 9/16 * 100%
+            aspectRatioContainer.style.height = '0';
+        }
 
         const iframe = document.createElement('iframe');
         iframe.src = videoUrl;
@@ -34,12 +49,14 @@ function embedYouTubeVideo(videoUrl) {
         iframe.allow = 'autoplay; encrypted-media; picture-in-picture; web-share';
         iframe.referrerPolicy = 'strict-origin-when-cross-origin';
         iframe.allowFullscreen = true;
-        iframe.style.position = 'relative';
-        iframe.style.width = 'auto';
-        iframe.style.height = 'auto';
-        iframe.style.display = 'block';
+        iframe.style.position = 'absolute';
+        iframe.style.top = '0';
+        iframe.style.left = '0';
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
 
-        wrapper.appendChild(iframe);
+        aspectRatioContainer.appendChild(iframe);
+        wrapper.appendChild(aspectRatioContainer);
 
         youtubeContainer.innerHTML = '';
         youtubeContainer.appendChild(wrapper);
@@ -55,7 +72,7 @@ function createSearchResultHTML(urls, title) {
     let html = `<table>
         <thead>
             <tr>
-                <th></th>
+                <th style="width: 32px;"></th>
                 <th>${title}</th>
             </tr>
         </thead>
@@ -64,7 +81,7 @@ function createSearchResultHTML(urls, title) {
     urls.forEach(url => {
         html += `<tr>
             <td>
-                ${url.favicon ? `<img src="${url.favicon}" alt="favicon" style="width: 16px; height: 16px;">` : ''}
+                ${url.favicon ? `<img src="${url.favicon}" style="width: 16px;">` : ''}
             </td>
             <td>
                 <a href="${url.url}" target="_blank" rel="noopener noreferrer">
