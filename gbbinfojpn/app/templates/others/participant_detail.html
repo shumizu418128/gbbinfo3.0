@@ -188,7 +188,11 @@
                 </td>
             {% else %}
                 <td>
-                    <a href="/others/participant_detail?id={{ participant.id }}&mode={% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a>
+                    {% if participant.name == "???" %}
+                        {{ participant.name }}
+                    {% else %}
+                        <a href="/others/participant_detail?id={{ participant.id }}&mode={% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a>
+                    {% endif %}
                 </td>
                 <td {% if participant.country|length > 5 %} style="font-size: 12px;" {% endif %}>
                     {{ participant.country }}

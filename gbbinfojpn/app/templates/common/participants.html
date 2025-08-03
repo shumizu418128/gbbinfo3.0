@@ -64,9 +64,13 @@
                 <s>{{ participant.ticket_class }}</s>
               </td>
             {% else %}
-              <td>
-                <a href="/others/participant_detail?id={{ participant.id }}&mode={% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a>
-              </td>
+              {% if participant.name == "???" %}
+                <td>{{ participant.name }}</td>
+              {% else %}
+                <td>
+                  <a href="/others/participant_detail?id={{ participant.id }}&mode={% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a>
+                </td>
+              {% endif %}
               <td {% if participant.country|length > 5 %} style="font-size: 12px;" {% endif %}>
                 {{ participant.country }}
               </td>
