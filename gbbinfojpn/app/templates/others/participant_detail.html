@@ -58,13 +58,22 @@
 {% endif %}
 
 {% if mode == "team" %}
-    <h2>{% trans "メンバー" %}</h2>
+    <h2>TEAM MEMBERS</h2>
     <table>
-        {% for member in beatboxer_detail.ParticipantMember %}
+        <thead>
+            <tr>
+                <th>{% trans "名前" %}</th>
+                <th>{% trans "国" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for member in beatboxer_detail.ParticipantMember %}
             <tr>
                 <td><a href="/others/participant_detail?id={{ member.id }}&mode=team_member">{{ member.name }}</a></td>
+                <td>{{ member.country }}</td>
             </tr>
-        {% endfor %}
+            {% endfor %}
+        </tbody>
     </table>
 
     {% if beatboxer_detail.is_cancelled %}

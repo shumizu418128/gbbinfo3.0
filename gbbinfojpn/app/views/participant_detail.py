@@ -287,6 +287,12 @@ def participant_detail_view(request: HttpRequest):
         beatboxer_detail["category"] = beatboxer_detail["Category"]["name"]
         beatboxer_detail.pop("Category")
 
+        # チームメンバーの国名を取得
+        if beatboxer_detail["ParticipantMember"]:
+            for member in beatboxer_detail["ParticipantMember"]:
+                member["country"] = member["Country"]["names"][language]
+                member["name"] = member["name"].upper()
+
     # 過去の出場履歴を取得
     past_participation_data = supabase_service.get_data(
         table="Participant",
