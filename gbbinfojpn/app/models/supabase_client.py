@@ -314,9 +314,14 @@ class SupabaseService:
         if len(response.data) == 0:
             return []
 
-        response_str = response.data[0]["search_results"]
-        cache.set(cache_key, json.loads(response_str), timeout=None)
-        return json.loads(response_str)
+        response_results = response.data[0]["search_results"]
+
+        if isinstance(response_results, list):
+            cache.set(cache_key, response_results, timeout=None)
+            return response_results
+        else:
+            cache.set(cache_key, json.loads(response_results), timeout=None)
+            return json.loads(response_results)
 
     def insert_tavily_data(self, cache_key: str, search_result: dict):
         """Tavilyのデータを挿入する"""

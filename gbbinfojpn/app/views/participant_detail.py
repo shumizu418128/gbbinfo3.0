@@ -128,6 +128,7 @@ def beatboxer_tavily_search(
     account_urls = []  # アカウントURL（@を含むもの）
     final_urls = []  # 最終的な選定URL
     youtube_embed_url = ""
+    original_youtube_embed_url = ""
 
     # 処理済みのプライマリドメインを記録
     account_domains_seen = set()
@@ -145,6 +146,7 @@ def beatboxer_tavily_search(
                 youtube_embed_url = (
                     f"https://www.youtube.com/embed/{video_id}?controls=0&hd=1&vq=hd720"
                 )
+                original_youtube_embed_url = item["url"]
 
         # ステップ1: アカウントURLの収集（@を含むURLまたはタイトル）
         is_account_url = ("@" in item["url"]) or ("@" in item["title"])
@@ -157,8 +159,9 @@ def beatboxer_tavily_search(
         # ステップ2: プライマリドメインごとの代表URLを収集
         is_new_domain = primary_domain not in final_domains_seen
         is_not_account_url = item not in account_urls
+        is_not_youtube_url = item["url"] != original_youtube_embed_url
 
-        if is_new_domain and is_not_account_url:
+        if is_new_domain and is_not_account_url and is_not_youtube_url:
             final_urls.append(item)
             final_domains_seen.add(primary_domain)
 
@@ -170,8 +173,9 @@ def beatboxer_tavily_search(
     # ステップ3: 最低3件を確保するため、不足分を検索順で補完
     for item in search_results:
         is_not_included = item not in final_urls and item not in account_urls
+        is_not_youtube_url = item["url"] != original_youtube_embed_url
 
-        if is_not_included:
+        if is_not_included and is_not_youtube_url:
             final_urls.append(item)
             if len(final_urls) >= 3:
                 break
@@ -197,8 +201,8 @@ def post_beatboxer_tavily_search(request: HttpRequest):
 
 
 def participant_detail_view(request: HttpRequest):
-    id = request.GET.get("id")  # 出場者ID
-    mode = request.GET.get("mode")  # single, team, team_member
+    id = request.GET["id"]  # 出場者ID
+    mode = request.GET["mode"]  # single, team, team_member
 
     # チームメンバーの場合、情報を取得
     if mode == "team_member":
@@ -294,6 +298,7 @@ def participant_detail_view(request: HttpRequest):
         order_by="year",
         join_tables={
             "Category": ["name"],
+            "ParticipantMember": ["id"],
         },
         filters={
             f"name__{Operator.MATCH_IGNORE_CASE}": beatboxer_detail["name"],
@@ -322,6 +327,9 @@ def participant_detail_view(request: HttpRequest):
     # MATCH_IGNORE_CASE演算子は大文字小文字を区別しない部分一致であるため、完全一致の確認を行う
     for past_participation in past_participation_data:
         if past_participation["name"].upper() == beatboxer_detail["name"]:
+            past_participation_mode = (
+                "single" if past_participation["ParticipantMember"] is None else "team"
+            )
             past_data.append(
                 {
                     "id": past_participation["id"],
@@ -330,7 +338,7 @@ def participant_detail_view(request: HttpRequest):
                     "category": past_participation["Category"]["name"],
                     "category_id": past_participation["category"],
                     "is_cancelled": past_participation["is_cancelled"],
-                    "mode": "single",
+                    "mode": past_participation_mode,
                 }
             )
     for past_participation_member in past_participation_member_data:
@@ -392,12 +400,14 @@ def participant_detail_view(request: HttpRequest):
         )
     )
 
+    same_year_category_mode = "single" if mode == "single" else "team"
+
     context = {
         "beatboxer_detail": beatboxer_detail,
         "mode": mode,
         "past_participation_data": past_data,
         "same_year_category_participants": same_year_category_edited,
-        "same_year_category_mode": "single" if mode == "single" else "team",
+        "same_year_category_mode": same_year_category_mode,
     }
 
     return render(request, "others/participant_detail.html", context)

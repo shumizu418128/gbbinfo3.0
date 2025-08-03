@@ -99,7 +99,7 @@
                 {% endif %}
             </tr>
             <tr>
-                <td>{% trans "所属チーム" %}</td>
+                <td>TEAM</td>
                 {% if beatboxer_detail.is_cancelled %}
                     <td>【{% trans "辞退" %}】<br><a href="/others/participant_detail?id={{ beatboxer_detail.Participant.id }}&mode=team">{{ beatboxer_detail.Participant.name }}</a></td>
                 {% else %}
@@ -146,7 +146,9 @@
 {% endif %}
 
 <h2>{{ beatboxer_detail.name }} {% trans "関連サイト" %}</h2>
+<div style="margin: 40px;"></div>
 <div class="account-urls"></div>
+<div style="margin: 40px;"></div>
 <div class="final-urls"></div>
 
 <div class="post-it">
@@ -178,7 +180,7 @@
             {% if participant.is_cancelled %}
                 <td>
                     【{% trans "辞退" %}】<br>
-                    <a href="/others/participant_detail?id={{ participant.id }}&mode={% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a>
+                    <a href="/others/participant_detail?id={{ participant.id }}&mode={{ same_year_category_mode }}">{{ participant.name }}</a>
                 </td>
                     <td {% if participant.country|length > 5 %} style="font-size: 12px;" {% endif %}>
                     <s>{{ participant.country }}</s>
@@ -191,7 +193,7 @@
                     {% if participant.name == "???" %}
                         {{ participant.name }}
                     {% else %}
-                        <a href="/others/participant_detail?id={{ participant.id }}&mode={% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a>
+                        <a href="/others/participant_detail?id={{ participant.id }}&mode={{ same_year_category_mode }}">{{ participant.name }}</a>
                     {% endif %}
                 </td>
                 <td {% if participant.country|length > 5 %} style="font-size: 12px;" {% endif %}>
