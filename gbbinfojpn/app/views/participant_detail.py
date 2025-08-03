@@ -364,16 +364,25 @@ def participant_detail_view(request: HttpRequest):
         columns=["id", "name", "is_cancelled", "ticket_class", "iso_code"],
         join_tables={
             "Country": ["names"],
+            "ParticipantMember": ["id", "name", "Country(names)"],
         },
         filters={
             "year": beatboxer_detail["year"],
             "category": category_id,
         },
     )
-    for participant in same_year_category_participants:
-        participant["country"] = participant["Country"]["names"][language]
 
-    same_year_category_participants.sort(
+    same_year_category_edited = []
+    for participant in same_year_category_participants:
+        participant["name"] = participant["name"].upper()
+        if participant["iso_code"] == 9999:
+            participant = team_multi_country(participant, language)
+        else:
+            participant["country"] = participant["Country"]["names"][language]
+            participant.pop("Country")
+        same_year_category_edited.append(participant)
+
+    same_year_category_edited.sort(
         key=lambda x: (
             x["is_cancelled"],  # キャンセルした人は下
             x["iso_code"] == 0,  # 出場者未定枠は下
@@ -387,7 +396,7 @@ def participant_detail_view(request: HttpRequest):
         "beatboxer_detail": beatboxer_detail,
         "mode": mode,
         "past_participation_data": past_data,
-        "same_year_category_participants": same_year_category_participants,
+        "same_year_category_participants": same_year_category_edited,
         "same_year_category_mode": "single" if mode == "single" else "team",
     }
 
