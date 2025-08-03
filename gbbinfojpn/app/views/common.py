@@ -1,3 +1,4 @@
+import os
 from datetime import datetime
 
 from django.http import HttpRequest, HttpResponseRedirect
@@ -37,8 +38,10 @@ def content_view(request: HttpRequest, year: int, content: str):
     Returns:
         HttpResponse: レンダリングされたテンプレート
     """
+    content_basename = os.path.basename(content)
+
     try:
-        return render(request, f"{year}/{content}.html")
+        return render(request, f"{year}/{content_basename}.html")
     except TemplateDoesNotExist:
         return not_found_page_view(request)
 
@@ -47,10 +50,13 @@ def other_content_view(request: HttpRequest, content: str):
     """
     その他のコンテンツを表示する。
     """
+    content_basename = os.path.basename(content)
+
     try:
-        return render(request, f"others/{content}.html")
+        return render(request, f"others/{content_basename}.html")
     except TemplateDoesNotExist:
         return not_found_page_view(request)
+
 
 def not_found_page_view(request: HttpRequest, exception=None):
     """
