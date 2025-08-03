@@ -48,5 +48,9 @@ urlpatterns = [
     path("others/<str:content>", common.other_content_view, name="others"),
     path("<int:year>/<str:content>", common.content_view, name="common"),
     # postリクエスト
-    path("beatboxer_tavily_search", participant_detail.post_beatboxer_tavily_search, name="beatboxer_tavily_search"),
+    path(
+        "beatboxer_tavily_search",
+        participant_detail.post_beatboxer_tavily_search,
+        name="beatboxer_tavily_search",
+    ),
 ]

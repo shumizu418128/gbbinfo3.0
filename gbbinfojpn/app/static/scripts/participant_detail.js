@@ -80,7 +80,7 @@ function createSearchResultHTML(urls, title) {
 
 // Tavily検索を実行する関数
 // biome-ignore lint/correctness/noUnusedVariables: 使ってる
-function tavilySearch(beatboxerId) {
+function tavilySearch(beatboxerId, mode) {
     const accountUrlsContainer = document.querySelector('.account-urls');
     const finalUrlsContainer = document.querySelector('.final-urls');
 
@@ -96,6 +96,7 @@ function tavilySearch(beatboxerId) {
     // POSTリクエストでTavily検索を実行
     const formData = new URLSearchParams();
     formData.append('beatboxer_id', beatboxerId);
+    formData.append('mode', mode || 'single');
 
     fetch('/beatboxer_tavily_search', {
         method: 'POST',

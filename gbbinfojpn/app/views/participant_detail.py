@@ -28,7 +28,7 @@ def get_primary_domain(url: str) -> str:
         return full_domain
 
 
-def get_beatboxer_name(beatboxer_id: int):
+def get_beatboxer_name(beatboxer_id: int, mode: str = "single"):
     # 出場者名を取得
     participant_data = supabase_service.get_data(
         table="Participant",
@@ -37,6 +37,14 @@ def get_beatboxer_name(beatboxer_id: int):
             "id": beatboxer_id,
         },
     )
+    if mode == "team_member":
+        participant_data = supabase_service.get_data(
+            table="ParticipantMember",
+            columns=["name"],
+            filters={
+                "id": beatboxer_id,
+            },
+        )
     beatboxer_name = participant_data[0]["name"].upper()
     return beatboxer_name
 
@@ -69,7 +77,9 @@ def extract_youtube_video_id(url):
 
 
 def beatboxer_tavily_search(
-    beatboxer_id: int | None = None, beatboxer_name: str | None = None
+    beatboxer_id: int | None = None,
+    beatboxer_name: str | None = None,
+    mode: str = "single",
 ):
     """
     指定された出場者IDに基づき、Tavily検索APIを利用して関連するURLリストを取得します。
@@ -98,7 +108,7 @@ def beatboxer_tavily_search(
 
     # beatboxer_nameが指定されていない場合は、beatboxer_idから取得
     if beatboxer_name is None:
-        beatboxer_name = get_beatboxer_name(beatboxer_id)
+        beatboxer_name = get_beatboxer_name(beatboxer_id, mode)
 
     # キャッシュキーを作成（スペースやその他の特殊文字を安全な文字に置換）
     cache_key = (
@@ -175,9 +185,10 @@ def beatboxer_tavily_search(
 
 def post_beatboxer_tavily_search(request: HttpRequest):
     beatboxer_id = request.POST.get("beatboxer_id")
+    mode = request.POST.get("mode", "single")
 
     account_urls, final_urls, youtube_embed_url = beatboxer_tavily_search(
-        beatboxer_id=beatboxer_id
+        beatboxer_id=beatboxer_id, mode=mode
     )
 
     data = {
@@ -195,10 +206,9 @@ def participant_detail_view(request: HttpRequest):
     if mode == "team_member":
         beatboxer_data = supabase_service.get_data(
             table="ParticipantMember",
-            columns=["participant", "name"],
+            columns=["id", "participant", "name"],
             join_tables={
                 "Country": ["iso_code", "names"],
-                "Category": ["name"],
                 "Participant": [
                     "id",
                     "name",
@@ -215,6 +225,9 @@ def participant_detail_view(request: HttpRequest):
 
         # 名前は大文字に変換
         beatboxer_detail["name"] = beatboxer_detail["name"].upper()
+        beatboxer_detail["Participant"]["name"] = beatboxer_detail["Participant"][
+            "name"
+        ].upper()
 
         # 設定言語に合わせて国名を取得
         language = request.LANGUAGE_CODE
@@ -223,8 +236,6 @@ def participant_detail_view(request: HttpRequest):
 
         # メンバーの情報に無い情報を追加
         beatboxer_detail["year"] = beatboxer_detail["Participant"]["year"]
-        beatboxer_detail["category"] = beatboxer_detail["Category"]["name"]
-        beatboxer_detail.pop("Category")
         beatboxer_detail["is_cancelled"] = beatboxer_detail["Participant"][
             "is_cancelled"
         ]
