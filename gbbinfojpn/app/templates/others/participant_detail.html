@@ -74,13 +74,6 @@
     {% endif %}
 {% endif %}
 
-<div class="button-container">
-    <a href="/{{beatboxer_detail.year}}/participants"><button>GBB {{ beatboxer_detail.year }} {% trans "全出場者一覧" %}<br></button></a>
-    <a href="/{{beatboxer_detail.year}}/rule"><button>{% trans "出場権詳細" %}</button></a>
-    <a href="/{{beatboxer_detail.year}}/rule"><button>GBB {{ beatboxer_detail.year }} {% trans "ルール & 審査員" %}</button></a>
-    <a href="/{{beatboxer_detail.year}}/rule?scroll=result_date"><button>{% trans "Wildcard結果発表日" %}</button></a>
-</div>
-
 {% if mode == "team_member" %}
     <table>
         <thead>
@@ -110,6 +103,47 @@
                     <td><a href="/others/participant_detail?id={{ beatboxer_detail.Participant.id }}&mode=team">{{ beatboxer_detail.Participant.name }}</a></td>
                 {% endif %}
             </tr>
+        </tbody>
+    </table>
+{% endif %}
+
+<div class="button-container">
+    <a href="/{{beatboxer_detail.year}}/participants"><button>GBB {{ beatboxer_detail.year }} {% trans "全出場者一覧" %}<br></button></a>
+    <a href="/{{beatboxer_detail.year}}/rule"><button>{% trans "出場権詳細" %}</button></a>
+    <a href="/{{beatboxer_detail.year}}/rule"><button>GBB {{ beatboxer_detail.year }} {% trans "ルール & 審査員" %}</button></a>
+    <a href="/{{beatboxer_detail.year}}/rule?scroll=result_date"><button>{% trans "Wildcard結果発表日" %}</button></a>
+</div>
+
+<h2>{{ beatboxer_detail.name }} {% trans "過去の出場履歴" %}</h2>
+{% if past_participation_data %}
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>{% trans "名前" %}</th>
+                <th>{% trans "部門" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for past_participation in past_participation_data %}
+                <tr>
+                    {% if past_participation.is_cancelled %}
+                        <td><s>{{ past_participation.year }}</s></td>
+                    {% else %}
+                        <td>{{ past_participation.year }}</td>
+                    {% endif %}
+                    {% if past_participation.is_cancelled %}
+                        <td>{% trans "【辞退】" %}<br><a href="/others/participant_detail?id={{ past_participation.id }}&mode={{ past_participation.mode }}">{{ past_participation.name }}</a></td>
+                    {% else %}
+                        <td><a href="/others/participant_detail?id={{ past_participation.id }}&mode={{ past_participation.mode }}">{{ past_participation.name }}</a></td>
+                    {% endif %}
+                    {% if past_participation.is_cancelled %}
+                        <td><s>{{ past_participation.category }}</s></td>
+                    {% else %}
+                        <td>{{ past_participation.category }}</td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
         </tbody>
     </table>
 {% endif %}

@@ -7,31 +7,8 @@ from django.http import HttpRequest
 from django.shortcuts import redirect, render
 
 from gbbinfojpn.common.filter_eq import Operator
+from gbbinfojpn.common.participant_edit import wildcard_rank_sort
 from gbbinfojpn.database.models.supabase_client import supabase_service
-
-
-def wildcard_rank_sort(x):
-    """出場者データの'ticket_class'が'Wildcard'の場合はランキング順の整数値を返し、それ以外は無限大を返す。
-
-    Args:
-        x (dict): 出場者データの辞書
-
-    Returns:
-        int or float: Wildcardの場合はランキング順の整数値、それ以外はfloat('inf')
-    """
-    import re
-
-    if "Wildcard" in x["ticket_class"]:
-        # 例: "Wildcard 1 (2020)" または "Wildcard 1" の両方に対応
-        m = re.match(r"Wildcard\s+(\d+)(?:\s*\((\d{4})\))?", x["ticket_class"])
-        if m:
-            rank = int(m.group(1))
-            year = int(m.group(2)) if m.group(2) else 0  # 年が無い場合は0
-            return (rank, year)
-        else:
-            return (float("inf"), float("inf"))
-    else:
-        return (float("inf"), float("inf"))
 
 
 def participants_view(request: HttpRequest):

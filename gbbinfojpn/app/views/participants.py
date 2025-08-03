@@ -1,36 +1,12 @@
-import re
-
 from django.http import HttpRequest
 from django.shortcuts import redirect, render
 
 from gbbinfojpn.app.models.supabase_client import supabase_service
 from gbbinfojpn.common.filter_eq import Operator
+from gbbinfojpn.common.participant_edit import team_multi_country, wildcard_rank_sort
 
 VALID_TICKET_CLASSES = ["all", "wildcard", "seed_right"]
 VALID_CANCEL = ["show", "hide", "only_cancelled"]
-
-
-def wildcard_rank_sort(x):
-    """出場者データの'ticket_class'が'Wildcard'の場合はランキング順の整数値を返し、それ以外は無限大を返す。
-
-    Args:
-        x (dict): 出場者データの辞書
-
-    Returns:
-        int or float: Wildcardの場合はランキング順の整数値、それ以外はfloat('inf')
-    """
-
-    if "Wildcard" in x["ticket_class"]:
-        # 例: "Wildcard 1 (2020)" または "Wildcard 1" の両方に対応
-        m = re.match(r"Wildcard\s+(\d+)(?:\s*\((\d{4})\))?", x["ticket_class"])
-        if m:
-            rank = int(m.group(1))
-            year = int(m.group(2)) if m.group(2) else 0  # 年が無い場合は0
-            return (year, rank)
-        else:
-            return (float("inf"), float("inf"))
-    else:
-        return (float("inf"), float("inf"))
 
 
 def participants_view(request: HttpRequest, year: int):
@@ -125,7 +101,7 @@ def participants_view(request: HttpRequest, year: int):
         columns=["id", "name", "category", "ticket_class", "is_cancelled", "iso_code"],
         join_tables={
             "Category": ["id", "name"],
-            "ParticipantMember": ["name"],
+            "ParticipantMember": ["name", "Country(names)"],
             "Country": ["iso_code", "names"],
         },
         filters=filters,
@@ -143,6 +119,8 @@ def participants_view(request: HttpRequest, year: int):
     # 言語を取得
     language = request.LANGUAGE_CODE
 
+    participants_data_edited = []
+
     for participant in participants_data:
         # 全員の名前を大文字に変換
         participant["name"] = participant["name"].upper()
@@ -151,18 +129,17 @@ def participants_view(request: HttpRequest, year: int):
         participant["category"] = participant["Category"]["name"]
         participant.pop("Category")
 
-        # メンバー名を取り出す
-        participant["members"] = ", ".join(
-            member["name"].upper() for member in participant["ParticipantMember"]
-        )
-        participant.pop("ParticipantMember")
-
         # 国名を取り出す
-        participant["country"] = participant["Country"]["names"][language]
-        participant.pop("Country")
+        if participant["iso_code"] == 9999:
+            participant = team_multi_country(participant, language)
+        else:
+            participant["country"] = participant["Country"]["names"][language]
+            participant.pop("Country")
+
+        participants_data_edited.append(participant)
 
     context = {
-        "participants": participants_data,
+        "participants": participants_data_edited,
         "all_category": all_category_names,
         "category": category,
         "ticket_class": ticket_class,
@@ -193,15 +170,6 @@ def participants_country_specific_view(request: HttpRequest, year: int):
             "iso_code": iso_code,
         },
     )
-    participants_data.sort(
-        key=lambda x: (
-            x["is_cancelled"],  # キャンセルした人は下
-            x["category"],  # カテゴリでソート
-            "Wildcard" in x["ticket_class"],  # Wildcard通過者は下
-            wildcard_rank_sort(x),  # Wildcardのランキング順にする
-            "GBB" not in x["ticket_class"],  # GBBによるシードは上
-        )
-    )
 
     for participant in participants_data:
         # 全員の名前を大文字に変換
@@ -211,11 +179,36 @@ def participants_country_specific_view(request: HttpRequest, year: int):
         participant["category"] = participant["Category"]["name"]
         participant.pop("Category")
 
-        # メンバー名を取り出す
-        participant["members"] = ", ".join(
-            member["name"].upper() for member in participant["ParticipantMember"]
+    # 複数か国のチームも調べる
+    multi_country_team_data = supabase_service.get_data(
+        table="Participant",
+        columns=["name", "category", "ticket_class", "is_cancelled"],
+        join_tables={
+            "Category": ["id", "name"],
+            "ParticipantMember": ["name"],
+        },
+        filters={
+            "year": year,
+            "iso_code": 9999,
+        },
+    )
+
+    # 探している国籍のチームだった場合、そのチームを追加
+    for team in multi_country_team_data:
+        for member in team["ParticipantMember"]:
+            if member["iso_code"] == iso_code:
+                participants_data.append(team)
+                break
+
+    participants_data.sort(
+        key=lambda x: (
+            x["is_cancelled"],  # キャンセルした人は下
+            x["category"],  # カテゴリでソート
+            "Wildcard" in x["ticket_class"],  # Wildcard通過者は下
+            wildcard_rank_sort(x),  # Wildcardのランキング順にする
+            "GBB" not in x["ticket_class"],  # GBBによるシードは上
         )
-        participant.pop("ParticipantMember")
+    )
 
     context = {
         "participants": participants_data,

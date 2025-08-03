@@ -7,6 +7,8 @@ from django.shortcuts import render
 
 from gbbinfojpn.app.models.supabase_client import supabase_service
 from gbbinfojpn.app.models.tavily_client import tavily_service
+from gbbinfojpn.common.filter_eq import Operator
+from gbbinfojpn.common.participant_edit import team_multi_country
 
 
 def get_primary_domain(url: str) -> str:
@@ -203,6 +205,7 @@ def participant_detail_view(request: HttpRequest):
     id = request.GET.get("id")  # 出場者ID
     mode = request.GET.get("mode")  # single, team, team_member
 
+    # チームメンバーの場合、情報を取得
     if mode == "team_member":
         beatboxer_data = supabase_service.get_data(
             table="ParticipantMember",
@@ -240,50 +243,119 @@ def participant_detail_view(request: HttpRequest):
             "is_cancelled"
         ]
 
-        context = {
-            "beatboxer_detail": beatboxer_detail,
-            "mode": mode,
-        }
-        return render(request, "others/participant_detail.html", context)
-
     # 1人部門 or チーム部門のチームについての情報を取得
-    beatboxer_data = supabase_service.get_data(
+    else:
+        beatboxer_data = supabase_service.get_data(
+            table="Participant",
+            columns=[
+                "id",
+                "name",
+                "year",
+                "category",
+                "iso_code",
+                "ticket_class",
+                "is_cancelled",
+            ],
+            join_tables={
+                "Country": ["iso_code", "names"],
+                "Category": ["name"],
+                "ParticipantMember": ["id", "name", "Country(names)"],
+            },
+            filters={
+                "id": id,
+            },
+        )
+
+        beatboxer_detail = beatboxer_data[0]
+
+        # 名前は大文字に変換
+        beatboxer_detail["name"] = beatboxer_detail["name"].upper()
+
+        # 設定言語に合わせて国名を取得
+        language = request.LANGUAGE_CODE
+
+        # 複数国籍のチームの場合、国名をまとめる
+        if beatboxer_detail["iso_code"] == 9999:
+            beatboxer_detail = team_multi_country(beatboxer_detail, language)
+
+        # 1国籍のチームの場合、国名を取得
+        else:
+            beatboxer_detail["country"] = beatboxer_detail["Country"]["names"][language]
+            beatboxer_detail.pop("Country")
+
+        # 部門名を取得
+        beatboxer_detail["category"] = beatboxer_detail["Category"]["name"]
+        beatboxer_detail.pop("Category")
+
+    # 過去の出場履歴を取得
+    past_participation_data = supabase_service.get_data(
         table="Participant",
-        columns=[
-            "id",
-            "name",
-            "year",
-            "category",
-            "iso_code",
-            "ticket_class",
-            "is_cancelled",
-        ],
+        columns=["id", "name", "year", "is_cancelled", "category"],
+        order_by="year",
         join_tables={
-            "Country": ["iso_code", "names"],
             "Category": ["name"],
-            "ParticipantMember": ["id", "name"],
         },
         filters={
-            "id": id,
+            f"name__{Operator.MATCH_IGNORE_CASE}": beatboxer_detail["name"],
+        },
+    )
+    past_participation_member_data = supabase_service.get_data(
+        table="ParticipantMember",
+        columns=["name"],
+        join_tables={
+            "Participant": [
+                "id",
+                "name",
+                "year",
+                "is_cancelled",
+                "Category(name)",
+                "category",
+            ],
+        },
+        filters={
+            f"name__{Operator.MATCH_IGNORE_CASE}": beatboxer_detail["name"],
         },
     )
 
-    beatboxer_detail = beatboxer_data[0]
+    past_data = []
 
-    # 名前は大文字に変換
-    beatboxer_detail["name"] = beatboxer_detail["name"].upper()
-
-    # 設定言語に合わせて国名を取得
-    language = request.LANGUAGE_CODE
-    beatboxer_detail["country"] = beatboxer_detail["Country"]["names"][language]
-    beatboxer_detail.pop("Country")
-
-    # 部門名を取得
-    beatboxer_detail["category"] = beatboxer_detail["Category"]["name"]
-    beatboxer_detail.pop("Category")
+    # MATCH_IGNORE_CASE演算子は大文字小文字を区別しない部分一致であるため、完全一致の確認を行う
+    for past_participation in past_participation_data:
+        if past_participation["name"].upper() == beatboxer_detail["name"]:
+            past_data.append(
+                {
+                    "id": past_participation["id"],
+                    "year": past_participation["year"],
+                    "name": past_participation["name"].upper(),
+                    "category": past_participation["Category"]["name"],
+                    "category_id": past_participation["category"],
+                    "is_cancelled": past_participation["is_cancelled"],
+                    "mode": "single",
+                }
+            )
+    for past_participation_member in past_participation_member_data:
+        if past_participation_member["name"].upper() == beatboxer_detail["name"]:
+            past_data.append(
+                {
+                    "id": past_participation_member["Participant"]["id"],
+                    "year": past_participation_member["Participant"]["year"],
+                    "name": past_participation_member["Participant"]["name"].upper(),
+                    "category": past_participation_member["Participant"]["Category"][
+                        "name"
+                    ],
+                    "category_id": past_participation_member["Participant"]["category"],
+                    "is_cancelled": past_participation_member["Participant"][
+                        "is_cancelled"
+                    ],
+                    "mode": "team_member",
+                }
+            )
+    past_data.sort(key=lambda x: (x["year"], x["category_id"]))
 
     context = {
         "beatboxer_detail": beatboxer_detail,
         "mode": mode,
+        "past_participation_data": past_data,
     }
+
     return render(request, "others/participant_detail.html", context)
