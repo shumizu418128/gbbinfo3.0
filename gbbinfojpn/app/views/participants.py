@@ -1,3 +1,5 @@
+import re
+
 from django.http import HttpRequest
 from django.shortcuts import redirect, render
 
@@ -17,10 +19,18 @@ def wildcard_rank_sort(x):
     Returns:
         int or float: Wildcardの場合はランキング順の整数値、それ以外はfloat('inf')
     """
+
     if "Wildcard" in x["ticket_class"]:
-        return int(x["ticket_class"].replace("Wildcard ", ""))
+        # 例: "Wildcard 1 (2020)" または "Wildcard 1" の両方に対応
+        m = re.match(r"Wildcard\s+(\d+)(?:\s*\((\d{4})\))?", x["ticket_class"])
+        if m:
+            rank = int(m.group(1))
+            year = int(m.group(2)) if m.group(2) else 0  # 年が無い場合は0
+            return (year, rank)
+        else:
+            return (float("inf"), float("inf"))
     else:
-        return float("inf")
+        return (float("inf"), float("inf"))
 
 
 def participants_view(request: HttpRequest, year: int):
