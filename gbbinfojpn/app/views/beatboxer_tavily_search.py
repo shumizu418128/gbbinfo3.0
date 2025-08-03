@@ -81,7 +81,7 @@ def beatboxer_tavily_search(
         beatboxer_id (int): 検索対象の出場者ID
 
     Returns:
-        tuple[list[dict], list[dict]]: 選定されたURL情報の辞書リスト（Tavily APIの検索結果アイテム形式）
+        tuple: (アカウントURLリスト, 最終的な選定URLリスト, YouTube動画URL)
 
     Raises:
         IndexError: 指定したIDの出場者が存在しない場合
