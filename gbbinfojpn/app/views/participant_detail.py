@@ -1,6 +1,10 @@
 import re
 from urllib.parse import parse_qs, urlparse
 
+from django.core.cache import cache
+from django.http import HttpRequest, JsonResponse
+from django.shortcuts import render
+
 from gbbinfojpn.app.models.supabase_client import supabase_service
 from gbbinfojpn.app.models.tavily_client import tavily_service
 
@@ -79,6 +83,7 @@ def beatboxer_tavily_search(
 
     Args:
         beatboxer_id (int): 検索対象の出場者ID
+        beatboxer_name (str): 検索対象の出場者名
 
     Returns:
         tuple: (アカウントURLリスト, 最終的な選定URLリスト, YouTube動画URL)
@@ -94,6 +99,16 @@ def beatboxer_tavily_search(
     # beatboxer_nameが指定されていない場合は、beatboxer_idから取得
     if beatboxer_name is None:
         beatboxer_name = get_beatboxer_name(beatboxer_id)
+
+    # キャッシュキーを作成（スペースやその他の特殊文字を安全な文字に置換）
+    cache_key = (
+        f"tavily_search_{re.sub(r'[^a-zA-Z0-9_-]', '_', beatboxer_name.strip())}"
+    )
+
+    # キャッシュから結果を取得
+    cached_result = cache.get(cache_key)
+    if cached_result is not None:
+        return cached_result
 
     # Tavily APIで検索を実行
     search_results = tavily_service.search(beatboxer_name)["results"]
@@ -138,7 +153,10 @@ def beatboxer_tavily_search(
 
     # 3件以上取得できた場合はおわり
     if len(final_urls) >= 3:
-        return (account_urls, final_urls, youtube_embed_url)
+        result = (account_urls, final_urls, youtube_embed_url)
+        # キャッシュに保存（24時間）
+        cache.set(cache_key, result, timeout=None)
+        return result
 
     # ステップ3: 最低3件を確保するため、不足分を検索順で補完
     for item in search_results:
@@ -149,4 +167,112 @@ def beatboxer_tavily_search(
             if len(final_urls) >= 3:
                 break
 
-    return (account_urls, final_urls, youtube_embed_url)
+    result = (account_urls, final_urls, youtube_embed_url)
+    # キャッシュに保存（24時間）
+    cache.set(cache_key, result, timeout=None)
+    return result
+
+
+def post_beatboxer_tavily_search(request: HttpRequest):
+    beatboxer_id = request.POST.get("beatboxer_id")
+
+    account_urls, final_urls, youtube_embed_url = beatboxer_tavily_search(
+        beatboxer_id=beatboxer_id
+    )
+
+    data = {
+        "account_urls": account_urls,
+        "final_urls": final_urls,
+        "youtube_embed_url": youtube_embed_url,
+    }
+    return JsonResponse(data)
+
+
+def participant_detail_view(request: HttpRequest):
+    id = request.GET.get("id")  # 出場者ID
+    mode = request.GET.get("mode")  # single, team, team_member
+
+    if mode == "team_member":
+        beatboxer_data = supabase_service.get_data(
+            table="ParticipantMember",
+            columns=["participant", "name"],
+            join_tables={
+                "Country": ["iso_code", "names"],
+                "Category": ["name"],
+                "Participant": [
+                    "id",
+                    "name",
+                    "year",
+                    "category",
+                    "is_cancelled",
+                ],
+            },
+            filters={
+                "id": id,
+            },
+        )
+        beatboxer_detail = beatboxer_data[0]
+
+        # 名前は大文字に変換
+        beatboxer_detail["name"] = beatboxer_detail["name"].upper()
+
+        # 設定言語に合わせて国名を取得
+        language = request.LANGUAGE_CODE
+        beatboxer_detail["country"] = beatboxer_detail["Country"]["names"][language]
+        beatboxer_detail.pop("Country")
+
+        # メンバーの情報に無い情報を追加
+        beatboxer_detail["year"] = beatboxer_detail["Participant"]["year"]
+        beatboxer_detail["category"] = beatboxer_detail["Category"]["name"]
+        beatboxer_detail.pop("Category")
+        beatboxer_detail["is_cancelled"] = beatboxer_detail["Participant"][
+            "is_cancelled"
+        ]
+
+        context = {
+            "beatboxer_detail": beatboxer_detail,
+            "mode": mode,
+        }
+        return render(request, "others/participant_detail.html", context)
+
+    # 1人部門 or チーム部門のチームについての情報を取得
+    beatboxer_data = supabase_service.get_data(
+        table="Participant",
+        columns=[
+            "id",
+            "name",
+            "year",
+            "category",
+            "iso_code",
+            "ticket_class",
+            "is_cancelled",
+        ],
+        join_tables={
+            "Country": ["iso_code", "names"],
+            "Category": ["name"],
+            "ParticipantMember": ["id", "name"],
+        },
+        filters={
+            "id": id,
+        },
+    )
+
+    beatboxer_detail = beatboxer_data[0]
+
+    # 名前は大文字に変換
+    beatboxer_detail["name"] = beatboxer_detail["name"].upper()
+
+    # 設定言語に合わせて国名を取得
+    language = request.LANGUAGE_CODE
+    beatboxer_detail["country"] = beatboxer_detail["Country"]["names"][language]
+    beatboxer_detail.pop("Country")
+
+    # 部門名を取得
+    beatboxer_detail["category"] = beatboxer_detail["Category"]["name"]
+    beatboxer_detail.pop("Category")
+
+    context = {
+        "beatboxer_detail": beatboxer_detail,
+        "mode": mode,
+    }
+    return render(request, "others/participant_detail.html", context)

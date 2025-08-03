@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}GBB {{ beatboxer_detail.year }} {{ beatboxer_detail.name }} - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBB {{ beatboxer_detail.year }} {{ beatboxer_detail.name }} - GBBINFO-JPN{% endblock %}
+{% block og_title %}GBB {{ beatboxer_detail.year }} {{ beatboxer_detail.name }} - GBBINFO-JPN{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/others/participant_detail{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/others/participant_detail{% endblock %}
+{% block content %}
+
+<h1>GBB {{ beatboxer_detail.year }} {{ beatboxer_detail.name }}</h1>
+<div class="youtube-embed-video"></div>
+
+{% if beatboxer_detail.is_cancelled %}
+    <div class="post-it">
+        <p>{{ beatboxer_detail.name }}: GBB {{ beatboxer_detail.year }} {% trans "【辞退】" %}</p>
+    </div>
+{% endif %}
+
+{% if mode == "single" or mode == "team" %}
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                {% if beatboxer_detail.is_cancelled %}
+                    <th>{% trans "【辞退】" %}<br><s>{{ beatboxer_detail.name }}</s></th>
+                {% else %}
+                    <th>{{ beatboxer_detail.name }}</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{% trans "部門" %}</td>
+                {% if beatboxer_detail.is_cancelled %}
+                    <td><s>{{ beatboxer_detail.category }}</s></td>
+                {% else %}
+                    <td>{{ beatboxer_detail.category }}</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>{% trans "国" %}</td>
+                {% if beatboxer_detail.is_cancelled %}
+                    <td><s>{{ beatboxer_detail.country }}</s></td>
+                {% else %}
+                    <td>{{ beatboxer_detail.country }}</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>{% trans "出場権" %}</td>
+                {% if beatboxer_detail.is_cancelled %}
+                    <td><s>{{ beatboxer_detail.ticket_class }}</s></td>
+                {% else %}
+                    <td>{{ beatboxer_detail.ticket_class }}</td>
+                {% endif %}
+            </tr>
+        </tbody>
+    </table>
+{% endif %}
+
+{% if mode == "team" %}
+    <h2>{% trans "メンバー" %}</h2>
+    <table>
+        {% for member in beatboxer_detail.ParticipantMember %}
+            <tr>
+                <td><a href="/others/participant_detail?id={{ member.id }}&mode=team_member">{{ member.name }}</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    {% if beatboxer_detail.is_cancelled %}
+    <div class="post-it">
+        <p>{{ beatboxer_detail.name }}: GBB {{ beatboxer_detail.year }} {% trans "【辞退】" %}</p>
+    </div>
+    {% endif %}
+{% endif %}
+
+<div class="button-container">
+    <a href="/{{beatboxer_detail.year}}/participants"><button>GBB {{ beatboxer_detail.year }} {% trans "全出場者一覧" %}<br></button></a>
+    <a href="/{{beatboxer_detail.year}}/rule"><button>{% trans "出場権詳細" %}</button></a>
+    <a href="/{{beatboxer_detail.year}}/rule"><button>GBB {{ beatboxer_detail.year }} {% trans "ルール & 審査員" %}</button></a>
+    <a href="/{{beatboxer_detail.year}}/rule?scroll=result_date"><button>{% trans "Wildcard結果発表日" %}</button></a>
+</div>
+
+{% if mode == "team_member" %}
+    <table>
+        <thead>
+            <tr>
+                <th>{% trans "部門" %}</th>
+                {% if beatboxer_detail.is_cancelled %}
+                    <td><s>{{ beatboxer_detail.category }}</s></td>
+                {% else %}
+                    <td>{{ beatboxer_detail.category }}</td>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>{% trans "国" %}</th>
+                {% if beatboxer_detail.is_cancelled %}
+                    <td><s>{{ beatboxer_detail.country }}</s></td>
+                {% else %}
+                    <td>{{ beatboxer_detail.country }}</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <th>{% trans "所属チーム" %}</th>
+                {% if beatboxer_detail.is_cancelled %}
+                    <td>{% trans "【辞退】" %}<br><a href="/others/participant_detail?id={{ beatboxer_detail.Participant.id }}&mode=team">{{ beatboxer_detail.Participant.name }}</a></td>
+                {% else %}
+                    <td><a href="/others/participant_detail?id={{ beatboxer_detail.Participant.id }}&mode=team">{{ beatboxer_detail.Participant.name }}</a></td>
+                {% endif %}
+            </tr>
+        </tbody>
+    </table>
+{% endif %}
+
+<h2>{{ beatboxer_detail.name }} {% trans "関連サイト" %}</h2>
+<div class="account-urls"></div>
+<div class="final-urls"></div>
+
+<div class="post-it">
+    <p>
+        {% trans "表示されている関連サイトやSNS情報は、自動検索によって取得されたものです。" %}<br>
+        {% trans "内容に誤りが含まれている可能性があります。" %}
+    </p>
+</div>
+
+<div class="button-container">
+    <a href="/{{beatboxer_detail.year}}/participants"><button>GBB {{ beatboxer_detail.year }} {% trans "全出場者一覧" %}<br></button></a>
+    <a href="/{{beatboxer_detail.year}}/rule"><button>{% trans "出場権詳細" %}</button></a>
+    <a href="/{{beatboxer_detail.year}}/rule"><button>GBB {{ beatboxer_detail.year }} {% trans "ルール & 審査員" %}</button></a>
+    <a href="/{{beatboxer_detail.year}}/rule?scroll=result_date"><button>{% trans "Wildcard結果発表日" %}</button></a>
+</div>
+
+{% csrf_token %}
+<script src="/static/scripts/participant_detail.js"></script>
+<script>
+    const beatboxerId = {{ beatboxer_detail.id }};
+    tavilySearch(beatboxerId);
+</script>
+
+{% endblock %}
