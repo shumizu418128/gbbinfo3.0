@@ -160,6 +160,8 @@ class SupabaseService:
             join_tables (Optional[dict]): JOINするテーブルの設定
                 例: {"Country": ["names", "iso_code"], "Category": ["name"]}
                 または {"Country": "*", "Category": "*"} で全カラム取得
+                ネストしたJOINも可能: {"ParticipantMember": ["name", "Country(names)"]}
+                これにより ParticipantMember.iso_code -> Country.names の二重JOINが実現
             filters (Optional[dict]): 高度なフィルター条件
                 例: {
                     "age__gt": 18,  # age > 18
@@ -220,7 +222,16 @@ class SupabaseService:
 
                 # カラムリストが指定されている場合
                 elif isinstance(join_columns, list):
-                    join_columns_str = ",".join(join_columns)
+                    # ネストしたJOINをサポート
+                    processed_columns = []
+                    for column in join_columns:
+                        if "(" in column and ")" in column:
+                            # ネストしたJOIN（例：Country(names)）をそのまま追加
+                            processed_columns.append(column)
+                        else:
+                            # 通常のカラム名
+                            processed_columns.append(column)
+                    join_columns_str = ",".join(processed_columns)
                     select_parts.append(f"{join_table}({join_columns_str})")
 
                 # カラム名が指定されている場合
