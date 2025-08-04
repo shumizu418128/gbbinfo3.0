@@ -155,4 +155,5 @@ def common_variables(request: HttpRequest):
         "is_gbb_ended": is_gbb_ended(year),
         "is_local": settings.IS_LOCAL,
         "is_pull_request": settings.IS_PULL_REQUEST,
+        "scroll": request.GET.get("scroll", ""),
     }
