@@ -157,8 +157,7 @@
 </div>
 
 <div class="button-container">
-    <a href="/{{beatboxer_detail.year}}/participants"><button>GBB {{ beatboxer_detail.year }} {% trans "全出場者一覧" %}<br></button></a>
-    <a href="/{{beatboxer_detail.year}}/rule"><button>GBB {{ beatboxer_detail.year }} {% trans "ルール & 審査員" %}</button></a>
+    <a href="https://www.genspark.ai/search?query={{ genspark_query }}&newSugUi=" target="_blank" rel="noopener noreferrer"><button>{% trans "もっと調べる" %}</button></a>
 </div>
 
 <h2>GBB {{ beatboxer_detail.year }} {{ beatboxer_detail.category }} {% trans "出場者一覧" %}</h2>
@@ -203,6 +202,11 @@
         {% endfor %}
     </tbody>
 </table>
+
+<div class="button-container">
+    <a href="/{{beatboxer_detail.year}}/participants"><button>GBB {{ beatboxer_detail.year }} {% trans "全出場者一覧" %}<br></button></a>
+    <a href="/{{beatboxer_detail.year}}/rule"><button>GBB {{ beatboxer_detail.year }} {% trans "ルール & 審査員" %}</button></a>
+</div>
 
 {% csrf_token %}
 <script src="/static/scripts/participant_detail.js"></script>
