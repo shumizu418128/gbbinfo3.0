@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}GBB 2023 これだけガイド - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBB2023:これだけガイド - GBBINFO-JPN{% endblock %}
+{% block og_title %}GBB2023:これだけガイド - GBBINFO-JPN{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/2023/top{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/2023/top{% endblock %}
+{% block content %}
+
+<h1>GBB 2023</h1>
+<p>GBB {{ year }}: 10/18 - 10/21</p>
+<p style="text-align: center;">Grand Beatbox Battleの各種情報を、日本語に翻訳し見やすくまとめた非公式情報サイトです。</p>
+<h2>これだけガイド</h2>
+<div class="button-container">
+  <a href="/2023/participants"><button type="button">Wildcard結果 & 出場者</button></a>
+  <a href="/others/how_to_plan"><button type="button">現地観戦計画のたてかた</button></a>
+  <a href="/2023/rule"><button type="button">GBB2023ルール & 審査員</button></a>
+  <a href="/2023/ticket"><button type="button">会場 & チケット</button></a>
+  <a href="/2023/japan"><button type="button">日本代表</button></a>
+  <a href="/2023/time_schedule"><button type="button">タイムスケジュール</button></a>
+  <a href="/2023/stream"><button type="button">当日配信</button></a>
+  <a href="/2023/result"><button type="button">大会結果</button></a>
+</div>
+<ul>
+    <li><a href="/others/url_change">当サイトURL変更のお知らせ</a></li>
+    <li><a href="/others/result_stream">Wildcard結果発表配信</a></li>
+    <li><a href="/others/7tosmoke">7toSmokeとは</a></li>
+    <li><a href="/2023/wildcards">Wildcard一覧</a></li>
+</ul>
+<div class="button-container">
+  <a href="/{{ year }}/top_7tosmoke"><button>7toSmoke<br>これだけガイド</button></a>
+</div>
+
+{% endblock %}

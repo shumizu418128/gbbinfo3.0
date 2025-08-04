@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% block title %}GBB {{ year }} ルール - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBB {{ year }} ルール - GBBINFO-JPN{% endblock %}
+{% block og_title %}GBB {{ year }} ルール - GBBINFO-JPN{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/rule{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/rule{% endblock %}
+{% block content %}
+<h1>GBB {{ year }} ルール</h1>
+<p>
+  GBB公式facebookにて、GBB {{ year }} Onlineのルールが発表されました。
+</p>
+
+<div>
+  <h2>目次</h2>
+
+  <ol>
+    <li>
+      <a href="#p01">今大会の開催経緯</a>
+    </li>
+
+    <li>
+      <a href="#p02">開催部門一覧</a>
+    </li>
+
+    <li>
+      <a href="#p03">出場シード権 獲得条件</a>
+    </li>
+
+    <li>
+      <a href="#p04">GBB {{ year }} 本戦審査員一覧</a>
+    </li>
+
+    <li>
+      <a href="#p05">GBB {{ year }} Wildcard審査員一覧</a>
+    </li>
+
+  </ol>
+</div>
+
+<h2 id="p01">今大会の開催経緯</h2>
+<p>
+  本来、GBB 2020は 2020年4月3日から4月5日にポーランド・ワルシャワで開催される予定でしたが、コロナの影響により、開催が中止されました。<br>
+  その代わり、Solo部門・Loopstation部門に絞り、オンラインでの代替イベントが開催され、優勝者にはGBB 2021出場権が与えられました。<br>
+</p>
+
+<h2 id="p02">開催部門一覧</h2>
+<table>
+  <thead>
+    <tr>
+      <th>部門名</th>
+      <th>招待者</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Solo</td>
+      <td>GBB 2020 Wildcard トップ30<br>+<br>D-LOW主催イベント参加者<br>+<br>Discordコミュニティイベント トップ20</td>
+    </tr>
+    <tr>
+      <td>Loopstation</td>
+      <td>GBB 2020 Wildcard トップ20</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="button-container">
+  <a href="/others/how_to_plan"><button>現地観戦計画のたてかた</button></a>
+  <a href="/{{ year }}/top"><button>GBB {{ year }} これだけガイド</button></a>
+</div>
+
+<h2 id="p04">決勝トーナメント審査員一覧</h2>
+<table>
+  <thead>
+    <tr>
+      <th style="width: 50%">部門</th>
+      <th style="width: 50%">審査員</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Solo</td>
+      <td style="font-size: 12px;">CHRIS CELIZ<br>DHARNI<br>K.I.M<br>REEPS ONE<br>SKILLER</td>
+    </tr>
+    <tr>
+      <td>Loopstation</td>
+      <td style="font-size: 12px;">BEATNESS<br>GENE SHINOZAKI<br>MB14<br>TOM THUM<br>ZEDE</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="p05">予選審査員一覧</h2>
+<table>
+  <thead>
+    <tr>
+      <th style="width: 50%">部門</th>
+      <th style="width: 50%">審査員</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Solo</td>
+      <td style="font-size: 12px;">AMIT<br>CHEZAME<br>COLAPS<br>TIMMEH<br>THOMSON</td>
+    </tr>
+    <tr>
+      <td>Loopstation</td>
+      <td style="font-size: 12px;">BEATNESS<br>MIXFX<br>MB14<br>TOM THUM<br>ZEDE</td>
+    </tr>
+  </tbody>
+</table>
+
+{% endblock %}

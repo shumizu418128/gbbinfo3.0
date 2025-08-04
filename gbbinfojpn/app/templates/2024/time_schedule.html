@@ -1,0 +1,301 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}GBB {{ year }} {% trans "タイムスケジュール" %} - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBB {{ year }} {% trans "タイムスケジュール" %} - GBBINFO-JPN{% endblock %}
+{% block og_title %}GBB {{ year }} {% trans "タイムスケジュール" %} - GBBINFO-JPN{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/time_schedule{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/time_schedule{% endblock %}
+{% block content %}
+<h1>GBB {{ year }} {% trans "タイムスケジュール" %}</h1>
+
+<p>{% trans "時刻はあくまでも予定です。" %}</p>
+<p>{% trans "GBB21では、予定から約2時間遅延しました。" %}</p>
+<p>{% trans "GBB23では、本番7日前に日本語版・英語版のタイムスケジュールが公開されましたが、日本語版のみ正しく、英語版には誤記が多くみられました。" %}</p>
+
+<div>
+  <h2>{% trans "目次" %}</h2>
+
+  <ol>
+    <li>
+      <a href="#day1">Day1 - 11/1</a>
+    </li>
+
+    <li>
+      <a href="#day2">Day2 - 11/2</a>
+    </li>
+
+    <li>
+      <a href="#day3">Day3 - 11/3</a>
+    </li>
+
+    <li>
+      <a href="#_7ts">7toSmoke - 11/4</a>
+    </li>
+
+    <li>
+      <a href="#showcase">SPECIAL SHOWCASE {% trans "出演者一覧" %}</a>
+    </li>
+  </ol>
+</div>
+
+<div class="button-container">
+  <a href="/others/how_to_plan"><button>{% trans "現地観戦計画のたてかた" %}</button></a>
+  <a href="/{{ year }}/top"><button>GBB {{ year }} {% trans "これだけガイド" %}</button></a>
+</div>
+
+<h2 id="day1">Day1 - 11/1</h2>
+<table>
+  <thead>
+    <tr>
+      <th>{% trans "時刻" %}</th>
+      <th>{% trans "内容" %}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>14:05</td>
+      <td>{% trans "入場開始" %}</td>
+    </tr>
+    <tr>
+      <td>14:30</td>
+      <td>{% trans "ABEMA配信スタート" %}</td>
+    </tr>
+    <tr>
+      <td>15:00</td>
+      <td>{% trans "サプライズゲスト" %}</td>
+    </tr>
+    <tr>
+      <td>15:20</td>
+      <td>{% trans "スタート" %}</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>SPECIAL SHOWCASE</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>Crew {% trans "予選" %}</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>Producer {% trans "予選" %}</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>Tag Team {% trans "予選" %}</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>Producer {% trans "準決勝" %}</td>
+    </tr>
+    <tr>
+      <td>21:00</td>
+      <td>{% trans "終了" %}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="button-container">
+  <a href="/{{ year }}/participants"><button>{% trans "Wildcard結果" %}</button></a>
+  <a href="/{{ year }}/participants"><button>{% trans "出場者一覧" %}</button></a>
+</div>
+
+<h2 id="day2">Day2 - 11/2</h2>
+<table>
+  <thead>
+    <tr>
+      <th>{% trans "時刻" %}</th>
+      <th>{% trans "内容" %}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>13:00</td>
+      <td>{% trans "入場開始" %}</td>
+    </tr>
+    <tr>
+      <td>13:30</td>
+      <td>{% trans "ABEMA配信スタート" %}</td>
+    </tr>
+    <tr>
+      <td>13:55</td>
+      <td>{% trans "サプライズゲスト" %}</td>
+    </tr>
+    <tr>
+      <td>14:15</td>
+      <td>{% trans "スタート" %}</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>SPECIAL SHOWCASE</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>Loopstation {% trans "準々決勝" %}</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>Crew {% trans "決勝" %}</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>Producer {% trans "決勝" %}</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>Solo {% trans "予選" %}</td>
+    </tr>
+    <tr>
+      <td>21:00</td>
+      <td>{% trans "終了" %}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="button-container">
+  <a href="/others/how_to_plan"><button>{% trans "現地観戦計画のたてかた" %}</button></a>
+  <a href="/{{ year }}/top"><button>GBB {{ year }} {% trans "これだけガイド" %}</button></a>
+</div>
+
+<h2 id="day3">Day3 - 11/3</h2>
+<table>
+  <thead>
+    <tr>
+      <th>{% trans "時刻" %}</th>
+      <th>{% trans "内容" %}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>13:00</td>
+      <td>{% trans "入場開始" %}</td>
+    </tr>
+    <tr>
+      <td>13:30</td>
+      <td>{% trans "ABEMA配信スタート" %}</td>
+    </tr>
+    <tr>
+      <td>13:55</td>
+      <td>{% trans "サプライズゲスト" %}</td>
+    </tr>
+    <tr>
+      <td>14:30</td>
+      <td>{% trans "スタート" %}</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>SPECIAL SHOWCASE</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>Loopstation {% trans "準決勝・3位決定戦・決勝" %}</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>Solo {% trans "準々決勝" %}</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>Tag Team {% trans "準決勝" %}</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>Solo {% trans "準決勝" %}</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>Tag Team {% trans "3位決定戦・決勝" %}</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>Solo {% trans "3位決定戦・決勝" %}</td>
+    </tr>
+    <tr>
+      <td>20:30</td>
+      <td>{% trans "セレモニー" %}</td>
+    </tr>
+    <tr>
+      <td>21:00</td>
+      <td>{% trans "終了" %}</td>
+    </tr>
+    <tr>
+      <td>22:00</td>
+      <td>{% trans "アフターパーティー" %}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="button-container">
+  <a href="/{{ year }}/participants"><button>{% trans "Wildcard結果" %}</button></a>
+  <a href="/{{ year }}/participants"><button>{% trans "出場者一覧" %}</button></a>
+</div>
+
+<h2 id="_7ts" name="7tosmoke">7toSmoke - 11/4</h2>
+<table>
+  <thead>
+    <tr>
+      <th>{% trans "時刻" %}</th>
+      <th>{% trans "内容" %}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>15:00</td>
+      <td>{% trans "入場開始" %}</td>
+    </tr>
+    <tr>
+      <td>15:40</td>
+      <td>{% trans "スタート" %}<br><span style="font-size: 12px;">{% trans "ソース：会場公式サイト" %}</span></td>
+    </tr>
+    <tr>
+      <td>16:25</td>
+      <td>{% trans "予選" %}</td>
+    </tr>
+    <tr>
+      <td>17:00</td>
+      <td>{% trans "ABEMA配信スタート" %}<br><span style="font-size: 12px;">{% trans "ソース：ABEMA配信ページ" %}<br>{% trans "予選開始より遅い理由は不明" %}</span></td>
+    </tr>
+    <tr>
+      <td>19:00</td>
+      <td>{% trans "本戦出場者アナウンス" %}</td>
+    </tr>
+    <tr>
+      <td>19:15</td>
+      <td>{% trans "本戦スタート" %}</td>
+    </tr>
+    <tr>
+      <td>20:35</td>
+      <td>{% trans "セレモニー" %}</td>
+    </tr>
+    <tr>
+      <td>20:40</td>
+      <td>DJ SET</td>
+    </tr>
+    <tr>
+      <td>21:10</td>
+      <td>DJ SET</td>
+    </tr>
+    <tr>
+      <td>22:00</td>
+      <td>{% trans "終了" %}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="button-container">
+  <a href="/others/how_to_plan"><button>{% trans "現地観戦計画のたてかた" %}</button></a>
+  <a href="/{{ year }}/top"><button>GBB {{ year }} {% trans "これだけガイド" %}</button></a>
+</div>
+
+<h2 id="showcase" name="showcase">SPECIAL SHOWCASE<br>{% trans "出演者一覧" %}</h2>
+<ul>
+  <li>M.O.M.</li>
+  <li>MAD TWINZ</li>
+  <li>DHARNI</li>
+  <li>SARUKANI</li>
+  <li>BIZKIT</li>
+  <li>BATACO</li>
+</ul>
+<p>{% trans "各出演者の出演日時は不明です。" %}</p>
+
+{% endblock %}

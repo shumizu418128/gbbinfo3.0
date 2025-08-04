@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}GBB {{ year }} {% trans "当日配信" %} - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBB {{ year }} {% trans "当日配信" %} - GBBINFO-JPN{% endblock %}
+{% block og_title %}GBB {{ year }} {% trans "当日配信" %} - GBBINFO-JPN{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/stream{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/stream{% endblock %}
+{% block content %}
+<h1>GBB {{ year }} {% trans "当日配信" %}</h1>
+<p>ABEMA独占生中継</p>
+<div class="button-container">
+  <a href="https://abe.ma/48kXwnx"><button>Day1 11/1</button></a>
+  <a href="https://abe.ma/40gzGHJ"><button>Day2 11/2</button></a>
+  <a href="https://abe.ma/4eT777B"><button>Day3 11/3</button></a>
+  <a href="https://abe.ma/4fxYZJV"><button>7toSmoke 11/4</button></a>
+</div>
+
+<h2>GBB {{ year }} を皆で見ようの会</h2>
+<p>日本最大級のBeatboxコミュニティDiscordサーバー「あつまれ！ビートボックスの森」略してビト森で、毎年恒例GBB {{ year }} 鑑賞パーティーを開催します。</p>
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">GBB24、残念ながら現場には行けないなあ・・でも配信無料だし絶対配信は見るぞー！でも１人で見るのも何か寂しいなぁ・・って人！！<br>今年もやります！！！「ビト森でGBB24を鑑賞しよう＆日本を応援しよう」<br>みんなで「やべー！！」とか「うま！！！」とか言いながら楽しもうぜ！！</p>&mdash; dupo 🪅 (@TWlCER) <a href="https://twitter.com/TWlCER/status/1850534894402932749?ref_src=twsrc%5Etfw">October 27, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<div class="button-container">
+  <a href="https://discord.gg/FhkXGTjyMC"><button>ビト森<br>Discordサーバー<br>参加はこちら</button></a>
+  <a href="https://discord.gg/FhkXGTjyMC"><button style="background-image: url('/static/images/button/bitomori.webp'); background-size: contain;" class="bg-pic"></button></a>
+</div>
+
+<h3>ビト森とは</h3>
+<p>「あつまれ！ビートボックスの森」略してビト森は、日本最大級のBeatboxコミュニティDiscordサーバーです。</p>
+<p>参加はもちろん無料！</p>
+<p>BeatboxerやBeatboxファンが集まり、Beatboxに関する情報交換やイベント告知、Beatboxの練習やフィードバックを受けることができます。</p>
+<div class="button-container">
+  <a href="https://discord.gg/FhkXGTjyMC"><button>ビト森<br>Discordサーバー<br>参加はこちら</button></a>
+  <a href="https://discord.gg/FhkXGTjyMC"><button style="background-image: url('/static/images/button/bitomori.webp'); background-size: contain;" class="bg-pic"></button></a>
+</div>
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">よくある質問<br><br>Q. ビト森参加は無料ですか？<br>A. はい、無料です。<br><br>Q. 私でも参加していいんですか？<br>A. はい、もちろんです。Beatboxファンのための場所ですから。<br><br>参加はこちら<a href="https://t.co/tgGRi9v4jm">https://t.co/tgGRi9v4jm</a> <a href="https://t.co/Q8WT4GtHK3">https://t.co/Q8WT4GtHK3</a></p>&mdash; tari3210.py (@tari_3210_) <a href="https://twitter.com/tari_3210_/status/1852157888535630129?ref_src=twsrc%5Etfw">November 1, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<h2>{% trans "観戦のお供に" %}</h2>
+<p>{% blocktrans with year=year %}GBB {{ year }} の最新情報をチェックしよう{% endblocktrans %}</p>
+<div class="button-container">
+  <a href="/{{ year }}/participants"><button>{% trans "Wildcard結果 & 出場者" %}</button></a>
+  <a href="/{{ year }}/time_schedule"><button>{% trans "タイムスケジュール" %}</button></a>
+  <a href="/others/how_to_plan"><button>{% trans "現地観戦計画のたてかた" %}</button></a>
+</div>
+{% endblock %}

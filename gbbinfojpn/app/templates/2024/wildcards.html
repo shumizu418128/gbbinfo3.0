@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}GBB {{ year }} {% trans "Wildcard一覧" %} - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBB {{ year }} {% trans "Wildcard一覧" %} - GBBINFO-JPN{% endblock %}
+{% block og_title %}GBB {{ year }} {% trans "Wildcard一覧" %} - GBBINFO-JPN{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/wildcards{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/wildcards{% endblock %}
+{% block content %}
+<h1>GBB {{ year }} {% trans "Wildcard一覧" %}</h1>
+<p>{% trans "各部門の締め切り期日は、中央ヨーロッパ時刻を基準に表記しています。" %}</p>
+<ul>
+  <li>3/9{% trans "締め切り" %}</li>
+  <li style="list-style: none; display: inline">
+    <ul>
+      <li>
+        <a
+          href="https://youtube.com/playlist?list=PL-lF9xAI7Ut2XJG1NJsLUQOzh8_AEzOUa&amp;si=Mk4Golb0460Hl9I4"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="https://youtube.com/playlist?list=PL-lF9xAI7Ut2XJG1NJsLUQOzh8_AEzOUa&amp;si=Mk4Golb0460Hl9I4"
+          >Loopstation</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://youtube.com/playlist?list=PL-lF9xAI7Ut2B8PYTyW0iL1cawUGjU5HM&amp;si=5B-LcVf7DaueQbP0"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="https://youtube.com/playlist?list=PL-lF9xAI7Ut2B8PYTyW0iL1cawUGjU5HM&amp;si=5B-LcVf7DaueQbP0"
+          >Solo</a
+        >
+      </li>
+    </ul>
+  </li>
+</ul>
+<ul>
+  <li>3/23{% trans "締め切り" %}</li>
+  <li style="list-style: none; display: inline">
+    <ul>
+      <li>
+        <a
+          href="https://www.youtube.com/playlist?list=PL-lF9xAI7Ut2ABvVNW4mjY0rjh9cJjVkZ"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="https://www.youtube.com/playlist?list=PL-lF9xAI7Ut2ABvVNW4mjY0rjh9cJjVkZ"
+          >Producer showcase</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://www.youtube.com/playlist?list=PL-lF9xAI7Ut3xPq-4aeO5AFGFWVxA_qFb"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="https://www.youtube.com/playlist?list=PL-lF9xAI7Ut3xPq-4aeO5AFGFWVxA_qFb"
+          >Tag Team</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://www.youtube.com/playlist?list=PL-lF9xAI7Ut1oxto8A5r1Ld4wJttKA9N0"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="https://www.youtube.com/playlist?list=PL-lF9xAI7Ut1oxto8A5r1Ld4wJttKA9N0"
+          >Crew</a
+        >
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2>{% trans "注意事項" %}</h2>
+<p>
+  {% trans "今回公開するWildcard一覧は、有志が作成した、非公式のものです。" %}
+  <a href="https://twitter.com/_NURUYU_" target="_blank" title="https://twitter.com/_NURUYU_" rel="noopener noreferrer">{% trans "作成者：ぬる湯さん" %}</a>
+</p>
+
+<p>
+  {% trans "すべて手作業で制作されたものであるため、重複や欠落がある可能性があります。" %}
+</p>
+<p>
+  {% trans "また、この再生リストにある動画が必ずしもWildcardとして申請された動画であるとは限りません（毎年必ず出場者の手続きミスで失格者が出ます）。" %}
+</p>
+
+{% endblock %}

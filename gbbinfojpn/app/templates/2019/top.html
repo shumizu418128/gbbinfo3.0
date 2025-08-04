@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}GBB {{ year }} これだけガイド - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBB {{ year }} これだけガイド - GBBINFO-JPN{% endblock %}
+{% block og_title %}GBB {{ year }} これだけガイド - GBBINFO-JPN{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/top{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/top{% endblock %}
+{% block content %}
+
+<h1>GBB {{ year }}</h1>
+<p style="text-align: center;">GBB {{ year }}: 4/12 - 4/14</p>
+<p style="text-align: center;">Grand Beatbox Battleの各種情報を、日本語に翻訳し見やすくまとめた非公式情報サイトです。</p>
+<h2>これだけガイド</h2>
+<div class="button-container">
+  <a href="/{{ year }}/participants"><button type="button">Wildcard結果 & 出場者</button></a>
+  <a href="/others/how_to_plan"><button type="button">現地観戦計画のたてかた</button></a>
+  <a href="/{{ year }}/rule"><button type="button">GBB{{ year }}ルール & 審査員</button></a>
+  <a href="/{{ year }}/ticket"><button type="button">会場 & チケット</button></a>
+  <a href="/{{ year }}/japan"><button type="button">日本代表</button></a>
+  <a href="/{{ year }}/result"><button type="button">大会結果</button></a>
+</div>
+<ul>
+    <li><a href="/others/url_change">当サイトURL変更のお知らせ</a></li>
+    <li><a href="/others/result_stream">Wildcard結果発表配信</a></li>
+    <li><a href="/others/7tosmoke">7toSmokeとは</a></li>
+</ul>
+
+{% endblock %}

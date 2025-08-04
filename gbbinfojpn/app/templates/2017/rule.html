@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+{% block title %}GBB {{ year }} ルール - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBB {{ year }} ルール - GBBINFO-JPN{% endblock %}
+{% block og_title %}GBB {{ year }} ルール - GBBINFO-JPN{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/rule{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/rule{% endblock %}
+{% block content %}
+<h1>GBB {{ year }} ルール</h1>
+<p>
+  GBB公式サイト(grandbeatboxbattle.ch 現在は閉鎖)にて、GBB {{ year }}で実施される部門・Wildcardのルールについて発表がありました。
+</p>
+
+<div>
+  <h2>目次</h2>
+
+  <ol>
+    <li>
+      <a href="#p01">注意事項</a>
+    </li>
+
+    <li>
+      <a href="#p02">開催部門一覧</a>
+    </li>
+
+    <li>
+      <a href="#p03">出場シード権 獲得条件</a>
+    </li>
+
+    <li>
+      <a href="#p04">GBB {{ year }} 本戦審査員一覧</a>
+    </li>
+
+  </ol>
+</div>
+
+<h2 id="p01">注意事項</h2>
+<p>
+  以下に示す内容は、あくまでもBeatboxファンが知っておくとよりGBBを楽しめる知識として紹介するものです。<br>
+  2025年1月現在、GBB公式サイトは閉鎖されており、ルールの詳細は不明です。
+</p>
+
+<h2 id="p02">開催部門一覧</h2>
+<table>
+  <thead>
+    <tr>
+      <th style="width: 20%">部門名</th>
+      <th>Wildcard</th>
+      <th>シード権</th>
+      <th style="width: 20%">計</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Solo</td>
+      <td>9</td>
+      <td>7</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td>Tag Team</td>
+      <td></td>
+      <td>7</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td>Loopstation</td>
+      <td>3</td>
+      <td>5</td>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table>
+<p>Tag Team部門では、Wildcard枠が設定されず、招待チームのみで開催されました。</p>
+
+<h2 id="p03" name="seeds">出場シード権 獲得条件</h2>
+<p>
+  Wildcardを勝ち上がる以外の方法でGBB出場権を得る方法（シード権）と、その該当者は以下の通りです。
+</p>
+{% for index in range(participants_list|length) %}
+  {% set participants = participants_list[index] %}
+  {% if index == 0 %}
+    <h3>シード権 - GBB</h3>
+  {% elif index == 1 %}
+    <h3>シード権 - その他</h3>
+  {% elif index == 2 %}
+    <h3>シード権辞退者一覧</h3>
+  {% endif %}
+  {% if participants|length > 0 %}
+    <table>
+      <thead>
+      <tr>
+        <th style="width: 33%;">名前</th>
+        <th style="width: 34%;">部門</th>
+        <th style="width: 33%;">出場権</th>
+      </tr>
+      </thead>
+      <tbody>
+        {% for participant in participants %}
+        <tr>
+          <td>
+            {% if participant.members != "" %}
+
+            {% if participant.is_cancelled %}
+              【辞退】<br><s>{{ participant.name }}</s>
+              <div class="member-list"><s>[{{ participant.members }}]</s></div>
+            {% else %}
+              {{ participant.name }}
+              <div class="member-list">[{{ participant.members }}]</div>
+            {% endif %}
+
+            {% else %}
+              {% if participant.is_cancelled %}
+                【辞退】<br><s>{{ participant.name }}</s>
+              {% else %}
+                {{ participant.name }}
+              {% endif %}
+            {% endif %}
+
+          </td>
+          <td>
+            {% if participant.is_cancelled %}
+              <s>{{ participant.category }}</s>
+            {% else %}
+              {{ participant.category }}
+            {% endif %}
+          </td>
+          <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
+            {% if participant.is_cancelled %}
+              <s>{{ participant.ticket_class }}</s>
+            {% else %}
+              {{ participant.ticket_class }}
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div class="button-container">
+      <a href="/{{ year }}/participants"><button>Wildcard結果</button></a>
+      <a href="/{{ year }}/participants"><button>出場者一覧</button></a>
+    </div>
+  {% else %}
+    <p>該当者なし</p>
+  {% endif %}
+{% endfor %}
+<p>シード権を持つ人が辞退した場合、原則として、該当シード権は消滅し、Wildcard下位からの繰り上げが行われます。</p>
+
+<div class="button-container">
+  <a href="/others/how_to_plan"><button>現地観戦計画のたてかた</button></a>
+  <a href="/{{ year }}/top"><button>GBB {{ year }} これだけガイド</button></a>
+</div>
+
+<h2 id="p04">本戦審査員一覧</h2>
+<table>
+  <thead>
+    <tr>
+      <th style="width: 50%">部門</th>
+      <th style="width: 50%">審査員</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Solo</td>
+      <td style="font-size: 12px;">DHARNI<br>WAWAD<br>ALEM<br>ZEDE<br>GENE SHINOZAKI</td>
+    </tr>
+    <tr>
+      <td>Tag Team</td>
+      <td style="font-size: 12px;">DHARNI<br>ZEDE<br>ALEM<br>WAWAD<br>BEATNESS</td>
+    </tr>
+    <tr>
+      <td>Loopstation</td>
+      <td style="font-size: 12px;">DHARNI<br>WAWAD<br>ALEM<br>FAYA BRAZ<br>GENE SHINOZAKI</td >
+    </tr>
+    <tr>
+      <td>7toSmoke</td>
+      <td style="font-size: 12px;">NAPOM<br>KEUMART<br>B-ART<br>FUNKAZTEK<br>XIN WANG</td >
+    </tr>
+  </tbody>
+</table>
+
+{% endblock %}

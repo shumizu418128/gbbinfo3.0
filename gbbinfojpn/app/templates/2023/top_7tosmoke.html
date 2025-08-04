@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}GBB {{ year }} 7toSmoke - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBB {{ year }} 7toSmoke - GBBINFO-JPN{% endblock %}
+{% block og_title %}GBB {{ year }} 7toSmoke - GBBINFO-JPN{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/top_7tosmoke{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/top_7tosmoke{% endblock %}
+{% block content %}
+<h1>GBB {{ year }} 7toSmoke</h1>
+<div style="text-align: center;">
+  <p>7toSmoke: 10/22 (日)</p>
+  <p>公式よりもわかりやすい！<br>GBB{{ year }} 7toSmoke 非公式情報サイト</p>
+</div>
+
+<h2>これだけガイド</h2>
+
+<div class="button-container">
+  <a href="/others/7tosmoke"><button>7toSmokeとは</button></a>
+  <a href="/others/7tosmoke"><button>7toSmokeルール & 参加方法</button></a>
+  <a href="/{{ year }}/ticket"><button>会場 & チケット</button></a>
+  <a href="/others/how_to_plan"><button>現地観戦計画のたてかた</button></a>
+  <a href="/{{ year }}/time_schedule?scroll=7tosmoke"><button>タイムスケジュール</button></a>
+  <a href="/{{ year }}/stream"><button>当日配信</button></a>
+</div>
+
+<p>7toSmokeは、GBB本戦に比べて最新情報の公開が非常に遅い傾向にあり、そもそも情報が発表されないまま本番を迎えてしまったケースもあります。</p>
+<p>諦めましょう。</p>
+
+{% endblock %}
