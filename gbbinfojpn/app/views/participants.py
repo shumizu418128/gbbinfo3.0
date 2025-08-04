@@ -176,21 +176,13 @@ def participants_country_specific_view(request: HttpRequest, year: int):
         },
     )
 
-    for participant in participants_data:
-        # 全員の名前を大文字に変換
-        participant["name"] = participant["name"].upper()
-
-        # カテゴリ名を取り出す
-        participant["category"] = participant["Category"]["name"]
-        participant.pop("Category")
-
     # 複数か国のチームも調べる
     multi_country_team_data = supabase_service.get_data(
         table="Participant",
         columns=["name", "category", "ticket_class", "is_cancelled"],
         join_tables={
             "Category": ["id", "name"],
-            "ParticipantMember": ["name"],
+            "ParticipantMember": ["name", "iso_code"],
         },
         filters={
             "year": year,
@@ -204,6 +196,14 @@ def participants_country_specific_view(request: HttpRequest, year: int):
             if member["iso_code"] == iso_code:
                 participants_data.append(team)
                 break
+
+    for participant in participants_data:
+        # 全員の名前を大文字に変換
+        participant["name"] = participant["name"].upper()
+
+        # カテゴリ名を取り出す
+        participant["category"] = participant["Category"]["name"]
+        participant.pop("Category")
 
     participants_data.sort(
         key=lambda x: (
