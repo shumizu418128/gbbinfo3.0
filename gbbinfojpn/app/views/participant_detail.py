@@ -1,5 +1,5 @@
 import re
-from urllib.parse import parse_qs, urlparse
+from urllib.parse import parse_qs, quote, urlparse
 
 from django.http import HttpRequest, JsonResponse
 from django.shortcuts import render
@@ -401,6 +401,7 @@ def participant_detail_view(request: HttpRequest):
     )
 
     same_year_category_mode = "single" if mode == "single" else "team"
+    genspark_query = quote(beatboxer_detail["name"] + " beatbox")
 
     context = {
         "beatboxer_detail": beatboxer_detail,
@@ -408,6 +409,7 @@ def participant_detail_view(request: HttpRequest):
         "past_participation_data": past_data,
         "same_year_category_participants": same_year_category_edited,
         "same_year_category_mode": same_year_category_mode,
+        "genspark_query": genspark_query,
     }
 
     return render(request, "others/participant_detail.html", context)
