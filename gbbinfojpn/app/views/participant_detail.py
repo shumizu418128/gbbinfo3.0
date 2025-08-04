@@ -150,10 +150,12 @@ def beatboxer_tavily_search(
 
         # ステップ1: アカウントURLの収集（@を含むURLまたはタイトル）
         youtube_channel_pattern = r"^(https?:\/\/)?(www\.)?youtube\.com\/(c\/|channel\/|user\/|@)?[a-zA-Z0-9_-]+(\/.*)?$"
+        instagram_account_pattern = r"^(https?:\/\/)?(www\.)?instagram\.com\/[a-zA-Z0-9_.]+\/?$"
         is_account_url = (
             ("@" in item["url"])
             or ("@" in item["title"])
             or bool(re.match(youtube_channel_pattern, item["url"]))
+            or bool(re.match(instagram_account_pattern, item["url"]))
         )
         is_new_domain = primary_domain not in account_domains_seen
 
