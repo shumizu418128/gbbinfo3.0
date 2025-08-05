@@ -110,7 +110,7 @@ def world_map_view(request: HttpRequest, year: int):
         for participant in participants:
             popup_content += f"""
             <p style="margin: 5px 0;">
-                <a href="/others/participant_detail?id={participant["id"]}&mode={participant["is_team"]}">{participant["name"]}</a> ({participant["category"]})
+                <a href="/others/participant_detail?id={participant["id"]}&mode={participant["is_team"]}" target="_top">{participant["name"]}</a> ({participant["category"]})
             </p>
             """
         popup_content += "</div>"
