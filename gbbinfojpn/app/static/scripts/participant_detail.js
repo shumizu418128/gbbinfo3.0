@@ -107,7 +107,6 @@ function tavilySearch(beatboxerId, mode) {
     }
 
     // ローディング表示
-    accountUrlsContainer.innerHTML = '<p>loading...</p>';
     finalUrlsContainer.innerHTML = '<p>loading...</p>';
 
     // POSTリクエストでTavily検索を実行
@@ -151,8 +150,7 @@ function tavilySearch(beatboxerId, mode) {
     })
     .catch(error => {
         console.error('Tavily検索エラー:', error);
-        accountUrlsContainer.innerHTML = '<p>SNS情報の検索中にエラーが発生しました。</p>';
-        finalUrlsContainer.innerHTML = '<p>関連サイトの検索中にエラーが発生しました。</p>';
+        finalUrlsContainer.innerHTML = '<p>関連サイトを取得できませんでした。</p>';
     });
 }
 
