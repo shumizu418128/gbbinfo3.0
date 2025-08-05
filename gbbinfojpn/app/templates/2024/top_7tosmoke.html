@@ -12,7 +12,7 @@
   <p>{% trans "公式よりもわかりやすい！" %}<br>GBB {{ year }} 7toSmoke {% trans "非公式情報サイト" %}</p>
 </div>
 
-{% if is_latest_year is true %}
+{% if is_latest_year is True %}
   <form id="search-form-top" class="search-container" action="/{{ year }}/search" method="POST">
     <input type="text" name="question" id="question-top" placeholder="{% trans "例：現地観戦計画のたてかた" %}" required>
     <button type="submit"></button>
@@ -22,7 +22,7 @@
 
 <h2>{% trans "これだけガイド" %}</h2>
 
-{% if is_latest_year is true %}
+{% if is_latest_year is True %}
   <div style="text-align: center;">
     <p>{{ last_updated }}</p>
   </div>
@@ -40,7 +40,7 @@
 <p>{% trans "7toSmokeは、GBB本戦に比べて最新情報の公開が非常に遅い傾向にあり、そもそも情報が発表されないまま本番を迎えてしまったケースもあります。" %}</p>
 <p>{% trans "諦めましょう。" %}</p>
 
-{% if is_latest_year is true %}
+{% if is_latest_year is True %}
   <div class="button-container">
     <a href="/{{ year }}/top?scroll=contact"><button>{% trans "お問い合わせ" %}</button></a>
   </div>
