@@ -41,5 +41,5 @@ SEARCH_CACHE = {
     "日本人": "/__year__/japan",
     "ワイルドカード一覧": "/__year__/wildcards",
     "WILDCARD一覧": "/__year__/wildcards",
-    "現地観戦計画のたてかた": "/others/how_to_plan"
+    "現地観戦計画のたてかた": "/others/how_to_plan",
 }

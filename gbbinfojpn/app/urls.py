@@ -6,8 +6,8 @@ from django.urls import path
 
 from gbbinfojpn.app.views import (
     beatboxer_tavily_search,
-    gemini_search,
     common,
+    gemini_search,
     language,
     participant_detail,
     participants,
