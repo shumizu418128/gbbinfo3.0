@@ -45,9 +45,11 @@ if RENDER_EXTERNAL_HOSTNAME:
 # Application definition
 INSTALLED_APPS = [
     "django.contrib.staticfiles",
-    "gbbinfojpn.database",
+    "django.contrib.sitemaps",
     "gbbinfojpn.app",
 ]
+if DEBUG:
+    INSTALLED_APPS.append("gbbinfojpn.database")
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -207,6 +209,7 @@ _check_locale_paths_and_languages()
 
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [BASE_DIR / "gbbinfojpn" / "app" / "static"]
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
