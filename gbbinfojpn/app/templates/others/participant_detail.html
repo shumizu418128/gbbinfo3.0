@@ -81,9 +81,9 @@
     <table>
         <thead>
             <tr>
-                <th></th>
+                <th>{% if beatboxer_detail.is_cancelled %}【{% trans "辞退" %}】{% endif %}</th>
                 {% if beatboxer_detail.is_cancelled %}
-                    <th>{% trans "辞退" %}<br><s>{{ beatboxer_detail.name }}</s></th>
+                    <th><s>{{ beatboxer_detail.name }}</s></th>
                 {% else %}
                     <th>{{ beatboxer_detail.name }}</th>
                 {% endif %}
