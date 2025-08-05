@@ -160,7 +160,7 @@ def beatboxer_tavily_search(
                 original_youtube_embed_url = item["url"]
 
         # ステップ1: アカウントURLの収集（@を含むURLまたはタイトル）
-        youtube_channel_pattern = r"^(https?:\/\/)?(www\.)?youtube\.com\/(c\/|channel\/|user\/|@)?[a-zA-Z0-9_-]+(\/.*)?$"
+        youtube_channel_pattern = r"^(https?:\/\/)?(www\.)?youtube\.com\/(c\/|channel\/|user\/|@)[a-zA-Z0-9_-]+\/?$"
         instagram_account_pattern = (
             r"^(https?:\/\/)?(www\.)?instagram\.com\/[a-zA-Z0-9_.]+\/?$"
         )
