@@ -164,11 +164,15 @@ def beatboxer_tavily_search(
         instagram_account_pattern = (
             r"^(https?:\/\/)?(www\.)?instagram\.com\/[a-zA-Z0-9_.]+\/?$"
         )
+        facebook_account_pattern = (
+            r"^(https?:\/\/)?(www\.)?facebook\.com\/[a-zA-Z0-9_.]+\/?$"
+        )
         is_account_url = (
             ("@" in item["url"])
             or ("@" in item["title"])
             or bool(re.match(youtube_channel_pattern, item["url"]))
             or bool(re.match(instagram_account_pattern, item["url"]))
+            or bool(re.match(facebook_account_pattern, item["url"]))
         )
         is_new_domain = primary_domain not in account_domains_seen
 
