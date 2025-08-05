@@ -13,6 +13,7 @@ from gbbinfojpn.app.views import (
     participants,
     result,
     rule,
+    search_participants,
     world_map,
 )
 
@@ -37,6 +38,11 @@ urlpatterns = [
         "<int:year>/search",
         gemini_search.post_gemini_search,
         name="search",
+    ),
+    path(
+        "<int:year>/search_participants",
+        search_participants.post_search_participants,
+        name="search_participants",
     ),
     # 要データ取得
     path("<int:year>/world_map", world_map.world_map_view, name="world_map"),

@@ -118,6 +118,7 @@ function searchParticipants(year, event) {
         })
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             const input = document.getElementById('keyword').value;
             let exactMatchFound = false;
 
@@ -127,10 +128,9 @@ function searchParticipants(year, event) {
                 }
                 return `<tr>
                     <td>
-                        ${participant.is_cancelled ? '【辞退】<br><s>' : ''}
-                        ${participant.name}
-                        <div id="small-text">${participant.members}</div>
-                        ${participant.is_cancelled ? '</s>' : ''}
+                        ${participant.is_cancelled ? '【辞退】<br>' : ''}
+                        <a href="/others/participant_detail?id=${participant.id}&mode=${participant.mode}">${participant.name}</a>
+                        ${participant.members ? `<div id="small-text">${participant.members}</div>` : ''}
                     </td>
                     <td>
                         ${participant.is_cancelled ? `<s>${participant.category}</s>` : participant.category}
