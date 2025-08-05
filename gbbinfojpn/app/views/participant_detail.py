@@ -1,3 +1,4 @@
+import random
 import re
 from urllib.parse import parse_qs, quote, urlparse
 
@@ -312,7 +313,7 @@ def participant_detail_view(request: HttpRequest):
         beatboxer_detail["category"] = beatboxer_detail["Category"]["name"]
 
         # チームメンバーの国名を取得
-        if beatboxer_detail["ParticipantMember"]:
+        if len(beatboxer_detail["ParticipantMember"]) > 0:
             for member in beatboxer_detail["ParticipantMember"]:
                 member["country"] = member["Country"]["names"][language]
                 member["name"] = member["name"].upper()
@@ -354,7 +355,9 @@ def participant_detail_view(request: HttpRequest):
     for past_participation in past_participation_data:
         if past_participation["name"].upper() == beatboxer_detail["name"]:
             past_participation_mode = (
-                "single" if past_participation["ParticipantMember"] is None else "team"
+                "single"
+                if len(past_participation["ParticipantMember"]) == 0
+                else "team"
             )
             past_data.append(
                 {
@@ -416,6 +419,10 @@ def participant_detail_view(request: HttpRequest):
             participant.pop("Country")
         same_year_category_edited.append(participant)
 
+    # ランダムで最大5人を選ぶ
+    same_year_category_edited = random.sample(
+        same_year_category_edited, min(5, len(same_year_category_edited))
+    )
     same_year_category_edited.sort(
         key=lambda x: (
             x["is_cancelled"],  # キャンセルした人は下

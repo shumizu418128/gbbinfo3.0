@@ -136,7 +136,7 @@ def participants_view(request: HttpRequest, year: int):
             participant["country"] = participant["Country"]["names"][language]
             participant.pop("Country")
 
-        if participant["ParticipantMember"]:
+        if len(participant["ParticipantMember"]) > 0:
             participant["is_team"] = True
         else:
             participant["is_team"] = False
