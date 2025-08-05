@@ -1,4 +1,9 @@
+import os
+
 from django.apps import AppConfig
+from django.conf import settings
+
+from . import translation
 
 
 class GbbinfoJpnAppConfig(AppConfig):
@@ -25,6 +30,21 @@ class GbbinfoJpnAppConfig(AppConfig):
         Raises:
             ImportError: translationモジュールのインポートに失敗した場合
         """
-        from . import translation
 
         translation.initialize_translated_urls()
+
+        # world_map削除
+        if settings.DEBUG:
+            templates_dir = os.path.join(
+                settings.BASE_DIR, "gbbinfojpn", "app", "templates"
+            )
+            if os.path.exists(templates_dir):
+                for year_dir in os.listdir(templates_dir):
+                    year_path = os.path.join(templates_dir, year_dir)
+                    if os.path.isdir(year_path):
+                        world_map_path = os.path.join(year_path, "world_map")
+                        if os.path.exists(world_map_path):
+                            for file in os.listdir(world_map_path):
+                                if file.endswith(".html"):
+                                    file_path = os.path.join(world_map_path, file)
+                                    os.remove(file_path)
