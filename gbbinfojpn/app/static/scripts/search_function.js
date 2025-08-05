@@ -160,7 +160,7 @@ function setupSearchSuggestions(searchForm) {
     const suggestionsContainer = searchForm.closest('.search-container').nextElementSibling;
 
     searchForm.addEventListener('input', function() {
-        const query = this.querySelector('input').value;
+        const query = this.querySelector('input[name="question"]').value;
 
         if (query.length > 0) {
             // CSRFトークンを取得（メタタグから）

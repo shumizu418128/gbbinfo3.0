@@ -1,14 +1,16 @@
 import json
+import random
 import re
 from threading import Thread
 
 import pykakasi
 from django.http import HttpRequest, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from rapidfuzz import process
 
 from gbbinfojpn.app.models.gemini_client import gemini_service
 from gbbinfojpn.app.models.spreadsheet_client import spreadsheet_service
-from gbbinfojpn.app.views.config.gemini_search_config import search_cache
+from gbbinfojpn.app.views.config.gemini_search_config import SEARCH_CACHE
 
 HIRAGANA = "H"
 KATAKANA = "K"
@@ -103,8 +105,8 @@ def post_gemini_search(request: HttpRequest, year: int):
     response = {}
     url = ""
 
-    if question.upper() in search_cache:
-        url = search_cache[question.upper()].replace("__year__", str(year))
+    if question.upper() in SEARCH_CACHE:
+        url = SEARCH_CACHE[question.upper()].replace("__year__", str(year))
 
     else:
         # 最大5回リトライ
@@ -129,3 +131,37 @@ def post_gemini_search(request: HttpRequest, year: int):
         "url": url,
     }
     return JsonResponse(response)
+
+
+@csrf_exempt
+def post_gemini_search_suggestion(request: HttpRequest):
+    try:
+        # JSONデータを解析
+        data = json.loads(request.body)
+        input = data.get("input")
+    except (json.JSONDecodeError, KeyError):
+        # フォールバック: POST dataから取得
+        input = request.POST.get("input")
+
+    # 下処理：inputから4桁・2桁の年削除
+    year = re.search(r"\d{4}", input)
+    year_2 = re.search(r"\d{2}", input)
+    if year:
+        year = year.group()
+        input = input.replace(year, "")
+    if year_2:
+        year_2 = year_2.group()
+        input = input.replace(year_2, "")
+
+    # 下処理：inputから空白削除
+    input = input.strip().upper().replace("GBB", "")
+
+    # rapidfuzzで類似度を計算し、上位3件を取得
+    cache_keys = list(SEARCH_CACHE.keys())
+    random.shuffle(cache_keys)
+    suggestions = process.extract(input, cache_keys, limit=3, score_cutoff=1)
+
+    # rapidfuzzの結果から検索候補を取得
+    suggestions = [result[0] for result in suggestions]
+
+    return JsonResponse({"suggestions": suggestions})

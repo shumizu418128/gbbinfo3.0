@@ -29,6 +29,11 @@ urlpatterns = [
         name="beatboxer_tavily_search",
     ),
     path(
+        "search_suggestions",
+        gemini_search.post_gemini_search_suggestion,
+        name="search_suggestion",
+    ),
+    path(
         "<int:year>/search",
         gemini_search.post_gemini_search,
         name="search",

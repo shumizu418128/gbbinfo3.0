@@ -1,4 +1,4 @@
-search_cache = {
+SEARCH_CACHE = {
     "7TO": "/__year__/top_7tosmoke",
     "7TOSMOKE": "/__year__/top_7tosmoke",
     "日程": "/__year__/top?scroll=date",
