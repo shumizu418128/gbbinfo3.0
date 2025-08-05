@@ -32,7 +32,23 @@ class SupabaseService:
         """SupabaseServiceクラスの初期化
 
         インスタンス生成時にSupabaseクライアントを初期化する（遅延初期化）。
+        また、必要な環境変数が設定されているかを先にチェックする。
         """
+        # 先に環境変数の存在をまとめてチェックし、足りないものをすべてエラーで出す
+        supabase_url = os.getenv("SUPABASE_URL")
+        supabase_anon_key = os.getenv("SUPABASE_ANON_KEY")
+        supabase_service_role_key = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
+
+        missing_envs = []
+        if not supabase_url:
+            missing_envs.append("SUPABASE_URL")
+        if not supabase_anon_key:
+            missing_envs.append("SUPABASE_ANON_KEY")
+        if not supabase_service_role_key:
+            missing_envs.append("SUPABASE_SERVICE_ROLE_KEY")
+        if missing_envs:
+            raise ValueError(f"以下の環境変数が必要です: {', '.join(missing_envs)}")
+
         self._read_only_client: Optional[Client] = None
         self._admin_client: Optional[Client] = None
 
@@ -50,24 +66,23 @@ class SupabaseService:
             supabase_url = os.getenv("SUPABASE_URL")
             supabase_key = os.getenv("SUPABASE_ANON_KEY")
 
-            if not supabase_url or not supabase_key:
-                raise ValueError("SUPABASE_URLとSUPABASE_ANON_KEYの環境変数が必要です")
-
             self._read_only_client = create_client(supabase_url, supabase_key)
 
         return self._read_only_client
 
     @property
     def admin_client(self) -> Client:
-        """Supabaseクライアントのインスタンスを取得（管理者権限）"""
+        """Supabaseクライアントのインスタンスを取得（管理者権限）
+
+        Returns:
+            Client: Supabaseクライアントのインスタンス
+
+        Raises:
+            ValueError: 環境変数SUPABASE_URLまたはSUPABASE_SERVICE_ROLE_KEYが設定されていない場合
+        """
         if self._admin_client is None:
             supabase_url = os.getenv("SUPABASE_URL")
             supabase_key = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
-
-            if not supabase_url or not supabase_key:
-                raise ValueError(
-                    "SUPABASE_URLとSUPABASE_SERVICE_ROLE_KEYの環境変数が必要です"
-                )
 
             self._admin_client = create_client(supabase_url, supabase_key)
 

@@ -16,18 +16,16 @@ EXCLUDE_DOMAINS = [
 
 class TavilyService:
     def __init__(self):
+        tavily_api_key = os.getenv("TAVILY_API_KEY")
+        if not tavily_api_key:
+            raise ValueError("TAVILY_API_KEYが設定されていません")
+        self._tavily_api_key = tavily_api_key
         self._client: Optional[TavilyClient] = None
 
     @property
     def client(self) -> TavilyClient:
         if self._client is None:
-            tavily_api_key = os.getenv("TAVILY_API_KEY")
-
-            if not tavily_api_key:
-                raise ValueError("TAVILY_API_KEYが設定されていません")
-
-            self._client = TavilyClient(tavily_api_key)
-
+            self._client = TavilyClient(self._tavily_api_key)
         return self._client
 
     def search(self, beatboxer_name: str):
