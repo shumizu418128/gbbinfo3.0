@@ -122,6 +122,7 @@
     <tbody id="participants-search-result"></tbody>
   </table>
 
+  {% csrf_token %}
   <h2>{% trans "出場者世界地図" %}</h2>
   <p>GBB {{ year }} {% trans "全出場者を地図にマッピングしました。" %}<br>{% trans "国旗をタップorクリックすると、詳細を確認できます。" %}</p>
   <iframe src="/{{ year }}/world_map" width="100%" height="400px" frameborder="0"></iframe>

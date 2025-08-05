@@ -5,12 +5,14 @@ databaseアプリのURL設定
 from django.urls import path
 
 from gbbinfojpn.app.views import (
+    beatboxer_tavily_search,
     common,
     language,
     participant_detail,
     participants,
     result,
     rule,
+    world_map,
 )
 
 app_name = "app"
@@ -20,6 +22,7 @@ urlpatterns = [
     path("", common.top_redirect_view, name="redirect_to_latest_top"),
     path("lang", language.change_language, name="change_language"),
     # 要データ取得
+    path("<int:year>/world_map", world_map.world_map_view, name="world_map"),
     path("<int:year>/rule", rule.rules_view, name="rule"),
     path(
         "<int:year>/participants", participants.participants_view, name="participants"
@@ -50,7 +53,7 @@ urlpatterns = [
     # postリクエスト
     path(
         "beatboxer_tavily_search",
-        participant_detail.post_beatboxer_tavily_search,
+        beatboxer_tavily_search.post_beatboxer_tavily_search,
         name="beatboxer_tavily_search",
     ),
 ]
