@@ -109,12 +109,12 @@ function searchParticipants(year, event) {
         const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
         fetch(`/${year}/search_participants`, {
-            method: 'POST',
+            method: "POST",
             headers: {
                 'Content-Type': 'application/json',
                 'X-CSRFToken': csrfToken
             },
-            body: JSON.stringify({keyword: input})
+            body: JSON.stringify({ keyword: input })
         })
         .then(response => response.json())
         .then(data => {
@@ -150,7 +150,10 @@ function searchParticipants(year, event) {
                 exactMatch.style.display = 'none';
             }
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => {
+            console.error('Error:', error);
+            loadingElement.style.display = 'none';
+        });
     } else {
         document.getElementById('participants-search-result').innerHTML = '<p>-</p>';
         loadingElement.style.display = 'none';
@@ -163,20 +166,28 @@ function setupSearchSuggestions(searchForm) {
     const suggestionsContainer = searchForm.closest('.search-container').nextElementSibling;
 
     searchForm.addEventListener('input', function() {
-        const query = this.querySelector('input').value;
-        console.log('Search input:', query);
+        // FormDataを作成
+        const formData = new FormData(this);
+        const query = formData.get('question');
 
-        if (query.length > 0) {
-            // CSRFトークンを取得（メタタグから）
-            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        if (query && query.length > 0) {
+            const csrfToken = formData.get('csrfmiddlewaretoken');
+
+            // CSRFトークンをformDataから除外してJSONボディを作成
+            const jsonData = Object.fromEntries(formData);
+            delete jsonData.csrfmiddlewaretoken;
+
+            // inputキーに変更（サーバー側の期待値に合わせる）
+            jsonData.input = query;
+            delete jsonData.question;
 
             fetch('/search_suggestions', {
-                method: 'POST',
+                method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
                     'X-CSRFToken': csrfToken
                 },
-                body: JSON.stringify({ input: query })
+                body: JSON.stringify(jsonData)
             })
             .then(response => response.json())
             .then(data => {
@@ -199,7 +210,10 @@ function setupSearchSuggestions(searchForm) {
                     suggestionsContainer.style.display = 'none';
                 }
             })
-            .catch(error => console.error('Error:', error));
+            .catch(error => {
+                console.error('Error:', error);
+                suggestionsContainer.style.display = 'none';
+            });
         } else {
             suggestionsContainer.style.display = 'none';
         }
