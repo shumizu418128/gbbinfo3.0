@@ -14,7 +14,7 @@ def change_language(request: HttpRequest):
     Returns:
         HttpResponseRedirect: リダイレクトレスポンス
     """
-    lang_code = request.GET.get("to")
+    lang_code = request.GET.get("lang")
 
     # サポートされている言語か確認
     if lang_code not in settings.SUPPORTED_LANGUAGE_CODES:
