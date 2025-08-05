@@ -30,6 +30,7 @@ def rules_view(request: HttpRequest, year: int):
         order_by="category",  # カテゴリでソート
         join_tables={
             "Category": ["id", "name"],
+            "ParticipantMember": ["id"],
         },
         filters={
             # Wildcardという文字列が含まれていない
@@ -49,6 +50,12 @@ def rules_view(request: HttpRequest, year: int):
         # カテゴリ名を取り出す
         participant["category"] = participant["Category"]["name"]
         participant.pop("Category")
+
+        # メンバーがいればチームと判定
+        if participant["ParticipantMember"]:
+            participant["is_team"] = True
+        else:
+            participant["is_team"] = False
 
         # シード権辞退者、GBBでのシード権、その他でのシード権に分類
         if participant["is_cancelled"]:

@@ -17,12 +17,12 @@
     <a href="/{{ year }}/time_schedule"><button>{% trans "タイムスケジュール" %}</button></a>
   </div>
   <hr>
-{% elif year != available_years[-1] and is_latest_year is true %}
+{% elif is_gbb_ended is True %}
   <div style="text-align: center;">
-    <p>GBB {{ year }} {% trans "終了しました" %}<br>GBB {{ year + 1 }} {% trans "ページ 先行公開中！" %}</p>
+    <p>GBB {{ year }} {% trans "終了しました" %}<br>GBB {{ year|add:"1" }} {% trans "ページ 先行公開中！" %}</p>
   </div>
   <div class="button-container">
-    <a href="/{{ year + 1 }}/top"><button>GBB {{ year + 1 }} {% trans "これだけガイド" %}<br>{% trans "先行公開" %}</button></a>
+    <a href="/{{ year|add:"1" }}/top"><button>GBB {{ year|add:"1" }} {% trans "これだけガイド" %}<br>{% trans "先行公開" %}</button></a>
   </div>
   <hr>
 {% endif %}

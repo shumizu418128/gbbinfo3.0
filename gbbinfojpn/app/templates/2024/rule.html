@@ -120,7 +120,7 @@
 <ul>
   <li>
     <strong>{% trans "Producerとは" %}</strong><br />
-    {% trans "Loopstationのセカンドデバイス（Loopstationに接続する端末）ありの部門で、GBB23で"Producer showcase"として新設されました。その代わり、Loopstation部門においてセカンドデバイスの使用が禁止されます。" %}
+    {% trans "Loopstationのセカンドデバイス（Loopstationに接続する端末）ありの部門で、GBB23で「Producer showcase」として新設されました。その代わり、Loopstation部門においてセカンドデバイスの使用が禁止されます。" %}
   </li>
 </ul>
 <p>{% trans "忘れられたTag Team Loopstation..." %}😭</p>
@@ -134,73 +134,92 @@
 <p>
   {% trans "Wildcardを勝ち上がる以外の方法でGBB出場権を得る方法（シード権）と、その該当者は以下の通りです。" %}
 </p>
-{% for index in range(participants_list|length) %}
-  {% set participants = participants_list[index] %}
-  {% if index == 0 %}
-    <h3>{% trans "シード権 - GBB" %}</h3>
-  {% elif index == 1 %}
-    <h3>{% trans "シード権 - その他" %}</h3>
-  {% elif index == 2 %}
-    <h3>{% trans "シード権辞退者一覧" %}</h3>
-  {% endif %}
-  {% if participants|length > 0 %}
-    <table>
-      <thead>
+<h3>{% trans "シード権 - GBB" %}</h3>
+{% if gbb_seed|length > 0 %}
+  <table>
+    <thead>
+    <tr>
+      <th style="width: 33%;">{% trans "名前" %}</th>
+      <th style="width: 34%;">{% trans "部門" %}</th>
+      <th style="width: 33%;">{% trans "出場権" %}</th>
+    </tr>
+    </thead>
+    <tbody>
+      {% for participant in gbb_seed %}
       <tr>
-        <th style="width: 33%;">{% trans "名前" %}</th>
-        <th style="width: 34%;">{% trans "部門" %}</th>
-        <th style="width: 33%;">{% trans "出場権" %}</th>
+        <td><a href="/others/participant_detail?id={{ participant.id }}&mode={% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a></td>
+        <td>{{ participant.category }}</td>
+        <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
+          {{ participant.ticket_class }}
+        </td>
       </tr>
-      </thead>
-      <tbody>
-        {% for participant in participants %}
-        <tr>
-          <td>
-            {% if participant.members != "" %}
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p>{% trans "～発表次第更新～" %}</p>
+{% endif %}
 
-            {% if participant.is_cancelled %}
-              【{% trans "辞退" %}】<br><s>{{ participant.name }}</s>
-              <div class="member-list"><s>[{{ participant.members }}]</s></div>
-            {% else %}
-              {{ participant.name }}
-              <div class="member-list">[{{ participant.members }}]</div>
-            {% endif %}
+<h3>{% trans "シード権 - その他" %}</h3>
+{% if other_seed|length > 0 %}
+  <table>
+    <thead>
+    <tr>
+      <th style="width: 33%;">{% trans "名前" %}</th>
+      <th style="width: 34%;">{% trans "部門" %}</th>
+      <th style="width: 33%;">{% trans "出場権" %}</th>
+    </tr>
+    </thead>
+    <tbody>
+      {% for participant in other_seed %}
+      <tr>
+        <td><a href="/others/participant_detail?id={{ participant.id }}&mode={% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a></td>
+        <td>{{ participant.category }}</td>
+        <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
+          {{ participant.ticket_class }}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p>{% trans "～発表次第更新～" %}</p>
+{% endif %}
 
-            {% else %}
-              {% if participant.is_cancelled %}
-                【{% trans "辞退" %}】<br><s>{{ participant.name }}</s>
-              {% else %}
-                {{ participant.name }}
-              {% endif %}
-            {% endif %}
+<h3>{% trans "シード権辞退者一覧" %}</h3>
+{% if cancelled|length > 0 %}
+  <table>
+    <thead>
+    <tr>
+      <th style="width: 33%;">{% trans "名前" %}</th>
+      <th style="width: 34%;">{% trans "部門" %}</th>
+      <th style="width: 33%;">{% trans "出場権" %}</th>
+    </tr>
+    </thead>
+    <tbody>
+      {% for participant in cancelled %}
+      <tr>
+        <td>
+          【{% trans "辞退" %}】<br><a href="/others/participant_detail?id={{ participant.id }}&mode={% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a>
+        </td>
+        <td>
+          <s>{{ participant.category }}</s>
+        </td>
+        <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
+          <s>{{ participant.ticket_class }}</s>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p>{% trans "～発表次第更新～" %}</p>
+{% endif %}
 
-          </td>
-          <td>
-            {% if participant.is_cancelled %}
-              <s>{{ participant.category }}</s>
-            {% else %}
-              {{ participant.category }}
-            {% endif %}
-          </td>
-          <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
-            {% if participant.is_cancelled %}
-              <s>{{ participant.ticket_class }}</s>
-            {% else %}
-              {{ participant.ticket_class }}
-            {% endif %}
-          </td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-    <div class="button-container">
-      <a href="/{{ year }}/participants"><button>{% trans "Wildcard結果" %}</button></a>
-      <a href="/{{ year }}/participants"><button>{% trans "出場者一覧" %}</button></a>
-    </div>
-  {% else %}
-    <p>{% trans "～発表次第更新～" %}</p>
-  {% endif %}
-{% endfor %}
+<div class="button-container">
+  <a href="/{{ year }}/participants"><button>{% trans "Wildcard結果" %}</button></a>
+  <a href="/{{ year }}/participants"><button>{% trans "出場者一覧" %}</button></a>
+</div>
 
 <p>{% trans "シード権を持つ人が辞退した場合、原則として、該当シード権は消滅し、Wildcard下位からの繰り上げが行われます。" %}</p>
 

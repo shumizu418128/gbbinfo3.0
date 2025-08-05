@@ -53,6 +53,7 @@ class AppUrlsTestCase(TestCase):
             ("/", "ルートページ"),
             ("/lang?lang=en", "言語変更 英語"),
             ("/lang?lang=ja", "言語変更 日本語"),
+            ("/others/participant_detail?id=2064&mode=single", "出場者詳細 JUNNO"),
         ]
 
         for year in available_years:

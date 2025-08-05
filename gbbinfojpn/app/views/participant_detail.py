@@ -2,7 +2,7 @@ import re
 from urllib.parse import parse_qs, quote, urlparse
 
 from django.http import HttpRequest, JsonResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 from gbbinfojpn.app.models.supabase_client import supabase_service
 from gbbinfojpn.app.models.tavily_client import tavily_service
@@ -150,7 +150,9 @@ def beatboxer_tavily_search(
 
         # ステップ1: アカウントURLの収集（@を含むURLまたはタイトル）
         youtube_channel_pattern = r"^(https?:\/\/)?(www\.)?youtube\.com\/(c\/|channel\/|user\/|@)?[a-zA-Z0-9_-]+(\/.*)?$"
-        instagram_account_pattern = r"^(https?:\/\/)?(www\.)?instagram\.com\/[a-zA-Z0-9_.]+\/?$"
+        instagram_account_pattern = (
+            r"^(https?:\/\/)?(www\.)?instagram\.com\/[a-zA-Z0-9_.]+\/?$"
+        )
         is_account_url = (
             ("@" in item["url"])
             or ("@" in item["title"])
@@ -208,8 +210,12 @@ def post_beatboxer_tavily_search(request: HttpRequest):
 
 
 def participant_detail_view(request: HttpRequest):
-    id = request.GET["id"]  # 出場者ID
-    mode = request.GET["mode"]  # single, team, team_member
+    try:
+        id = request.GET["id"]  # 出場者ID
+        mode = request.GET["mode"]  # single, team, team_member
+    except KeyError:
+        # id, modeが無い場合、ルートにリダイレクト
+        return redirect("/")
 
     # チームメンバーの場合、情報を取得
     if mode == "team_member":
