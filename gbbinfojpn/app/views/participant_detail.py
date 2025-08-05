@@ -118,25 +118,26 @@ def beatboxer_tavily_search(
     )
 
     # キャッシュとデータベースから結果を取得
-    search_results = supabase_service.get_tavily_data(cache_key)
+    search_results_unfiltered = supabase_service.get_tavily_data(cache_key)
 
     # ないならTavilyで検索して保存
-    if len(search_results) == 0:
-        search_results = tavily_service.search(beatboxer_name)
-        supabase_service.insert_tavily_data(cache_key, search_results)
+    if len(search_results_unfiltered) == 0:
+        search_results_unfiltered = tavily_service.search(beatboxer_name)
+        supabase_service.insert_tavily_data(cache_key, search_results_unfiltered)
 
-    search_results_copy = search_results.copy()
+    search_results = []
 
     # 禁止ワードを含むURLを削除
     BAN_WORDS = ["HATEN", "BEATCITY", "JPN CUP"]
-    for item in search_results_copy:
+    for item in search_results_unfiltered:
         for ban_word in BAN_WORDS:
             if (
                 ban_word in item["title"].upper()
                 or ban_word in item["url"].upper()
                 or ban_word in item["content"].upper()
             ):
-                search_results.remove(item)
+                continue
+            search_results.append(item)
 
     # 結果を格納するリスト
     account_urls = []  # アカウントURL（@を含むもの）
