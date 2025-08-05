@@ -26,7 +26,7 @@ def rules_view(request: HttpRequest, year: int):
     # シード権獲得者を取得
     participants_data = supabase_service.get_data(
         table="Participant",
-        columns=["name", "category", "is_cancelled", "ticket_class"],
+        columns=["id", "name", "category", "is_cancelled", "ticket_class"],
         order_by="category",  # カテゴリでソート
         join_tables={
             "Category": ["id", "name"],
