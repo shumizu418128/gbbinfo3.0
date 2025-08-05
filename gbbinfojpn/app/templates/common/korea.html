@@ -26,39 +26,27 @@
     <tbody>
     {% for participant in participants %}
       <tr>
-        <td>
-          {% if participant.members != "" %}
-            {% if participant.is_cancelled %}
-              【{% trans "辞退" %}】<br><s>{{ participant.name }}</s>
-              <div class="member-list"><s>[{{ participant.members }}]</s></div>
-            {% else %}
-              {{ participant.name }}
-              <div class="member-list">[{{ participant.members }}]</div>
-            {% endif %}
-
-          {% else %}
-            {% if participant.is_cancelled %}
-              【{% trans "辞退" %}】<br><s>{{ participant.name }}</s>
-            {% else %}
-              {{ participant.name }}
-            {% endif %}
-          {% endif %}
-
-        </td>
-        <td>
-          {% if participant.is_cancelled %}
+        {% if participant.is_cancelled %}
+          <td>
+            【{% trans "辞退" %}】<br><a href="/others/participant_detail?id={{ participant.id }}&mode={% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a>
+          </td>
+          <td>
             <s>{{ participant.category }}</s>
-          {% else %}
+          </td>
+          <td {% if participant.ticket_class|length > 11 %} style="font-size: 12px;" {% endif %}>
+            <s>{{ participant.ticket_class }}</s>
+          </td>
+        {% else %}
+          <td>
+            <a href="/others/participant_detail?id={{ participant.id }}&mode={% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a>
+          </td>
+          <td>
             {{ participant.category }}
-          {% endif %}
-        </td>
-        <td {% if participant.ticket_class|length > 11 %} style="font-size: 12px;" {% endif %}>
-          {% if participant.is_cancelled %}
-          <s>{{ participant.ticket_class }}</s>
-          {% else %}
-          {{ participant.ticket_class }}
-          {% endif %}
-        </td>
+          </td>
+          <td {% if participant.ticket_class|length > 11 %} style="font-size: 12px;" {% endif %}>
+            {{ participant.ticket_class }}
+          </td>
+        {% endif %}
       </tr>
       {% endfor %}
     </tbody>
