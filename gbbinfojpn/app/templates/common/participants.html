@@ -104,7 +104,7 @@
 {% if all_category %}
   <h2 name="search_participants">{% trans "出場者検索" %}</h2>
   <p>GBB {{ year }} {% trans "出場者名を検索できます" %}<br>{% trans "半角英数字推奨" %}</p>
-  <form id="search-participants" class="search-container" onsubmit="searchParticipants(year={{year}})">
+  <form id="search-participants" class="search-container" onsubmit="searchParticipants({{ year }}, event)">
     <input type="text" name="keyword" id="keyword" value="{{ value }}" placeholder="{% trans "出場者検索" %}">
     <button type="submit"></button>
   </form>

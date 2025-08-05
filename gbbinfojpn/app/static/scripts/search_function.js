@@ -93,7 +93,10 @@ function toggleSearchMenu() {
 
 // 参加者検索処理
 // biome-ignore lint/correctness/noUnusedVariables: base.htmlで使ってる
-function searchParticipants(year) {
+function searchParticipants(year, event) {
+    if (event) {
+        event.preventDefault();
+    }
     const input = document.getElementById('keyword').value;
     const loadingElement = document.getElementById('loading');
     const resultElement = document.getElementById('participants-search-result');
@@ -160,7 +163,8 @@ function setupSearchSuggestions(searchForm) {
     const suggestionsContainer = searchForm.closest('.search-container').nextElementSibling;
 
     searchForm.addEventListener('input', function() {
-        const query = this.querySelector('input[name="question"]').value;
+        const query = this.querySelector('input').value;
+        console.log('Search input:', query);
 
         if (query.length > 0) {
             // CSRFトークンを取得（メタタグから）
