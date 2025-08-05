@@ -1,6 +1,6 @@
 import json
 
-from gbbinfojpn.app.views.participant_detail import beatboxer_tavily_search
+from gbbinfojpn.app.views.beatboxer_tavily_search import beatboxer_tavily_search
 
 """
 python -m gbbinfojpn.app.tests.tavily_test
