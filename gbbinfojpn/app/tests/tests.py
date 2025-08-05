@@ -4,7 +4,13 @@ gbbinfojpn.app.urls のURLパターンをテストするモジュール
 python manage.py test gbbinfojpn.app.tests.tests --keepdb
 """
 
+import os
+
 from django.test import Client, TestCase
+
+from gbbinfojpn.app.context_processors import get_available_years
+
+COMMON_URLS = ["/japan", "/korea", "/participants", "/rule"]
 
 
 class AppUrlsTestCase(TestCase):
@@ -41,12 +47,38 @@ class AppUrlsTestCase(TestCase):
         各URLにGETリクエストを送り、200〜399のステータスコード、または
         レスポンスが存在することを検証します。
         """
+        available_years = get_available_years()
+
         test_cases = [
-            # (URL, 説明)
-            ("/", "ルートURL - redirect_to_latest_top"),
-            ("/lang?lang=en&referrer=/", "言語変更URL - change_language"),
-            ("/2025/top", "共通ビュー - 存在するテンプレート"),
+            ("/", "ルートページ"),
+            ("/lang?lang=en", "言語変更 英語"),
+            ("/lang?lang=ja", "言語変更 日本語"),
         ]
+
+        for year in available_years:
+            file_list = os.listdir(f"gbbinfojpn/app/templates/{year}")
+            for file in file_list:
+                if file.endswith(".html"):
+                    test_cases.append(
+                        (
+                            f"/{year}/{file.replace('.html', '')}",
+                            f"/{year}/{file.replace('.html', '')}",
+                        ),
+                    )
+            for common_url in COMMON_URLS:
+                test_cases.append(
+                    (f"/{year}{common_url}", f"/{year}{common_url}"),
+                )
+
+        other_urls = os.listdir("gbbinfojpn/app/templates/others")
+        for other_url in other_urls:
+            if other_url.endswith(".html"):
+                test_cases.append(
+                    (
+                        f"/others/{other_url.replace('.html', '')}",
+                        f"/others/{other_url.replace('.html', '')}",
+                    ),
+                )
 
         for url, description in test_cases:
             with self.subTest(url=url, description=description):
