@@ -29,6 +29,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="UTF-8" />
+    <meta name="csrf-token" content="{{ csrf_token }}" />
     <title>
       {% if is_local %}【LOCAL】{% endif %}
       {% if is_pull_request %}【PR】{% endif %}
@@ -226,6 +227,7 @@
         <h3>GBB {{ year }} {% trans 'なんでも検索' %}</h3>
         <p style="text-align: center;">{% blocktrans with year=year %}GBB {{ year }} の検索のみ可能です{% endblocktrans %}<br>{% blocktrans with year=year %}GBB {{ year }} は終了しました{% endblocktrans %}</p>
         <form id="search-form-bottom" class="search-container" action="/{{ year }}/search" method="POST">
+          {% csrf_token %}
           <input type="text" name="question" id="question-bottom" placeholder="{% blocktrans with year=year %}例：GBB {{ year }} の最終結果は？{% endblocktrans %}" required>
           <button type="submit"></button>
         </form>
@@ -238,6 +240,7 @@
         <h2>GBB {{ year }} {% trans 'なんでも検索' %}</h2>
         <p style="text-align: center;">{% blocktrans with year=year %}GBB {{ year }} について検索してみよう{% endblocktrans %}</p>
         <form id="search-form-bottom" class="search-container" action="/{{ year }}/search" method="POST">
+          {% csrf_token %}
           <input type="text" name="question" id="question-bottom" placeholder="{% trans '例：現地観戦計画のたてかた' %}" required>
           <button type="submit"></button>
         </form>

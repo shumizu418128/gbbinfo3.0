@@ -32,13 +32,19 @@ function handleSearchFormSubmit(event) {
     loadingElement.style.display = 'block';
 
     const sendRequest = (retryCount = 0) => {
-        console.log(JSON.stringify(Object.fromEntries(formData)));
+        const csrfToken = formData.get('csrfmiddlewaretoken');
+
+        // CSRFトークンをformDataから除外してJSONボディを作成
+        const jsonData = Object.fromEntries(formData);
+        delete jsonData.csrfmiddlewaretoken;
+
         fetch(this.action, {
             method: "POST",
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrfToken
             },
-            body: JSON.stringify(Object.fromEntries(formData))
+            body: JSON.stringify(jsonData)
         })
         .then(response => response.json())
         .then(data => {
@@ -96,10 +102,14 @@ function searchParticipants(year) {
     if (input) {
         loadingElement.style.display = 'block';
 
+        // CSRFトークンを取得（メタタグから）
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
         fetch(`/${year}/search_participants`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrfToken
             },
             body: JSON.stringify({keyword: input})
         })
@@ -153,10 +163,14 @@ function setupSearchSuggestions(searchForm) {
         const query = this.querySelector('input').value;
 
         if (query.length > 0) {
+            // CSRFトークンを取得（メタタグから）
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
             fetch('/search_suggestions', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrfToken
                 },
                 body: JSON.stringify({ input: query })
             })

@@ -33,6 +33,7 @@
         {% blocktrans with year=year %}GBB {{ year }} は終了しました{% endblocktrans %}
       </p>
       <form id="search-form-nav" class="search-container" action="/{{ year }}/search" method="POST">
+        {% csrf_token %}
         <input type="text" name="question" id="question-nav" placeholder="{% blocktrans with year=year %}例：GBB {{ year }} の最終結果は？{% endblocktrans %}" required>
         <button type="submit"></button>
       </form>
@@ -47,6 +48,7 @@
       <h2 style="margin-top: 25px" id="bottom-search-menu">GBB {{ year }} {% trans "なんでも検索" %}</h2>
       <p style="text-align: center;">{% blocktrans with year=year %}GBB {{ year }} について検索してみよう{% endblocktrans %}</p>
       <form id="search-form-nav" class="search-container" action="/{{ year }}/search" method="POST">
+        {% csrf_token %}
         <input type="text" name="question" id="question-nav" placeholder="{% trans "例：現地観戦計画のたてかた" %}" required>
         <button type="submit"></button>
       </form>

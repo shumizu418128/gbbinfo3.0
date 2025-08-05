@@ -14,6 +14,7 @@
 
 {% if is_latest_year is True %}
   <form id="search-form-top" class="search-container" action="/{{ year }}/search" method="POST">
+    {% csrf_token %}
     <input type="text" name="question" id="question-top" placeholder="{% trans "例：現地観戦計画のたてかた" %}" required>
     <button type="submit"></button>
   </form>
