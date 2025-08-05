@@ -10,6 +10,7 @@ EXCLUDE_DOMAINS = [
     "onrender.com",
     "fandom.com",
     "wikipedia.org",
+    "swiki.jp",
 ]
 
 
