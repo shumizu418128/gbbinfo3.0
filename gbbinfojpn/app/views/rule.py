@@ -52,10 +52,7 @@ def rules_view(request: HttpRequest, year: int):
         participant.pop("Category")
 
         # メンバーがいればチームと判定
-        if len(participant["ParticipantMember"]) > 0:
-            participant["is_team"] = True
-        else:
-            participant["is_team"] = False
+        participant["is_team"] = len(participant["ParticipantMember"]) > 0
 
         # シード権辞退者、GBBでのシード権、その他でのシード権に分類
         if participant["is_cancelled"]:

@@ -136,10 +136,7 @@ def participants_view(request: HttpRequest, year: int):
             participant["country"] = participant["Country"]["names"][language]
             participant.pop("Country")
 
-        if len(participant["ParticipantMember"]) > 0:
-            participant["is_team"] = True
-        else:
-            participant["is_team"] = False
+        participant["is_team"] = len(participant["ParticipantMember"]) > 0
 
         participants_data_edited.append(participant)
 
@@ -204,6 +201,8 @@ def participants_country_specific_view(request: HttpRequest, year: int):
         # カテゴリ名を取り出す
         participant["category"] = participant["Category"]["name"]
         participant.pop("Category")
+
+        participant["is_team"] = len(participant["ParticipantMember"]) > 0
 
     participants_data.sort(
         key=lambda x: (
