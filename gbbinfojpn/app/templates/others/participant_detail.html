@@ -112,7 +112,7 @@
 
 <div class="button-container">
     <a href="/{{beatboxer_detail.year}}/participants"><button>GBB {{ beatboxer_detail.year }} {% trans "全出場者一覧" %}<br></button></a>
-    <a href="/{{beatboxer_detail.year}}/rule"><button>GBB {{ beatboxer_detail.year }} {% trans "ルール & 審査員" %}</button></a>
+    <a href="/{{beatboxer_detail.year}}/top"><button>GBB {{ beatboxer_detail.year }} {% trans "これだけガイド" %}</button></a>
 </div>
 
 <h2>{{ beatboxer_detail.name }} {% trans "過去の出場履歴" %}</h2>
@@ -142,6 +142,15 @@
         </tbody>
     </table>
 {% endif %}
+
+<div class="button-container">
+    <a href="/{{beatboxer_detail.year}}/participants"><button>GBB {{ beatboxer_detail.year }} {% trans "全出場者一覧" %}<br></button></a>
+    {% if language == 'ko' %}
+        <a href="/{{beatboxer_detail.year}}/korea"><button>GBB {{ beatboxer_detail.year }} {% trans "韓国代表" %}</button></a>
+    {% else %}
+        <a href="/{{beatboxer_detail.year}}/japan"><button>GBB {{ beatboxer_detail.year }} {% trans "日本代表" %}</button></a>
+    {% endif %}
+</div>
 
 <h2>{{ beatboxer_detail.name }} {% trans "関連サイト" %}</h2>
 <div style="margin: 40px;"></div>
