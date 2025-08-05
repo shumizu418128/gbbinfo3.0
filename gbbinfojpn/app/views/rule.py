@@ -1,5 +1,5 @@
 from django.http import HttpRequest
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.template import TemplateDoesNotExist
 
 from gbbinfojpn.app.models.supabase_client import supabase_service
@@ -19,6 +19,10 @@ def rules_view(request: HttpRequest, year: int):
         HttpResponse: ルールページのテンプレートをレンダリングしたレスポンス。
                       テンプレートが存在しない場合は404ページを返します。
     """
+    # 2013-2016は非対応
+    if 2013 <= year <= 2016:
+        return redirect(f"/{year}/top")
+
     # シード権獲得者を取得
     participants_data = supabase_service.get_data(
         table="Participant",

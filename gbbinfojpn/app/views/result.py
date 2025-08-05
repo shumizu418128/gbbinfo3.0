@@ -7,6 +7,10 @@ from gbbinfojpn.common.filter_eq import Operator
 
 
 def result_view(request, year):
+    # 2013-2016は非対応
+    if 2013 <= year <= 2016:
+        return redirect(f"/{year}/top")
+
     # クエリパラメータ
     category = request.GET.get("category")
 

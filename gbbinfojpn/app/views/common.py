@@ -1,8 +1,8 @@
 import os
 from datetime import datetime
 
-from django.http import HttpRequest, HttpResponseRedirect
-from django.shortcuts import render
+from django.http import HttpRequest
+from django.shortcuts import redirect, render
 from django.template import TemplateDoesNotExist
 
 from gbbinfojpn.app.context_processors import get_available_years
@@ -16,14 +16,14 @@ def top_redirect_view(request: HttpRequest):
         request (HttpRequest): リクエストオブジェクト
 
     Returns:
-        HttpResponseRedirect: 最新年度のトップページへのリダイレクトレスポンス
+        redirect: 最新年度のトップページへのリダイレクト
     """
     available_years = get_available_years()
     if datetime.now().year in available_years:
         latest_year = datetime.now().year
     else:
         latest_year = max(available_years)
-    return HttpResponseRedirect(f"/{latest_year}/top")
+    return redirect(f"/{latest_year}/top")
 
 
 def content_view(request: HttpRequest, year: int, content: str):
@@ -39,6 +39,10 @@ def content_view(request: HttpRequest, year: int, content: str):
         HttpResponse: レンダリングされたテンプレート
     """
     content_basename = os.path.basename(content)
+
+    # 2013-2016年の場合、topページ以外はリダイレクト
+    if 2013 <= year <= 2016 and content_basename != "top":
+        return redirect(f"/{year}/top")
 
     try:
         return render(request, f"{year}/{content_basename}.html")
