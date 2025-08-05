@@ -120,3 +120,6 @@ dmypy.json
 # OS
 .DS_Store
 Thumbs.db
+
+# gbbinfojpn/app/templates/(年)/world_map ディレクトリを無視
+/gbbinfojpn/app/templates/*/world_map/
