@@ -127,7 +127,7 @@ def beatboxer_tavily_search(
     search_results_copy = search_results.copy()
 
     # 禁止ワードを含むURLを削除
-    BAN_WORDS = ["HATEN", "CHEZAME", "BEATCITY", "JPN CUP"]
+    BAN_WORDS = ["HATEN", "BEATCITY", "JPN CUP"]
     for item in search_results_copy:
         for ban_word in BAN_WORDS:
             if (
