@@ -6,25 +6,25 @@ gunicorn==21.2.0
 
 # Database
 psycopg2-binary==2.9.9
-supabase==2.3.4
+supabase==2.16.0
 
 # Environment Variables
 python-dotenv==1.0.1
 
 # AI/ML APIs
-google-genai==0.8.0
-tavily-python==0.5.0
+google-genai==1.26.0
+tavily-python==0.5.4
 
 # Rate Limiting and Async
-asyncio-throttle==1.1.2
+asyncio-throttle==1.0.2
 ratelimit==2.2.1
 
 # Google Services
-gspread==6.1.2
-google-auth==2.35.0
+gspread==6.1.4
+google-auth==2.37.0
 
 # Data Processing
 pandas==2.2.3
 
 # Maps and Visualization
-folium==0.18.0
+folium==0.19.4

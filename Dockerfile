@@ -20,7 +20,7 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Python依存関係をインストール
-RUN pip install --no-cache-dir -r requirements.txt
+RUN uv pip install --no-cache --system -r requirements.txt
 
 # アプリケーションコードをコピー
 COPY . .
