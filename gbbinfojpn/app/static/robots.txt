@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gbbinfo-jpn.onrender.com/sitemap.xml
