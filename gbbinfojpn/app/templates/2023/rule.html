@@ -1,13 +1,13 @@
 {% extends "base.html" %}
-{% block title %}GBB 2023 ルール - GBBINFO-JPN{% endblock %}
-{% block twitter_title %}GBB2023:ルール - GBBINFO-JPN{% endblock %}
-{% block og_title %}GBB2023:ルール - GBBINFO-JPN{% endblock %}
-{% block og_url %}https://gbbinfo-jpn.onrender.com/2023/rule{% endblock %}
-{% block canonical %}https://gbbinfo-jpn.onrender.com/2023/rule{% endblock %}
+{% block title %}GBB {{ year }} ルール - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBB{{ year }}:ルール - GBBINFO-JPN{% endblock %}
+{% block og_title %}GBB{{ year }}:ルール - GBBINFO-JPN{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/rule{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/rule{% endblock %}
 {% block content %}
-<h1>GBB 2023 ルール</h1>
+<h1>GBB {{ year }} ルール</h1>
 <p>
-  Swissbeatbox公式サイトにて、GBB23で実施される部門・Wildcardのルールについて発表がありました。
+  Swissbeatbox公式サイトにて、GBB{{ year }}で実施される部門・Wildcardのルールについて発表がありました。
 </p>
 <p>
   ソースサイト：<a
@@ -15,7 +15,7 @@
     target="_blank"
     title="https://swissbeatbox.com/newsfeed/gbb-2023-wildcard-competition/"
     class=""
-    >GBB 2023 Wildcard Competition</a
+    >GBB {{ year }} Wildcard Competition</a
   >
 </p>
 
@@ -54,7 +54,7 @@
   以下に示す内容は、あくまでもBeatboxファンが知っておくとよりGBBを楽しめる知識として紹介するものです。
 </p>
 <p>
-  GBB23のWildcardを提出する方は、<span style="color: #ff0000"
+  GBB{{ year }}のWildcardを提出する方は、<span style="color: #ff0000"
     >必ずご自身でルールを今一度ご確認ください。</span
   >
 </p>
@@ -89,7 +89,7 @@
       <td>8</td>
     </tr>
     <tr>
-      <td>Producer showcase</td>
+      <td>Producer</td>
       <td>5</td>
       <td>1</td>
       <td>6</td>
@@ -109,185 +109,271 @@
   </tbody>
 </table>
 
-<h2 id="p03">出場シード権 獲得条件</h2>
+<h2 id="p03" name="seeds">出場シード権 獲得条件</h2>
 <p>
   Wildcardを勝ち上がる以外のGBB出場権を得る方法（シード権）と、その該当者は以下の通りです。
 </p>
-<table>
-  <thead>
-    <tr>
-      <th>
-        <strong><span>シード権</span></strong>
-      </th>
-      <th><strong>該当者</strong></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <p>
-          <span>GBB21 Solo トップ3<br /></span>
-        </p>
-        <p><span>&rarr;Solo部門</span></p>
-      </td>
-      <td>
-        <ol>
-          <li><s>Colaps</s> <span style="color: #ff0000">辞退</span></li>
-        </ol>
-        <ol>
-          <li value="2">RIVER'</li>
-        </ol>
-        <ol>
-          <li value="3">
-            <s>FOOTBOXG</s> <span style="color: #ff0000">辞退</span>
-          </li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <p><span>GBB21 Tag Team トップ3</span></p>
-        <p><span>&rarr;Tag Team部門</span></p>
-      </td>
-      <td>
-        <ol>
-          <li>
-            <span>MIDDLE SCHOOL</span> <span style="color: #ff0000">辞退</span>
-          </li>
-        </ol>
-        <ol>
-          <li value="2">ROGUE WAVE</li>
-          <li>ROFU</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <p><span>GBB21&nbsp;Loopstation トップ2</span></p>
-      </td>
-      <td>
-        <ol>
-          <li>
-            BIZKIT<br />
-            <span>&rarr;</span>Loopstation部門
-          </li>
-        </ol>
-        <ol>
-          <li value="2">
-            FROSTY<br />
-            <span>&rarr;</span>Producer showcase部門
-          </li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <p><span>GBB21&nbsp;Crew 優勝</span></p>
-        <p><span>&rarr;Crew部門</span></p>
-      </td>
-      <td>
-        <ul>
-          <li>M.O.M</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <p><span>GBB21 7tosmoke 優勝</span></p>
-        <p><span>&rarr;Solo部門</span></p>
-      </td>
-      <td>
-        <ul>
-          <li>KING INERTIA</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span>後日発表される特定の地域別大会優勝者</span>
-        <p><span>&rarr;Solo部門</span></p>
-      </td>
-      <td>
-        <ul>
-          <li>
-            <strong><span style="color: #ff0000">（※）</span></strong>
-          </li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
 
-<p>
-  <strong><span style="color: #ff0000">（※）</span></strong
-  >対象の地域別大会・その優勝者は以下の通りです。
-</p>
+<h3>シード権 - GBB</h3>
+{% if gbb_seed|length > 0 %}
+  <table>
+    <thead>
+    <tr>
+      <th style="width: 33%;">名前</th>
+      <th style="width: 34%;">部門</th>
+      <th style="width: 33%;">出場権</th>
+    </tr>
+    </thead>
+    <tbody>
+      {% for participant in gbb_seed %}
+      <tr>
+        <td><a href="/others/participant_detail?id={{ participant.id }}&mode={% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a></td>
+        <td>{{ participant.category }}</td>
+        <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
+          {{ participant.ticket_class }}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <table>
+    <thead>
+      <tr>
+        <th>
+          <strong><span>シード権</span></strong>
+        </th>
+        <th><strong>該当者</strong></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <p>
+            <span>GBB21 Solo トップ3<br /></span>
+          </p>
+          <p><span>&rarr;Solo部門</span></p>
+        </td>
+        <td>
+          <ol>
+            <li><s>Colaps</s> <span style="color: #ff0000">辞退</span></li>
+          </ol>
+          <ol>
+            <li value="2">RIVER'</li>
+          </ol>
+          <ol>
+            <li value="3">
+              <s>FOOTBOXG</s> <span style="color: #ff0000">辞退</span>
+            </li>
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p><span>GBB21 Tag Team トップ3</span></p>
+          <p><span>&rarr;Tag Team部門</span></p>
+        </td>
+        <td>
+          <ol>
+            <li>
+              <span>MIDDLE SCHOOL</span> <span style="color: #ff0000">辞退</span>
+            </li>
+          </ol>
+          <ol>
+            <li value="2">ROGUE WAVE</li>
+            <li>ROFU</li>
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p><span>GBB21&nbsp;Loopstation トップ2</span></p>
+        </td>
+        <td>
+          <ol>
+            <li>
+              BIZKIT<br />
+              <span>&rarr;</span>Loopstation部門
+            </li>
+          </ol>
+          <ol>
+            <li value="2">
+              FROSTY<br />
+              <span>&rarr;</span>Producer部門
+            </li>
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p><span>GBB21&nbsp;Crew 優勝</span></p>
+          <p><span>&rarr;Crew部門</span></p>
+        </td>
+        <td>
+          <ul>
+            <li>M.O.M</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p><span>GBB21 7tosmoke 優勝</span></p>
+          <p><span>&rarr;Solo部門</span></p>
+        </td>
+        <td>
+          <ul>
+            <li>KING INERTIA</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span>後日発表される特定の地域別大会優勝者</span>
+          <p><span>&rarr;Solo部門</span></p>
+        </td>
+        <td>
+          <ul>
+            <li>
+              <strong><span style="color: #ff0000">（※）</span></strong>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-<table>
-  <thead>
-    <tr>
-      <th>
-        <strong><span>大会名</span></strong>
-      </th>
-      <th>
-        <strong><span>地域区分</span></strong>
-      </th>
-      <th><strong>優勝者</strong></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <span>BEATCITY JAPAN<br /></span>
-      </td>
-      <td>開催国</td>
-      <td>MOMIMARU</td>
-    </tr>
-    <tr>
-      <td>Maestro Beatbox America 2022</td>
-      <td>中南米</td>
-      <td>WAALI</td>
-    </tr>
-    <tr>
-      <td>Oceania Beatbox World Competition 2023</td>
-      <td>オセアニア</td>
-      <td>PONO</td>
-    </tr>
-    <tr>
-      <td>European Beatbox Championship 2023</td>
-      <td>ヨーロッパ</td>
-      <td>MAXO</td>
-    </tr>
-    <tr>
-      <td>All From The Mouth Beatbox Battle 2023</td>
-      <td>北米</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td>（未発表）</td>
-      <td>アジア</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td>（未発表）</td>
-      <td>アフリカ</td>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
+  <p>
+    <strong><span style="color: #ff0000">（※）</span></strong
+    >対象の地域別大会・その優勝者は以下の通りです。
+  </p>
 
-<p>
-  GBB21 Tag Team Loopstation部門で優勝したSORRYは、出場権を得られないそうです。
-</p>
-<p>
-  <a
-    href="https://twitter.com/SO_SO_LOOPER/status/1587637905073532928?s=20&amp;t=FWXlfW25Njm70EsOctNs_Q"
-    target="_blank"
-    title="https://twitter.com/SO_SO_LOOPER/status/1587637905073532928?s=20&amp;t=FWXlfW25Njm70EsOctNs_Q"
-    class=""
-    >SO-SOさんのツイート</a
-  >より
-</p>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          <strong><span>大会名</span></strong>
+        </th>
+        <th>
+          <strong><span>地域区分</span></strong>
+        </th>
+        <th><strong>優勝者</strong></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <span>BEATCITY JAPAN<br /></span>
+        </td>
+        <td>開催国</td>
+        <td>MOMIMARU</td>
+      </tr>
+      <tr>
+        <td>Maestro Beatbox America 2022</td>
+        <td>中南米</td>
+        <td>WAALI</td>
+      </tr>
+      <tr>
+        <td>Oceania Beatbox World Competition 2023</td>
+        <td>オセアニア</td>
+        <td>PONO</td>
+      </tr>
+      <tr>
+        <td>European Beatbox Championship 2023</td>
+        <td>ヨーロッパ</td>
+        <td>MAXO</td>
+      </tr>
+      <tr>
+        <td>All From The Mouth Beatbox Battle 2023</td>
+        <td>北米</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>（未発表）</td>
+        <td>アジア</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>（未発表）</td>
+        <td>アフリカ</td>
+        <td>-</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+    GBB21 Tag Team Loopstation部門で優勝したSORRYは、出場権を得られないそうです。
+  </p>
+  <p>
+    <a
+      href="https://twitter.com/SO_SO_LOOPER/status/1587637905073532928?s=20&amp;t=FWXlfW25Njm70EsOctNs_Q"
+      target="_blank"
+      title="https://twitter.com/SO_SO_LOOPER/status/1587637905073532928?s=20&amp;t=FWXlfW25Njm70EsOctNs_Q"
+      class=""
+      >SO-SOさんのツイート</a
+    >より
+  </p>
+{% endif %}
+
+<h3>シード権 - その他</h3>
+{% if other_seed|length > 0 %}
+  <table>
+    <thead>
+    <tr>
+      <th style="width: 33%;">名前</th>
+      <th style="width: 34%;">部門</th>
+      <th style="width: 33%;">出場権</th>
+    </tr>
+    </thead>
+    <tbody>
+      {% for participant in other_seed %}
+      <tr>
+        <td><a href="/others/participant_detail?id={{ participant.id }}&mode={% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a></td>
+        <td>{{ participant.category }}</td>
+        <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
+          {{ participant.ticket_class }}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p>該当者なし</p>
+{% endif %}
+
+<h3>シード権辞退者一覧</h3>
+{% if cancelled|length > 0 %}
+  <table>
+    <thead>
+    <tr>
+      <th style="width: 33%;">名前</th>
+      <th style="width: 34%;">部門</th>
+      <th style="width: 33%;">出場権</th>
+    </tr>
+    </thead>
+    <tbody>
+      {% for participant in cancelled %}
+      <tr>
+        <td>
+          【辞退】<br><a href="/others/participant_detail?id={{ participant.id }}&mode={% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a>
+        </td>
+        <td>
+          <s>{{ participant.category }}</s>
+        </td>
+        <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
+          <s>{{ participant.ticket_class }}</s>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p>該当者なし</p>
+{% endif %}
+
+<div class="button-container">
+  <a href="/{{ year }}/participants"><button>Wildcard結果</button></a>
+  <a href="/{{ year }}/participants"><button>出場者一覧</button></a>
+</div>
 <p>なお、シード権を持つ人が辞退した場合、Wildcard枠に置き換えられます。</p>
 
 <h2 id="p04">第2ラウンドについて</h2>
@@ -305,152 +391,75 @@
 </p>
 
 <h2 id="p05">Wildcard ルール</h2>
-<ul>
-  <li><strong>全部門共通ルール</strong></li>
-  <li>
-    <ul>
-      <li>各部門の制限時間を超過した場合</li>
-      <li>
-        <ul>
-          <li>10秒以下の超過：ペナルティなし</li>
-          <li>11秒以上の超過：1秒ごとに -1 ポイント</li>
-        </ul>
-      </li>
-      <li>提出受付開始時間：1月1日 (0:00 CET)</li>
-    </ul>
-  </li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>部門</th>
+      <th>ルール</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>全部門共通</td>
+      <td style="font-size: 14px;">提出受付開始時間：1月1日 (0:00 CET)<br>10秒以下の超過：ペナルティなし<br>11秒以上の超過：1秒ごとに -1 ポイント</td>
+    </tr>
+    <tr>
+      <td>Solo</td>
+      <td style="font-size: 14px;">制限時間 2:00<br />第1ラウンド提出期限 2/4 (23:59 CET)<br />第1ラウンド結果発表 2/26<br />第2ラウンド提出期間 3/2~3/16 (23:59 CET)<br />第2ラウンド結果発表 3/26</td>
+    </tr>
+    <tr>
+      <td>Tag Team</td>
+      <td style="font-size: 14px;">制限時間 2:00<br />提出期限 2/11 (23:59 CET)<br />結果発表 2/24</td>
+    </tr>
+    <tr>
+      <td>Loopstation</td>
+      <td style="font-size: 14px;">制限時間 3:30<br />第1ラウンド提出期限 2/4 (23:59 CET)<br />第1ラウンド結果発表 2/25<br />第2ラウンド提出期間 3/1~3/15 (23:59 CET)<br />第2ラウンド結果発表 3/25<br />RC505 mki, mkiiのみ</td>
+    </tr>
+    <tr>
+      <td>Producer</td>
+      <td style="font-size: 14px;">制限時間 5:00<br />提出期限 2/11 (23:59 CET)<br />結果発表 3/4<br />デバイス制限なし</td>
+    </tr>
+    <tr>
+      <td>Crew</td>
+      <td style="font-size: 14px;">制限時間 3:00<br />提出期限 2/18 (23:59 CET)<br />結果発表 3/11</td>
+    </tr>
+    <tr>
+      <td>U18</td>
+      <td style="font-size: 14px;">制限時間 2:00<br />提出期限 2/4 (23:59 CET)<br />結果発表 2/26<br />GBB{{ year }}開催当日、18歳未満であることが条件</td>
+    </tr>
+  </tbody>
+</table>
 
-<ul>
-  <li><strong>Solo部門</strong></li>
-  <li>
-    <ul>
-      <li>制限時間：2分</li>
-      <li>第1ラウンド提出期限：2月4日 (23:59 CET)&nbsp;</li>
-    </ul>
-    <ul>
-      <li>第1ラウンド結果発表：2月26日</li>
-    </ul>
-    <ul>
-      <li>第2ラウンド提出期間：3月2日~16日 (23:59 CET)</li>
-    </ul>
-    <ul>
-      <li>第2ラウンド結果発表：3月26日</li>
-    </ul>
-  </li>
-</ul>
-<ul>
-  <li><strong>Tag Team部門</strong></li>
-  <li>
-    <ul>
-      <li>制限時間：2分</li>
-      <li>提出期限：2月11日 (23:59 CET)&nbsp;</li>
-    </ul>
-    <ul>
-      <li>結果発表：2月24日</li>
-    </ul>
-  </li>
-</ul>
-<div>
-  <ul>
-    <li><strong>Loopstation部門</strong></li>
-    <li>
-      <ul>
-        <li>制限時間：3分30秒&nbsp;</li>
-        <li>
-          使用可能デバイス：BOSS RC505 mki もしくは BOSS&nbsp;RC505 mkii のみ
-        </li>
-        <li>第1ラウンド提出期限：2月4日 (23:59 CET)&nbsp;</li>
-      </ul>
-      <ul>
-        <li>第1ラウンド結果発表：2月25日</li>
-      </ul>
-      <ul>
-        <li>第2ラウンド提出期間：3月1日~15日 (23:59 CET)</li>
-      </ul>
-      <ul>
-        <li>第2ラウンド結果発表：3月25日</li>
-      </ul>
-    </li>
-  </ul>
+<div class="button-container">
+  <a href="/others/how_to_plan"><button>現地観戦計画のたてかた</button></a>
+  <a href="/{{ year }}/top"><button>GBB {{ year }} これだけガイド</button></a>
 </div>
-<ul>
-  <li>
-    <ul>
-      <li>制限時間：5分</li>
-      <li>使用可能デバイス：無制限</li>
-      <li>提出期限：2月11日 (23:59 CET)&nbsp;</li>
-    </ul>
-    <ul>
-      <li>結果発表：3月4日</li>
-    </ul>
-  </li>
-</ul>
-<ul>
-  <li><strong>Crew部門</strong></li>
-  <li>
-    <ul>
-      <li>制限時間：3分</li>
-      <li>提出期限：2月18日 (23:59 CET)&nbsp;</li>
-    </ul>
-    <ul>
-      <li>結果発表：3月11日</li>
-    </ul>
-  </li>
-</ul>
-<ul>
-  <li><strong>U18（18歳未満）部門</strong></li>
-  <li>
-    <ul>
-      <li>制限時間：2分</li>
-      <li>GBB23開催当日、18歳未満であることが条件</li>
-      <li>提出期限：2月4日 (23:59 CET)&nbsp;</li>
-    </ul>
-    <ul>
-      <li>結果発表：2月26日</li>
-    </ul>
-  </li>
-</ul>
 
 <h2 id="p06">審査員一覧</h2>
-<p>※GBB23本番の審査員と、Wildcard審査員は、同じメンバーです。</p>
+<p>※GBB{{ year }}本番の審査員と、Wildcard審査員は、同じメンバーです。</p>
 <p>※審査員は全員SHOWCASEをすると動画内で発表しています。</p>
 <p>&rArr;実際は一部審査員のSHOWCASEだけでした。</p>
-<ul>
-  <li><strong>Solo部門</strong></li>
-  <li>
-    <ul>
-      <li>Alexinho</li>
-      <li>Skiller</li>
-      <li>D-low</li>
-      <li>WAWAD</li>
-      <li>Gene shinozaki</li>
-    </ul>
-  </li>
-</ul>
-<ul>
-  <li><strong>Tag Team部門</strong></li>
-  <li>
-    <ul>
-      <li>PE4ENKATA</li>
-      <li>Supernova</li>
-      <li>Alem</li>
-      <li>Pash</li>
-      <li>Jayton</li>
-    </ul>
-  </li>
-</ul>
-<ul>
-  <li><strong>Loopstation部門</strong></li>
-  <li>
-    <ul>
-      <li>SARO</li>
-      <li>beardyman</li>
-      <li>Rythmind</li>
-      <li>kristof</li>
-      <li>Tom thum</li>
-    </ul>
-  </li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th style="width: 50%">部門</th>
+      <th style="width: 50%">審査員</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Solo</td>
+      <td>Alexinho<br>Skiller<br>D-low<br>WAWAD<br>Gene shinozaki</td>
+    </tr>
+    <tr>
+      <td>Tag Team</td>
+      <td>PE4ENKATA<br>Supernova<br>Alem<br>Pash<br>Jayton</td>
+    </tr>
+    <tr>
+      <td>Loopstation</td>
+      <td>SARO<br>beardyman<br>Rythmind<br>kristof<br>Tom thum</td>
+    </tr>
+  </tbody>
+</table>
 
 {% endblock %}
