@@ -7,21 +7,20 @@ from gbbinfojpn.common.filter_eq import Operator
 
 
 def _get_translated_urls():
-    """
-    翻訳済みページのURLパス一覧を取得する内部関数。
+    r"""
+    英語（en）のdjango.poファイルから、翻訳済みページのURLパス一覧を取得する内部関数。
 
     Returns:
         set: 翻訳が存在するページのURLパスのセット
 
     Note:
-        英語（en）のdjango.poファイルをパースし、翻訳対象となるテンプレートパスから
-        実際のURLパスを抽出します。common/配下のテンプレートは年度ごとに展開されます。
-        除外条件（base.html, includes, 404.html等）も適用されます。
+        django.poのmsgidコメント（例: #: .\gbbinfojpn\app\templates\2024\rule.html:3）から
+        テンプレートパスを抽出し、URLパスに変換します。
+        common/配下のテンプレートは年度ごとに展開されるため、全年度分を生成します。
+        base.html, includes, 404.html等は除外します。
     """
     language = "en"
-
     po_file_path = f"{settings.LOCALE_PATHS[0]}/{language}/LC_MESSAGES/django.po"
-
     translated_urls = set()
 
     try:
@@ -30,31 +29,30 @@ def _get_translated_urls():
     except FileNotFoundError:
         return set()
 
-    exclude_words = [r":\d+", "templates/", ".html"]
+    exclude_patterns = [
+        r"\\includes\\",  # includesディレクトリ
+        r"base\.html",  # base.html
+        r"404\.html",  # 404.html
+    ]
 
     for line in po_content.split("\n"):
-        if line.startswith("#: templates/"):
+        if line.startswith("#: .\\gbbinfojpn\\app\\templates\\"):
+            # コメント行から複数パスを取得
             paths = line.replace("#:", "").split()
-
             for path in paths:
                 # 除外条件
-                if any(
-                    exclude in path
-                    for exclude in [
-                        "templates/base.html",
-                        "templates/includes/",
-                        "404.html",
-                    ]
-                ):
+                if any(re.search(pattern, path) for pattern in exclude_patterns):
                     continue
 
-                # パスの正規化
-                if path.startswith("templates/"):
-                    for word in exclude_words:
-                        path = re.sub(word, "", path)
+                # パスからテンプレート部分を抽出
+                m = re.match(r"\.\\gbbinfojpn\\app\\templates\\(.+?\.html)", path)
+                if not m:
+                    continue
+                template_path = m.group(1)
 
-                # common/の場合は年度を追加
-                if path.startswith("common/"):
+                # 年度ディレクトリ or commonディレクトリ
+                if template_path.startswith("common\\"):
+                    # 年度ごとに展開
                     year_data = supabase_service.get_data(
                         table="Year",
                         columns=["year"],
@@ -63,11 +61,20 @@ def _get_translated_urls():
                     )
                     available_years = year_data["year"].tolist()
                     for year in available_years:
-                        formatted_path = f"/{year}/{path.replace('common/', '')}"
-                        translated_urls.add(formatted_path)
-                    continue
-
-                translated_urls.add("/" + path)
+                        # common\foo.html → /{year}/foo
+                        url_path = (
+                            "/"
+                            + str(year)
+                            + "/"
+                            + template_path.replace("common\\", "").replace(".html", "")
+                        )
+                        translated_urls.add(url_path)
+                else:
+                    # 2024\foo.html → /2024/foo
+                    url_path = "/" + template_path.replace("\\", "/").replace(
+                        ".html", ""
+                    )
+                    translated_urls.add(url_path)
 
     return translated_urls
 

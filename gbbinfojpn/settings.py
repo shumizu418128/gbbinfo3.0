@@ -152,8 +152,8 @@ LANGUAGES = [
     ("no", "Norsk"),
     ("ta", "தமிழ்"),
     ("th", "ไทย"),
-    ("zh_Hans", "简体中文"),
-    ("zh_Hant", "繁體中文"),
+    ("zh-hans", "简体中文"),
+    ("zh-hant", "繁體中文"),
 ]
 SUPPORTED_LANGUAGE_CODES = [code for code, _ in LANGUAGES]
 
@@ -162,6 +162,7 @@ def _check_locale_paths_and_languages():
     """
     LOCALE_PATHS内の各フォルダ（言語コード）とSUPPORTED_LANGUAGE_CODESが一致しているかを検証します。
     ただし、日本語（'ja'）は例外としてチェック対象外とします。
+    zh-hansとzh_Hans、zh-hantとzh_Hantは同じものとして扱います。
     一致しない場合は例外を発生させます。
 
     Raises:
@@ -179,14 +180,26 @@ def _check_locale_paths_and_languages():
     locale_dirs_set = set(locale_dirs)
     supported_set = set(SUPPORTED_LANGUAGE_CODES)
 
+    # 中国語の正規化関数
+    def normalize_chinese_code(code):
+        if code in ["zh-hans", "zh_Hans"]:
+            return "zh-hans"
+        elif code in ["zh-hant", "zh_Hant"]:
+            return "zh-hant"
+        return code
+
+    # 正規化したセットを作成
+    locale_dirs_normalized = {normalize_chinese_code(code) for code in locale_dirs_set}
+    supported_normalized = {normalize_chinese_code(code) for code in supported_set}
+
     # 日本語（'ja'）は例外として除外
-    locale_dirs_set_no_ja = locale_dirs_set - {"ja"}
-    supported_set_no_ja = supported_set - {"ja"}
+    locale_dirs_normalized_no_ja = locale_dirs_normalized - {"ja"}
+    supported_normalized_no_ja = supported_normalized - {"ja"}
 
     # localeディレクトリにあるが、SUPPORTED_LANGUAGE_CODESにないもの
-    extra_locales = locale_dirs_set_no_ja - supported_set_no_ja
+    extra_locales = locale_dirs_normalized_no_ja - supported_normalized_no_ja
     # SUPPORTED_LANGUAGE_CODESにあるが、localeディレクトリにないもの
-    missing_locales = supported_set_no_ja - locale_dirs_set_no_ja
+    missing_locales = supported_normalized_no_ja - locale_dirs_normalized_no_ja
 
     error_msgs = []
     if extra_locales:

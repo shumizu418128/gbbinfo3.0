@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-06 17:16+0900\n"
+"POT-Creation-Date: 2025-08-06 17:04+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: ta\n"
+"Language: zh-hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -37,7 +37,7 @@ msgstr ""
 #: .\gbbinfojpn\app\templates\2025\wildcards.html:84
 #: .\gbbinfojpn\app\templates\base.html:125
 msgid "ルール"
-msgstr "விதி"
+msgstr "规则"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:11
 #: .\gbbinfojpn\app\templates\2025\rule.html:11
@@ -45,14 +45,14 @@ msgstr "விதி"
 #, python-format
 msgid "Swissbeatbox公式サイトにて、GBB %(year)s で実施される部門・Wildcardのルールについて発表がありました。"
 msgstr ""
-"Swissbeatbox அதிகாரப்பூர்வ இணையதளத்தில், GBB %(year)s இல் நடைபெறும் "
-"பிரிவுகள் மற்றும் வைல்ட்கார்டுக்கான விதிகள் அறிவிக்கப்பட்டுள்ளன."
+"Swissbeatbox\n"
+"官方网站上发布了关于GBB %(year)s 举办的部门Wildcard的规则。"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:12
 #: .\gbbinfojpn\app\templates\2025\rule.html:12
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:13
 msgid "ソースサイト："
-msgstr "மூலத்தளம்:"
+msgstr "来源网站："
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:21
 #: .\gbbinfojpn\app\templates\2024\rule.html:70
@@ -80,7 +80,7 @@ msgstr "மூலத்தளம்:"
 #: .\gbbinfojpn\app\templates\2025\wildcards.html:112
 #: .\gbbinfojpn\app\templates\base.html:126
 msgid "現地観戦計画のたてかた"
-msgstr "ஸ்தலத்திலே பார்க்கும் திட்டத்தை அமைப்பது எப்படி"
+msgstr "制定现场观赛计划"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:22
 #: .\gbbinfojpn\app\templates\2024\rule.html:71
@@ -125,7 +125,7 @@ msgstr "ஸ்தலத்திலே பார்க்கும் திட�
 #: .\gbbinfojpn\app\templates\base.html:263
 #: .\gbbinfojpn\app\templates\others\participant_detail.html:120
 msgid "これだけガイド"
-msgstr "இந்த கையேடு"
+msgstr "指南"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:26
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:16
@@ -133,7 +133,7 @@ msgstr "இந்த கையேடு"
 #: .\gbbinfojpn\app\templates\2025\time_schedule.html:21
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:26
 msgid "目次"
-msgstr "அட்டவணை"
+msgstr "目录"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:30
 #: .\gbbinfojpn\app\templates\2024\rule.html:55
@@ -144,7 +144,7 @@ msgstr "அட்டவணை"
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:59
 #: .\gbbinfojpn\app\templates\2025\wildcards.html:87
 msgid "注意事項"
-msgstr "விவரக்குறிப்புகள்"
+msgstr "注意事项"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:34
 #: .\gbbinfojpn\app\templates\2024\rule.html:74
@@ -153,72 +153,68 @@ msgstr "விவரக்குறிப்புகள்"
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:33
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:81
 msgid "開催部門一覧"
-msgstr "பங்குபெறும் துறைகள்"
+msgstr "举办部门列表"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:38
 #: .\gbbinfojpn\app\templates\2024\rule.html:133
 #: .\gbbinfojpn\app\templates\2025\rule.html:37
 #: .\gbbinfojpn\app\templates\2025\rule.html:128
 msgid "出場シード権 獲得条件"
-msgstr "போட்டி விதை உரிமையை வெல்வதற்கான நிபந்தனைகள்"
+msgstr "参赛种子资格获取条件"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:42
 #: .\gbbinfojpn\app\templates\2024\rule.html:230
 #: .\gbbinfojpn\app\templates\2025\rule.html:41
 #: .\gbbinfojpn\app\templates\2025\rule.html:228
 msgid "Wildcard ルール"
-msgstr "வைல்ட்கார்டு விதி"
+msgstr "通配符规则"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:46
 #: .\gbbinfojpn\app\templates\2024\rule.html:272
 #: .\gbbinfojpn\app\templates\2025\rule.html:45
 #: .\gbbinfojpn\app\templates\2025\rule.html:285
 msgid "本戦審査員一覧"
-msgstr "ஸ்ட்ரீமிங் நடுவர்கள் பட்டியல்"
+msgstr "本赛评委名单"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:50
 #: .\gbbinfojpn\app\templates\2024\rule.html:316
 #: .\gbbinfojpn\app\templates\2025\rule.html:49
 #: .\gbbinfojpn\app\templates\2025\rule.html:330
 msgid "Wildcard審査員一覧"
-msgstr "வைல்டுகார்டு நடுவர்கள் பட்டியல்"
+msgstr "通配符评审员列表"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:57
 #: .\gbbinfojpn\app\templates\2025\rule.html:56
 msgid "以下に示す内容は、あくまでもBeatboxファンが知っておくとよりGBBを楽しめる知識として紹介するものです。"
-msgstr ""
-"நான் கீழே கொடுப்பது பீட்பாக்ஸ் ரசிகர்கள் GBB ஐ இன்னும் நன்றாக அனுபவிக்க "
-"உதவும் வகையில், அவர்கள் தெரிந்து கொள்ள வேண்டிய தகவல்களாகும்."
+msgstr "以下内容仅作为Beatbox粉丝了解更多GBB的知识而介绍。"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:57
 #: .\gbbinfojpn\app\templates\2025\rule.html:57
 msgid "一部内容において、わかりやすさを優先します。"
-msgstr "சில உள்ளடக்கங்களில், தெளிவை நாங்கள் முன்னுரிமைப்படுத்துகிறோம்."
+msgstr "为了易于理解，将简化部分内容。"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:58
 #: .\gbbinfojpn\app\templates\2025\rule.html:57
 msgid "これにより、正確さに欠ける表現を用いることがあります。"
-msgstr "இது துல்லியமற்ற வெளிப்பாடுகளுக்கு வழிவகுக்கும்."
+msgstr "这可能会导致表达不准确。"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:62
 #: .\gbbinfojpn\app\templates\2025\rule.html:60
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:65
 msgid "当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねます。"
-msgstr ""
-"இந்தப் பக்கத்தில் வெளியிடப்பட்ட உள்ளடக்கத்தின் காரணமாக ஏற்படும் எந்தவொரு "
-"சேதத்திற்கும் நாங்கள் பொறுப்பாக மாட்டோம்."
+msgstr "对于本网站刊载的内容所造成的任何损失，我们概不负责。"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:62
 #: .\gbbinfojpn\app\templates\2025\rule.html:61
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:66
 msgid "Wildcardを提出する方は、"
-msgstr "வைல்ட் கார்டை சமர்ப்பிப்பவர்கள்:"
+msgstr "提交通配符的人"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:64
 #: .\gbbinfojpn\app\templates\2025\rule.html:62
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:67
 msgid "必ずご自身でルールを今一度ご確認ください。"
-msgstr "விதியை நீங்களே ஒருமுறை சரிபார்த்துக் கொள்ளுங்கள்."
+msgstr "请务必再次确认规则。"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:78
 #: .\gbbinfojpn\app\templates\2024\rule.html:143
@@ -243,30 +239,28 @@ msgstr "விதியை நீங்களே ஒருமுறை சரி
 #: .\gbbinfojpn\app\templates\others\participant_detail.html:27
 #: .\gbbinfojpn\app\templates\others\participant_detail.html:130
 msgid "部門"
-msgstr "துறை"
+msgstr "部门"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:80
 #: .\gbbinfojpn\app\templates\2025\rule.html:76
 msgid "シード"
-msgstr "விதைகள்"
+msgstr "种子"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:81
 #: .\gbbinfojpn\app\templates\2025\rule.html:77
 msgid "計"
-msgstr "கணக்கிடு"
+msgstr "计"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:118
 #: .\gbbinfojpn\app\templates\2025\rule.html:115
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:113
 msgid "上記のデータは、ルール発表時現在の情報です。実際は、辞退などにより、出場者数が変動します。"
-msgstr ""
-"மேலே உள்ள தரவு விதி அறிவிக்கப்பட்ட நேரத்தில் உள்ளது. உண்மையில், விலகல் "
-"காரணமாக பங்கேற்பாளர்களின் எண்ணிக்கை மாறுபடும்."
+msgstr "上述数据为规则发布时的信息。 实际上，由于退出等原因，参赛人数会有所变动。"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:122
 #: .\gbbinfojpn\app\templates\2025\rule.html:119
 msgid "Producerとは"
-msgstr "தயாரிப்பாளர் என்றால் என்ன?"
+msgstr "生产者"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:123
 #: .\gbbinfojpn\app\templates\2025\rule.html:121
@@ -274,28 +268,23 @@ msgid ""
 "Loopstationのセカンドデバイス（Loopstationに接続する端末）ありの部門で、GBB23で「Producer "
 "showcase」として新設されました。その代わり、Loopstation部門においてセカンドデバイスの使用が禁止されます。"
 msgstr ""
-"Loopstation-ன் இரண்டாவது சாதனம் (Loopstation-உடன் இணைக்கும் சாதனம்) கொண்ட "
-"பிரிவில், GBB23-ல் \\\\\\\\\\\\\\\"Producer showcase\\\\\\\\\\\\\\\" ஆக "
-"புதிதாக நிறுவப்பட்டது. அதற்கு பதிலாக, Loopstation பிரிவில் இரண்டாவது "
-"சாதனத்தைப் பயன்படுத்துவது தடைசெய்யப்பட்டுள்ளது."
+"Loopstation 的第二设备（连接到 Loopstation 的终端）存在的部门，在 GBB23 中作为“Producer "
+"showcase”新设立。取而代之的是，Loopstation 部门禁止使用第二设备。"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:126
 #: .\gbbinfojpn\app\templates\2025\rule.html:117
 msgid "忘れられたTag Team Loopstation..."
-msgstr "மறக்கப்பட்ட Tag Team Loopstation..."
+msgstr "被遗忘的Tag Team Loopstation..."
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:135
 #: .\gbbinfojpn\app\templates\2025\rule.html:130
 msgid "Wildcardを勝ち上がる以外の方法でGBB出場権を得る方法（シード権）と、その該当者は以下の通りです。"
-msgstr ""
-"காணொளி விளையாட்டுப் போட்டியில் வைல்ட்கார்டு மூலம் வெற்றி பெறாமல், கிராண்ட் "
-"போட்டியின் (GBB) வாய்ப்பைப் பெறும் வழிமுறைகள் (விதைகள்) மற்றும் அது தொடர்பான"
-" நபர்கள் பின்வருமாறு:"
+msgstr "通过非外卡晋级GBB的方法（种子权），以及符合资格的人员如下所示。"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:137
 #: .\gbbinfojpn\app\templates\2025\rule.html:133
 msgid "シード権 - GBB"
-msgstr "விதைத்த உரிமை - GBB"
+msgstr "种子权 - GBB"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:142
 #: .\gbbinfojpn\app\templates\2024\rule.html:168
@@ -313,7 +302,7 @@ msgstr "விதைத்த உரிமை - GBB"
 #: .\gbbinfojpn\app\templates\others\participant_detail.html:129
 #: .\gbbinfojpn\app\templates\others\participant_detail.html:182
 msgid "名前"
-msgstr "பெயர்"
+msgstr "名字"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:144
 #: .\gbbinfojpn\app\templates\2024\rule.html:170
@@ -328,7 +317,7 @@ msgstr "பெயர்"
 #: .\gbbinfojpn\app\templates\others\participant_detail.html:43
 #: .\gbbinfojpn\app\templates\others\participant_detail.html:184
 msgid "出場権"
-msgstr "உரிமை"
+msgstr "出场权"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:160
 #: .\gbbinfojpn\app\templates\2024\rule.html:186
@@ -348,17 +337,17 @@ msgstr "உரிமை"
 #: .\gbbinfojpn\app\templates\common\participants.html:83
 #: .\gbbinfojpn\app\templates\common\result.html:65
 msgid "～発表次第更新～"
-msgstr "வெளியிட்டவுடன் புதுப்பிக்கப்படும்"
+msgstr "～发布后更新～"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:163
 #: .\gbbinfojpn\app\templates\2025\rule.html:159
 msgid "シード権 - その他"
-msgstr "வரி சலுகைகள் - பிற"
+msgstr "种子资格 - 其他"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:189
 #: .\gbbinfojpn\app\templates\2025\rule.html:185
 msgid "シード権辞退者一覧"
-msgstr "விதை உரிமத்தை கைவிட்டவர்களின் பட்டியல்"
+msgstr "种子选手弃权者名单"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:203
 #: .\gbbinfojpn\app\templates\2025\rule.html:199
@@ -373,7 +362,7 @@ msgstr "விதை உரிமத்தை கைவிட்டவர்க�
 #: .\gbbinfojpn\app\templates\others\participant_detail.html:138
 #: .\gbbinfojpn\app\templates\others\participant_detail.html:192
 msgid "辞退"
-msgstr "நிராகரிக்கப்பட்டது"
+msgstr "辞退"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:220
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:99
@@ -393,40 +382,37 @@ msgstr "நிராகரிக்கப்பட்டது"
 #: .\gbbinfojpn\app\templates\includes\participants_form.html:13
 #: .\gbbinfojpn\app\templates\others\result_stream.html:39
 msgid "Wildcard結果"
-msgstr "வைல்டு கார்டு முடிவு"
+msgstr "通配符结果"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:221
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:100
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:230
 #: .\gbbinfojpn\app\templates\2025\rule.html:217
 msgid "出場者一覧"
-msgstr "பங்கேற்பாளர்கள் பட்டியல்"
+msgstr "参赛者名单"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:224
 #: .\gbbinfojpn\app\templates\2025\rule.html:221
 msgid "シード権を持つ人が辞退した場合、原則として、該当シード権は消滅し、Wildcard下位からの繰り上げが行われます。"
-msgstr ""
-"விதை உரிமையைக் கொண்ட ஒருவர் விலகினால், பொதுவாக, அந்த விதை உரிமை "
-"இழக்கப்பட்டு, வைல்டு கார்டு கீழ் இருந்து உயர்த்தப்படும்."
+msgstr "如果种子选手放弃参赛资格，原则上该种子选手资格将被取消，并将从外卡排名靠后的选手开始递补。"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:240
 #: .\gbbinfojpn\app\templates\2025\rule.html:238
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:205
 msgid "全部門共通"
-msgstr "அனைத்து துறைகளும் பொதுவானவை"
+msgstr "全体部门通用"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:241
 #: .\gbbinfojpn\app\templates\2025\rule.html:239
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:206
 msgid "制限時間を超過した場合、1秒につき最終順位を1つ下げる"
-msgstr ""
-"காலக்கெடுவை மீறினால், ஒவ்வொரு நொடிக்கும் இறுதி தரவரிசை ஒன்று குறைக்கப்படும்."
+msgstr "如果超过限制时间，每超过1秒，最终排名将下降1位"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:241
 #: .\gbbinfojpn\app\templates\2025\rule.html:239
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:206
 msgid "提出受付開始日時"
-msgstr "சமர்ப்பிக்கும் தொடக்க தேதி"
+msgstr "开始受理日期和时间"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:245
 #: .\gbbinfojpn\app\templates\2024\rule.html:249
@@ -444,7 +430,7 @@ msgstr "சமர்ப்பிக்கும் தொடக்க தேத�
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:222
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:226
 msgid "制限時間"
-msgstr "வரையறுக்கப்பட்ட நேரம்"
+msgstr "截止时间"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:245
 #: .\gbbinfojpn\app\templates\2024\rule.html:249
@@ -462,7 +448,7 @@ msgstr "வரையறுக்கப்பட்ட நேரம்"
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:222
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:226
 msgid "提出期限"
-msgstr "சமர்ப்பிக்கும் காலக்கெடு"
+msgstr "提交截止日期"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:245
 #: .\gbbinfojpn\app\templates\2024\rule.html:249
@@ -480,7 +466,7 @@ msgstr "சமர்ப்பிக்கும் காலக்கெடு"
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:222
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:226
 msgid "結果発表"
-msgstr "விளைவு அறிவிப்பு"
+msgstr "结果公布"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:245
 #: .\gbbinfojpn\app\templates\2024\rule.html:249
@@ -494,28 +480,28 @@ msgstr "விளைவு அறிவிப்பு"
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:222
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:226
 msgid "時間未定"
-msgstr "சமயம் இன்னும் நிச்சயிக்கப்படவில்லை"
+msgstr "时间未定"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:253
 #: .\gbbinfojpn\app\templates\2025\rule.html:251
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:218
 msgid "RC505 mki, mkiiのみ"
-msgstr "RC505 mki, mkii மட்டும்"
+msgstr "仅限 RC505 mki, mkii"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:253
 msgid "一部例外あり"
-msgstr "ஒரு சில விதிவிலக்குகள் உள்ளன"
+msgstr "有部分例外"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:257
 #: .\gbbinfojpn\app\templates\2025\rule.html:255
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:222
 msgid "デバイス制限なし"
-msgstr "சாதனக் கட்டுப்பாடு இல்லை"
+msgstr "无设备限制"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:274
 #: .\gbbinfojpn\app\templates\2025\rule.html:287
 msgid "Wildcard審査員一覧はこちら"
-msgstr "வைல்ட்கார்டு நடுவர் பட்டியல் இங்கே"
+msgstr "通配符评审员列表在这里"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:280
 #: .\gbbinfojpn\app\templates\2024\rule.html:325
@@ -529,22 +515,22 @@ msgstr "வைல்ட்கார்டு நடுவர் பட்டி�
 #: .\gbbinfojpn\app\templates\2025\wildcards.html:84
 #: .\gbbinfojpn\app\templates\base.html:125
 msgid "審査員"
-msgstr "விமர்சகர்"
+msgstr "评委"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:306
 #: .\gbbinfojpn\app\templates\2025\rule.html:320
 msgid "審査員不明"
-msgstr "தீர்ப்பளிப்பவர் தெரியவில்லை"
+msgstr "评审员不明"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:306
 #: .\gbbinfojpn\app\templates\2025\rule.html:320
 msgid "例年発表なし"
-msgstr "ஆண்டுதோறும் அறிவிப்பு இல்லை"
+msgstr "往年未发布"
 
 #: .\gbbinfojpn\app\templates\2024\rule.html:318
 #: .\gbbinfojpn\app\templates\2025\rule.html:364
 msgid "本戦審査員一覧はこちら"
-msgstr "இறுதிப் போட்டி நடுவர் குழு இங்கே"
+msgstr "本赛评委一览请看这里"
 
 #: .\gbbinfojpn\app\templates\2024\stream.html:3
 #: .\gbbinfojpn\app\templates\2024\stream.html:4
@@ -562,16 +548,16 @@ msgstr "இறுதிப் போட்டி நடுவர் குழு
 #: .\gbbinfojpn\app\templates\base.html:132
 #: .\gbbinfojpn\app\templates\others\translation.html:23
 msgid "当日配信"
-msgstr "அன்று டெலிவரி"
+msgstr "当日发布"
 
 #: .\gbbinfojpn\app\templates\2024\stream.html:37
 msgid "観戦のお供に"
-msgstr "பார்க்கும் போது உங்களுக்கு துணையாக"
+msgstr "观赛必备"
 
 #: .\gbbinfojpn\app\templates\2024\stream.html:38
 #, python-format
 msgid "GBB %(year)s の最新情報をチェックしよう"
-msgstr "GBB %(year)s இன் சமீபத்திய தகவல்களைப் பார்க்கலாம்"
+msgstr "查看 GBB %(year)s 的最新信息"
 
 #: .\gbbinfojpn\app\templates\2024\stream.html:40
 #: .\gbbinfojpn\app\templates\common\participants.html:3
@@ -580,7 +566,7 @@ msgstr "GBB %(year)s இன் சமீபத்திய தகவல்கள
 #: .\gbbinfojpn\app\templates\common\participants.html:10
 #: .\gbbinfojpn\app\templates\others\translation.html:18
 msgid "Wildcard結果 & 出場者"
-msgstr "வைல்டு கார்டு முடிவு & பங்கேற்பாளர்கள்"
+msgstr "通配符结果 & 出场者"
 
 #: .\gbbinfojpn\app\templates\2024\stream.html:41
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:3
@@ -601,7 +587,7 @@ msgstr "வைல்டு கார்டு முடிவு & பங்க�
 #: .\gbbinfojpn\app\templates\base.html:129
 #: .\gbbinfojpn\app\templates\others\translation.html:20
 msgid "タイムスケジュール"
-msgstr "நேர அட்டவணை"
+msgstr "时间表"
 
 #: .\gbbinfojpn\app\templates\2024\ticket.html:3
 #: .\gbbinfojpn\app\templates\2024\ticket.html:4
@@ -615,11 +601,11 @@ msgstr "நேர அட்டவணை"
 #: .\gbbinfojpn\app\templates\2025\top_7tosmoke.html:35
 #: .\gbbinfojpn\app\templates\others\translation.html:22
 msgid "会場 & チケット"
-msgstr "கூட்டம் & டிக்கெட்"
+msgstr "会场 & 门票"
 
 #: .\gbbinfojpn\app\templates\2024\ticket.html:10
 msgid "【完売】公式販売"
-msgstr "விற்றுத் தீர்ந்தது"
+msgstr "【售罄】官方销售"
 
 #: .\gbbinfojpn\app\templates\2024\ticket.html:11
 #: .\gbbinfojpn\app\templates\2024\ticket.html:17
@@ -633,15 +619,15 @@ msgstr "விற்றுத் தீர்ந்தது"
 #: .\gbbinfojpn\app\templates\2025\top.html:213
 #: .\gbbinfojpn\app\templates\base.html:131
 msgid "会場"
-msgstr "இடம்"
+msgstr "会场"
 
 #: .\gbbinfojpn\app\templates\2024\ticket.html:13
 msgid "チケットぴあ"
-msgstr "டிக்கெட் பியா"
+msgstr "票务Pia"
 
 #: .\gbbinfojpn\app\templates\2024\ticket.html:15
 msgid "楽天チケット"
-msgstr "ரகுபதேக் கட்டளை"
+msgstr "乐天票务"
 
 #: .\gbbinfojpn\app\templates\2024\ticket.html:19
 #: .\gbbinfojpn\app\templates\2024\top.html:77
@@ -649,31 +635,27 @@ msgstr "ரகுபதேக் கட்டளை"
 #: .\gbbinfojpn\app\templates\2025\top.html:134
 #: .\gbbinfojpn\app\templates\base.html:131
 msgid "チケット"
-msgstr "டிக்கெட்"
+msgstr "门票"
 
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:11
 #: .\gbbinfojpn\app\templates\2025\time_schedule.html:15
 msgid "時刻はあくまでも予定です。"
-msgstr "நேரம் ஒரு திட்டமிடல் மட்டுமே."
+msgstr "时间仅供参考。"
 
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:12
 #: .\gbbinfojpn\app\templates\2025\time_schedule.html:16
 msgid "GBB21では、予定から約2時間遅延しました。"
-msgstr ""
-"GBB21 இல் திட்டமிடப்பட்ட நேரத்திலிருந்து சுமார் 2 மணி நேரம் தாமதமானது."
+msgstr "GBB21 推迟了大约 2 个小时，比预定时间。"
 
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:13
 #: .\gbbinfojpn\app\templates\2025\time_schedule.html:17
 msgid "GBB23では、本番7日前に日本語版・英語版のタイムスケジュールが公開されましたが、日本語版のみ正しく、英語版には誤記が多くみられました。"
-msgstr ""
-"GBB23-ல், நிகழ்வுக்கு 7 நாட்களுக்கு முன் ஜப்பானிய மற்றும் ஆங்கில நேர "
-"அட்டவணைகள் வெளியிடப்பட்டன, ஆனால் ஜப்பானிய பதிப்பு சரியாக இருந்தது, மேலும் "
-"ஆங்கில பதிப்பில் பல பிழைகள் காணப்பட்டன."
+msgstr "在GBB23中，正式比赛前7天发布了日语版和英语版的时间表，但只有日语版是正确的，英语版出现了许多错误。"
 
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:36
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:290
 msgid "出演者一覧"
-msgstr "நடிகர்கள் பட்டியல்"
+msgstr "出演者名单"
 
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:50
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:107
@@ -684,7 +666,7 @@ msgstr "நடிகர்கள் பட்டியல்"
 #: .\gbbinfojpn\app\templates\2025\time_schedule.html:98
 #: .\gbbinfojpn\app\templates\2025\time_schedule.html:126
 msgid "時刻"
-msgstr "நேரம்"
+msgstr "时刻"
 
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:51
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:108
@@ -695,7 +677,7 @@ msgstr "நேரம்"
 #: .\gbbinfojpn\app\templates\2025\time_schedule.html:99
 #: .\gbbinfojpn\app\templates\2025\time_schedule.html:127
 msgid "内容"
-msgstr "உள்ளடக்கம்"
+msgstr "内容"
 
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:57
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:114
@@ -706,20 +688,20 @@ msgstr "உள்ளடக்கம்"
 #: .\gbbinfojpn\app\templates\2025\time_schedule.html:105
 #: .\gbbinfojpn\app\templates\2025\time_schedule.html:133
 msgid "入場開始"
-msgstr "நுழைவு தொடங்கியது"
+msgstr "开始入场"
 
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:61
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:118
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:175
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:256
 msgid "ABEMA配信スタート"
-msgstr "ABEMA ஒளிபரப்பு தொடங்கியது"
+msgstr "ABEMA 播放开始"
 
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:65
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:122
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:179
 msgid "サプライズゲスト"
-msgstr "சர்ப்ரைஸ் விருந்தினர்"
+msgstr "惊喜嘉宾"
 
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:69
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:126
@@ -730,7 +712,7 @@ msgstr "சர்ப்ரைஸ் விருந்தினர்"
 #: .\gbbinfojpn\app\templates\2025\time_schedule.html:109
 #: .\gbbinfojpn\app\templates\2025\time_schedule.html:137
 msgid "スタート"
-msgstr "தொடங்கு"
+msgstr "开始"
 
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:77
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:81
@@ -738,13 +720,13 @@ msgstr "தொடங்கு"
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:146
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:252
 msgid "予選"
-msgstr "முதன்மை"
+msgstr "预选"
 
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:89
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:199
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:203
 msgid "準決勝"
-msgstr "அரை இறுதி"
+msgstr "半决赛"
 
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:93
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:150
@@ -755,95 +737,95 @@ msgstr "அரை இறுதி"
 #: .\gbbinfojpn\app\templates\2025\time_schedule.html:113
 #: .\gbbinfojpn\app\templates\2025\time_schedule.html:141
 msgid "終了"
-msgstr "முடிந்தது"
+msgstr "结束"
 
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:134
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:195
 msgid "準々決勝"
-msgstr "கால் இறுதி"
+msgstr "四分之一决赛"
 
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:138
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:142
 msgid "決勝"
-msgstr "இறுதி"
+msgstr "决胜"
 
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:191
 msgid "準決勝・3位決定戦・決勝"
-msgstr "அரையிறுதி, மூன்றாம் இடத்திற்கான போட்டி, இறுதிப் போட்டி"
+msgstr "半决赛、季军赛、决赛"
 
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:207
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:211
 msgid "3位決定戦・決勝"
-msgstr "மூன்றாம் இடத்திற்கான போட்டி, இறுதிப் போட்டி"
+msgstr "三四名决胜赛・决赛"
 
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:215
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:268
 msgid "セレモニー"
-msgstr "விழா"
+msgstr "典礼"
 
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:223
 msgid "アフターパーティー"
-msgstr "பின் பார்ட்டி"
+msgstr "派对"
 
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:248
 msgid "ソース：会場公式サイト"
-msgstr "மூல: தளத்தின் அதிகாரப்பூர்வ இணையதளம்"
+msgstr "来源：会场官方网站"
 
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:256
 msgid "ソース：ABEMA配信ページ"
-msgstr "மூலம்: ABEMA வெளியீட்டு பக்கம்"
+msgstr "来源：ABEMA 配信页面"
 
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:256
 msgid "予選開始より遅い理由は不明"
-msgstr "தகுதிச் சுற்றில் தாமதமானதற்கான காரணம் தெரியவில்லை"
+msgstr "预选赛开始较晚的原因不明"
 
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:260
 msgid "本戦出場者アナウンス"
-msgstr "இறுதிப் போட்டி அறிவிப்பு"
+msgstr "本赛参赛者公布"
 
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:264
 msgid "本戦スタート"
-msgstr "முதன்மை போட்டி தொடங்கியது"
+msgstr "正赛开始"
 
 #: .\gbbinfojpn\app\templates\2024\time_schedule.html:299
 msgid "各出演者の出演日時は不明です。"
-msgstr "எல்லா நடிகர்களின் தோற்ற தேதிகள் தெரியவில்லை."
+msgstr "各出演者的出演时间不确定。"
 
 #: .\gbbinfojpn\app\templates\2024\top.html:12
 #: .\gbbinfojpn\app\templates\2025\top.html:12
 msgid "開催日"
-msgstr "நிகழ்ந்த தேதி"
+msgstr "举办日期"
 
 #: .\gbbinfojpn\app\templates\2024\top.html:22
 #: .\gbbinfojpn\app\templates\2025\top.html:22
 #: .\gbbinfojpn\app\templates\includes\ended.html:5
 #: .\gbbinfojpn\app\templates\includes\popup_ended.html:8
 msgid "終了しました"
-msgstr "முடிந்தது"
+msgstr "已完成"
 
 #: .\gbbinfojpn\app\templates\2024\top.html:22
 #: .\gbbinfojpn\app\templates\2025\top.html:22
 msgid "ページ 先行公開中！"
-msgstr "பக்கம் முன்கூட்டியே வெளியிடப்பட்டது!"
+msgstr "页面 抢先公开中！"
 
 #: .\gbbinfojpn\app\templates\2024\top.html:25
 #: .\gbbinfojpn\app\templates\2025\top.html:25
 msgid "先行公開"
-msgstr "முன்னுரிமை வெளியீடு"
+msgstr "抢先发布"
 
 #: .\gbbinfojpn\app\templates\2024\top.html:32
 #: .\gbbinfojpn\app\templates\2024\top_7tosmoke.html:12
 #: .\gbbinfojpn\app\templates\2025\top.html:32
 #: .\gbbinfojpn\app\templates\2025\top_7tosmoke.html:12
 msgid "公式よりもわかりやすい！"
-msgstr "சூத்திரத்தை விட எளிதானது!"
+msgstr "比公式更容易理解！"
 
 #: .\gbbinfojpn\app\templates\2024\top.html:32
 #: .\gbbinfojpn\app\templates\2024\top_7tosmoke.html:12
 #: .\gbbinfojpn\app\templates\2025\top.html:32
 #: .\gbbinfojpn\app\templates\2025\top_7tosmoke.html:12
 msgid "非公式情報サイト"
-msgstr "அதிகாரப்பூர்வமற்ற தகவல் தளம்"
+msgstr "非官方信息网站"
 
 #: .\gbbinfojpn\app\templates\2024\top.html:38
 #: .\gbbinfojpn\app\templates\2024\top_7tosmoke.html:18
@@ -852,9 +834,7 @@ msgstr "அதிகாரப்பூர்வமற்ற தகவல் த�
 #: .\gbbinfojpn\app\templates\base.html:244
 #: .\gbbinfojpn\app\templates\includes\bottom_navigation.html:52
 msgid "例：現地観戦計画のたてかた"
-msgstr ""
-"உதாரணம்: நேரில் பார்க்கும் திட்டத்தை எவ்வாறு அமைப்பதுஉதாரணமாக: நேரடி "
-"போட்டியைப் பார்ப்பதற்கான திட்டத்தை உருவாக்குவது எப்படி"
+msgstr "例如：现场观赛计划的制定方法"
 
 #: .\gbbinfojpn\app\templates\2024\top.html:55
 #: .\gbbinfojpn\app\templates\2025\rule.html:67
@@ -868,7 +848,7 @@ msgstr ""
 #: .\gbbinfojpn\app\templates\common\result.html:91
 #: .\gbbinfojpn\app\templates\others\result_stream.html:39
 msgid "出場者"
-msgstr "பங்கேற்பாளர்கள்"
+msgstr "参赛者"
 
 #: .\gbbinfojpn\app\templates\2024\top.html:73
 #: .\gbbinfojpn\app\templates\2025\rule.html:225
@@ -884,11 +864,11 @@ msgstr "பங்கேற்பாளர்கள்"
 #: .\gbbinfojpn\app\templates\others\participant_detail.html:156
 #: .\gbbinfojpn\app\templates\others\translation.html:21
 msgid "日本代表"
-msgstr "ஜப்பான் அணி"
+msgstr "日本代表"
 
 #: .\gbbinfojpn\app\templates\2024\top.html:81
 msgid "みんなで鑑賞会"
-msgstr "கூட்டுப் பார்வை"
+msgstr "大家一起鉴赏会"
 
 #: .\gbbinfojpn\app\templates\2024\top.html:85
 #: .\gbbinfojpn\app\templates\2025\top.html:80
@@ -902,18 +882,18 @@ msgstr "கூட்டுப் பார்வை"
 #: .\gbbinfojpn\app\templates\others\participant_detail.html:158
 #: .\gbbinfojpn\app\templates\others\translation.html:24
 msgid "大会結果"
-msgstr "போட்டி முடிவுகள்"
+msgstr "大会结果"
 
 #: .\gbbinfojpn\app\templates\2024\top.html:90
 #: .\gbbinfojpn\app\templates\2025\top.html:147
 msgid "当サイトURL変更のお知らせ"
-msgstr "வலைத்தள URL மாற்ற அறிவிப்பு"
+msgstr "网站网址变更通知"
 
 #: .\gbbinfojpn\app\templates\2024\top.html:91
 #: .\gbbinfojpn\app\templates\2025\rule.html:282
 #: .\gbbinfojpn\app\templates\2025\top.html:148
 msgid "Wildcard結果発表配信"
-msgstr "வைல்ட்கார்ட் முடிவு வெளியீடு"
+msgstr "通配符结果发表直播"
 
 #: .\gbbinfojpn\app\templates\2024\top.html:92
 #: .\gbbinfojpn\app\templates\2024\wildcards.html:3
@@ -931,7 +911,7 @@ msgstr "வைல்ட்கார்ட் முடிவு வெளிய�
 #: .\gbbinfojpn\app\templates\others\result_stream.html:40
 #: .\gbbinfojpn\app\templates\others\translation.html:25
 msgid "Wildcard一覧"
-msgstr "வைல்டு கார்டு பட்டியல்"
+msgstr "通配符列表"
 
 #: .\gbbinfojpn\app\templates\2024\top.html:105
 #: .\gbbinfojpn\app\templates\2024\top.html:119
@@ -940,99 +920,88 @@ msgstr "வைல்டு கார்டு பட்டியல்"
 #: .\gbbinfojpn\app\templates\2025\top.html:190
 #: .\gbbinfojpn\app\templates\2025\top_7tosmoke.html:48
 msgid "お問い合わせ"
-msgstr "விசாரணை"
+msgstr "咨询"
 
 #: .\gbbinfojpn\app\templates\2024\top.html:110
 #: .\gbbinfojpn\app\templates\2025\top.html:181
 msgid "これらの情報のほかにも、"
-msgstr "இதர தகவல்களுக்கு:"
+msgstr "除这些信息之外，"
 
 #: .\gbbinfojpn\app\templates\2024\top.html:112
 #: .\gbbinfojpn\app\templates\2025\top.html:183
 msgid "未発表の情報(決まっているが、なぜか公式が発表を渋っている)"
-msgstr ""
-"வெளியிடப்படாத தகவல் (தீர்மானிக்கப்பட்டது, ஆனால் அதிகாரப்பூர்வமாக வெளியிட "
-"தயக்கம் காட்டப்படுகிறது)."
+msgstr "未公布的信息（已确定，但不知何故官方迟迟不予公布）"
 
 #: .\gbbinfojpn\app\templates\2024\top.html:113
 #: .\gbbinfojpn\app\templates\2025\top.html:184
 msgid "未定事項(そもそも決まってすらいない)"
-msgstr "தீர்மானிக்கப்படாதது (அதை தீர்மானிக்கவே இல்லை)"
+msgstr "未定事项（根本就没有决定）"
 
 #: .\gbbinfojpn\app\templates\2024\top.html:115
 #: .\gbbinfojpn\app\templates\2025\top.html:186
 msgid "このような情報が多く存在します。"
-msgstr "இத்தகைய தகவல்கள் ஏராளமாக உள்ளன."
+msgstr "这样的信息有很多。"
 
 #: .\gbbinfojpn\app\templates\2024\top.html:116
 #: .\gbbinfojpn\app\templates\2025\top.html:187
 msgid "GBBの各種情報は、発表が非常に遅いことで有名です。気長に待ちましょう。"
-msgstr ""
-"GBBயின் பல்வேறு தகவல்கள் அறிவிக்கப்படுவது மிக தாமதமாகும். பொறுமையாக "
-"காத்திருப்போம்."
+msgstr "GBB的各种信息，以发布非常晚而闻名。耐心等待吧。"
 
 #: .\gbbinfojpn\app\templates\2024\top.html:120
 #: .\gbbinfojpn\app\templates\2025\top.html:196
 msgid "過去のGBBにおいて、下記番号に電話したらGBB詳細情報を教えてくれた、という報告が相次ぎました。"
-msgstr ""
-"கடந்த ஜிபிபி-யில், கீழ்க்கண்ட எண்ணுக்குத் தொலைபேசி அழைப்பு விடுத்தால் ஜிபிபி"
-" பற்றிய விரிவான தகவல்களைத் தெரிவித்தனர் என்று பல அறிக்கைகள் வந்தன."
+msgstr "过去在GBB中，有报告称拨打以下号码可以获取GBB的详细信息。"
 
 #: .\gbbinfojpn\app\templates\2024\top.html:124
 #: .\gbbinfojpn\app\templates\2025\top.html:200
 msgid "場所"
-msgstr "இடம்"
+msgstr "场所"
 
 #: .\gbbinfojpn\app\templates\2024\top.html:125
 #: .\gbbinfojpn\app\templates\2025\top.html:201
 msgid "電話番号"
-msgstr "தொலைபேசி எண்"
+msgstr "电话号码"
 
 #: .\gbbinfojpn\app\templates\2024\top.html:129
 #: .\gbbinfojpn\app\templates\2025\top.html:205
 msgid "チケット販売ページ"
-msgstr "டிக்கெட் விற்பனை பக்கம்"
+msgstr "票务销售页面"
 
 #: .\gbbinfojpn\app\templates\2024\top.html:129
 #: .\gbbinfojpn\app\templates\2025\top.html:205
 msgid "記載の番号"
-msgstr "கொடுக்கப்பட்ட எண்"
+msgstr "所记载的号码"
 
 #: .\gbbinfojpn\app\templates\2024\top.html:141
 #: .\gbbinfojpn\app\templates\2025\top.html:217
 msgid "なお上記電話番号は、当サイトとは無関係です。"
-msgstr "மேலே உள்ள தொலைபேசி எண் இந்த தளத்துடன் தொடர்பில்லாதது."
+msgstr "上述电话号码与本网站无关。"
 
 #: .\gbbinfojpn\app\templates\2024\top_7tosmoke.html:33
 #: .\gbbinfojpn\app\templates\2025\top_7tosmoke.html:33
 msgid "7toSmokeとは"
-msgstr "7toSmoke என்றால் என்ன?"
+msgstr "7toSmoke是什么"
 
 #: .\gbbinfojpn\app\templates\2024\top_7tosmoke.html:34
 #: .\gbbinfojpn\app\templates\2025\top_7tosmoke.html:34
 msgid "7toSmokeルール & 参加方法"
-msgstr "7toSmoke விதிகள் & பங்கேற்பு முறை"
+msgstr "7toSmoke规则 & 参加方法"
 
 #: .\gbbinfojpn\app\templates\2024\top_7tosmoke.html:41
 #: .\gbbinfojpn\app\templates\2025\top_7tosmoke.html:43
 msgid ""
 "7toSmokeは、GBB本戦に比べて最新情報の公開が非常に遅い傾向にあり、そもそも情報が発表されないまま本番を迎えてしまったケースもあります。"
-msgstr ""
-"7toSmoke, GBB போட்டியுடன் ஒப்பிடும்போது, ​​மிகவும் தாமதமாக புதுப்பிப்புகளை "
-"வெளியிடுகிறது, மேலும் தகவல்கள் எதுவும் வெளியிடப்படாமல் நேரடியாக போட்டியை "
-"எதிர்கொள்ளும் நிகழ்வுகளும் உள்ளன."
+msgstr "相较于GBB正赛，7toSmoke公开最新信息的速度通常非常慢，甚至出现过根本没有发布信息就迎来了正式比赛的情况。"
 
 #: .\gbbinfojpn\app\templates\2024\top_7tosmoke.html:42
 #: .\gbbinfojpn\app\templates\2025\top_7tosmoke.html:44
 msgid "諦めましょう。"
-msgstr "விட்டு விடுவோம்."
+msgstr "我们放弃吧。"
 
 #: .\gbbinfojpn\app\templates\2024\wildcards.html:10
 #: .\gbbinfojpn\app\templates\2025\wildcards.html:11
 msgid "各部門の締め切り期日は、中央ヨーロッパ時刻を基準に表記しています。"
-msgstr ""
-"அனைத்து துறைகளின் காலக்கெடுவும் மத்திய ஐரோப்பிய நேரத்தின் அடிப்படையில் "
-"குறிப்பிடப்பட்டுள்ளது."
+msgstr "各部门的截止日期以中欧时间为基准标注。"
 
 #: .\gbbinfojpn\app\templates\2024\wildcards.html:12
 #: .\gbbinfojpn\app\templates\2024\wildcards.html:37
@@ -1040,35 +1009,28 @@ msgstr ""
 #: .\gbbinfojpn\app\templates\2025\wildcards.html:43
 #: .\gbbinfojpn\app\templates\2025\wildcards.html:59
 msgid "締め切り"
-msgstr "காலக்கெடு"
+msgstr "截止日期"
 
 #: .\gbbinfojpn\app\templates\2024\wildcards.html:73
 #: .\gbbinfojpn\app\templates\2025\wildcards.html:89
 msgid "今回公開するWildcard一覧は、有志が作成した、非公式のものです。"
-msgstr ""
-"நான் வெளியிடவுள்ள Wildcard பட்டியல் ஆர்வலர்களால் உருவாக்கப்பட்டது, "
-"அதிகாரபூர்வமற்றது."
+msgstr "本次公开的Wildcard列表，由热心人士制作，非官方。"
 
 #: .\gbbinfojpn\app\templates\2024\wildcards.html:74
 #: .\gbbinfojpn\app\templates\2025\wildcards.html:90
 msgid "作成者：ぬる湯さん"
-msgstr "உருவாக்கியவர்: நூருயிள்"
+msgstr "作者：ぬる汤"
 
 #: .\gbbinfojpn\app\templates\2024\wildcards.html:78
 #: .\gbbinfojpn\app\templates\2025\wildcards.html:94
 msgid "すべて手作業で制作されたものであるため、重複や欠落がある可能性があります。"
-msgstr ""
-"அனைத்தும் கையால் செய்யப்பட்டவை என்பதால், நகல்கள் அல்லது குறைபாடுகள் "
-"இருக்கலாம்."
+msgstr "由于全部是手工制作，可能存在重复或遗漏。"
 
 #: .\gbbinfojpn\app\templates\2024\wildcards.html:81
 #: .\gbbinfojpn\app\templates\2025\wildcards.html:97
 msgid ""
 "また、この再生リストにある動画が必ずしもWildcardとして申請された動画であるとは限りません（毎年必ず出場者の手続きミスで失格者が出ます）。"
-msgstr ""
-"மேலும், இந்த பிளேலிஸ்ட்டில் உள்ள வீடியோக்கள் எப்போதும் வைல்டு கார்டுகளாக "
-"விண்ணப்பிக்கப்பட்ட வீடியோக்களாக இருக்க வேண்டியதில்லை (ஒவ்வொரு ஆண்டும், "
-"போட்டியாளர்களின் நடைமுறை தவறுகளால் தகுதி நீக்கம் செய்யப்பட்டவர்கள் உள்ளனர்)."
+msgstr "此外，此播放列表中的视频不一定都是作为通配符申请的视频（每年都会有参赛者因手续错误而被取消资格）。"
 
 #: .\gbbinfojpn\app\templates\2025\rule.html:22
 #: .\gbbinfojpn\app\templates\2025\rule.html:125
@@ -1076,63 +1038,51 @@ msgstr ""
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:4
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:5
 msgid "【Beatboxer向け】Wildcardレギュレーション解説"
-msgstr "பீட் பாக்ஸர்களுக்கானது】வைல்டு கார்டு விதிமுறைகள் விளக்கம்"
+msgstr "【为Beatboxer准备】通配符规则说明"
 
 #: .\gbbinfojpn\app\templates\2025\rule.html:239
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:206
 msgid "制限時間を使い切らず余らせた場合、3秒につき最終順位を1つ下げる"
-msgstr ""
-"நேர வரம்பை முடிக்காமல் விட்டால், ஒவ்வொரு 3 வினாடிக்கும் இறுதி தரவரிசை ஒன்றை "
-"குறைக்கப்படும்."
+msgstr "如果未用完限制时间并剩余，则每3秒最终排名下降1位。"
 
 #: .\gbbinfojpn\app\templates\2025\rule.html:265
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:231
 msgid "※中央ヨーロッパ時間には、サマータイムがあります。2025年のサマータイムは3/30からです。"
-msgstr ""
-"மத்திய ஐரோப்பிய நேரம் கோடை நேரத்தைக் கொண்டுள்ளது. 2025 ஆம் ஆண்டின் கோடை "
-"நேரம் 3/30 முதல் தொடங்குகிறது."
+msgstr "※中欧时间有夏令时。2025年的夏令时从3月30日开始。"
 
 #: .\gbbinfojpn\app\templates\2025\rule.html:266
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:232
 msgid "Tag Team部門・Crew部門参加希望の方はご注意ください。"
-msgstr ""
-"Tag Team விடு૩்டுமடம் கீட்டிககி பறற்றுகொண்டும், Crew விடு૩்டுமடம் "
-"கொண்டுகள்கு இணையாகிறோது விடுக்குக செய்யுங்க."
+msgstr "请注意希望参加Tag Team部门・Crew部门的人员。"
 
 #: .\gbbinfojpn\app\templates\2025\stream.html:14
 msgid "GBB24では本番8日前公開"
-msgstr "GBB24 il 8 nāṭkaḷukku muṉpāka veḷiyīṭu"
+msgstr "GBB24 在正式比赛前 8 天公布"
 
 #: .\gbbinfojpn\app\templates\2025\ticket.html:15
 msgid "譲渡希望ツイート"
-msgstr "விருப்பம் தெரிவிக்கும் ட்வீட்"
+msgstr "让渡希望推文"
 
 #: .\gbbinfojpn\app\templates\2025\ticket.html:17
 msgid "譲渡に関するトラブルについて、当サイトは一切の責任を負いません。また、連絡の仲介も一切行いません。"
-msgstr ""
-"விற்பனை தொடர்பான பிரச்சனைகளுக்கு, எங்கள் தளம் எந்தப் பொறுப்பும் ஏற்காது. "
-"மேலும், தொடர்புகளை ஏற்படுத்துவதில் நாங்கள் எந்த உதவியும் செய்ய மாட்டோம்."
+msgstr "关于转让相关的纠纷，本网站不承担任何责任。此外，我们也不会进行任何联系的仲介。"
 
 #: .\gbbinfojpn\app\templates\2025\ticket.html:18
 msgid "購入を希望する場合、ご本人様へ直接DM or リプライにてご連絡ください。"
-msgstr ""
-"நீங்கள் வாங்க விரும்பினால், நேரடியாக உங்களுக்கே DM or ரிப்ளை மூலம் தொடர்பு "
-"கொள்ளவும்."
+msgstr "如需购买，请直接通过DM或回复联系本人。"
 
 #: .\gbbinfojpn\app\templates\2025\ticket.html:20
 msgid "10月1日 掲載募集開始予定"
-msgstr "அக்டோபர் 1 ஆம் தேதி வெளியீடு தொடங்க உள்ளது."
+msgstr "10月1日 掲載募集开始予定"
 
 #: .\gbbinfojpn\app\templates\2025\ticket.html:21
 msgid "譲渡希望ツイートの掲載をご希望の場合、GBBINFO-JPN開発者 TwitterへDMにてご連絡ください。"
-msgstr ""
-"விருப்பம் இருந்தால், கைமாற விரும்பும் ட்வீட்டை வெளியிட, GBBINFO-JPN "
-"டெவலப்பர் ட்விட்டருக்கு DM மூலம் தொடர்பு கொள்ளவும்."
+msgstr "譲渡希望ツイートの掲載をご希望の場合、GBBINFO-JPN開発者 TwitterへDMにてご連絡ください。"
 
 #: .\gbbinfojpn\app\templates\2025\ticket.html:22
 #: .\gbbinfojpn\app\templates\base.html:277
 msgid "GBBINFO-JPN開発者 Twitter"
-msgstr "GBBINFO-JPN開発者 Twitter"
+msgstr "GBBINFO-JPN开发者 Twitter"
 
 #: .\gbbinfojpn\app\templates\2025\ticket.html:25
 #: .\gbbinfojpn\app\templates\common\japan.html:50
@@ -1142,19 +1092,17 @@ msgstr "GBBINFO-JPN開発者 Twitter"
 #: .\gbbinfojpn\app\templates\others\result_stream.html:18
 #: .\gbbinfojpn\app\templates\others\translation.html:19
 msgid "ルール & 審査員"
-msgstr "விதிகள் & நடுவர்கள்"
+msgstr "规则 & 评委"
 
 #: .\gbbinfojpn\app\templates\2025\time_schedule.html:18
 msgid "GBB24では、本番約1ヶ月前に公開されましたが、誤記が多くみられました。"
-msgstr ""
-"GBB24 இல், உண்மையான நிகழ்வுக்கு சுமார் ஒரு மாதம் முன்பு வெளியிடப்பட்டது, "
-"ஆனால் அதில் தவறுகள் அதிகம் காணப்பட்டன."
+msgstr "GBB24 在正式比赛前大约一个月发布，但其中存在许多错误。"
 
 #: .\gbbinfojpn\app\templates\2025\top.html:47
 #: .\gbbinfojpn\app\templates\2025\top.html:57
 #: .\gbbinfojpn\app\templates\2025\top.html:78
 msgid "注目キーワード"
-msgstr "முக்கிய வார்த்தை"
+msgstr "关键词"
 
 #: .\gbbinfojpn\app\templates\2025\top.html:51
 #: .\gbbinfojpn\app\templates\2025\top.html:57
@@ -1177,29 +1125,29 @@ msgstr "Wildcard"
 #: .\gbbinfojpn\app\templates\2025\top.html:78
 #: .\gbbinfojpn\app\templates\2025\top.html:82
 msgid "結果"
-msgstr "முடிவுகள்"
+msgstr "结果"
 
 #: .\gbbinfojpn\app\templates\2025\top.html:60
 #: .\gbbinfojpn\app\templates\2025\top.html:86
 msgid "結果発表日"
-msgstr "(இங்கு மொழிபெயர்க்கப்பட்டது)"
+msgstr "结果公布日期"
 
 #: .\gbbinfojpn\app\templates\2025\top.html:61
 msgid "動画一覧"
-msgstr "வீடியோ பட்டியல்"
+msgstr "视频列表"
 
 #: .\gbbinfojpn\app\templates\2025\top.html:65
 msgid "提出締切"
-msgstr "சமர்ப்பிக்கும் காலக்கெடு"
+msgstr "截止日期"
 
 #: .\gbbinfojpn\app\templates\2025\top.html:66
 #: .\gbbinfojpn\app\templates\2025\top.html:87
 msgid "結果発表配信"
-msgstr "விளைவு வெளியீடு"
+msgstr "结果发布直播"
 
 #: .\gbbinfojpn\app\templates\2025\top.html:68
 msgid "出場枠の数"
-msgstr "போட்டிகளின் எண்ணிக்கை"
+msgstr "参赛名额数量"
 
 #: .\gbbinfojpn\app\templates\2025\top.html:83
 #: .\gbbinfojpn\app\templates\common\japan.html:48
@@ -1209,14 +1157,14 @@ msgstr "போட்டிகளின் எண்ணிக்கை"
 #: .\gbbinfojpn\app\templates\others\participant_detail.html:152
 #: .\gbbinfojpn\app\templates\others\participant_detail.html:222
 msgid "全出場者一覧"
-msgstr "அனைத்து போட்டியாளர்களும்"
+msgstr "全部参赛者名单"
 
 #: .\gbbinfojpn\app\templates\2025\top.html:94
 #: .\gbbinfojpn\app\templates\includes\popup_early_access.html:10
 #: .\gbbinfojpn\app\templates\includes\popup_ended.html:14
 #: .\gbbinfojpn\app\templates\includes\popup_no_info.html:9
 msgid "閉じる"
-msgstr "மூடு"
+msgstr "关闭"
 
 #: .\gbbinfojpn\app\templates\2025\top.html:124
 #: .\gbbinfojpn\app\templates\common\korea.html:3
@@ -1225,180 +1173,147 @@ msgstr "மூடு"
 #: .\gbbinfojpn\app\templates\common\korea.html:9
 #: .\gbbinfojpn\app\templates\others\participant_detail.html:154
 msgid "韓国代表"
-msgstr "கொரியக் குடியரசு அணி"
+msgstr "韩国代表"
 
 #: .\gbbinfojpn\app\templates\2025\top.html:193
 msgid "お探しの情報は、当サイトにありません。下記お問い合わせより、GBB運営に直接お尋ねください。"
-msgstr ""
-"நீங்கள் தேடும் தகவல் இந்த தளத்தில் இல்லை. கீழே உள்ள தொடர்பின் மூலம் GBB "
-"நிர்வாகத்தை நேரடியாகக் கேளுங்கள்."
+msgstr "您要查找的信息，本网站上没有。请通过以下咨询方式直接向GBB运营方咨询。"
 
 #: .\gbbinfojpn\app\templates\2025\top_7tosmoke.html:11
 msgid "開催日未定"
-msgstr "தேதி இன்னும் தீர்மானிக்கப்படவில்லை"
+msgstr "举办日期未定"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:9
 msgid "レギュレーション"
-msgstr "விதிமுறைகள்"
+msgstr "规定"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:16
 msgid "このページでは、Wildcard提出にあたって重要なルールを解説します。"
-msgstr ""
-"இந்தப் பக்கத்தில், Wildcard சமர்ப்பிப்பில் முக்கியமான விதிகள் "
-"விளக்கப்படுகின்றன."
+msgstr "本页面将解释提交通配符时的重要规则。"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:22
 msgid "【Beatboxファン向け】"
-msgstr "பீட் பாக்ஸ் ரசிகர்களுக்காக"
+msgstr "【节奏口技爱好者】"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:37
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:121
 msgid "年齢制限"
-msgstr "வயது வரம்பு"
+msgstr "年龄限制"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:41
 msgid "Wildcard提出について"
-msgstr "வைல்டு கார்டு பற்றி"
+msgstr "关于通配符的提议"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:45
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:195
 msgid "部門別ルール"
-msgstr "துறை வாரியான விதிகள்"
+msgstr "部门规则"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:49
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:255
 msgid "失格にならないために"
-msgstr "தகுதியற்றதாக மாறாமல் இருக்க"
+msgstr "为了不被取消资格"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:61
 msgid "以下に示す内容は、Wildcardを作るBeatboxer向けの情報です。"
-msgstr ""
-"கொடுக்கப்பட்டவை, வைல்ட்கார்ட் உருவாக்குபவர்களுக்கான பீட் பாக்ஸர்களுக்கான "
-"தகவல்கள்."
+msgstr "以下提供的信息是给制作 Wildcard 的 Beatboxer 们准备的。"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:62
 msgid "当サイト管理人はBeatboxerではありません。また、当サイト管理人はGBB運営と一切無関係です。"
-msgstr ""
-"இந்த தளத்தின் நிர்வாகி பீட் பாக்ஸர் அல்ல. மேலும், இந்த தளத்தின் நிர்வாகி "
-"ஜிபிபி நிர்வாகத்துடன் எந்த தொடர்பும் இல்லை."
+msgstr "本网站管理员不是Beatboxer。此外，本网站管理员与GBB的运营没有任何关系。"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:123
 msgid "年齢制限: 本番当日、16歳以上であること"
-msgstr ""
-"வயது வரம்பு: நிகழ்ச்சி நாளில் 16 வயது அல்லது அதற்கு மேற்பட்டவராக இருத்தல் "
-"வேண்டும்."
+msgstr "年龄限制：演出当天，年满16周岁。"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:124
 msgid "未成年者(18歳未満)の参加:"
-msgstr "சிறுபான்மையோர் (18 வயதுக்குட்பட்டோர்) பங்கேற்பு:"
+msgstr "未成年人（18岁以下）的参与："
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:126
 msgid "保護者の同伴が必須"
-msgstr "பெற்றோரின் துணை அவசியம்."
+msgstr "必须有家长陪同"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:127
 msgid "主催者は、保護者の同伴にかかる費用(ビザ、フライト、ホテル、食事など)を負担しない"
-msgstr ""
-"நிகழ்வை ஏற்பாடு செய்தவர்கள் பெற்றோரின் பயணச் செலவை (விசா, விமானம், ஹோட்டல், "
-"உணவு போன்றவை) ஏற்க மாட்டார்கள்."
+msgstr "主办方不承担家长陪同产生的费用(签证、机票、酒店、餐饮等)"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:128
 msgid "上記要件を満たさない、同意できない場合は失格となり、Wildcard下位からの繰り上げが行われる"
-msgstr ""
-"மேற்கூறிய தேவைகளைப் பூர்த்தி செய்யவில்லை என்றால், ஒப்புக்கொள்ள முடியாத "
-"பட்சத்தில் தகுதி நீக்கம் செய்யப்படுவார்கள், மேலும் வைல்ட் கார்டு கீழிருந்து "
-"பதவி உயர்வு வழங்கப்படும்."
+msgstr "如未能满足上述要求或不同意，将被取消资格，并从外卡排名靠后的队伍中递补。"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:138
 msgid "Wildcard作成・提出について"
-msgstr "வைல்டு கார்டு தயாரித்தல் மற்றும் சமர்ப்பித்தல் பற்றி"
+msgstr "关于通配符的创建和提交"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:140
 msgid "Wildcard動画の内容"
-msgstr "வைல்ட் கார்டு வீடியோவின் உள்ளடக்கம்"
+msgstr "通配符视频内容"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:141
 msgid "動画の冒頭で、以下のように自己紹介する"
-msgstr "வீடியோவின் ஆரம்பத்தில், என்னை அறிமுகப்படுத்துகிறேன்:"
+msgstr "在视频开头，进行如下自我介绍"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:144
 msgid "このルールに関する表記は、原文では非常に強い表現で示されています。"
-msgstr ""
-"இந்த விதியைத் தரும் வார்த்தைகள் மூலத்தில் மிகவும் வலுவான வெளிப்பாட்டில் "
-"உள்ளன."
+msgstr "关于此规则的表述，原文使用了非常强烈的措辞。"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:145
 msgid "また、過去にこのルールに違反したことで失格処分になった事例があります。"
-msgstr ""
-"இதற்கு முன்னர் இந்த விதியை மீறியதற்காக தகுதி நீக்கம் செய்யப்பட்ட "
-"சம்பவங்களும் உள்ளன."
+msgstr "此外，过去曾有因违反此规则而被取消资格的案例。"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:148
 msgid "録音方法"
-msgstr "பதிவு முறை"
+msgstr "录音方法"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:150
 msgid "カメラにはっきり映っていること (マスクや視覚効果で顔や口を覆わないこと)"
-msgstr ""
-"கேமராவில் தெளிவாகத் தெரிய வேண்டும் (முகமூடி அல்லது காட்சி விளைவுகள் மூலம் "
-"முகம் அல்லது வாய் மறைக்கப்படக் கூடாது)"
+msgstr "确保面部清晰可见（不使用口罩或视觉效果遮挡面部或嘴部）"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:151
 msgid "リップシンクやその他のビデオ技術は禁止"
-msgstr ""
-"உதட்டு ஒத்திசைவு மற்றும் பிற வீடியோ தொழில்நுட்பங்கள் தடைசெய்யப்பட்டுள்ளன."
+msgstr "禁止唇同步和其他视频技术"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:152
 msgid "撮影と録音は、同時に行うこと"
-msgstr "படப்பிடிப்பும் ஒலிப்பதிவும் ஒரே நேரத்தில் செய்யப்பட வேண்டும்."
+msgstr "拍摄和录音需同时进行"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:153
 msgid "基本的なダイナミック (コンプレッション)、EQ プラグイン、リバーブは使用可能。ただし、録音自体は生の状態で行い、後で編集すること"
-msgstr ""
-"அடிப்படை டைனமிக்ஸ் (சுருக்கம்), EQ செருகுநிரல்கள் மற்றும் ரிவெர்ப் "
-"பயன்படுத்தலாம். இருப்பினும், பதிவு செய்யப்பட்ட ஒலி மூலமாகவே இருக்கும், "
-"பின்னர் திருத்தப்படும்."
+msgstr "可以使用基本的动态 (压缩)、EQ 插件和混响。但是，录音本身是以原始状态进行的，之后再进行编辑。"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:154
 msgid "キックとスネアに異なる EQ やコンプレッションを施すなどの自動処理は禁止"
-msgstr ""
-"கிக் மற்றும் ஸ்னேருக்கு வெவ்வேறு EQ மற்றும் சுருக்கத்தைப் பயன்படுத்துவது "
-"போன்ற தானியங்கி செயலாக்கம் தடைசெய்யப்பட்டுள்ளது."
+msgstr "禁止对底鼓和军鼓应用不同的均衡器或压缩器等自动化处理。"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:155
 msgid "録音全体を同じように処理すること"
-msgstr "முழுப் பதிவையும் ஒரே மாதிரியாகக் கையாளுங்கள்"
+msgstr "对整个录音进行相同的处理"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:156
 msgid "歪み、遅延、その他の動的処理、周波数歪み効果は禁止"
-msgstr ""
-"சிதைவு, தாமதம் மற்றும் பிற டைனமிக் செயலாக்கம் மற்றும் அதிர்வெண் சிதைவு "
-"விளைவுகள் தடைசெய்யப்பட்டுள்ளன."
+msgstr "禁止失真、延迟和其他动态处理、频率失真效应"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:157
 msgid "上記ルールについて、不正行為の疑いがある場合、Wildcard作成に使ったファイルの追加提出を求められる場合あり"
-msgstr ""
-"மேலே உள்ள விதிகளின்படி, தவறான செயல் சந்தேகிக்கப்பட்டால், Wildcard "
-"உருவாக்கத்தில் பயன்படுத்தப்பட்ட கோப்புகளைச் சமர்ப்பிக்கக் கோரப்படலாம்."
+msgstr "关于上述规则，如有涉嫌违规行为，可能会被要求补充提交用于生成通配符的文件。"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:160
 msgid "提出方法"
-msgstr "சமர்ப்பிக்கும் முறை"
+msgstr "提出方法"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:162
 msgid "WildcardをYouTubeにアップロード"
-msgstr "வைல்ட் கார்டை யூடியூப்பில் பதிவேற்றவும்"
+msgstr "将Wildcard上传到YouTube"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:163
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:257
 msgid "Swissbeatbox公式サイトにある申請フォームで提出"
-msgstr ""
-"ஸ்விஸ்பீட்பாக்ஸ் அதிகாரப்பூர்வ இணையதளத்தில் உள்ள விண்ணப்பப் படிவத்தை "
-"சமர்ப்பித்தல்"
+msgstr "通过 Swissbeatbox 官网的申请表提交"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:166
 msgid "上記2つが両方できていない場合は、失格"
-msgstr "மேலே கூறிய இரண்டையும் செய்யவில்லை என்றால் தகுதி நீக்கம்."
+msgstr "如果上述两点都没有做到，则取消资格"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:169
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:170
@@ -1406,97 +1321,77 @@ msgstr "மேலே கூறிய இரண்டையும் செய்
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:172
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:173
 msgid "毎年必ず、申請フォーム入力忘れによる失格者が発生します！！！"
-msgstr ""
-"ஆண்டுதோறும் விண்ணப்ப படிவத்தை நிரப்பத் தவறியதால் தகுதி நீக்கம் "
-"செய்யப்பட்டவர்கள் இருக்கிறார்கள்!!!"
+msgstr "每年都会有人因为忘记填写申请表而被取消资格！！！"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:175
 msgid "ぜひここのスクリーンショットをとってSNSで拡散してください。推しが失格にならないために..."
-msgstr ""
-"இந்தப் பக்கத்தின் ஸ்கிரீன் ஷாட்டை எடுத்து சமூக ஊடகங்களில் பரப்புங்கள். என் "
-"ஆதர்சத்தை தகுதி நீக்கம் செய்யாமல் இருக்க..."
+msgstr "请务必截取这里的屏幕截图并在社交媒体上分享。 为了我的推不被取消资格..."
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:177
 msgid "生のオーディオと生のビデオ (カメラのオーディオを含む) の提出が必要"
-msgstr ""
-"கச்சா ஆடியோ மற்றும் கச்சா வீடியோ சமர்ப்பிப்பு தேவை (கேமராவின் ஆடியோ உட்பட)"
+msgstr "需要提交原始音频和原始视频（包括摄像头的音频）"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:178
 msgid "Solo以外の全部門は、録画中のスクリーンキャプチャの提出も必要"
-msgstr ""
-"சோலோ தவிர்த்து மற்ற அனைத்துத் துறைகளும் பதிவு செய்யப்பட்ட திரைக்காட்சியைச் "
-"சமர்ப்பிக்க வேண்டும்."
+msgstr "除了Solo部门，所有其他部门也需要提交录制屏幕截图。"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:179
 msgid "上記2つが無い場合は、失格"
-msgstr "மேலே உள்ள இரண்டு இல்லாதபட்சத்தில், தகுதி இழப்பு"
+msgstr "如果没有上述两项，将被取消资格。"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:182
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:259
 msgid "Wildcard提出は一度のみ。一度提出したら、後から別のWildcardを提出することはできない"
-msgstr ""
-"வைல்ட்கார்டு சமர்ப்பிப்பு ஒரு முறை மட்டுமே. சமர்ப்பித்த பிறகு, நீங்கள் "
-"வேறொரு வைல்ட் கார்டை சமர்ப்பிக்க முடியாது."
+msgstr "通配符提交仅限一次。一旦提交，就不能再提交其他通配符。"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:183
 msgid "誤って一度提出したWildcardを削除した場合、失格"
-msgstr ""
-"சாரி, ஒருமுறை சமர்ப்பித்த வைல்டு கார்டை நீக்கினால், அது தகுதி இழப்பாகும்."
+msgstr "如果误删了一次提交的通配符，将被取消资格。"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:185
 msgid "このルールは、GBB 2019で発生したトラブルの対策として設けられている"
-msgstr ""
-"இந்த விதி GBB 2019 இல் ஏற்பட்ட பிரச்சனைகளுக்கு ஒரு தீர்வாக நிறுவப்பட்டது."
+msgstr "此规则旨在解决GBB 2019年发生的问题。"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:235
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:241
 msgid "デバイスルール"
-msgstr "சாதன விதி"
+msgstr "设备规则"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:237
 msgid "MIDIコントローラーの使用は禁止"
-msgstr "MIDI கட்டுப்படுத்தியைப் பயன்படுத்துவதற்குத் தடை"
+msgstr "禁止使用MIDI控制器"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:238
 msgid "マシン内の追加ケーブルは使用可能 ケーブルはデバイスではないとみなされる"
-msgstr ""
-"இயந்திரத்தில் உள்ள கூடுதல் கேபிள்கள் பயன்படுத்தக் கூடியவை. கேபிள்கள் ஒரு "
-"சாதனம் அல்லவாகக் கருதப்படுகின்றன."
+msgstr "机器内的额外电缆可以使用。电缆不被视为设备。"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:243
 msgid "Loopstation単体での出場は禁止"
-msgstr "லூப்ஸ்டேஷன் தனியாகப் பங்கேற்கத் தடை விதிக்கப்பட்டுள்ளது"
+msgstr "禁止仅使用 Loopstation 设备参赛"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:244
 msgid "事前にデバイス構成をSUPPORT@swissbeatbox.comへ申請すること"
-msgstr ""
-"உங்கள் சாதனக் கட்டமைப்பு குறித்து support@swissbeatbox.com இல் முன்கூட்டியே "
-"விண்ணப்பிக்கவும்."
+msgstr "请事先将设备配置提交至SUPPORT@swissbeatbox.com"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:245
 msgid "ボイスソース、ボイストリガーのみ"
-msgstr "குரல் மூலம், குரல் தூண்டுதல் மட்டும்"
+msgstr "仅限语音源和语音触发器"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:246
 msgid "事前に録音されたサンプルは使用禁止"
-msgstr ""
-"முன்கூட்டியே பதிவு செய்யப்பட்ட மாதிரிகள் பயன்படுத்த தடை விதிக்கப்பட்டுள்ளது."
+msgstr "禁止使用预先录制的样本"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:247
 msgid "FOH (ミキシング デスク) または録音への出力はステレオ信号である必要があり、マルチチャンネル出力は禁止"
-msgstr ""
-"FOH (mikisingu desuku) allatu rekōdingkiḷḷum uḷḷa veḷiyīṭu oru stereo "
-"chīṅkaḷāka irukka vēṇṭum, palvēru cāṇal veḷiyīṭu taṭukkappaṭṭuḷḷatu."
+msgstr "FOH（调音台）或录音的输出必须是立体声信号，禁止多通道输出。"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:258
 msgid "Wildcard動画の作成にあたり使用したすべてのファイルを、バックアップ含め保存しておき、いつでも提出できるようにしておく"
-msgstr ""
-"Wildcard விடியேஸு அனைக்கு செய்து உயரக்கிற அரியுக்கி உயருகளிலையை, பாக்கவடும் "
-"நடுக்க வீஸுகியுள்ளுமு அலுவேளு எச்சக்கி அனைத்துக் கெயுருக்கிறுகு."
+msgstr "在制作Wildcard视频时使用的所有文件，包括备份，都应妥善保存，以便随时提交。"
 
 #: .\gbbinfojpn\app\templates\2025\wildcard_regulation.html:261
 msgid "皆さんのWildcardを楽しみにしています！"
-msgstr "உங்கள் வைல்டு கார்டை எதிர்நோக்குகிறேன்!"
+msgstr "我期待着大家的通配符比赛！"
 
 #: .\gbbinfojpn\app\templates\base.html:38
 #: .\gbbinfojpn\app\templates\base.html:48
@@ -1504,88 +1399,79 @@ msgstr "உங்கள் வைல்டு கார்டை எதிர்
 msgid ""
 "Swissbeatboxが主催するHuman Beatboxの世界大会「Grand Beatbox "
 "Battle」の各種情報を、見やすくまとめたサイトです。"
-msgstr ""
-"சுவிஸ்பீட் பாக்ஸ் வழங்கும் ஹியூமன் பீட் பாக்ஸ் உலக சாம்பியன்ஷிப் போட்டிகளான "
-"\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"கிராண்ட் பீட் பாக்ஸ் "
-"பேட்டில்\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" பற்றிய தகவல்களைத் தொகுத்து "
-"வழங்குகின்ற ஒரு வலைத்தளம்."
+msgstr "这是一个汇集了Swissbeatbox主办的人声节拍世界大赛“Grand Beatbox Battle”的各种信息的、易于浏览的网站。"
 
 #: .\gbbinfojpn\app\templates\base.html:155
 msgid "年度選択"
-msgstr "ஆண்டு"
+msgstr "年度选择"
 
 #: .\gbbinfojpn\app\templates\base.html:205
 msgid "翻訳未提供"
-msgstr "மொழிபெயர்ப்பு வழங்கப்படவில்லை"
+msgstr "翻译未提供"
 
 #: .\gbbinfojpn\app\templates\base.html:206
 msgid "このページは翻訳が提供されていません。現在は原文の日本語を表示しています。"
-msgstr ""
-"இந்த பக்கத்தில் மொழிபெயர்ப்பு கிடைக்கவில்லை. தற்போது மூல ஜப்பானிய மொழி "
-"காட்டப்படுகிறது."
+msgstr "此页面未提供翻译。目前显示原文日语。"
 
 #: .\gbbinfojpn\app\templates\base.html:222
 msgid "GBBまでの残り時間"
-msgstr "ஜிபிபி வரை மீதமுள்ள நேரம்"
+msgstr "离 GBB 的剩余时间"
 
 #: .\gbbinfojpn\app\templates\base.html:227
 #: .\gbbinfojpn\app\templates\base.html:240
 #: .\gbbinfojpn\app\templates\includes\bottom_navigation.html:30
 #: .\gbbinfojpn\app\templates\includes\bottom_navigation.html:48
 msgid "なんでも検索"
-msgstr "எதையும் தேடு"
+msgstr "万事皆可搜索"
 
 #: .\gbbinfojpn\app\templates\base.html:228
 #: .\gbbinfojpn\app\templates\includes\bottom_navigation.html:32
 #, python-format
 msgid "GBB %(year)s の検索のみ可能です"
-msgstr "GBB %(year)s ஐ மட்டுமே தேட முடியும்"
+msgstr "仅可搜索 GBB %(year)s"
 
 #: .\gbbinfojpn\app\templates\base.html:228
 #: .\gbbinfojpn\app\templates\includes\bottom_navigation.html:33
 #, python-format
 msgid "GBB %(year)s は終了しました"
-msgstr "GBB %(year)s முடிவடைந்தது"
+msgstr "GBB %(year)s 已结束"
 
 #: .\gbbinfojpn\app\templates\base.html:231
 #: .\gbbinfojpn\app\templates\includes\bottom_navigation.html:37
 #, python-format
 msgid "例：GBB %(year)s の最終結果は？"
-msgstr "உதாரணம்: GBB %(year)s இன் இறுதி முடிவு என்ன?"
+msgstr "例：GBB %(year)s 的最终结果是什么？"
 
 #: .\gbbinfojpn\app\templates\base.html:236
 #: .\gbbinfojpn\app\templates\includes\bottom_navigation.html:42
 msgid "GBB最新情報の検索はこちら"
-msgstr "ஜிபிபி சமீபத்திய தகவல்களை இங்கே தேடலாம்"
+msgstr "点击此处搜索GBB最新信息"
 
 #: .\gbbinfojpn\app\templates\base.html:241
 #: .\gbbinfojpn\app\templates\includes\bottom_navigation.html:49
 #, python-format
 msgid "GBB %(year)s について検索してみよう"
-msgstr "GBB %(year)s பற்றி தேடலாம்"
+msgstr "让我们来搜索关于 GBB %(year)s 的信息"
 
 #: .\gbbinfojpn\app\templates\base.html:254
 msgid "ホーム画面に追加"
-msgstr "முகப்புத் திரையில் சேர்"
+msgstr "添加到主屏幕"
 
 #: .\gbbinfojpn\app\templates\base.html:257
 msgid "GBBINFO-JPNはPWAに対応しています。"
-msgstr "ஜிபிபிஐஎன்எஃப்ஒ - ஜேபிஎன் PWA ஐ ஆதரிக்கிறது."
+msgstr "GBBINFO-JPN 支持 PWA。"
 
 #: .\gbbinfojpn\app\templates\base.html:257
 msgid "ブラウザメニューを開き、「ホーム画面に追加」をタップすると、アプリとしてインストールできます。"
-msgstr ""
-"பிரௌசர் மெனுவைத் திறந்து, \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"முகப்புத் திரையில்"
-" சேர்\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" என்பதைத் தட்டினால், அதை ஒரு செயலியாக "
-"நிறுவலாம்."
+msgstr "打开浏览器菜单，点击“添加到主屏幕”，即可作为应用程序安装。"
 
 #: .\gbbinfojpn\app\templates\base.html:263
 msgid "ホームへもどる"
-msgstr "வீட்டிற்கு திரும்பவும்"
+msgstr "返回主页"
 
 #: .\gbbinfojpn\app\templates\base.html:279
 msgid "GBBINFO-JPNについて"
-msgstr "GBBINFO-JPN பற்றி"
+msgstr "关于GBBINFO-JPN"
 
 #: .\gbbinfojpn\app\templates\base.html:281
 #: .\gbbinfojpn\app\templates\others\translation.html:3
@@ -1593,83 +1479,82 @@ msgstr "GBBINFO-JPN பற்றி"
 #: .\gbbinfojpn\app\templates\others\translation.html:5
 #: .\gbbinfojpn\app\templates\others\translation.html:10
 msgid "各ページの翻訳提供について"
-msgstr "ஒவ்வொரு பக்கத்திலும் மொழிபெயர்ப்பு வழங்குவது பற்றி"
+msgstr "关于各页面的翻译"
 
 #: .\gbbinfojpn\app\templates\base.html:306
 msgid "いい景色だろ？"
-msgstr "நல்ல காட்சி இல்லையா?"
+msgstr "这景色不错，对吧？"
 
 #: .\gbbinfojpn\app\templates\common\404.html:14
 msgid "まもなくトップページへリダイレクトされます"
-msgstr "விரைவில் முகப்புப் பக்கத்திற்கு திருப்பிவிடப்படுவீர்கள்"
+msgstr "即将重定向到首页"
 
 #: .\gbbinfojpn\app\templates\common\404.html:14
 msgid "リダイレクトされない場合、以下のボタンをご利用ください"
-msgstr "வழிமாற்றப்படவில்லை என்றால், கீழே உள்ள பொத்தானைப் பயன்படுத்தவும்"
+msgstr "如果未重定向，请使用以下按钮"
 
 #: .\gbbinfojpn\app\templates\common\404.html:17
 msgid "トップページ"
-msgstr "முதற் பக்கம்"
+msgstr "首页"
 
 #: .\gbbinfojpn\app\templates\common\japan.html:43
 msgid "日本代表なし"
-msgstr "ஜப்பான் அணி இல்லை"
+msgstr "没有日本代表"
 
 #: .\gbbinfojpn\app\templates\common\japan.html:49
 #: .\gbbinfojpn\app\templates\common\korea.html:61
 #: .\gbbinfojpn\app\templates\common\participants.html:99
 #: .\gbbinfojpn\app\templates\common\result.html:89
 msgid "出場権詳細"
-msgstr "விளையாடும் உரிமை விவரங்கள்"
+msgstr "出场权详情"
 
 #: .\gbbinfojpn\app\templates\common\japan.html:51
 #: .\gbbinfojpn\app\templates\common\korea.html:63
 #: .\gbbinfojpn\app\templates\common\participants.html:100
 #: .\gbbinfojpn\app\templates\others\result_stream.html:19
 msgid "Wildcard結果発表日"
-msgstr "வைல்ட்கார்டு முடிவுகள் வெளியாகும் நாள்"
+msgstr "通配符结果公布日"
 
 #: .\gbbinfojpn\app\templates\common\japan.html:54
 #: .\gbbinfojpn\app\templates\common\korea.html:66
 #: .\gbbinfojpn\app\templates\common\participants.html:127
 msgid "出場者世界地図"
-msgstr "உலக வரைபடம்"
+msgstr "参赛者世界地图"
 
 #: .\gbbinfojpn\app\templates\common\japan.html:55
 #: .\gbbinfojpn\app\templates\common\korea.html:67
 #: .\gbbinfojpn\app\templates\common\participants.html:128
 msgid "国旗をタップorクリックすると、詳細を確認できます。"
-msgstr ""
-"தேசியக் கொடியைத் தட்டவும் அல்லது கிளிக் செய்யவும், விவரங்களைக் காணலாம்."
+msgstr "点击国旗即可查看详情。"
 
 #: .\gbbinfojpn\app\templates\common\japan.html:59
 #: .\gbbinfojpn\app\templates\common\korea.html:71
 #: .\gbbinfojpn\app\templates\common\participants.html:133
 #: .\gbbinfojpn\app\templates\common\result.html:80
 msgid "その他の年度を確認："
-msgstr "மற்ற ஆண்டுகளைப் பார்க்கவும்:"
+msgstr "查看其他年度："
 
 #: .\gbbinfojpn\app\templates\common\korea.html:55
 msgid "韓国代表なし"
-msgstr "கொரியா பிரதிநிதித்துவம் இல்லை."
+msgstr "无韩国代表"
 
 #: .\gbbinfojpn\app\templates\common\participants.html:27
 msgid "シード権獲得者"
-msgstr "முதல் விதை உரிமையாளர்கள்"
+msgstr "种子选手"
 
 #: .\gbbinfojpn\app\templates\common\participants.html:33
 #: .\gbbinfojpn\app\templates\includes\participants_form.html:20
 msgid "出場者のみ"
-msgstr "போட்டியாளர்கள் மட்டும்"
+msgstr "仅限参赛者"
 
 #: .\gbbinfojpn\app\templates\common\participants.html:35
 #: .\gbbinfojpn\app\templates\includes\participants_form.html:21
 msgid "辞退者のみ"
-msgstr "விலகியவர்கள் மட்டும்"
+msgstr "仅限退赛者"
 
 #: .\gbbinfojpn\app\templates\common\participants.html:37
 msgid "出場者 & 辞退者を表示"
-msgstr "பங்கேற்பாளர்கள் & விலகியவர்கள் காட்டு"
+msgstr "出場者 & 辞退者を表示"
 
 #: .\gbbinfojpn\app\templates\common\participants.html:45
 #: .\gbbinfojpn\app\templates\others\participant_detail.html:35
@@ -1677,165 +1562,156 @@ msgstr "பங்கேற்பாளர்கள் & விலகியவர
 #: .\gbbinfojpn\app\templates\others\participant_detail.html:99
 #: .\gbbinfojpn\app\templates\others\participant_detail.html:183
 msgid "国"
-msgstr "நாடு"
+msgstr "国家"
 
 #: .\gbbinfojpn\app\templates\common\participants.html:105
 #: .\gbbinfojpn\app\templates\common\participants.html:108
 msgid "出場者検索"
-msgstr "தேடுபவர்"
+msgstr "参赛者搜索"
 
 #: .\gbbinfojpn\app\templates\common\participants.html:106
 msgid "出場者名を検索できます"
-msgstr "உறுப்பினர்களின் பெயர்களைத் தேடலாம்"
+msgstr "您可以搜索参赛者姓名"
 
 #: .\gbbinfojpn\app\templates\common\participants.html:106
 msgid "半角英数字推奨"
-msgstr "அரை-அகல எழுத்துக்கள் மற்றும் எண்கள் பரிந்துரைக்கப்படுகிறது"
+msgstr "建议使用半角英数字"
 
 #: .\gbbinfojpn\app\templates\common\participants.html:113
 msgid "検索結果"
-msgstr "தேடல் முடிவுகள்"
+msgstr "搜索结果"
 
 #: .\gbbinfojpn\app\templates\common\participants.html:128
 msgid "全出場者を地図にマッピングしました。"
-msgstr "அனைத்து பங்கேற்பாளர்களையும் வரைபடத்தில் சேர்த்தேன்."
+msgstr "我们已经将所有参赛者绘制在地图上。"
 
 #: .\gbbinfojpn\app\templates\common\result.html:13
 #: .\gbbinfojpn\app\templates\common\result.html:70
 #: .\gbbinfojpn\app\templates\includes\participants_form.html:3
 msgid "部門選択"
-msgstr "துறை தேர்வு"
+msgstr "部门选择"
 
 #: .\gbbinfojpn\app\templates\common\result.html:28
 msgid "勝ち"
-msgstr "வெற்றி"
+msgstr "胜"
 
 #: .\gbbinfojpn\app\templates\common\result.html:30
 msgid "負け"
-msgstr "தோல்வி"
+msgstr "输"
 
 #: .\gbbinfojpn\app\templates\common\result.html:50
 msgid "順位"
-msgstr "தரவரிசை"
+msgstr "顺序"
 
 #: .\gbbinfojpn\app\templates\includes\early_access.html:3
 #: .\gbbinfojpn\app\templates\includes\popup_early_access.html:5
 msgid "先行公開中"
-msgstr "முன்னோட்டம்"
+msgstr "先行发布"
 
 #: .\gbbinfojpn\app\templates\includes\early_access.html:4
 #: .\gbbinfojpn\app\templates\includes\popup_early_access.html:6
 #, python-format
 msgid "ここは、まだ情報が少ないGBB %(year)s のページです"
-msgstr "இது இன்னும் குறைந்த தகவல்களைக் கொண்ட GBB %(year)s பக்கம்."
+msgstr "这里是关于GBB %(year)s的页面，信息还很少。"
 
 #: .\gbbinfojpn\app\templates\includes\early_access.html:6
 #: .\gbbinfojpn\app\templates\includes\popup_early_access.html:8
 #, python-format
 msgid "GBB %(prev_year)s の情報はこちら"
-msgstr "GBB %(prev_year)s பற்றிய தகவல் இங்கே"
+msgstr "GBB %(prev_year)s 的信息在这里"
 
 #: .\gbbinfojpn\app\templates\includes\ended.html:3
 #: .\gbbinfojpn\app\templates\includes\popup_ended.html:6
 msgid "中止"
-msgstr "நிறுத்து"
+msgstr "中止"
 
 #: .\gbbinfojpn\app\templates\includes\ended.html:6
 #: .\gbbinfojpn\app\templates\includes\popup_ended.html:9
 #, python-format
 msgid "ここは、すでに終了したGBB %(year)s のページです"
-msgstr "இது ஏற்கனவே முடிவடைந்த GBB %(year)s க்கான பக்கம்"
+msgstr "这里是已经结束的GBB %(year)s 的页面"
 
 #: .\gbbinfojpn\app\templates\includes\ended.html:9
 #: .\gbbinfojpn\app\templates\includes\popup_ended.html:12
 msgid "GBB最新情報はこちら"
-msgstr "GBB இன் சமீபத்திய செய்திகள் இங்கே"
+msgstr "GBB最新情报在这里"
 
 #: .\gbbinfojpn\app\templates\includes\participants_form.html:10
 msgid "情報選択"
-msgstr "தகவல் தேர்வு"
+msgstr "信息选择"
 
 #: .\gbbinfojpn\app\templates\includes\participants_form.html:12
 msgid "全出場者"
-msgstr "அனைத்து பங்கேற்பாளர்களும்"
+msgstr "所有参赛者"
 
 #: .\gbbinfojpn\app\templates\includes\participants_form.html:14
 msgid "シード権"
-msgstr "வரிசைமுறை"
+msgstr "种子权"
 
 #: .\gbbinfojpn\app\templates\includes\participants_form.html:17
 msgid "表示選択"
-msgstr "தேர்வு"
+msgstr "表示选择"
 
 #: .\gbbinfojpn\app\templates\includes\participants_form.html:19
 msgid "出場者・辞退者"
-msgstr "பங்கேற்பாளர்கள் மற்றும் விலகல்"
+msgstr "参赛者·退赛者"
 
 #: .\gbbinfojpn\app\templates\includes\popup_no_info.html:4
 msgid "情報なし"
-msgstr "தகவல் இல்லை"
+msgstr "无资料"
 
 #: .\gbbinfojpn\app\templates\includes\popup_no_info.html:8
 msgid "お探しの情報は、公式発表がまだ無いため、当サイトのどこにも存在しません。"
-msgstr ""
-"நீங்கள் தேடும் தகவல் இன்னும் அதிகாரப்பூர்வமாக அறிவிக்கப்படாததால், எங்கள் "
-"தளத்தில் எங்கும் கிடைக்காது."
+msgstr "您查找的信息，由于尚未有官方发布，因此在本网站的任何地方都找不到。"
 
 #: .\gbbinfojpn\app\templates\includes\popup_no_info.html:8
 msgid "公式発表をお待ちください。"
-msgstr "அதிகாரப்பூர்வ அறிவிப்புக்காக காத்திருங்கள்."
+msgstr "请等待官方发布。"
 
 #: .\gbbinfojpn\app\templates\others\participant_detail.html:123
 msgid "過去の出場履歴"
-msgstr "கடந்தகால பங்கேற்பு வரலாறு"
+msgstr "过去的出場履歴"
 
 #: .\gbbinfojpn\app\templates\others\participant_detail.html:161
 msgid "関連サイト"
-msgstr "தொடர்புடைய தளங்கள்"
+msgstr "相关网站"
 
 #: .\gbbinfojpn\app\templates\others\participant_detail.html:169
 msgid "表示されている関連サイトやSNS情報は、自動検索によって取得されたものです。"
-msgstr ""
-"காட்டப்படும் தொடர்புடைய தளங்கள் மற்றும் சமூக ஊடகத் தகவல் தானியங்கி தேடல் "
-"மூலம் பெறப்பட்டது."
+msgstr "显示的相关网站和社交媒体信息是通过自动搜索获取的。"
 
 #: .\gbbinfojpn\app\templates\others\participant_detail.html:170
 msgid "内容に誤りが含まれている可能性があります。"
-msgstr "உள்ளடக்கத்தில் தவறுகள் இருக்கலாம்."
+msgstr "内容可能包含错误。"
 
 #: .\gbbinfojpn\app\templates\others\participant_detail.html:175
 msgid "もっと調べる"
-msgstr "மேலும் அறிய"
+msgstr "更多信息"
 
 #: .\gbbinfojpn\app\templates\others\participant_detail.html:178
 msgid "他の出場者"
-msgstr "மற்ற போட்டியாளர்கள்"
+msgstr "其他参赛者"
 
 #: .\gbbinfojpn\app\templates\others\translation.html:11
 msgid "GBBINFO-JPNは、一部を除き、各ページの翻訳をAI Geminiを用いて提供しています。"
-msgstr ""
-"GBBINFO-JPN, சிலவற்றைத் தவிர்த்து, ஒவ்வொரு பக்கத்தின் மொழிபெயர்ப்பையும் AI "
-"Gemini ஐப் பயன்படுத்தி வழங்குகிறது."
+msgstr "GBBINFO-JPN 在除了一小部分之外的所有页面上使用 AI Gemini 提供翻译。"
 
 #: .\gbbinfojpn\app\templates\others\translation.html:12
 msgid "AIによる翻訳のため、誤りがある可能性があります。"
-msgstr "செயற்கை நுண்ணறிவு மொழிபெயர்ப்பு காரணமாக தவறுகள் இருக்கலாம்."
+msgstr "由于人工智能翻译，可能存在错误。"
 
 #: .\gbbinfojpn\app\templates\others\translation.html:13
 msgid "翻訳を提供しているページは、以下の通りです。"
-msgstr "மொழிபெயர்ப்புகளை வழங்கும் பக்கம் கீழே உள்ளது."
+msgstr "提供翻译的页面如下。"
 
 #: .\gbbinfojpn\app\templates\others\translation.html:16
 msgid "対応年度：2024年以降"
-msgstr "வருடம்: 2024 மற்றும் அதற்குப் பின்"
+msgstr "对应年份：2024年及以后"
 
 #: .\gbbinfojpn\app\templates\others\translation.html:30
 msgid "なお、翻訳対応言語は、アクセス状況に応じて随時追加予定です。"
-msgstr ""
-"மேலும், மொழிபெயர்ப்புக்கான மொழிகள் அணுகலைப் பொறுத்து அவ்வப்போது "
-"சேர்க்கப்படும்."
+msgstr "なお，翻译对应语言将根据访问情况随时追加。"
 
 #: .\gbbinfojpn\app\templates\others\translation.html:32
 msgid "翻訳を提供していないページは、原文である日本語で表示されます。"
-msgstr ""
-"மொழிபெயர்ப்பு வழங்கப்படாத பக்கங்கள் அசல் ஜப்பானிய மொழியில் காட்டப்படும்."
+msgstr "未提供翻译的页面将以原文日语显示。"
