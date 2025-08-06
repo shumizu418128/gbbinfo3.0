@@ -200,14 +200,13 @@ def participants_country_specific_view(request: HttpRequest, year: int):
 
         # カテゴリ名を取り出す
         participant["category"] = participant["Category"]["name"]
-        participant.pop("Category")
 
         participant["is_team"] = len(participant["ParticipantMember"]) > 0
 
     participants_data.sort(
         key=lambda x: (
             x["is_cancelled"],  # キャンセルした人は下
-            x["category"],  # カテゴリでソート
+            x["Category"]["id"],  # カテゴリでソート
             "Wildcard" in x["ticket_class"],  # Wildcard通過者は下
             wildcard_rank_sort(x),  # Wildcardのランキング順にする
             "GBB" not in x["ticket_class"],  # GBBによるシードは上
