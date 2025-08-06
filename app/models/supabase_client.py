@@ -9,10 +9,10 @@ import os
 from typing import Optional
 
 import pandas as pd
-from django.core.cache import cache
 from supabase import Client, create_client
+from util.filter_eq import Operator
 
-from gbbinfojpn.common.filter_eq import Operator
+from app.main import cache
 
 ALL_DATA = "*"
 MINUTE = 60

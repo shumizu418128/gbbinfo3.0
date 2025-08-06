@@ -4,8 +4,9 @@ from datetime import datetime
 
 import gspread
 import ratelimit
-from django.conf import settings
 from google.oauth2.service_account import Credentials
+
+from app import settings
 
 SCOPE = [
     "https://spreadsheets.google.com/feeds",
