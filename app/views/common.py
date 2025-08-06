@@ -1,14 +1,13 @@
 import os
 from datetime import datetime
 
-from django.http import Http404, HttpRequest
-from django.shortcuts import redirect, render
-from django.template import TemplateDoesNotExist
+from flask import redirect, render_template
+from jinja2 import TemplateNotFound
 
-from gbbinfojpn.app.context_processors import get_available_years
+from app.context_processors import get_available_years
 
 
-def top_redirect_view(request: HttpRequest):
+def top_redirect_view():
     """
     最新の年度のトップページへリダイレクトするビュー。
 
@@ -26,7 +25,7 @@ def top_redirect_view(request: HttpRequest):
     return redirect(f"/{latest_year}/top")
 
 
-def content_view(request: HttpRequest, year: int, content: str):
+def content_view(year: int, content: str):
     """
     共通のビュー処理。特定のコンテンツを年度ごとに表示する。
 
@@ -45,12 +44,12 @@ def content_view(request: HttpRequest, year: int, content: str):
         return redirect(f"/{year}/top")
 
     try:
-        return render(request, f"{year}/{content_basename}.html")
-    except TemplateDoesNotExist:
-        raise Http404()
+        return render_template(f"{year}/{content_basename}.html")
+    except TemplateNotFound:
+        return not_found_page_view()
 
 
-def content_2022_view(request: HttpRequest, content: str):
+def content_2022_view(content: str):
     """
     2022年の特定のコンテンツを表示するビュー。
 
@@ -66,24 +65,24 @@ def content_2022_view(request: HttpRequest, content: str):
         return redirect("/2022/top")
 
     try:
-        return render(request, f"2022/{content_basename}.html")
-    except TemplateDoesNotExist:
-        raise Http404()
+        return render_template(f"2022/{content_basename}.html")
+    except TemplateNotFound:
+        return render_template("/common/404.html"), 404
 
 
-def other_content_view(request: HttpRequest, content: str):
+def other_content_view(content: str):
     """
     その他のコンテンツを表示する。
     """
     content_basename = os.path.basename(content)
 
     try:
-        return render(request, f"others/{content_basename}.html")
-    except TemplateDoesNotExist:
-        raise Http404()
+        return render_template(f"others/{content_basename}.html")
+    except TemplateNotFound:
+        return render_template("/common/404.html"), 404
 
 
-def not_found_page_view(request: HttpRequest, exception=None):
+def not_found_page_view():
     """
     404ページを表示する。
 
@@ -97,4 +96,4 @@ def not_found_page_view(request: HttpRequest, exception=None):
     context = {
         "is_translated": True,
     }
-    return render(request, "common/404.html", context, status=404)
+    return render_template("common/404.html", context=context), 404

@@ -2,23 +2,20 @@ import os
 from collections import defaultdict
 
 import folium
-from django.http import HttpRequest
-from django.shortcuts import render
-from django.views.decorators.clickjacking import xframe_options_exempt
+from flask import render_template, request
 
-from gbbinfojpn.app.models.supabase_client import supabase_service
+from app.models.supabase_client import supabase_service
 
 
-@xframe_options_exempt
-def world_map_view(request: HttpRequest, year: int):
+def world_map_view(year: int):
     language = request.LANGUAGE_CODE
 
     # マップがすでに作成されている場合はそれを表示
     map_save_path = os.path.join(
-        "gbbinfojpn", "app", "templates", str(year), "world_map", f"{language}.html"
+        "app", "templates", str(year), "world_map", f"{language}.html"
     )
     if os.path.exists(map_save_path):
-        return render(request, f"{year}/world_map/{language}.html")
+        return render_template(f"{year}/world_map/{language}.html")
 
     participants_data = supabase_service.get_data(
         table="Participant",
@@ -124,7 +121,6 @@ def world_map_view(request: HttpRequest, year: int):
 
         # アイコンを設定
         flag_icon_path = os.path.join(
-            "gbbinfojpn",
             "app",
             "static",
             "images",
@@ -145,4 +141,4 @@ def world_map_view(request: HttpRequest, year: int):
         ).add_to(beatboxer_map)
 
     beatboxer_map.save(map_save_path)
-    return render(request, f"{year}/world_map/{language}.html")
+    return render_template(f"{year}/world_map/{language}.html")

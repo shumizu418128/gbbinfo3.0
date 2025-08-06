@@ -1,11 +1,11 @@
 from urllib.parse import urlparse
 
-from django.conf import settings
-from django.http import HttpRequest
-from django.shortcuts import redirect
+from flask import redirect, request, session
+
+from app import settings
 
 
-def change_language(request: HttpRequest):
+def change_language():
     """
     ユーザーの言語を変更し、referrerにリダイレクトするエンドポイント。
 
@@ -18,21 +18,20 @@ def change_language(request: HttpRequest):
     lang_code = request.GET.get("lang")
 
     # サポートされている言語か確認
-    if lang_code not in settings.SUPPORTED_LANGUAGE_CODES:
+    if lang_code not in settings.BABEL_SUPPORTED_LOCALES:
         lang_code = "ja"
 
     # 直前のページ（リファラー）を取得する
-    current_url = request.META.get("HTTP_REFERER", "/")
+    current_url = request.headers.get("Referer", "/")
     parsed_url = urlparse(current_url)
 
     # 内部URLかつパスが/で始まる場合のみ許可
-    if parsed_url.netloc and parsed_url.netloc != request.get_host():
+    if parsed_url.netloc and parsed_url.netloc != request.host:
         current_url = "/"
     elif not parsed_url.path.startswith("/"):
         current_url = "/"
 
     # クッキーにも保存し、referrerにリダイレクト
-    response = redirect(current_url)
-    response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang_code)
+    session["language"] = lang_code
 
-    return response
+    return redirect(current_url)

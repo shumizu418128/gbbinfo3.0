@@ -1,15 +1,14 @@
-from django.http import HttpRequest
-from django.shortcuts import redirect, render
+from flask import redirect, render_template, request, session
+from util.filter_eq import Operator
+from util.participant_edit import team_multi_country, wildcard_rank_sort
 
-from gbbinfojpn.app.models.supabase_client import supabase_service
-from gbbinfojpn.common.filter_eq import Operator
-from gbbinfojpn.common.participant_edit import team_multi_country, wildcard_rank_sort
+from app.models.supabase_client import supabase_service
 
 VALID_TICKET_CLASSES = ["all", "wildcard", "seed_right"]
 VALID_CANCEL = ["show", "hide", "only_cancelled"]
 
 
-def participants_view(request: HttpRequest, year: int):
+def participants_view(year: int):
     """
     指定された年度の出場者ページを表示します。
 
@@ -25,11 +24,11 @@ def participants_view(request: HttpRequest, year: int):
                       不正なパラメータの場合はリダイレクトレスポンス。
     """
     # クエリパラメータ
-    category = request.GET.get("category")
-    ticket_class = request.GET.get("ticket_class")
-    cancel = request.GET.get("cancel")
-    scroll = request.GET.get("scroll")
-    value = request.GET.get("value")
+    category = request.args.get("category")
+    ticket_class = request.args.get("ticket_class")
+    cancel = request.args.get("cancel")
+    scroll = request.args.get("scroll")
+    value = request.args.get("value")
 
     # その年のカテゴリ一覧を取得
     year_data = supabase_service.get_data(
@@ -117,7 +116,7 @@ def participants_view(request: HttpRequest, year: int):
     )
 
     # 言語を取得
-    language = request.LANGUAGE_CODE
+    language = session["language"]
 
     participants_data_edited = []
 
@@ -147,10 +146,10 @@ def participants_view(request: HttpRequest, year: int):
         "ticket_class": ticket_class,
         "cancel": cancel,
     }
-    return render(request, "common/participants.html", context)
+    return render_template("common/participants.html", context)
 
 
-def participants_country_specific_view(request: HttpRequest, year: int):
+def participants_country_specific_view(year: int):
     # URLから国名を取得
     url = request.path
     country_name = url.split("/")[-1]  # 最後の要素が国名
@@ -216,4 +215,4 @@ def participants_country_specific_view(request: HttpRequest, year: int):
     context = {
         "participants": participants_data,
     }
-    return render(request, f"common/{country_name}.html", context)
+    return render_template(f"common/{country_name}.html", context)

@@ -1,16 +1,14 @@
-import json
 import random
 import re
 from threading import Thread
 
 import pykakasi
-from django.http import HttpRequest, JsonResponse
-from django.views.decorators.csrf import csrf_exempt
+from flask import jsonify, request
 from rapidfuzz import process
 
-from gbbinfojpn.app.models.gemini_client import gemini_service
-from gbbinfojpn.app.models.spreadsheet_client import spreadsheet_service
-from gbbinfojpn.app.views.config.gemini_search_config import SEARCH_CACHE
+from app.models.gemini_client import gemini_service
+from app.models.spreadsheet_client import spreadsheet_service
+from app.views.config.gemini_search_config import SEARCH_CACHE
 
 HIRAGANA = "H"
 KATAKANA = "K"
@@ -88,19 +86,12 @@ def create_url(year: int, url: str, parameter: str | None, name: str | None):
     return response_url
 
 
-@csrf_exempt
-def post_gemini_search(request: HttpRequest, year: int):
-    try:
-        # JSONデータを解析
-        data = json.loads(request.body)
-        question = data.get("question")
-    except (json.JSONDecodeError, KeyError):
-        # フォールバック: POST dataから取得
-        question = request.POST.get("question")
+def post_gemini_search(year: int):
+    question = request.form.get("question")
 
     # questionがNoneまたは空文字の場合のチェック
     if not question:
-        return JsonResponse({"error": "Question is required"}, status=400)
+        return jsonify({"error": "Question is required"}), 400
 
     response = {}
     url = ""
@@ -130,18 +121,11 @@ def post_gemini_search(request: HttpRequest, year: int):
     response = {
         "url": url,
     }
-    return JsonResponse(response)
+    return jsonify(response)
 
 
-@csrf_exempt
-def post_gemini_search_suggestion(request: HttpRequest):
-    try:
-        # JSONデータを解析
-        data = json.loads(request.body)
-        input = data.get("input")
-    except (json.JSONDecodeError, KeyError):
-        # フォールバック: POST dataから取得
-        input = request.POST.get("input")
+def post_gemini_search_suggestion():
+    input = request.form.get("input", "").strip()
 
     # 下処理：inputから4桁・2桁の年削除
     year = re.search(r"\d{4}", input)
@@ -164,4 +148,4 @@ def post_gemini_search_suggestion(request: HttpRequest):
     # rapidfuzzの結果から検索候補を取得
     suggestions = [result[0] for result in suggestions]
 
-    return JsonResponse({"suggestions": suggestions})
+    return jsonify({"suggestions": suggestions})

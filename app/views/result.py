@@ -1,18 +1,18 @@
 from collections import defaultdict
 
-from django.shortcuts import redirect, render
+from flask import redirect, render_template, request
+from util.filter_eq import Operator
 
-from gbbinfojpn.app.models.supabase_client import supabase_service
-from gbbinfojpn.common.filter_eq import Operator
+from app.models.supabase_client import supabase_service
 
 
-def result_view(request, year):
+def result_view(year: int):
     # 2013-2016は非対応
     if 2013 <= year <= 2016:
         return redirect(f"/{year}/top")
 
     # クエリパラメータ
-    category = request.GET.get("category")
+    category = request.args.get("category")
 
     # その年のカテゴリ一覧を取得
     year_data = supabase_service.get_data(
@@ -85,7 +85,7 @@ def result_view(request, year):
             "result_type": "",
             "all_category": all_category_names,
         }
-        return render(request, "common/result.html", context)
+        return render_template("common/result.html", context)
 
     result_defaultdict = defaultdict(list)
 
@@ -121,4 +121,4 @@ def result_view(request, year):
         "all_category": all_category_names,
     }
 
-    return render(request, "common/result.html", context)
+    return render_template("common/result.html", context)

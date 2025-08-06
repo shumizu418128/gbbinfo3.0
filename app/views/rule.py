@@ -1,12 +1,11 @@
-from django.http import Http404, HttpRequest
-from django.shortcuts import redirect, render
-from django.template import TemplateDoesNotExist
+from flask import redirect, render_template
+from jinja2 import TemplateNotFound
+from util.filter_eq import Operator
 
-from gbbinfojpn.app.models.supabase_client import supabase_service
-from gbbinfojpn.common.filter_eq import Operator
+from app.models.supabase_client import supabase_service
 
 
-def rules_view(request: HttpRequest, year: int):
+def rules_view(year: int):
     """
     指定された年度のルールページに表示するシード権獲得者リストを取得し、テンプレートに渡して表示します。
 
@@ -68,6 +67,6 @@ def rules_view(request: HttpRequest, year: int):
         "cancelled": cancelled,
     }
     try:
-        return render(request, f"{year}/rule.html", context)
-    except TemplateDoesNotExist:
-        raise Http404()
+        return render_template(f"{year}/rule.html", context)
+    except TemplateNotFound:
+        return render_template("404.html"), 404

@@ -1,18 +1,17 @@
 import random
 from urllib.parse import quote
 
-from django.http import HttpRequest
-from django.shortcuts import redirect, render
+from flask import redirect, render_template, request, session
+from util.filter_eq import Operator
+from util.participant_edit import team_multi_country, wildcard_rank_sort
 
-from gbbinfojpn.app.models.supabase_client import supabase_service
-from gbbinfojpn.common.filter_eq import Operator
-from gbbinfojpn.common.participant_edit import team_multi_country, wildcard_rank_sort
+from app.models.supabase_client import supabase_service
 
 
-def participant_detail_view(request: HttpRequest):
+def participant_detail_view():
     try:
-        id = request.GET["id"]  # 出場者ID
-        mode = request.GET["mode"]  # single, team, team_member
+        id = request.args.get("id")  # 出場者ID
+        mode = request.args.get("mode")  # single, team, team_member
     except KeyError:
         # id, modeが無い場合、ルートにリダイレクト
         return redirect("/")
@@ -45,7 +44,7 @@ def participant_detail_view(request: HttpRequest):
         ].upper()
 
         # 設定言語に合わせて国名を取得
-        language = request.LANGUAGE_CODE
+        language = session["language"]
         beatboxer_detail["country"] = beatboxer_detail["Country"]["names"][language]
         beatboxer_detail.pop("Country")
 
@@ -84,7 +83,7 @@ def participant_detail_view(request: HttpRequest):
         beatboxer_detail["name"] = beatboxer_detail["name"].upper()
 
         # 設定言語に合わせて国名を取得
-        language = request.LANGUAGE_CODE
+        language = session["language"]
 
         # 複数国籍のチームの場合、国名をまとめる
         if beatboxer_detail["iso_code"] == 9999:
@@ -231,4 +230,4 @@ def participant_detail_view(request: HttpRequest):
         "genspark_query": genspark_query,
     }
 
-    return render(request, "others/participant_detail.html", context)
+    return render_template("others/participant_detail.html", context)

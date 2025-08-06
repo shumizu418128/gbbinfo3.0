@@ -1,10 +1,10 @@
 import re
 from urllib.parse import parse_qs, urlparse
 
-from django.http import HttpRequest, JsonResponse
+from flask import jsonify, request
 
-from gbbinfojpn.app.models.supabase_client import supabase_service
-from gbbinfojpn.app.models.tavily_client import tavily_service
+from app.models.supabase_client import supabase_service
+from app.models.tavily_client import tavily_service
 
 
 def get_primary_domain(url: str) -> str:
@@ -208,9 +208,9 @@ def beatboxer_tavily_search(
     return result
 
 
-def post_beatboxer_tavily_search(request: HttpRequest):
-    beatboxer_id = request.POST.get("beatboxer_id")
-    mode = request.POST.get("mode", "single")
+def post_beatboxer_tavily_search():
+    beatboxer_id = request.form.get("beatboxer_id")
+    mode = request.form.get("mode", "single")
 
     account_urls, final_urls, youtube_embed_url = beatboxer_tavily_search(
         beatboxer_id=beatboxer_id, mode=mode
@@ -221,4 +221,4 @@ def post_beatboxer_tavily_search(request: HttpRequest):
         "final_urls": final_urls,
         "youtube_embed_url": youtube_embed_url,
     }
-    return JsonResponse(data)
+    return jsonify(data)

@@ -1,13 +1,11 @@
-from datetime import datetime
+from datetime import datetime, timezone
 
 from dateutil import parser
-from django.conf import settings
-from django.http import HttpRequest
-from django.utils import timezone
+from flask import request, session
+from util.filter_eq import Operator
 
-from gbbinfojpn.app.models.supabase_client import supabase_service
-from gbbinfojpn.app.translation import TRANSLATED_URLS
-from gbbinfojpn.common.filter_eq import Operator
+from app import settings
+from app.models.supabase_client import supabase_service
 
 
 def get_available_years():
@@ -74,7 +72,7 @@ def is_translated(url, language):
         return True
 
     # 定数から翻訳されたURLを取得
-    return url in TRANSLATED_URLS
+    return url in settings.TRANSLATED_URLS
 
 
 def is_gbb_ended(year):
@@ -110,7 +108,6 @@ def is_gbb_ended(year):
     if isinstance(latest_year_ends_at, str):
         latest_year_ends_at = parser.parse(latest_year_ends_at)
 
-
     # latest_year_ends_atがナイーブな場合はタイムゾーンを適用
     if latest_year_ends_at and timezone.is_naive(latest_year_ends_at):
         latest_year_ends_at = timezone.make_aware(latest_year_ends_at)
@@ -118,12 +115,13 @@ def is_gbb_ended(year):
     return latest_year_ends_at < now
 
 
-def common_variables(request: HttpRequest):
+def common_variables():
     """
     全テンプレートで共通して使う変数を返すコンテキストプロセッサ
 
     Args:
-        request (HttpRequest): リクエストオブジェクト
+        request (Request): リクエストオブジェクト
+        session (SessionMixin): セッションオブジェクト
 
     Returns:
         dict: テンプレートに渡す共通変数
@@ -150,14 +148,36 @@ def common_variables(request: HttpRequest):
         # 言語のタプルリスト [("ja", "日本語"), ("en", "English"), ...]
         "lang_names": settings.LANGUAGES,
         # 現在の言語コード
-        "language": request.LANGUAGE_CODE,
-        "is_translated": is_translated(request.path, request.LANGUAGE_CODE),
-        "current_url": request.get_full_path(),
+        "language": session["language"]
+        if "language" in settings.BABEL_SUPPORTED_LOCALES
+        else "ja",
+        "is_translated": is_translated(
+            request.path, getattr(request, "LANGUAGE_CODE", "ja")
+        ),
+        "current_url": request.url,
         "last_updated": settings.LAST_UPDATED,
         "is_latest_year": is_latest_year_flag,
         "is_early_access": is_early_access_flag,
         "is_gbb_ended": is_gbb_ended(year),
         "is_local": settings.IS_LOCAL,
         "is_pull_request": settings.IS_PULL_REQUEST,
-        "scroll": request.GET.get("scroll", ""),
+        "scroll": request.args.get("scroll", ""),
     }
+
+
+def get_locale():
+    """
+    ユーザーの言語設定を取得します。
+    利用可能な言語の中から、セッションに保存された言語を優先的に返します。
+    セッションに言語が保存されていない場合は、リクエストの受け入れ言語の中から最適な言語を選択します。
+
+    Returns:
+        str: ユーザーの言語設定
+    """
+    # セッションに言語が設定されているか確認
+    if "language" not in session:
+        best_match = request.accept_languages.best_match(
+            settings.BABEL_SUPPORTED_LOCALES
+        )
+        session["language"] = best_match if best_match else "ja"
+    return session["language"]

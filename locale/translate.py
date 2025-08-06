@@ -13,7 +13,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
 if parent_dir not in sys.path:
     sys.path.insert(0, parent_dir)
-from gbbinfojpn import settings  # noqa: E402
+from app import settings  # noqa: E402
 
 
 def extract_placeholders(text):
@@ -132,7 +132,7 @@ def main():
     print("python manage.py makemessages -a")
 
     for lang in supported_language_codes:
-        path = os.path.join(settings.LOCALE_PATHS[0], lang, "LC_MESSAGES", "django.po")
+        path = os.path.join(settings.BASE_DIR, "locale", lang, "LC_MESSAGES", "django.po")
 
         if not os.path.exists(path):
             print(f"Warning: {path} does not exist, skipping...")

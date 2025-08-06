@@ -1,15 +1,12 @@
-import json
-
-from django.http import HttpRequest, JsonResponse
+from flask import request, jsonify
 from rapidfuzz import process
+from util.filter_eq import Operator
 
-from gbbinfojpn.app.models.supabase_client import supabase_service
-from gbbinfojpn.common.filter_eq import Operator
+from app.models.supabase_client import supabase_service
 
 
-def post_search_participants(request: HttpRequest, year: int):
-    data = json.loads(request.body)
-    keyword = data.get("keyword")
+def post_search_participants(year: int):
+    keyword = request.form.get("keyword", "").strip()
 
     participants_data = supabase_service.get_data(
         table="Participant",
@@ -86,4 +83,4 @@ def post_search_participants(request: HttpRequest, year: int):
         top5 = process.extract(keyword, names, limit=5)
         participants_data = [participants_data[index] for _, _, index in top5]
 
-    return JsonResponse(participants_data, safe=False)
+    return jsonify(participants_data)
