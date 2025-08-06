@@ -34,9 +34,6 @@ RUN chown -R appuser:appuser /app
 # 非rootユーザーに切り替え
 USER appuser
 
-# 翻訳ファイルをコンパイル
-RUN python manage.py compilemessages
-
 # ポート8000を公開
 EXPOSE 8000
 
