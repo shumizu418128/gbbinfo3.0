@@ -38,4 +38,4 @@ USER appuser
 EXPOSE 10000
 
 # GunicornでDjangoアプリケーションを起動
-CMD ["gunicorn", "--bind", "0.0.0.0:10000", "--workers", "3", "--timeout", "120", "gbbinfojpn.wsgi:application"]
+CMD ["gunicorn", "--bind", "0.0.0.0:10000", "--workers", "1", "--timeout", "120", "gbbinfojpn.wsgi:application"]
