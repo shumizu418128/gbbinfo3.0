@@ -15,6 +15,11 @@ python-dotenv==1.0.1
 google-genai==1.26.0
 tavily-python==0.5.4
 
+# Translation and Internationalization
+polib==1.2.0
+pydantic==2.10.6
+tqdm==4.67.1
+
 # Rate Limiting and Async
 asyncio-throttle==1.0.2
 ratelimit==2.2.1
@@ -25,6 +30,12 @@ google-auth==2.37.0
 
 # Data Processing
 pandas==2.2.3
+
+# Japanese Text Processing
+pykakasi==2.3.0
+
+# Text Processing and Fuzzy Matching
+rapidfuzz==3.12.1
 
 # Maps and Visualization
 folium==0.19.4
