@@ -1,3 +1,27 @@
+# Web Framework
 Django==5.2.3
+
+# Database
 psycopg2-binary==2.9.9
 supabase==2.3.4
+
+# Environment Variables
+python-dotenv==1.0.1
+
+# AI/ML APIs
+google-genai==0.8.0
+tavily-python==0.5.0
+
+# Rate Limiting and Async
+asyncio-throttle==1.1.2
+ratelimit==2.2.1
+
+# Google Services
+gspread==6.1.2
+google-auth==2.35.0
+
+# Data Processing
+pandas==2.2.3
+
+# Maps and Visualization
+folium==0.18.0
