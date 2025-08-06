@@ -34,9 +34,6 @@ RUN chown -R appuser:appuser /app
 # 非rootユーザーに切り替え
 USER appuser
 
-# 静的ファイルを収集
-RUN python manage.py collectstatic --noinput
-
 # 翻訳ファイルをコンパイル
 RUN python manage.py compilemessages
 
