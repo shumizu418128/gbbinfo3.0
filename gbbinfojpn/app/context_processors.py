@@ -20,7 +20,6 @@ def get_available_years():
     year_data = supabase_service.get_data(
         table="Year",
         columns=["year"],
-        filters={f"categories__{Operator.IS_NOT}": None},
     )
     available_years = [item["year"] for item in year_data]
     available_years.sort(reverse=True)
@@ -88,6 +87,13 @@ def is_gbb_ended(year):
     Returns:
         bool: GBB終了年度の場合はTrue、それ以外はFalse
     """
+    # タイムゾーンを考慮した現在時刻を取得
+    now = timezone.now()
+
+    # 過去年度は常にTrue
+    if year < now.year:
+        return True
+
     year_data = supabase_service.get_data(
         table="Year",
         columns=["year", "ends_at"],
@@ -104,8 +110,6 @@ def is_gbb_ended(year):
     if isinstance(latest_year_ends_at, str):
         latest_year_ends_at = parser.parse(latest_year_ends_at)
 
-    # タイムゾーンを考慮した現在時刻を取得
-    now = timezone.now()
 
     # latest_year_ends_atがナイーブな場合はタイムゾーンを適用
     if latest_year_ends_at and timezone.is_naive(latest_year_ends_at):

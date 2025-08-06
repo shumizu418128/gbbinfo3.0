@@ -1,9 +1,8 @@
-from django.http import HttpRequest
+from django.http import Http404, HttpRequest
 from django.shortcuts import redirect, render
 from django.template import TemplateDoesNotExist
 
 from gbbinfojpn.app.models.supabase_client import supabase_service
-from gbbinfojpn.app.views import common
 from gbbinfojpn.common.filter_eq import Operator
 
 
@@ -71,4 +70,4 @@ def rules_view(request: HttpRequest, year: int):
     try:
         return render(request, f"{year}/rule.html", context)
     except TemplateDoesNotExist:
-        return common.not_found_page_view(request)
+        raise Http404()

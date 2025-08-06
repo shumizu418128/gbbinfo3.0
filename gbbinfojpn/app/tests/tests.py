@@ -239,11 +239,14 @@ class ViewsTestCase(TestCase):
 
     def test_not_found_page_view(self):
         """404ページのテスト"""
-        request = Mock()
 
         with patch("gbbinfojpn.app.views.common.render") as mock_render:
             mock_render.return_value = Mock(status_code=404)
 
+            # リクエストオブジェクトのモック
+            request = Mock()
+
+            # 実際に関数を呼び出す
             _ = not_found_page_view(request)
 
             # renderが正しいパラメータで呼ばれることを確認

@@ -14,7 +14,7 @@ def serve_static_file(request, file_path):
     """
     # セキュリティ: パストラバーサル攻撃を防ぐ
     if ".." in file_path or file_path.startswith("/"):
-        raise Http404("File not found")
+        raise Http404()
 
     # ファイルパスを構築
     static_dir = os.path.join(settings.BASE_DIR, "gbbinfojpn", "app", "static")
@@ -22,11 +22,11 @@ def serve_static_file(request, file_path):
 
     # ファイルが存在するかチェック
     if not os.path.exists(full_path) or not os.path.isfile(full_path):
-        raise Http404("File not found")
+        raise Http404()
 
     # ファイルがstaticディレクトリ内にあることを確認（セキュリティ）
     if not os.path.commonpath([static_dir, full_path]).startswith(static_dir):
-        raise Http404("File not found")
+        raise Http404()
 
     # ファイルタイプに基づいてContent-Typeを設定
     content_type = get_content_type(file_path)
@@ -36,7 +36,7 @@ def serve_static_file(request, file_path):
             content = f.read()
         return HttpResponse(content, content_type=content_type)
     except IOError:
-        raise Http404("File not found")
+        raise Http404()
 
 
 def get_content_type(file_path):

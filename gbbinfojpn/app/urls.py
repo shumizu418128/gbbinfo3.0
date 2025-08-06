@@ -23,6 +23,7 @@ urlpatterns = [
     # リダイレクト
     path("", common.top_redirect_view, name="redirect_to_latest_top"),
     path("lang", language.change_language, name="change_language"),
+    path("2022/<str:content>", common.content_2022_view, name="2022_content"),
     # postリクエスト
     path(
         "beatboxer_tavily_search",

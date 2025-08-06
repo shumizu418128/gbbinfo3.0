@@ -1,7 +1,7 @@
 import os
 from datetime import datetime
 
-from django.http import HttpRequest
+from django.http import Http404, HttpRequest
 from django.shortcuts import redirect, render
 from django.template import TemplateDoesNotExist
 
@@ -47,7 +47,28 @@ def content_view(request: HttpRequest, year: int, content: str):
     try:
         return render(request, f"{year}/{content_basename}.html")
     except TemplateDoesNotExist:
-        return not_found_page_view(request)
+        raise Http404()
+
+
+def content_2022_view(request: HttpRequest, content: str):
+    """
+    2022年の特定のコンテンツを表示するビュー。
+
+    Args:
+        request (HttpRequest): リクエストオブジェクト
+        content (str): 表示するコンテンツ
+
+    Returns:
+        HttpResponse: レンダリングされたテンプレート
+    """
+    content_basename = os.path.basename(content)
+    if content_basename != "top":
+        return redirect("/2022/top")
+
+    try:
+        return render(request, f"2022/{content_basename}.html")
+    except TemplateDoesNotExist:
+        raise Http404()
 
 
 def other_content_view(request: HttpRequest, content: str):
@@ -59,7 +80,7 @@ def other_content_view(request: HttpRequest, content: str):
     try:
         return render(request, f"others/{content_basename}.html")
     except TemplateDoesNotExist:
-        return not_found_page_view(request)
+        raise Http404()
 
 
 def not_found_page_view(request: HttpRequest, exception=None):
