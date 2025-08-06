@@ -162,7 +162,7 @@ def participants_country_specific_view(request: HttpRequest, year: int):
     # 出場者データを取得
     participants_data = supabase_service.get_data(
         table="Participant",
-        columns=["name", "category", "ticket_class", "is_cancelled", "iso_code"],
+        columns=["id", "name", "category", "ticket_class", "is_cancelled", "iso_code"],
         join_tables={
             "Category": ["id", "name"],
             "ParticipantMember": ["name"],
@@ -176,7 +176,7 @@ def participants_country_specific_view(request: HttpRequest, year: int):
     # 複数か国のチームも調べる
     multi_country_team_data = supabase_service.get_data(
         table="Participant",
-        columns=["name", "category", "ticket_class", "is_cancelled"],
+        columns=["id", "name", "category", "ticket_class", "is_cancelled"],
         join_tables={
             "Category": ["id", "name"],
             "ParticipantMember": ["name", "iso_code"],
