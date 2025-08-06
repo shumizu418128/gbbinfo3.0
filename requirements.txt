@@ -1,6 +1,9 @@
 # Web Framework
 Django==5.2.3
 
+# Production Server
+gunicorn==21.2.0
+
 # Database
 psycopg2-binary==2.9.9
 supabase==2.3.4
