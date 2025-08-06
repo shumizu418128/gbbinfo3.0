@@ -152,8 +152,8 @@ LANGUAGES = [
     ("no", "Norsk"),
     ("ta", "தமிழ்"),
     ("th", "ไทย"),
-    ("zh-hans", "简体中文"),
-    ("zh-hant", "繁體中文"),
+    ("zh_Hans", "简体中文"),
+    ("zh_Hant", "繁體中文"),
 ]
 SUPPORTED_LANGUAGE_CODES = [code for code, _ in LANGUAGES]
 
