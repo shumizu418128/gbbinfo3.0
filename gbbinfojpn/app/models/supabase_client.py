@@ -70,6 +70,17 @@ class SupabaseService:
 
         return self._read_only_client
 
+    @read_only_client.setter
+    def read_only_client(self, value: Optional[Client]):
+        """Supabaseクライアントのインスタンスを設定（読み取り専用）
+
+        主にテスト用途で使用されます。
+
+        Args:
+            value: 設定するSupabaseクライアントのインスタンス
+        """
+        self._read_only_client = value
+
     @property
     def admin_client(self) -> Client:
         """Supabaseクライアントのインスタンスを取得（管理者権限）
