@@ -2,7 +2,7 @@
 Django==5.2.3
 
 # Production Server
-gunicorn==21.2.0
+gunicorn==23.0.0
 
 # Database
 psycopg2-binary==2.9.9
