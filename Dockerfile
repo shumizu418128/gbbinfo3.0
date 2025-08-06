@@ -10,6 +10,9 @@ RUN apt-get update && apt-get install -y \
     gettext \
     && rm -rf /var/lib/apt/lists/*
 
+# uvをインストール
+RUN pip install --no-cache-dir uv
+
 # 非rootユーザーを作成（セキュリティ向上）
 RUN useradd --create-home --shell /bin/bash appuser
 
