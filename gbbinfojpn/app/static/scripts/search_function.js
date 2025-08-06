@@ -42,7 +42,7 @@ function handleSearchFormSubmit(event) {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
-                'X-CSRFToken': csrfToken
+                'X-CSRFToken': encodeURIComponent(csrfToken)
             },
             body: JSON.stringify(jsonData)
         })
@@ -112,7 +112,7 @@ function searchParticipants(year, event) {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
-                'X-CSRFToken': csrfToken
+                'X-CSRFToken': encodeURIComponent(csrfToken)
             },
             body: JSON.stringify({ keyword: input })
         })
@@ -185,7 +185,7 @@ function setupSearchSuggestions(searchForm) {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-CSRFToken': csrfToken
+                    'X-CSRFToken': encodeURIComponent(csrfToken)
                 },
                 body: JSON.stringify(jsonData)
             })
