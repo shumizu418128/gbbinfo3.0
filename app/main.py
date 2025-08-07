@@ -94,7 +94,7 @@ if os.getenv("ENVIRONMENT_CHECK") == "qawsedrftgyhujikolp":
     print("******************************************************************")
     print("*                                                                *")
     print("*         GBBINFO-JPN is running in test mode!                   *")
-    print("*         Access the application at http://127.0.0.1:8080        *")
+    print("*         Access the application at http://127.0.0.1:10000       *")
     print("*                                                                *")
     print("******************************************************************")
     app.config.from_object(TestConfig)

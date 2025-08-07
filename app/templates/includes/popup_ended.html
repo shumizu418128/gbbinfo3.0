@@ -1,15 +1,15 @@
-{% load i18n %}
+
 
 <div class="background-popup" onclick="closePopup()"></div>
 <div class="popup">
     {% if year == 2022 %}
-        <p style="font-size: 36px; font-weight: bold;">☆<br>GBB {{ year }}<br>{% trans "中止" %}<br>☆</p>
+        <p style="font-size: 36px; font-weight: bold;">☆<br>GBB {{ year }}<br>{{_("中止")}}<br>☆</p>
     {% else %}
-        <p style="font-size: 36px; font-weight: bold;">☆<br>GBB {{ year }}<br>{% trans "終了しました" %}<br>☆</p>
-        <p>{% blocktrans with year=year %}ここは、すでに終了したGBB {{ year }} のページです{% endblocktrans %}</p>
+        <p style="font-size: 36px; font-weight: bold;">☆<br>GBB {{ year }}<br>{{_("終了しました")}}<br>☆</p>
+        <p>{{ _("ここは、すでに終了したGBB {year} のページです").format(year=year) }}</p>
     {% endif %}
     <div class="button-container" style="margin-bottom: 8px">
-        <a href="/"><button type="button">{% trans "GBB最新情報はこちら" %}</button></a>
+        <a href="/"><button type="button">{{_("GBB最新情報はこちら")}}</button></a>
     </div>
-<button type="button" onclick="closePopup()">{% trans "閉じる" %}</button>
+<button type="button" onclick="closePopup()">{{_("閉じる")}}</button>
 </div>

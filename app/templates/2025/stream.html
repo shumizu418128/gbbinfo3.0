@@ -1,17 +1,17 @@
 {% extends "base.html" %}
-{% load i18n %}
-{% block title %}GBB {{ year }} {% trans "当日配信" %} - GBBINFO-JPN{% endblock %}
-{% block twitter_title %}GBB {{ year }} {% trans "当日配信" %} - GBBINFO-JPN{% endblock %}
-{% block og_title %}GBB {{ year }} {% trans "当日配信" %} - GBBINFO-JPN{% endblock %}
+
+{% block title %}GBB {{ year }} {{_("当日配信")}} - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBB {{ year }} {{_("当日配信")}} - GBBINFO-JPN{% endblock %}
+{% block og_title %}GBB {{ year }} {{_("当日配信")}} - GBBINFO-JPN{% endblock %}
 {% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/stream{% endblock %}
 {% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/stream{% endblock %}
 {% block content %}
-<h1>GBB {{ year }} {% trans "当日配信" %}</h1>
+<h1>GBB {{ year }} {{_("当日配信")}}</h1>
 
 <!-- TODO: 更新したらこの表示を消す -->
 {% include 'includes/popup_no_info.html' %}
 
-<p>{% trans "GBB24では本番8日前公開" %}</p>
-<p>{% trans "～発表次第更新～" %}</p>
+<p>{{_("GBB24では本番8日前公開")}}</p>
+<p>{{_("～発表次第更新～")}}</p>
 
 {% endblock %}

@@ -1,6 +1,3 @@
-{% load static %}
-{% load i18n %}
-
 <!DOCTYPE html>
 <!--
                ■■■                               
@@ -29,13 +26,13 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="UTF-8" />
-    <meta name="csrf-token" content="{{ csrf_token }}" />
+    <!-- CSRF token removed for Flask compatibility -->
     <title>
       {% if is_local %}【LOCAL】{% endif %}
       {% if is_pull_request %}【PR】{% endif %}
       {% block title %}{% endblock %}
     </title>
-    <meta name="description" content="{% trans 'Swissbeatboxが主催するHuman Beatboxの世界大会「Grand Beatbox Battle」の各種情報を、見やすくまとめたサイトです。' %}">
+    <meta name="description" content="{{_("Swissbeatboxが主催するHuman Beatboxの世界大会「Grand Beatbox Battle」の各種情報を、見やすくまとめたサイトです。")}}">
     <link rel="stylesheet" href="/static/css/base.css" />
     <link rel="stylesheet" href="/static/css/components.css" />
     <link rel="stylesheet" href="/static/css/search.css" />
@@ -45,11 +42,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
     <meta name="twitter:title" content="{% block twitter_title %}{% endblock %}" />
-    <meta name="twitter:description" content="{% trans 'Swissbeatboxが主催するHuman Beatboxの世界大会「Grand Beatbox Battle」の各種情報を、見やすくまとめたサイトです。' %}" />
+    <meta name="twitter:description" content="{{_("Swissbeatboxが主催するHuman Beatboxの世界大会「Grand Beatbox Battle」の各種情報を、見やすくまとめたサイトです。")}}" />
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:image" content="https://gbbinfo-jpn.onrender.com/static/images/background.webp" />
     <meta property="og:title" content="{% block og_title %}{% endblock %}" />
-    <meta property="og:description" content="{% trans 'Swissbeatboxが主催するHuman Beatboxの世界大会「Grand Beatbox Battle」の各種情報を、見やすくまとめたサイトです。' %}" />
+    <meta property="og:description" content="{{_("Swissbeatboxが主催するHuman Beatboxの世界大会「Grand Beatbox Battle」の各種情報を、見やすくまとめたサイトです。")}}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{% block og_url %}{% endblock %}" />
     <meta property="og:image" content="https://gbbinfo-jpn.onrender.com/static/images/background.webp" />
@@ -59,19 +56,19 @@
     <meta name="theme-color" content="#ff6417" />
     <link
       rel="icon"
-      href="{% static 'favicon.ico' %}"
+      href="{{ url_for('static', filename='favicon.ico') }}"
       type="image/x-icon"
     />
     <link
       rel="shortcut icon"
-      href="{% static 'favicon.ico' %}"
+      href="{{ url_for('static', filename='favicon.ico') }}"
       type="image/x-icon"
     />
     <link rel="manifest" href="/manifest.json" />
     <script>
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", function () {
-          navigator.serviceWorker.register("{% static 'service-worker.js' %}").then(
+          navigator.serviceWorker.register("{{ url_for('static', filename='service-worker.js') }}").then(
             function (registration) {
               console.log(
                 "ServiceWorkerが正常に登録されました: ",
@@ -120,19 +117,19 @@
     <div class="menu">
       <p>MENU</p>
       <div class="button-container" style="margin-top: 10px;">
-        <a href="/"><button>Home & {% trans 'これだけガイド' %}</button></a>
-        <a href="/{{ year }}/participants"><button>{% trans 'Wildcard結果' %} & {% trans '出場者' %}</button></a>
-        <a href="/{{ year }}/rule"><button>{% trans 'ルール' %} & {% trans '審査員' %}</button></a>
-        <a href="/others/how_to_plan"><button>{% trans '現地観戦計画のたてかた' %}</button></a>
+        <a href="/"><button>Home & {{_("これだけガイド")}}</button></a>
+        <a href="/{{ year }}/participants"><button>{{_("Wildcard結果")}} & {{_("出場者")}}</button></a>
+        <a href="/{{ year }}/rule"><button>{{_("ルール")}} & {{_("審査員")}}</button></a>
+        <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
       </div>
       <div class="button-container">
-        <a href="/{{ year }}/time_schedule"><button>{% trans 'タイムスケジュール' %}</button></a>
-        <a href="/{{ year }}/japan"><button>{% trans '日本代表' %}</button></a>
-        <a href="/{{ year }}/ticket"><button>{% trans '会場' %} & {% trans 'チケット' %}</button></a>
-        <a href="/{{ year }}/stream"><button>{% trans '当日配信' %}</button></a>
+        <a href="/{{ year }}/time_schedule"><button>{{_("タイムスケジュール")}}</button></a>
+        <a href="/{{ year }}/japan"><button>{{_("日本代表")}}</button></a>
+        <a href="/{{ year }}/ticket"><button>{{_("会場")}} & {{_("チケット")}}</button></a>
+        <a href="/{{ year }}/stream"><button>{{_("当日配信")}}</button></a>
       </div>
       <div class="button-container">
-        <a href="/{{ year }}/result"><button>{% trans '大会結果' %}</button></a>
+        <a href="/{{ year }}/result"><button>{{_("大会結果")}}</button></a>
       </div>
 
       <p>LANGUAGE</p>
@@ -149,10 +146,10 @@
       <nav>
         <img src="/static/images/header.webp" alt="ヘッダー"/>
         <ul>
-          <a class="menu-link" href="/{{year}}/top"><li>Home & {% trans 'これだけガイド' %}</li></a>
+          <a class="menu-link" href="/{{year}}/top"><li>Home & {{_("これだけガイド")}}</li></a>
           <div class="nav_dropdown_container">
             <li>
-              {% trans '年度選択' %}
+              {{_("年度選択")}}
               <ul class="nav_dropdown">
                 {% for y in available_years %}
                   <a href="/{{ y }}/top"><li class="past_gbb">{{ y }}</li></a>
@@ -177,15 +174,15 @@
       <div class="progress-scroll" style="top: 41px"></div>
       <div class="background-progress-scroll" style="top: 41px"></div>
 
-      {% if is_latest_year is False %}
+      {% if is_latest_year is false %}
         {% include 'includes/popup_ended.html' %}
         {% include 'includes/ended.html' %}
-      {% elif is_early_access is True %}
+      {% elif is_early_access is true %}
         {% include 'includes/popup_early_access.html' %}
         {% include 'includes/early_access.html' %}
       {% endif %}
 
-      {% if is_local is True %}
+      {% if is_local is true %}
         <div class="post-it" style="font-size: 30px;">
           <strong>【 TEST PAGE - LOCAL 】</strong><br>
           <a href="/database/participants">database/participants</a><br>
@@ -193,17 +190,17 @@
         </div>
       {% endif %}
 
-      {% if is_pull_request is True %}
+      {% if is_pull_request is true %}
         <div class="post-it" style="font-size: 30px;">
           <strong>【 TEST PAGE - PULL REQUEST 】</strong><br>
           <a href="https://github.com/shumizu418128/gbbinfo3.0/pulls" target="_blank" rel="noopener noreferrer">gbbinfo3.0/pulls</a>
         </div>
       {% endif %}
 
-      {% if is_translated is False %}
+      {% if is_translated is false %}
         <div class="post-it">
-          <strong>【{% trans '翻訳未提供' %}】</strong><br>
-          {% trans 'このページは翻訳が提供されていません。現在は原文の日本語を表示しています。' %}
+          <strong>【{{_("翻訳未提供")}}】</strong><br>
+          {{_("このページは翻訳が提供されていません。現在は原文の日本語を表示しています。")}}
         </div>
       {% endif %}
 
@@ -213,35 +210,38 @@
       <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-show-count="false">Tweet</a>
       <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-      {% if is_latest_year is False %}
+      {% if is_latest_year is false %}
         {% include 'includes/ended.html' %}
-      {% elif is_early_access is True %}
+      {% elif is_early_access is true %}
         {% include 'includes/early_access.html' %}
       {% endif %}
 
-      <p style="text-align: center">{% trans 'GBBまでの残り時間' %}</p>
+      <p style="text-align: center">{{_("GBBまでの残り時間")}}</p>
       <p id="countdown" style="text-align: center; font-size: 24px"></p>
 
-      {% if is_latest_year is False %}
+      {% if is_latest_year is false %}
         <hr>
-        <h3>GBB {{ year }} {% trans 'なんでも検索' %}</h3>
-        <p style="text-align: center;">{% blocktrans with year=year %}GBB {{ year }} の検索のみ可能です{% endblocktrans %}<br>{% blocktrans with year=year %}GBB {{ year }} は終了しました{% endblocktrans %}</p>
+        <h3>GBB {{ year }} {{_("なんでも検索")}}</h3>
+        <p style="text-align: center;">
+          {{ _("GBB {year} の検索のみ可能です").format(year=year) }}<br>
+          {{ _("GBB {year} は終了しました").format(year=year) }}
+        </p>
         <form id="search-form-bottom" class="search-container" action="/{{ year }}/search" method="POST">
-          {% csrf_token %}
-          <input type="text" name="question" id="question-bottom" placeholder="{% blocktrans with year=year %}例：GBB {{ year }} の最終結果は？{% endblocktrans %}" required>
+
+          <input type="text" name="question" id="question-bottom" placeholder="{{ _('例：GBB {year} の最終結果は？').format(year=year) }}" required>
           <button type="submit"></button>
         </form>
         <div class="suggestions"></div>
         <div class="button-container">
-          <a href="/"><button type="button">{% trans 'GBB最新情報の検索はこちら' %}</button></a>
+          <a href="/"><button type="button">{{_("GBB最新情報の検索はこちら")}}</button></a>
         </div>
         <hr>
       {% else %}
-        <h2>GBB {{ year }} {% trans 'なんでも検索' %}</h2>
-        <p style="text-align: center;">{% blocktrans with year=year %}GBB {{ year }} について検索してみよう{% endblocktrans %}</p>
+        <h2>{{ _("GBB {year} なんでも検索").format(year=year) }}</h2>
+        <p style="text-align: center;">{{ _("GBB {year} について検索してみよう").format(year=year) }}</p>
         <form id="search-form-bottom" class="search-container" action="/{{ year }}/search" method="POST">
-          {% csrf_token %}
-          <input type="text" name="question" id="question-bottom" placeholder="{% trans '例：現地観戦計画のたてかた' %}" required>
+
+          <input type="text" name="question" id="question-bottom" placeholder="{{_("例：現地観戦計画のたてかた")}}" required>
           <button type="submit"></button>
         </form>
         <div class="suggestions"></div>
@@ -251,16 +251,16 @@
       <div style="margin: 40px 0;"></div>
 
       <div class="button-container">
-        <a href="javascript:void(0);"><button id="installButton" class="button_top" style="visibility: hidden;">{% trans 'ホーム画面に追加' %}</button></a>
+        <a href="javascript:void(0);"><button id="installButton" class="button_top" style="visibility: hidden;">{{_("ホーム画面に追加")}}</button></a>
       </div>
       <p>
-        {% trans 'GBBINFO-JPNはPWAに対応しています。' %}<br />{% trans 'ブラウザメニューを開き、「ホーム画面に追加」をタップすると、アプリとしてインストールできます。' %}
+        {{_("GBBINFO-JPNはPWAに対応しています。")}}<br />{{_("ブラウザメニューを開き、「ホーム画面に追加」をタップすると、アプリとしてインストールできます。")}}
       </p>
 
       <div class="button-container">
         <a href="/"><button style="background-image: url('/static/images/button/junno2.webp'); background-position: top;" class="bg-pic">
           <svg class="bg-pic" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0044CC"><path d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z"/></svg>
-          <span class="button-text-with-icon">{% trans 'ホームへもどる' %}<br>{% trans 'これだけガイド' %}</span>
+          <span class="button-text-with-icon">{{_("ホームへもどる")}}<br>{{_("これだけガイド")}}</span>
         </button></a>
       </div>
       <div style="margin: 100px 0;"></div>
@@ -274,11 +274,11 @@
         {% endfor %}
       </div>
       <hr>
-      <a href="https://twitter.com/tari_3210_" target="_blank" rel="noopener noreferrer">{% trans 'GBBINFO-JPN開発者 Twitter' %}</a>
+      <a href="https://twitter.com/tari_3210_" target="_blank" rel="noopener noreferrer">{{_("GBBINFO-JPN開発者 Twitter")}}</a>
       <br>
-      <a href="/others/about">{% trans 'GBBINFO-JPNについて' %}</a>
+      <a href="/others/about">{{_("GBBINFO-JPNについて")}}</a>
       <br>
-      <a href="/others/translation">{% trans '各ページの翻訳提供について' %}</a>
+      <a href="/others/translation">{{_("各ページの翻訳提供について")}}</a>
       <br>
       <br>
       <a href="/others/past_info">過去のGBB情報対応状況</a>
@@ -303,7 +303,7 @@
         text-align: center;
         margin: 30vh auto;
       ">
-        <p>{% trans 'いい景色だろ？' %}</p>
+        <p>{{_("いい景色だろ？")}}</p>
       </div>
     </div>
 

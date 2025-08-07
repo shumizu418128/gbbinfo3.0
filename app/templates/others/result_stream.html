@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n %}
+
 {% block title %}Wildcard結果発表配信 - GBBINFO-JPN{% endblock %}
 {% block twitter_title %}Wildcard結果発表配信 - GBBINFO-JPN{% endblock %}
 {% block og_title %}Wildcard結果発表配信 - GBBINFO-JPN{% endblock %}
@@ -15,8 +15,8 @@
 <p><span style="color: #ff0000;"><strong><span style="font-size: 24px;">後悔しますよ、マジで</span></strong></span></p>
 
 <div class="button-container">
-    <a href="/{{ year }}/rule"><button type="button">GBB {{ year }} {% trans "ルール & 審査員" %}</button></a>
-    <a href="/{{ year }}/rule?scroll=result_date"><button type="button">{% trans "Wildcard結果発表日" %}</button></a>
+    <a href="/{{ year }}/rule"><button type="button">GBB {{ year }} {{_("ルール & 審査員")}}</button></a>
+    <a href="/{{ year }}/rule?scroll=result_date"><button type="button">{{_("Wildcard結果発表日")}}</button></a>
 </div>
 
 <img alt="自己防衛" height="100%" src="https://live.staticflickr.com/65535/53462882364_331151250a_o.jpg" style="display: block; margin: auto;" width="100%" />
@@ -36,8 +36,8 @@
 </div>
 
 <div class="button-container">
-    <a href="/{{ year }}/participants"><button>{% trans "Wildcard結果" %} & {% trans "出場者" %}</button></a>
-    <a href="/{{ year }}/wildcards"><button>{% trans "Wildcard一覧" %}</button></a>
+    <a href="/{{ year }}/participants"><button>{{_("Wildcard結果")}} & {{_("出場者")}}</button></a>
+    <a href="/{{ year }}/wildcards"><button>{{_("Wildcard一覧")}}</button></a>
 </div>
 
 {% endblock %}

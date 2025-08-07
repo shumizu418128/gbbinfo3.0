@@ -67,6 +67,6 @@ def rules_view(year: int):
         "cancelled": cancelled,
     }
     try:
-        return render_template(f"{year}/rule.html", context)
+        return render_template(f"{year}/rule.html", **context)
     except TemplateNotFound:
         return render_template("404.html"), 404

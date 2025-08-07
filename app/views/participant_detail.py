@@ -230,4 +230,4 @@ def participant_detail_view():
         "genspark_query": genspark_query,
     }
 
-    return render_template("others/participant_detail.html", context)
+    return render_template("others/participant_detail.html", **context)

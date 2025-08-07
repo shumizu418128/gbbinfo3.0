@@ -1,11 +1,9 @@
-{% load i18n %}
-
 <div class="background-popup" onclick="closePopup()"></div>
 <div class="popup">
-    <p style="font-size: 36px; font-weight: bold;">GBB {{ year }}<br>{% trans "先行公開中" %}</p>
-    <p>{% blocktrans with year=year %}ここは、まだ情報が少ないGBB {{ year }} のページです{% endblocktrans %}</p>
+    <p style="font-size: 36px; font-weight: bold;">GBB {{ year }}<br>{{_("先行公開中")}}</p>
+    <p>{{ _("ここは、まだ情報が少ないGBB {year} のページです").format(year=year) }}</p>
     <div class="button-container" style="margin-bottom: 8px">
-        <a href="/"><button type="button">{% blocktrans with prev_year=year|add:"-1" %}GBB {{ prev_year }} の情報はこちら{% endblocktrans %}</button></a>
+        <a href="/"><button type="button">{{_("GBB {year - 1} の情報はこちら").format(year=year)}}</button></a>
     </div>
-<button type="button" onclick="closePopup()">{% trans "閉じる" %}</button>
+<button type="button" onclick="closePopup()">{{_("閉じる")}}</button>
 </div>

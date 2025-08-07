@@ -1,22 +1,22 @@
 {% extends "base.html" %}
-{% load i18n %}
-{% block title %}GBB {{ year }} {% trans "Wildcard一覧" %} - GBBINFO-JPN{% endblock %}
-{% block twitter_title %}GBB {{ year }} {% trans "Wildcard一覧" %} - GBBINFO-JPN{% endblock %}
-{% block og_title %}GBB {{ year }} {% trans "Wildcard一覧" %} - GBBINFO-JPN{% endblock %}
+
+{% block title %}GBB {{ year }} {{_("Wildcard一覧")}} - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBB {{ year }} {{_("Wildcard一覧")}} - GBBINFO-JPN{% endblock %}
+{% block og_title %}GBB {{ year }} {{_("Wildcard一覧")}} - GBBINFO-JPN{% endblock %}
 {% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/wildcards{% endblock %}
 {% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/wildcards{% endblock %}
 {% block content %}
-<h1>GBB {{ year }} {% trans "Wildcard一覧" %}</h1>
+<h1>GBB {{ year }} {{_("Wildcard一覧")}}</h1>
 
-<p>{% trans "各部門の締め切り期日は、中央ヨーロッパ時刻を基準に表記しています。" %}</p>
+<p>{{_("各部門の締め切り期日は、中央ヨーロッパ時刻を基準に表記しています。")}}</p>
 
 <div class="button-container">
-  <a href="/{{ year }}/participants"><button>{% trans "Wildcard結果" %} & {% trans "出場者" %}</button></a>
-  <a href="/{{ year }}/rule"><button>{% trans "ルール" %} & {% trans "審査員" %}</button></a>
+  <a href="/{{ year }}/participants"><button>{{_("Wildcard結果")}} & {{_("出場者")}}</button></a>
+  <a href="/{{ year }}/rule"><button>{{_("ルール")}} & {{_("審査員")}}</button></a>
 </div>
 
 <ul>
-  <li>3/22 {% trans "締め切り" %}</li>
+  <li>3/22 {{_("締め切り")}}</li>
   <li style="list-style: none; display: inline">
     <ul>
       <li>
@@ -40,7 +40,7 @@
 </ul>
 
 <ul>
-  <li>3/29 {% trans "締め切り" %}</li>
+  <li>3/29 {{_("締め切り")}}</li>
   <li style="list-style: none; display: inline">
     <ul>
       <li>
@@ -56,7 +56,7 @@
 </ul>
 
 <ul>
-  <li>4/5 {% trans "締め切り" %}</li>
+  <li>4/5 {{_("締め切り")}}</li>
   <li style="list-style: none; display: inline">
     <ul>
       <li>
@@ -80,21 +80,21 @@
 </ul>
 
 <div class="button-container">
-  <a href="/{{ year }}/participants"><button>{% trans "Wildcard結果" %} & {% trans "出場者" %}</button></a>
-  <a href="/{{ year }}/rule"><button>{% trans "ルール" %} & {% trans "審査員" %}</button></a>
+  <a href="/{{ year }}/participants"><button>{{_("Wildcard結果")}} & {{_("出場者")}}</button></a>
+  <a href="/{{ year }}/rule"><button>{{_("ルール")}} & {{_("審査員")}}</button></a>
 </div>
 
-<h2>{% trans "注意事項" %}</h2>
+<h2>{{_("注意事項")}}</h2>
 <p>
-  {% trans "今回公開するWildcard一覧は、有志が作成した、非公式のものです。" %}
-  <a href="https://twitter.com/_NURUYU_" target="_blank" title="https://twitter.com/_NURUYU_" rel="noopener noreferrer">{% trans "作成者：ぬる湯さん" %}</a>
+  {{_("今回公開するWildcard一覧は、有志が作成した、非公式のものです。")}}
+  <a href="https://twitter.com/_NURUYU_" target="_blank" title="https://twitter.com/_NURUYU_" rel="noopener noreferrer">{{_("作成者：ぬる湯さん")}}</a>
 </p>
 
 <p>
-  {% trans "すべて手作業で制作されたものであるため、重複や欠落がある可能性があります。" %}
+  {{_("すべて手作業で制作されたものであるため、重複や欠落がある可能性があります。")}}
 </p>
 <p>
-  {% trans "また、この再生リストにある動画が必ずしもWildcardとして申請された動画であるとは限りません（毎年必ず出場者の手続きミスで失格者が出ます）。" %}
+  {{_("また、この再生リストにある動画が必ずしもWildcardとして申請された動画であるとは限りません（毎年必ず出場者の手続きミスで失格者が出ます）。")}}
 </p>
 
 <h3>ビト森 GBB鑑賞会</h3>
@@ -109,8 +109,8 @@
 </div>
 
 <div class="button-container">
-  <a href="/others/how_to_plan"><button>{% trans "現地観戦計画のたてかた" %}</button></a>
-  <a href="/{{ year }}/japan"><button>{% trans "日本代表" %}</button></a>
+  <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ year }}/japan"><button>{{_("日本代表")}}</button></a>
 </div>
 
 {% endblock %}

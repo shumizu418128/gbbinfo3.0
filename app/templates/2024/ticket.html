@@ -1,22 +1,22 @@
 {% extends "base.html" %}
-{% load i18n %}
-{% block title %}GBB {{ year }} {% trans "会場 & チケット" %} - GBBINFO-JPN{% endblock %}
-{% block twitter_title %}GBB {{ year }} {% trans "会場 & チケット" %} - GBBINFO-JPN{% endblock %}
-{% block og_title %}GBB {{ year }} {% trans "会場 & チケット" %} - GBBINFO-JPN{% endblock %}
+
+{% block title %}GBB {{ year }} {{_("会場 & チケット")}} - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBB {{ year }} {{_("会場 & チケット")}} - GBBINFO-JPN{% endblock %}
+{% block og_title %}GBB {{ year }} {{_("会場 & チケット")}} - GBBINFO-JPN{% endblock %}
 {% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/ticket{% endblock %}
 {% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/ticket{% endblock %}
 {% block content %}
-<h1>GBB {{ year }} {% trans "会場 & チケット" %}</h1>
-<h2>{% trans "【完売】公式販売" %}</h2>
-<p>GBB {{ year }} {% trans "会場" %}: <strong>Toyosu PIT</strong>
+<h1>GBB {{ year }} {{_("会場 & チケット")}}</h1>
+<h2>{{_("【完売】公式販売")}}</h2>
+<p>GBB {{ year }} {{_("会場")}}: <strong>Toyosu PIT</strong>
 <br>
-<a href="https://t.pia.jp/pia/ticketInformation.do?eventCd=2403620&rlsCd=001" target="_blank" rel="noopener noreferrer">{% trans "チケットぴあ" %}</a>
+<a href="https://t.pia.jp/pia/ticketInformation.do?eventCd=2403620&rlsCd=001" target="_blank" rel="noopener noreferrer">{{_("チケットぴあ")}}</a>
 <a href="https://eplus.jp/sf/detail/4099720001" target="_blank" rel="noopener noreferrer">eplus</a>
-<a href="https://ticket.rakuten.co.jp/event/rtvmbgg/" target="_blank" rel="noopener noreferrer">{% trans "楽天チケット" %}</a>
+<a href="https://ticket.rakuten.co.jp/event/rtvmbgg/" target="_blank" rel="noopener noreferrer">{{_("楽天チケット")}}</a>
 </p>
-<p>7toSmoke {% trans "会場" %}: <strong>Spotify O-EAST</strong>
+<p>7toSmoke {{_("会場")}}: <strong>Spotify O-EAST</strong>
 <br>
-<a href="https://t.pia.jp/pia/ticketInformation.do?eventCd=2403622&rlsCd=001" target="_blank" rel="noopener noreferrer">7toSmoke {% trans "チケット" %}</a>
+<a href="https://t.pia.jp/pia/ticketInformation.do?eventCd=2403622&rlsCd=001" target="_blank" rel="noopener noreferrer">7toSmoke {{_("チケット")}}</a>
 </p>
 
 {% endblock %}

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n %}
+
 {% block title %}GBBINFO-JPN{% endblock %}
 {% block twitter_title %}GBBINFO-JPN{% endblock %}
 {% block og_title %}GBBINFO-JPN{% endblock %}
@@ -11,10 +11,10 @@
 {% endblock %}
 {% block content %}
 <h1>404 not found</h1>
-<p>{% trans "まもなくトップページへリダイレクトされます" %}<br>{% trans "リダイレクトされない場合、以下のボタンをご利用ください" %}</p>
+<p>{{_("まもなくトップページへリダイレクトされます")}}<br>{{_("リダイレクトされない場合、以下のボタンをご利用ください")}}</p>
 
 <div class="button-container">
-    <a href="/"><button type="button">{% trans "トップページ" %}</button></a>
+    <a href="/"><button type="button">{{_("トップページ")}}</button></a>
 </div>
 
 <script>

@@ -110,7 +110,7 @@ python manage.py compilemessages
 DjangoのテンプレートやPythonコード内で、`{% trans %}` タグや `gettext` 関数を使って翻訳を呼び出します。
 
 例：
-- テンプレート: `{% trans "Hello" %}`
+- テンプレート: `{{_("Hello")}}`
 - Python: `from django.utils.translation import gettext as _; _('Hello')`
 
 ---

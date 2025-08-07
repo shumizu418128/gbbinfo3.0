@@ -170,7 +170,7 @@ def is_gbb_ended(year):
         bool: GBB終了年度の場合はTrue、それ以外はFalse
     """
     # タイムゾーンを考慮した現在時刻を取得
-    now = timezone.now()
+    now = datetime.now(timezone.utc)
 
     # 過去年度は常にTrue
     if year < now.year:
@@ -193,8 +193,8 @@ def is_gbb_ended(year):
         latest_year_ends_at = parser.parse(latest_year_ends_at)
 
     # latest_year_ends_atがナイーブな場合はタイムゾーンを適用
-    if latest_year_ends_at and timezone.is_naive(latest_year_ends_at):
-        latest_year_ends_at = timezone.make_aware(latest_year_ends_at)
+    if latest_year_ends_at and latest_year_ends_at.tzinfo is None:
+        latest_year_ends_at = latest_year_ends_at.replace(tzinfo=timezone.utc)
 
     return latest_year_ends_at < now
 
@@ -230,7 +230,7 @@ def common_variables(
 
     available_years = get_available_years()
     translated_urls = get_translated_urls()
-    is_latest_year_flag = is_latest_year(year, available_years)
+    is_latest_year_flag = is_latest_year(year)
     is_early_access_flag = is_early_access(year)
 
     return {

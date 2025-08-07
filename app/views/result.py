@@ -85,7 +85,7 @@ def result_view(year: int):
             "result_type": "",
             "all_category": all_category_names,
         }
-        return render_template("common/result.html", context)
+        return render_template("common/result.html", **context)
 
     result_defaultdict = defaultdict(list)
 
@@ -121,4 +121,4 @@ def result_view(year: int):
         "all_category": all_category_names,
     }
 
-    return render_template("common/result.html", context)
+    return render_template("common/result.html", **context)

@@ -146,7 +146,7 @@ def participants_view(year: int):
         "ticket_class": ticket_class,
         "cancel": cancel,
     }
-    return render_template("common/participants.html", context)
+    return render_template("common/participants.html", **context)
 
 
 def participants_country_specific_view(year: int):
@@ -215,4 +215,4 @@ def participants_country_specific_view(year: int):
     context = {
         "participants": participants_data,
     }
-    return render_template(f"common/{country_name}.html", context)
+    return render_template(f"common/{country_name}.html", **context)

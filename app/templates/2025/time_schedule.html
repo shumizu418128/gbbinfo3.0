@@ -1,24 +1,24 @@
 {% extends "base.html" %}
-{% load i18n %}
-{% block title %}GBB {{ year }} {% trans "タイムスケジュール" %} - GBBINFO-JPN{% endblock %}
-{% block twitter_title %}GBB {{ year }} {% trans "タイムスケジュール" %} - GBBINFO-JPN{% endblock %}
-{% block og_title %}GBB {{ year }} {% trans "タイムスケジュール" %} - GBBINFO-JPN{% endblock %}
+
+{% block title %}GBB {{ year }} {{_("タイムスケジュール")}} - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBB {{ year }} {{_("タイムスケジュール")}} - GBBINFO-JPN{% endblock %}
+{% block og_title %}GBB {{ year }} {{_("タイムスケジュール")}} - GBBINFO-JPN{% endblock %}
 {% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/time_schedule{% endblock %}
 {% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/time_schedule{% endblock %}
 {% block content %}
 
-<h1>GBB {{ year }} {% trans "タイムスケジュール" %}</h1>
+<h1>GBB {{ year }} {{_("タイムスケジュール")}}</h1>
 
 <!-- TODO: 更新したらこの表示を消す -->
 {% include 'includes/popup_no_info.html' %}
 
-<p>{% trans "時刻はあくまでも予定です。" %}</p>
-<p>{% trans "GBB21では、予定から約2時間遅延しました。" %}</p>
-<p>{% trans "GBB23では、本番7日前に日本語版・英語版のタイムスケジュールが公開されましたが、日本語版のみ正しく、英語版には誤記が多くみられました。" %}</p>
-<p>{% trans "GBB24では、本番約1ヶ月前に公開されましたが、誤記が多くみられました。" %}</p>
+<p>{{_("時刻はあくまでも予定です。")}}</p>
+<p>{{_("GBB21では、予定から約2時間遅延しました。")}}</p>
+<p>{{_("GBB23では、本番7日前に日本語版・英語版のタイムスケジュールが公開されましたが、日本語版のみ正しく、英語版には誤記が多くみられました。")}}</p>
+<p>{{_("GBB24では、本番約1ヶ月前に公開されましたが、誤記が多くみられました。")}}</p>
 
 <div>
-  <h2>{% trans "目次" %}</h2>
+  <h2>{{_("目次")}}</h2>
   <ol>
     <li>
       <a href="#day1">Day1 - 10/31</a>
@@ -39,112 +39,112 @@
 <table>
   <thead>
     <tr>
-      <th>{% trans "時刻" %}</th>
-      <th>{% trans "内容" %}</th>
+      <th>{{_("時刻")}}</th>
+      <th>{{_("内容")}}</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>14:00</td>
-      <td>{% trans "入場開始" %}</td>
+      <td>{{_("入場開始")}}</td>
     </tr>
     <tr>
       <td>15:00</td>
-      <td>{% trans "スタート" %}</td>
+      <td>{{_("スタート")}}</td>
     </tr>
     <tr>
-      <td>{% trans "～発表次第更新～" %}</td>
-      <td>{% trans "終了" %}</td>
+      <td>{{_("～発表次第更新～")}}</td>
+      <td>{{_("終了")}}</td>
     </tr>
   </tbody>
 </table>
 <div class="button-container">
-  <a href="/others/how_to_plan"><button>{% trans "現地観戦計画のたてかた" %}</button></a>
-  <a href="/{{ year }}/rule"><button>{% trans "ルール" %} & {% trans "審査員" %}</button></a>
+  <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ year }}/rule"><button>{{_("ルール")}} & {{_("審査員")}}</button></a>
 </div>
 
 <h2 id="day2">Day2 - 11/1</h2>
 <table>
   <thead>
     <tr>
-      <th>{% trans "時刻" %}</th>
-      <th>{% trans "内容" %}</th>
+      <th>{{_("時刻")}}</th>
+      <th>{{_("内容")}}</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>13:00</td>
-      <td>{% trans "入場開始" %}</td>
+      <td>{{_("入場開始")}}</td>
     </tr>
     <tr>
       <td>14:00</td>
-      <td>{% trans "スタート" %}</td>
+      <td>{{_("スタート")}}</td>
     </tr>
     <tr>
-      <td>{% trans "～発表次第更新～" %}</td>
-      <td>{% trans "終了" %}</td>
+      <td>{{_("～発表次第更新～")}}</td>
+      <td>{{_("終了")}}</td>
     </tr>
   </tbody>
 </table>
 <div class="button-container">
-  <a href="/{{ year }}/stream"><button>{% trans "当日配信" %}</button></a>
-  <a href="/{{ year }}/participants"><button>{% trans "Wildcard結果" %} & {% trans "出場者" %}</button></a>
+  <a href="/{{ year }}/stream"><button>{{_("当日配信")}}</button></a>
+  <a href="/{{ year }}/participants"><button>{{_("Wildcard結果")}} & {{_("出場者")}}</button></a>
 </div>
 
 <h2 id="day3">Day3 - 11/2</h2>
 <table>
   <thead>
     <tr>
-      <th>{% trans "時刻" %}</th>
-      <th>{% trans "内容" %}</th>
+      <th>{{_("時刻")}}</th>
+      <th>{{_("内容")}}</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>13:00</td>
-      <td>{% trans "入場開始" %}</td>
+      <td>{{_("入場開始")}}</td>
     </tr>
     <tr>
       <td>14:00</td>
-      <td>{% trans "スタート" %}</td>
+      <td>{{_("スタート")}}</td>
     </tr>
     <tr>
-      <td>{% trans "～発表次第更新～" %}</td>
-      <td>{% trans "終了" %}</td>
+      <td>{{_("～発表次第更新～")}}</td>
+      <td>{{_("終了")}}</td>
     </tr>
   </tbody>
 </table>
 <div class="button-container">
-  <a href="/others/how_to_plan"><button>{% trans "現地観戦計画のたてかた" %}</button></a>
-  <a href="/{{ year }}/japan"><button>{% trans "日本代表" %}</button></a>
+  <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ year }}/japan"><button>{{_("日本代表")}}</button></a>
 </div>
 
 <h2 id="_7ts" name="7tosmoke">7toSmoke - 11/3</h2>
 <table>
   <thead>
     <tr>
-      <th>{% trans "時刻" %}</th>
-      <th>{% trans "内容" %}</th>
+      <th>{{_("時刻")}}</th>
+      <th>{{_("内容")}}</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>{% trans "～発表次第更新～" %}</td>
-      <td>{% trans "入場開始" %}</td>
+      <td>{{_("～発表次第更新～")}}</td>
+      <td>{{_("入場開始")}}</td>
     </tr>
     <tr>
-      <td>{% trans "～発表次第更新～" %}</td>
-      <td>{% trans "スタート" %}</td>
+      <td>{{_("～発表次第更新～")}}</td>
+      <td>{{_("スタート")}}</td>
     </tr>
     <tr>
-      <td>{% trans "～発表次第更新～" %}</td>
-      <td>{% trans "終了" %}</td>
+      <td>{{_("～発表次第更新～")}}</td>
+      <td>{{_("終了")}}</td>
     </tr>
   </tbody>
 </table>
 <div class="button-container">
-  <a href="/others/how_to_plan"><button>{% trans "現地観戦計画のたてかた" %}</button></a>
-  <a href="/{{ year }}/top_7tosmoke"><button>7toSmoke {% trans "これだけガイド" %}</button></a>
+  <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ year }}/top_7tosmoke"><button>7toSmoke {{_("これだけガイド")}}</button></a>
 </div>
 
 {% endblock %}

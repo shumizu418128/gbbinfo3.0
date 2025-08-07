@@ -1,11 +1,11 @@
-{% load i18n %}
+
 {% if year == 2022 %}
-    <p style="text-align: center; font-size: 36px; font-weight: bold;">GBB {{ year }}<br>{% trans "中止" %}</p>
+    <p style="text-align: center; font-size: 36px; font-weight: bold;">GBB {{ year }}<br>{{_("中止")}}</p>
 {% else %}
-    <p style="text-align: center; font-size: 36px; font-weight: bold;">GBB {{ year }}<br>{% trans "終了しました" %}</p>
-    <p style="text-align: center;">{% blocktrans with year=year %}ここは、すでに終了したGBB {{ year }} のページです{% endblocktrans %}</p>
+    <p style="text-align: center; font-size: 36px; font-weight: bold;">GBB {{ year }}<br>{{_("終了しました")}}</p>
+    <p style="text-align: center;">{{ _("ここは、すでに終了したGBB {year} のページです").format(year=year) }}</p>
 {% endif %}
 <div class="button-container">
-    <a href="/"><button type="button">{% trans "GBB最新情報はこちら" %}</button></a>
+    <a href="/"><button type="button">{{_("GBB最新情報はこちら")}}</button></a>
 </div>
 <hr>

@@ -1,14 +1,14 @@
 {% extends "base.html" %}
-{% load i18n %}
-{% block title %}GBB {{ year }} {% trans "日本代表" %} - GBBINFO-JPN{% endblock %}
-{% block twitter_title %}GBB {{ year }} {% trans "日本代表" %} - GBBINFO-JPN{% endblock %}
-{% block og_title %}GBB {{ year }} {% trans "日本代表" %} - GBBINFO-JPN{% endblock %}
+
+{% block title %}GBB {{ year }} {{_("日本代表")}} - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBB {{ year }} {{_("日本代表")}} - GBBINFO-JPN{% endblock %}
+{% block og_title %}GBB {{ year }} {{_("日本代表")}} - GBBINFO-JPN{% endblock %}
 {% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/japan{% endblock %}
 {% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/japan{% endblock %}
 {% block content %}
-<h1>GBB {{ year }} {% trans "日本代表" %}</h1>
+<h1>GBB {{ year }} {{_("日本代表")}}</h1>
 
-{% if is_latest_year is True %}
+{% if is_latest_year is true %}
   <div style="text-align: center;">
     <p>{{ last_updated }}</p>
   </div>
@@ -18,16 +18,16 @@
   <table>
     <thead>
       <tr>
-        <th style="width: 33%;">{% trans "名前" %}</th>
-        <th style="width: 34%;">{% trans "部門" %}</th>
-        <th style="width: 33%;">{% trans "出場権" %}</th>
+        <th style="width: 33%;">{{_("名前")}}</th>
+        <th style="width: 34%;">{{_("部門")}}</th>
+        <th style="width: 33%;">{{_("出場権")}}</th>
       </tr>
     </thead>
     <tbody>
     {% for participant in participants %}
       <tr>
         {% if participant.is_cancelled %}
-          <td>【{% trans "辞退" %}】<br><a href="/others/participant_detail?id={{ participant.id }}&mode={% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a></td>
+          <td>【{{_("辞退")}}】<br><a href="/others/participant_detail?id={{ participant.id }}&mode={% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a></td>
           <td><s>{{ participant.category }}</s></td>
           <td {% if participant.ticket_class|length > 11 %} style="font-size: 12px;" {% endif %}><s>{{ participant.ticket_class }}</s></td>
         {% else %}
@@ -40,23 +40,23 @@
     </tbody>
   </table>
 {% else %}
-  <p>{% trans "日本代表なし" %}</p>
+  <p>{{_("日本代表なし")}}</p>
 {% endif %}
 <br>
 
 <div class="button-container">
-  <a href="/{{year}}/participants"><button>GBB {{ year }} {% trans "全出場者一覧" %}<br></button></a>
-  <a href="/{{year}}/rule"><button>{% trans "出場権詳細" %}</button></a>
-  <a href="/{{year}}/rule"><button>GBB {{ year }} {% trans "ルール & 審査員" %}</button></a>
-  <a href="/{{year}}/rule?scroll=result_date"><button>{% trans "Wildcard結果発表日" %}</button></a>
+  <a href="/{{year}}/participants"><button>GBB {{ year }} {{_("全出場者一覧")}}<br></button></a>
+  <a href="/{{year}}/rule"><button>{{_("出場権詳細")}}</button></a>
+  <a href="/{{year}}/rule"><button>GBB {{ year }} {{_("ルール & 審査員")}}</button></a>
+  <a href="/{{year}}/rule?scroll=result_date"><button>{{_("Wildcard結果発表日")}}</button></a>
 </div>
 
-<h2>GBB {{ year }} {% trans "出場者世界地図" %}</h2>
-<p>{% trans "国旗をタップorクリックすると、詳細を確認できます。" %}</p>
+<h2>GBB {{ year }} {{_("出場者世界地図")}}</h2>
+<p>{{_("国旗をタップorクリックすると、詳細を確認できます。")}}</p>
 <iframe src="/{{ year }}/world_map" width="100%" height="400px" frameborder="0"></iframe>
 
 <form method="GET" class="participants_form">
-<label for="year">{% trans "その他の年度を確認：" %}</label>
+<label for="year">{{_("その他の年度を確認：")}}</label>
 <select name="year" id="year" class="filter-select" onchange="redirect_year('japan')">
   {% for y in available_years %}
     <option value="{{ y }}" {% if year == y %}selected{% endif %}>{{ y }}</option>

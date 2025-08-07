@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n %}
+
 {% block title %}GBB {{ beatboxer_detail.year }} {{ beatboxer_detail.name }} - GBBINFO-JPN{% endblock %}
 {% block twitter_title %}GBB {{ beatboxer_detail.year }} {{ beatboxer_detail.name }} - GBBINFO-JPN{% endblock %}
 {% block og_title %}GBB {{ beatboxer_detail.year }} {{ beatboxer_detail.name }} - GBBINFO-JPN{% endblock %}
@@ -14,7 +14,7 @@
     <table>
         <thead>
             <tr>
-                <th>{% if beatboxer_detail.is_cancelled %}【{% trans "辞退" %}】{% endif %}</th>
+                <th>{% if beatboxer_detail.is_cancelled %}【{{_("辞退")}}】{% endif %}</th>
                 {% if beatboxer_detail.is_cancelled %}
                     <th><s>{{ beatboxer_detail.name }}</s></th>
                 {% else %}
@@ -24,7 +24,7 @@
         </thead>
         <tbody>
             <tr>
-                <td>{% trans "部門" %}</td>
+                <td>{{_("部門")}}</td>
                 {% if beatboxer_detail.is_cancelled %}
                     <td><s>{{ beatboxer_detail.category }}</s></td>
                 {% else %}
@@ -32,7 +32,7 @@
                 {% endif %}
             </tr>
             <tr>
-                <td>{% trans "国" %}</td>
+                <td>{{_("国")}}</td>
                 {% if beatboxer_detail.is_cancelled %}
                     <td><s>{{ beatboxer_detail.country }}</s></td>
                 {% else %}
@@ -40,7 +40,7 @@
                 {% endif %}
             </tr>
             <tr>
-                <td>{% trans "出場権" %}</td>
+                <td>{{_("出場権")}}</td>
                 {% if beatboxer_detail.is_cancelled %}
                     <td><s>{{ beatboxer_detail.ticket_class }}</s></td>
                 {% else %}
@@ -56,15 +56,15 @@
     <table>
         <thead>
             <tr>
-                <th>{% trans "名前" %}</th>
-                <th>{% trans "国" %}</th>
+                <th>{{_("名前")}}</th>
+                <th>{{_("国")}}</th>
             </tr>
         </thead>
         <tbody>
             {% for member in beatboxer_detail.ParticipantMember %}
             <tr>
                 {% if beatboxer_detail.is_cancelled %}
-                    <td>【{% trans "辞退" %}】<br><a href="/others/participant_detail?id={{ member.id }}&mode=team_member">{{ member.name }}</a></td>
+                    <td>【{{_("辞退")}}】<br><a href="/others/participant_detail?id={{ member.id }}&mode=team_member">{{ member.name }}</a></td>
                     <td><s>{{ member.country }}</s></td>
                 {% else %}
                     <td><a href="/others/participant_detail?id={{ member.id }}&mode=team_member">{{ member.name }}</a></td>
@@ -77,7 +77,7 @@
 
     {% if beatboxer_detail.is_cancelled %}
     <div class="post-it">
-        <p>{{ beatboxer_detail.name }}: GBB {{ beatboxer_detail.year }} 【{% trans "辞退" %}】</p>
+        <p>{{ beatboxer_detail.name }}: GBB {{ beatboxer_detail.year }} 【{{_("辞退")}}】</p>
     </div>
     {% endif %}
 {% endif %}
@@ -86,7 +86,7 @@
     <table>
         <thead>
             <tr>
-                <th>{% if beatboxer_detail.is_cancelled %}【{% trans "辞退" %}】{% endif %}</th>
+                <th>{% if beatboxer_detail.is_cancelled %}【{{_("辞退")}}】{% endif %}</th>
                 {% if beatboxer_detail.is_cancelled %}
                     <th><s>{{ beatboxer_detail.name }}</s></th>
                 {% else %}
@@ -96,7 +96,7 @@
         </thead>
         <tbody>
             <tr>
-                <td>{% trans "国" %}</td>
+                <td>{{_("国")}}</td>
                 {% if beatboxer_detail.is_cancelled %}
                     <td><s>{{ beatboxer_detail.country }}</s></td>
                 {% else %}
@@ -106,7 +106,7 @@
             <tr>
                 <td>TEAM</td>
                 {% if beatboxer_detail.is_cancelled %}
-                    <td>【{% trans "辞退" %}】<br><a href="/others/participant_detail?id={{ beatboxer_detail.Participant.id }}&mode=team">{{ beatboxer_detail.Participant.name }}</a></td>
+                    <td>【{{_("辞退")}}】<br><a href="/others/participant_detail?id={{ beatboxer_detail.Participant.id }}&mode=team">{{ beatboxer_detail.Participant.name }}</a></td>
                 {% else %}
                     <td><a href="/others/participant_detail?id={{ beatboxer_detail.Participant.id }}&mode=team">{{ beatboxer_detail.Participant.name }}</a></td>
                 {% endif %}
@@ -116,18 +116,18 @@
 {% endif %}
 
 <div class="button-container">
-    <a href="/{{beatboxer_detail.year}}/participants"><button>GBB {{ beatboxer_detail.year }} {% trans "全出場者一覧" %}<br></button></a>
-    <a href="/{{beatboxer_detail.year}}/top"><button>GBB {{ beatboxer_detail.year }} {% trans "これだけガイド" %}</button></a>
+    <a href="/{{beatboxer_detail.year}}/participants"><button>GBB {{ beatboxer_detail.year }} {{_("全出場者一覧")}}<br></button></a>
+    <a href="/{{beatboxer_detail.year}}/top"><button>GBB {{ beatboxer_detail.year }} {{_("これだけガイド")}}</button></a>
 </div>
 
-<h2>{{ beatboxer_detail.name }} {% trans "過去の出場履歴" %}</h2>
+<h2>{{ beatboxer_detail.name }} {{_("過去の出場履歴")}}</h2>
 {% if past_participation_data %}
     <table>
         <thead>
             <tr>
                 <th></th>
-                <th>{% trans "名前" %}</th>
-                <th>{% trans "部門" %}</th>
+                <th>{{_("名前")}}</th>
+                <th>{{_("部門")}}</th>
             </tr>
         </thead>
         <tbody>
@@ -135,7 +135,7 @@
                 <tr>
                     {% if past_participation.is_cancelled %}
                         <td><s>{{ past_participation.year }}</s></td>
-                        <td>【{% trans "辞退" %}】<br><a href="/others/participant_detail?id={{ past_participation.id }}&mode={{ past_participation.mode }}">{{ past_participation.name }}</a></td>
+                        <td>【{{_("辞退")}}】<br><a href="/others/participant_detail?id={{ past_participation.id }}&mode={{ past_participation.mode }}">{{ past_participation.name }}</a></td>
                         <td><s>{{ past_participation.category }}</s></td>
                     {% else %}
                         <td>{{ past_participation.year }}</td>
@@ -149,16 +149,16 @@
 {% endif %}
 
 <div class="button-container">
-    <a href="/{{beatboxer_detail.year}}/participants"><button>GBB {{ beatboxer_detail.year }} {% trans "全出場者一覧" %}<br></button></a>
+    <a href="/{{beatboxer_detail.year}}/participants"><button>GBB {{ beatboxer_detail.year }} {{_("全出場者一覧")}}<br></button></a>
     {% if language == 'ko' %}
-        <a href="/{{beatboxer_detail.year}}/korea"><button>GBB {{ beatboxer_detail.year }} {% trans "韓国代表" %}</button></a>
+        <a href="/{{beatboxer_detail.year}}/korea"><button>GBB {{ beatboxer_detail.year }} {{_("韓国代表")}}</button></a>
     {% else %}
-        <a href="/{{beatboxer_detail.year}}/japan"><button>GBB {{ beatboxer_detail.year }} {% trans "日本代表" %}</button></a>
+        <a href="/{{beatboxer_detail.year}}/japan"><button>GBB {{ beatboxer_detail.year }} {{_("日本代表")}}</button></a>
     {% endif %}
-    <a href="/{{beatboxer_detail.year}}/result"><button>GBB {{ beatboxer_detail.year }} {% trans "大会結果" %}</button></a>
+    <a href="/{{beatboxer_detail.year}}/result"><button>GBB {{ beatboxer_detail.year }} {{_("大会結果")}}</button></a>
 </div>
 
-<h2>{{ beatboxer_detail.name }} {% trans "関連サイト" %}</h2>
+<h2>{{ beatboxer_detail.name }} {{_("関連サイト")}}</h2>
 <div style="margin: 40px;"></div>
 <div class="account-urls"></div>
 <div style="margin: 40px;"></div>
@@ -166,22 +166,22 @@
 
 <div class="post-it">
     <p>
-        {% trans "表示されている関連サイトやSNS情報は、自動検索によって取得されたものです。" %}<br>
-        {% trans "内容に誤りが含まれている可能性があります。" %}
+        {{_("表示されている関連サイトやSNS情報は、自動検索によって取得されたものです。")}}<br>
+        {{_("内容に誤りが含まれている可能性があります。")}}
     </p>
 </div>
 
 <div class="button-container">
-    <a href="https://www.genspark.ai/search?query={{ genspark_query }}&newSugUi=" target="_blank" rel="noopener noreferrer"><button>{% trans "もっと調べる" %} - {{ beatboxer_detail.name }}</button></a>
+    <a href="https://www.genspark.ai/search?query={{ genspark_query }}&newSugUi=" target="_blank" rel="noopener noreferrer"><button>{{_("もっと調べる")}} - {{ beatboxer_detail.name }}</button></a>
 </div>
 
-<h2>GBB {{ beatboxer_detail.year }} {{ beatboxer_detail.category }} {% trans "他の出場者" %}</h2>
+<h2>GBB {{ beatboxer_detail.year }} {{ beatboxer_detail.category }} {{_("他の出場者")}}</h2>
 <table>
     <thead>
         <tr>
-            <th style="width:33%">{% trans "名前" %}</th>
-            <th style="width:34%">{% trans "国" %}</th>
-            <th style="width:33%">{% trans "出場権" %}</th>
+            <th style="width:33%">{{_("名前")}}</th>
+            <th style="width:34%">{{_("国")}}</th>
+            <th style="width:33%">{{_("出場権")}}</th>
         </tr>
     </thead>
     <tbody>
@@ -189,7 +189,7 @@
         <tr>
             {% if participant.is_cancelled %}
                 <td>
-                    【{% trans "辞退" %}】<br>
+                    【{{_("辞退")}}】<br>
                     <a href="/others/participant_detail?id={{ participant.id }}&mode={{ same_year_category_mode }}">{{ participant.name }}</a>
                 </td>
                     <td {% if participant.country|length > 5 %} style="font-size: 12px;" {% endif %}>
@@ -219,11 +219,11 @@
 </table>
 
 <div class="button-container">
-    <a href="/{{beatboxer_detail.year}}/participants"><button>GBB {{ beatboxer_detail.year }} {% trans "全出場者一覧" %}<br></button></a>
-    <a href="/{{beatboxer_detail.year}}/rule"><button>GBB {{ beatboxer_detail.year }} {% trans "ルール & 審査員" %}</button></a>
+    <a href="/{{beatboxer_detail.year}}/participants"><button>GBB {{ beatboxer_detail.year }} {{_("全出場者一覧")}}<br></button></a>
+    <a href="/{{beatboxer_detail.year}}/rule"><button>GBB {{ beatboxer_detail.year }} {{_("ルール & 審査員")}}</button></a>
 </div>
 
-{% csrf_token %}
+
 <script src="/static/scripts/participant_detail.js"></script>
 <script>
     const beatboxerId = {{ beatboxer_detail.id }};
