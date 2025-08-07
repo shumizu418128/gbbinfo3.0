@@ -89,7 +89,7 @@ python manage.py makemessages -a  # 全言語一括処理
 
 ## 3. 翻訳ファイル（.po）の編集
 
-`locale/<言語コード>/LC_MESSAGES/django.po` ファイルが生成されるので、msgstr部分に翻訳を記入します。
+`locale/<言語コード>/LC_MESSAGES/messages.po` ファイルが生成されるので、msgstr部分に翻訳を記入します。
 
 例：
 ```po

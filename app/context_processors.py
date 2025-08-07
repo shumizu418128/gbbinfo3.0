@@ -39,13 +39,13 @@ def get_available_years():
 
 def get_translated_urls():
     r"""
-    英語（en）のdjango.poファイルから、翻訳済みページのURLパス一覧を取得する内部関数。
+    英語（en）のmessages.poファイルから、翻訳済みページのURLパス一覧を取得する内部関数。
 
     Returns:
         set: 翻訳が存在するページのURLパスのセット
 
     Note:
-        django.poのmsgidコメント（例: #: .\gbbinfojpn\app\templates\2024\rule.html:3）から
+        messages.poのmsgidコメント（例: #: .\gbbinfojpn\app\templates\2024\rule.html:3）から
         テンプレートパスを抽出し、URLパスに変換します。
         common/配下のテンプレートは年度ごとに展開されるため、全年度分を生成します。
         base.html, includes, 404.html等は除外します。
@@ -57,7 +57,7 @@ def get_translated_urls():
 
     language = "en"
 
-    po_file_path = BASE_DIR / "translations" / language / "LC_MESSAGES" / "django.po"
+    po_file_path = BASE_DIR / "translations" / language / "LC_MESSAGES" / "messages.po"
     TRANSLATED_URLS = set()
 
     try:

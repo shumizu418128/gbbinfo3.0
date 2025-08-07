@@ -1,6 +1,5 @@
 import os
 import re
-import sys
 from time import sleep
 
 import polib
@@ -8,12 +7,12 @@ from google import genai
 from pydantic import BaseModel
 from tqdm import tqdm
 
-# プロジェクトルートディレクトリをPythonパスに追加
-current_dir = os.path.dirname(os.path.abspath(__file__))
-parent_dir = os.path.dirname(current_dir)
-if parent_dir not in sys.path:
-    sys.path.insert(0, parent_dir)
-from app import settings  # noqa: E402
+from app.main import BABEL_SUPPORTED_LOCALES
+
+BASE_DIR = os.path.abspath("app")
+LOCALE_DIR = os.path.join(BASE_DIR, "translations")
+POT_FILE = os.path.join(BASE_DIR, "messages.pot")
+CONFIG_FILE = os.path.join(BASE_DIR, "babel.cfg")
 
 
 def extract_placeholders(text):
@@ -120,30 +119,23 @@ def translate(path, lang):
 
 
 def main():
-    # この2つはdjangoとmakemessagesの仕様で、翻訳ファイル名が異なるため
-    supported_language_codes = settings.SUPPORTED_LANGUAGE_CODES
-    supported_language_codes.remove("zh-hans")
-    supported_language_codes.remove("zh-hant")
-    supported_language_codes.append("zh_Hans")
-    supported_language_codes.append("zh_Hant")
-
     # Generate translation messages
-    os.system("python manage.py makemessages -a")
-    print("python manage.py makemessages -a")
+    os.system(f"cd {BASE_DIR} && pybabel extract -F babel.cfg -o {POT_FILE} .")
+    os.system(f"cd {BASE_DIR} && pybabel update -i {POT_FILE} -d {LOCALE_DIR}")
 
-    for lang in supported_language_codes:
-        path = os.path.join(settings.BASE_DIR, "translations", lang, "LC_MESSAGES", "django.po")
+    for lang in BABEL_SUPPORTED_LOCALES:
+        path = os.path.join(LOCALE_DIR, lang, "LC_MESSAGES", "messages.po")
 
+        # ファイルが存在しない場合は新規作成
         if not os.path.exists(path):
-            print(f"Warning: {path} does not exist, skipping...")
-            continue
+            os.system(
+                f"cd {BASE_DIR} && pybabel init -i {POT_FILE} -d {LOCALE_DIR} -l {lang}"
+            )
 
         translate(path, lang)
 
     # Compile translation messages
-    os.system("python manage.py compilemessages")
-    print("python manage.py compilemessages")
-
+    os.system(f"cd {BASE_DIR} && pybabel compile -d {LOCALE_DIR}")
     print("Finished")
 
 

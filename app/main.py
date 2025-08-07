@@ -62,13 +62,11 @@ LANGUAGES = [
     ("no", "Norsk"),
     ("ta", "தமிழ்"),
     ("th", "ไทย"),
-    ("zh-hans", "简体中文"),
-    ("zh-hant", "繁體中文"),
+    ("zh_Hans_CN", "简体中文"),
+    ("zh_Hant_TW", "繁體中文"),
 ]
 BASE_DIR = Path(__file__).resolve().parent.parent
 BABEL_SUPPORTED_LOCALES = [code for code, _ in LANGUAGES]
-# Babel設定：翻訳ディレクトリを指定
-app.config["BABEL_TRANSLATION_DIRECTORIES"] = str(BASE_DIR / "translations")
 LAST_UPDATED = "UPDATE " + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " JST"
 initialize_background_tasks(BABEL_SUPPORTED_LOCALES)
 
