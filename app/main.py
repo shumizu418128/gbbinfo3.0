@@ -11,10 +11,11 @@ from flask_babel import Babel, _
 from flask_caching import Cache
 from flask_sitemapper import Sitemapper
 
-from app.context_processors import common_variables, get_locale, set_request_data
-from app.settings import (
-    check_locale_paths_and_languages,
-    delete_world_map,
+from app.context_processors import (
+    common_variables,
+    get_locale,
+    initialize_background_tasks,
+    set_request_data,
 )
 from app.views import (
     beatboxer_tavily_search,
@@ -67,8 +68,7 @@ LANGUAGES = [
 BASE_DIR = Path(__file__).resolve().parent.parent
 BABEL_SUPPORTED_LOCALES = [code for code, _ in LANGUAGES]
 LAST_UPDATED = "UPDATE " + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " JST"
-delete_world_map()
-check_locale_paths_and_languages(BABEL_SUPPORTED_LOCALES)
+initialize_background_tasks(BABEL_SUPPORTED_LOCALES)
 
 
 class Config:

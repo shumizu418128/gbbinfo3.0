@@ -1,12 +1,18 @@
 import re
 from datetime import datetime, timezone
+from threading import Thread
 
 from dateutil import parser
 from flask import g, request, session
 
 from app.models.supabase_client import supabase_service
-from app.settings import BASE_DIR
+from app.settings import BASE_DIR, check_locale_paths_and_languages, delete_world_map
 from app.util.filter_eq import Operator
+
+AVAILABLE_YEARS = []
+TRANSLATED_URLS = set()
+
+is_gbb_ended_cache = {}
 
 
 def get_available_years():
@@ -16,14 +22,19 @@ def get_available_years():
     Returns:
         list: 利用可能な年度（降順）のリスト
     """
+    global AVAILABLE_YEARS
+    if AVAILABLE_YEARS:
+        return AVAILABLE_YEARS
+
     year_data = supabase_service.get_data(
         table="Year",
         columns=["year"],
     )
     available_years = [item["year"] for item in year_data]
     available_years.sort(reverse=True)
+    AVAILABLE_YEARS = available_years
 
-    return available_years
+    return AVAILABLE_YEARS
 
 
 def get_translated_urls():
@@ -39,17 +50,15 @@ def get_translated_urls():
         common/配下のテンプレートは年度ごとに展開されるため、全年度分を生成します。
         base.html, includes, 404.html等は除外します。
     """
-    from app.main import flask_cache
 
-    cache_key = "translated_urls"
-    translated_urls = flask_cache.get(cache_key)
-    if translated_urls is not None:
-        return translated_urls
+    global TRANSLATED_URLS
+    if TRANSLATED_URLS:
+        return TRANSLATED_URLS
 
     language = "en"
 
     po_file_path = BASE_DIR / "locale" / language / "LC_MESSAGES" / "django.po"
-    translated_urls = set()
+    TRANSLATED_URLS = set()
 
     try:
         with open(po_file_path, "r", encoding="utf-8") as f:
@@ -96,17 +105,15 @@ def get_translated_urls():
                             + "/"
                             + template_path.replace("common\\", "").replace(".html", "")
                         )
-                        translated_urls.add(url_path)
+                        TRANSLATED_URLS.add(url_path)
                 else:
                     # 2024\foo.html → /2024/foo
                     url_path = "/" + template_path.replace("\\", "/").replace(
                         ".html", ""
                     )
-                    translated_urls.add(url_path)
+                    TRANSLATED_URLS.add(url_path)
 
-    flask_cache.set(cache_key, translated_urls, timeout=None)
-
-    return translated_urls
+    return TRANSLATED_URLS
 
 
 def is_latest_year(year):
@@ -169,6 +176,10 @@ def is_gbb_ended(year):
     Returns:
         bool: GBB終了年度の場合はTrue、それ以外はFalse
     """
+    global is_gbb_ended_cache
+    if year in is_gbb_ended_cache:
+        return is_gbb_ended_cache[year]
+
     # タイムゾーンを考慮した現在時刻を取得
     now = datetime.now(timezone.utc)
 
@@ -196,7 +207,8 @@ def is_gbb_ended(year):
     if latest_year_ends_at and latest_year_ends_at.tzinfo is None:
         latest_year_ends_at = latest_year_ends_at.replace(tzinfo=timezone.utc)
 
-    return latest_year_ends_at < now
+    is_gbb_ended_cache[year] = latest_year_ends_at < now
+    return is_gbb_ended_cache[year]
 
 
 def common_variables(
@@ -294,3 +306,21 @@ def set_request_data(BABEL_SUPPORTED_LOCALES):
     if "language" not in session:
         best_match = request.accept_languages.best_match(BABEL_SUPPORTED_LOCALES)
         session["language"] = best_match if best_match else "ja"
+
+
+def initialize_background_tasks(BABEL_SUPPORTED_LOCALES):
+    """
+    アプリケーション起動時にバックグラウンドで実行する初期化タスクをまとめて起動します。
+
+    Args:
+        なし
+
+    Returns:
+        None
+    """
+    Thread(target=delete_world_map).start()
+    Thread(
+        target=check_locale_paths_and_languages, args=(BABEL_SUPPORTED_LOCALES,)
+    ).start()
+    Thread(target=get_available_years).start()
+    Thread(target=get_translated_urls).start()
