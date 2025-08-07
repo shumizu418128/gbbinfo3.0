@@ -38,4 +38,4 @@ USER appuser
 EXPOSE 10000
 
 # GunicornでDjangoアプリケーションを起動
-CMD ["python", "manage.py", "runserver", "0.0.0.0:10000"]
+CMD ["python", "manage.py", "runserver", "127.0.0.1:10000"]
