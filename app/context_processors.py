@@ -57,7 +57,7 @@ def get_translated_urls():
 
     language = "en"
 
-    po_file_path = BASE_DIR / "translations" / language / "LC_MESSAGES" / "messages.po"
+    po_file_path = BASE_DIR / "app" / "translations" / language / "LC_MESSAGES" / "messages.po"
     TRANSLATED_URLS = set()
 
     try:

@@ -74,7 +74,7 @@ initialize_background_tasks(BABEL_SUPPORTED_LOCALES)
 class Config:
     BABEL_DEFAULT_LOCALE = "ja"
     BABEL_SUPPORTED_LOCALES = [code for code, _ in LANGUAGES]
-    BABEL_TRANSLATION_DIRECTORIES = str(BASE_DIR / "translations")
+    BABEL_TRANSLATION_DIRECTORIES = str(BASE_DIR / "app" / "translations")
     CACHE_DEFAULT_TIMEOUT = 0
     DEBUG = False
     SECRET_KEY = os.getenv("SECRET_KEY")

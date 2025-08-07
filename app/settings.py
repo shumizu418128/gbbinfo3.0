@@ -31,7 +31,7 @@ def check_locale_paths_and_languages(BABEL_SUPPORTED_LOCALES):
                   （いずれも日本語は例外）
     """
     # LOCALE_PATHSからlocaleディレクトリのパスを取得
-    locale_path = BASE_DIR / "translations"
+    locale_path = BASE_DIR / "app" / "translations"
 
     # localeディレクトリ内の言語コードフォルダを取得
     locale_dirs_set = set()
