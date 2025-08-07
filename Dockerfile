@@ -31,4 +31,5 @@ COPY . .
 EXPOSE 8080
 
 # その後にFlaskアプリケーションを起動
-CMD ["python", "run.py"]
+# CMD ["python", "run.py"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "--workers", "1", "--timeout", "120", "app.main:app"]
