@@ -112,10 +112,3 @@ DjangoのテンプレートやPythonコード内で、`{% trans %}` タグや `g
 例：
 - テンプレート: `{% trans "Hello" %}`
 - Python: `from django.utils.translation import gettext as _; _('Hello')`
-
----
-
-### 補足
-- .potファイルはDjangoの標準運用では不要です。
-- 翻訳ファイルのディレクトリ構成は `locale/<言語コード>/LC_MESSAGES/` です。
-- 詳細はDjango公式ドキュメント「国際化とローカリゼーション」を参照してください。
