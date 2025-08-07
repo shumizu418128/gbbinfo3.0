@@ -1,121 +1,105 @@
-![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/shumizu418128/gbbinfo3.0?utm_source=oss&utm_medium=github&utm_campaign=shumizu418128%2Fgbbinfo3.0&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)
+# GBB Info 3.0
 
-```
-プロジェクトルート (gbbinfojpn/urls.py)
-│
-├─ /admin/database/ ... gbbinfojpn/database/urls.py で管理
-│    ├─ /database/test/
-│    └─ /database/health/
-│
-└─ /app/ ... gbbinfojpn/app/urls.py で管理（今後追加予定）
-     ├─ /app/xxx/
-     └─ /app/yyy/
-```
+Grand Beatbox Battle (GBB) の情報を集約・提供するウェブアプリケーションです。
 
----
+## 主な機能
 
-## Djangoでよく使うコマンド集
+- 過去の大会結果の閲覧
+- 出場者の情報検索
+- AIによる出場者情報の検索（Google Gemini, Tavily API連携）
+- 多言語対応
 
-### サーバー起動
-```
-python manage.py runserver
-```
+## 使用技術
 
-### テスト実行
-```
-python manage.py test
-```
+- **バックエンド**: Flask (Python)
+- **フロントエンド**: HTML, CSS, JavaScript
+- **データベース**: Supabase
+- **AI**: Google Gemini, Tavily API
+- **デプロイ**: Docker
 
 ---
 
-## databaseアプリ
+## 実行方法
 
-`gbbinfojpn/database`
+### 1. ローカルでの開発サーバー起動
 
-- **models/** : データ構造（DBテーブル）定義のみを記述します。
-    - `models.py` : Django ORMによるDBテーブル定義。
-    - `supabase_client.py` : Supabase等の外部サービスと連携するためのクライアントクラス・サービスを記述します。Djangoモデルとは独立して、API経由でデータ取得・更新を行う用途で利用します。
-- **views/**  : データ取得・ビジネスロジック・リクエスト処理を記述します。Django ORMやsupabase_clientを利用してデータを取得し、テンプレートやAPIレスポンスとして返却します。
-- **templates/**: HTML等の出力テンプレートを配置します。
-
-```
-gbbinfojpn/
-  └─ database/
-      ├─ models/
-      │    ├─ models.py
-      │    └─ supabase_client.py   # Supabase等外部サービス用クライアント
-      ├─ views/
-      │    └─ views.py
-      ├─ templates/
-      │    └─ database/
-      │         └─ *.html
-      ├─ urls.py
-      └─ ...
-```
-
-# Djangoにおける翻訳ファイルの準備方法
-
-Djangoプロジェクトで多言語対応を行うための翻訳ファイル（.po, .mo）の準備手順を以下にまとめます。
-
-## 1. 設定ファイルの確認
-
-`settings.py` の `LANGUAGES` と `LOCALE_PATHS` を確認・設定してください。
-
-```python
-LANGUAGES = [
-    ('ja', 'Japanese'),
-    ('en', 'English'),
-    # 必要な言語を追加
-]
-
-LOCALE_PATHS = [
-    BASE_DIR / 'locale',
-]
-```
-
-## 2. メッセージ抽出
-
-プロジェクトルート（`manage.py`がある場所）で、以下のコマンドを実行して翻訳対象のメッセージを抽出します。
+リポジトリをクローンし、必要なライブラリをインストールします。
 
 ```sh
-python manage.py makemessages -l ja  # 日本語用
-python manage.py makemessages -l en  # 英語用
-python manage.py makemessages -a  # 全言語一括処理
-# locale/ 配下のすべての言語ディレクトリが対象
+pip install -r requirements.txt
 ```
 
-- `-l` オプションで言語コードを指定します。
-- 必要な言語ごとにコマンドを実行してください。
-
-## 3. 翻訳ファイル（.po）の編集
-
-`locale/<言語コード>/LC_MESSAGES/messages.po` ファイルが生成されるので、msgstr部分に翻訳を記入します。
-
-例：
-```po
-msgid "Hello"
-msgstr "こんにちは"
-```
-
-## 4. 翻訳ファイルのコンパイル
-
-編集が終わったら、以下のコマンドで .po ファイルを .mo ファイルにコンパイルします。
+環境変数（`.env`ファイルなど）を設定した後、以下のコマンドで開発サーバーを起動します。
 
 ```sh
-python manage.py compilemessages
+python run.py
 ```
 
-## 5. アプリケーションでの利用
+サーバーは `http://localhost:10000` で起動します。
 
-DjangoのテンプレートやPythonコード内で、`{% trans %}` タグや `gettext` 関数を使って翻訳を呼び出します。
+### 2. Dockerでの実行
 
-例：
-- テンプレート: `{{_("Hello")}}`
-- Python: `from django.utils.translation import gettext as _; _('Hello')`
+以下のコマンドでDockerイメージをビルドし、コンテナを実行します。
+
+```sh
+# Dockerイメージのビルド
+docker build -t gbbinfo .
+
+# Dockerコンテナの実行
+docker run -p 10000:10000 --env-file .env gbbinfo
+```
 
 ---
 
-### 補足
-- .potファイルはDjangoの標準運用では不要です。
-- 翻訳ファイルのディレクトリ構成は `locale/<言語コード>/LC_MESSAGES/` です。
-- 詳細はDjango公式ドキュメント「国際化とローカリゼーション」を参照してください。
+## ディレクトリ構成の概要
+
+```
+gbbinfo3.0/
+├── run.py                    # アプリケーション起動スクリプト
+├── app/
+│   ├── main.py               # Flaskアプリケーションのインスタンス、ルーティング定義
+│   ├── settings.py           # アプリケーション設定
+│   ├── models/               # データベースや外部APIのクライアント
+│   │   ├── supabase_client.py
+│   │   └── gemini_client.py
+│   ├── views/                # 各エンドポイントの処理ロジック
+│   ├── templates/            # HTMLテンプレート
+│   ├── static/               # CSS, JavaScript, 画像ファイル
+│   └── translations/         # 翻訳ファイル (Flask-Babel)
+├── requirements.txt          # Pythonライブラリの依存関係
+└── Dockerfile                # Dockerコンテナ定義
+```
+
+---
+
+## 翻訳ファイルの更新手順 (Flask-Babel)
+
+本プロジェクトでは `Flask-Babel` を利用して多言語対応を行っています。
+
+### 1. 翻訳対象のテキストを抽出
+
+以下のコマンドを実行し、ソースコードから翻訳対象の文字列を抽出し、`messages.pot`ファイルを更新します。
+
+```sh
+pybabel extract -F app/babel.cfg -o app/messages.pot app/
+```
+
+### 2. 各言語の翻訳ファイルを更新
+
+`.pot`ファイルの更新内容を、各言語の`.po`ファイルに反映させます。
+
+```sh
+pybabel update -i app/messages.pot -d app/translations
+```
+
+### 3. 翻訳ファイルを編集
+
+`app/translations/<言語コード>/LC_MESSAGES/messages.po` ファイルを開き、`msgstr` に翻訳後のテキストを追記・修正します。
+
+### 4. 翻訳ファイルをコンパイル
+
+編集した`.po`ファイルを、アプリケーションが利用する`.mo`ファイルにコンパイルします。
+
+```sh
+pybabel compile -d app/translations
+```
