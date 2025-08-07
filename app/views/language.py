@@ -21,12 +21,11 @@ def change_language(BABEL_SUPPORTED_LOCALES: list[str]):
 
     # 直前のページ（リファラー）を取得する
     current_url = request.headers.get("Referer", "/")
+    # Remove backslashes to prevent browser quirks
+    current_url = current_url.replace("\\", "")
     parsed_url = urlparse(current_url)
-
-    # 内部URLかつパスが/で始まる場合のみ許可
-    if parsed_url.netloc and parsed_url.netloc != request.host:
-        current_url = "/"
-    elif not parsed_url.path.startswith("/"):
+    # Only allow relative URLs (no scheme, no netloc) and path must start with /
+    if parsed_url.scheme or parsed_url.netloc or not parsed_url.path.startswith("/"):
         current_url = "/"
 
     # クッキーにも保存し、referrerにリダイレクト
