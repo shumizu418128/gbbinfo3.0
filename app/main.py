@@ -1,23 +1,21 @@
 import os
 import warnings
+from datetime import datetime
+from pathlib import Path
 
-from dotenv import load_dotenv
 from flask import (
     Flask,
-    g,
-    request,
     send_file,
-    session,
 )
 from flask_babel import Babel, _
 from flask_caching import Cache
 from flask_sitemapper import Sitemapper
 
-from app import settings
-from app.context_processors import common_variables, get_locale
-from app.settings import Config, TestConfig
-
-# Import all view modules
+from app.context_processors import common_variables, get_locale, set_request_data
+from app.settings import (
+    check_locale_paths_and_languages,
+    delete_world_map,
+)
 from app.views import (
     beatboxer_tavily_search,
     common,
@@ -34,7 +32,7 @@ from app.views import (
 app = Flask(__name__)
 sitemapper = Sitemapper()
 sitemapper.init_app(app)
-cache = Cache(app)
+flask_cache = Cache(app)
 babel = Babel(app)
 test = _("test")  # テスト翻訳
 
@@ -44,6 +42,51 @@ warnings.filterwarnings(
     category=UserWarning,
     message="Flask-Caching: CACHE_TYPE is set to null, caching is effectively disabled.",
 )
+
+
+####################################################################
+# MARK: 設定
+####################################################################
+LANGUAGES = [
+    ("ja", "日本語"),
+    ("ko", "한국어"),
+    ("en", "English"),
+    ("de", "Deutsch"),
+    ("es", "Español"),
+    ("fr", "Français"),
+    ("hi", "हिन्दी"),
+    ("hu", "Magyar"),
+    ("it", "Italiano"),
+    ("ms", "Bahasa MY"),
+    ("no", "Norsk"),
+    ("ta", "தமிழ்"),
+    ("th", "ไทย"),
+    ("zh-hans", "简体中文"),
+    ("zh-hant", "繁體中文"),
+]
+BASE_DIR = Path(__file__).resolve().parent.parent
+BABEL_SUPPORTED_LOCALES = [code for code, _ in LANGUAGES]
+LAST_UPDATED = "UPDATE " + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " JST"
+delete_world_map()
+check_locale_paths_and_languages(BABEL_SUPPORTED_LOCALES)
+
+
+class Config:
+    BABEL_DEFAULT_LOCALE = "ja"
+    BABEL_SUPPORTED_LOCALES = [code for code, _ in LANGUAGES]
+    CACHE_DEFAULT_TIMEOUT = 0
+    DEBUG = False
+    SECRET_KEY = os.getenv("SECRET_KEY")
+    TEMPLATES_AUTO_RELOAD = False
+
+
+class TestConfig(Config):
+    CACHE_DEFAULT_TIMEOUT = 0
+    DEBUG = True
+    SECRET_KEY = "test"
+    TEMPLATES_AUTO_RELOAD = True
+
+
 # テスト環境ではキャッシュを無効化
 # ローカル環境にはこの環境変数を設定してある
 if os.getenv("ENVIRONMENT_CHECK") == "qawsedrftgyhujikolp":
@@ -54,8 +97,9 @@ if os.getenv("ENVIRONMENT_CHECK") == "qawsedrftgyhujikolp":
     print("*         Access the application at http://127.0.0.1:8080        *")
     print("*                                                                *")
     print("******************************************************************")
-    load_dotenv()
     app.config.from_object(TestConfig)
+    IS_LOCAL = True
+    IS_PULL_REQUEST = False
 else:
     app.config.from_object(Config)
     IS_LOCAL = False
@@ -66,38 +110,24 @@ else:
 # MARK: 共通変数
 ####################################################################
 @app.before_request
-def set_request_data():
-    """
-    リクエストごとに実行される関数。
-    URLを取得して、グローバル変数に保存します。
-    これにより、リクエストのURLをグローバルにアクセスできるようにします。
-    また、セッションに言語が設定されていない場合、デフォルトの言語を設定します。
-
-    Returns:
-        None
-    """
-    g.current_url = request.path
-
-    if "X-Forwarded-For" in request.headers:
-        user_ip = request.headers["X-Forwarded-For"].split(",")[0].strip()
-        print(f"IPアドレス: {user_ip}", flush=True)
-
-    # 初回アクセス時の言語設定
-    if "language" not in session:
-        best_match = request.accept_languages.best_match(
-            settings.BABEL_SUPPORTED_LOCALES
-        )
-        session["language"] = best_match if best_match else "ja"
+def set_session_language():
+    set_request_data(BABEL_SUPPORTED_LOCALES)
 
 
 @app.context_processor
 def set_common_variables():
-    return common_variables()
+    return common_variables(
+        BABEL_SUPPORTED_LOCALES=BABEL_SUPPORTED_LOCALES,
+        LANGUAGES=LANGUAGES,
+        IS_LOCAL=IS_LOCAL,
+        IS_PULL_REQUEST=IS_PULL_REQUEST,
+        LAST_UPDATED=LAST_UPDATED,
+    )
 
 
 @babel.localeselector
 def locale_selector():
-    return get_locale()
+    return get_locale(BABEL_SUPPORTED_LOCALES)
 
 
 #####################################################################
@@ -105,7 +135,12 @@ def locale_selector():
 #####################################################################
 # リダイレクト
 app.add_url_rule("/", "redirect_to_latest_top", common.top_redirect_view)
-app.add_url_rule("/lang", "change_language", language.change_language)
+app.add_url_rule(
+    "/lang",
+    "change_language",
+    language.change_language,
+    defaults={"BABEL_SUPPORTED_LOCALES": BABEL_SUPPORTED_LOCALES},
+)
 app.add_url_rule("/2022/<string:content>", "2022_content", common.content_2022_view)
 
 # POSTリクエスト
@@ -122,7 +157,11 @@ app.add_url_rule(
     methods=["POST"],
 )
 app.add_url_rule(
-    "/<int:year>/search", "search", gemini_search.post_gemini_search, methods=["POST"]
+    "/<int:year>/search",
+    "search",
+    gemini_search.post_gemini_search,
+    defaults={"IS_LOCAL": IS_LOCAL, "IS_PULL_REQUEST": IS_PULL_REQUEST},
+    methods=["POST"],
 )
 app.add_url_rule(
     "/<int:year>/search_participants",
@@ -164,7 +203,6 @@ def discord():
 
 
 @app.route("/sitemap.xml")
-@cache.cached()
 def sitemap():
     return sitemapper.generate()
 

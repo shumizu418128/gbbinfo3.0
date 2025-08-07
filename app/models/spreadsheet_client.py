@@ -6,8 +6,6 @@ import gspread
 import ratelimit
 from google.oauth2.service_account import Credentials
 
-from app import settings
-
 SCOPE = [
     "https://spreadsheets.google.com/feeds",
     "https://www.googleapis.com/auth/drive",
@@ -72,10 +70,6 @@ class SpreadsheetService:
         Returns:
             None: (結果を記録)
         """
-        # ローカル環境・プルリクエストの場合は記録しない
-        if settings.IS_LOCAL or os.getenv("IS_PULL_REQUEST") == "true":
-            return
-
         year_str = str(year)
         dt_now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 

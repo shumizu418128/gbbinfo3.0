@@ -86,7 +86,7 @@ def create_url(year: int, url: str, parameter: str | None, name: str | None):
     return response_url
 
 
-def post_gemini_search(year: int):
+def post_gemini_search(year: int, IS_LOCAL: bool, IS_PULL_REQUEST: bool):
     question = request.form.get("question")
 
     # questionがNoneまたは空文字の場合のチェック
@@ -114,9 +114,10 @@ def post_gemini_search(year: int):
                 break
 
     # スプシに記録
-    Thread(
-        target=spreadsheet_service.record_question, args=(year, question, url)
-    ).start()
+    if IS_LOCAL is False and IS_PULL_REQUEST is False:
+        Thread(
+            target=spreadsheet_service.record_question, args=(year, question, url)
+        ).start()
 
     response = {
         "url": url,

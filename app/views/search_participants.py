@@ -1,8 +1,8 @@
-from flask import request, jsonify
+from flask import jsonify, request
 from rapidfuzz import process
-from util.filter_eq import Operator
 
 from app.models.supabase_client import supabase_service
+from app.util.filter_eq import Operator
 
 
 def post_search_participants(year: int):

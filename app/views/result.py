@@ -1,9 +1,9 @@
 from collections import defaultdict
 
 from flask import redirect, render_template, request
-from util.filter_eq import Operator
 
 from app.models.supabase_client import supabase_service
+from app.util.filter_eq import Operator
 
 
 def result_view(year: int):

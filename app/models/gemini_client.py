@@ -3,11 +3,12 @@ import json
 import os
 
 from asyncio_throttle import Throttler
-from config.gemini_config import (
+from google import genai
+
+from app.models.config.gemini_config import (
     PROMPT,
     SAFETY_SETTINGS_BLOCK_ONLY_HIGH,
 )
-from google import genai
 
 # 2秒間隔で1回のリクエストを許可
 limiter = Throttler(rate_limit=1, period=2)

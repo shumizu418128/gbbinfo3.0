@@ -1,8 +1,8 @@
 from flask import redirect, render_template, request, session
-from util.filter_eq import Operator
-from util.participant_edit import team_multi_country, wildcard_rank_sort
 
 from app.models.supabase_client import supabase_service
+from app.util.filter_eq import Operator
+from app.util.participant_edit import team_multi_country, wildcard_rank_sort
 
 VALID_TICKET_CLASSES = ["all", "wildcard", "seed_right"]
 VALID_CANCEL = ["show", "hide", "only_cancelled"]

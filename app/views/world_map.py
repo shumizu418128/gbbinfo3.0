@@ -2,13 +2,13 @@ import os
 from collections import defaultdict
 
 import folium
-from flask import render_template, request
+from flask import render_template, session
 
 from app.models.supabase_client import supabase_service
 
 
 def world_map_view(year: int):
-    language = request.LANGUAGE_CODE
+    language = session["language"]
 
     # マップがすでに作成されている場合はそれを表示
     map_save_path = os.path.join(

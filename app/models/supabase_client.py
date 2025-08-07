@@ -9,13 +9,16 @@ import os
 from typing import Optional
 
 import pandas as pd
+from dotenv import load_dotenv
 from supabase import Client, create_client
-from util.filter_eq import Operator
 
-from app.main import cache
+from app.util.filter_eq import Operator
 
 ALL_DATA = "*"
 MINUTE = 60
+
+# ここに書かないと読み込みタイミングが遅くなってエラーになる
+load_dotenv()
 
 
 class SupabaseService:
@@ -228,6 +231,9 @@ class SupabaseService:
             >>> # categoriesがNULLでないものを取得
             >>> data = service.get_data("Year", filters={"categories__is_not": None})
         """
+        # ここに書かないと循環インポートになる
+        from app.main import flask_cache
+
         # キャッシュキーを生成
         cache_key = self._generate_cache_key(
             table=table,
@@ -239,7 +245,7 @@ class SupabaseService:
         )
 
         # キャッシュから取得を試行 あるなら返す
-        cached_data = cache.get(cache_key)
+        cached_data = flask_cache.get(cache_key)
         if cached_data is not None:
             if pandas:
                 return pd.DataFrame(cached_data, index=None)
@@ -318,7 +324,7 @@ class SupabaseService:
         response = query.execute()
 
         # 取得したデータをキャッシュに保存
-        cache.set(cache_key, response.data, timeout=15 * MINUTE)
+        flask_cache.set(cache_key, response.data, timeout=15 * MINUTE)
 
         if pandas:
             return pd.DataFrame(response.data, index=None)
@@ -329,7 +335,10 @@ class SupabaseService:
 
     def get_tavily_data(self, cache_key: str):
         """Tavilyのデータを取得する"""
-        search_result = cache.get(cache_key)
+        # ここに書かないと循環インポートになる
+        from app.main import flask_cache
+
+        search_result = flask_cache.get(cache_key)
         if search_result is not None:
             return search_result
 
@@ -343,17 +352,18 @@ class SupabaseService:
         response_results = response.data[0]["search_results"]
 
         if isinstance(response_results, list):
-            cache.set(cache_key, response_results, timeout=None)
+            flask_cache.set(cache_key, response_results, timeout=None)
             return response_results
         else:
-            cache.set(cache_key, json.loads(response_results), timeout=None)
+            flask_cache.set(cache_key, json.loads(response_results), timeout=None)
             return json.loads(response_results)
 
     def insert_tavily_data(self, cache_key: str, search_result: dict):
         """Tavilyのデータを挿入する"""
+        # ここに書かないと循環インポートになる
+        from app.main import flask_cache
 
-        # キャッシュに保存
-        cache.set(cache_key, search_result, timeout=None)
+        flask_cache.set(cache_key, search_result, timeout=None)
 
         data = {
             "cache_key": cache_key,

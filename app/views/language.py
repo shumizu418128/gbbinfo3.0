@@ -2,10 +2,8 @@ from urllib.parse import urlparse
 
 from flask import redirect, request, session
 
-from app import settings
 
-
-def change_language():
+def change_language(BABEL_SUPPORTED_LOCALES: list[str]):
     """
     ユーザーの言語を変更し、referrerにリダイレクトするエンドポイント。
 
@@ -18,7 +16,7 @@ def change_language():
     lang_code = request.GET.get("lang")
 
     # サポートされている言語か確認
-    if lang_code not in settings.BABEL_SUPPORTED_LOCALES:
+    if lang_code not in BABEL_SUPPORTED_LOCALES:
         lang_code = "ja"
 
     # 直前のページ（リファラー）を取得する

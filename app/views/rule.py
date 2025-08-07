@@ -1,8 +1,8 @@
 from flask import redirect, render_template
 from jinja2 import TemplateNotFound
-from util.filter_eq import Operator
 
 from app.models.supabase_client import supabase_service
+from app.util.filter_eq import Operator
 
 
 def rules_view(year: int):
