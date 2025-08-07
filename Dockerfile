@@ -31,4 +31,4 @@ COPY . .
 EXPOSE 8080
 
 # その後にFlaskアプリケーションを起動
-CMD ["python", "run.py"]
+CMD ["waitress-serve", "--host=0.0.0.0", "--port=8080", "--call", "app.main:main"]

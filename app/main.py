@@ -210,22 +210,22 @@ def sitemap():
 
 @app.route("/robots.txt")
 def robots_txt():
-    return send_file("robots.txt", mimetype="text/plain")
+    return send_file("static/robots.txt", mimetype="text/plain")
 
 
 @app.route("/ads.txt")
 def ads_txt():
-    return send_file("ads.txt", mimetype="text/plain")
+    return send_file("static/ads.txt", mimetype="text/plain")
 
 
 @app.route("/naverc158f3394cb78ff00c17f0a687073317.html")
 def naver_verification():
-    return send_file("naverc158f3394cb78ff00c17f0a687073317.html")
+    return send_file("static/naverc158f3394cb78ff00c17f0a687073317.html")
 
 
 @app.route("/favicon.ico", methods=["GET"])
 def favicon_ico():
-    return send_file("favicon.ico", mimetype="image/vnd.microsoft.icon")
+    return send_file("static/favicon.ico", mimetype="image/vnd.microsoft.icon")
 
 
 @app.route("/apple-touch-icon-152x152-precomposed.png", methods=["GET"])
@@ -235,17 +235,17 @@ def favicon_ico():
 @app.route("/apple-touch-icon-precomposed.png", methods=["GET"])
 @app.route("/apple-touch-icon.png", methods=["GET"])
 def apple_touch_icon():
-    return send_file("icon_512.png", mimetype="image/png")
+    return send_file("static/icon_512.png", mimetype="image/png")
 
 
 @app.route("/manifest.json")
 def manifest():
-    return send_file("manifest.json", mimetype="application/manifest+json")
+    return send_file("static/manifest.json", mimetype="application/manifest+json")
 
 
 @app.route("/service-worker.js")
 def service_worker():
-    return send_file("service-worker.js", mimetype="application/javascript")
+    return send_file("static/service-worker.js", mimetype="application/javascript")
 
 
 @app.route("/health")
@@ -259,3 +259,12 @@ def health_check():
 @app.errorhandler(404)
 def not_found(error):
     return common.not_found_page_view()
+
+
+def main():
+    """WSGIサーバー用のエントリーポイント
+
+    Returns:
+        Flask: Flaskアプリケーションインスタンス
+    """
+    return app
