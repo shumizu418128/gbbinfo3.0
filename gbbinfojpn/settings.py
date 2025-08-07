@@ -35,7 +35,7 @@ else:
     IS_LOCAL = False
     IS_PULL_REQUEST = os.getenv("IS_PULL_REQUEST") == "True"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["0.0.0.0", "127.0.0.1"]
 
 # この環境変数はRenderによって自動で設定される
 RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
