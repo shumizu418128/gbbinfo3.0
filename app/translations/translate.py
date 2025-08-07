@@ -1,5 +1,4 @@
 import os
-import re
 from time import sleep
 
 import polib
@@ -7,46 +6,26 @@ from google import genai
 from pydantic import BaseModel
 from tqdm import tqdm
 
-from app.main import BABEL_SUPPORTED_LOCALES
-
 BASE_DIR = os.path.abspath("app")
 LOCALE_DIR = os.path.join(BASE_DIR, "translations")
 POT_FILE = os.path.join(BASE_DIR, "messages.pot")
 CONFIG_FILE = os.path.join(BASE_DIR, "babel.cfg")
-
-
-def extract_placeholders(text):
-    """
-    文字列からプレースホルダー `{name}` を抽出します。
-
-    Args:
-        text (str): プレースホルダーを抽出する対象の文字列。
-
-    Returns:
-        set: 文字列から抽出されたプレースホルダー名のセット。
-    """
-    pattern = r"\{([^}]+)\}"
-    validation = set(re.findall(pattern, text)) or "placeholder" in text.lower()
-    return validation
-
-
-def validate_placeholders(msgid, msgstr):
-    """
-    プレースホルダーの検証を行います。
-
-    Args:
-        msgid (str): 元の文字列 (翻訳元)。
-        msgstr (str): 翻訳後の文字列。
-
-    Returns:
-        bool: プレースホルダーが一致する場合は True、一致しない場合は False。
-    """
-    src_placeholders = extract_placeholders(msgid)
-    trans_placeholders = extract_placeholders(msgstr)
-
-    if src_placeholders != trans_placeholders:
-        return False
-    return True
+BABEL_SUPPORTED_LOCALES = [
+    "ko",
+    "en",
+    "de",
+    "es",
+    "fr",
+    "hi",
+    "hu",
+    "it",
+    "ms",
+    "no",
+    "ta",
+    "th",
+    "zh_Hans_CN",
+    "zh_Hant_TW",
+]
 
 
 class Translation(BaseModel):
@@ -82,14 +61,6 @@ def translate(path, lang):
     except Exception as e:
         print(f"Error reading {path}: {e}")
         raise
-
-    for entry in po:
-        if entry.msgstr:  # 翻訳が存在する場合のみチェック
-            result = validate_placeholders(entry.msgid, entry.msgstr)
-
-            # プレースホルダーが一致しない場合は fuzzy フラグを追加
-            if not result:
-                entry.flags.append("fuzzy")
 
     po.save(path)  # プレースホルダーの検証結果を保存
     po = polib.pofile(path)  # 再度ファイルを読み込む

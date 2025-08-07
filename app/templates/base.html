@@ -237,8 +237,8 @@
         </div>
         <hr>
       {% else %}
-        <h2>{{ _("GBB {year} なんでも検索").format(year=year) }}</h2>
-        <p style="text-align: center;">{{ _("GBB {year} について検索してみよう").format(year=year) }}</p>
+        <h2>GBB {{year}} {{_("なんでも検索")}}</h2>
+        <p style="text-align: center;">GBB {{year}} {{_("について検索してみよう")}}</p>
         <form id="search-form-bottom" class="search-container" action="/{{ year }}/search" method="POST">
 
           <input type="text" name="question" id="question-bottom" placeholder="{{_("例：現地観戦計画のたてかた")}}" required>
