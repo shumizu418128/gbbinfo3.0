@@ -67,6 +67,8 @@ LANGUAGES = [
 ]
 BASE_DIR = Path(__file__).resolve().parent.parent
 BABEL_SUPPORTED_LOCALES = [code for code, _ in LANGUAGES]
+# Babel設定：翻訳ディレクトリを指定
+app.config["BABEL_TRANSLATION_DIRECTORIES"] = str(BASE_DIR / "translations")
 LAST_UPDATED = "UPDATE " + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " JST"
 initialize_background_tasks(BABEL_SUPPORTED_LOCALES)
 
@@ -74,6 +76,7 @@ initialize_background_tasks(BABEL_SUPPORTED_LOCALES)
 class Config:
     BABEL_DEFAULT_LOCALE = "ja"
     BABEL_SUPPORTED_LOCALES = [code for code, _ in LANGUAGES]
+    BABEL_TRANSLATION_DIRECTORIES = str(BASE_DIR / "translations")
     CACHE_DEFAULT_TIMEOUT = 0
     DEBUG = False
     SECRET_KEY = os.getenv("SECRET_KEY")

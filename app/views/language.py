@@ -13,7 +13,7 @@ def change_language(BABEL_SUPPORTED_LOCALES: list[str]):
     Returns:
         redirect: もとのページにリダイレクト
     """
-    lang_code = request.GET.get("lang")
+    lang_code = request.args.get("lang")
 
     # サポートされている言語か確認
     if lang_code not in BABEL_SUPPORTED_LOCALES:

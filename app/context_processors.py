@@ -57,7 +57,7 @@ def get_translated_urls():
 
     language = "en"
 
-    po_file_path = BASE_DIR / "locale" / language / "LC_MESSAGES" / "django.po"
+    po_file_path = BASE_DIR / "translations" / language / "LC_MESSAGES" / "django.po"
     TRANSLATED_URLS = set()
 
     try:
@@ -252,7 +252,7 @@ def common_variables(
         "lang_names": LANGUAGES,
         # 現在の言語コード
         "language": session["language"]
-        if "language" in BABEL_SUPPORTED_LOCALES
+        if "language" in session and session["language"] in BABEL_SUPPORTED_LOCALES
         else "ja",
         "is_translated": is_translated(
             request.path,

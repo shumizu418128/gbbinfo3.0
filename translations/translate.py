@@ -132,7 +132,7 @@ def main():
     print("python manage.py makemessages -a")
 
     for lang in supported_language_codes:
-        path = os.path.join(settings.BASE_DIR, "locale", lang, "LC_MESSAGES", "django.po")
+        path = os.path.join(settings.BASE_DIR, "translations", lang, "LC_MESSAGES", "django.po")
 
         if not os.path.exists(path):
             print(f"Warning: {path} does not exist, skipping...")
