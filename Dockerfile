@@ -37,5 +37,5 @@ USER appuser
 # ポート10000を公開
 EXPOSE 10000
 
-# GunicornでDjangoアプリケーションを起動
-CMD ["gunicorn", "--bind", "0.0.0.0:10000", "--workers", "1", "--timeout", "120", "gbbinfojpn.wsgi:application"]
+# GunicornでFlaskアプリケーションを起動
+CMD ["gunicorn", "--bind", "0.0.0.0:10000", "--workers", "1", "--timeout", "120", "app.main:app"]
