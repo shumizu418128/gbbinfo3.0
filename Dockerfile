@@ -38,4 +38,4 @@ USER appuser
 EXPOSE 10000
 
 # GunicornでFlaskアプリケーションを起動
-CMD ["gunicorn", "--bind", "0.0.0.0:10000", "--workers", "1", "--timeout", "120", "app.main:app"]
+CMD ["python", "run.py"]
