@@ -28,14 +28,8 @@ RUN uv pip install --no-cache --system -r requirements.txt
 # アプリケーションコードをコピー
 COPY . .
 
-# ディレクトリの所有者を変更
-RUN chown -R appuser:appuser /app
-
-# 非rootユーザーに切り替え
-USER appuser
-
-# ポート10000を公開
-EXPOSE 10000
+# ポート8080を公開
+EXPOSE 8080
 
 # GunicornでDjangoアプリケーションを起動
-CMD ["python", "manage.py", "runserver", "127.0.0.1:10000"]
+CMD ["python", "manage.py", "runserver"]
