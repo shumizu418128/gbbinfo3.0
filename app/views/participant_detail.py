@@ -1,20 +1,22 @@
 import random
 from urllib.parse import quote
 
-from flask import redirect, render_template, request, session
+from flask import render_template, request, session
 
 from app.models.supabase_client import supabase_service
 from app.util.filter_eq import Operator
 from app.util.participant_edit import team_multi_country, wildcard_rank_sort
 
+from . import common
+
 
 def participant_detail_view():
     try:
-        id = request.args.get("id")  # 出場者ID
-        mode = request.args.get("mode")  # single, team, team_member
+        id = request.args["id"]  # 出場者ID
+        mode = request.args["mode"]  # single, team, team_member
     except KeyError:
-        # id, modeが無い場合、ルートにリダイレクト
-        return redirect("/")
+        # id, modeが無い場合、404エラーを返す
+        return common.not_found_page_view()
 
     # チームメンバーの場合、情報を取得
     if mode == "team_member":
@@ -35,6 +37,10 @@ def participant_detail_view():
                 "id": id,
             },
         )
+        # データがない場合、404エラーを返す
+        if len(beatboxer_data) == 0:
+            return common.not_found_page_view()
+
         beatboxer_detail = beatboxer_data[0]
 
         # 名前は大文字に変換
@@ -76,6 +82,10 @@ def participant_detail_view():
                 "id": id,
             },
         )
+
+        # データがない場合、404エラーを返す
+        if len(beatboxer_data) == 0:
+            return common.not_found_page_view()
 
         beatboxer_detail = beatboxer_data[0]
 
