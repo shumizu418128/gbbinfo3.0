@@ -126,16 +126,16 @@ def beatboxer_tavily_search(
 
     search_results = []
 
-    # 禁止ワードを含むURLを削除
+    # 禁止ワードが一切含まれないもののみsearch_resultsに追加
     BAN_WORDS = ["HATEN", "BEATCITY", "JPN CUP"]
     for item in search_results_unfiltered:
-        for ban_word in BAN_WORDS:
-            if (
-                ban_word in item["title"].upper()
-                or ban_word in item["url"].upper()
-                or ban_word in item["content"].upper()
-            ):
-                continue
+        title_upper = item["title"].upper()
+        url_upper = item["url"].upper()
+        content_upper = item["content"].upper()
+        if not any(
+            ban_word in title_upper or ban_word in url_upper or ban_word in content_upper
+            for ban_word in BAN_WORDS
+        ):
             search_results.append(item)
 
     # 結果を格納するリスト
