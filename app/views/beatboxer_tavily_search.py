@@ -133,7 +133,9 @@ def beatboxer_tavily_search(
         url_upper = item["url"].upper()
         content_upper = item["content"].upper()
         if not any(
-            ban_word in title_upper or ban_word in url_upper or ban_word in content_upper
+            ban_word in title_upper
+            or ban_word in url_upper
+            or ban_word in content_upper
             for ban_word in BAN_WORDS
         ):
             search_results.append(item)
