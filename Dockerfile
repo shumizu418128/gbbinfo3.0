@@ -28,14 +28,7 @@ RUN uv pip install --no-cache --system -r requirements.txt
 # アプリケーションコードをコピー
 COPY . .
 
-# ディレクトリの所有者を変更
-RUN chown -R appuser:appuser /app
+EXPOSE 8080
 
-# 非rootユーザーに切り替え
-USER appuser
-
-# ポート10000を公開
-EXPOSE 10000
-
-# GunicornでFlaskアプリケーションを起動
+# その後にFlaskアプリケーションを起動
 CMD ["python", "run.py"]
