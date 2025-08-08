@@ -118,6 +118,8 @@ class AppUrlsTestCase(unittest.TestCase):
             ("/2022/rule", "2022年 ルール"),
             # participant_detailは複雑なSupabaseクエリが多数あるためテストから除外
             ("/others/participant_detail?id=2064&mode=single", "出場者詳細 JUNNO"),
+            ("/others/participant_detail?id=255&mode=team_member", "出場者詳細 TAKO"),
+            ("/others/participant_detail?id=1923&mode=team", "出場者詳細 WOLFGANG")
         ]
 
         # 年度別のテンプレートファイルをチェック
