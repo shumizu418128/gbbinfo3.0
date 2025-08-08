@@ -55,6 +55,7 @@ class AppUrlsTestCase(unittest.TestCase):
         """テスト後のクリーンアップ"""
         self.app_context.pop()
 
+    @patch("app.views.participant_detail.supabase_service")
     @patch("app.context_processors.supabase_service")
     @patch("app.context_processors.get_available_years")
     @patch("app.context_processors.is_gbb_ended")
@@ -63,6 +64,7 @@ class AppUrlsTestCase(unittest.TestCase):
         mock_is_gbb_ended,
         mock_get_years,
         mock_context_supabase,
+        mock_view_supabase,
     ):
         """
         すべてのGET用URLパターンが何らかのレスポンスを返すことをテストします。
@@ -90,6 +92,8 @@ class AppUrlsTestCase(unittest.TestCase):
                 "ends_at": "2023-12-31T23:59:59Z",
             },
         ]
+        # participant_detail内のSupabase呼び出しは空配列を返す（404でもテスト条件は満たす）
+        mock_view_supabase.get_data.return_value = []
 
         # participant_detailページはテストから除外したためモック不要
         available_years = [2025, 2024, 2023]
@@ -113,7 +117,7 @@ class AppUrlsTestCase(unittest.TestCase):
             ("/2022/top", "2022年 トップページ"),
             ("/2022/rule", "2022年 ルール"),
             # participant_detailは複雑なSupabaseクエリが多数あるためテストから除外
-            # ("/others/participant_detail?id=2064&mode=single", "出場者詳細 JUNNO"),
+            ("/others/participant_detail?id=2064&mode=single", "出場者詳細 JUNNO"),
         ]
 
         # 年度別のテンプレートファイルをチェック
@@ -316,6 +320,7 @@ class GeminiServiceTestCase(unittest.TestCase):
     def setUp(self):
         """テストの前準備"""
         app.config["TESTING"] = True
+        self.client = app.test_client()
         self.app_context = app.app_context()
         self.app_context.push()
 
@@ -492,6 +497,190 @@ class GeminiServiceTestCase(unittest.TestCase):
         self.assertGreaterEqual(
             total_time, 18.0, f"ストレステスト総時間が短すぎます: {total_time}秒"
         )
+
+    @patch("app.views.participant_detail.supabase_service")
+    @patch("app.context_processors.get_translated_urls")
+    @patch("app.context_processors.is_gbb_ended")
+    @patch("app.context_processors.get_available_years")
+    def test_participant_detail_single(
+        self,
+        mock_get_available_years,
+        mock_is_gbb_ended,
+        mock_get_translated_urls,
+        mock_supabase,
+    ):
+        """participant_detail: singleモード 正常系のテスト"""
+        mock_get_available_years.return_value = [2025, 2024]
+        mock_is_gbb_ended.return_value = False
+        mock_get_translated_urls.return_value = set()
+
+        # 1. 対象参加者（Participant）
+        participant_row = {
+            "id": 2064,
+            "name": "Junno",
+            "year": 2025,
+            "category": 1,
+            "iso_code": 392,
+            "ticket_class": "GBB Seed",
+            "is_cancelled": False,
+            "Country": {"iso_code": 392, "names": {"ja": "日本", "en": "Japan"}},
+            "Category": {"id": 1, "name": "Solo"},
+            "ParticipantMember": [],
+        }
+
+        # 2. 過去出場履歴（Participant）
+        past_participant_rows = [
+            {
+                "id": 1001,
+                "name": "JUNNO",
+                "year": 2024,
+                "is_cancelled": False,
+                "category": 1,
+                "Category": {"name": "Solo"},
+                "ParticipantMember": [],
+            }
+        ]
+
+        # 3. 過去出場履歴（ParticipantMember）
+        past_member_rows = []
+
+        # 4. 同年度・同部門の参加者一覧（Participant）
+        same_year_rows = [
+            {
+                "id": 3001,
+                "name": "Alpha",
+                "is_cancelled": False,
+                "ticket_class": "Wildcard 2 (2023)",
+                "iso_code": 392,
+                "Country": {"names": {"ja": "日本", "en": "Japan"}},
+                "ParticipantMember": [],
+            },
+            {
+                "id": 3002,
+                "name": "Beta",
+                "is_cancelled": False,
+                "ticket_class": "GBB Seed",
+                "iso_code": 826,
+                "Country": {"names": {"ja": "イギリス", "en": "UK"}},
+                "ParticipantMember": [],
+            },
+        ]
+
+        mock_supabase.get_data.side_effect = [
+            [participant_row],
+            past_participant_rows,
+            past_member_rows,
+            same_year_rows,
+        ]
+
+        # セッションに言語を設定
+        with self.client.session_transaction() as sess:
+            sess["language"] = "ja"
+
+        resp = self.client.get("/others/participant_detail?id=2064&mode=single")
+        self.assertEqual(resp.status_code, 200)
+
+    @patch("app.views.participant_detail.supabase_service")
+    @patch("app.context_processors.get_translated_urls")
+    @patch("app.context_processors.is_gbb_ended")
+    @patch("app.context_processors.get_available_years")
+    def test_participant_detail_team_member(
+        self,
+        mock_get_available_years,
+        mock_is_gbb_ended,
+        mock_get_translated_urls,
+        mock_supabase,
+    ):
+        """participant_detail: team_memberモード 正常系のテスト"""
+        mock_get_available_years.return_value = [2025, 2024]
+        mock_is_gbb_ended.return_value = False
+        mock_get_translated_urls.return_value = set()
+
+        # 1. 対象メンバー（ParticipantMember）
+        member_row = {
+            "id": 9001,
+            "participant": 5001,
+            "name": "TeamHero",
+            "Country": {"iso_code": 392, "names": {"ja": "日本", "en": "Japan"}},
+            "Participant": {
+                "id": 5001,
+                "name": "Team A",
+                "year": 2025,
+                "category": 2,
+                "is_cancelled": False,
+            },
+        }
+
+        # 2. 過去出場履歴（Participant）
+        past_participant_rows = []
+
+        # 3. 過去出場履歴（ParticipantMember）
+        past_member_rows = [
+            {
+                "name": "TEAMHERO",
+                "Participant": {
+                    "id": 4001,
+                    "name": "Team B",
+                    "year": 2024,
+                    "is_cancelled": False,
+                    "Category": {"name": "Tag Team"},
+                    "category": 2,
+                },
+            }
+        ]
+
+        # 4. 同年度・同部門の参加者一覧（Participant）
+        same_year_rows = [
+            {
+                "id": 7001,
+                "name": "Gamma",
+                "is_cancelled": False,
+                "ticket_class": "Wildcard 1 (2024)",
+                "iso_code": 9999,
+                "Country": {"names": {"ja": "—", "en": "—"}},
+                "ParticipantMember": [
+                    {"id": 1, "name": "P1", "Country": {"names": {"ja": "日本"}}},
+                    {"id": 2, "name": "P2", "Country": {"names": {"ja": "韓国"}}},
+                ],
+            }
+        ]
+
+        mock_supabase.get_data.side_effect = [
+            [member_row],
+            past_participant_rows,
+            past_member_rows,
+            same_year_rows,
+        ]
+
+        with self.client.session_transaction() as sess:
+            sess["language"] = "ja"
+
+        resp = self.client.get("/others/participant_detail?id=9001&mode=team_member")
+        self.assertEqual(resp.status_code, 200)
+
+    @patch("app.views.participant_detail.supabase_service")
+    @patch("app.context_processors.get_translated_urls")
+    @patch("app.context_processors.is_gbb_ended")
+    @patch("app.context_processors.get_available_years")
+    def test_participant_detail_not_found(
+        self,
+        mock_get_available_years,
+        mock_is_gbb_ended,
+        mock_get_translated_urls,
+        mock_supabase,
+    ):
+        """participant_detail: 初回取得でデータがない場合は404を返す"""
+        mock_get_available_years.return_value = [2025, 2024]
+        mock_is_gbb_ended.return_value = False
+        mock_get_translated_urls.return_value = set()
+
+        mock_supabase.get_data.return_value = []
+
+        with self.client.session_transaction() as sess:
+            sess["language"] = "ja"
+
+        resp = self.client.get("/others/participant_detail?id=0&mode=single")
+        self.assertEqual(resp.status_code, 404)
 
 
 if __name__ == "__main__":
