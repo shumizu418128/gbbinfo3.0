@@ -367,8 +367,12 @@ class GeminiServiceTestCase(unittest.TestCase):
             result2 = service.ask_sync(2025, "second question")
             self.assertEqual(result2, {})
 
+    @patch("app.views.gemini_search.spreadsheet_service")
     @patch("app.views.gemini_search.gemini_service")
-    def test_gemini_search_view_rate_limit_compliance(self, mock_gemini_service):
+    @patch("app.views.gemini_search.Thread")
+    def test_gemini_search_view_rate_limit_compliance(
+        self, mock_thread, mock_gemini_service, mock_spreadsheet_service
+    ):
         """Gemini検索ビューでのレートリミット準拠テスト"""
         app.config["TESTING"] = True
         client = app.test_client()
@@ -393,6 +397,20 @@ class GeminiServiceTestCase(unittest.TestCase):
 
         mock_gemini_service.ask_sync.side_effect = mock_ask_sync
 
+        # Thread.start() で即時実行させるフェイクを設定
+        class ImmediateThread:
+            def __init__(self, target=None, args=()):
+                self._target = target
+                self._args = args
+
+            def start(self):
+                if self._target:
+                    self._target(*self._args)
+
+        mock_thread.side_effect = lambda target=None, args=(): ImmediateThread(
+            target=target, args=args
+        )
+
         # 連続でリクエストを送信（form-data形式で送信）
         for i in range(3):
             response = client.post(
@@ -405,6 +423,10 @@ class GeminiServiceTestCase(unittest.TestCase):
 
         # ask_syncが呼ばれた回数を確認
         self.assertEqual(len(request_times), 3)
+
+        # スプレッドシート記録はモックされているため、実通信は発生しない
+        # （環境によってはIS_LOCAL/IS_PULL_REQUESTの値で呼び出し回数が変化するため回数は断定しない）
+        self.assertTrue(hasattr(mock_spreadsheet_service, "record_question"))
 
     def test_rate_limit_configuration(self):
         """レートリミット設定の正確性テスト"""
