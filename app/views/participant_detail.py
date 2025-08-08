@@ -147,21 +147,19 @@ def participant_detail_view():
     past_data = []
 
     # MATCH_IGNORE_CASE演算子は大文字小文字を区別しない部分一致であるため、完全一致の確認を行う
-    for past_participation in past_participation_data:
-        if past_participation["name"].upper() == beatboxer_detail["name"]:
+    for data in past_participation_data:
+        if data["name"].upper() == beatboxer_detail["name"]:
             past_participation_mode = (
-                "single"
-                if len(past_participation["ParticipantMember"]) == 0
-                else "team"
+                "single" if len(data["ParticipantMember"]) == 0 else "team"
             )
             past_data.append(
                 {
-                    "id": past_participation["id"],
-                    "year": past_participation["year"],
-                    "name": past_participation["name"].upper(),
-                    "category": past_participation["Category"]["name"],
-                    "category_id": past_participation["category"],
-                    "is_cancelled": past_participation["is_cancelled"],
+                    "id": data["id"],
+                    "year": data["year"],
+                    "name": data["name"].upper(),
+                    "category": data["Category"]["name"],
+                    "category_id": data["category"],
+                    "is_cancelled": data["is_cancelled"],
                     "mode": past_participation_mode,
                 }
             )
@@ -183,6 +181,27 @@ def participant_detail_view():
                 }
             )
     past_data.sort(key=lambda x: (x["year"], x["category_id"]))
+
+    # 過去の出場履歴（年度）を取得
+    past_year_participation = set()
+    for data in past_data:
+        past_year_participation.add(data["year"])
+
+    # 2013-2016は除外
+    exception_year = {2013, 2014, 2015, 2016}
+    past_year_participation -= exception_year
+
+    # 多い場合は、ページの表示対象年度を除外 最大4年分
+    if len(past_year_participation) > 4:
+        past_year_participation -= {beatboxer_detail["year"]}
+
+    # 並び替え
+    past_year_participation = list(past_year_participation)
+    past_year_participation.sort(reverse=True)
+
+    # 最大4年分
+    if len(past_year_participation) > 4:
+        past_year_participation = past_year_participation[:4]
 
     # 対象Beatboxerと同じ年・部門の出場者一覧を取得
     # 部門を調べる
@@ -238,6 +257,7 @@ def participant_detail_view():
         "same_year_category_participants": same_year_category_edited,
         "same_year_category_mode": same_year_category_mode,
         "genspark_query": genspark_query,
+        "past_year_participation": past_year_participation,
     }
 
     return render_template("others/participant_detail.html", **context)

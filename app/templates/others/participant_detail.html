@@ -148,15 +148,22 @@
     </table>
 {% endif %}
 
-<div class="button-container">
-    <a href="/{{beatboxer_detail.year}}/participants"><button>GBB {{ beatboxer_detail.year }} {{_("全出場者一覧")}}<br></button></a>
-    {% if language == 'ko' %}
-        <a href="/{{beatboxer_detail.year}}/korea"><button>GBB {{ beatboxer_detail.year }} {{_("韓国代表")}}</button></a>
-    {% else %}
-        <a href="/{{beatboxer_detail.year}}/japan"><button>GBB {{ beatboxer_detail.year }} {{_("日本代表")}}</button></a>
+{% if past_year_participation %}
+    <div class="button-container">
+        {% for year in past_year_participation[:2] %}
+            <a href="/{{year}}/participants"><button>GBB {{ year }} {{_("出場者一覧")}}<br></button></a>
+            <a href="/{{year}}/result"><button>GBB {{ year }} {{_("大会結果")}}<br></button></a>
+        {% endfor %}
+    </div>
+    {% if past_year_participation|length >= 3 %}
+        <div class="button-container">
+            {% for year in past_year_participation[2:] %}
+                <a href="/{{year}}/participants"><button>GBB {{ year }} {{_("出場者一覧")}}<br></button></a>
+                <a href="/{{year}}/result"><button>GBB {{ year }} {{_("大会結果")}}<br></button></a>
+            {% endfor %}
+        </div>
     {% endif %}
-    <a href="/{{beatboxer_detail.year}}/result"><button>GBB {{ beatboxer_detail.year }} {{_("大会結果")}}</button></a>
-</div>
+{% endif %}
 
 <h2>{{ beatboxer_detail.name }} {{_("関連サイト")}}</h2>
 <div style="margin: 40px;"></div>
@@ -220,9 +227,13 @@
 
 <div class="button-container">
     <a href="/{{beatboxer_detail.year}}/participants"><button>GBB {{ beatboxer_detail.year }} {{_("全出場者一覧")}}<br></button></a>
-    <a href="/{{beatboxer_detail.year}}/rule"><button>GBB {{ beatboxer_detail.year }} {{_("ルール & 審査員")}}</button></a>
+    {% if language == 'ko' %}
+        <a href="/{{beatboxer_detail.year}}/korea"><button>GBB {{ beatboxer_detail.year }} {{_("韓国代表")}}</button></a>
+    {% else %}
+        <a href="/{{beatboxer_detail.year}}/japan"><button>GBB {{ beatboxer_detail.year }} {{_("日本代表")}}</button></a>
+    {% endif %}
+    <a href="/{{beatboxer_detail.year}}/result"><button>GBB {{ beatboxer_detail.year }} {{_("大会結果")}}</button></a>
 </div>
-
 
 <script src="/static/scripts/participant_detail.js"></script>
 <script>
