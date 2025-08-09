@@ -214,8 +214,20 @@ def beatboxer_tavily_search(
 
 
 def post_beatboxer_tavily_search():
-    beatboxer_id = request.form.get("beatboxer_id")
-    mode = request.form.get("mode", "single")
+    """
+    ビートボクサーの検索リクエストを処理し、関連するURLとアカウント情報を取得します。
+
+    リクエストボディから beatboxer_id と mode を取得し、Tavily検索を実行して
+    アカウントURL、一般URL、YouTube埋め込みURLを返します。
+
+    Returns:
+        JSON: 以下の構造を持つレスポンス
+            - account_urls: SNSアカウント等のURL一覧
+            - final_urls: 一般的なウェブサイトURL一覧
+            - youtube_embed_url: YouTube埋め込み用URL
+    """
+    beatboxer_id = request.json.get("beatboxer_id")
+    mode = request.json.get("mode", "single")
 
     account_urls, final_urls, youtube_embed_url = beatboxer_tavily_search(
         beatboxer_id=beatboxer_id, mode=mode

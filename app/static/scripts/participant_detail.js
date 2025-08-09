@@ -1,19 +1,4 @@
-// CSRFトークンを取得する関数
-function getCSRFToken() {
-    const csrfInput = document.querySelector('[name=csrfmiddlewaretoken]');
-    if (csrfInput) {
-        return csrfInput.value;
-    }
-
-    // メタタグからも探してみる
-    const metaCSRF = document.querySelector('meta[name="csrf-token"]');
-    if (metaCSRF) {
-        return metaCSRF.getAttribute('content');
-    }
-
-    console.error('CSRFトークンが見つかりません');
-    return '';
-}
+// FlaskではCSRFトークンは不要のため、取得処理を削除
 
 // YouTube動画を埋め込む関数
 function embedYouTubeVideo(videoUrl) {
@@ -109,18 +94,16 @@ function tavilySearch(beatboxerId, mode) {
     // ローディング表示
     finalUrlsContainer.innerHTML = '<p>loading...</p>';
 
-    // POSTリクエストでTavily検索を実行
-    const formData = new URLSearchParams();
-    formData.append('beatboxer_id', beatboxerId);
-    formData.append('mode', mode || 'single');
-
+    // POSTリクエストでTavily検索を実行（JSON）
     fetch('/beatboxer_tavily_search', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'X-CSRFToken': getCSRFToken()
+            'Content-Type': 'application/json',
         },
-        body: formData
+        body: JSON.stringify({
+            beatboxer_id: beatboxerId,
+            mode: mode
+        })
     })
     .then(response => {
         if (!response.ok) {
@@ -153,18 +136,3 @@ function tavilySearch(beatboxerId, mode) {
         finalUrlsContainer.innerHTML = '<p>関連サイトを取得できませんでした。</p>';
     });
 }
-
-// DOMContentLoadedイベントリスナー
-document.addEventListener('DOMContentLoaded', () => {
-    // CSRFトークンをMetaタグから取得する場合の処理も追加
-    if (!document.querySelector('[name=csrfmiddlewaretoken]')) {
-        const metaCSRF = document.querySelector('meta[name="csrf-token"]');
-        if (metaCSRF) {
-            const hiddenInput = document.createElement('input');
-            hiddenInput.type = 'hidden';
-            hiddenInput.name = 'csrfmiddlewaretoken';
-            hiddenInput.value = metaCSRF.getAttribute('content');
-            document.body.appendChild(hiddenInput);
-        }
-    }
-});

@@ -32,19 +32,13 @@ function handleSearchFormSubmit(event) {
     loadingElement.style.display = 'block';
 
     const sendRequest = (retryCount = 0) => {
-        const csrfToken = formData.get('csrfmiddlewaretoken');
-
-        // CSRFトークンをformDataから除外してJSONボディを作成
-        const jsonData = Object.fromEntries(formData);
-        delete jsonData.csrfmiddlewaretoken;
-
+        // JSONで送信
         fetch(this.action, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
-                'X-CSRFToken': encodeURIComponent(csrfToken)
             },
-            body: JSON.stringify(jsonData)
+            body: JSON.stringify({ question: searchQuery })
         })
         .then(response => response.json())
         .then(data => {
@@ -104,15 +98,10 @@ function searchParticipants(year, event) {
 
     if (input) {
         loadingElement.style.display = 'block';
-
-        // CSRFトークンを取得（メタタグから）
-        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
         fetch(`/${year}/search_participants`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
-                'X-CSRFToken': encodeURIComponent(csrfToken)
             },
             body: JSON.stringify({ keyword: input })
         })
@@ -171,23 +160,13 @@ function setupSearchSuggestions(searchForm) {
         const query = formData.get('question');
 
         if (query && query.length > 0) {
-            const csrfToken = formData.get('csrfmiddlewaretoken');
-
-            // CSRFトークンをformDataから除外してJSONボディを作成
-            const jsonData = Object.fromEntries(formData);
-            delete jsonData.csrfmiddlewaretoken;
-
-            // inputキーに変更（サーバー側の期待値に合わせる）
-            jsonData.input = query;
-            delete jsonData.question;
-
+            // JSONで送信
             fetch('/search_suggestions', {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-CSRFToken': encodeURIComponent(csrfToken)
                 },
-                body: JSON.stringify(jsonData)
+                body: JSON.stringify({ input: query })
             })
             .then(response => response.json())
             .then(data => {

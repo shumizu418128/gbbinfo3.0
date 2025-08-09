@@ -6,7 +6,7 @@ from app.util.filter_eq import Operator
 
 
 def post_search_participants(year: int):
-    keyword = request.form.get("keyword", "").strip()
+    keyword = request.json.get("keyword")
 
     participants_data = supabase_service.get_data(
         table="Participant",

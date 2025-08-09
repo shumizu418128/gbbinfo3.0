@@ -87,7 +87,7 @@ def create_url(year: int, url: str, parameter: str | None, name: str | None):
 
 
 def post_gemini_search(year: int, IS_LOCAL: bool, IS_PULL_REQUEST: bool):
-    question = request.form.get("question")
+    question = request.json.get("question")
 
     # questionがNoneまたは空文字の場合のチェック
     if not question:
@@ -126,7 +126,8 @@ def post_gemini_search(year: int, IS_LOCAL: bool, IS_PULL_REQUEST: bool):
 
 
 def post_gemini_search_suggestion():
-    input = request.form.get("input", "").strip()
+    data = request.get_json(silent=True) or {}
+    input = str(data.get("input", "")).strip()
 
     # 下処理：inputから4桁・2桁の年削除
     year = re.search(r"\d{4}", input)
