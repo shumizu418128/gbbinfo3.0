@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-09 18:21+0900\n"
+"POT-Creation-Date: 2025-08-09 20:12+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh_hant <LL@li.org>\n"
@@ -201,17 +201,17 @@ msgstr "搜尋任何東西"
 #: templates/base.html:226 templates/includes/bottom_navigation.html:32
 #, python-brace-format
 msgid "GBB {year} の検索のみ可能です"
-msgstr "僅限搜尋 GBB %(year)s"
+msgstr "僅限搜尋 GBB {year}"
 
 #: templates/base.html:227 templates/includes/bottom_navigation.html:33
 #, python-brace-format
 msgid "GBB {year} は終了しました"
-msgstr "GBB %(year)s 已結束"
+msgstr "GBB {year} 已結束"
 
 #: templates/base.html:231 templates/includes/bottom_navigation.html:37
 #, python-brace-format
 msgid "例：GBB {year} の最終結果は？"
-msgstr "例：GBB %(year)s 的最終結果是？"
+msgstr "例：GBB {year} 的最終結果是？"
 
 #: templates/base.html:236 templates/includes/bottom_navigation.html:42
 msgid "GBB最新情報の検索はこちら"
@@ -220,7 +220,7 @@ msgstr "在這裡搜尋最新的GBB資訊"
 #: templates/base.html:241 templates/includes/bottom_navigation.html:49
 #, python-brace-format
 msgid "GBB {year} について検索してみよう"
-msgstr "讓我們來搜尋關於 GBB %(year)s"
+msgstr "讓我們來搜尋關於 GBB {year}"
 
 #: templates/2024/top.html:38 templates/2024/top_7tosmoke.html:18
 #: templates/2025/top.html:38 templates/2025/top_7tosmoke.html:18
@@ -266,7 +266,7 @@ msgstr "這風景不錯吧？"
 #: templates/2025/wildcard_regulation.html:12
 #, python-brace-format
 msgid "Swissbeatbox公式サイトにて、GBB {year} で実施される部門・Wildcardのルールについて発表がありました。"
-msgstr "Swissbeatbox官方網站上發布了關於GBB %(year)s中將舉辦的部門和外卡賽的規則。"
+msgstr "Swissbeatbox官方網站上發布了關於GBB {year}中將舉辦的部門和外卡賽的規則。"
 
 #: templates/2024/rule.html:12 templates/2025/rule.html:12
 #: templates/2025/wildcard_regulation.html:13
@@ -561,7 +561,7 @@ msgstr "觀賽的好伴侶"
 #: templates/2024/stream.html:38
 #, python-brace-format
 msgid "GBB {year} の最新情報をチェックしよう"
-msgstr "查看 GBB %(year)s 的最新資訊"
+msgstr "查看 GBB {year} 的最新資訊"
 
 #: templates/2024/stream.html:40 templates/common/participants.html:3
 #: templates/common/participants.html:4 templates/common/participants.html:5
@@ -1317,7 +1317,7 @@ msgstr "提前公開中"
 #: templates/includes/popup_early_access.html:4
 #, python-brace-format
 msgid "ここは、まだ情報が少ないGBB {year} のページです"
-msgstr "這裡還是資訊很少的GBB %(year)s 頁面"
+msgstr "這裡還是資訊很少的GBB {year} 頁面"
 
 #: templates/includes/early_access.html:6
 #: templates/includes/popup_early_access.html:6
@@ -1332,7 +1332,7 @@ msgstr "中止"
 #: templates/includes/ended.html:6 templates/includes/popup_ended.html:9
 #, python-brace-format
 msgid "ここは、すでに終了したGBB {year} のページです"
-msgstr "這裡是已經結束的GBB %(year)s 的頁面"
+msgstr "這裡是已經結束的GBB {year} 的頁面"
 
 #: templates/includes/ended.html:9 templates/includes/popup_ended.html:12
 msgid "GBB最新情報はこちら"
@@ -1422,4 +1422,4 @@ msgstr "未提供翻譯的頁面將以原文日語顯示。"
 #~ msgstr ""
 
 #~ msgid "について検索してみよう"
-#~ msgstr "讓我們來搜尋關於 GBB %(year)s"
+#~ msgstr "讓我們來搜尋關於 GBB {year}"

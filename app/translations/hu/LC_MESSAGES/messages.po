@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-09 18:21+0900\n"
+"POT-Creation-Date: 2025-08-09 20:12+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: hu <LL@li.org>\n"
@@ -204,17 +204,17 @@ msgstr "keresés bármire"
 #: templates/base.html:226 templates/includes/bottom_navigation.html:32
 #, python-brace-format
 msgid "GBB {year} の検索のみ可能です"
-msgstr "Csak GBB %(year)s kereshető."
+msgstr "Csak GBB {year} kereshető."
 
 #: templates/base.html:227 templates/includes/bottom_navigation.html:33
 #, python-brace-format
 msgid "GBB {year} は終了しました"
-msgstr "GBB %(year)s véget ért"
+msgstr "GBB {year} véget ért"
 
 #: templates/base.html:231 templates/includes/bottom_navigation.html:37
 #, python-brace-format
 msgid "例：GBB {year} の最終結果は？"
-msgstr "Például: GBB %(year)s végeredménye?"
+msgstr "Például: GBB {year} végeredménye?"
 
 #: templates/base.html:236 templates/includes/bottom_navigation.html:42
 msgid "GBB最新情報の検索はこちら"
@@ -223,7 +223,7 @@ msgstr "Itt kereshet a GBB legfrissebb információira."
 #: templates/base.html:241 templates/includes/bottom_navigation.html:49
 #, python-brace-format
 msgid "GBB {year} について検索してみよう"
-msgstr "Keressünk rá GBB %(year)s-ről."
+msgstr "Keressünk rá GBB {year}-ről."
 
 #: templates/2024/top.html:38 templates/2024/top_7tosmoke.html:18
 #: templates/2025/top.html:38 templates/2025/top_7tosmoke.html:18
@@ -274,8 +274,8 @@ msgstr "Ugye szép a kilátás?"
 #, python-brace-format
 msgid "Swissbeatbox公式サイトにて、GBB {year} で実施される部門・Wildcardのルールについて発表がありました。"
 msgstr ""
-"A Swissbeatbox hivatalos oldalán bejelentették a GBB %(year)s kategóriáinak "
-"és a Wildcard szabályait."
+"A Swissbeatbox hivatalos oldalán bejelentették a GBB {year} kategóriáinak és"
+" a Wildcard szabályait."
 
 #: templates/2024/rule.html:12 templates/2025/rule.html:12
 #: templates/2025/wildcard_regulation.html:13
@@ -585,7 +585,7 @@ msgstr "A meccs mellé"
 #: templates/2024/stream.html:38
 #, python-brace-format
 msgid "GBB {year} の最新情報をチェックしよう"
-msgstr "Nézd meg a GBB %(year)s legfrissebb információit."
+msgstr "Nézd meg a GBB {year} legfrissebb információit."
 
 #: templates/2024/stream.html:40 templates/common/participants.html:3
 #: templates/common/participants.html:4 templates/common/participants.html:5
@@ -1425,7 +1425,7 @@ msgstr "Előzetesen elérhető"
 #: templates/includes/popup_early_access.html:4
 #, python-brace-format
 msgid "ここは、まだ情報が少ないGBB {year} のページです"
-msgstr "Ez a GBB %(year)s oldal, ahol még kevés információ található."
+msgstr "Ez a GBB {year} oldal, ahol még kevés információ található."
 
 #: templates/includes/early_access.html:6
 #: templates/includes/popup_early_access.html:6
@@ -1440,7 +1440,7 @@ msgstr "Megszakítás"
 #: templates/includes/ended.html:6 templates/includes/popup_ended.html:9
 #, python-brace-format
 msgid "ここは、すでに終了したGBB {year} のページです"
-msgstr "Ez a már lezárult GBB %(year)s oldala."
+msgstr "Ez a már lezárult GBB {year} oldala."
 
 #: templates/includes/ended.html:9 templates/includes/popup_ended.html:12
 msgid "GBB最新情報はこちら"
@@ -1540,4 +1540,4 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "について検索してみよう"
-#~ msgstr "Keressünk rá GBB %(year)s-ről."
+#~ msgstr "Keressünk rá GBB {year}-ről."

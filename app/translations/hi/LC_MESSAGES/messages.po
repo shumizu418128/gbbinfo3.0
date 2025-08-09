@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-09 18:21+0900\n"
+"POT-Creation-Date: 2025-08-09 20:12+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: hi <LL@li.org>\n"
@@ -205,17 +205,17 @@ msgstr "कुछ भी खोजें"
 #: templates/base.html:226 templates/includes/bottom_navigation.html:32
 #, python-brace-format
 msgid "GBB {year} の検索のみ可能です"
-msgstr "GBB %(year)s की खोज ही संभव है"
+msgstr "GBB {year} की खोज ही संभव है"
 
 #: templates/base.html:227 templates/includes/bottom_navigation.html:33
 #, python-brace-format
 msgid "GBB {year} は終了しました"
-msgstr "GBB %(year)s समाप्त हो गया है"
+msgstr "GBB {year} समाप्त हो गया है"
 
 #: templates/base.html:231 templates/includes/bottom_navigation.html:37
 #, python-brace-format
 msgid "例：GBB {year} の最終結果は？"
-msgstr "उदाहरण: GBB %(year)s के अंतिम परिणाम क्या हैं?"
+msgstr "उदाहरण: GBB {year} के अंतिम परिणाम क्या हैं?"
 
 #: templates/base.html:236 templates/includes/bottom_navigation.html:42
 msgid "GBB最新情報の検索はこちら"
@@ -224,7 +224,7 @@ msgstr "GBB की नवीनतम जानकारी के लिए य
 #: templates/base.html:241 templates/includes/bottom_navigation.html:49
 #, python-brace-format
 msgid "GBB {year} について検索してみよう"
-msgstr "GBB %(year)s के बारे में खोजें"
+msgstr "GBB {year} के बारे में खोजें"
 
 #: templates/2024/top.html:38 templates/2024/top_7tosmoke.html:18
 #: templates/2025/top.html:38 templates/2025/top_7tosmoke.html:18
@@ -274,8 +274,8 @@ msgstr "बहुत अच्छी जगह है, है ना?"
 #, python-brace-format
 msgid "Swissbeatbox公式サイトにて、GBB {year} で実施される部門・Wildcardのルールについて発表がありました。"
 msgstr ""
-"स्विसबीटबॉक्स की आधिकारिक वेबसाइट पर, GBB %(year)s में होने वाले डिवीजनों और"
-" वाइल्डकार्ड के नियमों के बारे में घोषणा की गई है।"
+"स्विसबीटबॉक्स की आधिकारिक वेबसाइट पर, GBB {year} में होने वाले डिवीजनों और "
+"वाइल्डकार्ड के नियमों के बारे में घोषणा की गई है।"
 
 #: templates/2024/rule.html:12 templates/2025/rule.html:12
 #: templates/2025/wildcard_regulation.html:13
@@ -583,7 +583,7 @@ msgstr "दर्शकों के साथ जाने के लिए"
 #: templates/2024/stream.html:38
 #, python-brace-format
 msgid "GBB {year} の最新情報をチェックしよう"
-msgstr "GBB %(year)s की नवीनतम जानकारी चेक करें।"
+msgstr "GBB {year} की नवीनतम जानकारी चेक करें।"
 
 #: templates/2024/stream.html:40 templates/common/participants.html:3
 #: templates/common/participants.html:4 templates/common/participants.html:5
@@ -1414,7 +1414,7 @@ msgstr "पहले से ही उपलब्ध है"
 #: templates/includes/popup_early_access.html:4
 #, python-brace-format
 msgid "ここは、まだ情報が少ないGBB {year} のページです"
-msgstr "यह GBB %(year)s का पेज है, जिस पर अभी कम जानकारी है"
+msgstr "यह GBB {year} का पेज है, जिस पर अभी कम जानकारी है"
 
 #: templates/includes/early_access.html:6
 #: templates/includes/popup_early_access.html:6
@@ -1429,7 +1429,7 @@ msgstr "रद्द करें"
 #: templates/includes/ended.html:6 templates/includes/popup_ended.html:9
 #, python-brace-format
 msgid "ここは、すでに終了したGBB {year} のページです"
-msgstr "यह पहले ही समाप्त हो चुके GBB %(year)s का पेज है"
+msgstr "यह पहले ही समाप्त हो चुके GBB {year} का पेज है"
 
 #: templates/includes/ended.html:9 templates/includes/popup_ended.html:12
 msgid "GBB最新情報はこちら"
@@ -1525,4 +1525,4 @@ msgstr "翻訳 प्रदान नहीं करने वाले पृ�
 #~ msgstr ""
 
 #~ msgid "について検索してみよう"
-#~ msgstr "GBB %(year)s के बारे में खोजें"
+#~ msgstr "GBB {year} के बारे में खोजें"

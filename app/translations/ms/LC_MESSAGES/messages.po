@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-09 18:21+0900\n"
+"POT-Creation-Date: 2025-08-09 20:12+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ms <LL@li.org>\n"
@@ -205,17 +205,17 @@ msgstr "Cari apa-apa"
 #: templates/base.html:226 templates/includes/bottom_navigation.html:32
 #, python-brace-format
 msgid "GBB {year} の検索のみ可能です"
-msgstr "Carian GBB %(year)s sahaja dibenarkan"
+msgstr "Carian GBB {year} sahaja dibenarkan"
 
 #: templates/base.html:227 templates/includes/bottom_navigation.html:33
 #, python-brace-format
 msgid "GBB {year} は終了しました"
-msgstr "GBB %(year)s telah tamat."
+msgstr "GBB {year} telah tamat."
 
 #: templates/base.html:231 templates/includes/bottom_navigation.html:37
 #, python-brace-format
 msgid "例：GBB {year} の最終結果は？"
-msgstr "Contoh: Apakah keputusan akhir GBB %(year)s?"
+msgstr "Contoh: Apakah keputusan akhir GBB {year}?"
 
 #: templates/base.html:236 templates/includes/bottom_navigation.html:42
 msgid "GBB最新情報の検索はこちら"
@@ -224,7 +224,7 @@ msgstr "Klik di sini untuk mencari maklumat terkini GBB"
 #: templates/base.html:241 templates/includes/bottom_navigation.html:49
 #, python-brace-format
 msgid "GBB {year} について検索してみよう"
-msgstr "Mari cari tentang GBB %(year)s"
+msgstr "Mari cari tentang GBB {year}"
 
 #: templates/2024/top.html:38 templates/2024/top_7tosmoke.html:18
 #: templates/2025/top.html:38 templates/2025/top_7tosmoke.html:18
@@ -275,7 +275,7 @@ msgstr "Bukankah pemandangannya bagus?"
 msgid "Swissbeatbox公式サイトにて、GBB {year} で実施される部門・Wildcardのルールについて発表がありました。"
 msgstr ""
 "Pengumuman telah dibuat di laman web rasmi Swissbeatbox mengenai peraturan "
-"untuk kategori dan Wildcard yang akan diadakan di GBB %(year)s."
+"untuk kategori dan Wildcard yang akan diadakan di GBB {year}."
 
 #: templates/2024/rule.html:12 templates/2025/rule.html:12
 #: templates/2025/wildcard_regulation.html:13
@@ -585,7 +585,7 @@ msgstr "Untuk teman tontonan"
 #: templates/2024/stream.html:38
 #, python-brace-format
 msgid "GBB {year} の最新情報をチェックしよう"
-msgstr "Semak maklumat terkini GBB %(year)s"
+msgstr "Semak maklumat terkini GBB {year}"
 
 #: templates/2024/stream.html:40 templates/common/participants.html:3
 #: templates/common/participants.html:4 templates/common/participants.html:5
@@ -1425,7 +1425,7 @@ msgstr "Tersedia lebih awal"
 #: templates/includes/popup_early_access.html:4
 #, python-brace-format
 msgid "ここは、まだ情報が少ないGBB {year} のページです"
-msgstr "Ini adalah halaman GBB %(year)s yang masih kurang maklumat."
+msgstr "Ini adalah halaman GBB {year} yang masih kurang maklumat."
 
 #: templates/includes/early_access.html:6
 #: templates/includes/popup_early_access.html:6
@@ -1440,7 +1440,7 @@ msgstr "Batalkan"
 #: templates/includes/ended.html:6 templates/includes/popup_ended.html:9
 #, python-brace-format
 msgid "ここは、すでに終了したGBB {year} のページです"
-msgstr "Ini adalah halaman GBB %(year)s yang telah berakhir."
+msgstr "Ini adalah halaman GBB {year} yang telah berakhir."
 
 #: templates/includes/ended.html:9 templates/includes/popup_ended.html:12
 msgid "GBB最新情報はこちら"
@@ -1540,4 +1540,4 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "について検索してみよう"
-#~ msgstr "Mari cari tentang GBB %(year)s"
+#~ msgstr "Mari cari tentang GBB {year}"

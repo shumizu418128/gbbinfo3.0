@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-09 18:21+0900\n"
+"POT-Creation-Date: 2025-08-09 20:12+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: th <LL@li.org>\n"
@@ -204,17 +204,17 @@ msgstr "ค้นหาอะไรก็ได้"
 #: templates/base.html:226 templates/includes/bottom_navigation.html:32
 #, python-brace-format
 msgid "GBB {year} の検索のみ可能です"
-msgstr "สามารถค้นหาได้เฉพาะ GBB %(year)s"
+msgstr "สามารถค้นหาได้เฉพาะ GBB {year}"
 
 #: templates/base.html:227 templates/includes/bottom_navigation.html:33
 #, python-brace-format
 msgid "GBB {year} は終了しました"
-msgstr "GBB %(year)s สิ้นสุดแล้ว"
+msgstr "GBB {year} สิ้นสุดแล้ว"
 
 #: templates/base.html:231 templates/includes/bottom_navigation.html:37
 #, python-brace-format
 msgid "例：GBB {year} の最終結果は？"
-msgstr "ตัวอย่าง: ผลสุดท้ายของ GBB %(year)s คืออะไร?"
+msgstr "ตัวอย่าง: ผลสุดท้ายของ GBB {year} คืออะไร?"
 
 #: templates/base.html:236 templates/includes/bottom_navigation.html:42
 msgid "GBB最新情報の検索はこちら"
@@ -223,7 +223,7 @@ msgstr "ค้นหาข้อมูลล่าสุดของ GBB ได�
 #: templates/base.html:241 templates/includes/bottom_navigation.html:49
 #, python-brace-format
 msgid "GBB {year} について検索してみよう"
-msgstr "ลองค้นหาเกี่ยวกับ GBB %(year)s ดู"
+msgstr "ลองค้นหาเกี่ยวกับ GBB {year} ดู"
 
 #: templates/2024/top.html:38 templates/2024/top_7tosmoke.html:18
 #: templates/2025/top.html:38 templates/2025/top_7tosmoke.html:18
@@ -270,8 +270,8 @@ msgstr "วิวดีใช่ไหม?"
 #, python-brace-format
 msgid "Swissbeatbox公式サイトにて、GBB {year} で実施される部門・Wildcardのルールについて発表がありました。"
 msgstr ""
-"มีการประกาศกฎของแผนก Wildcard ซึ่งจะจัดขึ้นใน GBB %(year)s "
-"บนเว็บไซต์ทางการของ Swissbeatbox"
+"มีการประกาศกฎของแผนก Wildcard ซึ่งจะจัดขึ้นใน GBB {year} บนเว็บไซต์ทางการของ"
+" Swissbeatbox"
 
 #: templates/2024/rule.html:12 templates/2025/rule.html:12
 #: templates/2025/wildcard_regulation.html:13
@@ -577,7 +577,7 @@ msgstr "สำหรับการชมการแข่งขัน"
 #: templates/2024/stream.html:38
 #, python-brace-format
 msgid "GBB {year} の最新情報をチェックしよう"
-msgstr "ตรวจสอบข้อมูลล่าสุดของ GBB %(year)s"
+msgstr "ตรวจสอบข้อมูลล่าสุดของ GBB {year}"
 
 #: templates/2024/stream.html:40 templates/common/participants.html:3
 #: templates/common/participants.html:4 templates/common/participants.html:5
@@ -1389,7 +1389,7 @@ msgstr "กำลังเปิดให้เข้าชมล่วงหน
 #: templates/includes/popup_early_access.html:4
 #, python-brace-format
 msgid "ここは、まだ情報が少ないGBB {year} のページです"
-msgstr "นี่คือหน้า GBB %(year)s ที่ยังมีข้อมูลไม่มาก"
+msgstr "นี่คือหน้า GBB {year} ที่ยังมีข้อมูลไม่มาก"
 
 #: templates/includes/early_access.html:6
 #: templates/includes/popup_early_access.html:6
@@ -1404,7 +1404,7 @@ msgstr "ยกเลิก"
 #: templates/includes/ended.html:6 templates/includes/popup_ended.html:9
 #, python-brace-format
 msgid "ここは、すでに終了したGBB {year} のページです"
-msgstr "นี่คือหน้า GBB %(year)s ที่สิ้นสุดไปแล้ว"
+msgstr "นี่คือหน้า GBB {year} ที่สิ้นสุดไปแล้ว"
 
 #: templates/includes/ended.html:9 templates/includes/popup_ended.html:12
 msgid "GBB最新情報はこちら"
@@ -1497,4 +1497,4 @@ msgstr "หน้าที่ที่ไม่มีการแปลจะแ
 #~ msgstr ""
 
 #~ msgid "について検索してみよう"
-#~ msgstr "ลองค้นหาเกี่ยวกับ GBB %(year)s ดู"
+#~ msgstr "ลองค้นหาเกี่ยวกับ GBB {year} ดู"
