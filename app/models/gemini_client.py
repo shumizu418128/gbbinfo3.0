@@ -1,4 +1,5 @@
 import asyncio
+import hashlib
 import json
 import os
 
@@ -57,6 +58,17 @@ class GeminiService:
         Returns:
             dict: Gemini APIからのレスポンスを辞書形式で返す
         """
+        # ここに書かないと循環インポートになる
+        from app.main import flask_cache
+
+        # キャッシュキーを生成
+        cache_key = "gemini_search_" + hashlib.md5(question.encode("utf-8")).hexdigest()
+
+        # キャッシュから取得を試行 あるなら返す
+        cached_data = flask_cache.get(cache_key)
+        if cached_data is not None:
+            return cached_data
+
         async with limiter:
             try:
                 # プロンプトに必要事項を埋め込む
@@ -85,6 +97,7 @@ class GeminiService:
                 if isinstance(response_dict, list) and len(response_dict) > 0:
                     response_dict = response_dict[0]
 
+                flask_cache.set(cache_key, response_dict)
                 return response_dict
 
             except Exception as e:
