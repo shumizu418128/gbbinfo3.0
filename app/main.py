@@ -1,5 +1,4 @@
 import os
-import warnings
 from datetime import datetime
 from pathlib import Path
 
@@ -31,18 +30,6 @@ from app.views import (
 )
 
 app = Flask(__name__)
-sitemapper = Sitemapper()
-sitemapper.init_app(app)
-flask_cache = Cache(app)
-babel = Babel(app)
-test = _("test")  # テスト翻訳
-
-# 特定の警告を無視
-warnings.filterwarnings(
-    "ignore",
-    category=UserWarning,
-    message="Flask-Caching: CACHE_TYPE is set to null, caching is effectively disabled.",
-)
 
 
 ####################################################################
@@ -107,6 +94,13 @@ else:
     app.config.from_object(Config)
     IS_LOCAL = False
     IS_PULL_REQUEST = os.getenv("IS_PULL_REQUEST") == "True"
+
+
+sitemapper = Sitemapper()
+sitemapper.init_app(app)
+flask_cache = Cache(app)
+babel = Babel(app)
+test = _("test")  # テスト翻訳
 
 
 ####################################################################
