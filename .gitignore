@@ -123,3 +123,4 @@ Thumbs.db
 
 # app/templates/(年)/world_map ディレクトリを無視
 /app/templates/*/world_map/
+cache/

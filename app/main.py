@@ -55,7 +55,6 @@ LANGUAGES = [
 BASE_DIR = Path(__file__).resolve().parent.parent
 BABEL_SUPPORTED_LOCALES = [code for code, _ in LANGUAGES]
 LAST_UPDATED = "UPDATE " + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " JST"
-initialize_background_tasks(BABEL_SUPPORTED_LOCALES)
 
 
 class Config:
@@ -64,7 +63,7 @@ class Config:
     BABEL_TRANSLATION_DIRECTORIES = str(BASE_DIR / "app" / "translations")
     CACHE_DEFAULT_TIMEOUT = 0
     CACHE_TYPE = "filesystem"
-    CACHE_DIR = "/cache"
+    CACHE_DIR = str(BASE_DIR / "cache")
     DEBUG = False
     SECRET_KEY = os.getenv("SECRET_KEY")
     TEMPLATES_AUTO_RELOAD = False
@@ -101,6 +100,9 @@ sitemapper.init_app(app)
 flask_cache = Cache(app)
 babel = Babel(app)
 test = _("test")  # テスト翻訳
+
+# バックグラウンド初期化タスクはキャッシュ初期化後に起動
+initialize_background_tasks(BABEL_SUPPORTED_LOCALES)
 
 
 ####################################################################
