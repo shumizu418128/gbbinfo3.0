@@ -1,3 +1,4 @@
+import logging
 import os
 from datetime import datetime
 from pathlib import Path
@@ -28,6 +29,11 @@ from app.views import (
     search_participants,
     world_map,
 )
+
+# waitress.queue ロガーを無効化
+_waitress_queue_logger = logging.getLogger("waitress.queue")
+_waitress_queue_logger.propagate = False
+_waitress_queue_logger.disabled = True
 
 app = Flask(__name__)
 
