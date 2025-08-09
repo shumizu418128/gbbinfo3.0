@@ -10,6 +10,7 @@ from typing import Optional
 
 import pandas as pd
 from dotenv import load_dotenv
+from postgrest.exceptions import APIError
 from supabase import Client, create_client
 
 from app.util.filter_eq import Operator
@@ -359,10 +360,20 @@ class SupabaseService:
             return json.loads(response_results)
 
     def insert_tavily_data(self, cache_key: str, search_result: dict):
-        """Tavilyのデータを挿入する"""
+        """Tavily 検索結果を保存する（重複は安全に吸収）
+
+        Args:
+            cache_key (str): 一意キー。
+            search_result (dict): Tavily の検索結果。
+
+        Notes:
+            - まずアプリ内キャッシュへ保存します（即応答のため）。
+            - DB 書き込みは一意制約違反(23505)のみ握りつぶし、既存レコードを更新します。
+        """
         # ここに書かないと循環インポートになる
         from app.main import flask_cache
 
+        # 即時にアプリキャッシュへ保存（DB 失敗でもレスポンスは可能）
         flask_cache.set(cache_key, search_result, timeout=None)
 
         data = {
@@ -370,8 +381,18 @@ class SupabaseService:
             "search_results": json.dumps(search_result),
         }
 
-        query = self.admin_client.table("Tavily").insert(data)
-        query.execute()
+        try:
+            # 競合が無ければそのまま insert
+            self.admin_client.table("Tavily").insert(data).execute()
+        except APIError as e:
+            # 同時実行時などの重複キーは無視しつつ中身を最新に更新
+            if getattr(e, "code", None) == "23505":
+                self.admin_client.table("Tavily").update(
+                    {"search_results": json.dumps(search_result)}
+                ).eq("cache_key", cache_key).execute()
+            else:
+                # それ以外のDBエラーは再送出
+                raise
 
 
 # グローバルインスタンス
