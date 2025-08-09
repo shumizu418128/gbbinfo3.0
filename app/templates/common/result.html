@@ -20,7 +20,7 @@
 {% endif %}
 
 {% if result_type == "tournament" %}
-  {% for round, data in result_data.items %}
+  {% for round, data in result_data.items() %}
     <h2>{{ category }} - {{ round }}</h2>
     <table>
       <thead>
@@ -33,16 +33,16 @@
       <tbody>
         {% for match in data %}
           <tr>
-            <td class="winner">{{ match.winner }}</td>
+            <td class="winner"><a href="/others/participant_detail?id={{ match.winner.id }}&mode={% if category_is_team %}team{% else %}single{% endif %}">{{ match.winner.name }}</a></td>
             <td>vs</td>
-            <td>{{ match.loser }}</td>
+            <td><a href="/others/participant_detail?id={{ match.loser.id }}&mode={% if category_is_team %}team{% else %}single{% endif %}">{{ match.loser.name }}</a></td>
           </tr>
         {% endfor %}
       </tbody>
     </table>
   {% endfor %}
 {% elif result_type == "ranking" %}
-  {% for round, data in result_data.items %}
+  {% for round, data in result_data.items() %}
     <h2>{{ category }} - {{ round }}</h2>
     <table>
       <thead>
@@ -55,7 +55,7 @@
         {% for result in data %}
           <tr>
             <td>{{ result.rank }}</td>
-            <td>{{ result.name }}</td>
+            <td><a href="/others/participant_detail?id={{ result.id }}&mode={% if category_is_team %}team{% else %}single{% endif %}">{{ result.name }}</a></td>
           </tr>
         {% endfor %}
       </tbody>

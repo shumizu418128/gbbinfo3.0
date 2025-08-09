@@ -28,7 +28,7 @@ def result_view(year: int):
     # idから名前を取得
     category_data = supabase_service.get_data(
         table="Category",
-        columns=["id", "name"],
+        columns=["id", "name", "is_team"],
         filters={
             f"id__{Operator.IN_}": all_categories_for_year_id,
         },
@@ -44,6 +44,10 @@ def result_view(year: int):
 
     # カテゴリIDを取得
     category_id = int(category_data[category_data["name"] == category]["id"].values[0])
+    category_is_team_numpy_bool = category_data[category_data["name"] == category][
+        "is_team"
+    ].values[0]
+    category_is_team = bool(category_is_team_numpy_bool)
 
     # データ取得
     # まずトーナメント制のデータを取得
@@ -52,8 +56,8 @@ def result_view(year: int):
         table="TournamentResult",
         columns=["round", "winner", "loser"],
         join_tables={
-            "winner:Participant!TournamentResult_winner_fkey": ["name"],
-            "loser:Participant!TournamentResult_loser_fkey": ["name"],
+            "winner:Participant!TournamentResult_winner_fkey": ["id", "name"],
+            "loser:Participant!TournamentResult_loser_fkey": ["id", "name"],
         },
         filters={
             "year": year,
@@ -68,7 +72,7 @@ def result_view(year: int):
             table="RankingResult",
             columns=["round", "participant", "rank"],
             join_tables={
-                "Participant": ["name"],
+                "Participant": ["id", "name"],
             },
             filters={
                 "year": year,
@@ -97,6 +101,7 @@ def result_view(year: int):
             result_defaultdict[result["round"]].append(
                 {
                     "rank": result["rank"],
+                    "id": result["Participant"]["id"],
                     "name": result["Participant"]["name"].upper(),
                 }
             )
@@ -105,8 +110,14 @@ def result_view(year: int):
         for result in result_data:
             result_defaultdict[result["round"]].append(
                 {
-                    "winner": result["winner"]["name"].upper(),
-                    "loser": result["loser"]["name"].upper(),
+                    "winner": {
+                        "id": result["winner"]["id"],
+                        "name": result["winner"]["name"].upper(),
+                    },
+                    "loser": {
+                        "id": result["loser"]["id"],
+                        "name": result["loser"]["name"].upper(),
+                    },
                 }
             )
 
@@ -116,6 +127,7 @@ def result_view(year: int):
     # テンプレートに渡すデータ
     context = {
         "category": category,
+        "category_is_team": category_is_team,
         "result_data": result_dict,
         "result_type": result_type,
         "all_category": all_category_names,
