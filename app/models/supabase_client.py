@@ -381,18 +381,11 @@ class SupabaseService:
             "search_results": json.dumps(search_result),
         }
 
+        # 失敗してもエラーにはしない
         try:
-            # 競合が無ければそのまま insert
             self.admin_client.table("Tavily").insert(data).execute()
-        except APIError as e:
-            # 同時実行時などの重複キーは無視しつつ中身を最新に更新
-            if getattr(e, "code", None) == "23505":
-                self.admin_client.table("Tavily").update(
-                    {"search_results": json.dumps(search_result)}
-                ).eq("cache_key", cache_key).execute()
-            else:
-                # それ以外のDBエラーは再送出
-                raise
+        except APIError:
+            pass
 
 
 # グローバルインスタンス
