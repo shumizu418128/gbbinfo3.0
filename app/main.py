@@ -9,7 +9,6 @@ from flask import (
 )
 from flask_babel import Babel, _
 from flask_caching import Cache
-from flask_sitemapper import Sitemapper
 
 from app.context_processors import (
     common_variables,
@@ -100,9 +99,6 @@ else:
     IS_LOCAL = False
     IS_PULL_REQUEST = os.getenv("IS_PULL_REQUEST") == "True"
 
-
-sitemapper = Sitemapper()
-sitemapper.init_app(app)
 flask_cache = Cache(app)
 babel = Babel(app)
 test = _("test")  # テスト翻訳
@@ -209,7 +205,7 @@ def discord():
 
 @app.route("/sitemap.xml")
 def sitemap():
-    return sitemapper.generate()
+    return send_file("static/sitemap.xml", mimetype="application/xml")
 
 
 @app.route("/robots.txt")
