@@ -54,9 +54,9 @@ def check_locale_paths_and_languages(BABEL_SUPPORTED_LOCALES):
     locale_dirs_normalized = {normalize_chinese_code(code) for code in locale_dirs_set}
     supported_normalized = {normalize_chinese_code(code) for code in supported_set}
 
-    # 日本語（'ja'）は例外として除外
-    locale_dirs_normalized_no_ja = locale_dirs_normalized - {"ja"}
-    supported_normalized_no_ja = supported_normalized - {"ja"}
+    # 日本語（'ja'）と__pycache__は例外として除外
+    locale_dirs_normalized_no_ja = locale_dirs_normalized - {"ja", "__pycache__"}
+    supported_normalized_no_ja = supported_normalized - {"ja", "__pycache__"}
 
     # localeディレクトリにあるが、SUPPORTED_LANGUAGE_CODESにないもの
     extra_locales = locale_dirs_normalized_no_ja - supported_normalized_no_ja

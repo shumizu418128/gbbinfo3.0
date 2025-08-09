@@ -3,15 +3,27 @@ from urllib.parse import urlparse
 from flask import redirect, request, session
 
 
+def build_path_with_query_and_fragment(parsed):
+    path = parsed.path or "/"
+    if parsed.query:
+        path = f"{path}?{parsed.query}"
+    if parsed.fragment:
+        path = f"{path}#{parsed.fragment}"
+    return path
+
+
+def is_same_origin(parsed):
+    return parsed.scheme in ("http", "https") and parsed.netloc == request.host
+
+
 def change_language(BABEL_SUPPORTED_LOCALES: list[str]):
-    """
-    ユーザーの言語を変更し、referrerにリダイレクトするエンドポイント。
+    """言語を変更し、安全に元のページへリダイレクトする。
 
     Args:
-        request (HttpRequest): リクエストオブジェクト
+        BABEL_SUPPORTED_LOCALES (list[str]): サポートする言語コードの一覧。
 
     Returns:
-        redirect: もとのページにリダイレクト
+        Response: 安全と判断したリファラー（またはルート）へのリダイレクト。
     """
     lang_code = request.args.get("lang")
 
@@ -20,15 +32,22 @@ def change_language(BABEL_SUPPORTED_LOCALES: list[str]):
         lang_code = "ja"
 
     # 直前のページ（リファラー）を取得する
-    current_url = request.headers.get("Referer", "/")
-    # Remove backslashes to prevent browser quirks
-    current_url = current_url.replace("\\", "")
-    parsed_url = urlparse(current_url)
-    # Only allow relative URLs (no scheme, no netloc) and path must start with /
-    if parsed_url.scheme or parsed_url.netloc or not parsed_url.path.startswith("/"):
-        current_url = "/"
+    referrer = request.headers.get("Referer")
 
-    # クッキーにも保存し、referrerにリダイレクト
+    # リダイレクト先の決定（安全性を優先）
+    next_url = "/"
+    if referrer:
+        parsed = urlparse(referrer)
+        # 相対URL（同一オリジン相対パス）を許可
+        if not parsed.scheme and not parsed.netloc:
+            # 先頭が"/"でない場合は安全のためルートへ
+            if (parsed.path or "").startswith("/"):
+                next_url = build_path_with_query_and_fragment(parsed)
+        # 同一オリジンの絶対URLを許可
+        elif is_same_origin(parsed):
+            next_url = build_path_with_query_and_fragment(parsed)
+
+    # 言語をセッションに保存
     session["language"] = lang_code
 
-    return redirect(current_url)
+    return redirect(next_url)
