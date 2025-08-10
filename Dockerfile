@@ -1,13 +1,15 @@
 # Python 3.12をベースイメージとして使用
 FROM python:3.12-slim
 
-# システムパッケージの更新と必要なライブラリのインストール
+ENV TZ=Asia/Tokyo
+
 RUN apt-get update && apt-get install -y \
     postgresql-client \
     libpq-dev \
     gcc \
     curl \
     gettext \
+    tzdata \
     && rm -rf /var/lib/apt/lists/*
 
 # uvをインストール
