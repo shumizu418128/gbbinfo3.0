@@ -41,43 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // スクロールイベントでドロップダウンの選択を更新 + スクロールバー
     window.addEventListener('scroll', () => {
         updateDropdownSelection(headerArray, dropdown);
-        updateProgressBar();
     });
 
     // スクロールバー
-    const background = document.querySelectorAll(".background-progress-scroll");
-    const progressElements = document.querySelectorAll(".progress-scroll");
-
-    function updateProgressBar() {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrollPercentage = (winScroll / height) * 100;
-        const scrollAbsolute = window.scrollY + 50;
-        const h1_position = document.querySelector("h1").offsetTop;
-
-        // スクロール位置が最初の<h1>要素より上にある場合、プログレスバーと背景を非表示にする
-        if (scrollAbsolute <= h1_position) {
-            for (let i = 0; i < background.length; i += 1) {
-                background[i].style.display = "none";
-            }
-            for (let i = 0; i < progressElements.length; i += 1) {
-                progressElements[i].style.display = "none";
-            }
-        } else {
-            for (let i = 0; i < background.length; i += 1) {
-                background[i].style.display = "block";
-            }
-            for (let i = 0; i < progressElements.length; i += 1) {
-                progressElements[i].style.display = "block";
-            }
-        }
-
-        // スクロールバーの長さを更新
-        progressElements.forEach(progress => {
-            const roundedScrollPercentage = Math.round(scrollPercentage / 5) * 5;
-            progress.style.width = `${roundedScrollPercentage}%`;
-        });
-    }
 
     function updateDropdownSelection(headerArray, dropdown) {
         // 現在の位置情報を取得

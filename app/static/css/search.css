@@ -66,7 +66,7 @@
     width: 50px;
     height: 45px;
     border: none;
-    background-color: rgb(255, 100, 23);
+    background-color: rgba(34, 34, 34);
     cursor: pointer;
     margin: 0;
     padding: 0;
@@ -85,14 +85,13 @@
 }
 
 .suggestions {
-    border: 2px solid rgb(0, 68, 204);
     border-radius: 6px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     max-height: 150px;
     overflow-y: auto;
     display: none;
     background-color: white;
-    color: rgb(0, 68, 204);
+    color: rgb(34, 34, 34);
     z-index: 1;
     position: absolute;
     margin-top: 2px;
