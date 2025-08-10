@@ -75,7 +75,7 @@ class Config:
 
 
 class TestConfig(Config):
-    CACHE_DEFAULT_TIMEOUT = 0
+    CACHE_TYPE = "null"
     DEBUG = True
     SECRET_KEY = "test"
     TEMPLATES_AUTO_RELOAD = True
