@@ -17,14 +17,6 @@
     <a href="/{{ year }}/time_schedule"><button>{{_("タイムスケジュール")}}</button></a>
   </div>
   <hr>
-{% elif is_gbb_ended is true %}
-  <div style="text-align: center;">
-    <p>GBB {{ year }} {{_("終了しました")}}<br>GBB {{ year + 1 }} {{_("ページ 先行公開中！")}}</p>
-  </div>
-  <div class="button-container">
-    <a href="/{{ year + 1 }}/top"><button>GBB {{ year + 1 }} {{_("これだけガイド")}}<br>{{_("先行公開")}}</button></a>
-  </div>
-  <hr>
 {% endif %}
 
 <div style="text-align: center;">
