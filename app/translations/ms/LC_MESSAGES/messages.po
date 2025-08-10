@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-09 20:12+0900\n"
+"POT-Creation-Date: 2025-08-10 16:56+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ms <LL@li.org>\n"
@@ -53,8 +53,8 @@ msgstr ""
 #: templates/2025/wildcard_regulation.html:191
 #: templates/2025/wildcard_regulation.html:192
 #: templates/2025/wildcard_regulation.html:251
-#: templates/2025/wildcard_regulation.html:252 templates/base.html:120
-#: templates/base.html:149 templates/base.html:263
+#: templates/2025/wildcard_regulation.html:252 templates/base.html:118
+#: templates/base.html:147 templates/base.html:261
 #: templates/others/participant_detail.html:120
 msgid "これだけガイド"
 msgstr "Panduan"
@@ -65,7 +65,7 @@ msgstr "Panduan"
 #: templates/2025/rule.html:331 templates/2025/ticket.html:26
 #: templates/2025/time_schedule.html:91 templates/2025/top.html:105
 #: templates/2025/wildcards.html:14 templates/2025/wildcards.html:83
-#: templates/base.html:121 templates/common/participants.html:25
+#: templates/base.html:119 templates/common/participants.html:25
 #: templates/common/result.html:91
 #: templates/includes/participants_form.html:13
 #: templates/others/result_stream.html:39
@@ -76,7 +76,7 @@ msgstr "Keputusan Wildcard"
 #: templates/2025/rule.html:331 templates/2025/ticket.html:26
 #: templates/2025/time_schedule.html:91 templates/2025/top.html:105
 #: templates/2025/wildcards.html:14 templates/2025/wildcards.html:83
-#: templates/base.html:121 templates/common/result.html:91
+#: templates/base.html:119 templates/common/result.html:91
 #: templates/others/result_stream.html:39
 msgid "出場者"
 msgstr "Peserta"
@@ -91,7 +91,7 @@ msgstr "Peserta"
 #: templates/2025/wildcard_regulation.html:22
 #: templates/2025/wildcard_regulation.html:200
 #: templates/2025/wildcards.html:15 templates/2025/wildcards.html:84
-#: templates/base.html:122
+#: templates/base.html:120
 msgid "ルール"
 msgstr "Peraturan"
 
@@ -100,7 +100,7 @@ msgstr "Peraturan"
 #: templates/2025/rule.html:340 templates/2025/time_schedule.html:63
 #: templates/2025/top.html:67 templates/2025/top.html:109
 #: templates/2025/wildcards.html:15 templates/2025/wildcards.html:84
-#: templates/base.html:122
+#: templates/base.html:120
 msgid "審査員"
 msgstr "Juri"
 
@@ -116,7 +116,7 @@ msgstr "Juri"
 #: templates/2025/time_schedule.html:62 templates/2025/time_schedule.html:118
 #: templates/2025/time_schedule.html:146 templates/2025/top.html:113
 #: templates/2025/top_7tosmoke.html:36 templates/2025/wildcards.html:112
-#: templates/base.html:123
+#: templates/base.html:121
 msgid "現地観戦計画のたてかた"
 msgstr "Cara merancang rancangan menonton secara langsung"
 
@@ -128,14 +128,14 @@ msgstr "Cara merancang rancangan menonton secara langsung"
 #: templates/2025/time_schedule.html:4 templates/2025/time_schedule.html:5
 #: templates/2025/time_schedule.html:10 templates/2025/top.html:17
 #: templates/2025/top.html:117 templates/2025/top_7tosmoke.html:39
-#: templates/base.html:126 templates/others/translation.html:20
+#: templates/base.html:124 templates/others/translation.html:20
 msgid "タイムスケジュール"
 msgstr "Jadual waktu"
 
 #: templates/2024/top.html:73 templates/2025/rule.html:229
 #: templates/2025/ticket.html:27 templates/2025/time_schedule.html:119
 #: templates/2025/top.html:129 templates/2025/wildcards.html:113
-#: templates/base.html:127 templates/common/japan.html:3
+#: templates/base.html:125 templates/common/japan.html:3
 #: templates/common/japan.html:4 templates/common/japan.html:5
 #: templates/common/japan.html:9 templates/others/participant_detail.html:233
 #: templates/others/translation.html:21
@@ -147,13 +147,13 @@ msgstr "Wakil Jepun"
 #: templates/2024/top.html:137 templates/2025/ticket.html:11
 #: templates/2025/ticket.html:12 templates/2025/top.html:134
 #: templates/2025/top.html:209 templates/2025/top.html:213
-#: templates/base.html:128
+#: templates/base.html:126
 msgid "会場"
 msgstr "Tempat"
 
 #: templates/2024/ticket.html:19 templates/2024/top.html:77
 #: templates/2025/ticket.html:13 templates/2025/top.html:134
-#: templates/base.html:128
+#: templates/base.html:126
 msgid "チケット"
 msgstr "Tiket"
 
@@ -163,14 +163,14 @@ msgstr "Tiket"
 #: templates/2025/stream.html:3 templates/2025/stream.html:4
 #: templates/2025/stream.html:5 templates/2025/stream.html:9
 #: templates/2025/time_schedule.html:90 templates/2025/top.html:138
-#: templates/2025/top_7tosmoke.html:40 templates/base.html:129
+#: templates/2025/top_7tosmoke.html:40 templates/base.html:127
 #: templates/others/translation.html:23
 msgid "当日配信"
 msgstr "Penghantaran hari ini"
 
 #: templates/2024/top.html:85 templates/2025/top.html:80
 #: templates/2025/top.html:81 templates/2025/top.html:142
-#: templates/base.html:132 templates/common/result.html:3
+#: templates/base.html:130 templates/common/result.html:3
 #: templates/common/result.html:4 templates/common/result.html:5
 #: templates/common/result.html:9 templates/others/participant_detail.html:155
 #: templates/others/participant_detail.html:162
@@ -179,93 +179,93 @@ msgstr "Penghantaran hari ini"
 msgid "大会結果"
 msgstr "Keputusan persidangan"
 
-#: templates/base.html:152
+#: templates/base.html:150
 msgid "年度選択"
 msgstr "Pilihan tahun"
 
-#: templates/base.html:202
+#: templates/base.html:200
 msgid "翻訳未提供"
 msgstr "Tiada terjemahan disediakan"
 
-#: templates/base.html:203
+#: templates/base.html:201
 msgid "このページは翻訳が提供されていません。現在は原文の日本語を表示しています。"
 msgstr ""
 "Halaman ini tiada terjemahan disediakan. Kini memaparkan bahasa Jepun asal."
 
-#: templates/base.html:219
+#: templates/base.html:217
 msgid "GBBまでの残り時間"
 msgstr "Masa yang tinggal sehingga GBB"
 
-#: templates/base.html:224 templates/base.html:240
+#: templates/base.html:222 templates/base.html:238
 #: templates/includes/bottom_navigation.html:30
 #: templates/includes/bottom_navigation.html:48
 msgid "なんでも検索"
 msgstr "Cari apa-apa"
 
-#: templates/base.html:226 templates/includes/bottom_navigation.html:32
+#: templates/base.html:224 templates/includes/bottom_navigation.html:32
 #, python-brace-format
 msgid "GBB {year} の検索のみ可能です"
 msgstr "Carian GBB {year} sahaja dibenarkan"
 
-#: templates/base.html:227 templates/includes/bottom_navigation.html:33
+#: templates/base.html:225 templates/includes/bottom_navigation.html:33
 #, python-brace-format
 msgid "GBB {year} は終了しました"
 msgstr "GBB {year} telah tamat."
 
-#: templates/base.html:231 templates/includes/bottom_navigation.html:37
+#: templates/base.html:229 templates/includes/bottom_navigation.html:37
 #, python-brace-format
 msgid "例：GBB {year} の最終結果は？"
 msgstr "Contoh: Apakah keputusan akhir GBB {year}?"
 
-#: templates/base.html:236 templates/includes/bottom_navigation.html:42
+#: templates/base.html:234 templates/includes/bottom_navigation.html:42
 msgid "GBB最新情報の検索はこちら"
 msgstr "Klik di sini untuk mencari maklumat terkini GBB"
 
-#: templates/base.html:241 templates/includes/bottom_navigation.html:49
+#: templates/base.html:239 templates/includes/bottom_navigation.html:49
 #, python-brace-format
 msgid "GBB {year} について検索してみよう"
 msgstr "Mari cari tentang GBB {year}"
 
 #: templates/2024/top.html:38 templates/2024/top_7tosmoke.html:18
 #: templates/2025/top.html:38 templates/2025/top_7tosmoke.html:18
-#: templates/base.html:244 templates/includes/bottom_navigation.html:52
+#: templates/base.html:242 templates/includes/bottom_navigation.html:52
 msgid "例：現地観戦計画のたてかた"
 msgstr "Contoh: Cara merancang rancangan menonton di tempat"
 
-#: templates/base.html:254
+#: templates/base.html:252
 msgid "ホーム画面に追加"
 msgstr "Tambah ke skrin utama"
 
-#: templates/base.html:257
+#: templates/base.html:255
 msgid "GBBINFO-JPNはPWAに対応しています。"
 msgstr "GBBINFO-JPN menyokong PWA."
 
-#: templates/base.html:257
+#: templates/base.html:255
 msgid "ブラウザメニューを開き、「ホーム画面に追加」をタップすると、アプリとしてインストールできます。"
 msgstr ""
 "Buka menu pelayar, ketik \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Tambah ke Skrin "
 "Utama\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\", kemudian anda boleh memasangnya "
 "sebagai aplikasi."
 
-#: templates/base.html:263
+#: templates/base.html:261
 msgid "ホームへもどる"
 msgstr "Kembali ke halaman utama"
 
-#: templates/2025/ticket.html:22 templates/base.html:277
+#: templates/2025/ticket.html:22 templates/base.html:275
 msgid "GBBINFO-JPN開発者 Twitter"
 msgstr "GBBINFO-JPN Pembangun Twitter"
 
-#: templates/base.html:279
+#: templates/base.html:277
 msgid "GBBINFO-JPNについて"
 msgstr "Mengenai GBBINFO-JPN"
 
-#: templates/base.html:281 templates/others/translation.html:3
+#: templates/base.html:279 templates/others/translation.html:3
 #: templates/others/translation.html:4 templates/others/translation.html:5
 #: templates/others/translation.html:10
 msgid "各ページの翻訳提供について"
 msgstr "Mengenai penyediaan terjemahan setiap halaman"
 
-#: templates/base.html:306
+#: templates/base.html:304
 msgid "いい景色だろ？"
 msgstr "Bukankah pemandangannya bagus?"
 
