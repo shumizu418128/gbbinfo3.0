@@ -3,10 +3,8 @@ FROM python:3.12-slim
 
 ENV TZ=Asia/Tokyo
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     postgresql-client \
-    libpq-dev \
-    gcc \
     curl \
     gettext \
     tzdata \
@@ -14,9 +12,6 @@ RUN apt-get update && apt-get install -y \
 
 # uvをインストール
 RUN pip install --no-cache-dir uv
-
-# 非rootユーザーを作成（セキュリティ向上）
-RUN useradd --create-home --shell /bin/bash appuser
 
 # 作業ディレクトリを設定
 WORKDIR /app
