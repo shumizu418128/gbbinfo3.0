@@ -5,6 +5,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 def delete_world_map():
+    """
+    指定されたテンプレートディレクトリ内の各年度フォルダに存在する
+    world_mapディレクトリ配下の全てのHTMLファイルを削除します。
+
+    この関数は、BASE_DIR/app/templates/配下の各年度ディレクトリを探索し、
+    その中のworld_mapディレクトリにある拡張子が.htmlのファイルを全て削除します。
+    ディレクトリやファイルが存在しない場合は何も行いません。
+
+    Raises:
+        OSError: ファイルの削除に失敗した場合に発生します。
+    """
     templates_dir = os.path.join(BASE_DIR, "app", "templates")
     if os.path.exists(templates_dir):
         for year_dir in os.listdir(templates_dir):
