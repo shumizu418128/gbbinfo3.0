@@ -26,14 +26,6 @@ class GeminiService:
     """
 
     def __init__(self):
-        """
-        GeminiClientの初期化
-
-        Args:
-            client: Gemini APIのクライアントインスタンス
-            limiter: レートリミッター
-            safety_settings: セーフティ設定
-        """
         api_key = os.environ.get("GEMINI_API_KEY")
         if not api_key:
             raise ValueError("GEMINI_API_KEYが設定されていません")
@@ -105,16 +97,6 @@ class GeminiService:
                 return {}
 
     def ask_sync(self, year: int, question: str):
-        """
-        Gemini APIに質問を送信する同期版メソッド。
-
-        Args:
-            year (int): 質問が関連する年。
-            question (str): ユーザーからの質問。
-
-        Returns:
-            dict: Gemini APIからのレスポンスを辞書形式で返す
-        """
         return asyncio.run(self.ask(year, question))
 
 

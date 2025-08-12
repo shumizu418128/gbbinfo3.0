@@ -335,7 +335,21 @@ class SupabaseService:
     # 以下、Tavilyのデータを管理するメソッド
 
     def get_tavily_data(self, cache_key: str):
-        """Tavilyのデータを取得する"""
+        """
+        TavilyデータをキャッシュおよびDBから取得するメソッド。
+
+        Args:
+            cache_key (str): 検索結果を一意に識別するためのキー。
+
+        Returns:
+            list: 検索結果のリスト。該当データがなければ空リストを返す。
+
+        Notes:
+            - まずアプリ内キャッシュ(flask_cache)からデータを取得します。
+            - キャッシュに存在しない場合はDB("Tavily"テーブル)から取得します。
+            - DBから取得した場合は、結果をキャッシュに保存します。
+            - "search_results"カラムがlist型でなければjson.loadsでデコードします。
+        """
         # ここに書かないと循環インポートになる
         from app.main import flask_cache
 
