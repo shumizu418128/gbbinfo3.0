@@ -6,6 +6,21 @@ from app.util.filter_eq import Operator
 
 
 def post_search_participants(year: int):
+    """
+    指定された年の参加者情報をキーワードで検索し、結果をJSONで返す。
+
+    Args:
+        year (int): 検索対象の年。
+
+    Returns:
+        flask.Response: 検索結果の参加者リストを含むJSONレスポンス。
+
+    Notes:
+        - 参加者名またはメンバー名にキーワードが部分一致（大文字小文字無視）した参加者を検索する。
+        - 参加者情報には、id, name, category, ticket_class, is_cancelled, members, mode（single/team）が含まれる。
+        - 参加者名・メンバー名は大文字に変換される。
+        - 5件を超える場合は、キーワードとの類似度が高い上位5件のみ返す。
+    """
     keyword = request.json.get("keyword")
 
     participants_data = supabase_service.get_data(

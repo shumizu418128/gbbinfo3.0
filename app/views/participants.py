@@ -150,6 +150,21 @@ def participants_view(year: int):
 
 
 def participants_country_specific_view(year: int):
+    """指定された年とURLから取得した国名に基づいて、該当国の出場者リストを取得し、テンプレートにレンダリングするビュー関数。
+
+    Args:
+        year (int): 出場者データを取得する対象の年。
+
+    Returns:
+        Response: 指定国の出場者リストを含むHTMLテンプレートのレンダリング結果。
+
+    Note:
+        - URLの最後の要素から国名（例: "japan", "korea"）を取得し、該当するISOコードを割り当てる。
+        - 単一国籍の出場者だけでなく、複数国籍チームの中に該当国のメンバーがいる場合もリストに含める。
+        - 出場者名は大文字に変換され、カテゴリ名やチーム判定などの加工を行う。
+        - 出場者リストはキャンセル状況、カテゴリ、ワイルドカード、ランキング、GBBシードの有無でソートされる。
+        - レンダリングするテンプレートは国名に応じて動的に決定される（例: "common/japan.html"）。
+    """
     # URLから国名を取得
     url = request.path
     country_name = url.split("/")[-1]  # 最後の要素が国名

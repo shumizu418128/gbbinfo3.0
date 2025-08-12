@@ -7,6 +7,20 @@ from app.util.filter_eq import Operator
 
 
 def result_view(year: int):
+    """指定された年の大会結果ページを表示するビュー関数。
+
+    Args:
+        year (int): 結果を表示する対象の年。
+
+    Returns:
+        flask.Response: 結果ページのHTMLを返す。条件によってはリダイレクトする。
+
+    Notes:
+        - 2013年から2016年は非対応のため、トップページにリダイレクトされる。
+        - クエリパラメータ 'category' でカテゴリを指定する。無効な場合はデフォルトで"Loopstation"にリダイレクト。
+        - カテゴリごとにトーナメント制または順位制の結果を取得し、テンプレートに渡す。
+        - 結果データが存在しない場合は空データでページを表示する。
+    """
     # 2013-2016は非対応
     if 2013 <= year <= 2016:
         return redirect(f"/{year}/top")

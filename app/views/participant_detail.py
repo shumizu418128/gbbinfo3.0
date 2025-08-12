@@ -11,6 +11,26 @@ from . import common
 
 
 def participant_detail_view():
+    """出場者詳細ページのビュー関数。
+
+    この関数は、リクエストパラメータから出場者IDとモード（single, team, team_member）を取得し、
+    出場者またはチームメンバーの詳細情報、過去の出場履歴、同年度・同部門の他の出場者情報などを取得して
+    テンプレートへ渡す。
+
+    Returns:
+        flask.Response: 出場者詳細ページのHTMLを返す。パラメータが不正またはデータが存在しない場合は
+        not_found_page_view()を返す。
+
+    Raises:
+        なし（KeyErrorは内部でハンドリング）
+
+    Notes:
+        - modeが"team_member"の場合はParticipantMemberテーブルから情報を取得し、その他はParticipantテーブルから取得する。
+        - 国名や部門名はセッションの言語設定に応じて取得される。
+        - 過去の出場履歴は大文字小文字を区別しない完全一致で抽出される。
+        - 同年度・同部門の出場者は最大5人ランダム抽出し、特定の条件でソートされる。
+        - 2013-2016年の出場履歴は除外される。
+    """
     try:
         id = request.args["id"]  # 出場者ID
         mode = request.args["mode"]  # single, team, team_member

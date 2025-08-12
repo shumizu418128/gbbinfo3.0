@@ -8,6 +8,31 @@ from app.models.supabase_client import supabase_service
 
 
 def world_map_view(year: int):
+    """指定された年のワールドマップを生成し、テンプレートをレンダリングするビュー関数。
+
+    この関数は、指定された年の参加者データをSupabaseから取得し、国ごとに分類して
+    Foliumを用いてインタラクティブなワールドマップを作成します。
+    既にマップが生成されている場合は、保存済みのHTMLテンプレートを返します。
+    そうでない場合は、参加者情報をもとに国ごとのマーカーとポップアップを作成し、
+    マップを保存した後にテンプレートをレンダリングします。
+
+    Args:
+        year (int): マップを生成する対象の年。
+
+    Returns:
+        flask.Response: レンダリングされたHTMLテンプレートのレスポンス。
+
+    Raises:
+        KeyError: セッションに"language"が存在しない場合。
+        IndexError: 国情報や座標が見つからない場合。
+        その他、Supabaseやファイル操作に関する例外が発生する可能性があります。
+
+    Note:
+        - 参加者が複数国籍の場合（iso_code=9999）、各国ごとにマーカーが作成されます。
+        - 参加者名は大文字に変換されます。
+        - ポップアップが長い場合はスクロール可能なデザインになります。
+        - 国旗アイコンは`app/static/images/flags/{国名（英語）}.webp`を参照します。
+    """
     language = session["language"]
 
     # マップがすでに作成されている場合はそれを表示

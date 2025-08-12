@@ -87,6 +87,22 @@ def create_url(year: int, url: str, parameter: str | None, name: str | None):
 
 
 def post_gemini_search(year: int, IS_LOCAL: bool, IS_PULL_REQUEST: bool):
+    """Gemini検索APIのエンドポイント。
+
+    Geminiサービスを利用して、与えられた質問に対するURLを返します。
+    質問がキャッシュに存在する場合はキャッシュからURLを取得し、存在しない場合はGeminiサービスに問い合わせます。
+    また、ローカル環境やプルリクエスト環境でない場合は、質問と結果のURLをスプレッドシートに記録します。
+
+    Args:
+        year (int): 対象となる年。
+        IS_LOCAL (bool): ローカル環境かどうかのフラグ。
+        IS_PULL_REQUEST (bool): プルリクエスト環境かどうかのフラグ。
+
+    Returns:
+        flask.Response: URLを含むJSONレスポンス。
+            例: {"url": "/2024/top_7tosmoke"}
+            質問が未入力の場合は400エラーとエラーメッセージを返します。
+    """
     question = request.json.get("question")
 
     # questionがNoneまたは空文字の場合のチェック
@@ -124,8 +140,21 @@ def post_gemini_search(year: int, IS_LOCAL: bool, IS_PULL_REQUEST: bool):
     }
     return jsonify(response)
 
-
 def post_gemini_search_suggestion():
+    """
+    Gemini検索サジェストAPIエンドポイント。
+
+    ユーザーからの入力文(input)を受け取り、年情報（4桁または2桁）や不要な文字列（"GBB"など）を除去した上で、
+    キャッシュに登録されている質問候補（SEARCH_CACHEのキー）との類似度をrapidfuzzで計算し、
+    類似度が高い上位3件のサジェスト候補を返します。
+
+    Args:
+        なし（リクエストボディにJSON形式で"input"を含める）
+
+    Returns:
+        flask.Response: サジェスト候補リストを含むJSONレスポンス。
+            例: {"suggestions": ["候補1", "候補2", "候補3"]}
+    """
     data = request.get_json(silent=True) or {}
     input = str(data.get("input", "")).strip()
 
@@ -139,7 +168,7 @@ def post_gemini_search_suggestion():
         year_2 = year_2.group()
         input = input.replace(year_2, "")
 
-    # 下処理：inputから空白削除
+    # 下処理：inputから空白削除と"GBB"除去
     input = input.strip().upper().replace("GBB", "")
 
     # rapidfuzzで類似度を計算し、上位3件を取得

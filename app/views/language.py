@@ -4,6 +4,14 @@ from flask import redirect, request, session
 
 
 def build_path_with_query_and_fragment(parsed):
+    """URLのパス、クエリ、フラグメントを結合して返す。
+
+    Args:
+        parsed (ParseResult): 解析済みのURL。
+
+    Returns:
+        str: パス、クエリ、フラグメントを結合したURL。
+    """
     path = parsed.path or "/"
     if parsed.query:
         path = f"{path}?{parsed.query}"

@@ -27,6 +27,19 @@ def get_primary_domain(url: str) -> str:
 
 
 def get_beatboxer_name(beatboxer_id: int, mode: str = "single"):
+    """
+    出場者IDから出場者名を取得し、大文字で返します。
+
+    Args:
+        beatboxer_id (int): 取得対象の出場者ID。
+        mode (str, optional): 取得モード。"single"の場合は個人出場者、"team_member"の場合はチームメンバーとして取得します。デフォルトは"single"。
+
+    Returns:
+        str: 出場者名（大文字）。
+
+    Raises:
+        IndexError: 指定したIDに該当する出場者が存在しない場合。
+    """
     # 出場者名を取得
     participant_data = supabase_service.get_data(
         table="Participant",
@@ -45,7 +58,6 @@ def get_beatboxer_name(beatboxer_id: int, mode: str = "single"):
         )
     beatboxer_name = participant_data[0]["name"].upper()
     return beatboxer_name
-
 
 def extract_youtube_video_id(url):
     """YouTubeのURLからvideo_idを抽出する。
