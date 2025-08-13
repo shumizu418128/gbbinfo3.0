@@ -3,8 +3,10 @@ from urllib.parse import parse_qs, urlparse
 
 from flask import jsonify, request
 
+from app.models.gemini_client import gemini_service
 from app.models.supabase_client import supabase_service
 from app.models.tavily_client import tavily_service
+from app.views.config.gemini_search_config import PROMPT_TRANSLATE
 
 
 def get_primary_domain(url: str) -> str:
@@ -58,6 +60,7 @@ def get_beatboxer_name(beatboxer_id: int, mode: str = "single"):
         )
     beatboxer_name = participant_data[0]["name"].upper()
     return beatboxer_name
+
 
 def extract_youtube_video_id(url):
     """YouTubeのURLからvideo_idを抽出する。
@@ -126,7 +129,8 @@ def beatboxer_tavily_search(
     )
 
     # キャッシュとデータベースから結果を取得
-    search_results_unfiltered = supabase_service.get_tavily_data(cache_key=cache_key)
+    tavily_response = supabase_service.get_tavily_data(cache_key=cache_key)
+    search_results_unfiltered = tavily_response["results"]
 
     # ないならTavilyで検索して保存
     if len(search_results_unfiltered) == 0:

@@ -33,10 +33,11 @@ class TavilyService:
         result = self.client.search(
             query=query,
             max_results=10,
+            include_answer="basic",
             include_favicon=True,
             exclude_domains=EXCLUDE_DOMAINS,
         )
-        return result["results"]
+        return result
 
 
 # グローバルインスタンス
