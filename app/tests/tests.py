@@ -495,12 +495,12 @@ class GeminiServiceTestCase(unittest.TestCase):
             service = GeminiService()
 
             # 最初のリクエストは成功
-            result1 = service.ask_sync(2025, "first question")
+            result1 = service.ask_sync("first question")
             self.assertIsInstance(result1, dict)
             self.assertIn("url", result1)
 
             # 2回目のリクエストはエラーハンドリングされて空辞書が返される
-            result2 = service.ask_sync(2025, "second question")
+            result2 = service.ask_sync("second question")
             self.assertEqual(result2, {})
 
     @patch("app.views.gemini_search.spreadsheet_service")
@@ -607,7 +607,7 @@ class GeminiServiceTestCase(unittest.TestCase):
                 result = None
                 for _ in range(5):
                     try:
-                        result = service.ask_sync(2025, "retry test")
+                        result = service.ask_sync("retry test")
                         if result:
                             break
                     except Exception:
