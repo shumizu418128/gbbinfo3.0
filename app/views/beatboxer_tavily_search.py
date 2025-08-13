@@ -128,15 +128,16 @@ def beatboxer_tavily_search(
 
     # キャッシュとデータベースから結果を取得
     tavily_response = supabase_service.get_tavily_data(cache_key=cache_key)
-    search_results_unfiltered = tavily_response["results"]
 
-    # ないならTavilyで検索して保存
-    if len(search_results_unfiltered) == 0:
-        search_results_unfiltered = tavily_service.search(beatboxer_name)
+    # キャッシュがない場合はTavilyで検索して保存
+    if len(tavily_response) == 0:
+        tavily_response = tavily_service.search(beatboxer_name)
         supabase_service.insert_tavily_data(
             cache_key=cache_key,
-            search_result=search_results_unfiltered,
+            search_result=tavily_response,
         )
+
+    search_results_unfiltered = tavily_response["results"]
 
     search_results = []
 
