@@ -3,10 +3,8 @@ from urllib.parse import parse_qs, urlparse
 
 from flask import jsonify, request
 
-from app.models.gemini_client import gemini_service
 from app.models.supabase_client import supabase_service
 from app.models.tavily_client import tavily_service
-from app.views.config.gemini_search_config import PROMPT_TRANSLATE
 
 
 def get_primary_domain(url: str) -> str:
