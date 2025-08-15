@@ -298,10 +298,15 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language: str):
     # なければ生成
     search_result = supabase_service.get_tavily_data(cache_key=cache_key)
     try:
-        if isinstance(search_result["answer"], list):
+        # search_resultがリストの場合、最初の要素を取得
+        if isinstance(search_result, list):
+            if len(search_result) == 0:
+                return ""  # データが存在しない場合
             search_result = search_result[0]
+
+        # answerフィールドにアクセス
         answer = search_result["answer"]
-    except KeyError:
+    except (KeyError, TypeError, IndexError):
         return ""  # answerの生成は他エンドポイントの責任
 
     # 翻訳
@@ -315,11 +320,28 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language: str):
         return ""
 
     # キャッシュに保存
-    cached_answer[language] = translated_answer
+    # 翻訳結果を保存するためのディクショナリを準備
+    translation_cache = {}
+    # 既存のキャッシュがあれば取得
+    existing_cache = supabase_service.get_tavily_data(
+        cache_key=cache_key, column="answer_translation"
+    )
+    if len(existing_cache) > 0:
+        try:
+            if isinstance(existing_cache, list):
+                existing_cache = existing_cache[0]
+            if isinstance(existing_cache, str):
+                translation_cache = json.loads(existing_cache)
+            elif isinstance(existing_cache, dict):
+                translation_cache = existing_cache
+        except (json.JSONDecodeError, TypeError):
+            translation_cache = {}
+
+    translation_cache[language] = translated_answer
 
     supabase_service.update_translated_answer(
         cache_key=cache_key,
-        translated_answer=cached_answer,
+        translated_answer=translation_cache,
     )
 
     return translated_answer
