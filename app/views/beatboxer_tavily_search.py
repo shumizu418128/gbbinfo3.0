@@ -265,6 +265,19 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language: str):
     cache_key = (
         f"tavily_search_{re.sub(r'[^a-zA-Z0-9_-]', '_', beatboxer_name.strip())}"
     )
+
+    # 内部キャッシュを取得
+    from app.main import flask_cache
+
+    # 内部キャッシュがあれば返す
+    internal_cache_answer = flask_cache.get(cache_key + "_answer_translation")
+    if internal_cache_answer:
+        try:
+            return internal_cache_answer[language]
+        except KeyError:
+            pass
+
+    # 外部キャッシュを取得
     cached_answer = supabase_service.get_tavily_data(
         cache_key=cache_key, column="answer_translation"
     )
