@@ -126,7 +126,7 @@ https://gbbinfo-jpn.onrender.com/{year}/
 
 PROMPT_TRANSLATE = """This text is a biography/introduction of a person.
 Please rewrite it to show maximum respect to the person, and then translate it into {lang}.
-For example, in Japanese, do not refer to the person's name without an honorific (avoid using just the name).
+For example, in Japanese, always refer to the person's name with the honorific "さん" (use さん付け), and avoid using just the name without an honorific.
 Output only the translated text. Do not output the rewritten text.
 
 Text to translate: {text}
