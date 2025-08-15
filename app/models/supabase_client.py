@@ -359,7 +359,9 @@ class SupabaseService:
         if search_result is not None:
             return search_result
 
-        query = self.admin_client.table("Tavily").select(column).eq("cache_key", cache_key)
+        query = (
+            self.admin_client.table("Tavily").select(column).eq("cache_key", cache_key)
+        )
         response = query.execute()
 
         if len(response.data) == 0:
@@ -368,11 +370,22 @@ class SupabaseService:
         response_results = response.data[0]
 
         # キャッシュに保存 内部キャッシュのみkeyはカラム名を含める
-        if isinstance(response_results, str):
-            data = json.loads(response_results)
-        else:
-            data = response_results
+        if len(response.data) == 0:
+            return {}
 
+        row = response.data[0]
+        response_results = row.get(column)
+
+        # JSON文字列はデコード、Noneは空dictに正規化
+        if isinstance(response_results, str):
+            try:
+                data = json.loads(response_results)
+            except Exception:
+                data = {}
+        else:
+            data = response_results if isinstance(response_results, dict) else {}
+
+        # キャッシュに保存（内部キャッシュのみkeyはカラム名を含める）
         flask_cache.set(cache_key + "_" + column, data, timeout=None)
         return data
 
@@ -408,11 +421,24 @@ class SupabaseService:
         """
         翻訳済み回答を更新するメソッド。
         """
-        self.admin_client.table("Tavily").update(
-            {
-                "answer_translation": json.dumps(translated_answer, ensure_ascii=False),
-            }
-        ).eq("cache_key", cache_key).execute()
+        # ここに書かないと循環インポートになる
+        from app.main import flask_cache
+
+        payload = {
+            "answer_translation": json.dumps(translated_answer, ensure_ascii=False),
+        }
+        try:
+            self.admin_client.table("Tavily").update(payload).eq(
+                "cache_key", cache_key
+            ).execute()
+        except APIError:
+            # DB失敗は握りつぶす（次回以降で再試行）
+            pass
+        finally:
+            # アプリ内キャッシュを最新化
+            flask_cache.set(
+                cache_key + "_answer_translation", translated_answer, timeout=None
+            )
 
 
 # グローバルインスタンス
