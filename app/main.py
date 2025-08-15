@@ -97,7 +97,7 @@ if os.getenv("ENVIRONMENT_CHECK") == "qawsedrftgyhujikolp":
 else:
     app.config.from_object(Config)
     IS_LOCAL = False
-    IS_PULL_REQUEST = os.getenv("IS_PULL_REQUEST") == "True"
+    IS_PULL_REQUEST = os.getenv("IS_PULL_REQUEST") == "true"
 
 flask_cache = Cache(app)
 babel = Babel(app)
