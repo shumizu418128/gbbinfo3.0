@@ -88,8 +88,12 @@ class GeminiService:
 
             except Exception as e:
                 print(f"GeminiService ask API呼び出し失敗: {e}", flush=True)
-                print(f"処理済みレスポンス: {response_text}", flush=True)
-                print(f"元のレスポンス: {response.text}", flush=True)
+                # response_textとresponseが定義されている場合のみ出力
+                try:
+                    print(f"処理済みレスポンス: {response_text}", flush=True)
+                    print(f"元のレスポンス: {response.text}", flush=True)
+                except NameError:
+                    print("レスポンスの処理前にエラーが発生しました", flush=True)
                 return {}
 
     def ask_sync(self, prompt: str):
