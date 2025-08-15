@@ -84,10 +84,10 @@ function tavilySearch(beatboxerId, mode) {
 
     if (!accountUrlsContainer || !finalUrlsContainer) {
         console.error('account-urls または final-urls 要素が見つかりません');
-        return;
+        return Promise.reject(new Error('必要な要素が見つかりません'));
     }
     finalUrlsContainer.innerHTML = '<p>loading...</p>';
-    fetch('/beatboxer_tavily_search', {
+    return fetch('/beatboxer_tavily_search', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -121,6 +121,7 @@ function tavilySearch(beatboxerId, mode) {
     .catch(error => {
         console.error('Tavily検索エラー:', error);
         finalUrlsContainer.innerHTML = '<p>関連サイトを取得できませんでした。</p>';
+        throw error;
     });
 }
 
