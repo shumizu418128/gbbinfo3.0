@@ -359,14 +359,13 @@ class SupabaseService:
         if search_result is not None:
             return search_result
 
-        query = self.admin_client.table("Tavily").select()
-        query = query.eq("cache_key", cache_key)
+        query = self.admin_client.table("Tavily").select(column).eq("cache_key", cache_key)
         response = query.execute()
 
         if len(response.data) == 0:
             return []
 
-        response_results = response.data[0][column]
+        response_results = response.data[0]
 
         # キャッシュに保存 内部キャッシュのみkeyはカラム名を含める
         if isinstance(response_results, str):
