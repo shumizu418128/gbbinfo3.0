@@ -72,12 +72,12 @@ class GeminiService:
                 )
 
                 # レスポンスをダブルクォーテーションに置き換え
-                response_text = response.text.replace("'", '"')
+                response_text = response.text.replace("'", '"').replace(
+                    "https://gbbinfo-jpn.onrender.com", ""
+                )
 
                 # レスポンスをJSONに変換
-                response_dict = json.loads(
-                    response_text.replace("https://gbbinfo-jpn.onrender.com", "")
-                )
+                response_dict = json.loads(response_text)
 
                 # リスト形式の場合は最初の要素を取得
                 if isinstance(response_dict, list) and len(response_dict) > 0:
@@ -88,6 +88,8 @@ class GeminiService:
 
             except Exception as e:
                 print(f"GeminiService ask API呼び出し失敗: {e}", flush=True)
+                print(f"処理済みレスポンス: {response_text}", flush=True)
+                print(f"元のレスポンス: {response.text}", flush=True)
                 return {}
 
     def ask_sync(self, prompt: str):
