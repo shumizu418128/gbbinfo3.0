@@ -990,7 +990,7 @@ class SupabaseServiceTestCase(unittest.TestCase):
                 self.execute_call_count = 0
                 self.response_data = []
 
-            def select(self):
+            def select(self, *args):
                 return self
 
             def eq(self, field, value):

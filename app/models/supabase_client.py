@@ -367,23 +367,17 @@ class SupabaseService:
         if len(response.data) == 0:
             return []
 
-        response_results = response.data[0]
-
-        # キャッシュに保存 内部キャッシュのみkeyはカラム名を含める
-        if len(response.data) == 0:
-            return {}
-
         row = response.data[0]
         response_results = row.get(column)
 
-        # JSON文字列はデコード、Noneは空dictに正規化
+        # JSON文字列はデコード、Noneは空リストに正規化
         if isinstance(response_results, str):
             try:
                 data = json.loads(response_results)
             except Exception:
-                data = {}
+                data = []
         else:
-            data = response_results if isinstance(response_results, dict) else {}
+            data = response_results if response_results is not None else []
 
         # キャッシュに保存（内部キャッシュのみkeyはカラム名を含める）
         flask_cache.set(cache_key + "_" + column, data, timeout=None)
