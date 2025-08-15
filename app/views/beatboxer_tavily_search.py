@@ -1,10 +1,13 @@
+import json
 import re
 from urllib.parse import parse_qs, urlparse
 
-from flask import jsonify, request
+from flask import jsonify, request, session
 
+from app.models.gemini_client import gemini_service
 from app.models.supabase_client import supabase_service
 from app.models.tavily_client import tavily_service
+from app.views.config.gemini_search_config import PROMPT_TRANSLATE
 
 
 def get_primary_domain(url: str) -> str:
@@ -58,6 +61,7 @@ def get_beatboxer_name(beatboxer_id: int, mode: str = "single"):
         )
     beatboxer_name = participant_data[0]["name"].upper()
     return beatboxer_name
+
 
 def extract_youtube_video_id(url):
     """YouTubeのURLからvideo_idを抽出する。
@@ -126,15 +130,17 @@ def beatboxer_tavily_search(
     )
 
     # キャッシュとデータベースから結果を取得
-    search_results_unfiltered = supabase_service.get_tavily_data(cache_key=cache_key)
+    tavily_response = supabase_service.get_tavily_data(cache_key=cache_key)
 
-    # ないならTavilyで検索して保存
-    if len(search_results_unfiltered) == 0:
-        search_results_unfiltered = tavily_service.search(beatboxer_name)
+    # キャッシュがない場合はTavilyで検索して保存
+    if len(tavily_response) == 0:
+        tavily_response = tavily_service.search(beatboxer_name)
         supabase_service.insert_tavily_data(
             cache_key=cache_key,
-            search_result=search_results_unfiltered,
+            search_result=tavily_response,
         )
+
+    search_results_unfiltered = tavily_response["results"]
 
     search_results = []
 
@@ -251,3 +257,78 @@ def post_beatboxer_tavily_search():
         "youtube_embed_url": youtube_embed_url,
     }
     return jsonify(data)
+
+
+def translate_tavily_answer(beatboxer_id: int, mode: str, language: str):
+    # まずキャッシュを取得
+    beatboxer_name = get_beatboxer_name(beatboxer_id, mode)
+    cache_key = (
+        f"tavily_search_{re.sub(r'[^a-zA-Z0-9_-]', '_', beatboxer_name.strip())}"
+    )
+
+    # 内部キャッシュを取得
+    from app.main import flask_cache
+
+    # 内部キャッシュがあれば返す
+    internal_cache_answer = flask_cache.get(cache_key + "_answer_translation")
+    if internal_cache_answer:
+        try:
+            return internal_cache_answer[language]
+        except KeyError:
+            pass
+
+    # 外部キャッシュを取得
+    cached_answer = supabase_service.get_tavily_data(
+        cache_key=cache_key, column="answer_translation"
+    )
+
+    # あれば返す
+    if len(cached_answer) > 0:
+        try:
+            # 最初の要素を取得
+            if isinstance(cached_answer, list):
+                cached_answer = cached_answer[0]
+            if isinstance(cached_answer, str):
+                cached_answer = json.loads(cached_answer)
+            translated_answer = cached_answer[language]
+            return translated_answer
+        except KeyError:
+            pass
+
+    # なければ生成
+    search_result = supabase_service.get_tavily_data(cache_key=cache_key)
+    try:
+        if isinstance(search_result["answer"], list):
+            search_result = search_result[0]
+        answer = search_result["answer"]
+    except KeyError:
+        return ""  # answerの生成は他エンドポイントの責任
+
+    # 翻訳
+    prompt = PROMPT_TRANSLATE.format(text=answer, lang=language)
+    response = gemini_service.ask_sync(prompt)
+    if isinstance(response, list):
+        response = response[0]
+    try:
+        translated_answer = response["translated_text"]
+    except Exception:
+        return ""
+
+    # キャッシュに保存
+    cached_answer[language] = translated_answer
+
+    supabase_service.update_translated_answer(
+        cache_key=cache_key,
+        translated_answer=cached_answer,
+    )
+
+    return translated_answer
+
+
+def post_answer_translation():
+    beatboxer_id = request.json.get("beatboxer_id")
+    mode = request.json.get("mode", "single")
+    language = session["language"]
+
+    translated_answer = translate_tavily_answer(beatboxer_id, mode, language)
+    return jsonify({"answer": translated_answer})

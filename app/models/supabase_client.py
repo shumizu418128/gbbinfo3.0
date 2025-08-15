@@ -334,12 +334,13 @@ class SupabaseService:
 
     # 以下、Tavilyのデータを管理するメソッド
 
-    def get_tavily_data(self, cache_key: str):
+    def get_tavily_data(self, cache_key: str, column: str = "search_results"):
         """
         TavilyデータをキャッシュおよびDBから取得するメソッド。
 
         Args:
             cache_key (str): 検索結果を一意に識別するためのキー。
+            column (str): 取得するカラム名。search_results（デフォルト）またはanswer_translation
 
         Returns:
             list: 検索結果のリスト。該当データがなければ空リストを返す。
@@ -353,25 +354,34 @@ class SupabaseService:
         # ここに書かないと循環インポートになる
         from app.main import flask_cache
 
-        search_result = flask_cache.get(cache_key)
+        # 内部キャッシュのみkeyはカラム名を含める
+        search_result = flask_cache.get(cache_key + "_" + column)
         if search_result is not None:
             return search_result
 
-        query = self.admin_client.table("Tavily").select()
-        query = query.eq("cache_key", cache_key)
+        query = (
+            self.admin_client.table("Tavily").select(column).eq("cache_key", cache_key)
+        )
         response = query.execute()
 
         if len(response.data) == 0:
             return []
 
-        response_results = response.data[0]["search_results"]
+        row = response.data[0]
+        response_results = row.get(column)
 
-        if isinstance(response_results, list):
-            flask_cache.set(cache_key, response_results, timeout=None)
-            return response_results
+        # JSON文字列はデコード、Noneは空リストに正規化
+        if isinstance(response_results, str):
+            try:
+                data = json.loads(response_results)
+            except Exception:
+                data = []
         else:
-            flask_cache.set(cache_key, json.loads(response_results), timeout=None)
-            return json.loads(response_results)
+            data = response_results if response_results is not None else []
+
+        # キャッシュに保存（内部キャッシュのみkeyはカラム名を含める）
+        flask_cache.set(cache_key + "_" + column, data, timeout=None)
+        return data
 
     def insert_tavily_data(self, cache_key: str, search_result: dict):
         """Tavily 検索結果を保存する（重複は安全に吸収）
@@ -388,11 +398,11 @@ class SupabaseService:
         from app.main import flask_cache
 
         # 即時にアプリキャッシュへ保存（DB 失敗でもレスポンスは可能）
-        flask_cache.set(cache_key, search_result, timeout=None)
+        flask_cache.set(cache_key + "_search_results", search_result, timeout=None)
 
         data = {
             "cache_key": cache_key,
-            "search_results": json.dumps(search_result),
+            "search_results": json.dumps(search_result, ensure_ascii=False),
         }
 
         # 失敗してもエラーにはしない
@@ -400,6 +410,29 @@ class SupabaseService:
             self.admin_client.table("Tavily").insert(data).execute()
         except APIError:
             pass
+
+    def update_translated_answer(self, cache_key: str, translated_answer: dict):
+        """
+        翻訳済み回答を更新するメソッド。
+        """
+        # ここに書かないと循環インポートになる
+        from app.main import flask_cache
+
+        payload = {
+            "answer_translation": json.dumps(translated_answer, ensure_ascii=False),
+        }
+        try:
+            self.admin_client.table("Tavily").update(payload).eq(
+                "cache_key", cache_key
+            ).execute()
+        except APIError:
+            # DB失敗は握りつぶす（次回以降で再試行）
+            pass
+        finally:
+            # アプリ内キャッシュを最新化
+            flask_cache.set(
+                cache_key + "_answer_translation", translated_answer, timeout=None
+            )
 
 
 # グローバルインスタンス

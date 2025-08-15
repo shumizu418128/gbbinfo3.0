@@ -15,6 +15,7 @@ TRANSLATED_URLS = set()
 is_gbb_ended_cache = {}
 
 
+# MARK: 年度一覧
 def get_available_years():
     """
     年度一覧を取得する関数。
@@ -37,6 +38,7 @@ def get_available_years():
     return AVAILABLE_YEARS
 
 
+# MARK: 翻訳済URL
 def get_translated_urls():
     r"""
     英語（en）のmessages.poファイルから、翻訳済みページのURLパス一覧を取得する内部関数。
@@ -118,6 +120,7 @@ def get_translated_urls():
     return TRANSLATED_URLS
 
 
+# MARK: 最新年度
 def is_latest_year(year):
     """
     指定された年度が最新年度または今年であるかを判定します。
@@ -134,6 +137,7 @@ def is_latest_year(year):
     return now <= year <= latest_year
 
 
+# MARK: 試験公開年度
 def is_early_access(year):
     """
     指定された年度が、試験公開年度かを判定します。
@@ -149,6 +153,7 @@ def is_early_access(year):
     return year > now
 
 
+# MARK: 翻訳対応可否
 def is_translated(url, language, translated_urls):
     """
     指定されたURLが翻訳ファイルに存在するかを判定する。
@@ -168,6 +173,7 @@ def is_translated(url, language, translated_urls):
     return url in translated_urls
 
 
+# MARK: GBB終了年度
 def is_gbb_ended(year):
     """
     指定された年度がGBB終了年度かを判定します。
@@ -213,6 +219,7 @@ def is_gbb_ended(year):
     return is_gbb_ended_cache[year]
 
 
+# MARK: 共通変数
 def common_variables(
     BABEL_SUPPORTED_LOCALES,
     LANGUAGES,
@@ -272,6 +279,7 @@ def common_variables(
     }
 
 
+# MARK: 言語設定
 def get_locale(BABEL_SUPPORTED_LOCALES):
     """
     ユーザーの言語設定を取得します。
@@ -288,6 +296,7 @@ def get_locale(BABEL_SUPPORTED_LOCALES):
     return session["language"]
 
 
+# MARK: b4 req
 def set_request_data(BABEL_SUPPORTED_LOCALES):
     """
     リクエストごとに実行される関数。
@@ -310,6 +319,7 @@ def set_request_data(BABEL_SUPPORTED_LOCALES):
         session["language"] = best_match if best_match else "ja"
 
 
+# MARK: 初期化タスク
 def initialize_background_tasks(BABEL_SUPPORTED_LOCALES):
     """
     アプリケーション起動時にバックグラウンドで実行する初期化タスクをまとめて起動します。

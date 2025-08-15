@@ -8,7 +8,7 @@ from rapidfuzz import process
 
 from app.models.gemini_client import gemini_service
 from app.models.spreadsheet_client import spreadsheet_service
-from app.views.config.gemini_search_config import SEARCH_CACHE
+from app.views.config.gemini_search_config import PROMPT, SEARCH_CACHE
 
 HIRAGANA = "H"
 KATAKANA = "K"
@@ -119,7 +119,10 @@ def post_gemini_search(year: int, IS_LOCAL: bool, IS_PULL_REQUEST: bool):
         # 最大5回リトライ
         retry = 5
         for _ in range(retry):
-            gemini_response = gemini_service.ask_sync(year, question)
+            print(f"question: {question}", flush=True)
+            prompt = PROMPT.format(year=year, question=question)
+
+            gemini_response = gemini_service.ask_sync(prompt)
             if gemini_response:
                 url = create_url(
                     year,
@@ -139,6 +142,7 @@ def post_gemini_search(year: int, IS_LOCAL: bool, IS_PULL_REQUEST: bool):
         "url": url,
     }
     return jsonify(response)
+
 
 def post_gemini_search_suggestion():
     """

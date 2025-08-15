@@ -97,7 +97,7 @@ if os.getenv("ENVIRONMENT_CHECK") == "qawsedrftgyhujikolp":
 else:
     app.config.from_object(Config)
     IS_LOCAL = False
-    IS_PULL_REQUEST = os.getenv("IS_PULL_REQUEST") == "True"
+    IS_PULL_REQUEST = os.getenv("IS_PULL_REQUEST") == "true"
 
 flask_cache = Cache(app)
 babel = Babel(app)
@@ -168,6 +168,12 @@ app.add_url_rule(
     "/<int:year>/search_participants",
     "search_participants",
     search_participants.post_search_participants,
+    methods=["POST"],
+)
+app.add_url_rule(
+    "/answer_translation",
+    "answer_translation",
+    beatboxer_tavily_search.post_answer_translation,
     methods=["POST"],
 )
 

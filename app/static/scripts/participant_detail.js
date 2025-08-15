@@ -5,24 +5,20 @@ function embedYouTubeVideo(videoUrl) {
     const youtubeContainer = document.querySelector('.youtube-embed-video');
 
     if (videoUrl && youtubeContainer) {
-        // YouTube動画を左右方向中央に配置する（16:9アスペクト比維持）
         const wrapper = document.createElement('div');
         wrapper.style.display = 'flex';
         wrapper.style.justifyContent = 'center';
         wrapper.style.alignItems = 'center';
         wrapper.style.width = '100%';
 
-        // 16:9アスペクト比を維持するコンテナ
         const aspectRatioContainer = document.createElement('div');
         aspectRatioContainer.style.position = 'relative';
         aspectRatioContainer.style.width = '100%';
         aspectRatioContainer.style.maxWidth = '560px';
 
-        // モダンブラウザではaspect-ratioを使用
         if (CSS.supports('aspect-ratio', '16 / 9')) {
             aspectRatioContainer.style.aspectRatio = '16 / 9';
         } else {
-            // 古いブラウザ向けのフォールバック（paddingトリック）
             aspectRatioContainer.style.paddingBottom = '56.25%'; // 9/16 * 100%
             aspectRatioContainer.style.height = '0';
         }
@@ -88,14 +84,10 @@ function tavilySearch(beatboxerId, mode) {
 
     if (!accountUrlsContainer || !finalUrlsContainer) {
         console.error('account-urls または final-urls 要素が見つかりません');
-        return;
+        return Promise.reject(new Error('必要な要素が見つかりません'));
     }
-
-    // ローディング表示
     finalUrlsContainer.innerHTML = '<p>loading...</p>';
-
-    // POSTリクエストでTavily検索を実行（JSON）
-    fetch('/beatboxer_tavily_search', {
+    return fetch('/beatboxer_tavily_search', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -112,19 +104,14 @@ function tavilySearch(beatboxerId, mode) {
         return response.json();
     })
     .then(data => {
-        // YouTube動画の埋め込み
         if (data.youtube_embed_url) {
             embedYouTubeVideo(data.youtube_embed_url);
         }
-
-        // アカウントURLの表示
         if (data.account_urls && data.account_urls.length > 0) {
             accountUrlsContainer.innerHTML = createSearchResultHTML(data.account_urls, 'SNS');
         } else {
             accountUrlsContainer.innerHTML = '';
         }
-
-        // その他のURLの表示
         if (data.final_urls && data.final_urls.length > 0) {
             finalUrlsContainer.innerHTML = createSearchResultHTML(data.final_urls, 'WEB');
         } else {
@@ -134,5 +121,44 @@ function tavilySearch(beatboxerId, mode) {
     .catch(error => {
         console.error('Tavily検索エラー:', error);
         finalUrlsContainer.innerHTML = '<p>関連サイトを取得できませんでした。</p>';
+        throw error;
     });
+}
+
+function answerTranslation(beatboxerId, mode) {
+    const answerContainer = document.querySelector('.answer');
+    if (!answerContainer) {
+        console.error('answer 要素が見つかりません');
+        return;
+    }
+    fetch('/answer_translation', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            beatboxer_id: beatboxerId,
+            mode: mode
+        })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        const text = data.answer || "";
+        answerContainer.innerHTML = `<div class="post-it"></div>`;
+        const postIt = answerContainer.querySelector('.post-it');
+        let i = 0;
+        function typeWriter() {
+            if (i < text.length) {
+                postIt.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 20);
+            }
+        }
+        typeWriter();
+    })
 }

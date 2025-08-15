@@ -7,7 +7,6 @@ from asyncio_throttle import Throttler
 from google import genai
 
 from app.models.config.gemini_config import (
-    PROMPT,
     SAFETY_SETTINGS_BLOCK_ONLY_HIGH,
 )
 
@@ -38,14 +37,13 @@ class GeminiService:
             self._client = genai.Client(api_key=api_key)
         return self._client
 
-    async def ask(self, year: int, question: str):
+    async def ask(self, prompt: str):
         """
         Gemini APIに質問を送信するメソッド。
         グローバルなレート制限で2秒間隔を保証します。
 
         Args:
-            year (int): 質問が関連する年。
-            question (str): ユーザーからの質問。
+            prompt (str): ユーザーからの質問。
 
         Returns:
             dict: Gemini APIからのレスポンスを辞書形式で返す
@@ -54,7 +52,7 @@ class GeminiService:
         from app.main import flask_cache
 
         # キャッシュキーを生成
-        cache_key = "gemini_search_" + hashlib.md5(question.encode("utf-8")).hexdigest()
+        cache_key = "gemini_search_" + hashlib.md5(prompt.encode("utf-8")).hexdigest()
 
         # キャッシュから取得を試行 あるなら返す
         cached_data = flask_cache.get(cache_key)
@@ -63,14 +61,10 @@ class GeminiService:
 
         async with limiter:
             try:
-                # プロンプトに必要事項を埋め込む
-                prompt_formatted = PROMPT.format(year=year, question=question)
-                print(f"question: {question}", flush=True)
-
                 # メッセージを送信
                 response = await self.client.aio.models.generate_content(
                     model="gemini-2.0-flash-lite",
-                    contents=prompt_formatted,
+                    contents=prompt,
                     config={
                         "response_mime_type": "application/json",
                         "safety_settings": SAFETY_SETTINGS_BLOCK_ONLY_HIGH,
@@ -78,12 +72,12 @@ class GeminiService:
                 )
 
                 # レスポンスをダブルクォーテーションに置き換え
-                response_text = response.text.replace("'", '"')
+                response_text = response.text.replace("'", '"').replace(
+                    "https://gbbinfo-jpn.onrender.com", ""
+                )
 
                 # レスポンスをJSONに変換
-                response_dict = json.loads(
-                    response_text.replace("https://gbbinfo-jpn.onrender.com", "")
-                )
+                response_dict = json.loads(response_text)
 
                 # リスト形式の場合は最初の要素を取得
                 if isinstance(response_dict, list) and len(response_dict) > 0:
@@ -94,10 +88,16 @@ class GeminiService:
 
             except Exception as e:
                 print(f"GeminiService ask API呼び出し失敗: {e}", flush=True)
+                # response_textとresponseが定義されている場合のみ出力
+                try:
+                    print(f"処理済みレスポンス: {response_text}", flush=True)
+                    print(f"元のレスポンス: {response.text}", flush=True)
+                except NameError:
+                    print("レスポンスの処理前にエラーが発生しました", flush=True)
                 return {}
 
-    def ask_sync(self, year: int, question: str):
-        return asyncio.run(self.ask(year, question))
+    def ask_sync(self, prompt: str):
+        return asyncio.run(self.ask(prompt))
 
 
 # グローバルインスタンス

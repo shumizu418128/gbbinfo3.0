@@ -115,6 +115,8 @@
     </table>
 {% endif %}
 
+<div class="answer"></div>
+
 <div class="button-container">
     <a href="/{{beatboxer_detail.year}}/participants"><button>GBB {{ beatboxer_detail.year }} {{_("全出場者一覧")}}<br></button></a>
     <a href="/{{beatboxer_detail.year}}/top"><button>GBB {{ beatboxer_detail.year }} {{_("これだけガイド")}}</button></a>
@@ -239,7 +241,9 @@
 <script>
     const beatboxerId = {{ beatboxer_detail.id }};
     const mode = "{{ mode }}";
-    tavilySearch(beatboxerId, mode);
+    tavilySearch(beatboxerId, mode).finally(() => {
+        answerTranslation(beatboxerId, mode);
+    });
 </script>
 
 {% endblock %}
