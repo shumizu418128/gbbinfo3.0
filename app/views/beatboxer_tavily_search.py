@@ -1,3 +1,4 @@
+import json
 import re
 from urllib.parse import parse_qs, urlparse
 
@@ -271,8 +272,11 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language: str):
     # あれば返す
     if len(cached_answer) > 0:
         try:
-            # 要素1つのリストになっているはずなので、最初の要素を取得
-            cached_answer = cached_answer[0]
+            # 最初の要素を取得
+            if isinstance(cached_answer, list):
+                cached_answer = cached_answer[0]
+            if isinstance(cached_answer, str):
+                cached_answer = json.loads(cached_answer)
             translated_answer = cached_answer[language]
             return translated_answer
         except KeyError:
@@ -281,6 +285,8 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language: str):
     # なければ生成
     search_result = supabase_service.get_tavily_data(cache_key=cache_key)
     try:
+        if isinstance(search_result["answer"], list):
+            search_result = search_result[0]
         answer = search_result["answer"]
     except KeyError:
         return ""  # answerの生成は他エンドポイントの責任

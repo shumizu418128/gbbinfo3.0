@@ -392,7 +392,7 @@ class SupabaseService:
         from app.main import flask_cache
 
         # 即時にアプリキャッシュへ保存（DB 失敗でもレスポンスは可能）
-        flask_cache.set(cache_key, search_result, timeout=None)
+        flask_cache.set(cache_key + "_search_results", search_result, timeout=None)
 
         data = {
             "cache_key": cache_key,

@@ -153,7 +153,7 @@ function answerTranslation(beatboxerId, mode) {
         let i = 0;
         function typeWriter() {
             if (i < text.length) {
-                postIt.innerHTML += text.charAt(i);
+                postIt.textContent += text.charAt(i);
                 i++;
                 setTimeout(typeWriter, 20);
             }
