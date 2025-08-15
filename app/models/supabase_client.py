@@ -334,12 +334,13 @@ class SupabaseService:
 
     # 以下、Tavilyのデータを管理するメソッド
 
-    def get_tavily_data(self, cache_key: str):
+    def get_tavily_data(self, cache_key: str, column: str = "search_results"):
         """
         TavilyデータをキャッシュおよびDBから取得するメソッド。
 
         Args:
             cache_key (str): 検索結果を一意に識別するためのキー。
+            column (str): 取得するカラム名。search_results（デフォルト）またはanswer_translation
 
         Returns:
             list: 検索結果のリスト。該当データがなければ空リストを返す。
@@ -353,7 +354,8 @@ class SupabaseService:
         # ここに書かないと循環インポートになる
         from app.main import flask_cache
 
-        search_result = flask_cache.get(cache_key)
+        # 内部キャッシュのみkeyはカラム名を含める
+        search_result = flask_cache.get(cache_key + "_" + column)
         if search_result is not None:
             return search_result
 
@@ -364,14 +366,16 @@ class SupabaseService:
         if len(response.data) == 0:
             return []
 
-        response_results = response.data[0]["search_results"]
+        response_results = response.data[0][column]
 
-        if isinstance(response_results, list):
-            flask_cache.set(cache_key, response_results, timeout=None)
-            return response_results
+        # キャッシュに保存 内部キャッシュのみkeyはカラム名を含める
+        if isinstance(response_results, str):
+            data = json.loads(response_results)
         else:
-            flask_cache.set(cache_key, json.loads(response_results), timeout=None)
-            return json.loads(response_results)
+            data = response_results
+
+        flask_cache.set(cache_key + "_" + column, data, timeout=None)
+        return data
 
     def insert_tavily_data(self, cache_key: str, search_result: dict):
         """Tavily 検索結果を保存する（重複は安全に吸収）
@@ -392,7 +396,7 @@ class SupabaseService:
 
         data = {
             "cache_key": cache_key,
-            "search_results": json.dumps(search_result),
+            "search_results": json.dumps(search_result, ensure_ascii=False),
         }
 
         # 失敗してもエラーにはしない
@@ -400,6 +404,16 @@ class SupabaseService:
             self.admin_client.table("Tavily").insert(data).execute()
         except APIError:
             pass
+
+    def update_translated_answer(self, cache_key: str, translated_answer: dict):
+        """
+        翻訳済み回答を更新するメソッド。
+        """
+        self.admin_client.table("Tavily").update(
+            {
+                "answer_translation": json.dumps(translated_answer, ensure_ascii=False),
+            }
+        ).eq("cache_key", cache_key).execute()
 
 
 # グローバルインスタンス

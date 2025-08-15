@@ -43,8 +43,7 @@ class GeminiService:
         グローバルなレート制限で2秒間隔を保証します。
 
         Args:
-            year (int): 質問が関連する年。
-            question (str): ユーザーからの質問。
+            prompt (str): ユーザーからの質問。
 
         Returns:
             dict: Gemini APIからのレスポンスを辞書形式で返す
