@@ -1,13 +1,10 @@
-import json
 import re
 from urllib.parse import parse_qs, urlparse
 
-from flask import jsonify, request, session
+from flask import jsonify, request
 
-from app.models.gemini_client import gemini_service
 from app.models.supabase_client import supabase_service
 from app.models.tavily_client import tavily_service
-from app.views.config.gemini_search_config import PROMPT_TRANSLATE
 
 
 def get_primary_domain(url: str) -> str:
@@ -257,100 +254,3 @@ def post_beatboxer_tavily_search():
         "youtube_embed_url": youtube_embed_url,
     }
     return jsonify(data)
-
-
-def translate_tavily_answer(beatboxer_id: int, mode: str, language: str):
-    # まずキャッシュを取得
-    beatboxer_name = get_beatboxer_name(beatboxer_id, mode)
-    cache_key = (
-        f"tavily_search_{re.sub(r'[^a-zA-Z0-9_-]', '_', beatboxer_name.strip())}"
-    )
-
-    # 内部キャッシュを取得
-    from app.main import flask_cache
-
-    # 内部キャッシュがあれば返す
-    internal_cache_answer = flask_cache.get(cache_key + "_answer_translation")
-    if internal_cache_answer:
-        try:
-            return internal_cache_answer[language]
-        except KeyError:
-            pass
-
-    # 外部キャッシュを取得
-    cached_answer = supabase_service.get_tavily_data(
-        cache_key=cache_key, column="answer_translation"
-    )
-
-    # あれば返す
-    if len(cached_answer) > 0:
-        try:
-            # 最初の要素を取得
-            if isinstance(cached_answer, list):
-                cached_answer = cached_answer[0]
-            if isinstance(cached_answer, str):
-                cached_answer = json.loads(cached_answer)
-            translated_answer = cached_answer[language]
-            return translated_answer
-        except KeyError:
-            pass
-
-    # なければ生成
-    search_result = supabase_service.get_tavily_data(cache_key=cache_key)
-    try:
-        # search_resultがリストの場合、最初の要素を取得
-        if isinstance(search_result, list):
-            if len(search_result) == 0:
-                return ""  # データが存在しない場合
-            search_result = search_result[0]
-
-        # answerフィールドにアクセス
-        answer = search_result["answer"]
-    except (KeyError, TypeError, IndexError):
-        return ""  # answerの生成は他エンドポイントの責任
-
-    # 翻訳
-    prompt = PROMPT_TRANSLATE.format(text=answer, lang=language)
-    response = gemini_service.ask_sync(prompt)
-    if isinstance(response, list):
-        response = response[0]
-    try:
-        translated_answer = response["translated_text"]
-    except Exception:
-        return ""
-
-    # キャッシュに保存
-    # 翻訳結果を保存するためのディクショナリを準備
-    translation_cache = {}
-    # 既存のキャッシュがあれば取得
-    existing_cache = supabase_service.get_tavily_data(
-        cache_key=cache_key, column="answer_translation"
-    )
-    if len(existing_cache) > 0:
-        try:
-            if isinstance(existing_cache, list):
-                existing_cache = existing_cache[0]
-            if isinstance(existing_cache, str):
-                translation_cache = json.loads(existing_cache)
-            elif isinstance(existing_cache, dict):
-                translation_cache = existing_cache
-        except (json.JSONDecodeError, TypeError):
-            translation_cache = {}
-
-    translation_cache[language] = translated_answer
-
-    supabase_service.update_translated_answer(
-        cache_key=cache_key,
-        translated_answer=translation_cache,
-    )
-
-    return translated_answer
-
-
-def post_answer_translation():
-    beatboxer_id = request.json.get("beatboxer_id")
-    mode = request.json.get("mode", "single")
-    language = session["language"]
-
-    translated_answer = translate_tavily_answer(beatboxer_id, mode, language)
-    return jsonify({"answer": translated_answer})

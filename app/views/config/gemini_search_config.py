@@ -123,15 +123,3 @@ https://gbbinfo-jpn.onrender.com/{year}/
 
 # 回答例2
 {{"url": "https://gbbinfo-jpn.onrender.com/{year}/participants", "parameter": "search_participants", "name": "ROFU"}}"""
-
-PROMPT_TRANSLATE = """This text is a biography/introduction of a person.
-Please rewrite it to show maximum respect to the person, and then translate it into {lang}.
-Output only the translated text. Do not output the rewritten text.
-
-Text to translate: {text}
-
-response_schema:
-{{
-    "translated_text": "translated into {lang}"
-}}
-"""

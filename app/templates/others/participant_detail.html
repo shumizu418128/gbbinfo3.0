@@ -241,9 +241,7 @@
 <script>
     const beatboxerId = {{ beatboxer_detail.id }};
     const mode = "{{ mode }}";
-    tavilySearch(beatboxerId, mode).finally(() => {
-        answerTranslation(beatboxerId, mode);
-    });
+    tavilySearch(beatboxerId, mode)
 </script>
 
 {% endblock %}
