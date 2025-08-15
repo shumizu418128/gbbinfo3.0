@@ -149,6 +149,9 @@ function answerTranslation(beatboxerId, mode) {
     })
     .then(data => {
         const text = data.answer || "";
+        if (!text) {
+            return;
+        }
         answerContainer.innerHTML = `<div class="post-it"></div>`;
         const postIt = answerContainer.querySelector('.post-it');
         let i = 0;
