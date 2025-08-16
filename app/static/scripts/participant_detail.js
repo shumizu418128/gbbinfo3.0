@@ -124,3 +124,44 @@ function tavilySearch(beatboxerId, mode) {
         throw error;
     });
 }
+
+function answerTranslation(beatboxerId, mode) {
+    const answerContainer = document.querySelector('.answer');
+    if (!answerContainer) {
+        console.error('answer 要素が見つかりません');
+        return;
+    }
+    fetch('/answer_translation', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            beatboxer_id: beatboxerId,
+            mode: mode
+        })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        const text = data.answer || "";
+        if (!text) {
+            return;
+        }
+        answerContainer.innerHTML = `<div class="post-it"></div>`;
+        const postIt = answerContainer.querySelector('.post-it');
+        let i = 0;
+        function typeWriter() {
+            if (i < text.length) {
+                postIt.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 20);
+            }
+        }
+        typeWriter();
+    });
+}

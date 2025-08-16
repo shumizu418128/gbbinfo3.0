@@ -7,7 +7,6 @@ EXCLUDE_DOMAINS = [
     "tiktok.com",
     "reddit.com",
     "swissbeatbox.com",
-    "onrender.com",
     "wikipedia.org",
     "swiki.jp",
 ]
@@ -31,7 +30,7 @@ class TavilyService:
         query = f"{beatboxer_name} beatbox"
         result = self.client.search(
             query=query,
-            max_results=10,
+            max_results=12,
             include_answer="basic",
             include_favicon=True,
             exclude_domains=EXCLUDE_DOMAINS,

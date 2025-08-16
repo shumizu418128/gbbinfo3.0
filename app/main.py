@@ -170,6 +170,12 @@ app.add_url_rule(
     search_participants.post_search_participants,
     methods=["POST"],
 )
+app.add_url_rule(
+    "/answer_translation",
+    "answer_translation",
+    beatboxer_tavily_search.post_answer_translation,
+    methods=["POST"],
+)
 
 # 要データ取得
 app.add_url_rule("/<int:year>/world_map", "world_map", world_map.world_map_view)
