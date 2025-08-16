@@ -10,6 +10,7 @@ from app.util.participant_edit import team_multi_country, wildcard_rank_sort
 from . import common
 
 
+# MARK: 出場者詳細
 def participant_detail_view():
     """出場者詳細ページのビュー関数。
 

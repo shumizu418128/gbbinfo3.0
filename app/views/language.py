@@ -3,6 +3,7 @@ from urllib.parse import urlparse
 from flask import redirect, request, session
 
 
+# MARK: URL結合
 def build_path_with_query_and_fragment(parsed):
     """URLのパス、クエリ、フラグメントを結合して返す。
 
@@ -24,6 +25,7 @@ def is_same_origin(parsed):
     return parsed.scheme in ("http", "https") and parsed.netloc == request.host
 
 
+# MARK: 言語変更
 def change_language(BABEL_SUPPORTED_LOCALES: list[str]):
     """言語を変更し、安全に元のページへリダイレクトする。
 

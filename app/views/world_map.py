@@ -7,6 +7,7 @@ from flask import render_template, session
 from app.models.supabase_client import supabase_service
 
 
+# MARK: 世界地図
 def world_map_view(year: int):
     """指定された年のワールドマップを生成し、テンプレートをレンダリングするビュー関数。
 

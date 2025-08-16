@@ -7,6 +7,7 @@ from jinja2 import TemplateNotFound
 from app.context_processors import get_available_years
 
 
+# MARK: トップ遷移
 def top_redirect_view():
     """
     最新の年度のトップページへリダイレクトするビュー。
@@ -25,6 +26,7 @@ def top_redirect_view():
     return redirect(f"/{latest_year}/top")
 
 
+# MARK: 共通ビュー
 def content_view(year: int, content: str):
     """
     共通のビュー処理。特定のコンテンツを年度ごとに表示する。
@@ -49,6 +51,7 @@ def content_view(year: int, content: str):
         return not_found_page_view()
 
 
+# MARK: 2022ビュー
 def content_2022_view(content: str):
     """
     2022年の特定のコンテンツを表示するビュー。
@@ -70,6 +73,7 @@ def content_2022_view(content: str):
         return render_template("/common/404.html"), 404
 
 
+# MARK: others
 def other_content_view(content: str):
     """
     その他のコンテンツを表示する。
@@ -82,6 +86,7 @@ def other_content_view(content: str):
         return render_template("/common/404.html"), 404
 
 
+# MARK: 404
 def not_found_page_view():
     """
     404ページを表示する。

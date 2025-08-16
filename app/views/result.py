@@ -6,6 +6,7 @@ from app.models.supabase_client import supabase_service
 from app.util.filter_eq import Operator
 
 
+# MARK: 大会結果
 def result_view(year: int):
     """指定された年の大会結果ページを表示するビュー関数。
 

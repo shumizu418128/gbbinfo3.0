@@ -5,6 +5,7 @@ from app.models.supabase_client import supabase_service
 from app.util.filter_eq import Operator
 
 
+# MARK: 出場者検索
 def post_search_participants(year: int):
     """
     指定された年の参加者情報をキーワードで検索し、結果をJSONで返す。

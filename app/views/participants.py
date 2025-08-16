@@ -8,7 +8,7 @@ VALID_TICKET_CLASSES = ["all", "wildcard", "seed_right"]
 VALID_CANCEL = ["show", "hide", "only_cancelled"]
 
 
-# MARK: 出場者ページ
+# MARK: 出場者
 def participants_view(year: int):
     """
     指定された年度の出場者ページを表示します。
@@ -150,7 +150,7 @@ def participants_view(year: int):
     return render_template("common/participants.html", **context)
 
 
-# MARK: 国別出場者ページ
+# MARK: 国別出場者
 def participants_country_specific_view(year: int):
     """指定された年とURLから取得した国名に基づいて、該当国の出場者リストを取得し、テンプレートにレンダリングするビュー関数。
 

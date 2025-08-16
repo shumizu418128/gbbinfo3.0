@@ -86,6 +86,7 @@ def create_url(year: int, url: str, parameter: str | None, name: str | None):
     return response_url
 
 
+# MARK: gemini
 def post_gemini_search(year: int, IS_LOCAL: bool, IS_PULL_REQUEST: bool):
     """Gemini検索APIのエンドポイント。
 
@@ -144,6 +145,7 @@ def post_gemini_search(year: int, IS_LOCAL: bool, IS_PULL_REQUEST: bool):
     return jsonify(response)
 
 
+# MARK: suggest
 def post_gemini_search_suggestion():
     """
     Gemini検索サジェストAPIエンドポイント。

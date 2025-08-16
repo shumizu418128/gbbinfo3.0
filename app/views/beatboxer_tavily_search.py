@@ -7,6 +7,7 @@ from app.models.supabase_client import supabase_service
 from app.models.tavily_client import tavily_service
 
 
+# MARK: ドメイン取得
 def get_primary_domain(url: str) -> str:
     """
     指定されたURLからプライマリドメイン（例: example.com）を抽出します。
@@ -26,6 +27,7 @@ def get_primary_domain(url: str) -> str:
         return full_domain
 
 
+# MARK: 出場者名取得
 def get_beatboxer_name(beatboxer_id: int, mode: str = "single"):
     """
     出場者IDから出場者名を取得し、大文字で返します。
@@ -60,6 +62,7 @@ def get_beatboxer_name(beatboxer_id: int, mode: str = "single"):
     return beatboxer_name
 
 
+# MARK: 動画ID取得
 def extract_youtube_video_id(url):
     """YouTubeのURLからvideo_idを抽出する。
 
@@ -87,6 +90,7 @@ def extract_youtube_video_id(url):
     return None
 
 
+# MARK: Tavily検索
 def beatboxer_tavily_search(
     beatboxer_id: int | None = None,
     beatboxer_name: str | None = None,
@@ -228,6 +232,7 @@ def beatboxer_tavily_search(
     return result
 
 
+# MARK: POST req
 def post_beatboxer_tavily_search():
     """
     ビートボクサーの検索リクエストを処理し、関連するURLとアカウント情報を取得します。

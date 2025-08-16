@@ -5,6 +5,7 @@ from app.models.supabase_client import supabase_service
 from app.util.filter_eq import Operator
 
 
+# MARK: ルール
 def rules_view(year: int):
     """
     指定された年度のルールページに表示するシード権獲得者リストを取得し、テンプレートに渡して表示します。
