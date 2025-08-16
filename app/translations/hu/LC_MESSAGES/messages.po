@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-10 16:56+0900\n"
+"POT-Creation-Date: 2025-08-16 15:01+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: hu <LL@li.org>\n"
@@ -33,12 +33,12 @@ msgstr ""
 #: templates/2024/time_schedule.html:43 templates/2024/time_schedule.html:157
 #: templates/2024/time_schedule.html:287 templates/2024/top.html:3
 #: templates/2024/top.html:4 templates/2024/top.html:5
-#: templates/2024/top.html:25 templates/2024/top.html:44
-#: templates/2024/top.html:99 templates/2024/top_7tosmoke.html:24
-#: templates/2025/time_schedule.html:147 templates/2025/top.html:3
-#: templates/2025/top.html:4 templates/2025/top.html:5
-#: templates/2025/top.html:25 templates/2025/top.html:100
-#: templates/2025/top.html:170 templates/2025/top_7tosmoke.html:24
+#: templates/2024/top.html:36 templates/2024/top.html:91
+#: templates/2024/top_7tosmoke.html:24 templates/2025/time_schedule.html:147
+#: templates/2025/top.html:3 templates/2025/top.html:4
+#: templates/2025/top.html:5 templates/2025/top.html:25
+#: templates/2025/top.html:100 templates/2025/top.html:170
+#: templates/2025/top_7tosmoke.html:24
 #: templates/2025/wildcard_regulation.html:20
 #: templates/2025/wildcard_regulation.html:21
 #: templates/2025/wildcard_regulation.html:55
@@ -54,12 +54,12 @@ msgstr ""
 #: templates/2025/wildcard_regulation.html:251
 #: templates/2025/wildcard_regulation.html:252 templates/base.html:118
 #: templates/base.html:147 templates/base.html:261
-#: templates/others/participant_detail.html:120
+#: templates/others/participant_detail.html:122
 msgid "これだけガイド"
 msgstr "Útmutató"
 
 #: templates/2024/rule.html:220 templates/2024/time_schedule.html:99
-#: templates/2024/time_schedule.html:229 templates/2024/top.html:55
+#: templates/2024/time_schedule.html:229 templates/2024/top.html:47
 #: templates/2025/rule.html:67 templates/2025/rule.html:220
 #: templates/2025/rule.html:331 templates/2025/ticket.html:26
 #: templates/2025/time_schedule.html:91 templates/2025/top.html:105
@@ -71,7 +71,7 @@ msgstr "Útmutató"
 msgid "Wildcard結果"
 msgstr "Wildcard eredmények"
 
-#: templates/2024/top.html:55 templates/2025/rule.html:67
+#: templates/2024/top.html:47 templates/2025/rule.html:67
 #: templates/2025/rule.html:331 templates/2025/ticket.html:26
 #: templates/2025/time_schedule.html:91 templates/2025/top.html:105
 #: templates/2025/wildcards.html:14 templates/2025/wildcards.html:83
@@ -82,7 +82,7 @@ msgstr "résztvevő"
 
 #: templates/2024/rule.html:3 templates/2024/rule.html:4
 #: templates/2024/rule.html:5 templates/2024/rule.html:9
-#: templates/2024/rule.html:235 templates/2024/top.html:59
+#: templates/2024/rule.html:235 templates/2024/top.html:51
 #: templates/2025/rule.html:3 templates/2025/rule.html:4
 #: templates/2025/rule.html:5 templates/2025/rule.html:9
 #: templates/2025/rule.html:237 templates/2025/time_schedule.html:63
@@ -95,7 +95,7 @@ msgid "ルール"
 msgstr "Szabályok"
 
 #: templates/2024/rule.html:280 templates/2024/rule.html:325
-#: templates/2024/top.html:59 templates/2025/rule.html:298
+#: templates/2024/top.html:51 templates/2025/rule.html:298
 #: templates/2025/rule.html:340 templates/2025/time_schedule.html:63
 #: templates/2025/top.html:67 templates/2025/top.html:109
 #: templates/2025/wildcards.html:15 templates/2025/wildcards.html:84
@@ -108,7 +108,7 @@ msgstr "zsűri"
 #: templates/2024/rule.html:268 templates/2024/rule.html:313
 #: templates/2024/stream.html:42 templates/2024/time_schedule.html:42
 #: templates/2024/time_schedule.html:156 templates/2024/time_schedule.html:286
-#: templates/2024/top.html:63 templates/2024/top_7tosmoke.html:36
+#: templates/2024/top.html:55 templates/2024/top_7tosmoke.html:36
 #: templates/2025/rule.html:18 templates/2025/rule.html:66
 #: templates/2025/rule.html:228 templates/2025/rule.html:285
 #: templates/2025/rule.html:330 templates/2025/rule.html:372
@@ -122,7 +122,7 @@ msgstr "Helyszíni megtekintési terv készítése"
 #: templates/2024/stream.html:41 templates/2024/time_schedule.html:3
 #: templates/2024/time_schedule.html:4 templates/2024/time_schedule.html:5
 #: templates/2024/time_schedule.html:9 templates/2024/top.html:17
-#: templates/2024/top.html:67 templates/2024/top_7tosmoke.html:37
+#: templates/2024/top.html:59 templates/2024/top_7tosmoke.html:37
 #: templates/2025/ticket.html:28 templates/2025/time_schedule.html:3
 #: templates/2025/time_schedule.html:4 templates/2025/time_schedule.html:5
 #: templates/2025/time_schedule.html:10 templates/2025/top.html:17
@@ -131,26 +131,26 @@ msgstr "Helyszíni megtekintési terv készítése"
 msgid "タイムスケジュール"
 msgstr "időbeosztás"
 
-#: templates/2024/top.html:73 templates/2025/rule.html:229
+#: templates/2024/top.html:65 templates/2025/rule.html:229
 #: templates/2025/ticket.html:27 templates/2025/time_schedule.html:119
 #: templates/2025/top.html:129 templates/2025/wildcards.html:113
 #: templates/base.html:125 templates/common/japan.html:3
 #: templates/common/japan.html:4 templates/common/japan.html:5
-#: templates/common/japan.html:9 templates/others/participant_detail.html:233
+#: templates/common/japan.html:9 templates/others/participant_detail.html:238
 #: templates/others/translation.html:21
 msgid "日本代表"
 msgstr "Japán válogatott"
 
 #: templates/2024/ticket.html:11 templates/2024/ticket.html:17
-#: templates/2024/top.html:77 templates/2024/top.html:133
-#: templates/2024/top.html:137 templates/2025/ticket.html:11
+#: templates/2024/top.html:69 templates/2024/top.html:125
+#: templates/2024/top.html:129 templates/2025/ticket.html:11
 #: templates/2025/ticket.html:12 templates/2025/top.html:134
 #: templates/2025/top.html:209 templates/2025/top.html:213
 #: templates/base.html:126
 msgid "会場"
 msgstr "helyszín"
 
-#: templates/2024/ticket.html:19 templates/2024/top.html:77
+#: templates/2024/ticket.html:19 templates/2024/top.html:69
 #: templates/2025/ticket.html:13 templates/2025/top.html:134
 #: templates/base.html:126
 msgid "チケット"
@@ -158,7 +158,7 @@ msgstr "jegy"
 
 #: templates/2024/stream.html:3 templates/2024/stream.html:4
 #: templates/2024/stream.html:5 templates/2024/stream.html:9
-#: templates/2024/top.html:81 templates/2024/top_7tosmoke.html:38
+#: templates/2024/top.html:73 templates/2024/top_7tosmoke.html:38
 #: templates/2025/stream.html:3 templates/2025/stream.html:4
 #: templates/2025/stream.html:5 templates/2025/stream.html:9
 #: templates/2025/time_schedule.html:90 templates/2025/top.html:138
@@ -167,13 +167,13 @@ msgstr "jegy"
 msgid "当日配信"
 msgstr "Élő közvetítés"
 
-#: templates/2024/top.html:85 templates/2025/top.html:80
+#: templates/2024/top.html:77 templates/2025/top.html:80
 #: templates/2025/top.html:81 templates/2025/top.html:142
 #: templates/base.html:130 templates/common/result.html:3
 #: templates/common/result.html:4 templates/common/result.html:5
-#: templates/common/result.html:9 templates/others/participant_detail.html:155
-#: templates/others/participant_detail.html:162
-#: templates/others/participant_detail.html:235
+#: templates/common/result.html:9 templates/others/participant_detail.html:157
+#: templates/others/participant_detail.html:164
+#: templates/others/participant_detail.html:240
 #: templates/others/translation.html:24
 msgid "大会結果"
 msgstr "Eredmények"
@@ -225,7 +225,7 @@ msgstr "Itt kereshet a GBB legfrissebb információira."
 msgid "GBB {year} について検索してみよう"
 msgstr "Keressünk rá GBB {year}-ről."
 
-#: templates/2024/top.html:38 templates/2024/top_7tosmoke.html:18
+#: templates/2024/top.html:30 templates/2024/top_7tosmoke.html:18
 #: templates/2025/top.html:38 templates/2025/top_7tosmoke.html:18
 #: templates/base.html:242 templates/includes/bottom_navigation.html:52
 msgid "例：現地観戦計画のたてかた"
@@ -365,7 +365,7 @@ msgstr "Kérjük, mindenképpen ellenőrizze újra a szabályokat."
 #: templates/2025/wildcard_regulation.html:199 templates/common/japan.html:22
 #: templates/common/korea.html:22 templates/common/participants.html:119
 #: templates/others/participant_detail.html:27
-#: templates/others/participant_detail.html:130
+#: templates/others/participant_detail.html:132
 msgid "部門"
 msgstr "Osztály"
 
@@ -419,8 +419,8 @@ msgstr "Kiemelt - GBB"
 #: templates/common/korea.html:21 templates/common/participants.html:44
 #: templates/common/participants.html:118 templates/common/result.html:51
 #: templates/others/participant_detail.html:59
-#: templates/others/participant_detail.html:129
-#: templates/others/participant_detail.html:189
+#: templates/others/participant_detail.html:131
+#: templates/others/participant_detail.html:194
 msgid "名前"
 msgstr "név"
 
@@ -431,19 +431,18 @@ msgstr "név"
 #: templates/common/participants.html:46
 #: templates/common/participants.html:120
 #: templates/others/participant_detail.html:43
-#: templates/others/participant_detail.html:191
+#: templates/others/participant_detail.html:196
 msgid "出場権"
 msgstr "felvételi jogosultság"
 
 #: templates/2024/rule.html:160 templates/2024/rule.html:186
 #: templates/2024/rule.html:216 templates/2025/rule.html:156
 #: templates/2025/rule.html:186 templates/2025/rule.html:216
-#: templates/2025/rule.html:316 templates/2025/stream.html:15
-#: templates/2025/time_schedule.html:56 templates/2025/time_schedule.html:84
-#: templates/2025/time_schedule.html:112 templates/2025/time_schedule.html:132
-#: templates/2025/time_schedule.html:136 templates/2025/time_schedule.html:140
-#: templates/common/participants.html:19 templates/common/participants.html:83
-#: templates/common/result.html:65
+#: templates/2025/stream.html:15 templates/2025/time_schedule.html:56
+#: templates/2025/time_schedule.html:84 templates/2025/time_schedule.html:112
+#: templates/2025/time_schedule.html:132 templates/2025/time_schedule.html:136
+#: templates/2025/time_schedule.html:140 templates/common/participants.html:19
+#: templates/common/participants.html:83 templates/common/result.html:65
 msgid "～発表次第更新～"
 msgstr "A bejelentés után frissítve"
 
@@ -463,15 +462,15 @@ msgstr "A magvetésjogot visszautasítók listája"
 #: templates/others/participant_detail.html:80
 #: templates/others/participant_detail.html:89
 #: templates/others/participant_detail.html:109
-#: templates/others/participant_detail.html:138
-#: templates/others/participant_detail.html:199
+#: templates/others/participant_detail.html:140
+#: templates/others/participant_detail.html:204
 msgid "辞退"
 msgstr "visszautasítás"
 
 #: templates/2024/rule.html:221 templates/2024/time_schedule.html:100
 #: templates/2024/time_schedule.html:230 templates/2025/rule.html:221
-#: templates/others/participant_detail.html:154
-#: templates/others/participant_detail.html:161
+#: templates/others/participant_detail.html:156
+#: templates/others/participant_detail.html:163
 msgid "出場者一覧"
 msgstr "Résztvevők listája"
 
@@ -741,43 +740,30 @@ msgstr "A szereplők fellépési dátumai nem ismertek."
 msgid "開催日"
 msgstr "Dátum"
 
-#: templates/2024/top.html:22 templates/2025/top.html:22
-#: templates/includes/ended.html:5 templates/includes/popup_ended.html:8
-msgid "終了しました"
-msgstr "Befejeztem"
-
-#: templates/2024/top.html:22 templates/2025/top.html:22
-msgid "ページ 先行公開中！"
-msgstr "Előzetes közzététel!"
-
-#: templates/2024/top.html:25 templates/2025/top.html:25
-msgid "先行公開"
-msgstr "Előzetes bemutató"
-
-#: templates/2024/top.html:32 templates/2024/top_7tosmoke.html:12
+#: templates/2024/top.html:24 templates/2024/top_7tosmoke.html:12
 #: templates/2025/top.html:32 templates/2025/top_7tosmoke.html:12
 msgid "公式よりもわかりやすい！"
 msgstr "Képleteknél érthetőbb!"
 
-#: templates/2024/top.html:32 templates/2024/top_7tosmoke.html:12
+#: templates/2024/top.html:24 templates/2024/top_7tosmoke.html:12
 #: templates/2025/top.html:32 templates/2025/top_7tosmoke.html:12
 msgid "非公式情報サイト"
 msgstr "Nem hivatalos információs webhely"
 
-#: templates/2024/top.html:81
+#: templates/2024/top.html:73
 msgid "みんなで鑑賞会"
 msgstr "Nézzük meg együtt"
 
-#: templates/2024/top.html:90 templates/2025/top.html:147
+#: templates/2024/top.html:82 templates/2025/top.html:147
 msgid "当サイトURL変更のお知らせ"
 msgstr "Értesítés a webhely URL-jének megváltozásáról"
 
-#: templates/2024/top.html:91 templates/2025/rule.html:286
+#: templates/2024/top.html:83 templates/2025/rule.html:286
 #: templates/2025/top.html:148
 msgid "Wildcard結果発表配信"
 msgstr "Vadonat eredményhirdető adás"
 
-#: templates/2024/top.html:92 templates/2024/wildcards.html:3
+#: templates/2024/top.html:84 templates/2024/wildcards.html:3
 #: templates/2024/wildcards.html:4 templates/2024/wildcards.html:5
 #: templates/2024/wildcards.html:9 templates/2025/rule.html:19
 #: templates/2025/rule.html:373 templates/2025/top.html:149
@@ -788,55 +774,55 @@ msgstr "Vadonat eredményhirdető adás"
 msgid "Wildcard一覧"
 msgstr "Helyettesítő karakterek listája"
 
-#: templates/2024/top.html:105 templates/2024/top.html:119
+#: templates/2024/top.html:97 templates/2024/top.html:111
 #: templates/2024/top_7tosmoke.html:46 templates/2025/top.html:176
 #: templates/2025/top.html:190 templates/2025/top_7tosmoke.html:48
 msgid "お問い合わせ"
 msgstr "Érdeklődés"
 
-#: templates/2024/top.html:110 templates/2025/top.html:181
+#: templates/2024/top.html:102 templates/2025/top.html:181
 msgid "これらの情報のほかにも、"
 msgstr "Ezeken az információkon kívül is"
 
-#: templates/2024/top.html:112 templates/2025/top.html:183
+#: templates/2024/top.html:104 templates/2025/top.html:183
 msgid "未発表の情報(決まっているが、なぜか公式が発表を渋っている)"
 msgstr ""
 "Nem nyilvános információ (döntés született, de a hivatalos bejelentést "
 "valamiért halogatják)."
 
-#: templates/2024/top.html:113 templates/2025/top.html:184
+#: templates/2024/top.html:105 templates/2025/top.html:184
 msgid "未定事項(そもそも決まってすらいない)"
 msgstr "A még meg nem határozott ügyek (egyáltalán nincs eldöntve)"
 
-#: templates/2024/top.html:115 templates/2025/top.html:186
+#: templates/2024/top.html:107 templates/2025/top.html:186
 msgid "このような情報が多く存在します。"
 msgstr "Rengeteg ilyen információ van."
 
-#: templates/2024/top.html:116 templates/2025/top.html:187
+#: templates/2024/top.html:108 templates/2025/top.html:187
 msgid "GBBの各種情報は、発表が非常に遅いことで有名です。気長に待ちましょう。"
 msgstr ""
 "A GBB különféle információi arról híresek, hogy nagyon lassan jelennek meg. "
 "Legyünk türelmesek."
 
-#: templates/2024/top.html:120 templates/2025/top.html:196
+#: templates/2024/top.html:112 templates/2025/top.html:196
 msgid "過去のGBBにおいて、下記番号に電話したらGBB詳細情報を教えてくれた、という報告が相次ぎました。"
 msgstr ""
 "A múltbeli GBB-kben a következő számot hívva sorra jelentették, hogy "
 "megkapták a GBB részleteit."
 
-#: templates/2024/top.html:124 templates/2025/top.html:200
+#: templates/2024/top.html:116 templates/2025/top.html:200
 msgid "場所"
 msgstr "helyszín"
 
-#: templates/2024/top.html:125 templates/2025/top.html:201
+#: templates/2024/top.html:117 templates/2025/top.html:201
 msgid "電話番号"
 msgstr "telefonszám"
 
-#: templates/2024/top.html:129
+#: templates/2024/top.html:121
 msgid "チケット販売ページ記載の番号"
 msgstr "Jegyértékesítő oldal"
 
-#: templates/2024/top.html:141 templates/2025/top.html:217
+#: templates/2024/top.html:133 templates/2025/top.html:217
 msgid "なお上記電話番号は、当サイトとは無関係です。"
 msgstr "A fenti telefonszám nem kapcsolódik ehhez az oldalhoz."
 
@@ -959,6 +945,19 @@ msgstr ""
 "A GBB24-et kb. 1 hónappal a bemutató előtt tették közzé, de számos elírás "
 "fordult elő."
 
+#: templates/2025/top.html:22 templates/includes/ended.html:5
+#: templates/includes/popup_ended.html:8
+msgid "終了しました"
+msgstr "Befejeztem"
+
+#: templates/2025/top.html:22
+msgid "ページ 先行公開中！"
+msgstr "Előzetes közzététel!"
+
+#: templates/2025/top.html:25
+msgid "先行公開"
+msgstr "Előzetes bemutató"
+
 #: templates/2025/top.html:47 templates/2025/top.html:57
 #: templates/2025/top.html:78
 msgid "注目キーワード"
@@ -1001,8 +1000,8 @@ msgstr "a helyek száma"
 
 #: templates/2025/top.html:83 templates/common/japan.html:48
 #: templates/common/korea.html:60 templates/common/participants.html:29
-#: templates/others/participant_detail.html:119
-#: templates/others/participant_detail.html:229
+#: templates/others/participant_detail.html:121
+#: templates/others/participant_detail.html:234
 msgid "全出場者一覧"
 msgstr "Az összes versenyző listája"
 
@@ -1014,7 +1013,7 @@ msgstr "Bezárás"
 
 #: templates/2025/top.html:124 templates/common/korea.html:3
 #: templates/common/korea.html:4 templates/common/korea.html:5
-#: templates/common/korea.html:9 templates/others/participant_detail.html:231
+#: templates/common/korea.html:9 templates/others/participant_detail.html:236
 msgid "韓国代表"
 msgstr "Koreai válogatott"
 
@@ -1374,7 +1373,7 @@ msgstr "Résztvevők & Lemondók megjelenítése"
 #: templates/others/participant_detail.html:35
 #: templates/others/participant_detail.html:60
 #: templates/others/participant_detail.html:99
-#: templates/others/participant_detail.html:190
+#: templates/others/participant_detail.html:195
 msgid "国"
 msgstr "ország"
 
@@ -1480,29 +1479,33 @@ msgstr ""
 msgid "公式発表をお待ちください。"
 msgstr "Várja meg a hivatalos bejelentést."
 
-#: templates/others/participant_detail.html:123
+#: templates/others/participant_detail.html:125
 msgid "過去の出場履歴"
 msgstr "Korábbi részvételi előzmények"
 
-#: templates/others/participant_detail.html:168
+#: templates/others/participant_detail.html:170
 msgid "関連サイト"
 msgstr "Kapcsolódó weboldalak"
 
-#: templates/others/participant_detail.html:176
+#: templates/others/participant_detail.html:178
 msgid "表示されている関連サイトやSNS情報は、自動検索によって取得されたものです。"
 msgstr ""
 "A megjelenített kapcsolódó webhelyek és közösségi oldalak adatai automatikus"
 " kereséssel kerültek lekérdezésre."
 
-#: templates/others/participant_detail.html:177
+#: templates/others/participant_detail.html:179
 msgid "内容に誤りが含まれている可能性があります。"
 msgstr "A tartalom téves lehet."
 
-#: templates/others/participant_detail.html:182
+#: templates/others/participant_detail.html:184
 msgid "もっと調べる"
 msgstr "Többet szeretnék megtudni"
 
-#: templates/others/participant_detail.html:185
+#: templates/others/participant_detail.html:187
+msgid "ChatGPTに聞く"
+msgstr "Kérdezd meg a ChatGPT-t"
+
+#: templates/others/participant_detail.html:190
 msgid "他の出場者"
 msgstr "Más versenyzők"
 
