@@ -8,7 +8,6 @@ EXCLUDE_DOMAINS = [
     "reddit.com",
     "swissbeatbox.com",
     "onrender.com",
-    "fandom.com",
     "wikipedia.org",
     "swiki.jp",
 ]

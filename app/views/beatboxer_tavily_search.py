@@ -146,7 +146,7 @@ def beatboxer_tavily_search(
     search_results = []
 
     # 禁止ワードが一切含まれないもののみsearch_resultsに追加
-    BAN_WORDS = ["HATEN", "BEATCITY", "JPN CUP"]
+    BAN_WORDS = ["HATEN", "BEATCITY", "JPN CUP", "WIKI"]
     for item in search_results_unfiltered:
         title_upper = item["title"].upper()
         url_upper = item["url"].upper()
