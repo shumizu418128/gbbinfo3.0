@@ -22,8 +22,7 @@ polib==1.2.0
 pydantic==2.10.6
 tqdm==4.67.1
 
-# Rate Limiting and Async
-asyncio-throttle==1.0.2
+# Rate Limiting
 ratelimit==2.2.1
 
 # Google Services
