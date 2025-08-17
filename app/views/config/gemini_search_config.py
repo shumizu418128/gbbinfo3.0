@@ -124,15 +124,11 @@ https://gbbinfo-jpn.onrender.com/{year}/
 # 回答例2
 {{"url": "https://gbbinfo-jpn.onrender.com/{year}/participants", "parameter": "search_participants", "name": "ROFU"}}"""
 
-PROMPT_TRANSLATE = """This text is a biography/introduction of a person.
-Please rewrite it to ensure the expression is not rude or offensive in that language, and then translate it into {lang}.
-Do not translate any person names; keep them in their original English spelling.
-Output only the translated text. Do not output the rewritten text.
-
-Text to translate: {text}
-
-response_schema:
+PROMPT_TRANSLATE = """Translate this text to {lang}.
+Keep names in English. Return JSON only. Strictly follow the JSON format for output:
 {{
-    "translated_text": "translated into {lang}"
+    "translated_text": "translation here"
 }}
+
+Text: {text}
 """
