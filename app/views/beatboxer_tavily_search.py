@@ -100,25 +100,18 @@ def beatboxer_tavily_search(
     mode: str = "single",
 ):
     """
-    指定された出場者IDに基づき、Tavily検索APIを利用して関連するURLリストを取得します。
-
-    検索結果から以下のルールでURLを選定します:
-    1. アカウントURL枠：URLまたはタイトルに「@」が含まれるもの 制限なし
-    2. プライマリドメインごとに最初に出現した検索結果 制限なし
-    3. 上記1,2で3件未満の場合、残りは検索順位順で追加し、最低3件となるようにする
-
-    また、上記とは別に、YouTube動画URLを1件取得
+    ビートボクサーのTavily検索を実行し、検索結果を取得・フィルタリングする関数。
 
     Args:
-        beatboxer_id (int): 検索対象の出場者ID
-        beatboxer_name (str): 検索対象の出場者名
+        beatboxer_id (int | None): ビートボクサーのID。省略可能だが、beatboxer_nameが指定されていない場合は必須。
+        beatboxer_name (str | None): ビートボクサーの名前。省略可能だが、beatboxer_idが指定されていない場合は必須。
+        mode (str): 検索モード（"single" または "team_member" など）。デフォルトは "single"。
 
     Returns:
-        tuple: (アカウントURLリスト, 最終的な選定URLリスト, YouTube動画URL)
+        dict: 検索結果やフィルタリング後の情報を含む辞書。
 
     Raises:
-        IndexError: 指定したIDの出場者が存在しない場合
-
+        ValueError: beatboxer_idとbeatboxer_nameの両方がNoneの場合に発生。
     """
     # パラメータのバリデーション
     if beatboxer_id is None and beatboxer_name is None:
@@ -267,7 +260,26 @@ def post_beatboxer_tavily_search():
     return jsonify(data)
 
 
+# MARK: answer翻訳
 def translate_tavily_answer(beatboxer_id: int, mode: str, language: str):
+    """
+    指定されたビートボクサーID・モード・言語に基づき、Tavily検索結果のanswerを翻訳して返します。
+
+    まず内部キャッシュ（flask_cache）および外部キャッシュ（Supabase）を確認し、既に翻訳済みのanswerがあればそれを返します。
+    キャッシュが存在しない場合は、Tavily検索結果からanswerを取得し、Gemini APIを用いて指定言語に翻訳します。
+    翻訳結果はキャッシュ（Supabase）に保存され、次回以降のリクエストで再利用されます。
+
+    Args:
+        beatboxer_id (int): ビートボクサーのID。
+        mode (str): 取得モード（例: "single", "team_member"）。
+        language (str): 翻訳先の言語コード（例: "ja", "en", "ko"）。
+
+    Returns:
+        str: 指定言語で翻訳されたanswerテキスト。該当データがない場合は空文字列を返します。
+
+    Raises:
+        なし（例外は内部でキャッチされ、空文字列を返します）
+    """
     # まずキャッシュを取得
     beatboxer_name = get_beatboxer_name(beatboxer_id, mode)
     cache_key = (
@@ -354,7 +366,18 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language: str):
     return translated_answer
 
 
+# MARK: 翻訳POST
 def post_answer_translation():
+    """
+    ビートボクサーの検索結果のanswerを翻訳するリクエストを処理します。
+
+    リクエストボディから beatboxer_id と mode を取得し、translate_tavily_answer 関数を呼び出して翻訳を実行します。
+    翻訳結果をJSON形式で返します。
+
+    Returns:
+        JSON: 以下の構造を持つレスポンス
+            - answer: 指定言語で翻訳されたanswerテキスト
+    """
     beatboxer_id = request.json.get("beatboxer_id")
     mode = request.json.get("mode", "single")
     language = session["language"]

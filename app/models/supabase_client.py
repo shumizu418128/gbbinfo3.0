@@ -56,6 +56,7 @@ class SupabaseService:
         self._read_only_client: Optional[Client] = None
         self._admin_client: Optional[Client] = None
 
+    # MARK: read only
     @property
     def read_only_client(self) -> Client:
         """Supabaseクライアントのインスタンスを取得（読み取り専用）
@@ -85,6 +86,7 @@ class SupabaseService:
         """
         self._read_only_client = value
 
+    # MARK: admin
     @property
     def admin_client(self) -> Client:
         """Supabaseクライアントのインスタンスを取得（管理者権限）
@@ -103,6 +105,7 @@ class SupabaseService:
 
         return self._admin_client
 
+    # MARK: filter
     def _apply_filter(self, query, field: str, operator: str, value):
         """フィルター条件をクエリに適用
 
@@ -145,6 +148,7 @@ class SupabaseService:
             # 未対応の演算子の場合は等価条件にフォールバック
             return query.eq(field, value)
 
+    # MARK: cache key
     def _generate_cache_key(
         self,
         table: str,
@@ -154,13 +158,22 @@ class SupabaseService:
         filters: Optional[dict] = None,
         **filters_eq,
     ) -> str:
-        """キャッシュキーを生成する
+        """
+        キャッシュキーを生成する内部メソッド。
+
+        Supabaseからデータを取得する際のクエリ条件（テーブル名、カラム、並び順、JOIN、フィルタなど）をもとに
+        一意なキャッシュキー（MD5ハッシュ）を生成します。
 
         Args:
-            各get_dataメソッドのパラメータと同じ
+            table (str): 対象テーブル名。
+            columns (Optional[list], optional): 取得カラム名リスト。デフォルトはNone。
+            order_by (str | list[str], optional): 並び替え条件。デフォルトはNone。
+            join_tables (Optional[dict], optional): JOINするテーブル情報。デフォルトはNone。
+            filters (Optional[dict], optional): フィルタ条件。デフォルトはNone。
+            **filters_eq: その他、等価条件によるフィルタをキーワード引数で指定。
 
         Returns:
-            str: ハッシュ化されたキャッシュキー
+            str: クエリ条件に基づく一意なキャッシュキー文字列。
         """
 
         # パラメータを辞書にまとめる
@@ -188,6 +201,7 @@ class SupabaseService:
         cache_key = hashlib.md5(params_str.encode("utf-8")).hexdigest()
         return f"supabase_data_{cache_key}"
 
+    # MARK: get
     def get_data(
         self,
         table: str,
@@ -198,39 +212,23 @@ class SupabaseService:
         pandas: bool = False,
         **filters_eq,
     ):
-        """テーブルからデータを取得（キャッシュ機能付き）
+        """
+        指定したテーブルからデータを取得するメソッド。
 
         Args:
-            table (str): 取得対象のテーブル名
-            columns (Optional[list]): 取得するカラムのリスト。Noneの場合は全てのカラムを取得
-            order_by (str, optional): 並び替え対象のカラム名。降順の場合は'-'を先頭につける。
-            join_tables (Optional[dict]): JOINするテーブルの設定
-                例: {"Country": ["names", "iso_code"], "Category": ["name"]}
-                または {"Country": "*", "Category": "*"} で全カラム取得
-                ネストしたJOINも可能: {"ParticipantMember": ["name", "Country(names)"]}
-                これにより ParticipantMember.iso_code -> Country.names の二重JOINが実現
-            filters (Optional[dict]): 高度なフィルター条件
-                例: {
-                    "age__gt": 18,  # age > 18
-                    "name__like": "%John%",  # name LIKE '%John%'
-                    "status__neq": "inactive",  # status != 'inactive'
-                    "categories__is_not": None,  # categories IS NOT NULL
-                    "tags__in": ["tag1", "tag2"],  # tags IN ('tag1', 'tag2')
-                }
-            pandas (bool): データをpandasのDataFrameとして取得するかどうか
-            **filters_eq: 等価フィルター条件（従来の形式、キー=値）
+            table (str): 取得対象のテーブル名。
+            columns (Optional[list], optional): 取得するカラム名のリスト。Noneの場合は全カラムを取得。デフォルトはNone。
+            order_by (str, optional): 並び替えに使用するカラム名。デフォルトはNone。
+            join_tables (Optional[dict], optional): JOINするテーブルとそのカラムの指定。デフォルトはNone。
+            filters (Optional[dict], optional): フィルタ条件を指定する辞書。デフォルトはNone。
+            pandas (bool, optional): Trueの場合はpandas.DataFrameで返す。デフォルトはFalse。
+            **filters_eq: その他、等価条件によるフィルタをキーワード引数で指定。
 
         Returns:
-            List[Dict[str, Any]]: 取得したデータのリスト。エラー時は空リスト
+            list[dict] | pandas.DataFrame: 取得したデータのリスト、またはpandas.DataFrame（pandas=Trueの場合）。
 
-        Example:
-            >>> service = SupabaseService()
-            >>> # 従来の方法（等価条件のみ）
-            >>> data = service.get_data("users", columns=["id", "name"], status="active")
-            >>> # 高度なフィルター
-            >>> data = service.get_data("users", filters={"age__gt": 18, "name__like": "%John%"})
-            >>> # categoriesがNULLでないものを取得
-            >>> data = service.get_data("Year", filters={"categories__is_not": None})
+        Raises:
+            ValueError: テーブル名が指定されていない場合や、取得に失敗した場合に発生。
         """
         # ここに書かないと循環インポートになる
         from app.main import flask_cache
@@ -332,24 +330,25 @@ class SupabaseService:
         else:
             return response.data
 
-    # 以下、Tavilyのデータを管理するメソッド
+    # MARK: ---
 
+    # MARK: tavily get
     def get_tavily_data(self, cache_key: str, column: str = "search_results"):
         """
-        TavilyデータをキャッシュおよびDBから取得するメソッド。
+        SupabaseのTavilyテーブルから指定したカラムのデータを取得し、アプリ内キャッシュにも保存するメソッド。
 
         Args:
-            cache_key (str): 検索結果を一意に識別するためのキー。
-            column (str): 取得するカラム名。search_results（デフォルト）またはanswer_translation
+            cache_key (str): 取得対象データを一意に識別するためのキー。
+            column (str, optional): 取得するカラム名。デフォルトは "search_results"。
 
         Returns:
-            list: 検索結果のリスト。該当データがなければ空リストを返す。
+            Any: 指定カラムのデータ。データが存在しない場合は空リストを返します。
 
         Notes:
             - まずアプリ内キャッシュ(flask_cache)からデータを取得します。
-            - キャッシュに存在しない場合はDB("Tavily"テーブル)から取得します。
-            - DBから取得した場合は、結果をキャッシュに保存します。
-            - "search_results"カラムがlist型でなければjson.loadsでデコードします。
+            - キャッシュに存在しない場合はSupabaseのTavilyテーブルからデータを取得します。
+            - 取得したデータはJSON文字列の場合はデコードし、Noneの場合は空リストに正規化します。
+            - 取得したデータはアプリ内キャッシュ(flask_cache)にも保存されます。
         """
         # ここに書かないと循環インポートになる
         from app.main import flask_cache
@@ -383,16 +382,19 @@ class SupabaseService:
         flask_cache.set(cache_key + "_" + column, data, timeout=None)
         return data
 
+    # MARK: insert
     def insert_tavily_data(self, cache_key: str, search_result: dict):
-        """Tavily 検索結果を保存する（重複は安全に吸収）
+        """
+        Tavilyの検索結果データをSupabaseのTavilyテーブルに挿入し、アプリ内キャッシュにも保存するメソッド。
 
         Args:
-            cache_key (str): 一意キー。
-            search_result (dict): Tavily の検索結果。
+            cache_key (str): 検索結果を一意に識別するためのキー。
+            search_result (dict): 挿入する検索結果データ。
 
         Notes:
-            - まずアプリ内キャッシュへ保存します（即応答のため）。
-            - DB 書き込みは一意制約違反(23505)のみ握りつぶし、既存レコードを更新します。
+            - まずアプリ内キャッシュ(flask_cache)にデータを保存します（DB挿入失敗時もレスポンス可能）。
+            - 検索結果はJSON文字列としてSupabaseのTavilyテーブルに保存されます。
+            - DB挿入に失敗しても例外は握りつぶします。
         """
         # ここに書かないと循環インポートになる
         from app.main import flask_cache
@@ -411,9 +413,18 @@ class SupabaseService:
         except APIError:
             pass
 
+    # MARK: update
     def update_translated_answer(self, cache_key: str, translated_answer: dict):
         """
-        翻訳済み回答を更新するメソッド。
+        Tavilyの翻訳済み回答を更新する
+
+        Args:
+            cache_key (str): 一意キー（Tavilyデータのキャッシュキー）。
+            translated_answer (dict): 翻訳済みの回答データ。
+
+        Notes:
+            - SupabaseのTavilyテーブルのanswer_translationカラムを更新します。
+            - DB更新に失敗しても例外は握りつぶし、アプリ内キャッシュは必ず最新化します。
         """
         # ここに書かないと循環インポートになる
         from app.main import flask_cache

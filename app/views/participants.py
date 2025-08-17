@@ -11,18 +11,17 @@ VALID_CANCEL = ["show", "hide", "only_cancelled"]
 # MARK: 出場者
 def participants_view(year: int):
     """
-    指定された年度の出場者ページを表示します。
-
-    クエリパラメータに基づき、カテゴリ、チケットクラス、キャンセル状態などのフィルタを適用し、
-    不正なパラメータの場合はデフォルト値でリダイレクトします。
+    指定された年の出場者ページを表示するビュー関数。
 
     Args:
-        request (HttpRequest): リクエストオブジェクト
-        year (int): 対象年度
+        year (int): 対象となる年。
 
     Returns:
-        HttpResponse: 出場者ページのテンプレートをレンダリングしたレスポンス。
-                      不正なパラメータの場合はリダイレクトレスポンス。
+        Response: 出場者ページのHTMLまたはリダイレクトレスポンス。
+
+    Note:
+        クエリパラメータとしてcategory, ticket_class, cancel, scroll, valueを受け取る。
+        パラメータの正当性を検証し、不正な場合はデフォルト値でリダイレクトする。
     """
     # クエリパラメータ
     category = request.args.get("category")

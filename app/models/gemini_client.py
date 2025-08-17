@@ -37,17 +37,22 @@ class GeminiService:
             self._client = genai.Client(api_key=api_key)
         return self._client
 
+    # MARK: ask
     async def ask(self, prompt: str):
         """
-        Gemini APIに質問を送信するメソッド。
-        グローバルなレート制限で2秒間隔を保証します。
+        Gemini APIに非同期で質問を送信し、レスポンスを取得する。
 
         Args:
-            prompt (str): ユーザーからの質問。
+            prompt (str): Gemini APIに送信するプロンプト文字列。
 
         Returns:
-            dict: Gemini APIからのレスポンスを辞書形式で返す
+            dict: Gemini APIからのレスポンスを辞書形式で返す。エラー時は空の辞書を返す。
+
+        Raises:
+            ValueError: GEMINI_API_KEYが設定されていない場合に発生。
+            Exception: Gemini API呼び出し時にその他の例外が発生した場合に発生。
         """
+
         # ここに書かないと循環インポートになる
         from app.main import flask_cache
 
@@ -96,6 +101,7 @@ class GeminiService:
                     print("レスポンスの処理前にエラーが発生しました", flush=True)
                 return {}
 
+    # MARK: ask sync
     def ask_sync(self, prompt: str):
         return asyncio.run(self.ask(prompt))
 

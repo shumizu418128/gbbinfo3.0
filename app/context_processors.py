@@ -156,14 +156,15 @@ def is_early_access(year):
 # MARK: 翻訳対応可否
 def is_translated(url, language, translated_urls):
     """
-    指定されたURLが翻訳ファイルに存在するかを判定する。
+    指定されたURLが指定言語で翻訳されているかどうかを判定します。
 
     Args:
         url (str): 判定するURL
-        language (str): 判定する言語
+        language (str): 言語コード（例: 'en', 'ja' など）
+        translated_urls (set): 翻訳済みURLのセット
 
     Returns:
-        bool: 翻訳ファイルに存在する場合はTrue、それ以外はFalse
+        bool: 翻訳されている場合はTrue、そうでない場合はFalse
     """
     # 日本語は常にTrue
     if language == "ja":
@@ -228,14 +229,30 @@ def common_variables(
     LAST_UPDATED,
 ):
     """
-    全テンプレートで共通して使う変数を返すコンテキストプロセッサ
+    Flaskのテンプレート共通変数を提供するコンテキストプロセッサ。
 
     Args:
-        request (Request): リクエストオブジェクト
-        session (SessionMixin): セッションオブジェクト
+        BABEL_SUPPORTED_LOCALES (list): サポートされている言語ロケールのリスト。
+        LANGUAGES (list): 言語コードと表示名のタプルリスト。
+        IS_LOCAL (bool): ローカル環境かどうかのフラグ。
+        IS_PULL_REQUEST (bool): プルリクエスト環境かどうかのフラグ。
+        LAST_UPDATED (str): 最終更新日時の文字列。
 
     Returns:
-        dict: テンプレートに渡す共通変数
+        dict: テンプレートで利用可能な共通変数の辞書。
+            - year (int): 現在の年度
+            - available_years (list): 利用可能な年度リスト
+            - lang_names (list): 言語コードと表示名のタプルリスト
+            - language (str): 現在の言語コード
+            - is_translated (bool): 現在のページが翻訳済みかどうか
+            - current_url (str): 現在のURL
+            - last_updated (str): 最終更新日時
+            - is_latest_year (bool): 最新年度かどうか
+            - is_early_access (bool): 試験公開年度かどうか
+            - is_gbb_ended (bool): GBBが終了しているかどうか
+            - is_local (bool): ローカル環境かどうか
+            - is_pull_request (bool): プルリクエスト環境かどうか
+            - scroll (str): スクロール位置（クエリパラメータ）
     """
     # databaseアプリ内では使用しない
     if request.path.startswith("/database/"):
@@ -282,13 +299,19 @@ def common_variables(
 # MARK: 言語設定
 def get_locale(BABEL_SUPPORTED_LOCALES):
     """
-    ユーザーの言語設定を取得します。
-    利用可能な言語の中から、セッションに保存された言語を優先的に返します。
-    セッションに言語が保存されていない場合は、リクエストの受け入れ言語の中から最適な言語を選択します。
+    セッションまたはリクエストから最適な言語ロケールを取得します。
+
+    Args:
+        BABEL_SUPPORTED_LOCALES (list): サポートされているロケールのリスト
 
     Returns:
-        str: ユーザーの言語設定
+        str: 選択された言語ロケール（例: "ja", "en" など）
+
+    Note:
+        セッションに"language"が設定されていない場合は、リクエストのAccept-Languageヘッダーから
+        最適なロケールを選択し、セッションに保存します。該当するロケールがない場合は"ja"をデフォルトとします。
     """
+
     # セッションに言語が設定されているか確認
     if "language" not in session:
         best_match = request.accept_languages.best_match(BABEL_SUPPORTED_LOCALES)
@@ -299,13 +322,19 @@ def get_locale(BABEL_SUPPORTED_LOCALES):
 # MARK: b4 req
 def set_request_data(BABEL_SUPPORTED_LOCALES):
     """
-    リクエストごとに実行される関数。
-    URLを取得して、グローバル変数に保存します。
-    これにより、リクエストのURLをグローバルにアクセスできるようにします。
-    また、セッションに言語が設定されていない場合、デフォルトの言語を設定します。
+    リクエストごとに実行される前処理として、リクエストデータを設定します。
+
+    Args:
+        BABEL_SUPPORTED_LOCALES (list): サポートされているロケールのリスト
 
     Returns:
         None
+
+    Note:
+        - 現在のURLをFlaskのグローバルオブジェクトgに保存します。
+        - X-Forwarded-Forヘッダーが存在する場合、ユーザーのIPアドレスを取得して標準出力に表示します。
+        - セッションに"language"が設定されていない場合、リクエストのAccept-Languageヘッダーから
+          最適なロケールを選択し、セッションに保存します。該当するロケールがない場合は"ja"をデフォルトとします。
     """
     g.current_url = request.path
 
@@ -322,13 +351,19 @@ def set_request_data(BABEL_SUPPORTED_LOCALES):
 # MARK: 初期化タスク
 def initialize_background_tasks(BABEL_SUPPORTED_LOCALES):
     """
-    アプリケーション起動時にバックグラウンドで実行する初期化タスクをまとめて起動します。
+    バックグラウンドタスクの初期化を行います。
 
     Args:
-        なし
+        BABEL_SUPPORTED_LOCALES (list): サポートされているロケールのリスト
 
     Returns:
         None
+
+    Note:
+        - delete_world_map、check_locale_paths_and_languages、get_available_years、get_translated_urls
+          の各関数をバックグラウンドスレッドで非同期に実行します。
+        - check_locale_paths_and_languagesにはBABEL_SUPPORTED_LOCALESが引数として渡されます。
+        - 各タスクはアプリケーションの初期化時に一度だけ実行されます。
     """
     Thread(target=delete_world_map).start()
     Thread(

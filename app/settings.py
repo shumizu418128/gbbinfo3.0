@@ -4,17 +4,17 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+# MARK: 世界地図初期化
 def delete_world_map():
     """
-    指定されたテンプレートディレクトリ内の各年度フォルダに存在する
-    world_mapディレクトリ配下の全てのHTMLファイルを削除します。
+    world_mapディレクトリ内の全てのHTMLファイルを削除します。
 
-    この関数は、BASE_DIR/app/templates/配下の各年度ディレクトリを探索し、
-    その中のworld_mapディレクトリにある拡張子が.htmlのファイルを全て削除します。
+    app/templates配下の各年度ディレクトリ内に存在するworld_mapディレクトリを探索し、
+    その中に含まれる全ての.htmlファイルを削除します。
     ディレクトリやファイルが存在しない場合は何も行いません。
 
     Raises:
-        OSError: ファイルの削除に失敗した場合に発生します。
+        OSError: ファイルの削除に失敗した場合
     """
     templates_dir = os.path.join(BASE_DIR, "app", "templates")
     if os.path.exists(templates_dir):
@@ -29,17 +29,21 @@ def delete_world_map():
                             os.remove(file_path)
 
 
+# MARK: 国際化設定
 def check_locale_paths_and_languages(BABEL_SUPPORTED_LOCALES):
     """
-    LOCALE_PATHS内の各フォルダ（言語コード）とSUPPORTED_LANGUAGE_CODESが一致しているかを検証します。
-    ただし、日本語（'ja'）は例外としてチェック対象外とします。
-    zh-hansとzh_Hans、zh-hantとzh_Hantは同じものとして扱います。
-    一致しない場合は例外を発生させます。
+    LOCALE_PATHSとBABEL_SUPPORTED_LOCALESの整合性を検証します。
+
+    LOCALE_PATHS（app/translations配下のディレクトリ）に存在する言語コードと、
+    BABEL_SUPPORTED_LOCALESに定義されている言語コードの間に不整合がないかをチェックします。
+    具体的には、LOCALE_PATHSに存在するがBABEL_SUPPORTED_LOCALESに含まれていない言語コード、
+    またはその逆が存在する場合に例外を発生させます。
+
+    Args:
+        BABEL_SUPPORTED_LOCALES (list[str]): サポート対象の言語コードリスト
 
     Raises:
-        Exception: サポートされていない言語コードのlocaleフォルダが存在する場合、または
-                  SUPPORTED_LANGUAGE_CODESに存在するがlocaleフォルダがない場合。
-                  （いずれも日本語は例外）
+        Exception: LOCALE_PATHSとBABEL_SUPPORTED_LOCALESの間に不整合がある場合
     """
     # LOCALE_PATHSからlocaleディレクトリのパスを取得
     locale_path = BASE_DIR / "app" / "translations"
