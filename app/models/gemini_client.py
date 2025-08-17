@@ -62,6 +62,9 @@ class GeminiService:
         if cached_data is not None:
             return cached_data
 
+        # あとの置き換えでエラーになるので、シングルクォーテーションを削除
+        prompt = prompt.replace("'", '')
+
         try:
             # メッセージを送信（同期版を使用）
             response = self.client.models.generate_content(
