@@ -125,7 +125,8 @@ https://gbbinfo-jpn.onrender.com/{year}/
 {{"url": "https://gbbinfo-jpn.onrender.com/{year}/participants", "parameter": "search_participants", "name": "ROFU"}}"""
 
 PROMPT_TRANSLATE = """This text is a biography/introduction of a person.
-Please rewrite it to show maximum respect to the person, and then translate it into {lang}.
+Please rewrite it to ensure the expression is not rude or offensive in that language, and then translate it into {lang}.
+Do not translate any person names; keep them in their original English spelling.
 Output only the translated text. Do not output the rewritten text.
 
 Text to translate: {text}
