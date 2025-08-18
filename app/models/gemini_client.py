@@ -63,7 +63,7 @@ class GeminiService:
             return cached_data
 
         # あとの置き換えでエラーになるので、シングルクォーテーションを削除
-        prompt = prompt.replace("'", '')
+        prompt = prompt.replace("'", ' ')
 
         try:
             # メッセージを送信（同期版を使用）
