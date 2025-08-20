@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-20 17:16+0900\n"
+"POT-Creation-Date: 2025-08-20 17:27+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: it <LL@li.org>\n"
@@ -23,10 +23,8 @@ msgid ""
 "Swissbeatboxが主催するHuman Beatboxの世界大会「Grand Beatbox "
 "Battle」の各種情報を、見やすくまとめたサイトです。"
 msgstr ""
-"Un sito che raccoglie in modo chiaro varie informazioni sul "
-"\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Grand Beatbox "
-"Battle\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\", il campionato mondiale di Human "
-"Beatbox organizzato da Swissbeatbox."
+"Swissbeatboxが主催するHuman Beatboxの世界大会「Grand Beatbox "
+"Battle」の各種情報を、見やすくまとめたサイトです。"
 
 #: templates/2024/rule.html:22 templates/2024/rule.html:71
 #: templates/2024/rule.html:130 templates/2024/rule.html:228
@@ -387,17 +385,15 @@ msgstr ""
 
 #: templates/2024/rule.html:122 templates/2025/rule.html:119
 msgid "Producerとは"
-msgstr "Cosa significa \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Producer\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"?"
+msgstr "Producerとは"
 
 #: templates/2024/rule.html:123 templates/2025/rule.html:121
 msgid ""
 "Loopstationのセカンドデバイス（Loopstationに接続する端末）ありの部門で、GBB23で「Producer "
 "showcase」として新設されました。その代わり、Loopstation部門においてセカンドデバイスの使用が禁止されます。"
 msgstr ""
-"È stata istituita una nuova sezione come \\\\\\\\\\\\\\\"Producer "
-"showcase\\\\\\\\\\\\\\\" al GBB23 per i dispositivi secondari Loopstation "
-"(terminali da collegare alla Loopstation). Di conseguenza, l'uso di "
-"dispositivi secondari è vietato nella sezione Loopstation."
+"Loopstation のセカンドデバイス（Loopstation に接続する端末）ありの部門で、GBB23 で「Producer "
+"showcase」として新設されました。その代わり、Loopstation 部門においてセカンドデバイスの使用が禁止されます。"
 
 #: templates/2024/rule.html:126 templates/2025/rule.html:117
 msgid "忘れられたTag Team Loopstation..."

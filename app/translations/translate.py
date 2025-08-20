@@ -62,6 +62,11 @@ def translate(path, lang):
         print(f"Error reading {path}: {e}")
         raise
 
+    # エスケープが異常に多い場合は fuzzy フラグを付与
+    for entry in po.translated_entries():
+        if "\\" in entry.msgstr:
+            entry.flags.append("fuzzy")
+
     po.save(path)  # プレースホルダーの検証結果を保存
     po = polib.pofile(path)  # 再度ファイルを読み込む
 
@@ -72,6 +77,10 @@ def translate(path, lang):
         print(msgids)
 
     for entry in tqdm(untranslated_entries, desc=f"{lang} の翻訳"):
+        # ダブルクオーテーションが含まれている場合、翻訳失敗することがあるので対処
+        if '"' in entry.msgid:
+            raise Exception(f"{lang}: {entry.msgid}")
+
         # 翻訳を依頼
         translation = gemini_translate(
             text=entry.msgid,
