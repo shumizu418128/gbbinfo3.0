@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-16 15:01+0900\n"
+"POT-Creation-Date: 2025-08-20 17:16+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: hu <LL@li.org>\n"
@@ -53,7 +53,7 @@ msgstr ""
 #: templates/2025/wildcard_regulation.html:192
 #: templates/2025/wildcard_regulation.html:251
 #: templates/2025/wildcard_regulation.html:252 templates/base.html:118
-#: templates/base.html:147 templates/base.html:261
+#: templates/base.html:147 templates/base.html:259
 #: templates/others/participant_detail.html:122
 msgid "これだけガイド"
 msgstr "Útmutató"
@@ -61,7 +61,7 @@ msgstr "Útmutató"
 #: templates/2024/rule.html:220 templates/2024/time_schedule.html:99
 #: templates/2024/time_schedule.html:229 templates/2024/top.html:47
 #: templates/2025/rule.html:67 templates/2025/rule.html:220
-#: templates/2025/rule.html:331 templates/2025/ticket.html:26
+#: templates/2025/rule.html:337 templates/2025/ticket.html:26
 #: templates/2025/time_schedule.html:91 templates/2025/top.html:105
 #: templates/2025/wildcards.html:14 templates/2025/wildcards.html:83
 #: templates/base.html:119 templates/common/participants.html:25
@@ -72,7 +72,7 @@ msgid "Wildcard結果"
 msgstr "Wildcard eredmények"
 
 #: templates/2024/top.html:47 templates/2025/rule.html:67
-#: templates/2025/rule.html:331 templates/2025/ticket.html:26
+#: templates/2025/rule.html:337 templates/2025/ticket.html:26
 #: templates/2025/time_schedule.html:91 templates/2025/top.html:105
 #: templates/2025/wildcards.html:14 templates/2025/wildcards.html:83
 #: templates/base.html:119 templates/common/result.html:91
@@ -85,7 +85,7 @@ msgstr "résztvevő"
 #: templates/2024/rule.html:235 templates/2024/top.html:51
 #: templates/2025/rule.html:3 templates/2025/rule.html:4
 #: templates/2025/rule.html:5 templates/2025/rule.html:9
-#: templates/2025/rule.html:237 templates/2025/time_schedule.html:63
+#: templates/2025/rule.html:243 templates/2025/time_schedule.html:63
 #: templates/2025/top.html:62 templates/2025/top.html:109
 #: templates/2025/wildcard_regulation.html:22
 #: templates/2025/wildcard_regulation.html:200
@@ -95,8 +95,8 @@ msgid "ルール"
 msgstr "Szabályok"
 
 #: templates/2024/rule.html:280 templates/2024/rule.html:325
-#: templates/2024/top.html:51 templates/2025/rule.html:298
-#: templates/2025/rule.html:340 templates/2025/time_schedule.html:63
+#: templates/2024/top.html:51 templates/2025/rule.html:304
+#: templates/2025/rule.html:346 templates/2025/time_schedule.html:63
 #: templates/2025/top.html:67 templates/2025/top.html:109
 #: templates/2025/wildcards.html:15 templates/2025/wildcards.html:84
 #: templates/base.html:120
@@ -110,8 +110,8 @@ msgstr "zsűri"
 #: templates/2024/time_schedule.html:156 templates/2024/time_schedule.html:286
 #: templates/2024/top.html:55 templates/2024/top_7tosmoke.html:36
 #: templates/2025/rule.html:18 templates/2025/rule.html:66
-#: templates/2025/rule.html:228 templates/2025/rule.html:285
-#: templates/2025/rule.html:330 templates/2025/rule.html:372
+#: templates/2025/rule.html:234 templates/2025/rule.html:291
+#: templates/2025/rule.html:336 templates/2025/rule.html:378
 #: templates/2025/time_schedule.html:62 templates/2025/time_schedule.html:118
 #: templates/2025/time_schedule.html:146 templates/2025/top.html:113
 #: templates/2025/top_7tosmoke.html:36 templates/2025/wildcards.html:112
@@ -131,7 +131,7 @@ msgstr "Helyszíni megtekintési terv készítése"
 msgid "タイムスケジュール"
 msgstr "időbeosztás"
 
-#: templates/2024/top.html:65 templates/2025/rule.html:229
+#: templates/2024/top.html:65 templates/2025/rule.html:235
 #: templates/2025/ticket.html:27 templates/2025/time_schedule.html:119
 #: templates/2025/top.html:129 templates/2025/wildcards.html:113
 #: templates/base.html:125 templates/common/japan.html:3
@@ -182,64 +182,64 @@ msgstr "Eredmények"
 msgid "年度選択"
 msgstr "Év választása"
 
-#: templates/base.html:200
+#: templates/base.html:198
 msgid "翻訳未提供"
 msgstr "Fordítás nem biztosított"
 
-#: templates/base.html:201
+#: templates/base.html:199
 msgid "このページは翻訳が提供されていません。現在は原文の日本語を表示しています。"
 msgstr ""
 "Ezen az oldalon nincs fordítás. Jelenleg az eredeti japán szöveg látható."
 
-#: templates/base.html:217
+#: templates/base.html:215
 msgid "GBBまでの残り時間"
 msgstr "A GBB-ig hátralévő idő"
 
-#: templates/base.html:222 templates/base.html:238
+#: templates/base.html:220 templates/base.html:236
 #: templates/includes/bottom_navigation.html:30
 #: templates/includes/bottom_navigation.html:48
 msgid "なんでも検索"
 msgstr "keresés bármire"
 
-#: templates/base.html:224 templates/includes/bottom_navigation.html:32
+#: templates/base.html:222 templates/includes/bottom_navigation.html:32
 #, python-brace-format
 msgid "GBB {year} の検索のみ可能です"
 msgstr "Csak GBB {year} kereshető."
 
-#: templates/base.html:225 templates/includes/bottom_navigation.html:33
+#: templates/base.html:223 templates/includes/bottom_navigation.html:33
 #, python-brace-format
 msgid "GBB {year} は終了しました"
 msgstr "GBB {year} véget ért"
 
-#: templates/base.html:229 templates/includes/bottom_navigation.html:37
+#: templates/base.html:227 templates/includes/bottom_navigation.html:37
 #, python-brace-format
 msgid "例：GBB {year} の最終結果は？"
 msgstr "Például: GBB {year} végeredménye?"
 
-#: templates/base.html:234 templates/includes/bottom_navigation.html:42
+#: templates/base.html:232 templates/includes/bottom_navigation.html:42
 msgid "GBB最新情報の検索はこちら"
 msgstr "Itt kereshet a GBB legfrissebb információira."
 
-#: templates/base.html:239 templates/includes/bottom_navigation.html:49
+#: templates/base.html:237 templates/includes/bottom_navigation.html:49
 #, python-brace-format
 msgid "GBB {year} について検索してみよう"
 msgstr "Keressünk rá GBB {year}-ről."
 
 #: templates/2024/top.html:30 templates/2024/top_7tosmoke.html:18
 #: templates/2025/top.html:38 templates/2025/top_7tosmoke.html:18
-#: templates/base.html:242 templates/includes/bottom_navigation.html:52
+#: templates/base.html:240 templates/includes/bottom_navigation.html:52
 msgid "例：現地観戦計画のたてかた"
 msgstr "Példa: Hogyan tervezzünk egy helyszíni nézési tervet"
 
-#: templates/base.html:252
+#: templates/base.html:250
 msgid "ホーム画面に追加"
 msgstr "Hozzáadás a kezdőképernyőhöz"
 
-#: templates/base.html:255
+#: templates/base.html:253
 msgid "GBBINFO-JPNはPWAに対応しています。"
 msgstr "A GBBINFO-JPN támogatja a PWA-t."
 
-#: templates/base.html:255
+#: templates/base.html:253
 msgid "ブラウザメニューを開き、「ホーム画面に追加」をタップすると、アプリとしてインストールできます。"
 msgstr ""
 "A böngésző menüjének megnyitásával és a "
@@ -247,25 +247,25 @@ msgstr ""
 "kezdőképernyőhöz\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" elemre koppintva "
 "telepítheti alkalmazásként."
 
-#: templates/base.html:261
+#: templates/base.html:259
 msgid "ホームへもどる"
 msgstr "Vissza a főoldalra"
 
-#: templates/2025/ticket.html:22 templates/base.html:275
+#: templates/2025/ticket.html:22 templates/base.html:273
 msgid "GBBINFO-JPN開発者 Twitter"
 msgstr "GBBINFO-JPN fejlesztők Twittere"
 
-#: templates/base.html:277
+#: templates/base.html:275
 msgid "GBBINFO-JPNについて"
 msgstr "GBBINFO-JPN-ről"
 
-#: templates/base.html:279 templates/others/translation.html:3
+#: templates/base.html:277 templates/others/translation.html:3
 #: templates/others/translation.html:4 templates/others/translation.html:5
 #: templates/others/translation.html:10
 msgid "各ページの翻訳提供について"
 msgstr "A fordítás nyújtása az egyes oldalakon"
 
-#: templates/base.html:304
+#: templates/base.html:302
 msgid "いい景色だろ？"
 msgstr "Ugye szép a kilátás?"
 
@@ -308,17 +308,17 @@ msgid "出場シード権 獲得条件"
 msgstr "A részvétel jogának megszerzésének feltételei"
 
 #: templates/2024/rule.html:42 templates/2024/rule.html:230
-#: templates/2025/rule.html:41 templates/2025/rule.html:232
+#: templates/2025/rule.html:41 templates/2025/rule.html:238
 msgid "Wildcard ルール"
 msgstr "Wildcard szabályok"
 
 #: templates/2024/rule.html:46 templates/2024/rule.html:272
-#: templates/2025/rule.html:45 templates/2025/rule.html:289
+#: templates/2025/rule.html:45 templates/2025/rule.html:295
 msgid "本戦審査員一覧"
 msgstr "A döntő zsűritagjainak listája"
 
 #: templates/2024/rule.html:50 templates/2024/rule.html:316
-#: templates/2025/rule.html:49 templates/2025/rule.html:334
+#: templates/2025/rule.html:49 templates/2025/rule.html:340
 msgid "Wildcard審査員一覧"
 msgstr "A Wildcard zsűri listája"
 
@@ -358,8 +358,8 @@ msgstr "Kérjük, mindenképpen ellenőrizze újra a szabályokat."
 #: templates/2024/rule.html:234 templates/2024/rule.html:279
 #: templates/2024/rule.html:324 templates/2025/rule.html:74
 #: templates/2025/rule.html:139 templates/2025/rule.html:165
-#: templates/2025/rule.html:195 templates/2025/rule.html:236
-#: templates/2025/rule.html:297 templates/2025/rule.html:339
+#: templates/2025/rule.html:195 templates/2025/rule.html:242
+#: templates/2025/rule.html:303 templates/2025/rule.html:345
 #: templates/2025/wildcard_regulation.html:85
 #: templates/2025/wildcard_regulation.html:142
 #: templates/2025/wildcard_regulation.html:199 templates/common/japan.html:22
@@ -474,35 +474,35 @@ msgstr "visszautasítás"
 msgid "出場者一覧"
 msgstr "Résztvevők listája"
 
-#: templates/2024/rule.html:224 templates/2025/rule.html:225
+#: templates/2024/rule.html:224
 msgid "シード権を持つ人が辞退した場合、原則として、該当シード権は消滅し、Wildcard下位からの繰り上げが行われます。"
 msgstr ""
 "Ha a kiemelt helyezéssel rendelkező személy lemond, az elv az, hogy a "
 "kiemelt hely megszűnik, és a Wildcard alatti helyekről jönnek fel a "
 "játékosok."
 
-#: templates/2024/rule.html:240 templates/2025/rule.html:242
+#: templates/2024/rule.html:240 templates/2025/rule.html:248
 #: templates/2025/wildcard_regulation.html:205
 msgid "全部門共通"
 msgstr "Minden osztály számára közös"
 
-#: templates/2024/rule.html:241 templates/2025/rule.html:243
+#: templates/2024/rule.html:241 templates/2025/rule.html:249
 #: templates/2025/wildcard_regulation.html:206
 msgid "制限時間を超過した場合、1秒につき最終順位を1つ下げる"
 msgstr ""
 "Ha túllépi a határidőt, a végső rangsorát 1 másodpercenként egy hellyel "
 "csökkentjük."
 
-#: templates/2024/rule.html:241 templates/2025/rule.html:243
+#: templates/2024/rule.html:241 templates/2025/rule.html:249
 #: templates/2025/wildcard_regulation.html:206
 msgid "提出受付開始日時"
 msgstr "A benyújtás kezdési időpontja"
 
 #: templates/2024/rule.html:245 templates/2024/rule.html:249
 #: templates/2024/rule.html:253 templates/2024/rule.html:257
-#: templates/2024/rule.html:261 templates/2025/rule.html:247
-#: templates/2025/rule.html:251 templates/2025/rule.html:255
-#: templates/2025/rule.html:259 templates/2025/rule.html:263
+#: templates/2024/rule.html:261 templates/2025/rule.html:253
+#: templates/2025/rule.html:257 templates/2025/rule.html:261
+#: templates/2025/rule.html:265 templates/2025/rule.html:269
 #: templates/2025/wildcard_regulation.html:210
 #: templates/2025/wildcard_regulation.html:214
 #: templates/2025/wildcard_regulation.html:218
@@ -513,9 +513,9 @@ msgstr "időkorlát"
 
 #: templates/2024/rule.html:245 templates/2024/rule.html:249
 #: templates/2024/rule.html:253 templates/2024/rule.html:257
-#: templates/2024/rule.html:261 templates/2025/rule.html:247
-#: templates/2025/rule.html:251 templates/2025/rule.html:255
-#: templates/2025/rule.html:259 templates/2025/rule.html:263
+#: templates/2024/rule.html:261 templates/2025/rule.html:253
+#: templates/2025/rule.html:257 templates/2025/rule.html:261
+#: templates/2025/rule.html:265 templates/2025/rule.html:269
 #: templates/2025/wildcard_regulation.html:210
 #: templates/2025/wildcard_regulation.html:214
 #: templates/2025/wildcard_regulation.html:218
@@ -526,9 +526,9 @@ msgstr "határidő"
 
 #: templates/2024/rule.html:245 templates/2024/rule.html:249
 #: templates/2024/rule.html:253 templates/2024/rule.html:257
-#: templates/2024/rule.html:261 templates/2025/rule.html:247
-#: templates/2025/rule.html:251 templates/2025/rule.html:255
-#: templates/2025/rule.html:259 templates/2025/rule.html:263
+#: templates/2024/rule.html:261 templates/2025/rule.html:253
+#: templates/2025/rule.html:257 templates/2025/rule.html:261
+#: templates/2025/rule.html:265 templates/2025/rule.html:269
 #: templates/2025/wildcard_regulation.html:210
 #: templates/2025/wildcard_regulation.html:214
 #: templates/2025/wildcard_regulation.html:218
@@ -539,15 +539,15 @@ msgstr "Eredményhirdetés"
 
 #: templates/2024/rule.html:245 templates/2024/rule.html:249
 #: templates/2024/rule.html:253 templates/2024/rule.html:257
-#: templates/2024/rule.html:261 templates/2025/rule.html:251
-#: templates/2025/rule.html:259 templates/2025/rule.html:263
+#: templates/2024/rule.html:261 templates/2025/rule.html:257
+#: templates/2025/rule.html:265 templates/2025/rule.html:269
 #: templates/2025/wildcard_regulation.html:214
 #: templates/2025/wildcard_regulation.html:222
 #: templates/2025/wildcard_regulation.html:226
 msgid "時間未定"
 msgstr "Időpont nem meghatározott"
 
-#: templates/2024/rule.html:253 templates/2025/rule.html:255
+#: templates/2024/rule.html:253 templates/2025/rule.html:261
 #: templates/2025/wildcard_regulation.html:218
 msgid "RC505 mki, mkiiのみ"
 msgstr "Csak RC505 mki, mkii"
@@ -556,24 +556,24 @@ msgstr "Csak RC505 mki, mkii"
 msgid "一部例外あり"
 msgstr "Van néhány kivétel"
 
-#: templates/2024/rule.html:257 templates/2025/rule.html:259
+#: templates/2024/rule.html:257 templates/2025/rule.html:265
 #: templates/2025/wildcard_regulation.html:222
 msgid "デバイス制限なし"
 msgstr "Nincs eszközkorlátozás"
 
-#: templates/2024/rule.html:274 templates/2025/rule.html:291
+#: templates/2024/rule.html:274 templates/2025/rule.html:297
 msgid "Wildcard審査員一覧はこちら"
 msgstr "Itt található a Wildcard bírák listája."
 
-#: templates/2024/rule.html:306 templates/2025/rule.html:324
+#: templates/2024/rule.html:306 templates/2025/rule.html:330
 msgid "審査員不明"
 msgstr "A zsűri nem ismert"
 
-#: templates/2024/rule.html:306 templates/2025/rule.html:324
+#: templates/2024/rule.html:306 templates/2025/rule.html:330
 msgid "例年発表なし"
 msgstr "Évente nincs bejelentés"
 
-#: templates/2024/rule.html:318 templates/2025/rule.html:368
+#: templates/2024/rule.html:318 templates/2025/rule.html:374
 msgid "本戦審査員一覧はこちら"
 msgstr "Az alábbiakban a nagydöntő zsűrijének listája:"
 
@@ -758,7 +758,7 @@ msgstr "Nézzük meg együtt"
 msgid "当サイトURL変更のお知らせ"
 msgstr "Értesítés a webhely URL-jének megváltozásáról"
 
-#: templates/2024/top.html:83 templates/2025/rule.html:286
+#: templates/2024/top.html:83 templates/2025/rule.html:292
 #: templates/2025/top.html:148
 msgid "Wildcard結果発表配信"
 msgstr "Vadonat eredményhirdető adás"
@@ -766,7 +766,7 @@ msgstr "Vadonat eredményhirdető adás"
 #: templates/2024/top.html:84 templates/2024/wildcards.html:3
 #: templates/2024/wildcards.html:4 templates/2024/wildcards.html:5
 #: templates/2024/wildcards.html:9 templates/2025/rule.html:19
-#: templates/2025/rule.html:373 templates/2025/top.html:149
+#: templates/2025/rule.html:379 templates/2025/top.html:149
 #: templates/2025/wildcards.html:3 templates/2025/wildcards.html:4
 #: templates/2025/wildcards.html:5 templates/2025/wildcards.html:9
 #: templates/common/participants.html:101
@@ -887,19 +887,45 @@ msgstr ""
 msgid "【Beatboxer向け】Wildcardレギュレーション解説"
 msgstr "A Beatboxereknek szóló Wildcard szabályok magyarázata"
 
-#: templates/2025/rule.html:243 templates/2025/wildcard_regulation.html:206
+#: templates/2025/rule.html:225
+msgid "GBB出場辞退が発生した場合、Wildcard下位からの繰り上げが行われます。"
+msgstr ""
+"GBB-n való részvétel elmaradása esetén a Wildcard alsóbb helyezettjeinek "
+"feljuttatása történik."
+
+#: templates/2025/rule.html:228
+msgid "いかなる理由があっても、シード権大会2位以下の人に、出場権は与えられません。"
+msgstr ""
+"Semmilyen okból nem kaphat indulási jogot az a személy, aki a kiemelt "
+"versenyen a második vagy alacsonyabb helyezést érte el."
+
+#: templates/2025/rule.html:229
+msgid "「シード権大会においてGBB出場権が与えられるのは、例外なく、常に優勝者のみである」とルールに明記されています。"
+msgstr ""
+"A szabályzat egyértelműen kimondja, hogy a GBB-n való részvétel jogát a "
+"kiemelt tornán kizárólag a győztes kapja meg."
+
+#: templates/2025/rule.html:230
+msgid ""
+"例：シード権大会優勝者が、すでにWildcardで出場権を獲得していた場合、シード権大会2位ではなく、Wildcard下位からの繰り上げが行われます。"
+msgstr ""
+"Példa: Ha a kiemelt verseny győztese már megkapta a Wildcard helyet, akkor a"
+" kiemelt verseny második helyezettje helyett a Wildcard helyezettjeinek "
+"sorrendjében történik meg a feljutás."
+
+#: templates/2025/rule.html:249 templates/2025/wildcard_regulation.html:206
 msgid "制限時間を使い切らず余らせた場合、3秒につき最終順位を1つ下げる"
 msgstr ""
 "Ha nem használja ki a határidőt, és idő marad, akkor 3 másodpercenként egy "
 "hellyel hátrébb kerül a végső helyezésben."
 
-#: templates/2025/rule.html:269 templates/2025/wildcard_regulation.html:231
+#: templates/2025/rule.html:275 templates/2025/wildcard_regulation.html:231
 msgid "※中央ヨーロッパ時間には、サマータイムがあります。2025年のサマータイムは3/30からです。"
 msgstr ""
 "A közép-európai időszámításban van nyári időszámítás. A 2025-ös nyári "
 "időszámítás március 30-án kezdődik."
 
-#: templates/2025/rule.html:270 templates/2025/wildcard_regulation.html:232
+#: templates/2025/rule.html:276 templates/2025/wildcard_regulation.html:232
 msgid "Tag Team部門・Crew部門参加希望の方はご注意ください。"
 msgstr "Figyelmeztetés a Tag Team és Crew kategóriákba jelentkezők számára."
 
@@ -1544,3 +1570,6 @@ msgstr ""
 
 #~ msgid "について検索してみよう"
 #~ msgstr "Keressünk rá GBB {year}-ről."
+
+#~ msgid "「シード権大会において出場が認められるのは、例外なく、常に優勝者のみである」とルールに明記されています。"
+#~ msgstr ""
