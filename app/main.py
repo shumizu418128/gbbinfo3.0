@@ -109,6 +109,11 @@ initialize_background_tasks(BABEL_SUPPORTED_LOCALES)
 ####################################################################
 # MARK: 共通変数
 ####################################################################
+@app.before_request
+def before_request():
+    get_locale(BABEL_SUPPORTED_LOCALES)
+
+
 @app.context_processor
 def set_common_variables():
     return common_variables(
