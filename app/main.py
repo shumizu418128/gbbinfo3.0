@@ -14,7 +14,6 @@ from app.context_processors import (
     common_variables,
     get_locale,
     initialize_background_tasks,
-    set_request_data,
 )
 from app.views import (
     beatboxer_tavily_search,
@@ -110,11 +109,6 @@ initialize_background_tasks(BABEL_SUPPORTED_LOCALES)
 ####################################################################
 # MARK: 共通変数
 ####################################################################
-@app.before_request
-def set_session_language():
-    set_request_data(BABEL_SUPPORTED_LOCALES)
-
-
 @app.context_processor
 def set_common_variables():
     return common_variables(

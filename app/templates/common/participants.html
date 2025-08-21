@@ -30,11 +30,11 @@
   {% endif %}
 
   {% if cancel == "hide" %}
-    <div class="post-it">{{_("出場者のみ")}}</div>
+    <div class="post-it"><p>{{_("出場者のみ")}}</p></div>
   {% elif cancel == "only_cancelled" %}
-    <div class="post-it">{{_("辞退者のみ")}}</div>
+    <div class="post-it"><p>{{_("辞退者のみ")}}</p></div>
   {% elif cancel == "show" %}
-    <div class="post-it">{{_("出場者 & 辞退者を表示")}}</div>
+    <div class="post-it"><p>{{_("出場者 & 辞退者を表示")}}</p></div>
   {% endif %}
 
   {% if participants %}

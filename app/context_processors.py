@@ -3,7 +3,7 @@ from datetime import datetime, timezone
 from threading import Thread
 
 from dateutil import parser
-from flask import g, request, session
+from flask import request, session
 
 from app.models.supabase_client import supabase_service
 from app.settings import BASE_DIR, check_locale_paths_and_languages, delete_world_map
@@ -71,13 +71,13 @@ def get_translated_urls():
         return set()
 
     exclude_patterns = [
-        r"\\includes\\",  # includesディレクトリ
+        r"includes/",  # includesディレクトリ
         r"base\.html",  # base.html
         r"404\.html",  # 404.html
     ]
 
     for line in po_content.split("\n"):
-        if line.startswith("#: .\\gbbinfojpn\\app\\templates\\"):
+        if line.startswith("#: templates/"):
             # コメント行から複数パスを取得
             paths = line.replace("#:", "").split()
             for path in paths:
@@ -86,13 +86,13 @@ def get_translated_urls():
                     continue
 
                 # パスからテンプレート部分を抽出
-                m = re.match(r"\.\\gbbinfojpn\\app\\templates\\(.+?\.html)", path)
+                m = re.match(r"templates/(.+?\.html)", path)
                 if not m:
                     continue
                 template_path = m.group(1)
 
                 # 年度ディレクトリ or commonディレクトリ
-                if template_path.startswith("common\\"):
+                if template_path.startswith("common/"):
                     # 年度ごとに展開
                     year_data = supabase_service.get_data(
                         table="Year",
@@ -102,19 +102,17 @@ def get_translated_urls():
                     )
                     available_years = year_data["year"].tolist()
                     for year in available_years:
-                        # common\foo.html → /{year}/foo
+                        # common/foo.html → /{year}/foo
                         url_path = (
                             "/"
                             + str(year)
                             + "/"
-                            + template_path.replace("common\\", "").replace(".html", "")
+                            + template_path.replace("common/", "").replace(".html", "")
                         )
                         TRANSLATED_URLS.add(url_path)
                 else:
-                    # 2024\foo.html → /2024/foo
-                    url_path = "/" + template_path.replace("\\", "/").replace(
-                        ".html", ""
-                    )
+                    # 2024/foo.html → /2024/foo
+                    url_path = "/" + template_path.replace(".html", "")
                     TRANSLATED_URLS.add(url_path)
 
     return TRANSLATED_URLS
@@ -254,10 +252,6 @@ def common_variables(
             - is_pull_request (bool): プルリクエスト環境かどうか
             - scroll (str): スクロール位置（クエリパラメータ）
     """
-    # databaseアプリ内では使用しない
-    if request.path.startswith("/database/"):
-        return {}
-
     year_str = request.path.split("/")[1]
 
     # 年度が最新 or 試験公開年度か検証
@@ -282,7 +276,7 @@ def common_variables(
         else "ja",
         "is_translated": is_translated(
             request.path,
-            getattr(request, "LANGUAGE_CODE", "ja"),
+            session["language"],
             translated_urls,
         ),
         "current_url": request.url,
@@ -311,41 +305,11 @@ def get_locale(BABEL_SUPPORTED_LOCALES):
         セッションに"language"が設定されていない場合は、リクエストのAccept-Languageヘッダーから
         最適なロケールを選択し、セッションに保存します。該当するロケールがない場合は"ja"をデフォルトとします。
     """
-
     # セッションに言語が設定されているか確認
     if "language" not in session:
         best_match = request.accept_languages.best_match(BABEL_SUPPORTED_LOCALES)
         session["language"] = best_match if best_match else "ja"
     return session["language"]
-
-
-# MARK: b4 req
-def set_request_data(BABEL_SUPPORTED_LOCALES):
-    """
-    リクエストごとに実行される前処理として、リクエストデータを設定します。
-
-    Args:
-        BABEL_SUPPORTED_LOCALES (list): サポートされているロケールのリスト
-
-    Returns:
-        None
-
-    Note:
-        - 現在のURLをFlaskのグローバルオブジェクトgに保存します。
-        - X-Forwarded-Forヘッダーが存在する場合、ユーザーのIPアドレスを取得して標準出力に表示します。
-        - セッションに"language"が設定されていない場合、リクエストのAccept-Languageヘッダーから
-          最適なロケールを選択し、セッションに保存します。該当するロケールがない場合は"ja"をデフォルトとします。
-    """
-    g.current_url = request.path
-
-    if "X-Forwarded-For" in request.headers:
-        user_ip = request.headers["X-Forwarded-For"].split(",")[0].strip()
-        print(f"IPアドレス: {user_ip}", flush=True)
-
-    # 初回アクセス時の言語設定
-    if "language" not in session:
-        best_match = request.accept_languages.best_match(BABEL_SUPPORTED_LOCALES)
-        session["language"] = best_match if best_match else "ja"
 
 
 # MARK: 初期化タスク

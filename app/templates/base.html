@@ -110,10 +110,10 @@
   <body>
     <div class="hamburger-menu" onclick="toggleMenu(this)">
       <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#FFFFFF"><path d="M377-198v-60h463v60H377Zm0-252v-60h463v60H377Zm0-253v-60h463v60H377ZM189-161q-28.05 0-48.02-19Q121-199 121-227.5t19.5-48q19.5-19.5 48-19.5t47.5 19.98q19 19.97 19 48.02 0 27.23-19.39 46.61Q216.23-161 189-161Zm0-252q-28.05 0-48.02-19.68Q121-452.36 121-480t19.98-47.32Q160.95-547 189-547q27.23 0 46.61 19.68Q255-507.64 255-480t-19.39 47.32Q216.23-413 189-413Zm-1-253q-27.64 0-47.32-19.68T121-733q0-27.64 19.68-47.32T188-800q27.64 0 47.32 19.68T255-733q0 27.64-19.68 47.32T188-666Z"/></svg>
-      <p>MENU</p>
+      <p>{{_("メニュー")}}</p>
     </div>
     <div class="menu">
-      <p>MENU</p>
+      <p>{{_("メニュー")}}</p>
       <div class="button-container" style="margin-top: 10px;">
         <a href="/"><button>Home & {{_("これだけガイド")}}</button></a>
         <a href="/{{ year }}/participants"><button>{{_("Wildcard結果")}} & {{_("出場者")}}</button></a>
@@ -144,7 +144,7 @@
       <nav>
         <img src="/static/images/header.webp" alt="ヘッダー"/>
         <ul>
-          <a class="menu-link" href="/{{year}}/top"><li>Home & {{_("これだけガイド")}}</li></a>
+          <a class="menu-link" href="/{{year}}/top"><li>Home / {{_("これだけガイド")}}</li></a>
           <div class="nav_dropdown_container">
             <li>
               {{_("年度選択")}}
@@ -169,8 +169,6 @@
       </nav>
     </header>
     <main>
-      <div class="progress-scroll" style="top: 41px"></div>
-      <div class="background-progress-scroll" style="top: 41px"></div>
 
       {% if is_latest_year is false %}
         {% include 'includes/popup_ended.html' %}
@@ -195,8 +193,8 @@
 
       {% if is_translated is false %}
         <div class="post-it">
-          <strong>【{{_("翻訳未提供")}}】</strong><br>
-          {{_("このページは翻訳が提供されていません。現在は原文の日本語を表示しています。")}}
+          <p><strong>【{{_("翻訳未提供")}}】</strong></p>
+          <p>{{_("このページは翻訳が提供されていません。現在は原文の日本語を表示しています。")}}</p>
         </div>
       {% endif %}
 
@@ -259,16 +257,29 @@
           <span class="button-text-with-icon">{{_("ホームへもどる")}}<br>{{_("これだけガイド")}}</span>
         </button></a>
       </div>
+      <div class="button-container">
+        <a href="/{{ year }}/participants"><button>{{_("Wildcard結果")}} & {{_("出場者")}}</button></a>
+        {% if language == "ko" %}
+          <a href="/{{ year }}/korea"><button>GBB {{ year }} {{_("韓国代表")}}</button></a>
+        {% else %}
+          <a href="/{{ year }}/japan"><button>GBB {{ year }} {{_("日本代表")}}</button></a>
+        {% endif %}
+      </div>
       <div style="margin: 100px 0;"></div>
 
       <h3>LANGUAGES</h3>
       <div class="button-container">
-        {% for lang_code, lang_name in lang_names %}
-          <a href="/lang?lang={{ lang_code }}">
-            <button>{{ lang_name }}</button>
-          </a>
+        {% for lang_code, lang_name in lang_names[:3] %}
+          <a href="/lang?lang={{ lang_code }}"><button>{{ lang_name }}</button></a>
         {% endfor %}
       </div>
+      {% if lang_names|length > 3 %}
+        <ul>
+          {% for lang_code, lang_name in lang_names[3:] %}
+            <li><a href="/lang?lang={{ lang_code }}">{{ lang_name }}</a></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
       <hr>
       <a href="https://twitter.com/tari_3210_" target="_blank" rel="noopener noreferrer">tari3210 - {{_("GBBINFO-JPN開発者 Twitter")}}</a>
       <br>
@@ -287,8 +298,6 @@
         </p>
       </footer>
 
-      <div class="progress-scroll" style="bottom: 50px"></div>
-      <div class="background-progress-scroll" style="bottom: 50px"></div>
     </main>
 
     <div style="width: 100%; height: 80vh; position: relative; z-index: -1; display: flex; flex-direction: column; justify-content: flex-start; align-items: center;">
