@@ -51,6 +51,7 @@ LANGUAGES = [
     ("it", "Italiano"),
     ("ms", "Bahasa MY"),
     ("no", "Norsk"),
+    ("pt", "Português"),
     ("ta", "தமிழ்"),
     ("th", "ไทย"),
     ("zh_Hans_CN", "简体中文"),

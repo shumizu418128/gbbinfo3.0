@@ -21,6 +21,7 @@ BABEL_SUPPORTED_LOCALES = [
     "it",
     "ms",
     "no",
+    "pt",
     "ta",
     "th",
     "zh_Hans_CN",
