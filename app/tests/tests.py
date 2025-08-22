@@ -1238,23 +1238,453 @@ class SupabaseServiceTestCase(unittest.TestCase):
             with self.assertRaises(ValueError):
                 _ = SupabaseService()
 
+    def test_read_only_client_property_getter(self):
+        """read_only_client propertyのgetter動作を検証する。"""
+        from app.models.supabase_client import SupabaseService
 
-class ParticipantDetailLinkParamTest(unittest.TestCase):
-    """`/others/participant_detail`リンクの必須クエリパラメータ検証テスト。
+        # 環境変数を設定
+        with patch.dict(
+            os.environ,
+            {
+                "SUPABASE_URL": "http://localhost",
+                "SUPABASE_ANON_KEY": "anon_key",
+                "SUPABASE_SERVICE_ROLE_KEY": "service_key",
+            },
+        ):
+            service = SupabaseService()
 
-    各種ページで生成される`/others/participant_detail`へのリンクについて、
-    `id`および`mode`クエリパラメータが欠落していないことと、
-    値が妥当であることを検証する。
+            # 初回アクセス - クライアントが作成される
+            with patch(
+                "app.models.supabase_client.create_client"
+            ) as mock_create_client:
+                mock_client = Mock()
+                mock_create_client.return_value = mock_client
 
-    Methods:
-        setUp(): テストクライアント/アプリコンテキストの準備
-        tearDown(): アプリコンテキストのクリーンアップ
-        test_links_to_participant_detail_have_required_params():
-            対象ページを走査し、リンクの妥当性を一括検証
-    """
+                client1 = service.read_only_client
+                self.assertEqual(client1, mock_client)
+                self.assertEqual(service._read_only_usage_count, 1)
+                mock_create_client.assert_called_once_with(
+                    "http://localhost", "anon_key"
+                )
+
+            # 2回目のアクセス - キャッシュされたクライアントが返される
+            client2 = service.read_only_client
+            self.assertEqual(client2, mock_client)
+            self.assertEqual(service._read_only_usage_count, 2)
+
+    def test_read_only_client_property_setter(self):
+        """read_only_client propertyのsetter動作を検証する。"""
+        from app.models.supabase_client import SupabaseService
+
+        # 環境変数を設定
+        with patch.dict(
+            os.environ,
+            {
+                "SUPABASE_URL": "http://localhost",
+                "SUPABASE_ANON_KEY": "anon_key",
+                "SUPABASE_SERVICE_ROLE_KEY": "service_key",
+            },
+        ):
+            service = SupabaseService()
+
+            # まずカウンターを増やしておく
+            service._read_only_usage_count = 5
+
+            # setterでクライアントを設定
+            mock_client = Mock()
+            service.read_only_client = mock_client
+
+            # クライアントとカウンターがリセットされていることを確認
+            self.assertEqual(service._read_only_client, mock_client)
+            self.assertEqual(service._read_only_usage_count, 0)
+
+    def test_read_only_client_usage_limit_reset(self):
+        """read_only_clientが使用回数上限に達した際にリセットされることを検証する。"""
+        from app.models.supabase_client import MAX_CLIENT_USAGE, SupabaseService
+
+        # 環境変数を設定
+        with patch.dict(
+            os.environ,
+            {
+                "SUPABASE_URL": "http://localhost",
+                "SUPABASE_ANON_KEY": "anon_key",
+                "SUPABASE_SERVICE_ROLE_KEY": "service_key",
+            },
+        ):
+            service = SupabaseService()
+
+            # 使用回数上限までカウントを進める
+            service._read_only_usage_count = MAX_CLIENT_USAGE
+
+            with patch(
+                "app.models.supabase_client.create_client"
+            ) as mock_create_client:
+                mock_client = Mock()
+                mock_create_client.return_value = mock_client
+
+                # 上限に達しているので新しいクライアントが作成される
+                client = service.read_only_client
+                self.assertEqual(client, mock_client)
+                self.assertEqual(
+                    service._read_only_usage_count, 1
+                )  # リセットされて1になる
+                mock_create_client.assert_called_once()
+
+    def test_admin_client_property_getter(self):
+        """admin_client propertyのgetter動作を検証する。"""
+        from app.models.supabase_client import SupabaseService
+
+        # 環境変数を設定
+        with patch.dict(
+            os.environ,
+            {
+                "SUPABASE_URL": "http://localhost",
+                "SUPABASE_ANON_KEY": "anon_key",
+                "SUPABASE_SERVICE_ROLE_KEY": "service_key",
+            },
+        ):
+            service = SupabaseService()
+
+            # 初回アクセス - 管理者クライアントが作成される
+            with patch(
+                "app.models.supabase_client.create_client"
+            ) as mock_create_client:
+                mock_client = Mock()
+                mock_create_client.return_value = mock_client
+
+                client1 = service.admin_client
+                self.assertEqual(client1, mock_client)
+                self.assertEqual(service._admin_usage_count, 1)
+                mock_create_client.assert_called_once_with(
+                    "http://localhost", "service_key"
+                )
+
+            # 2回目のアクセス - キャッシュされたクライアントが返される
+            client2 = service.admin_client
+            self.assertEqual(client2, mock_client)
+            self.assertEqual(service._admin_usage_count, 2)
+
+    def test_admin_client_usage_limit_reset(self):
+        """admin_clientが使用回数上限に達した際にリセットされることを検証する。"""
+        from app.models.supabase_client import MAX_CLIENT_USAGE, SupabaseService
+
+        # 環境変数を設定
+        with patch.dict(
+            os.environ,
+            {
+                "SUPABASE_URL": "http://localhost",
+                "SUPABASE_ANON_KEY": "anon_key",
+                "SUPABASE_SERVICE_ROLE_KEY": "service_key",
+            },
+        ):
+            service = SupabaseService()
+
+            # 使用回数上限までカウントを進める
+            service._admin_usage_count = MAX_CLIENT_USAGE
+
+            with patch(
+                "app.models.supabase_client.create_client"
+            ) as mock_create_client:
+                mock_client = Mock()
+                mock_create_client.return_value = mock_client
+
+                # 上限に達しているので新しいクライアントが作成される
+                client = service.admin_client
+                self.assertEqual(client, mock_client)
+                self.assertEqual(service._admin_usage_count, 1)  # リセットされて1になる
+                mock_create_client.assert_called_once_with(
+                    "http://localhost", "service_key"
+                )
+
+    def test_apply_filter_all_operators(self):
+        """_apply_filterプライベートメソッドのすべてのオペレーターをテストする。"""
+        from app.models.supabase_client import SupabaseService
+        from app.util.filter_eq import Operator
+
+        # 環境変数を設定
+        with patch.dict(
+            os.environ,
+            {
+                "SUPABASE_URL": "http://localhost",
+                "SUPABASE_ANON_KEY": "anon_key",
+                "SUPABASE_SERVICE_ROLE_KEY": "service_key",
+            },
+        ):
+            service = SupabaseService()
+
+            # モッククエリオブジェクトを作成
+            mock_query = Mock()
+
+            # 各オペレーターのテスト
+            test_cases = [
+                # 比較演算子
+                (Operator.GREATER_THAN, "age", 18, "gt"),
+                (Operator.GREATER_THAN_OR_EQUAL_TO, "age", 18, "gte"),
+                (Operator.LESS_THAN, "age", 65, "lt"),
+                (Operator.LESS_THAN_OR_EQUAL_TO, "age", 65, "lte"),
+                (Operator.NOT_EQUAL, "status", "inactive", "neq"),
+                # 部分一致
+                (Operator.LIKE, "name", "%test%", "like"),
+                (Operator.ILIKE, "name", "%Test%", "ilike"),
+                (Operator.NOT_LIKE, "name", "%bot%", "not_.like"),
+                (Operator.NOT_ILIKE, "name", "%Bot%", "not_.ilike"),
+                # NULL判定
+                (Operator.IS, "deleted_at", None, "is_"),
+                (Operator.IS_NOT, "deleted_at", None, "not_.is_"),
+                # リスト・配列
+                (Operator.IN_, "category", ["A", "B"], "in_"),
+                (Operator.CONTAINS, "tags", ["urgent"], "contains"),
+                # 未知のオペレーター（フォールバック）
+                ("unknown_op", "field", "value", "eq"),
+            ]
+
+            for operator, field, value, expected_method in test_cases:
+                with self.subTest(operator=operator):
+                    mock_query.reset_mock()
+
+                    # 各メソッドが呼ばれるたびに自分自身を返すように設定
+                    for method_name in [
+                        "gt",
+                        "gte",
+                        "lt",
+                        "lte",
+                        "neq",
+                        "like",
+                        "ilike",
+                        "is_",
+                        "in_",
+                        "contains",
+                        "eq",
+                    ]:
+                        getattr(mock_query, method_name).return_value = mock_query
+
+                    # not_.like, not_.ilike, not_.is_の設定
+                    mock_query.not_.like.return_value = mock_query
+                    mock_query.not_.ilike.return_value = mock_query
+                    mock_query.not_.is_.return_value = mock_query
+
+                    # _apply_filterを呼び出し
+                    result = service._apply_filter(mock_query, field, operator, value)
+
+                    # 返り値はクエリオブジェクトであること（メソッドチェーンにより自分自身を返す）
+                    self.assertEqual(result, mock_query)
+
+                    # 正しいメソッドが呼ばれたことを確認
+                    if operator == Operator.NOT_LIKE:
+                        mock_query.not_.like.assert_called_once_with(field, value)
+                    elif operator == Operator.NOT_ILIKE:
+                        mock_query.not_.ilike.assert_called_once_with(field, value)
+                    elif operator == Operator.IS_NOT:
+                        mock_query.not_.is_.assert_called_once_with(field, value)
+                    elif operator == "unknown_op":
+                        mock_query.eq.assert_called_once_with(field, value)
+                    else:
+                        getattr(mock_query, expected_method).assert_called_once_with(
+                            field, value
+                        )
+
+    def test_update_translated_answer_success(self):
+        """update_translated_answerメソッドが正常に動作することをテストする。"""
+        from app.models.supabase_client import SupabaseService
+
+        # 環境変数を設定
+        with patch.dict(
+            os.environ,
+            {
+                "SUPABASE_URL": "http://localhost",
+                "SUPABASE_ANON_KEY": "anon_key",
+                "SUPABASE_SERVICE_ROLE_KEY": "service_key",
+            },
+        ):
+            service = SupabaseService()
+
+            # キャッシュと管理者クライアントをモック
+            dict_cache = self.DictCache()
+            with patch("app.main.flask_cache", dict_cache):
+                # 管理者クライアントのモック
+                mock_admin_client = Mock()
+                mock_table = Mock()
+                mock_admin_client.table.return_value = mock_table
+                mock_table.update.return_value.eq.return_value.execute.return_value = (
+                    None
+                )
+                service._admin_client = mock_admin_client
+
+                # テストデータ
+                cache_key = "test_key"
+                translated_answer = {"ja": "こんにちは", "en": "Hello"}
+
+                # メソッド実行
+                service.update_translated_answer(cache_key, translated_answer)
+
+                # DB更新が正しく呼ばれたことを確認
+                mock_admin_client.table.assert_called_with("Tavily")
+                mock_table.update.assert_called_once()
+                update_call = mock_table.update.call_args
+                self.assertIn("answer_translation", update_call[0][0])
+                expected_json = json.dumps(translated_answer, ensure_ascii=False)
+                self.assertEqual(update_call[0][0]["answer_translation"], expected_json)
+                mock_table.update.return_value.eq.assert_called_with(
+                    "cache_key", cache_key
+                )
+                mock_table.update.return_value.eq.return_value.execute.assert_called_once()
+
+                # キャッシュが更新されたことを確認
+                cache_key_with_column = f"{cache_key}_answer_translation"
+                self.assertEqual(
+                    dict_cache.get(cache_key_with_column), translated_answer
+                )
+
+    def test_update_translated_answer_db_error_handling(self):
+        """update_translated_answerメソッドがDBエラーを適切に処理することをテストする。"""
+        from postgrest.exceptions import APIError
+
+        from app.models.supabase_client import SupabaseService
+
+        # 環境変数を設定
+        with patch.dict(
+            os.environ,
+            {
+                "SUPABASE_URL": "http://localhost",
+                "SUPABASE_ANON_KEY": "anon_key",
+                "SUPABASE_SERVICE_ROLE_KEY": "service_key",
+            },
+        ):
+            service = SupabaseService()
+
+            # キャッシュと管理者クライアントをモック
+            dict_cache = self.DictCache()
+            with patch("app.main.flask_cache", dict_cache):
+                # 管理者クライアントのモック（APIErrorを発生させる）
+                mock_admin_client = Mock()
+                mock_table = Mock()
+                mock_admin_client.table.return_value = mock_table
+                mock_table.update.return_value.eq.return_value.execute.side_effect = (
+                    APIError({"message": "DB Error"})
+                )
+                service._admin_client = mock_admin_client
+
+                # テストデータ
+                cache_key = "test_key"
+                translated_answer = {"ja": "こんにちは", "en": "Hello"}
+
+                # メソッド実行（エラーが握りつぶされることを確認）
+                service.update_translated_answer(cache_key, translated_answer)
+
+                # キャッシュが更新されたことを確認（DBエラーでもキャッシュは更新される）
+                cache_key_with_column = f"{cache_key}_answer_translation"
+                self.assertEqual(
+                    dict_cache.get(cache_key_with_column), translated_answer
+                )
+
+    def test_constructor_successful_initialization(self):
+        """__init__メソッドが正常に初期化されることをテストする。"""
+        from app.models.supabase_client import SupabaseService
+
+        # 必要な環境変数を設定
+        with patch.dict(
+            os.environ,
+            {
+                "SUPABASE_URL": "http://localhost",
+                "SUPABASE_ANON_KEY": "anon_key",
+                "SUPABASE_SERVICE_ROLE_KEY": "service_key",
+            },
+        ):
+            service = SupabaseService()
+
+            # インスタンス変数が正しく初期化されていることを確認
+            self.assertIsNone(service._read_only_client)
+            self.assertIsNone(service._admin_client)
+            self.assertEqual(service._read_only_usage_count, 0)
+            self.assertEqual(service._admin_usage_count, 0)
+
+    def test_constructor_missing_env_vars(self):
+        """__init__メソッドが環境変数不足時に適切にエラーを発生させることをテストする。"""
+        from app.models.supabase_client import SupabaseService
+
+        # テストケース: 各環境変数が不足している場合
+        test_cases = [
+            # 全て不足
+            (
+                {},
+                "以下の環境変数が必要です: SUPABASE_URL, SUPABASE_ANON_KEY, SUPABASE_SERVICE_ROLE_KEY",
+            ),
+            # SUPABASE_URLのみ不足
+            (
+                {
+                    "SUPABASE_ANON_KEY": "anon_key",
+                    "SUPABASE_SERVICE_ROLE_KEY": "service_key",
+                },
+                "以下の環境変数が必要です: SUPABASE_URL",
+            ),
+            # SUPABASE_ANON_KEYのみ不足
+            (
+                {
+                    "SUPABASE_URL": "http://localhost",
+                    "SUPABASE_SERVICE_ROLE_KEY": "service_key",
+                },
+                "以下の環境変数が必要です: SUPABASE_ANON_KEY",
+            ),
+            # SUPABASE_SERVICE_ROLE_KEYのみ不足
+            (
+                {"SUPABASE_URL": "http://localhost", "SUPABASE_ANON_KEY": "anon_key"},
+                "以下の環境変数が必要です: SUPABASE_SERVICE_ROLE_KEY",
+            ),
+            # 複数不足
+            (
+                {"SUPABASE_ANON_KEY": "anon_key"},
+                "以下の環境変数が必要です: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY",
+            ),
+        ]
+
+        for env_vars, expected_message in test_cases:
+            with self.subTest(env_vars=env_vars):
+                with patch.dict(os.environ, env_vars, clear=True):
+                    with self.assertRaises(ValueError) as context:
+                        SupabaseService()
+
+                    self.assertEqual(str(context.exception), expected_message)
+
+    def test_constructor_empty_env_vars(self):
+        """__init__メソッドが空の環境変数に対してもエラーを発生させることをテストする。"""
+        from app.models.supabase_client import SupabaseService
+
+        # 空文字列の環境変数を設定
+        test_cases = [
+            # 全て空文字列
+            (
+                {
+                    "SUPABASE_URL": "",
+                    "SUPABASE_ANON_KEY": "",
+                    "SUPABASE_SERVICE_ROLE_KEY": "",
+                },
+                "以下の環境変数が必要です: SUPABASE_URL, SUPABASE_ANON_KEY, SUPABASE_SERVICE_ROLE_KEY",
+            ),
+            # 一部空文字列
+            (
+                {
+                    "SUPABASE_URL": "http://localhost",
+                    "SUPABASE_ANON_KEY": "",
+                    "SUPABASE_SERVICE_ROLE_KEY": "service_key",
+                },
+                "以下の環境変数が必要です: SUPABASE_ANON_KEY",
+            ),
+        ]
+
+        for env_vars, expected_message in test_cases:
+            with self.subTest(env_vars=env_vars):
+                with patch.dict(os.environ, env_vars, clear=True):
+                    with self.assertRaises(ValueError) as context:
+                        SupabaseService()
+
+                    self.assertEqual(str(context.exception), expected_message)
+
+
+class BeatboxerTavilySearchTestCase(unittest.TestCase):
+    """beatboxer_tavily_search.pyの関数テストケース"""
 
     def setUp(self):
-        """テストの前準備。"""
+        """テストの前準備"""
         app.config["TESTING"] = True
         app.config["WTF_CSRF_ENABLED"] = False
         self.client = app.test_client()
@@ -1262,8 +1692,623 @@ class ParticipantDetailLinkParamTest(unittest.TestCase):
         self.app_context.push()
 
     def tearDown(self):
-        """テスト後のクリーンアップ。"""
+        """テスト後のクリーンアップ"""
         self.app_context.pop()
+
+    @patch("app.views.beatboxer_tavily_search.supabase_service")
+    def test_get_primary_domain_various_urls(self, mock_supabase):
+        """get_primary_domain関数に様々なURLをテストする"""
+        from app.views.beatboxer_tavily_search import get_primary_domain
+
+        test_cases = [
+            # 正常なURL
+            ("https://www.example.com/path", "example.com"),
+            ("https://sub.example.com/path", "example.com"),
+            ("http://example.co.uk/path", "co.uk"),  # 実際の関数挙動に基づく
+            ("https://example.com", "example.com"),
+            ("https://example.com/", "example.com"),
+            # 特殊なドメイン
+            ("https://youtube.com/watch?v=123", "youtube.com"),
+            ("https://www.youtube.com/channel/UC123", "youtube.com"),
+            ("https://instagram.com/user", "instagram.com"),
+            ("https://www.facebook.com/user", "facebook.com"),
+            # 短いドメイン
+            ("https://t.co/abc123", "t.co"),
+            # IPアドレス
+            ("https://192.168.1.1/path", "1.1"),  # 実際の関数挙動に基づく
+        ]
+
+        for url, expected in test_cases:
+            with self.subTest(url=url):
+                result = get_primary_domain(url)
+                self.assertEqual(result, expected)
+
+    def test_extract_youtube_video_id_various_urls(self):
+        """extract_youtube_video_id関数に様々なYouTube URLをテストする"""
+        from app.views.beatboxer_tavily_search import extract_youtube_video_id
+
+        test_cases = [
+            # 正常なYouTube URL
+            ("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "dQw4w9WgXcQ"),
+            ("https://youtube.com/watch?v=dQw4w9WgXcQ", "dQw4w9WgXcQ"),
+            ("https://youtu.be/dQw4w9WgXcQ", "dQw4w9WgXcQ"),
+            ("https://www.youtube.com/embed/dQw4w9WgXcQ", "dQw4w9WgXcQ"),
+            # 無効な形式のURL
+            ("https://www.youtube.com/watch", None),
+            ("https://www.youtube.com/channel/UC123", None),
+            ("https://example.com/watch?v=123", None),
+            ("https://youtube.com/", None),
+            # 不正なvideo_id
+            ("https://www.youtube.com/watch?v=123", None),  # 短すぎる
+            ("https://www.youtube.com/watch?v=invalid!@#", None),  # 無効な文字
+            # クエリパラメータ付き
+            ("https://www.youtube.com/watch?v=dQw4w9WgXcQ&t=30", "dQw4w9WgXcQ"),
+            # 異なるドメイン
+            ("https://www.youtub.com/watch?v=dQw4w9WgXcQ", None),  # ドメイン違い
+        ]
+
+        for url, expected in test_cases:
+            with self.subTest(url=url):
+                result = extract_youtube_video_id(url)
+                self.assertEqual(result, expected)
+
+    @patch("app.views.beatboxer_tavily_search.supabase_service")
+    def test_get_beatboxer_name_single_mode(self, mock_supabase):
+        """get_beatboxer_name関数をsingleモードでテストする"""
+        from app.views.beatboxer_tavily_search import get_beatboxer_name
+
+        # モックデータの設定
+        mock_supabase.get_data.return_value = [{"name": "test_beatboxer"}]
+
+        # テスト実行
+        result = get_beatboxer_name(beatboxer_id=123, mode="single")
+
+        # 検証
+        self.assertEqual(result, "TEST_BEATBOXER")
+        mock_supabase.get_data.assert_called_once_with(
+            table="Participant", columns=["name"], filters={"id": 123}
+        )
+
+    @patch("app.views.beatboxer_tavily_search.supabase_service")
+    def test_get_beatboxer_name_team_member_mode(self, mock_supabase):
+        """get_beatboxer_name関数をteam_memberモードでテストする"""
+        from app.views.beatboxer_tavily_search import get_beatboxer_name
+
+        # モックデータの設定
+        # 最初の呼び出し（Participantテーブル）は空、2番目の呼び出し（ParticipantMemberテーブル）は結果を返す
+        mock_supabase.get_data.side_effect = [
+            [],  # Participantテーブルの結果（空）
+            [{"name": "test_member"}],  # ParticipantMemberテーブルの結果
+        ]
+
+        # テスト実行
+        result = get_beatboxer_name(beatboxer_id=456, mode="team_member")
+
+        # 検証
+        self.assertEqual(result, "TEST_MEMBER")
+
+        # 両方の呼び出しが正しいことを確認
+        self.assertEqual(mock_supabase.get_data.call_count, 2)
+        mock_supabase.get_data.assert_any_call(
+            table="Participant", columns=["name"], filters={"id": 456}
+        )
+        mock_supabase.get_data.assert_any_call(
+            table="ParticipantMember", columns=["name"], filters={"id": 456}
+        )
+
+    @patch("app.views.beatboxer_tavily_search.supabase_service")
+    def test_get_beatboxer_name_not_found(self, mock_supabase):
+        """get_beatboxer_name関数でデータが見つからない場合のテスト"""
+        from app.views.beatboxer_tavily_search import get_beatboxer_name
+
+        # 空の結果を返す
+        mock_supabase.get_data.return_value = []
+
+        # IndexErrorが発生することを確認
+        with self.assertRaises(IndexError):
+            get_beatboxer_name(beatboxer_id=999, mode="single")
+
+    @patch("app.views.beatboxer_tavily_search.supabase_service")
+    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    def test_beatboxer_tavily_search_with_beatboxer_id(
+        self, mock_tavily, mock_supabase
+    ):
+        """beatboxer_tavily_search関数にbeatboxer_idを指定してテストする"""
+        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+
+        # モックデータの設定
+        mock_supabase.get_data.side_effect = [
+            [{"name": "test_beatboxer"}],  # get_beatboxer_name用
+            [],  # キャッシュチェック用（空で新規検索）
+        ]
+
+        mock_search_result = {
+            "results": [
+                {
+                    "title": "Test Beatboxer Official Site",
+                    "url": "https://example.com",
+                    "content": "This is a test content about beatboxer",
+                    "primary_domain": "example.com",
+                },
+                {
+                    "title": "Test Beatboxer @instagram",
+                    "url": "https://instagram.com/testbeatboxer",
+                    "content": "Instagram profile",
+                    "primary_domain": "instagram.com",
+                },
+            ]
+        }
+        mock_tavily.search.return_value = mock_search_result
+
+        # テスト実行
+        result = beatboxer_tavily_search(beatboxer_id=123)
+
+        # 検証
+        self.assertIsInstance(result, tuple)
+        self.assertEqual(
+            len(result), 3
+        )  # (account_urls, final_urls, youtube_embed_url)
+
+        account_urls, final_urls, youtube_embed_url = result
+
+        # アカウントURLが正しく抽出されているか
+        self.assertEqual(len(account_urls), 1)
+        self.assertEqual(account_urls[0]["url"], "https://instagram.com/testbeatboxer")
+
+        # 一般URLが正しく抽出されているか
+        self.assertEqual(len(final_urls), 1)
+        self.assertEqual(final_urls[0]["url"], "https://example.com")
+
+        # YouTube埋め込みURLは空
+        self.assertEqual(youtube_embed_url, "")
+
+    @patch("app.views.beatboxer_tavily_search.supabase_service")
+    def test_beatboxer_tavily_search_with_beatboxer_name(self, mock_supabase):
+        """beatboxer_tavily_search関数にbeatboxer_nameを直接指定してテストする"""
+        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+
+        # モックデータの設定
+        mock_supabase.get_data.return_value = []  # キャッシュなし
+
+        mock_search_result = {
+            "results": [
+                {
+                    "title": "Direct Name Search Result",
+                    "url": "https://example.com/direct",
+                    "content": "Direct search result",
+                    "primary_domain": "example.com",
+                }
+            ]
+        }
+
+        with patch("app.views.beatboxer_tavily_search.tavily_service") as mock_tavily:
+            mock_tavily.search.return_value = mock_search_result
+
+            # テスト実行
+            result = beatboxer_tavily_search(beatboxer_name="Test Beatboxer")
+
+            # 検証
+            account_urls, final_urls, youtube_embed_url = result
+            self.assertEqual(len(final_urls), 1)
+            self.assertEqual(final_urls[0]["url"], "https://example.com/direct")
+
+    @patch("app.views.beatboxer_tavily_search.supabase_service")
+    def test_beatboxer_tavily_search_no_parameters_error(self, mock_supabase):
+        """beatboxer_tavily_search関数でパラメータが不足する場合のエラーテスト"""
+        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+
+        # 両方のパラメータがNoneの場合
+        with self.assertRaises(ValueError) as context:
+            beatboxer_tavily_search()
+
+        self.assertIn(
+            "beatboxer_idまたはbeatboxer_nameが必要です", str(context.exception)
+        )
+
+    @patch("app.views.beatboxer_tavily_search.supabase_service")
+    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    def test_beatboxer_tavily_search_youtube_extraction(
+        self, mock_tavily, mock_supabase
+    ):
+        """beatboxer_tavily_search関数でYouTube動画ID抽出をテストする"""
+        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+
+        # モックデータの設定
+        mock_supabase.get_data.side_effect = [
+            [{"name": "youtube_beatboxer"}],  # get_beatboxer_name用
+            [],  # キャッシュチェック用
+        ]
+
+        mock_search_result = {
+            "results": [
+                {
+                    "title": "YouTube Beatbox Video",
+                    "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                    "content": "Amazing beatbox performance",
+                    "primary_domain": "youtube.com",
+                },
+                {
+                    "title": "Another Site",
+                    "url": "https://example.com",
+                    "content": "Other content",
+                    "primary_domain": "example.com",
+                },
+            ]
+        }
+        mock_tavily.search.return_value = mock_search_result
+
+        # テスト実行
+        result = beatboxer_tavily_search(beatboxer_id=123)
+
+        account_urls, final_urls, youtube_embed_url = result
+
+        # YouTube埋め込みURLが正しく生成されているか
+        expected_embed_url = (
+            "https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0&hd=1&vq=hd720"
+        )
+        self.assertEqual(youtube_embed_url, expected_embed_url)
+
+        # 一般URLは1つ（YouTube以外）
+        self.assertEqual(len(final_urls), 1)
+        self.assertEqual(final_urls[0]["url"], "https://example.com")
+
+    @patch("app.views.beatboxer_tavily_search.supabase_service")
+    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    def test_beatboxer_tavily_search_ban_words_filtering(
+        self, mock_tavily, mock_supabase
+    ):
+        """beatboxer_tavily_search関数で禁止ワードによるフィルタリングをテストする"""
+        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+
+        # モックデータの設定
+        mock_supabase.get_data.side_effect = [
+            [{"name": "test_beatboxer"}],  # get_beatboxer_name用
+            [],  # キャッシュチェック用
+        ]
+
+        mock_search_result = {
+            "results": [
+                {
+                    "title": "Clean Result",
+                    "url": "https://example.com/clean",
+                    "content": "This is clean content",
+                    "primary_domain": "example.com",
+                },
+                {
+                    "title": "Banned Result HATEN",
+                    "url": "https://example.com/banned",
+                    "content": "This contains HATEN word",
+                    "primary_domain": "example.com",
+                },
+                {
+                    "title": "Another Banned Result",
+                    "url": "https://example.com/banned2",
+                    "content": "This is JPN CUP related",
+                    "primary_domain": "example.com",
+                },
+            ]
+        }
+        mock_tavily.search.return_value = mock_search_result
+
+        # テスト実行
+        result = beatboxer_tavily_search(beatboxer_id=123)
+
+        account_urls, final_urls, youtube_embed_url = result
+
+        # 禁止ワードを含む結果は除外されているか
+        self.assertEqual(len(final_urls), 1)
+        self.assertEqual(final_urls[0]["title"], "Clean Result")
+
+    @patch("app.views.beatboxer_tavily_search.supabase_service")
+    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    def test_beatboxer_tavily_search_minimum_results(self, mock_tavily, mock_supabase):
+        """beatboxer_tavily_search関数で最低3件の結果を確保するロジックをテストする"""
+        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+
+        # モックデータの設定
+        mock_supabase.get_data.side_effect = [
+            [{"name": "test_beatboxer"}],  # get_beatboxer_name用
+            [],  # キャッシュチェック用
+        ]
+
+        mock_search_result = {
+            "results": [
+                {
+                    "title": "Result 1",
+                    "url": "https://example1.com",
+                    "content": "Content 1",
+                    "primary_domain": "example1.com",
+                },
+                {
+                    "title": "Result 2",
+                    "url": "https://example2.com",
+                    "content": "Content 2",
+                    "primary_domain": "example2.com",
+                },
+                {
+                    "title": "Result 3",
+                    "url": "https://example3.com",
+                    "content": "Content 3",
+                    "primary_domain": "example3.com",
+                },
+                {
+                    "title": "Result 4",
+                    "url": "https://example4.com",
+                    "content": "Content 4",
+                    "primary_domain": "example4.com",
+                },
+            ]
+        }
+        mock_tavily.search.return_value = mock_search_result
+
+        # テスト実行
+        result = beatboxer_tavily_search(beatboxer_id=123)
+
+        account_urls, final_urls, youtube_embed_url = result
+
+        # 4つの異なるドメインの結果がある場合、ステップ2で4件すべてが追加される
+        self.assertEqual(len(final_urls), 4)
+        self.assertEqual(final_urls[0]["url"], "https://example1.com")
+        self.assertEqual(final_urls[1]["url"], "https://example2.com")
+        self.assertEqual(final_urls[2]["url"], "https://example3.com")
+        self.assertEqual(final_urls[3]["url"], "https://example4.com")
+
+    @patch("app.views.beatboxer_tavily_search.supabase_service")
+    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    def test_beatboxer_tavily_search_maximum_results(self, mock_tavily, mock_supabase):
+        """beatboxer_tavily_search関数で最大5件の結果に制限されることをテストする"""
+        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+
+        # モックデータの設定
+        mock_supabase.get_data.side_effect = [
+            [{"name": "test_beatboxer"}],  # get_beatboxer_name用
+            [],  # キャッシュチェック用
+        ]
+
+        # 7件の結果を作成
+        mock_results = []
+        for i in range(7):
+            mock_results.append(
+                {
+                    "title": f"Result {i}",
+                    "url": f"https://example{i}.com",
+                    "content": f"Content {i}",
+                    "primary_domain": f"example{i}.com",
+                }
+            )
+
+        mock_search_result = {"results": mock_results}
+        mock_tavily.search.return_value = mock_search_result
+
+        # テスト実行
+        result = beatboxer_tavily_search(beatboxer_id=123)
+
+        account_urls, final_urls, youtube_embed_url = result
+
+        # 結果が最大5件に制限されているか
+        self.assertEqual(len(final_urls), 5)
+
+    @patch("app.views.beatboxer_tavily_search.supabase_service")
+    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    def test_beatboxer_tavily_search_cached_results(self, mock_tavily, mock_supabase):
+        """beatboxer_tavily_search関数でキャッシュされた結果を使用する場合をテストする"""
+        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+
+        # キャッシュされた結果を返す
+        cached_result = {
+            "results": [
+                {
+                    "title": "Cached Result",
+                    "url": "https://cached.com",
+                    "content": "Cached content",
+                    "primary_domain": "cached.com",
+                }
+            ]
+        }
+
+        # モックデータの設定
+        mock_supabase.get_data.side_effect = [
+            [{"name": "test_beatboxer"}],  # get_beatboxer_name用
+            [],  # キャッシュチェック用（空のリスト = キャッシュなし）
+        ]
+
+        # get_tavily_dataのモック（キャッシュされた結果を返す）
+        mock_supabase.get_tavily_data.return_value = cached_result
+
+        # テスト実行（この場合はTavily検索は呼ばれず、キャッシュが使用される）
+        result = beatboxer_tavily_search(beatboxer_id=123)
+
+        account_urls, final_urls, youtube_embed_url = result
+
+        # Tavily検索が呼ばれていないことを確認
+        mock_tavily.search.assert_not_called()
+
+        # キャッシュされた結果が使用されているか
+        self.assertEqual(len(final_urls), 1)
+        self.assertEqual(final_urls[0]["url"], "https://cached.com")
+
+    @patch("app.views.beatboxer_tavily_search.supabase_service")
+    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    def test_beatboxer_tavily_search_with_youtube_short_url(
+        self, mock_tavily, mock_supabase
+    ):
+        """beatboxer_tavily_search関数でyoutu.be短縮URLの処理をテストする"""
+        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+
+        # モックデータの設定
+        mock_supabase.get_data.side_effect = [
+            [{"name": "test_beatboxer"}],  # get_beatboxer_name用
+            [],  # キャッシュチェック用
+        ]
+
+        mock_search_result = {
+            "results": [
+                {
+                    "title": "Short YouTube URL",
+                    "url": "https://youtu.be/dQw4w9WgXcQ",
+                    "content": "Short URL beatbox video",
+                    "primary_domain": "youtu.be",
+                }
+            ]
+        }
+        mock_tavily.search.return_value = mock_search_result
+
+        # テスト実行
+        result = beatboxer_tavily_search(beatboxer_id=123)
+
+        account_urls, final_urls, youtube_embed_url = result
+
+        # youtu.beのvideo_idが正しく抽出されているか
+        expected_embed_url = (
+            "https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0&hd=1&vq=hd720"
+        )
+        self.assertEqual(youtube_embed_url, expected_embed_url)
+
+    @patch("app.views.beatboxer_tavily_search.supabase_service")
+    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    @patch("app.views.beatboxer_tavily_search.gemini_service")
+    def test_translate_tavily_answer_with_cache(
+        self, mock_gemini, mock_tavily, mock_supabase
+    ):
+        """translate_tavily_answer関数でキャッシュされた翻訳を使用する場合をテストする"""
+        from app.views.beatboxer_tavily_search import translate_tavily_answer
+
+        # モックデータの設定
+        mock_supabase.get_data.side_effect = [
+            [{"name": "test_beatboxer"}],  # get_beatboxer_name用
+            {"answer": "This is an answer"},  # search_result
+            {"ja": "これは回答です"},  # cached translation
+        ]
+
+        with patch("app.main.flask_cache") as mock_cache:
+            mock_cache.get.return_value = {"ja": "これは回答です"}  # 内部キャッシュ
+
+            # テスト実行
+            result = translate_tavily_answer(
+                beatboxer_id=123, mode="single", language="ja"
+            )
+
+            # 検証
+            self.assertEqual(result, "これは回答です")
+            # Gemini APIが呼ばれていないことを確認
+            mock_gemini.ask_sync.assert_not_called()
+
+    @patch("app.views.beatboxer_tavily_search.supabase_service")
+    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    @patch("app.views.beatboxer_tavily_search.gemini_service")
+    def test_translate_tavily_answer_without_cache(
+        self, mock_gemini, mock_tavily, mock_supabase
+    ):
+        """translate_tavily_answer関数でキャッシュなしの場合の翻訳をテストする"""
+        from app.views.beatboxer_tavily_search import translate_tavily_answer
+
+        # モックデータの設定
+        mock_supabase.get_data.side_effect = [
+            [{"name": "test_beatboxer"}],  # get_beatboxer_name用
+            {"answer": "This is an answer"},  # search_result
+            [],  # no cached translation
+        ]
+
+        mock_gemini.ask_sync.return_value = {"translated_text": "これは回答です"}
+
+        with patch("app.main.flask_cache") as mock_cache:
+            mock_cache.get.return_value = None  # 内部キャッシュなし
+
+            # テスト実行
+            result = translate_tavily_answer(
+                beatboxer_id=123, mode="single", language="ja"
+            )
+
+            # 検証
+            self.assertEqual(result, "これは回答です")
+            # Gemini APIが呼ばれたことを確認
+            mock_gemini.ask_sync.assert_called_once()
+
+    @patch("app.views.beatboxer_tavily_search.supabase_service")
+    def test_translate_tavily_answer_no_search_result(self, mock_supabase):
+        """translate_tavily_answer関数で検索結果がない場合をテストする"""
+        from app.views.beatboxer_tavily_search import translate_tavily_answer
+
+        with patch("app.main.flask_cache") as mock_cache:
+            mock_cache.get.return_value = None
+
+            # モックデータの設定
+            mock_supabase.get_data.side_effect = [
+                [{"name": "test_beatboxer"}],  # get_beatboxer_name用
+            ]
+
+            # get_tavily_dataのモック（answerフィールドがない場合）
+            mock_supabase.get_tavily_data.side_effect = [
+                {},  # search_result with no answer
+                [],  # no cached translation
+            ]
+
+            result = translate_tavily_answer(
+                beatboxer_id=123, mode="single", language="ja"
+            )
+
+            # 検証
+            self.assertEqual(result, "")
+
+    @patch("app.views.beatboxer_tavily_search.supabase_service")
+    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    @patch("app.views.beatboxer_tavily_search.gemini_service")
+    def test_translate_tavily_answer_gemini_error(
+        self, mock_gemini, mock_tavily, mock_supabase
+    ):
+        """translate_tavily_answer関数でGemini APIエラーの場合をテストする"""
+        from app.views.beatboxer_tavily_search import translate_tavily_answer
+
+        # モックデータの設定
+        mock_supabase.get_data.side_effect = [
+            [{"name": "test_beatboxer"}],  # get_beatboxer_name用
+            {"answer": "This is an answer"},  # search_result
+            [],  # no cached translation
+        ]
+
+        # Gemini APIがエラーを返す
+        mock_gemini.ask_sync.return_value = "Error occurred"
+
+        with patch("app.main.flask_cache") as mock_cache:
+            mock_cache.get.return_value = None
+
+            # テスト実行
+            result = translate_tavily_answer(
+                beatboxer_id=123, mode="single", language="ja"
+            )
+
+            # 検証（Geminiエラーの場合は空文字列を返す）
+            self.assertEqual(result, "")
+
+    @patch("app.views.beatboxer_tavily_search.supabase_service")
+    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    @patch("app.views.beatboxer_tavily_search.gemini_service")
+    def test_translate_tavily_answer_list_response(
+        self, mock_gemini, mock_tavily, mock_supabase
+    ):
+        """translate_tavily_answer関数でGeminiがリストを返す場合をテストする"""
+        from app.views.beatboxer_tavily_search import translate_tavily_answer
+
+        # モックデータの設定
+        mock_supabase.get_data.side_effect = [
+            [{"name": "test_beatboxer"}],  # get_beatboxer_name用
+            {"answer": "This is an answer"},  # search_result
+            [],  # no cached translation
+        ]
+
+        # Gemini APIがリストを返す
+        mock_gemini.ask_sync.return_value = [{"translated_text": "これは回答です"}]
+
+        with patch("app.main.flask_cache") as mock_cache:
+            mock_cache.get.return_value = None
+
+            # テスト実行
+            result = translate_tavily_answer(
+                beatboxer_id=123, mode="single", language="ja"
+            )
+
+            # 検証
+            self.assertEqual(result, "これは回答です")
 
     @patch("app.views.participants.supabase_service")
     @patch("app.views.participant_detail.supabase_service")

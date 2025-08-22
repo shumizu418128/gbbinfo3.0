@@ -171,7 +171,9 @@ def beatboxer_tavily_search(
         item["primary_domain"] = primary_domain
 
         # YouTube動画URLの場合、video_idを取得
-        if primary_domain == "youtube.com" and youtube_embed_url == "":
+        if (
+            primary_domain == "youtube.com" or primary_domain == "youtu.be"
+        ) and youtube_embed_url == "":
             video_id = extract_youtube_video_id(item["url"])
             if video_id:
                 youtube_embed_url = (
