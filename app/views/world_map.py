@@ -59,7 +59,11 @@ def world_map_view(year: int):
         participant.pop("Category")
 
         # チームかどうかを判断
-        participant["is_team"] = len(participant["ParticipantMember"]) > 0
+        is_team = len(participant["ParticipantMember"]) > 0
+        if is_team is True:
+            participant["mode"] = "team"
+        elif is_team is False:
+            participant["mode"] = "single"
 
         # 複数国籍のチームの場合、該当国ごとにデータを追加
         if participant["iso_code"] == 9999:
@@ -125,7 +129,7 @@ def world_map_view(year: int):
         for participant in participants:
             popup_content += f"""
             <p style="margin: 5px 0;">
-                <a href="/others/participant_detail?id={participant["id"]}&mode={participant["is_team"]}" target="_top">{participant["name"]}</a> ({participant["category"]})
+                <a href="/others/participant_detail?id={participant["id"]}&mode={participant["mode"]}" target="_top">{participant["name"]}</a> ({participant["category"]})
             </p>
             """
         popup_content += "</div>"
