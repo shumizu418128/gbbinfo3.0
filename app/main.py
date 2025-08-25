@@ -67,7 +67,7 @@ class Config:
     BABEL_SUPPORTED_LOCALES = [code for code, _ in LANGUAGES]
     BABEL_TRANSLATION_DIRECTORIES = str(BASE_DIR / "app" / "translations")
     CACHE_DEFAULT_TIMEOUT = 0
-    CACHE_TYPE = "filesystem"
+    CACHE_TYPE = "simple"
     CACHE_DIR = str(BASE_DIR / "cache")
     DEBUG = False
     SECRET_KEY = os.getenv("SECRET_KEY")
