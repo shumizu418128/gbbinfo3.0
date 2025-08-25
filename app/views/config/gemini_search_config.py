@@ -55,7 +55,6 @@ https://gbbinfo-jpn.onrender.com/{year}/
 # 回答のルール
 このURLの後ろに、以下のファイル名を必ず含めてください。
 また、提示されたリストの中から、質問内容に最も合致するクエリパラメータを1つ選択してください。
-そして、質問文から、GBBに関連すると思われる人名やグループ名を最初に見つかったもの1つだけ抽出し、アルファベット表記（例: ROFU, Wing）に変換して name フィールドに設定してください。見つからない場合は None としてください。
 以下に書かれていないものを作り出す行為は禁止。
 
 - japan: GBB{year}の日本代表出場者
@@ -115,14 +114,13 @@ https://gbbinfo-jpn.onrender.com/{year}/
     - latest_info
 
 もしも適切なWebページが無いと判断した場合、ファイル名はtopを、クエリパラメータはNoneを選択してください。
-もしも質問文全体が、特定の人名やグループ名（例: Tomazacre、River'）のみで構成されている、あるいは明らかに特定人物に関する検索意図だと判断できる場合、ファイル名はparticipantsを、クエリパラメータはsearch_participantsを選択してください。
 なお、GBBの部門には、Solo, Tag Team, Loopstation, Producer, Crewなどがあります。
 
 # 回答例1
-{{"url": "https://gbbinfo-jpn.onrender.com/{year}/top", "parameter": "contact", "name": "None"}}
+{{"url": "https://gbbinfo-jpn.onrender.com/{year}/top", "parameter": "None"}}
 
 # 回答例2
-{{"url": "https://gbbinfo-jpn.onrender.com/{year}/participants", "parameter": "search_participants", "name": "ROFU"}}"""
+{{"url": "https://gbbinfo-jpn.onrender.com/{year}/participants", "parameter": "search_participants"}}"""
 
 PROMPT_TRANSLATE = """Translate this text to {lang}.
 Keep names in English. Return JSON only. Strictly follow the JSON format for output:

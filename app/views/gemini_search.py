@@ -2,7 +2,6 @@ import random
 import re
 from threading import Thread
 
-import pykakasi
 from flask import jsonify, request
 from rapidfuzz import process
 
@@ -10,20 +9,9 @@ from app.models.gemini_client import gemini_service
 from app.models.spreadsheet_client import spreadsheet_service
 from app.views.config.gemini_search_config import PROMPT, SEARCH_CACHE
 
-HIRAGANA = "H"
-KATAKANA = "K"
-KANJI = "J"
-ALPHABET = "a"
-
-kakasi = pykakasi.kakasi()
-kakasi.setMode(HIRAGANA, ALPHABET)  # ひらがなをローマ字に変換
-kakasi.setMode(KATAKANA, ALPHABET)  # カタカナをローマ字に変換
-kakasi.setMode(KANJI, ALPHABET)  # 漢字をローマ字に変換
-converter = kakasi.getConverter()
-
 
 # MARK: URL作成
-def create_url(year: int, url: str, parameter: str | None, name: str | None):
+def create_url(year: int, url: str, parameter: str | None):
     """
     指定された情報に基づいてレスポンスURLを作成します。
 
@@ -42,46 +30,17 @@ def create_url(year: int, url: str, parameter: str | None, name: str | None):
     if parameter.lower() == "none" or parameter.lower() == "null":
         parameter = ""
 
-    # nameも同様
-    if name.lower() == "none" or name.lower() == "null":
-        name = ""
-
     # topのNoneは問い合わせに変更
     if "top" in url and parameter == "":
         parameter = "contact"
 
     # 7toSmoke最新情報の場合は7tosmokeこれだけガイドページに変更
-    if url == "/others/7tosmoke" and parameter in ["latest_info", None]:
+    if url == "/others/7tosmoke" and parameter in ["latest_info", ""]:
         response_url = f"/{year}/top_7tosmoke"
 
     # パラメータがある場合は追加
-    if parameter != "" and parameter != "search_participants":
+    if parameter != "":
         response_url += f"?scroll={parameter}"
-
-    # participantsのsearch_participantsが指定された場合はvalueに質問を追加
-    if parameter == "search_participants" and name != "":
-        # search_participantsのとき、nameがある場合のみ追加
-        response_url += "?scroll=search_participants"
-
-        # 英数字表記かどうか判定
-        # 記号も対象・Ωは"Sound of Sony Ω"の入力対策
-        alphabet_pattern = r'^[a-zA-Z0-9 \-!@#$%^&*()_+=~`<>?,.\/;:\'"\\|{}[\]Ω]+'
-        match_alphabet = re.match(alphabet_pattern, name)
-
-        # 英数字表記の場合、大文字に変換して追加
-        if match_alphabet:
-            response_url += f"&value={match_alphabet.group().upper()}"
-
-        # それ以外の場合、ローマ字に変換して追加
-        else:
-            romaji_name = converter.do(name)
-
-            # 一応ちゃんと変換できたか確認
-            match_alphabet = re.match(alphabet_pattern, romaji_name)
-            if match_alphabet:
-                response_url += f"&value={romaji_name.upper()}"
-            else:
-                response_url += f"&value={name}"
 
     return response_url
 
@@ -129,7 +88,6 @@ def post_gemini_search(year: int, IS_LOCAL: bool, IS_PULL_REQUEST: bool):
                     year,
                     gemini_response["url"],
                     gemini_response["parameter"],
-                    gemini_response["name"],
                 )
                 break
 
