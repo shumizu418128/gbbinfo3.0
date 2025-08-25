@@ -318,13 +318,5 @@
     <script src="/static/scripts/navigation.js"></script>
     <script src="/static/scripts/ui.js"></script>
     <script src="/static/scripts/search_function.js"></script>
-
-    <script>
-      if (window.location.pathname.includes('/participants') && window.location.search.includes('value')) {
-          // flask変数を入れて実行するために、あえてwindow.onloadを使う
-          searchParticipants({{ year }});
-      }
-    </script>
-
   </body>
 </html>
