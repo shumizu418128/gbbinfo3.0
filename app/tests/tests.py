@@ -480,7 +480,7 @@ class GeminiServiceTestCase(unittest.TestCase):
             call_count += 1
             if call_count == 1:
                 return Mock(
-                    text='{"url": "/2025/top", "parameter": "None", "name": "None"}'
+                    text='{"url": "/2025/top", "parameter": "None"}'
                 )
             else:
                 # レートリミットエラーをシミュレート
@@ -515,8 +515,7 @@ class GeminiServiceTestCase(unittest.TestCase):
         # モックの設定
         mock_gemini_service.ask_sync.return_value = {
             "url": "/2025/participants",
-            "parameter": "search_participants",
-            "name": "TEST",
+            "parameter": "search_participants"
         }
 
         # 複数回の連続リクエスト
@@ -526,8 +525,7 @@ class GeminiServiceTestCase(unittest.TestCase):
             request_times.append(time.time())
             return {
                 "url": "/2025/participants",
-                "parameter": "search_participants",
-                "name": "TEST",
+                "parameter": "search_participants"
             }
 
         mock_gemini_service.ask_sync.side_effect = mock_ask_sync
@@ -592,7 +590,7 @@ class GeminiServiceTestCase(unittest.TestCase):
             if len(call_times) <= 2:
                 raise Exception("API Error")
             return Mock(
-                text='{"url": "/2025/top", "parameter": "None", "name": "None"}'
+                text='{"url": "/2025/top", "parameter": "None"}'
             )
 
         mock_client_instance.models.generate_content = Mock(
@@ -644,7 +642,7 @@ class GeminiServiceTestCase(unittest.TestCase):
         def mock_generate_content(*args, **kwargs):
             with request_lock:
                 request_times.append(time.time())
-            return Mock(text='{"url": "/test", "parameter": "None", "name": "None"}')
+            return Mock(text='{"url": "/test", "parameter": "None"}')
 
         mock_client_instance.models.generate_content = Mock(
             side_effect=mock_generate_content
