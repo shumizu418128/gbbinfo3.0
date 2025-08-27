@@ -4,10 +4,10 @@ from urllib.parse import parse_qs, urlparse
 
 from flask import jsonify, request, session
 
+from app.config.config import PROMPT_TRANSLATE
 from app.models.gemini_client import gemini_service
 from app.models.supabase_client import supabase_service
 from app.models.tavily_client import tavily_service
-from app.views.config.gemini_search_config import PROMPT_TRANSLATE
 
 
 # MARK: ドメイン取得

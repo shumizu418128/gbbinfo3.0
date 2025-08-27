@@ -5,7 +5,7 @@ import os
 from google import genai
 from ratelimit import limits, sleep_and_retry
 
-from app.models.config.gemini_config import (
+from app.config.config import (
     SAFETY_SETTINGS_BLOCK_ONLY_HIGH,
 )
 

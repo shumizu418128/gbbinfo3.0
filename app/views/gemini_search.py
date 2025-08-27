@@ -5,9 +5,9 @@ from threading import Thread
 from flask import jsonify, request
 from rapidfuzz import process
 
+from app.config.config import PROMPT, SEARCH_CACHE
 from app.models.gemini_client import gemini_service
 from app.models.spreadsheet_client import spreadsheet_service
-from app.views.config.gemini_search_config import PROMPT, SEARCH_CACHE
 
 
 # MARK: URL作成

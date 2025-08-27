@@ -1,3 +1,64 @@
+"""
+Gemini API設定ファイル
+Google Gemini APIの安全設定とGBB検索機能を統合した設定ファイル
+"""
+
+from google.genai import types
+
+# =============================================================================
+# Google Gemini API Safety Settings
+# =============================================================================
+
+SAFETY_SETTINGS_BLOCK_ONLY_HIGH = [
+    types.SafetySetting(
+        category=types.HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+        threshold=types.HarmBlockThreshold.BLOCK_ONLY_HIGH,
+    ),
+    types.SafetySetting(
+        category=types.HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
+        threshold=types.HarmBlockThreshold.BLOCK_ONLY_HIGH,
+    ),
+    types.SafetySetting(
+        category=types.HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+        threshold=types.HarmBlockThreshold.BLOCK_ONLY_HIGH,
+    ),
+    types.SafetySetting(
+        category=types.HarmCategory.HARM_CATEGORY_HARASSMENT,
+        threshold=types.HarmBlockThreshold.BLOCK_ONLY_HIGH,
+    ),
+    types.SafetySetting(
+        category=types.HarmCategory.HARM_CATEGORY_CIVIC_INTEGRITY,
+        threshold=types.HarmBlockThreshold.BLOCK_ONLY_HIGH,
+    ),
+]
+
+SAFETY_SETTINGS_BLOCK_NONE = [
+    types.SafetySetting(
+        category=types.HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+        threshold=types.HarmBlockThreshold.BLOCK_NONE,
+    ),
+    types.SafetySetting(
+        category=types.HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
+        threshold=types.HarmBlockThreshold.BLOCK_NONE,
+    ),
+    types.SafetySetting(
+        category=types.HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+        threshold=types.HarmBlockThreshold.BLOCK_NONE,
+    ),
+    types.SafetySetting(
+        category=types.HarmCategory.HARM_CATEGORY_HARASSMENT,
+        threshold=types.HarmBlockThreshold.BLOCK_NONE,
+    ),
+    types.SafetySetting(
+        category=types.HarmCategory.HARM_CATEGORY_CIVIC_INTEGRITY,
+        threshold=types.HarmBlockThreshold.BLOCK_NONE,
+    ),
+]
+
+# =============================================================================
+# GBB Search Configuration
+# =============================================================================
+
 SEARCH_CACHE = {
     "7TO": "/__year__/top_7tosmoke",
     "7TOSMOKE": "/__year__/top_7tosmoke",
