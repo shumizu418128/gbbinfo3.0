@@ -16,7 +16,11 @@
     <a href="/{{ year }}/rule"><button>GBB{{ year }}ルール & 審査員</button></a>
     <a href="/{{ year }}/ticket"><button>会場 & チケット</button></a>
     <a href="/{{ year }}/time_schedule"><button>タイムスケジュール</button></a>
-    <a href="/{{ year }}/japan"><button>日本代表</button></a>
+    {% if language == "ko" %}
+        <a href="/{{ year }}/korea"><button>韓国代表</button></a>
+    {% else %}
+        <a href="/{{ year }}/japan"><button>日本代表</button></a>
+    {% endif %}
     <a href="/{{ year }}/result"><button>大会結果</button></a>
 </div>
 <ul>

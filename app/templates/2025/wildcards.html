@@ -110,7 +110,11 @@
 
 <div class="button-container">
   <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
-  <a href="/{{ year }}/japan"><button>{{_("日本代表")}}</button></a>
+  {% if language == 'ko' %}
+    <a href="/{{ year }}/korea"><button>{{_("韓国代表")}}</button></a>
+  {% else %}
+    <a href="/{{ year }}/japan"><button>{{_("日本代表")}}</button></a>
+  {% endif %}
 </div>
 
 {% endblock %}

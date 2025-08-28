@@ -122,7 +122,11 @@
       </div>
       <div class="button-container">
         <a href="/{{ year }}/time_schedule"><button>{{_("タイムスケジュール")}}</button></a>
-        <a href="/{{ year }}/japan"><button>{{_("日本代表")}}</button></a>
+        {% if language == "ko" %}
+          <a href="/{{ year }}/korea"><button>{{_("韓国代表")}}</button></a>
+        {% else %}
+          <a href="/{{ year }}/japan"><button>{{_("日本代表")}}</button></a>
+        {% endif %}
         <a href="/{{ year }}/ticket"><button>{{_("会場")}} & {{_("チケット")}}</button></a>
         <a href="/{{ year }}/stream"><button>{{_("当日配信")}}</button></a>
       </div>

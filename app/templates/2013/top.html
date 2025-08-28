@@ -13,7 +13,11 @@
 <div class="button-container">
   <a href="/{{ year }}/participants"><button type="button">Wildcard結果 & 出場者</button></a>
   <a href="/others/how_to_plan"><button type="button">現地観戦計画のたてかた</button></a>
-  <a href="/{{ year }}/japan"><button type="button">日本代表</button></a>
+  {% if language == "ko" %}
+    <a href="/{{ year }}/korea"><button type="button">韓国代表</button></a>
+  {% else %}
+    <a href="/{{ year }}/japan"><button type="button">日本代表</button></a>
+  {% endif %}
 </div>
 <ul>
     <li><a href="/others/url_change">当サイトURL変更のお知らせ</a></li>
