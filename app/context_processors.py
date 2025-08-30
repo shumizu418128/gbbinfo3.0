@@ -305,6 +305,12 @@ def get_locale(BABEL_SUPPORTED_LOCALES):
         セッションに"language"が設定されていない場合は、リクエストのAccept-Languageヘッダーから
         最適なロケールを選択し、セッションに保存します。該当するロケールがない場合は"ja"をデフォルトとします。
     """
+    # クエリパラメータで言語指定されている場合、それを優先
+    preferred_language = request.args.get("lang")
+    if preferred_language and preferred_language in BABEL_SUPPORTED_LOCALES:
+        session["language"] = preferred_language
+        return session["language"]
+
     # セッションに言語が設定されているか確認
     if "language" not in session:
         best_match = request.accept_languages.best_match(BABEL_SUPPORTED_LOCALES)
