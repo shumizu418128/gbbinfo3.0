@@ -1,5 +1,6 @@
 import random
 import re
+import unicodedata
 from threading import Thread
 
 from flask import jsonify, request
@@ -71,6 +72,9 @@ def post_gemini_search(year: int, IS_LOCAL: bool, IS_PULL_REQUEST: bool):
 
     response = {}
     url = ""
+
+    # 全角数字・アルファベットを半角に変換
+    question = unicodedata.normalize("NFKC", question)
 
     if question.upper() in SEARCH_CACHE:
         url = SEARCH_CACHE[question.upper()].replace("__year__", str(year))
