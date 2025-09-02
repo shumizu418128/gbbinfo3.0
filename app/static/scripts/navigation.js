@@ -13,7 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
     headerArray.forEach((header, index) => {
         const option = document.createElement('option');
         option.value = index;
-        option.textContent = header.textContent.trim();
+        // innerHTMLを取得し、<br>タグを半角スペースに、&amp;を&に置換してからテキストに変換
+        const htmlContent = header.innerHTML;
+        const processedText = htmlContent.replace(/<br\s*\/?>/gi, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
+        option.textContent = processedText;
         dropdown.appendChild(option);
     });
 
