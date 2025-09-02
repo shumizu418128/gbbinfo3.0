@@ -32,9 +32,6 @@ google-auth==2.37.0
 # Data Processing
 pandas==2.2.3
 
-# Japanese Text Processing
-pykakasi==2.3.0
-
 # Text Processing and Fuzzy Matching
 rapidfuzz==3.12.1
 
