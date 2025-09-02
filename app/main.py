@@ -206,7 +206,7 @@ app.add_url_rule("/<int:year>/<string:content>", "common", common.content_view)
 ####################################################################
 @app.route("/.well-known/discord")
 def discord():
-    return send_file(".well-known/discord")
+    return send_file("static/discord")
 
 
 @app.route("/sitemap.xml")
