@@ -178,9 +178,9 @@ app.add_route(common.content_2022_view_async, "/2022/<content>", methods=["GET"]
 #     methods=["POST"],
 # )
 
-# データ取得（暫定的にコメントアウト）
-# app.add_route(world_map.world_map_view_async, "/<year:int>/world_map", methods=["GET"])
-# app.add_route(rule.rules_view_async, "/<year:int>/rule", methods=["GET"])
+# データ取得（段階的に有効化）
+app.add_route(world_map.world_map_view_async, "/<year:int>/world_map", methods=["GET"])
+app.add_route(rule.rules_view_async, "/<year:int>/rule", methods=["GET"])
 # app.add_route(
 #     participants.participants_view_async, "/<year:int>/participants", methods=["GET"]
 # )
