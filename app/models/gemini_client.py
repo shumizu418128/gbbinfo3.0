@@ -53,7 +53,7 @@ class GeminiService:
         """
         async with self._throttler:
             # ここに書かないと循環インポートになる
-            from app.main import sanic_cache
+            from app.cache import sanic_cache
 
             # キャッシュキーを生成
             cache_key = "gemini_search_" + hashlib.md5(prompt.encode("utf-8")).hexdigest()

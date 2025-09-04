@@ -3,9 +3,12 @@ import os
 from datetime import datetime
 from pathlib import Path
 
-from sanic import Sanic
-from sanic.response import file
-from sanic_ext import Extend
+from flask import (
+    Flask,
+    send_file,
+)
+from flask_babel import Babel, _
+from flask_caching import Cache
 
 from app.context_processors import (
     common_variables,
@@ -24,11 +27,14 @@ from app.views import (
     search_participants,
     world_map,
 )
-from app.cache import sanic_cache
 
-# Sanicアプリケーションを作成
-app = Sanic("GBBInfo")
-Extend(app)
+# waitress.queue ロガーを無効化
+_waitress_queue_logger = logging.getLogger("waitress.queue")
+_waitress_queue_logger.propagate = False
+_waitress_queue_logger.disabled = True
+
+app = Flask(__name__)
+
 
 ####################################################################
 # MARK: 設定
@@ -75,7 +81,8 @@ class TestConfig(Config):
     TEMPLATES_AUTO_RELOAD = True
 
 
-# テスト環境かどうかチェック
+# テスト環境ではキャッシュを無効化
+# ローカル環境にはこの環境変数を設定してある
 if os.getenv("ENVIRONMENT_CHECK") == "qawsedrftgyhujikolp":
     print("\n")
     print("******************************************************************")
@@ -84,124 +91,147 @@ if os.getenv("ENVIRONMENT_CHECK") == "qawsedrftgyhujikolp":
     print("*         Access the application at http://127.0.0.1:10000       *")
     print("*                                                                *")
     print("******************************************************************")
-    app.config.update(TestConfig.__dict__)
+    app.config.from_object(TestConfig)
     IS_LOCAL = True
     IS_PULL_REQUEST = False
 else:
-    app.config.update(Config.__dict__)
+    app.config.from_object(Config)
     IS_LOCAL = False
     IS_PULL_REQUEST = os.getenv("IS_PULL_REQUEST") == "true"
 
+flask_cache = Cache(app)
+babel = Babel(app)
+test = _("test")  # テスト翻訳
 
-# グローバルキャッシュインスタンス（Flask互換性のため）
-flask_cache = type('FlaskCacheCompat', (), {
-    'get': lambda key: None,  # 暫定実装
-    'set': lambda key, value, timeout=None: None,  # 暫定実装
-})()
+# バックグラウンド初期化タスクはキャッシュ初期化後に起動
+initialize_background_tasks(BABEL_SUPPORTED_LOCALES)
 
 
 ####################################################################
-# MARK: ミドルウェア
+# MARK: 共通変数
 ####################################################################
-@app.middleware("request")
-async def before_request(request):
+@app.before_request
+def before_request():
     get_locale(BABEL_SUPPORTED_LOCALES)
 
 
-####################################################################
-# MARK: URL ルート
-####################################################################
+@app.context_processor
+def set_common_variables():
+    return common_variables(
+        BABEL_SUPPORTED_LOCALES=BABEL_SUPPORTED_LOCALES,
+        LANGUAGES=LANGUAGES,
+        IS_LOCAL=IS_LOCAL,
+        IS_PULL_REQUEST=IS_PULL_REQUEST,
+        LAST_UPDATED=LAST_UPDATED,
+    )
+
+
+@babel.localeselector
+def locale_selector():
+    return get_locale(BABEL_SUPPORTED_LOCALES)
+
+
+#####################################################################
+# MARK: URL
+#####################################################################
 # リダイレクト
-app.add_route(common.top_redirect_view, "/", methods=["GET"])
-app.add_route(
-    language.change_language_async,
+app.add_url_rule("/", "redirect_to_latest_top", common.top_redirect_view)
+app.add_url_rule(
     "/lang",
-    methods=["GET"],
+    "change_language",
+    language.change_language,
+    defaults={"BABEL_SUPPORTED_LOCALES": BABEL_SUPPORTED_LOCALES},
 )
-app.add_route(common.content_2022_view_async, "/2022/<content>", methods=["GET"])
+app.add_url_rule("/2022/<string:content>", "2022_content", common.content_2022_view)
 
 # POSTリクエスト
-app.add_route(
-    beatboxer_tavily_search.post_beatboxer_tavily_search_async,
+app.add_url_rule(
     "/beatboxer_tavily_search",
+    "beatboxer_tavily_search",
+    beatboxer_tavily_search.post_beatboxer_tavily_search,
     methods=["POST"],
 )
-app.add_route(
-    gemini_search.post_gemini_search_suggestion_async,
+app.add_url_rule(
     "/search_suggestions",
+    "search_suggestion",
+    gemini_search.post_gemini_search_suggestion,
     methods=["POST"],
 )
-app.add_route(
-    gemini_search.post_gemini_search_async,
-    "/<year:int>/search",
+app.add_url_rule(
+    "/<int:year>/search",
+    "search",
+    gemini_search.post_gemini_search,
+    defaults={"IS_LOCAL": IS_LOCAL, "IS_PULL_REQUEST": IS_PULL_REQUEST},
     methods=["POST"],
 )
-app.add_route(
-    search_participants.post_search_participants_async,
-    "/<year:int>/search_participants",
+app.add_url_rule(
+    "/<int:year>/search_participants",
+    "search_participants",
+    search_participants.post_search_participants,
     methods=["POST"],
 )
-app.add_route(
-    beatboxer_tavily_search.post_answer_translation_async,
+app.add_url_rule(
     "/answer_translation",
+    "answer_translation",
+    beatboxer_tavily_search.post_answer_translation,
     methods=["POST"],
 )
 
-# データ取得
-app.add_route(world_map.world_map_view_async, "/<year:int>/world_map", methods=["GET"])
-app.add_route(rule.rules_view_async, "/<year:int>/rule", methods=["GET"])
-app.add_route(
-    participants.participants_view_async, "/<year:int>/participants", methods=["GET"]
+# 要データ取得
+app.add_url_rule("/<int:year>/world_map", "world_map", world_map.world_map_view)
+app.add_url_rule("/<int:year>/rule", "rule", rule.rules_view)
+app.add_url_rule(
+    "/<int:year>/participants", "participants", participants.participants_view
 )
-app.add_route(result.result_view_async, "/<year:int>/result", methods=["GET"])
-app.add_route(
-    participants.participants_country_specific_view_async, "/<year:int>/japan", methods=["GET"]
+app.add_url_rule("/<int:year>/result", "result", result.result_view)
+app.add_url_rule(
+    "/<int:year>/japan", "japan", participants.participants_country_specific_view
 )
-app.add_route(
-    participants.participants_country_specific_view_async, "/<year:int>/korea", methods=["GET"]
+app.add_url_rule(
+    "/<int:year>/korea", "korea", participants.participants_country_specific_view
 )
-app.add_route(
-    participant_detail.participant_detail_view_async,
+app.add_url_rule(
     "/others/participant_detail",
-    methods=["GET"],
+    "participant_detail",
+    participant_detail.participant_detail_view,
 )
 
 # その他通常ページ
-app.add_route(common.other_content_view_async, "/others/<content>", methods=["GET"])
-app.add_route(common.content_view_async, "/<year:int>/<content>", methods=["GET"])
+app.add_url_rule("/others/<string:content>", "others", common.other_content_view)
+app.add_url_rule("/<int:year>/<string:content>", "common", common.content_view)
 
 
 ####################################################################
 # MARK: 静的ファイル
 ####################################################################
 @app.route("/.well-known/discord")
-async def discord(request):
-    return await file("app/static/discord")
+def discord():
+    return send_file("static/discord")
 
 
 @app.route("/sitemap.xml")
-async def sitemap(request):
-    return await file("app/static/sitemap.xml", mime_type="application/xml")
+def sitemap():
+    return send_file("static/sitemap.xml", mimetype="application/xml")
 
 
 @app.route("/robots.txt")
-async def robots_txt(request):
-    return await file("app/static/robots.txt", mime_type="text/plain")
+def robots_txt():
+    return send_file("static/robots.txt", mimetype="text/plain")
 
 
 @app.route("/ads.txt")
-async def ads_txt(request):
-    return await file("app/static/ads.txt", mime_type="text/plain")
+def ads_txt():
+    return send_file("static/ads.txt", mimetype="text/plain")
 
 
 @app.route("/naverc158f3394cb78ff00c17f0a687073317.html")
-async def naver_verification(request):
-    return await file("app/static/naverc158f3394cb78ff00c17f0a687073317.html")
+def naver_verification():
+    return send_file("static/naverc158f3394cb78ff00c17f0a687073317.html")
 
 
 @app.route("/favicon.ico", methods=["GET"])
-async def favicon_ico(request):
-    return await file("app/static/favicon.ico", mime_type="image/vnd.microsoft.icon")
+def favicon_ico():
+    return send_file("static/favicon.ico", mimetype="image/vnd.microsoft.icon")
 
 
 @app.route("/apple-touch-icon-152x152-precomposed.png", methods=["GET"])
@@ -210,41 +240,37 @@ async def favicon_ico(request):
 @app.route("/apple-touch-icon-120x120.png", methods=["GET"])
 @app.route("/apple-touch-icon-precomposed.png", methods=["GET"])
 @app.route("/apple-touch-icon.png", methods=["GET"])
-async def apple_touch_icon(request):
-    return await file("app/static/icon_512.png", mime_type="image/png")
+def apple_touch_icon():
+    return send_file("static/icon_512.png", mimetype="image/png")
 
 
 @app.route("/manifest.json")
-async def manifest(request):
-    return await file("app/static/manifest.json", mime_type="application/manifest+json")
+def manifest():
+    return send_file("static/manifest.json", mimetype="application/manifest+json")
 
 
 @app.route("/service-worker.js")
-async def service_worker(request):
-    return await file("app/static/service-worker.js", mime_type="application/javascript")
+def service_worker():
+    return send_file("static/service-worker.js", mimetype="application/javascript")
 
 
 @app.route("/health")
-async def health_check(request):
-    return {"status": "OK"}
+def health_check():
+    return "OK"
 
 
 ####################################################################
 # MARK: エラーハンドラー
 ####################################################################
-@app.exception(404)
-async def not_found(request, exception):
-    return await common.not_found_page_view_async(request)
+@app.errorhandler(404)
+def not_found(error):
+    return common.not_found_page_view()
 
 
 def main():
     """WSGIサーバー用のエントリーポイント
 
     Returns:
-        Sanic: Sanicアプリケーションインスタンス
+        Flask: Flaskアプリケーションインスタンス
     """
     return app
-
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))

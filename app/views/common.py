@@ -5,6 +5,7 @@ from flask import redirect, render_template
 from jinja2 import TemplateNotFound
 from sanic import response
 from sanic.response import redirect as sanic_redirect
+from sanic_ext import render
 
 from app.context_processors import get_available_years
 
@@ -63,7 +64,7 @@ async def content_view_async(request, year: int, content: str):
 
     try:
         # Sanicのテンプレート使用
-        return await response.render(f"{year}/{content_basename}.html", request=request)
+        return await render(f"{year}/{content_basename}.html", request=request)
     except TemplateNotFound:
         return await not_found_page_view_async(request)
 
@@ -92,9 +93,9 @@ async def content_2022_view_async(request, content: str):
         return sanic_redirect("/2022/top")
 
     try:
-        return await response.render(f"2022/{content_basename}.html", request=request)
+        return await render(f"2022/{content_basename}.html")
     except TemplateNotFound:
-        return await response.render("/common/404.html", request=request, status=404)
+        return await render("/common/404.html", status=404)
 
 
 # MARK: others
@@ -117,9 +118,9 @@ async def other_content_view_async(request, content: str):
     content_basename = os.path.basename(content)
 
     try:
-        return await response.render(f"others/{content_basename}.html", request=request)
+        return await render(f"others/{content_basename}.html")
     except TemplateNotFound:
-        return await response.render("/common/404.html", request=request, status=404)
+        return await render("/common/404.html", status=404)
 
 
 # MARK: 404
@@ -140,4 +141,4 @@ async def not_found_page_view_async(request):
     context = {
         "is_translated": True,
     }
-    return await response.render("common/404.html", request=request, context=context, status=404)
+    return await render("common/404.html", context=context, status=404)
