@@ -1,6 +1,6 @@
 import logging
 import os
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from flask import (
@@ -59,12 +59,13 @@ LANGUAGES = [
 ]
 BASE_DIR = Path(__file__).resolve().parent.parent
 BABEL_SUPPORTED_LOCALES = [code for code, _ in LANGUAGES]
-LAST_UPDATED = "UPDATE " + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " JST"
+LAST_UPDATED = datetime.now(timezone(timedelta(hours=9)))
 
 
 class Config:
     BABEL_DEFAULT_LOCALE = "ja"
     BABEL_SUPPORTED_LOCALES = [code for code, _ in LANGUAGES]
+    BABEL_DEFAULT_TIMEZONE = "Asia/Tokyo"
     BABEL_TRANSLATION_DIRECTORIES = str(BASE_DIR / "app" / "translations")
     CACHE_DEFAULT_TIMEOUT = 0
     CACHE_TYPE = "simple"

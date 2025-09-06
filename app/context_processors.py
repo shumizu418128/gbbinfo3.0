@@ -4,6 +4,7 @@ from threading import Thread
 
 from dateutil import parser
 from flask import request, session
+from flask_babel import format_datetime
 
 from app.models.supabase_client import supabase_service
 from app.settings import BASE_DIR, check_locale_paths_and_languages, delete_world_map
@@ -234,7 +235,7 @@ def common_variables(
         LANGUAGES (list): 言語コードと表示名のタプルリスト。
         IS_LOCAL (bool): ローカル環境かどうかのフラグ。
         IS_PULL_REQUEST (bool): プルリクエスト環境かどうかのフラグ。
-        LAST_UPDATED (str): 最終更新日時の文字列。
+        LAST_UPDATED (datetime): 最終更新日時
 
     Returns:
         dict: テンプレートで利用可能な共通変数の辞書。
@@ -278,7 +279,7 @@ def common_variables(
             session["language"],
             translated_urls,
         ),
-        "last_updated": LAST_UPDATED,
+        "last_updated": "UPDATE " + format_datetime(LAST_UPDATED, "full"),
         "is_latest_year": is_latest_year_flag,
         "is_early_access": is_early_access_flag,
         "is_gbb_ended": is_gbb_ended(year),
