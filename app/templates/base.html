@@ -317,7 +317,9 @@
     </div>
 
     {% include 'includes/bottom_navigation.html' %}
-    {% include 'includes/dev.html' %}
+    {% if is_local is true or is_pull_request is true %}
+      {% include 'includes/dev.html' %}
+    {% endif %}
 
     <select class="headerDropdown" style="display: none; height: 41px"></select>
 
