@@ -243,7 +243,6 @@ def common_variables(
             - lang_names (list): 言語コードと表示名のタプルリスト
             - language (str): 現在の言語コード
             - is_translated (bool): 現在のページが翻訳済みかどうか
-            - current_url (str): 現在のURL
             - last_updated (str): 最終更新日時
             - is_latest_year (bool): 最新年度かどうか
             - is_early_access (bool): 試験公開年度かどうか
@@ -279,7 +278,6 @@ def common_variables(
             session["language"],
             translated_urls,
         ),
-        "current_url": request.url,
         "last_updated": LAST_UPDATED,
         "is_latest_year": is_latest_year_flag,
         "is_early_access": is_early_access_flag,
