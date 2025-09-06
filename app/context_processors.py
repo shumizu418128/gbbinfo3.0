@@ -279,7 +279,7 @@ def common_variables(
             session["language"],
             translated_urls,
         ),
-        "last_updated": "UPDATE " + format_datetime(LAST_UPDATED, "full"),
+        "last_updated": format_datetime(LAST_UPDATED, "full"),
         "is_latest_year": is_latest_year_flag,
         "is_early_access": is_early_access_flag,
         "is_gbb_ended": is_gbb_ended(year),
