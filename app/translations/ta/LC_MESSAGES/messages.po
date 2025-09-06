@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-21 16:17+0900\n"
+"POT-Creation-Date: 2025-09-06 22:14+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ta <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: templates/base.html:35 templates/base.html:45 templates/base.html:49
+#: templates/base.html:34 templates/base.html:44 templates/base.html:48
 msgid ""
 "Swissbeatboxが主催するHuman Beatboxの世界大会「Grand Beatbox "
 "Battle」の各種情報を、見やすくまとめたサイトです。"
@@ -26,7 +26,7 @@ msgstr ""
 "ஸ்விஸ் பீட்பாக்ஸ் ஏற்பாடு செய்த 'கிராண்ட் பீட் பாக்ஸ் போர்' என்ற மனித பீட் "
 "பாக்ஸ் உலகப் போட்டிக்கான பல்வேறு தகவல்களை எளிமையாகக் கொண்ட ஒரு தளம்."
 
-#: templates/base.html:113 templates/base.html:116
+#: templates/base.html:112 templates/base.html:115
 msgid "メニュー"
 msgstr "பட்டியல்"
 
@@ -36,8 +36,8 @@ msgstr "பட்டியல்"
 #: templates/2024/time_schedule.html:43 templates/2024/time_schedule.html:157
 #: templates/2024/time_schedule.html:287 templates/2024/top.html:3
 #: templates/2024/top.html:4 templates/2024/top.html:5
-#: templates/2024/top.html:36 templates/2024/top.html:91
-#: templates/2024/top_7tosmoke.html:24 templates/2025/time_schedule.html:147
+#: templates/2024/top.html:36 templates/2024/top.html:98
+#: templates/2024/top_7tosmoke.html:24 templates/2025/time_schedule.html:151
 #: templates/2025/top.html:3 templates/2025/top.html:4
 #: templates/2025/top.html:5 templates/2025/top.html:25
 #: templates/2025/top.html:99 templates/2025/top.html:169
@@ -55,8 +55,8 @@ msgstr "பட்டியல்"
 #: templates/2025/wildcard_regulation.html:193
 #: templates/2025/wildcard_regulation.html:194
 #: templates/2025/wildcard_regulation.html:255
-#: templates/2025/wildcard_regulation.html:256 templates/base.html:118
-#: templates/base.html:147 templates/base.html:257
+#: templates/2025/wildcard_regulation.html:256 templates/base.html:117
+#: templates/base.html:150 templates/base.html:260
 #: templates/others/participant_detail.html:122
 msgid "これだけガイド"
 msgstr "இந்த கையேடு"
@@ -64,10 +64,10 @@ msgstr "இந்த கையேடு"
 #: templates/2024/rule.html:220 templates/2024/time_schedule.html:99
 #: templates/2024/time_schedule.html:229 templates/2024/top.html:47
 #: templates/2025/rule.html:67 templates/2025/rule.html:220
-#: templates/2025/rule.html:343 templates/2025/ticket.html:28
+#: templates/2025/rule.html:347 templates/2025/ticket.html:28
 #: templates/2025/time_schedule.html:91 templates/2025/top.html:104
 #: templates/2025/wildcards.html:14 templates/2025/wildcards.html:83
-#: templates/base.html:119 templates/base.html:261
+#: templates/base.html:118 templates/base.html:266
 #: templates/common/participants.html:25 templates/common/result.html:91
 #: templates/includes/participants_form.html:13
 #: templates/others/result_stream.html:39
@@ -75,10 +75,10 @@ msgid "Wildcard結果"
 msgstr "வைல்டு கார்டு முடிவு"
 
 #: templates/2024/top.html:47 templates/2025/rule.html:67
-#: templates/2025/rule.html:343 templates/2025/ticket.html:28
+#: templates/2025/rule.html:347 templates/2025/ticket.html:28
 #: templates/2025/time_schedule.html:91 templates/2025/top.html:104
 #: templates/2025/wildcards.html:14 templates/2025/wildcards.html:83
-#: templates/base.html:119 templates/base.html:261
+#: templates/base.html:118 templates/base.html:266
 #: templates/common/result.html:91 templates/others/result_stream.html:39
 msgid "出場者"
 msgstr "பங்கேற்பாளர்கள்"
@@ -88,21 +88,21 @@ msgstr "பங்கேற்பாளர்கள்"
 #: templates/2024/rule.html:235 templates/2024/top.html:51
 #: templates/2025/rule.html:3 templates/2025/rule.html:4
 #: templates/2025/rule.html:5 templates/2025/rule.html:9
-#: templates/2025/rule.html:247 templates/2025/time_schedule.html:63
+#: templates/2025/rule.html:251 templates/2025/time_schedule.html:63
 #: templates/2025/top.html:61 templates/2025/top.html:108
 #: templates/2025/wildcard_regulation.html:22
 #: templates/2025/wildcard_regulation.html:202
 #: templates/2025/wildcards.html:15 templates/2025/wildcards.html:84
-#: templates/base.html:120
+#: templates/base.html:119
 msgid "ルール"
 msgstr "விதி"
 
 #: templates/2024/rule.html:280 templates/2024/rule.html:325
-#: templates/2024/top.html:51 templates/2025/rule.html:310
-#: templates/2025/rule.html:352 templates/2025/time_schedule.html:63
+#: templates/2024/top.html:51 templates/2025/rule.html:314
+#: templates/2025/rule.html:356 templates/2025/time_schedule.html:63
 #: templates/2025/top.html:66 templates/2025/top.html:108
 #: templates/2025/wildcards.html:15 templates/2025/wildcards.html:84
-#: templates/base.html:120
+#: templates/base.html:119
 msgid "審査員"
 msgstr "விமர்சகர்"
 
@@ -113,12 +113,12 @@ msgstr "விமர்சகர்"
 #: templates/2024/time_schedule.html:156 templates/2024/time_schedule.html:286
 #: templates/2024/top.html:55 templates/2024/top_7tosmoke.html:36
 #: templates/2025/rule.html:18 templates/2025/rule.html:66
-#: templates/2025/rule.html:238 templates/2025/rule.html:297
-#: templates/2025/rule.html:342 templates/2025/rule.html:384
+#: templates/2025/rule.html:238 templates/2025/rule.html:301
+#: templates/2025/rule.html:346 templates/2025/rule.html:388
 #: templates/2025/time_schedule.html:62 templates/2025/time_schedule.html:118
-#: templates/2025/time_schedule.html:146 templates/2025/top.html:112
+#: templates/2025/time_schedule.html:150 templates/2025/top.html:112
 #: templates/2025/top_7tosmoke.html:36 templates/2025/wildcards.html:112
-#: templates/base.html:121
+#: templates/base.html:120
 msgid "現地観戦計画のたてかた"
 msgstr "ஸ்தலத்திலே பார்க்கும் திட்டத்தை அமைப்பது எப்படி"
 
@@ -126,54 +126,62 @@ msgstr "ஸ்தலத்திலே பார்க்கும் திட�
 #: templates/2024/time_schedule.html:4 templates/2024/time_schedule.html:5
 #: templates/2024/time_schedule.html:9 templates/2024/top.html:17
 #: templates/2024/top.html:59 templates/2024/top_7tosmoke.html:37
-#: templates/2025/ticket.html:30 templates/2025/time_schedule.html:3
+#: templates/2025/ticket.html:34 templates/2025/time_schedule.html:3
 #: templates/2025/time_schedule.html:4 templates/2025/time_schedule.html:5
 #: templates/2025/time_schedule.html:10 templates/2025/top.html:17
 #: templates/2025/top.html:116 templates/2025/top_7tosmoke.html:39
-#: templates/base.html:124 templates/others/translation.html:20
+#: templates/base.html:123 templates/others/translation.html:20
 msgid "タイムスケジュール"
 msgstr "நேர அட்டவணை"
 
-#: templates/2024/top.html:65 templates/2025/rule.html:239
-#: templates/2025/ticket.html:29 templates/2025/time_schedule.html:119
-#: templates/2025/top.html:128 templates/2025/wildcards.html:113
-#: templates/base.html:125 templates/base.html:265
-#: templates/common/japan.html:3 templates/common/japan.html:4
-#: templates/common/japan.html:5 templates/common/japan.html:9
-#: templates/others/participant_detail.html:238
+#: templates/2024/top.html:66 templates/2025/rule.html:240
+#: templates/2025/ticket.html:30 templates/2025/time_schedule.html:120
+#: templates/2025/top.html:123 templates/2025/wildcards.html:114
+#: templates/base.html:125 templates/common/korea.html:3
+#: templates/common/korea.html:4 templates/common/korea.html:5
+#: templates/common/korea.html:9 templates/others/participant_detail.html:236
+msgid "韓国代表"
+msgstr "கொரியக் குடியரசு அணி"
+
+#: templates/2024/top.html:71 templates/2025/rule.html:242
+#: templates/2025/ticket.html:32 templates/2025/time_schedule.html:122
+#: templates/2025/top.html:128 templates/2025/wildcards.html:116
+#: templates/base.html:127 templates/common/japan.html:3
+#: templates/common/japan.html:4 templates/common/japan.html:5
+#: templates/common/japan.html:9 templates/others/participant_detail.html:238
 #: templates/others/translation.html:21
 msgid "日本代表"
 msgstr "ஜப்பான் அணி"
 
 #: templates/2024/ticket.html:11 templates/2024/ticket.html:17
-#: templates/2024/top.html:69 templates/2024/top.html:125
-#: templates/2024/top.html:129 templates/2025/ticket.html:11
+#: templates/2024/top.html:76 templates/2024/top.html:132
+#: templates/2024/top.html:136 templates/2025/ticket.html:11
 #: templates/2025/ticket.html:12 templates/2025/top.html:133
 #: templates/2025/top.html:208 templates/2025/top.html:212
-#: templates/base.html:126
+#: templates/base.html:129
 msgid "会場"
 msgstr "இடம்"
 
-#: templates/2024/ticket.html:19 templates/2024/top.html:69
+#: templates/2024/ticket.html:19 templates/2024/top.html:76
 #: templates/2025/ticket.html:13 templates/2025/top.html:133
-#: templates/base.html:126
+#: templates/base.html:129
 msgid "チケット"
 msgstr "டிக்கெட்"
 
 #: templates/2024/stream.html:3 templates/2024/stream.html:4
 #: templates/2024/stream.html:5 templates/2024/stream.html:9
-#: templates/2024/top.html:73 templates/2024/top_7tosmoke.html:38
+#: templates/2024/top.html:80 templates/2024/top_7tosmoke.html:38
 #: templates/2025/stream.html:3 templates/2025/stream.html:4
 #: templates/2025/stream.html:5 templates/2025/stream.html:9
 #: templates/2025/time_schedule.html:90 templates/2025/top.html:137
-#: templates/2025/top_7tosmoke.html:40 templates/base.html:127
+#: templates/2025/top_7tosmoke.html:40 templates/base.html:130
 #: templates/others/translation.html:23
 msgid "当日配信"
 msgstr "அன்று டெலிவரி"
 
-#: templates/2024/top.html:77 templates/2025/top.html:79
+#: templates/2024/top.html:84 templates/2025/top.html:79
 #: templates/2025/top.html:80 templates/2025/top.html:141
-#: templates/base.html:130 templates/common/result.html:3
+#: templates/base.html:133 templates/common/result.html:3
 #: templates/common/result.html:4 templates/common/result.html:5
 #: templates/common/result.html:9 templates/others/participant_detail.html:157
 #: templates/others/participant_detail.html:164
@@ -182,102 +190,95 @@ msgstr "அன்று டெலிவரி"
 msgid "大会結果"
 msgstr "போட்டி முடிவுகள்"
 
-#: templates/base.html:150
+#: templates/base.html:153
 msgid "年度選択"
 msgstr "ஆண்டு"
 
-#: templates/base.html:196
+#: templates/base.html:199
 msgid "翻訳未提供"
 msgstr "மொழிபெயர்ப்பு வழங்கப்படவில்லை"
 
-#: templates/base.html:197
+#: templates/base.html:200
 msgid "このページは翻訳が提供されていません。現在は原文の日本語を表示しています。"
 msgstr ""
 "இந்த பக்கத்தில் மொழிபெயர்ப்பு கிடைக்கவில்லை. தற்போது மூல ஜப்பானிய மொழி "
 "காட்டப்படுகிறது."
 
-#: templates/base.html:213
+#: templates/base.html:216
 msgid "GBBまでの残り時間"
 msgstr "ஜிபிபி வரை மீதமுள்ள நேரம்"
 
-#: templates/base.html:218 templates/base.html:234
+#: templates/base.html:221 templates/base.html:237
 #: templates/includes/bottom_navigation.html:30
 #: templates/includes/bottom_navigation.html:48
 msgid "なんでも検索"
 msgstr "எதையும் தேடு"
 
-#: templates/base.html:220 templates/includes/bottom_navigation.html:32
+#: templates/base.html:223 templates/includes/bottom_navigation.html:32
 #, python-brace-format
 msgid "GBB {year} の検索のみ可能です"
 msgstr "GBB {year} ஐ மட்டுமே தேட முடியும்"
 
-#: templates/base.html:221 templates/includes/bottom_navigation.html:33
+#: templates/base.html:224 templates/includes/bottom_navigation.html:33
 #, python-brace-format
 msgid "GBB {year} は終了しました"
 msgstr "GBB {year} முடிவடைந்தது"
 
-#: templates/base.html:225 templates/includes/bottom_navigation.html:37
+#: templates/base.html:228 templates/includes/bottom_navigation.html:37
 #, python-brace-format
 msgid "例：GBB {year} の最終結果は？"
 msgstr "உதாரணம்: GBB {year} இன் இறுதி முடிவு என்ன?"
 
-#: templates/base.html:230 templates/includes/bottom_navigation.html:42
+#: templates/base.html:233 templates/includes/bottom_navigation.html:42
 msgid "GBB最新情報の検索はこちら"
 msgstr "ஜிபிபி சமீபத்திய தகவல்களை இங்கே தேடலாம்"
 
-#: templates/base.html:235 templates/includes/bottom_navigation.html:49
+#: templates/base.html:238 templates/includes/bottom_navigation.html:49
 #, python-brace-format
 msgid "GBB {year} について検索してみよう"
 msgstr "GBB {year} பற்றி தேடலாம்"
 
 #: templates/2024/top.html:30 templates/2024/top_7tosmoke.html:18
 #: templates/2025/top.html:37 templates/2025/top_7tosmoke.html:18
-#: templates/base.html:238 templates/includes/bottom_navigation.html:52
+#: templates/base.html:241 templates/includes/bottom_navigation.html:52
 msgid "例：現地観戦計画のたてかた"
 msgstr ""
 "உதாரணம்: நேரில் பார்க்கும் திட்டத்தை எவ்வாறு அமைப்பதுஉதாரணமாக: நேரடி "
 "போட்டியைப் பார்ப்பதற்கான திட்டத்தை உருவாக்குவது எப்படி"
 
-#: templates/base.html:248
+#: templates/base.html:251
 msgid "ホーム画面に追加"
 msgstr "முகப்புத் திரையில் சேர்"
 
-#: templates/base.html:251
+#: templates/base.html:254
 msgid "GBBINFO-JPNはPWAに対応しています。"
 msgstr "ஜிபிபிஐஎன்எஃப்ஒ - ஜேபிஎன் PWA ஐ ஆதரிக்கிறது."
 
-#: templates/base.html:251
+#: templates/base.html:254
 msgid "ブラウザメニューを開き、「ホーム画面に追加」をタップすると、アプリとしてインストールできます。"
 msgstr ""
 "பிரவுசர் மெனுவைத் திறந்து, \"முகப்புத் திரையில் சேர்\" என்பதைத் தட்டவும், "
 "இதன் மூலம் பயன்பாடாக நிறுவலாம்."
 
-#: templates/base.html:257
+#: templates/base.html:260
 msgid "ホームへもどる"
 msgstr "வீட்டிற்கு திரும்பவும்"
 
-#: templates/2025/top.html:123 templates/base.html:263
-#: templates/common/korea.html:3 templates/common/korea.html:4
-#: templates/common/korea.html:5 templates/common/korea.html:9
-#: templates/others/participant_detail.html:236
-msgid "韓国代表"
-msgstr "கொரியக் குடியரசு அணி"
-
-#: templates/2025/ticket.html:24 templates/base.html:284
+#: templates/2025/ticket.html:24 templates/base.html:285
 msgid "GBBINFO-JPN開発者 Twitter"
 msgstr "GBBINFO-JPN開発者 Twitter"
 
-#: templates/base.html:286
+#: templates/base.html:287
 msgid "GBBINFO-JPNについて"
 msgstr "GBBINFO-JPN பற்றி"
 
-#: templates/base.html:288 templates/others/translation.html:3
+#: templates/base.html:289 templates/others/translation.html:3
 #: templates/others/translation.html:4 templates/others/translation.html:5
 #: templates/others/translation.html:10
 msgid "各ページの翻訳提供について"
 msgstr "ஒவ்வொரு பக்கத்திலும் மொழிபெயர்ப்பு வழங்குவது பற்றி"
 
-#: templates/base.html:311
+#: templates/base.html:315
 msgid "いい景色だろ？"
 msgstr "நல்ல காட்சி இல்லையா?"
 
@@ -320,17 +321,17 @@ msgid "出場シード権 獲得条件"
 msgstr "போட்டி விதை உரிமையை வெல்வதற்கான நிபந்தனைகள்"
 
 #: templates/2024/rule.html:42 templates/2024/rule.html:230
-#: templates/2025/rule.html:41 templates/2025/rule.html:242
+#: templates/2025/rule.html:41 templates/2025/rule.html:246
 msgid "Wildcard ルール"
 msgstr "வைல்ட்கார்டு விதி"
 
 #: templates/2024/rule.html:46 templates/2024/rule.html:272
-#: templates/2025/rule.html:45 templates/2025/rule.html:301
+#: templates/2025/rule.html:45 templates/2025/rule.html:305
 msgid "本戦審査員一覧"
 msgstr "ஸ்ட்ரீமிங் நடுவர்கள் பட்டியல்"
 
 #: templates/2024/rule.html:50 templates/2024/rule.html:316
-#: templates/2025/rule.html:49 templates/2025/rule.html:346
+#: templates/2025/rule.html:49 templates/2025/rule.html:350
 msgid "Wildcard審査員一覧"
 msgstr "வைல்டுகார்டு நடுவர்கள் பட்டியல்"
 
@@ -370,8 +371,8 @@ msgstr "விதியை நீங்களே ஒருமுறை சரி
 #: templates/2024/rule.html:234 templates/2024/rule.html:279
 #: templates/2024/rule.html:324 templates/2025/rule.html:74
 #: templates/2025/rule.html:139 templates/2025/rule.html:165
-#: templates/2025/rule.html:195 templates/2025/rule.html:246
-#: templates/2025/rule.html:309 templates/2025/rule.html:351
+#: templates/2025/rule.html:195 templates/2025/rule.html:250
+#: templates/2025/rule.html:313 templates/2025/rule.html:355
 #: templates/2025/wildcard_regulation.html:85
 #: templates/2025/wildcard_regulation.html:142
 #: templates/2025/wildcard_regulation.html:201 templates/common/japan.html:22
@@ -453,8 +454,8 @@ msgstr "உரிமை"
 #: templates/2025/rule.html:186 templates/2025/rule.html:216
 #: templates/2025/stream.html:15 templates/2025/time_schedule.html:56
 #: templates/2025/time_schedule.html:84 templates/2025/time_schedule.html:112
-#: templates/2025/time_schedule.html:132 templates/2025/time_schedule.html:136
-#: templates/2025/time_schedule.html:140 templates/common/participants.html:19
+#: templates/2025/time_schedule.html:136 templates/2025/time_schedule.html:140
+#: templates/2025/time_schedule.html:144 templates/common/participants.html:19
 #: templates/common/participants.html:83 templates/common/result.html:65
 msgid "～発表次第更新～"
 msgstr "வெளியிட்டவுடன் புதுப்பிக்கப்படும்"
@@ -493,27 +494,27 @@ msgstr ""
 "விதை உரிமையைக் கொண்ட ஒருவர் விலகினால், பொதுவாக, அந்த விதை உரிமை "
 "இழக்கப்பட்டு, வைல்டு கார்டு கீழ் இருந்து உயர்த்தப்படும்."
 
-#: templates/2024/rule.html:240 templates/2025/rule.html:252
+#: templates/2024/rule.html:240 templates/2025/rule.html:256
 #: templates/2025/wildcard_regulation.html:207
 msgid "全部門共通"
 msgstr "அனைத்து துறைகளும் பொதுவானவை"
 
-#: templates/2024/rule.html:241 templates/2025/rule.html:253
+#: templates/2024/rule.html:241 templates/2025/rule.html:257
 #: templates/2025/wildcard_regulation.html:208
 msgid "制限時間を超過した場合、1秒につき最終順位を1つ下げる"
 msgstr ""
 "காலக்கெடுவை மீறினால், ஒவ்வொரு நொடிக்கும் இறுதி தரவரிசை ஒன்று குறைக்கப்படும்."
 
-#: templates/2024/rule.html:241 templates/2025/rule.html:253
+#: templates/2024/rule.html:241 templates/2025/rule.html:257
 #: templates/2025/wildcard_regulation.html:208
 msgid "提出受付開始日時"
 msgstr "சமர்ப்பிக்கும் தொடக்க தேதி"
 
 #: templates/2024/rule.html:245 templates/2024/rule.html:249
 #: templates/2024/rule.html:253 templates/2024/rule.html:257
-#: templates/2024/rule.html:261 templates/2025/rule.html:257
-#: templates/2025/rule.html:261 templates/2025/rule.html:265
-#: templates/2025/rule.html:269 templates/2025/rule.html:273
+#: templates/2024/rule.html:261 templates/2025/rule.html:261
+#: templates/2025/rule.html:265 templates/2025/rule.html:269
+#: templates/2025/rule.html:273 templates/2025/rule.html:277
 #: templates/2025/wildcard_regulation.html:212
 #: templates/2025/wildcard_regulation.html:216
 #: templates/2025/wildcard_regulation.html:220
@@ -524,9 +525,9 @@ msgstr "வரையறுக்கப்பட்ட நேரம்"
 
 #: templates/2024/rule.html:245 templates/2024/rule.html:249
 #: templates/2024/rule.html:253 templates/2024/rule.html:257
-#: templates/2024/rule.html:261 templates/2025/rule.html:257
-#: templates/2025/rule.html:261 templates/2025/rule.html:265
-#: templates/2025/rule.html:269 templates/2025/rule.html:273
+#: templates/2024/rule.html:261 templates/2025/rule.html:261
+#: templates/2025/rule.html:265 templates/2025/rule.html:269
+#: templates/2025/rule.html:273 templates/2025/rule.html:277
 #: templates/2025/wildcard_regulation.html:212
 #: templates/2025/wildcard_regulation.html:216
 #: templates/2025/wildcard_regulation.html:220
@@ -537,9 +538,9 @@ msgstr "சமர்ப்பிக்கும் காலக்கெடு"
 
 #: templates/2024/rule.html:245 templates/2024/rule.html:249
 #: templates/2024/rule.html:253 templates/2024/rule.html:257
-#: templates/2024/rule.html:261 templates/2025/rule.html:257
-#: templates/2025/rule.html:261 templates/2025/rule.html:265
-#: templates/2025/rule.html:269 templates/2025/rule.html:273
+#: templates/2024/rule.html:261 templates/2025/rule.html:261
+#: templates/2025/rule.html:265 templates/2025/rule.html:269
+#: templates/2025/rule.html:273 templates/2025/rule.html:277
 #: templates/2025/wildcard_regulation.html:212
 #: templates/2025/wildcard_regulation.html:216
 #: templates/2025/wildcard_regulation.html:220
@@ -550,15 +551,15 @@ msgstr "விளைவு அறிவிப்பு"
 
 #: templates/2024/rule.html:245 templates/2024/rule.html:249
 #: templates/2024/rule.html:253 templates/2024/rule.html:257
-#: templates/2024/rule.html:261 templates/2025/rule.html:261
-#: templates/2025/rule.html:269 templates/2025/rule.html:273
+#: templates/2024/rule.html:261 templates/2025/rule.html:265
+#: templates/2025/rule.html:273 templates/2025/rule.html:277
 #: templates/2025/wildcard_regulation.html:216
 #: templates/2025/wildcard_regulation.html:224
 #: templates/2025/wildcard_regulation.html:228
 msgid "時間未定"
 msgstr "சமயம் இன்னும் நிச்சயிக்கப்படவில்லை"
 
-#: templates/2024/rule.html:253 templates/2025/rule.html:265
+#: templates/2024/rule.html:253 templates/2025/rule.html:269
 #: templates/2025/wildcard_regulation.html:220
 msgid "RC505 mki, mkiiのみ"
 msgstr "RC505 mki, mkii மட்டும்"
@@ -567,24 +568,24 @@ msgstr "RC505 mki, mkii மட்டும்"
 msgid "一部例外あり"
 msgstr "ஒரு சில விதிவிலக்குகள் உள்ளன"
 
-#: templates/2024/rule.html:257 templates/2025/rule.html:269
+#: templates/2024/rule.html:257 templates/2025/rule.html:273
 #: templates/2025/wildcard_regulation.html:224
 msgid "デバイス制限なし"
 msgstr "சாதனக் கட்டுப்பாடு இல்லை"
 
-#: templates/2024/rule.html:274 templates/2025/rule.html:303
+#: templates/2024/rule.html:274 templates/2025/rule.html:307
 msgid "Wildcard審査員一覧はこちら"
 msgstr "வைல்ட்கார்டு நடுவர் பட்டியல் இங்கே"
 
-#: templates/2024/rule.html:306 templates/2025/rule.html:336
+#: templates/2024/rule.html:306 templates/2025/rule.html:340
 msgid "審査員不明"
 msgstr "தீர்ப்பளிப்பவர் தெரியவில்லை"
 
-#: templates/2024/rule.html:306 templates/2025/rule.html:336
+#: templates/2024/rule.html:306 templates/2025/rule.html:340
 msgid "例年発表なし"
 msgstr "ஆண்டுதோறும் அறிவிப்பு இல்லை"
 
-#: templates/2024/rule.html:318 templates/2025/rule.html:380
+#: templates/2024/rule.html:318 templates/2025/rule.html:384
 msgid "本戦審査員一覧はこちら"
 msgstr "இறுதிப் போட்டி நடுவர் குழு இங்கே"
 
@@ -647,21 +648,21 @@ msgstr "நடிகர்கள் பட்டியல்"
 #: templates/2024/time_schedule.html:50 templates/2024/time_schedule.html:107
 #: templates/2024/time_schedule.html:164 templates/2024/time_schedule.html:237
 #: templates/2025/time_schedule.html:42 templates/2025/time_schedule.html:70
-#: templates/2025/time_schedule.html:98 templates/2025/time_schedule.html:126
+#: templates/2025/time_schedule.html:98 templates/2025/time_schedule.html:130
 msgid "時刻"
 msgstr "நேரம்"
 
 #: templates/2024/time_schedule.html:51 templates/2024/time_schedule.html:108
 #: templates/2024/time_schedule.html:165 templates/2024/time_schedule.html:238
 #: templates/2025/time_schedule.html:43 templates/2025/time_schedule.html:71
-#: templates/2025/time_schedule.html:99 templates/2025/time_schedule.html:127
+#: templates/2025/time_schedule.html:99 templates/2025/time_schedule.html:131
 msgid "内容"
 msgstr "உள்ளடக்கம்"
 
 #: templates/2024/time_schedule.html:57 templates/2024/time_schedule.html:114
 #: templates/2024/time_schedule.html:171 templates/2024/time_schedule.html:244
 #: templates/2025/time_schedule.html:49 templates/2025/time_schedule.html:77
-#: templates/2025/time_schedule.html:105 templates/2025/time_schedule.html:133
+#: templates/2025/time_schedule.html:105 templates/2025/time_schedule.html:137
 msgid "入場開始"
 msgstr "நுழைவு தொடங்கியது"
 
@@ -678,7 +679,7 @@ msgstr "சர்ப்ரைஸ் விருந்தினர்"
 #: templates/2024/time_schedule.html:69 templates/2024/time_schedule.html:126
 #: templates/2024/time_schedule.html:183 templates/2024/time_schedule.html:248
 #: templates/2025/time_schedule.html:53 templates/2025/time_schedule.html:81
-#: templates/2025/time_schedule.html:109 templates/2025/time_schedule.html:137
+#: templates/2025/time_schedule.html:109 templates/2025/time_schedule.html:141
 msgid "スタート"
 msgstr "தொடங்கு"
 
@@ -696,7 +697,7 @@ msgstr "அரை இறுதி"
 #: templates/2024/time_schedule.html:93 templates/2024/time_schedule.html:150
 #: templates/2024/time_schedule.html:219 templates/2024/time_schedule.html:280
 #: templates/2025/time_schedule.html:57 templates/2025/time_schedule.html:85
-#: templates/2025/time_schedule.html:113 templates/2025/time_schedule.html:141
+#: templates/2025/time_schedule.html:113 templates/2025/time_schedule.html:145
 msgid "終了"
 msgstr "முடிந்தது"
 
@@ -762,23 +763,31 @@ msgstr "சூத்திரத்தை விட எளிதானது!"
 msgid "非公式情報サイト"
 msgstr "அதிகாரப்பூர்வமற்ற தகவல் தளம்"
 
-#: templates/2024/top.html:73
+#: templates/2024/top.html:40 templates/2024/top_7tosmoke.html:28
+#: templates/2025/top.html:153 templates/2025/top_7tosmoke.html:28
+#: templates/common/japan.html:13 templates/common/korea.html:13
+#: templates/common/participants.html:14
+#: templates/includes/popup_no_info.html:7
+msgid "最終更新"
+msgstr "கடைசியாகப் புதுப்பிக்கப்பட்டது"
+
+#: templates/2024/top.html:80
 msgid "みんなで鑑賞会"
 msgstr "கூட்டுப் பார்வை"
 
-#: templates/2024/top.html:82 templates/2025/top.html:146
+#: templates/2024/top.html:89 templates/2025/top.html:146
 msgid "当サイトURL変更のお知らせ"
 msgstr "வலைத்தள URL மாற்ற அறிவிப்பு"
 
-#: templates/2024/top.html:83 templates/2025/rule.html:298
+#: templates/2024/top.html:90 templates/2025/rule.html:302
 #: templates/2025/top.html:147
 msgid "Wildcard結果発表配信"
 msgstr "வைல்ட்கார்ட் முடிவு வெளியீடு"
 
-#: templates/2024/top.html:84 templates/2024/wildcards.html:3
+#: templates/2024/top.html:91 templates/2024/wildcards.html:3
 #: templates/2024/wildcards.html:4 templates/2024/wildcards.html:5
 #: templates/2024/wildcards.html:9 templates/2025/rule.html:19
-#: templates/2025/rule.html:385 templates/2025/top.html:148
+#: templates/2025/rule.html:389 templates/2025/top.html:148
 #: templates/2025/wildcards.html:3 templates/2025/wildcards.html:4
 #: templates/2025/wildcards.html:5 templates/2025/wildcards.html:9
 #: templates/common/participants.html:101
@@ -786,55 +795,55 @@ msgstr "வைல்ட்கார்ட் முடிவு வெளிய�
 msgid "Wildcard一覧"
 msgstr "வைல்டு கார்டு பட்டியல்"
 
-#: templates/2024/top.html:97 templates/2024/top.html:111
+#: templates/2024/top.html:104 templates/2024/top.html:118
 #: templates/2024/top_7tosmoke.html:46 templates/2025/top.html:175
 #: templates/2025/top.html:189 templates/2025/top_7tosmoke.html:48
 msgid "お問い合わせ"
 msgstr "விசாரணை"
 
-#: templates/2024/top.html:102 templates/2025/top.html:180
+#: templates/2024/top.html:109 templates/2025/top.html:180
 msgid "これらの情報のほかにも、"
 msgstr "இதர தகவல்களுக்கு:"
 
-#: templates/2024/top.html:104 templates/2025/top.html:182
+#: templates/2024/top.html:111 templates/2025/top.html:182
 msgid "未発表の情報(決まっているが、なぜか公式が発表を渋っている)"
 msgstr ""
 "வெளியிடப்படாத தகவல் (தீர்மானிக்கப்பட்டது, ஆனால் அதிகாரப்பூர்வமாக வெளியிட "
 "தயக்கம் காட்டப்படுகிறது)."
 
-#: templates/2024/top.html:105 templates/2025/top.html:183
+#: templates/2024/top.html:112 templates/2025/top.html:183
 msgid "未定事項(そもそも決まってすらいない)"
 msgstr "தீர்மானிக்கப்படாதது (அதை தீர்மானிக்கவே இல்லை)"
 
-#: templates/2024/top.html:107 templates/2025/top.html:185
+#: templates/2024/top.html:114 templates/2025/top.html:185
 msgid "このような情報が多く存在します。"
 msgstr "இத்தகைய தகவல்கள் ஏராளமாக உள்ளன."
 
-#: templates/2024/top.html:108 templates/2025/top.html:186
+#: templates/2024/top.html:115 templates/2025/top.html:186
 msgid "GBBの各種情報は、発表が非常に遅いことで有名です。気長に待ちましょう。"
 msgstr ""
 "GBBயின் பல்வேறு தகவல்கள் அறிவிக்கப்படுவது மிக தாமதமாகும். பொறுமையாக "
 "காத்திருப்போம்."
 
-#: templates/2024/top.html:112 templates/2025/top.html:195
+#: templates/2024/top.html:119 templates/2025/top.html:195
 msgid "過去のGBBにおいて、下記番号に電話したらGBB詳細情報を教えてくれた、という報告が相次ぎました。"
 msgstr ""
 "கடந்த ஜிபிபி-யில், கீழ்க்கண்ட எண்ணுக்குத் தொலைபேசி அழைப்பு விடுத்தால் ஜிபிபி"
 " பற்றிய விரிவான தகவல்களைத் தெரிவித்தனர் என்று பல அறிக்கைகள் வந்தன."
 
-#: templates/2024/top.html:116 templates/2025/top.html:199
+#: templates/2024/top.html:123 templates/2025/top.html:199
 msgid "場所"
 msgstr "இடம்"
 
-#: templates/2024/top.html:117 templates/2025/top.html:200
+#: templates/2024/top.html:124 templates/2025/top.html:200
 msgid "電話番号"
 msgstr "தொலைபேசி எண்"
 
-#: templates/2024/top.html:121
+#: templates/2024/top.html:128
 msgid "チケット販売ページ記載の番号"
 msgstr "டிக்கெட் விற்பனை பக்கம்"
 
-#: templates/2024/top.html:133 templates/2025/top.html:216
+#: templates/2024/top.html:140 templates/2025/top.html:216
 msgid "なお上記電話番号は、当サイトとは無関係です。"
 msgstr "மேலே உள்ள தொலைபேசி எண் இந்த தளத்துடன் தொடர்பில்லாதது."
 
@@ -928,19 +937,19 @@ msgstr ""
 "நுழைந்திருந்தால், சீட் போட்டியில் இரண்டாம் இடம் பெற்றவருக்கு பதிலாக வைல்டு "
 "கார்டில் கீழிருந்து பதவி உயர்வு வழங்கப்படும்."
 
-#: templates/2025/rule.html:253 templates/2025/wildcard_regulation.html:208
+#: templates/2025/rule.html:257 templates/2025/wildcard_regulation.html:208
 msgid "制限時間を使い切らず余らせた場合、3秒につき最終順位を1つ下げる"
 msgstr ""
 "நேர வரம்பை முடிக்காமல் விட்டால், ஒவ்வொரு 3 வினாடிக்கும் இறுதி தரவரிசை ஒன்றை "
 "குறைக்கப்படும்."
 
-#: templates/2025/rule.html:280 templates/2025/wildcard_regulation.html:234
+#: templates/2025/rule.html:284 templates/2025/wildcard_regulation.html:234
 msgid "※中央ヨーロッパ時間には、サマータイムがあります。2025年のサマータイムは3/30からです。"
 msgstr ""
 "மத்திய ஐரோப்பிய நேரம் கோடை நேரத்தைக் கொண்டுள்ளது. 2025 ஆம் ஆண்டின் கோடை "
 "நேரம் 3/30 முதல் தொடங்குகிறது."
 
-#: templates/2025/rule.html:281 templates/2025/wildcard_regulation.html:235
+#: templates/2025/rule.html:285 templates/2025/wildcard_regulation.html:235
 msgid "Tag Team部門・Crew部門参加希望の方はご注意ください。"
 msgstr ""
 "Tag Team விடு૩்டுமடம் கீட்டிககி பறற்றுகொண்டும், Crew விடு૩்டுமடம் "
@@ -1067,10 +1076,6 @@ msgstr "டிக்கெட் விற்பனை பக்கம்"
 #: templates/2025/top.html:204
 msgid "記載の番号"
 msgstr "கொடுக்கப்பட்ட எண்"
-
-#: templates/2025/top_7tosmoke.html:11
-msgid "開催日未定"
-msgstr "தேதி இன்னும் தீர்மானிக்கப்படவில்லை"
 
 #: templates/2025/wildcard_regulation.html:9
 msgid "レギュレーション"
@@ -1588,3 +1593,6 @@ msgstr ""
 
 #~ msgid "「シード権大会において出場が認められるのは、例外なく、常に優勝者のみである」とルールに明記されています。"
 #~ msgstr ""
+
+#~ msgid "開催日未定"
+#~ msgstr "தேதி இன்னும் தீர்மானிக்கப்படவில்லை"
