@@ -257,7 +257,7 @@ def service_worker():
 
 @app.route("/health")
 def health_check():
-    return os.getenv("RENDER_GIT_COMMIT", "-")
+    return os.getenv("RENDER_GIT_COMMIT", "-")[:7]
 
 
 ####################################################################
