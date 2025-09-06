@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-21 16:17+0900\n"
+"POT-Creation-Date: 2025-09-06 22:14+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: templates/base.html:35 templates/base.html:45 templates/base.html:49
+#: templates/base.html:34 templates/base.html:44 templates/base.html:48
 msgid ""
 "Swissbeatboxが主催するHuman Beatboxの世界大会「Grand Beatbox "
 "Battle」の各種情報を、見やすくまとめたサイトです。"
@@ -26,7 +26,7 @@ msgstr ""
 "Swissbeatbox가 주최하는 Human Beatbox의 세계 대회 「Grand Beatbox Battle」의 각종 정보를 보기 쉽게"
 " 정리한 사이트입니다."
 
-#: templates/base.html:113 templates/base.html:116
+#: templates/base.html:112 templates/base.html:115
 msgid "メニュー"
 msgstr "메뉴"
 
@@ -36,8 +36,8 @@ msgstr "메뉴"
 #: templates/2024/time_schedule.html:43 templates/2024/time_schedule.html:157
 #: templates/2024/time_schedule.html:287 templates/2024/top.html:3
 #: templates/2024/top.html:4 templates/2024/top.html:5
-#: templates/2024/top.html:36 templates/2024/top.html:91
-#: templates/2024/top_7tosmoke.html:24 templates/2025/time_schedule.html:147
+#: templates/2024/top.html:36 templates/2024/top.html:98
+#: templates/2024/top_7tosmoke.html:24 templates/2025/time_schedule.html:151
 #: templates/2025/top.html:3 templates/2025/top.html:4
 #: templates/2025/top.html:5 templates/2025/top.html:25
 #: templates/2025/top.html:99 templates/2025/top.html:169
@@ -55,8 +55,8 @@ msgstr "메뉴"
 #: templates/2025/wildcard_regulation.html:193
 #: templates/2025/wildcard_regulation.html:194
 #: templates/2025/wildcard_regulation.html:255
-#: templates/2025/wildcard_regulation.html:256 templates/base.html:118
-#: templates/base.html:147 templates/base.html:257
+#: templates/2025/wildcard_regulation.html:256 templates/base.html:117
+#: templates/base.html:150 templates/base.html:260
 #: templates/others/participant_detail.html:122
 msgid "これだけガイド"
 msgstr "가이드"
@@ -64,10 +64,10 @@ msgstr "가이드"
 #: templates/2024/rule.html:220 templates/2024/time_schedule.html:99
 #: templates/2024/time_schedule.html:229 templates/2024/top.html:47
 #: templates/2025/rule.html:67 templates/2025/rule.html:220
-#: templates/2025/rule.html:343 templates/2025/ticket.html:28
+#: templates/2025/rule.html:347 templates/2025/ticket.html:28
 #: templates/2025/time_schedule.html:91 templates/2025/top.html:104
 #: templates/2025/wildcards.html:14 templates/2025/wildcards.html:83
-#: templates/base.html:119 templates/base.html:261
+#: templates/base.html:118 templates/base.html:266
 #: templates/common/participants.html:25 templates/common/result.html:91
 #: templates/includes/participants_form.html:13
 #: templates/others/result_stream.html:39
@@ -75,10 +75,10 @@ msgid "Wildcard結果"
 msgstr "Wildcard 결과"
 
 #: templates/2024/top.html:47 templates/2025/rule.html:67
-#: templates/2025/rule.html:343 templates/2025/ticket.html:28
+#: templates/2025/rule.html:347 templates/2025/ticket.html:28
 #: templates/2025/time_schedule.html:91 templates/2025/top.html:104
 #: templates/2025/wildcards.html:14 templates/2025/wildcards.html:83
-#: templates/base.html:119 templates/base.html:261
+#: templates/base.html:118 templates/base.html:266
 #: templates/common/result.html:91 templates/others/result_stream.html:39
 msgid "出場者"
 msgstr "출전자"
@@ -88,21 +88,21 @@ msgstr "출전자"
 #: templates/2024/rule.html:235 templates/2024/top.html:51
 #: templates/2025/rule.html:3 templates/2025/rule.html:4
 #: templates/2025/rule.html:5 templates/2025/rule.html:9
-#: templates/2025/rule.html:247 templates/2025/time_schedule.html:63
+#: templates/2025/rule.html:251 templates/2025/time_schedule.html:63
 #: templates/2025/top.html:61 templates/2025/top.html:108
 #: templates/2025/wildcard_regulation.html:22
 #: templates/2025/wildcard_regulation.html:202
 #: templates/2025/wildcards.html:15 templates/2025/wildcards.html:84
-#: templates/base.html:120
+#: templates/base.html:119
 msgid "ルール"
 msgstr "규칙"
 
 #: templates/2024/rule.html:280 templates/2024/rule.html:325
-#: templates/2024/top.html:51 templates/2025/rule.html:310
-#: templates/2025/rule.html:352 templates/2025/time_schedule.html:63
+#: templates/2024/top.html:51 templates/2025/rule.html:314
+#: templates/2025/rule.html:356 templates/2025/time_schedule.html:63
 #: templates/2025/top.html:66 templates/2025/top.html:108
 #: templates/2025/wildcards.html:15 templates/2025/wildcards.html:84
-#: templates/base.html:120
+#: templates/base.html:119
 msgid "審査員"
 msgstr "심사위원"
 
@@ -113,12 +113,12 @@ msgstr "심사위원"
 #: templates/2024/time_schedule.html:156 templates/2024/time_schedule.html:286
 #: templates/2024/top.html:55 templates/2024/top_7tosmoke.html:36
 #: templates/2025/rule.html:18 templates/2025/rule.html:66
-#: templates/2025/rule.html:238 templates/2025/rule.html:297
-#: templates/2025/rule.html:342 templates/2025/rule.html:384
+#: templates/2025/rule.html:238 templates/2025/rule.html:301
+#: templates/2025/rule.html:346 templates/2025/rule.html:388
 #: templates/2025/time_schedule.html:62 templates/2025/time_schedule.html:118
-#: templates/2025/time_schedule.html:146 templates/2025/top.html:112
+#: templates/2025/time_schedule.html:150 templates/2025/top.html:112
 #: templates/2025/top_7tosmoke.html:36 templates/2025/wildcards.html:112
-#: templates/base.html:121
+#: templates/base.html:120
 msgid "現地観戦計画のたてかた"
 msgstr "현지 관전 계획 세우기"
 
@@ -126,54 +126,62 @@ msgstr "현지 관전 계획 세우기"
 #: templates/2024/time_schedule.html:4 templates/2024/time_schedule.html:5
 #: templates/2024/time_schedule.html:9 templates/2024/top.html:17
 #: templates/2024/top.html:59 templates/2024/top_7tosmoke.html:37
-#: templates/2025/ticket.html:30 templates/2025/time_schedule.html:3
+#: templates/2025/ticket.html:34 templates/2025/time_schedule.html:3
 #: templates/2025/time_schedule.html:4 templates/2025/time_schedule.html:5
 #: templates/2025/time_schedule.html:10 templates/2025/top.html:17
 #: templates/2025/top.html:116 templates/2025/top_7tosmoke.html:39
-#: templates/base.html:124 templates/others/translation.html:20
+#: templates/base.html:123 templates/others/translation.html:20
 msgid "タイムスケジュール"
 msgstr "타임 스케줄"
 
-#: templates/2024/top.html:65 templates/2025/rule.html:239
-#: templates/2025/ticket.html:29 templates/2025/time_schedule.html:119
-#: templates/2025/top.html:128 templates/2025/wildcards.html:113
-#: templates/base.html:125 templates/base.html:265
-#: templates/common/japan.html:3 templates/common/japan.html:4
-#: templates/common/japan.html:5 templates/common/japan.html:9
-#: templates/others/participant_detail.html:238
+#: templates/2024/top.html:66 templates/2025/rule.html:240
+#: templates/2025/ticket.html:30 templates/2025/time_schedule.html:120
+#: templates/2025/top.html:123 templates/2025/wildcards.html:114
+#: templates/base.html:125 templates/common/korea.html:3
+#: templates/common/korea.html:4 templates/common/korea.html:5
+#: templates/common/korea.html:9 templates/others/participant_detail.html:236
+msgid "韓国代表"
+msgstr "한국 대표"
+
+#: templates/2024/top.html:71 templates/2025/rule.html:242
+#: templates/2025/ticket.html:32 templates/2025/time_schedule.html:122
+#: templates/2025/top.html:128 templates/2025/wildcards.html:116
+#: templates/base.html:127 templates/common/japan.html:3
+#: templates/common/japan.html:4 templates/common/japan.html:5
+#: templates/common/japan.html:9 templates/others/participant_detail.html:238
 #: templates/others/translation.html:21
 msgid "日本代表"
 msgstr "일본 대표"
 
 #: templates/2024/ticket.html:11 templates/2024/ticket.html:17
-#: templates/2024/top.html:69 templates/2024/top.html:125
-#: templates/2024/top.html:129 templates/2025/ticket.html:11
+#: templates/2024/top.html:76 templates/2024/top.html:132
+#: templates/2024/top.html:136 templates/2025/ticket.html:11
 #: templates/2025/ticket.html:12 templates/2025/top.html:133
 #: templates/2025/top.html:208 templates/2025/top.html:212
-#: templates/base.html:126
+#: templates/base.html:129
 msgid "会場"
 msgstr "장소"
 
-#: templates/2024/ticket.html:19 templates/2024/top.html:69
+#: templates/2024/ticket.html:19 templates/2024/top.html:76
 #: templates/2025/ticket.html:13 templates/2025/top.html:133
-#: templates/base.html:126
+#: templates/base.html:129
 msgid "チケット"
 msgstr "티켓"
 
 #: templates/2024/stream.html:3 templates/2024/stream.html:4
 #: templates/2024/stream.html:5 templates/2024/stream.html:9
-#: templates/2024/top.html:73 templates/2024/top_7tosmoke.html:38
+#: templates/2024/top.html:80 templates/2024/top_7tosmoke.html:38
 #: templates/2025/stream.html:3 templates/2025/stream.html:4
 #: templates/2025/stream.html:5 templates/2025/stream.html:9
 #: templates/2025/time_schedule.html:90 templates/2025/top.html:137
-#: templates/2025/top_7tosmoke.html:40 templates/base.html:127
+#: templates/2025/top_7tosmoke.html:40 templates/base.html:130
 #: templates/others/translation.html:23
 msgid "当日配信"
 msgstr "당일 방송"
 
-#: templates/2024/top.html:77 templates/2025/top.html:79
+#: templates/2024/top.html:84 templates/2025/top.html:79
 #: templates/2025/top.html:80 templates/2025/top.html:141
-#: templates/base.html:130 templates/common/result.html:3
+#: templates/base.html:133 templates/common/result.html:3
 #: templates/common/result.html:4 templates/common/result.html:5
 #: templates/common/result.html:9 templates/others/participant_detail.html:157
 #: templates/others/participant_detail.html:164
@@ -182,96 +190,89 @@ msgstr "당일 방송"
 msgid "大会結果"
 msgstr "대회 결과"
 
-#: templates/base.html:150
+#: templates/base.html:153
 msgid "年度選択"
 msgstr "연도 선택"
 
-#: templates/base.html:196
+#: templates/base.html:199
 msgid "翻訳未提供"
 msgstr "번역 미제공"
 
-#: templates/base.html:197
+#: templates/base.html:200
 msgid "このページは翻訳が提供されていません。現在は原文の日本語を表示しています。"
 msgstr "이 페이지는 번역이 제공되지 않습니다. 현재는 원문의 일본어를 표시하고 있습니다."
 
-#: templates/base.html:213
+#: templates/base.html:216
 msgid "GBBまでの残り時間"
 msgstr "GBB까지 남은 시간"
 
-#: templates/base.html:218 templates/base.html:234
+#: templates/base.html:221 templates/base.html:237
 #: templates/includes/bottom_navigation.html:30
 #: templates/includes/bottom_navigation.html:48
 msgid "なんでも検索"
 msgstr "모든 것 검색"
 
-#: templates/base.html:220 templates/includes/bottom_navigation.html:32
+#: templates/base.html:223 templates/includes/bottom_navigation.html:32
 #, python-brace-format
 msgid "GBB {year} の検索のみ可能です"
 msgstr "GBB {year} 검색만 가능합니다."
 
-#: templates/base.html:221 templates/includes/bottom_navigation.html:33
+#: templates/base.html:224 templates/includes/bottom_navigation.html:33
 #, python-brace-format
 msgid "GBB {year} は終了しました"
 msgstr "GBB {year}가 종료되었습니다"
 
-#: templates/base.html:225 templates/includes/bottom_navigation.html:37
+#: templates/base.html:228 templates/includes/bottom_navigation.html:37
 #, python-brace-format
 msgid "例：GBB {year} の最終結果は？"
 msgstr "예시: GBB {year} 의 최종 결과는?"
 
-#: templates/base.html:230 templates/includes/bottom_navigation.html:42
+#: templates/base.html:233 templates/includes/bottom_navigation.html:42
 msgid "GBB最新情報の検索はこちら"
 msgstr "GBB 최신 정보 검색은 여기에서"
 
-#: templates/base.html:235 templates/includes/bottom_navigation.html:49
+#: templates/base.html:238 templates/includes/bottom_navigation.html:49
 #, python-brace-format
 msgid "GBB {year} について検索してみよう"
 msgstr "GBB {year} 에 대해 검색해 보세요"
 
 #: templates/2024/top.html:30 templates/2024/top_7tosmoke.html:18
 #: templates/2025/top.html:37 templates/2025/top_7tosmoke.html:18
-#: templates/base.html:238 templates/includes/bottom_navigation.html:52
+#: templates/base.html:241 templates/includes/bottom_navigation.html:52
 msgid "例：現地観戦計画のたてかた"
 msgstr "예: 현지 관전 계획 세우기"
 
-#: templates/base.html:248
+#: templates/base.html:251
 msgid "ホーム画面に追加"
 msgstr "홈 화면에 추가"
 
-#: templates/base.html:251
+#: templates/base.html:254
 msgid "GBBINFO-JPNはPWAに対応しています。"
 msgstr "GBBINFO-JPN은 PWA를 지원합니다."
 
-#: templates/base.html:251
+#: templates/base.html:254
 msgid "ブラウザメニューを開き、「ホーム画面に追加」をタップすると、アプリとしてインストールできます。"
 msgstr "브라우저 메뉴를 열고 '홈 화면에 추가'를 탭하면 앱으로 설치할 수 있습니다."
 
-#: templates/base.html:257
+#: templates/base.html:260
 msgid "ホームへもどる"
 msgstr "홈으로 돌아가기"
 
-#: templates/2025/top.html:123 templates/base.html:263
-#: templates/common/korea.html:3 templates/common/korea.html:4
-#: templates/common/korea.html:5 templates/common/korea.html:9
-#: templates/others/participant_detail.html:236
-msgid "韓国代表"
-msgstr "한국 대표"
-
-#: templates/2025/ticket.html:24 templates/base.html:284
+#: templates/2025/ticket.html:24 templates/base.html:285
 msgid "GBBINFO-JPN開発者 Twitter"
 msgstr "GBBINFO-JPN 개발자 Twitter"
 
-#: templates/base.html:286
+#: templates/base.html:287
 msgid "GBBINFO-JPNについて"
 msgstr "GBBINFO-JPN에 대하여"
 
-#: templates/base.html:288 templates/others/translation.html:3
+#: templates/base.html:289 templates/others/translation.html:3
 #: templates/others/translation.html:4 templates/others/translation.html:5
 #: templates/others/translation.html:10
 msgid "各ページの翻訳提供について"
 msgstr "각 페이지의 번역 제공에 대해"
 
-#: templates/base.html:311
+#: templates/base.html:315
 msgid "いい景色だろ？"
 msgstr "좋은 경치지?"
 
@@ -313,17 +314,17 @@ msgid "出場シード権 獲得条件"
 msgstr "출전 시드권 획득 조건"
 
 #: templates/2024/rule.html:42 templates/2024/rule.html:230
-#: templates/2025/rule.html:41 templates/2025/rule.html:242
+#: templates/2025/rule.html:41 templates/2025/rule.html:246
 msgid "Wildcard ルール"
 msgstr "Wildcard 규칙"
 
 #: templates/2024/rule.html:46 templates/2024/rule.html:272
-#: templates/2025/rule.html:45 templates/2025/rule.html:301
+#: templates/2025/rule.html:45 templates/2025/rule.html:305
 msgid "本戦審査員一覧"
 msgstr "본선 심사위원 목록"
 
 #: templates/2024/rule.html:50 templates/2024/rule.html:316
-#: templates/2025/rule.html:49 templates/2025/rule.html:346
+#: templates/2025/rule.html:49 templates/2025/rule.html:350
 msgid "Wildcard審査員一覧"
 msgstr "Wildcard 심사위원 목록"
 
@@ -359,8 +360,8 @@ msgstr "반드시 본인이 규칙을 다시 한번 확인하시기 바랍니다
 #: templates/2024/rule.html:234 templates/2024/rule.html:279
 #: templates/2024/rule.html:324 templates/2025/rule.html:74
 #: templates/2025/rule.html:139 templates/2025/rule.html:165
-#: templates/2025/rule.html:195 templates/2025/rule.html:246
-#: templates/2025/rule.html:309 templates/2025/rule.html:351
+#: templates/2025/rule.html:195 templates/2025/rule.html:250
+#: templates/2025/rule.html:313 templates/2025/rule.html:355
 #: templates/2025/wildcard_regulation.html:85
 #: templates/2025/wildcard_regulation.html:142
 #: templates/2025/wildcard_regulation.html:201 templates/common/japan.html:22
@@ -435,8 +436,8 @@ msgstr "출전권"
 #: templates/2025/rule.html:186 templates/2025/rule.html:216
 #: templates/2025/stream.html:15 templates/2025/time_schedule.html:56
 #: templates/2025/time_schedule.html:84 templates/2025/time_schedule.html:112
-#: templates/2025/time_schedule.html:132 templates/2025/time_schedule.html:136
-#: templates/2025/time_schedule.html:140 templates/common/participants.html:19
+#: templates/2025/time_schedule.html:136 templates/2025/time_schedule.html:140
+#: templates/2025/time_schedule.html:144 templates/common/participants.html:19
 #: templates/common/participants.html:83 templates/common/result.html:65
 msgid "～発表次第更新～"
 msgstr "～발표에 따라 업데이트～"
@@ -473,26 +474,26 @@ msgstr "출전자 목록"
 msgid "シード権を持つ人が辞退した場合、原則として、該当シード権は消滅し、Wildcard下位からの繰り上げが行われます。"
 msgstr "시드권을 가진 사람이 사퇴한 경우, 원칙적으로 해당 시드권은 소멸되며, Wildcard 하위에서의 승격이 이루어집니다."
 
-#: templates/2024/rule.html:240 templates/2025/rule.html:252
+#: templates/2024/rule.html:240 templates/2025/rule.html:256
 #: templates/2025/wildcard_regulation.html:207
 msgid "全部門共通"
 msgstr "전 부문 공통"
 
-#: templates/2024/rule.html:241 templates/2025/rule.html:253
+#: templates/2024/rule.html:241 templates/2025/rule.html:257
 #: templates/2025/wildcard_regulation.html:208
 msgid "制限時間を超過した場合、1秒につき最終順位を1つ下げる"
 msgstr "제한 시간을 초과한 경우, 1초당 최종 순위가 1단계 내려갑니다."
 
-#: templates/2024/rule.html:241 templates/2025/rule.html:253
+#: templates/2024/rule.html:241 templates/2025/rule.html:257
 #: templates/2025/wildcard_regulation.html:208
 msgid "提出受付開始日時"
 msgstr "제출 접수 시작 일시"
 
 #: templates/2024/rule.html:245 templates/2024/rule.html:249
 #: templates/2024/rule.html:253 templates/2024/rule.html:257
-#: templates/2024/rule.html:261 templates/2025/rule.html:257
-#: templates/2025/rule.html:261 templates/2025/rule.html:265
-#: templates/2025/rule.html:269 templates/2025/rule.html:273
+#: templates/2024/rule.html:261 templates/2025/rule.html:261
+#: templates/2025/rule.html:265 templates/2025/rule.html:269
+#: templates/2025/rule.html:273 templates/2025/rule.html:277
 #: templates/2025/wildcard_regulation.html:212
 #: templates/2025/wildcard_regulation.html:216
 #: templates/2025/wildcard_regulation.html:220
@@ -503,9 +504,9 @@ msgstr "제한 시간"
 
 #: templates/2024/rule.html:245 templates/2024/rule.html:249
 #: templates/2024/rule.html:253 templates/2024/rule.html:257
-#: templates/2024/rule.html:261 templates/2025/rule.html:257
-#: templates/2025/rule.html:261 templates/2025/rule.html:265
-#: templates/2025/rule.html:269 templates/2025/rule.html:273
+#: templates/2024/rule.html:261 templates/2025/rule.html:261
+#: templates/2025/rule.html:265 templates/2025/rule.html:269
+#: templates/2025/rule.html:273 templates/2025/rule.html:277
 #: templates/2025/wildcard_regulation.html:212
 #: templates/2025/wildcard_regulation.html:216
 #: templates/2025/wildcard_regulation.html:220
@@ -516,9 +517,9 @@ msgstr "제출 기한"
 
 #: templates/2024/rule.html:245 templates/2024/rule.html:249
 #: templates/2024/rule.html:253 templates/2024/rule.html:257
-#: templates/2024/rule.html:261 templates/2025/rule.html:257
-#: templates/2025/rule.html:261 templates/2025/rule.html:265
-#: templates/2025/rule.html:269 templates/2025/rule.html:273
+#: templates/2024/rule.html:261 templates/2025/rule.html:261
+#: templates/2025/rule.html:265 templates/2025/rule.html:269
+#: templates/2025/rule.html:273 templates/2025/rule.html:277
 #: templates/2025/wildcard_regulation.html:212
 #: templates/2025/wildcard_regulation.html:216
 #: templates/2025/wildcard_regulation.html:220
@@ -529,15 +530,15 @@ msgstr "결과 발표"
 
 #: templates/2024/rule.html:245 templates/2024/rule.html:249
 #: templates/2024/rule.html:253 templates/2024/rule.html:257
-#: templates/2024/rule.html:261 templates/2025/rule.html:261
-#: templates/2025/rule.html:269 templates/2025/rule.html:273
+#: templates/2024/rule.html:261 templates/2025/rule.html:265
+#: templates/2025/rule.html:273 templates/2025/rule.html:277
 #: templates/2025/wildcard_regulation.html:216
 #: templates/2025/wildcard_regulation.html:224
 #: templates/2025/wildcard_regulation.html:228
 msgid "時間未定"
 msgstr "시간 미정"
 
-#: templates/2024/rule.html:253 templates/2025/rule.html:265
+#: templates/2024/rule.html:253 templates/2025/rule.html:269
 #: templates/2025/wildcard_regulation.html:220
 msgid "RC505 mki, mkiiのみ"
 msgstr "RC505 mki, mkii만"
@@ -546,24 +547,24 @@ msgstr "RC505 mki, mkii만"
 msgid "一部例外あり"
 msgstr "일부 예외 있음"
 
-#: templates/2024/rule.html:257 templates/2025/rule.html:269
+#: templates/2024/rule.html:257 templates/2025/rule.html:273
 #: templates/2025/wildcard_regulation.html:224
 msgid "デバイス制限なし"
 msgstr "장치 제한 없음"
 
-#: templates/2024/rule.html:274 templates/2025/rule.html:303
+#: templates/2024/rule.html:274 templates/2025/rule.html:307
 msgid "Wildcard審査員一覧はこちら"
 msgstr "Wildcard 심사위원 목록은 여기에서"
 
-#: templates/2024/rule.html:306 templates/2025/rule.html:336
+#: templates/2024/rule.html:306 templates/2025/rule.html:340
 msgid "審査員不明"
 msgstr "심사위원 불명"
 
-#: templates/2024/rule.html:306 templates/2025/rule.html:336
+#: templates/2024/rule.html:306 templates/2025/rule.html:340
 msgid "例年発表なし"
 msgstr "예년 발표 없음"
 
-#: templates/2024/rule.html:318 templates/2025/rule.html:380
+#: templates/2024/rule.html:318 templates/2025/rule.html:384
 msgid "本戦審査員一覧はこちら"
 msgstr "본선 심사위원 목록은 여기에서"
 
@@ -623,21 +624,21 @@ msgstr "출연자 목록"
 #: templates/2024/time_schedule.html:50 templates/2024/time_schedule.html:107
 #: templates/2024/time_schedule.html:164 templates/2024/time_schedule.html:237
 #: templates/2025/time_schedule.html:42 templates/2025/time_schedule.html:70
-#: templates/2025/time_schedule.html:98 templates/2025/time_schedule.html:126
+#: templates/2025/time_schedule.html:98 templates/2025/time_schedule.html:130
 msgid "時刻"
 msgstr "시간"
 
 #: templates/2024/time_schedule.html:51 templates/2024/time_schedule.html:108
 #: templates/2024/time_schedule.html:165 templates/2024/time_schedule.html:238
 #: templates/2025/time_schedule.html:43 templates/2025/time_schedule.html:71
-#: templates/2025/time_schedule.html:99 templates/2025/time_schedule.html:127
+#: templates/2025/time_schedule.html:99 templates/2025/time_schedule.html:131
 msgid "内容"
 msgstr "내용"
 
 #: templates/2024/time_schedule.html:57 templates/2024/time_schedule.html:114
 #: templates/2024/time_schedule.html:171 templates/2024/time_schedule.html:244
 #: templates/2025/time_schedule.html:49 templates/2025/time_schedule.html:77
-#: templates/2025/time_schedule.html:105 templates/2025/time_schedule.html:133
+#: templates/2025/time_schedule.html:105 templates/2025/time_schedule.html:137
 msgid "入場開始"
 msgstr "입장 시작"
 
@@ -654,7 +655,7 @@ msgstr "서프라이즈 게스트"
 #: templates/2024/time_schedule.html:69 templates/2024/time_schedule.html:126
 #: templates/2024/time_schedule.html:183 templates/2024/time_schedule.html:248
 #: templates/2025/time_schedule.html:53 templates/2025/time_schedule.html:81
-#: templates/2025/time_schedule.html:109 templates/2025/time_schedule.html:137
+#: templates/2025/time_schedule.html:109 templates/2025/time_schedule.html:141
 msgid "スタート"
 msgstr "시작"
 
@@ -672,7 +673,7 @@ msgstr "준결승"
 #: templates/2024/time_schedule.html:93 templates/2024/time_schedule.html:150
 #: templates/2024/time_schedule.html:219 templates/2024/time_schedule.html:280
 #: templates/2025/time_schedule.html:57 templates/2025/time_schedule.html:85
-#: templates/2025/time_schedule.html:113 templates/2025/time_schedule.html:141
+#: templates/2025/time_schedule.html:113 templates/2025/time_schedule.html:145
 msgid "終了"
 msgstr "종료"
 
@@ -738,23 +739,31 @@ msgstr "공식보다 더 이해하기 쉬운!"
 msgid "非公式情報サイト"
 msgstr "비공식 정보 사이트"
 
-#: templates/2024/top.html:73
+#: templates/2024/top.html:40 templates/2024/top_7tosmoke.html:28
+#: templates/2025/top.html:153 templates/2025/top_7tosmoke.html:28
+#: templates/common/japan.html:13 templates/common/korea.html:13
+#: templates/common/participants.html:14
+#: templates/includes/popup_no_info.html:7
+msgid "最終更新"
+msgstr "최종 업데이트"
+
+#: templates/2024/top.html:80
 msgid "みんなで鑑賞会"
 msgstr "모두 함께 감상회"
 
-#: templates/2024/top.html:82 templates/2025/top.html:146
+#: templates/2024/top.html:89 templates/2025/top.html:146
 msgid "当サイトURL変更のお知らせ"
 msgstr "당 사이트 URL 변경 안내"
 
-#: templates/2024/top.html:83 templates/2025/rule.html:298
+#: templates/2024/top.html:90 templates/2025/rule.html:302
 #: templates/2025/top.html:147
 msgid "Wildcard結果発表配信"
 msgstr "Wildcard 결과 발표 방송"
 
-#: templates/2024/top.html:84 templates/2024/wildcards.html:3
+#: templates/2024/top.html:91 templates/2024/wildcards.html:3
 #: templates/2024/wildcards.html:4 templates/2024/wildcards.html:5
 #: templates/2024/wildcards.html:9 templates/2025/rule.html:19
-#: templates/2025/rule.html:385 templates/2025/top.html:148
+#: templates/2025/rule.html:389 templates/2025/top.html:148
 #: templates/2025/wildcards.html:3 templates/2025/wildcards.html:4
 #: templates/2025/wildcards.html:5 templates/2025/wildcards.html:9
 #: templates/common/participants.html:101
@@ -762,49 +771,49 @@ msgstr "Wildcard 결과 발표 방송"
 msgid "Wildcard一覧"
 msgstr "Wildcard 목록"
 
-#: templates/2024/top.html:97 templates/2024/top.html:111
+#: templates/2024/top.html:104 templates/2024/top.html:118
 #: templates/2024/top_7tosmoke.html:46 templates/2025/top.html:175
 #: templates/2025/top.html:189 templates/2025/top_7tosmoke.html:48
 msgid "お問い合わせ"
 msgstr "문의하기"
 
-#: templates/2024/top.html:102 templates/2025/top.html:180
+#: templates/2024/top.html:109 templates/2025/top.html:180
 msgid "これらの情報のほかにも、"
 msgstr "이 정보 외에도,"
 
-#: templates/2024/top.html:104 templates/2025/top.html:182
+#: templates/2024/top.html:111 templates/2025/top.html:182
 msgid "未発表の情報(決まっているが、なぜか公式が発表を渋っている)"
 msgstr "미발표 정보(결정되었지만, 왜인지 공식이 발표를 미루고 있는)"
 
-#: templates/2024/top.html:105 templates/2025/top.html:183
+#: templates/2024/top.html:112 templates/2025/top.html:183
 msgid "未定事項(そもそも決まってすらいない)"
 msgstr "미정 사항(결정되지 않은 사항)"
 
-#: templates/2024/top.html:107 templates/2025/top.html:185
+#: templates/2024/top.html:114 templates/2025/top.html:185
 msgid "このような情報が多く存在します。"
 msgstr "이런 정보가 많이 존재합니다."
 
-#: templates/2024/top.html:108 templates/2025/top.html:186
+#: templates/2024/top.html:115 templates/2025/top.html:186
 msgid "GBBの各種情報は、発表が非常に遅いことで有名です。気長に待ちましょう。"
 msgstr "GBB의 각종 정보는 발표가 매우 늦기로 유명합니다. 인내심을 가지고 기다립시다."
 
-#: templates/2024/top.html:112 templates/2025/top.html:195
+#: templates/2024/top.html:119 templates/2025/top.html:195
 msgid "過去のGBBにおいて、下記番号に電話したらGBB詳細情報を教えてくれた、という報告が相次ぎました。"
 msgstr "과거 GBB에서 아래 번호로 전화하면 GBB 상세 정보를 알려주었다는 보고가 잇따랐습니다."
 
-#: templates/2024/top.html:116 templates/2025/top.html:199
+#: templates/2024/top.html:123 templates/2025/top.html:199
 msgid "場所"
 msgstr "장소"
 
-#: templates/2024/top.html:117 templates/2025/top.html:200
+#: templates/2024/top.html:124 templates/2025/top.html:200
 msgid "電話番号"
 msgstr "전화번호"
 
-#: templates/2024/top.html:121
+#: templates/2024/top.html:128
 msgid "チケット販売ページ記載の番号"
 msgstr "티켓 판매 페이지"
 
-#: templates/2024/top.html:133 templates/2025/top.html:216
+#: templates/2024/top.html:140 templates/2025/top.html:216
 msgid "なお上記電話番号は、当サイトとは無関係です。"
 msgstr "상기 전화번호는 당 사이트와 무관합니다."
 
@@ -882,15 +891,15 @@ msgstr ""
 "예시: 시드권 대회 우승자가 이미 와일드카드로 출전권을 획득한 경우, 시드권 대회 2위가 아니라 와일드카드 하위권에서 순위가 상향 "
 "조정됩니다."
 
-#: templates/2025/rule.html:253 templates/2025/wildcard_regulation.html:208
+#: templates/2025/rule.html:257 templates/2025/wildcard_regulation.html:208
 msgid "制限時間を使い切らず余らせた場合、3秒につき最終順位を1つ下げる"
 msgstr "제한 시간을 다 사용하지 않고 남긴 경우, 3초당 최종 순위를 1단계 낮춥니다."
 
-#: templates/2025/rule.html:280 templates/2025/wildcard_regulation.html:234
+#: templates/2025/rule.html:284 templates/2025/wildcard_regulation.html:234
 msgid "※中央ヨーロッパ時間には、サマータイムがあります。2025年のサマータイムは3/30からです。"
 msgstr "※중앙 유럽 시간에는 서머타임이 있습니다. 2025년 서머타임은 3월 30일부터입니다."
 
-#: templates/2025/rule.html:281 templates/2025/wildcard_regulation.html:235
+#: templates/2025/rule.html:285 templates/2025/wildcard_regulation.html:235
 msgid "Tag Team部門・Crew部門参加希望の方はご注意ください。"
 msgstr "Tag Team 부문・Crew 부문 참가 희망자는 주의해 주십시오."
 
@@ -1005,10 +1014,6 @@ msgstr "티켓 판매 페이지"
 #: templates/2025/top.html:204
 msgid "記載の番号"
 msgstr "기재된 번호"
-
-#: templates/2025/top_7tosmoke.html:11
-msgid "開催日未定"
-msgstr "개최일 미정"
 
 #: templates/2025/wildcard_regulation.html:9
 msgid "レギュレーション"
@@ -1461,3 +1466,6 @@ msgstr "번역을 제공하지 않는 페이지는 원문인 일본어로 표시
 
 #~ msgid "について検索してみよう"
 #~ msgstr "에 대해 검색해 보자"
+
+#~ msgid "開催日未定"
+#~ msgstr "개최일 미정"
