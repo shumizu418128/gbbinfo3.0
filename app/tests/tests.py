@@ -126,7 +126,7 @@ class AppUrlsTestCase(unittest.TestCase):
                                 "iso_code": 392,
                                 "latitude": 35.0,
                                 "longitude": 139.0,
-                                "names": {"ja": "日本", "en": "Japan", "ko": "일본"},
+                                "names": {"ja": "日本", "en": "Japan"},
                             }
                         ]
                     )
@@ -135,7 +135,7 @@ class AppUrlsTestCase(unittest.TestCase):
                         "iso_code": 392,
                         "latitude": 35.0,
                         "longitude": 139.0,
-                        "names": {"ja": "日本", "en": "Japan", "ko": "일본"},
+                        "names": {"ja": "日本", "en": "Japan"},
                     }
                 ]
             return []
@@ -190,7 +190,7 @@ class AppUrlsTestCase(unittest.TestCase):
                         "Category": {"id": 1, "name": "Loopstation"},
                         "Country": {
                             "iso_code": 392,
-                            "names": {"ja": "日本", "en": "Japan", "ko": "일본"},
+                            "names": {"ja": "日本", "en": "Japan"},
                         },
                         "ParticipantMember": [],
                     }
@@ -302,29 +302,15 @@ class AppUrlsTestCase(unittest.TestCase):
                     )
 
         for url, description in test_cases:
-            # world_mapエンドポイントは言語パラメータでアクセスされないため除外
-            if "/world_map" in url:
-                lang_variants = [(url, description)]
-            else:
-                # 各URLについて言語パラメータありとなしの両方をテスト
-                lang_variants = [
-                    (url, description),
-                    (
-                        f"{url}{'&' if '?' in url else '?'}lang=ko",
-                        f"{description} (韓国語)",
-                    ),
-                ]
+            with self.subTest(url=url, description=description):
+                response = self.client.get(url)
 
-            for test_url, test_description in lang_variants:
-                with self.subTest(url=test_url, description=test_description):
-                    response = self.client.get(test_url)
-
-                    # 200-399の範囲のステータスコードまたは、レスポンスが存在することを確認
-                    self.assertTrue(
-                        response.status_code in range(200, 400)
-                        or response.status_code is not None,
-                        f"{test_description} ({test_url}) が適切なレスポンスを返しませんでした。ステータスコード: {response.status_code}",
-                    )
+                # 200-399の範囲のステータスコードまたは、レスポンスが存在することを確認
+                self.assertTrue(
+                    response.status_code in range(200, 400)
+                    or response.status_code is not None,
+                    f"{description} ({url}) が適切なレスポンスを返しませんでした。ステータスコード: {response.status_code}",
+                )
 
 
 class ContextProcessorsTestCase(unittest.TestCase):
@@ -493,7 +479,9 @@ class GeminiServiceTestCase(unittest.TestCase):
             nonlocal call_count
             call_count += 1
             if call_count == 1:
-                return Mock(text='{"url": "/2025/top", "parameter": "None"}')
+                return Mock(
+                    text='{"url": "/2025/top", "parameter": "None"}'
+                )
             else:
                 # レートリミットエラーをシミュレート
                 raise Exception("Rate limit exceeded")
@@ -527,7 +515,7 @@ class GeminiServiceTestCase(unittest.TestCase):
         # モックの設定
         mock_gemini_service.ask_sync.return_value = {
             "url": "/2025/participants",
-            "parameter": "search_participants",
+            "parameter": "search_participants"
         }
 
         # 複数回の連続リクエスト
@@ -535,7 +523,10 @@ class GeminiServiceTestCase(unittest.TestCase):
 
         def mock_ask_sync(*args, **kwargs):
             request_times.append(time.time())
-            return {"url": "/2025/participants", "parameter": "search_participants"}
+            return {
+                "url": "/2025/participants",
+                "parameter": "search_participants"
+            }
 
         mock_gemini_service.ask_sync.side_effect = mock_ask_sync
 
@@ -598,7 +589,9 @@ class GeminiServiceTestCase(unittest.TestCase):
             # 最初の2回は失敗、3回目は成功
             if len(call_times) <= 2:
                 raise Exception("API Error")
-            return Mock(text='{"url": "/2025/top", "parameter": "None"}')
+            return Mock(
+                text='{"url": "/2025/top", "parameter": "None"}'
+            )
 
         mock_client_instance.models.generate_content = Mock(
             side_effect=mock_generate_content
@@ -2451,7 +2444,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                             "Category": {"id": 1, "name": "Loopstation"},
                             "Country": {
                                 "iso_code": 392,
-                                "names": {"ja": "日本", "en": "Japan", "ko": "일본"},
+                                "names": {"ja": "日本", "en": "Japan"},
                             },
                             "ParticipantMember": [],
                         },
@@ -2578,7 +2571,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                             "name": "TAKO",
                             "Country": {
                                 "iso_code": 392,
-                                "names": {"ja": "日本", "en": "Japan", "ko": "일본"},
+                                "names": {"ja": "日本", "en": "Japan"},
                             },
                             "Participant": {
                                 "id": 1923,
@@ -2609,7 +2602,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                             "is_cancelled": False,
                             "Country": {
                                 "iso_code": 392,
-                                "names": {"ja": "日本", "en": "Japan", "ko": "일본"},
+                                "names": {"ja": "日本", "en": "Japan"},
                             },
                             "Category": {"id": 1, "name": "Solo"},
                             "ParticipantMember": [],
