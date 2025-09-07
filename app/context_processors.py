@@ -1,6 +1,7 @@
 import re
 from datetime import datetime, timezone
 from threading import Thread
+from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
 
 from dateutil import parser
 from flask import request, session
@@ -117,6 +118,34 @@ def get_translated_urls():
                     TRANSLATED_URLS.add(url_path)
 
     return TRANSLATED_URLS
+
+
+# MARK: 現在のURL
+def get_current_url():
+    """
+    現在のURLからlangクエリパラメータを除外した相対URL（パス＋クエリ＋フラグメント）を返します。
+
+    Returns:
+        str: langパラメータを除外した現在の相対URL
+    """
+
+    parsed_url = urlparse(request.url)
+    query_params = dict(parse_qsl(parsed_url.query))
+    # langパラメータを除外
+    query_params.pop("lang", None)
+    new_query = urlencode(query_params)
+    # 相対URL（スキーム・ホストなし）で返す
+    relative_url = urlunparse(
+        (
+            "",  # scheme
+            "",  # netloc
+            parsed_url.path,
+            parsed_url.params,
+            new_query,
+            parsed_url.fragment,
+        )
+    )
+    return relative_url
 
 
 # MARK: 最新年度
@@ -241,6 +270,7 @@ def common_variables(
         dict: テンプレートで利用可能な共通変数の辞書。
             - year (int): 現在の年度
             - available_years (list): 利用可能な年度リスト
+            - current_url (str): 現在のURL
             - lang_names (list): 言語コードと表示名のタプルリスト
             - language (str): 現在の言語コード
             - is_translated (bool): 現在のページが翻訳済みかどうか
@@ -268,6 +298,7 @@ def common_variables(
     return {
         "year": year,
         "available_years": available_years,
+        "current_url": get_current_url(),
         # 言語のタプルリスト [("ja", "日本語"), ("en", "English"), ...]
         "lang_names": LANGUAGES,
         # 現在の言語コード
