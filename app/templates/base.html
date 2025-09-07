@@ -136,7 +136,7 @@
       <p>LANGUAGE</p>
       <div class="button-container" style="margin-top: 10px;">
         {% for lang_code, lang_name in lang_names %}
-          <a href="{{ request.path }}?lang={{ lang_code }}">
+          <a href="{{ request.url }}?lang={{ lang_code }}">
             <button>{{ lang_name }}</button>
           </a>
         {% endfor %}
@@ -163,7 +163,7 @@
               LANGUAGE
               <ul class="nav_dropdown">
                 {% for lang_code, lang_name in lang_names %}
-                  <a href="{{ request.path }}?lang={{ lang_code }}"><li class="past_gbb">{{ lang_name }}</li></a>
+                  <a href="{{ request.url }}?lang={{ lang_code }}"><li class="past_gbb">{{ lang_name }}</li></a>
                 {% endfor %}
               </ul>
             </li>
@@ -271,13 +271,13 @@
       <h3>LANGUAGES</h3>
       <div class="button-container">
         {% for lang_code, lang_name in lang_names[:3] %}
-          <a href="{{ request.path }}?lang={{ lang_code }}"><button>{{ lang_name }}</button></a>
+          <a href="{{ request.url }}?lang={{ lang_code }}"><button>{{ lang_name }}</button></a>
         {% endfor %}
       </div>
       {% if lang_names|length > 3 %}
         <ul>
           {% for lang_code, lang_name in lang_names[3:] %}
-            <li><a href="{{ request.path }}?lang={{ lang_code }}">{{ lang_name }}</a></li>
+            <li><a href="{{ request.url }}?lang={{ lang_code }}">{{ lang_name }}</a></li>
           {% endfor %}
         </ul>
       {% endif %}
