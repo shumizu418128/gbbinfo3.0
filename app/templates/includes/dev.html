@@ -59,7 +59,6 @@ function showDebugInfo() {
   const pythonData = {
     year: {{ year|default('null') }},
     available_years: {{ available_years|default([])|tojson }},
-    current_url: "{{ current_url|default('') }}",
     lang_names: {{ lang_names|default([])|tojson }},
     language: "{{ language|default('') }}",
     is_translated: {{ is_translated|default(false)|tojson }},
