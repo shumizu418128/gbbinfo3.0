@@ -35,6 +35,19 @@ def post_search_participants(year: int):
         filters={"year": year, f"name__{Operator.MATCH_IGNORE_CASE}": f"%{keyword}%"},
     )
 
+    # 検索結果が無い場合、キーワードの最初1文字のみで検索
+    if len(participants_data) == 0:
+        participants_data = supabase_service.get_data(
+            table="Participant",
+            columns=["id", "name", "category", "ticket_class", "is_cancelled"],
+            order_by="category",
+            join_tables={
+                "Category": ["id", "name"],
+                "ParticipantMember": ["id", "name"],
+            },
+            filters={"year": year, f"name__{Operator.MATCH_IGNORE_CASE}": f"%{keyword[0]}%"},
+        )
+
     for participant in participants_data:
         participant["name"] = participant["name"].upper()
 

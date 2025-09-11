@@ -8,7 +8,11 @@
 {% block content %}
 
 <h1>GBB {{ beatboxer_detail.year }} {{ beatboxer_detail.name }}</h1>
-<div class="youtube-embed-video"></div>
+<div class="youtube-embed-video">
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <img src="/static/images/gray_youtube.webp" alt="YouTube placeholder" style="max-width: 100%; height: auto;">
+    </div>
+</div>
 
 {% if mode == "single" or mode == "team" %}
     <table>
