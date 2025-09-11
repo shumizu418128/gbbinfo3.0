@@ -6,6 +6,7 @@ from app.util.participant_edit import team_multi_country, wildcard_rank_sort
 
 VALID_TICKET_CLASSES = ["all", "wildcard", "seed_right"]
 VALID_CANCEL = ["show", "hide", "only_cancelled"]
+MULTI_COUNTRY_TEAM_ISO_CODE = 9999
 
 
 # MARK: 出場者
@@ -129,7 +130,7 @@ def participants_view(year: int):
         participant.pop("Category")
 
         # 国名を取り出す
-        if participant["iso_code"] == 9999:
+        if participant["iso_code"] == MULTI_COUNTRY_TEAM_ISO_CODE:
             participant = team_multi_country(participant, language)
         else:
             participant["country"] = participant["Country"]["names"][language]
@@ -198,7 +199,7 @@ def participants_country_specific_view(year: int):
         },
         filters={
             "year": year,
-            "iso_code": 9999,
+            "iso_code": MULTI_COUNTRY_TEAM_ISO_CODE,
         },
     )
 

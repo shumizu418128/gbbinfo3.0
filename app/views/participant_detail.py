@@ -9,6 +9,8 @@ from app.util.participant_edit import team_multi_country, wildcard_rank_sort
 
 from . import common
 
+MULTI_COUNTRY_TEAM_ISO_CODE = 9999
+
 
 # MARK: 出場者詳細
 def participant_detail_view():
@@ -110,7 +112,7 @@ def participant_detail_view():
         language = session["language"]
 
         # 複数国籍のチームの場合、国名をまとめる
-        if beatboxer_detail["iso_code"] == 9999:
+        if beatboxer_detail["iso_code"] == MULTI_COUNTRY_TEAM_ISO_CODE:
             beatboxer_detail = team_multi_country(beatboxer_detail, language)
 
         # 1国籍のチームの場合、国名を取得
@@ -240,7 +242,7 @@ def participant_detail_view():
     same_year_category_edited = []
     for participant in same_year_category_participants:
         participant["name"] = participant["name"].upper()
-        if participant["iso_code"] == 9999:
+        if participant["iso_code"] == MULTI_COUNTRY_TEAM_ISO_CODE:
             participant = team_multi_country(participant, language)
         else:
             participant["country"] = participant["Country"]["names"][language]

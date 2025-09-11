@@ -6,6 +6,8 @@ from flask import render_template, session
 
 from app.models.supabase_client import supabase_service
 
+MULTI_COUNTRY_TEAM_ISO_CODE = 9999
+
 
 # MARK: 世界地図
 def world_map_view(year: int):
@@ -66,7 +68,7 @@ def world_map_view(year: int):
             participant["mode"] = "single"
 
         # 複数国籍のチームの場合、該当国ごとにデータを追加
-        if participant["iso_code"] == 9999:
+        if participant["iso_code"] == MULTI_COUNTRY_TEAM_ISO_CODE:
             iso_code_list = set()
 
             for member in participant["ParticipantMember"]:
