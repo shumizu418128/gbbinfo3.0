@@ -35,6 +35,10 @@ def create_url(year: int, url: str, parameter: str | None):
     if "top" in url and parameter == "":
         parameter = "contact"
 
+    # othersのURLは年度情報を削除
+    if url in ["result_stream", "how_to_plan", "about", "7tosmoke"]:
+        response_url = url.replace(f"/{year}/", "/others/")
+
     # 7toSmoke最新情報の場合は7tosmokeこれだけガイドページに変更
     if url == "/others/7tosmoke" and parameter in ["latest_info", ""]:
         response_url = f"/{year}/top_7tosmoke"
