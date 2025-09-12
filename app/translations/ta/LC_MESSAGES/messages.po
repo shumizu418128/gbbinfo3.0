@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-06 22:14+0900\n"
+"POT-Creation-Date: 2025-09-12 21:45+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ta <LL@li.org>\n"
@@ -57,7 +57,7 @@ msgstr "பட்டியல்"
 #: templates/2025/wildcard_regulation.html:255
 #: templates/2025/wildcard_regulation.html:256 templates/base.html:117
 #: templates/base.html:150 templates/base.html:260
-#: templates/others/participant_detail.html:122
+#: templates/others/participant_detail.html:126
 msgid "これだけガイド"
 msgstr "இந்த கையேடு"
 
@@ -139,7 +139,7 @@ msgstr "நேர அட்டவணை"
 #: templates/2025/top.html:123 templates/2025/wildcards.html:114
 #: templates/base.html:125 templates/common/korea.html:3
 #: templates/common/korea.html:4 templates/common/korea.html:5
-#: templates/common/korea.html:9 templates/others/participant_detail.html:236
+#: templates/common/korea.html:9 templates/others/participant_detail.html:240
 msgid "韓国代表"
 msgstr "கொரியக் குடியரசு அணி"
 
@@ -148,7 +148,7 @@ msgstr "கொரியக் குடியரசு அணி"
 #: templates/2025/top.html:128 templates/2025/wildcards.html:116
 #: templates/base.html:127 templates/common/japan.html:3
 #: templates/common/japan.html:4 templates/common/japan.html:5
-#: templates/common/japan.html:9 templates/others/participant_detail.html:238
+#: templates/common/japan.html:9 templates/others/participant_detail.html:242
 #: templates/others/translation.html:21
 msgid "日本代表"
 msgstr "ஜப்பான் அணி"
@@ -183,9 +183,9 @@ msgstr "அன்று டெலிவரி"
 #: templates/2025/top.html:80 templates/2025/top.html:141
 #: templates/base.html:133 templates/common/result.html:3
 #: templates/common/result.html:4 templates/common/result.html:5
-#: templates/common/result.html:9 templates/others/participant_detail.html:157
-#: templates/others/participant_detail.html:164
-#: templates/others/participant_detail.html:240
+#: templates/common/result.html:9 templates/others/participant_detail.html:161
+#: templates/others/participant_detail.html:168
+#: templates/others/participant_detail.html:244
 #: templates/others/translation.html:24
 msgid "大会結果"
 msgstr "போட்டி முடிவுகள்"
@@ -377,8 +377,8 @@ msgstr "விதியை நீங்களே ஒருமுறை சரி
 #: templates/2025/wildcard_regulation.html:142
 #: templates/2025/wildcard_regulation.html:201 templates/common/japan.html:22
 #: templates/common/korea.html:22 templates/common/participants.html:119
-#: templates/others/participant_detail.html:27
-#: templates/others/participant_detail.html:132
+#: templates/others/participant_detail.html:31
+#: templates/others/participant_detail.html:136
 msgid "部門"
 msgstr "துறை"
 
@@ -432,9 +432,9 @@ msgstr "விதைத்த உரிமை - GBB"
 #: templates/2025/wildcard_regulation.html:142 templates/common/japan.html:21
 #: templates/common/korea.html:21 templates/common/participants.html:44
 #: templates/common/participants.html:118 templates/common/result.html:51
-#: templates/others/participant_detail.html:59
-#: templates/others/participant_detail.html:131
-#: templates/others/participant_detail.html:194
+#: templates/others/participant_detail.html:63
+#: templates/others/participant_detail.html:135
+#: templates/others/participant_detail.html:198
 msgid "名前"
 msgstr "பெயர்"
 
@@ -444,8 +444,8 @@ msgstr "பெயர்"
 #: templates/common/japan.html:23 templates/common/korea.html:23
 #: templates/common/participants.html:46
 #: templates/common/participants.html:120
-#: templates/others/participant_detail.html:43
-#: templates/others/participant_detail.html:196
+#: templates/others/participant_detail.html:47
+#: templates/others/participant_detail.html:200
 msgid "出場権"
 msgstr "உரிமை"
 
@@ -471,20 +471,20 @@ msgstr "விதை உரிமத்தை கைவிட்டவர்க�
 #: templates/2024/rule.html:203 templates/2025/rule.html:203
 #: templates/common/japan.html:30 templates/common/korea.html:31
 #: templates/common/participants.html:54
-#: templates/others/participant_detail.html:17
-#: templates/others/participant_detail.html:67
-#: templates/others/participant_detail.html:80
-#: templates/others/participant_detail.html:89
-#: templates/others/participant_detail.html:109
-#: templates/others/participant_detail.html:140
-#: templates/others/participant_detail.html:204
+#: templates/others/participant_detail.html:21
+#: templates/others/participant_detail.html:71
+#: templates/others/participant_detail.html:84
+#: templates/others/participant_detail.html:93
+#: templates/others/participant_detail.html:113
+#: templates/others/participant_detail.html:144
+#: templates/others/participant_detail.html:208
 msgid "辞退"
 msgstr "நிராகரிக்கப்பட்டது"
 
 #: templates/2024/rule.html:221 templates/2024/time_schedule.html:100
 #: templates/2024/time_schedule.html:230 templates/2025/rule.html:221
-#: templates/others/participant_detail.html:156
-#: templates/others/participant_detail.html:163
+#: templates/others/participant_detail.html:160
+#: templates/others/participant_detail.html:167
 msgid "出場者一覧"
 msgstr "பங்கேற்பாளர்கள் பட்டியல்"
 
@@ -1052,8 +1052,8 @@ msgstr "போட்டிகளின் எண்ணிக்கை"
 
 #: templates/2025/top.html:82 templates/common/japan.html:48
 #: templates/common/korea.html:60 templates/common/participants.html:29
-#: templates/others/participant_detail.html:121
-#: templates/others/participant_detail.html:234
+#: templates/others/participant_detail.html:125
+#: templates/others/participant_detail.html:238
 msgid "全出場者一覧"
 msgstr "அனைத்து போட்டியாளர்களும்"
 
@@ -1417,10 +1417,10 @@ msgid "出場者 & 辞退者を表示"
 msgstr "பங்கேற்பாளர்கள் & விலகியவர்கள் காட்டு"
 
 #: templates/common/participants.html:45
-#: templates/others/participant_detail.html:35
-#: templates/others/participant_detail.html:60
-#: templates/others/participant_detail.html:99
-#: templates/others/participant_detail.html:195
+#: templates/others/participant_detail.html:39
+#: templates/others/participant_detail.html:64
+#: templates/others/participant_detail.html:103
+#: templates/others/participant_detail.html:199
 msgid "国"
 msgstr "நாடு"
 
@@ -1477,7 +1477,7 @@ msgstr "இது இன்னும் குறைந்த தகவல்க
 #: templates/includes/popup_early_access.html:6
 #, python-brace-format
 msgid "GBB {year} の情報はこちら"
-msgstr "GBB %(prev_year)s பற்றிய தகவல் இங்கே"
+msgstr "GBB {year} பற்றிய தகவல் இங்கே"
 
 #: templates/includes/ended.html:3 templates/includes/popup_ended.html:6
 msgid "中止"
@@ -1526,33 +1526,33 @@ msgstr ""
 msgid "公式発表をお待ちください。"
 msgstr "அதிகாரப்பூர்வ அறிவிப்புக்காக காத்திருங்கள்."
 
-#: templates/others/participant_detail.html:125
+#: templates/others/participant_detail.html:129
 msgid "過去の出場履歴"
 msgstr "கடந்தகால பங்கேற்பு வரலாறு"
 
-#: templates/others/participant_detail.html:170
+#: templates/others/participant_detail.html:174
 msgid "関連サイト"
 msgstr "தொடர்புடைய தளங்கள்"
 
-#: templates/others/participant_detail.html:178
+#: templates/others/participant_detail.html:182
 msgid "表示されている関連サイトやSNS情報は、自動検索によって取得されたものです。"
 msgstr ""
 "காட்டப்படும் தொடர்புடைய தளங்கள் மற்றும் சமூக ஊடகத் தகவல் தானியங்கி தேடல் "
 "மூலம் பெறப்பட்டது."
 
-#: templates/others/participant_detail.html:179
+#: templates/others/participant_detail.html:183
 msgid "内容に誤りが含まれている可能性があります。"
 msgstr "உள்ளடக்கத்தில் தவறுகள் இருக்கலாம்."
 
-#: templates/others/participant_detail.html:184
+#: templates/others/participant_detail.html:188
 msgid "もっと調べる"
 msgstr "மேலும் அறிய"
 
-#: templates/others/participant_detail.html:187
+#: templates/others/participant_detail.html:191
 msgid "ChatGPTに聞く"
 msgstr "ChatGPTயிடம் கேளுங்கள்"
 
-#: templates/others/participant_detail.html:190
+#: templates/others/participant_detail.html:194
 msgid "他の出場者"
 msgstr "மற்ற போட்டியாளர்கள்"
 
