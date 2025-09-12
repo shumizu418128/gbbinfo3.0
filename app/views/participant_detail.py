@@ -264,7 +264,7 @@ def participant_detail_view():
     )
 
     same_year_category_mode = "single" if mode == "single" else "team"
-    genspark_query = quote(beatboxer_detail["name"] + " beatbox")
+    ai_search_query = quote(beatboxer_detail["name"] + " beatbox")
 
     context = {
         "beatboxer_detail": beatboxer_detail,
@@ -272,7 +272,7 @@ def participant_detail_view():
         "past_participation_data": past_data,
         "same_year_category_participants": same_year_category_edited,
         "same_year_category_mode": same_year_category_mode,
-        "genspark_query": genspark_query,
+        "ai_search_query": ai_search_query,
         "past_year_participation": past_year_participation,
     }
 
