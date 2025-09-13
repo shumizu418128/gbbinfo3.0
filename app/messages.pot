@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-09-12 21:45+0900\n"
+"POT-Creation-Date: 2025-09-13 13:53+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -902,7 +902,7 @@ msgid "購入を希望する場合、ご本人様へ直接DM or リプライに�
 msgstr ""
 
 #: templates/2025/ticket.html:22
-msgid "10月1日 掲載募集開始予定"
+msgid "10月1日 掲載開始予定 (現在掲載希望の方を募集中)"
 msgstr ""
 
 #: templates/2025/ticket.html:23

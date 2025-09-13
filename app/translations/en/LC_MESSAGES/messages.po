@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-12 21:45+0900\n"
+"POT-Creation-Date: 2025-09-13 13:53+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: en <LL@li.org>\n"
@@ -970,8 +970,10 @@ msgstr ""
 "If you wish to purchase, please contact the person directly via DM or reply."
 
 #: templates/2025/ticket.html:22
-msgid "10月1日 掲載募集開始予定"
-msgstr "Publication of recruitment to begin October 1st."
+msgid "10月1日 掲載開始予定 (現在掲載希望の方を募集中)"
+msgstr ""
+"To be published on October 1st (currently recruiting those who wish to "
+"publish)"
 
 #: templates/2025/ticket.html:23
 msgid "譲渡希望ツイートの掲載をご希望の場合、GBBINFO-JPN開発者 TwitterへDMにてご連絡ください。"
@@ -1574,3 +1576,6 @@ msgstr ""
 
 #~ msgid "開催日未定"
 #~ msgstr "Event date undecided"
+
+#~ msgid "10月1日 掲載募集開始予定"
+#~ msgstr "Publication of recruitment to begin October 1st."
