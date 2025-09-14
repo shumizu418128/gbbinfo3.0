@@ -99,7 +99,7 @@ class AppUrlsTestCase(unittest.TestCase):
                 "ends_at": "2023-12-31T23:59:59Z",
             },
         ]
-        # participant_detail内のSupabase呼び出しは空配列を返す（404でもテスト条件は満たす）
+        # participant_detail内のSupabase呼び出しは空配列を返す（リダイレクトでもテスト条件は満たす）
         mock_view_supabase.get_data.return_value = []
 
         # world_map内のSupabase呼び出しは簡易モック
@@ -479,9 +479,7 @@ class GeminiServiceTestCase(unittest.TestCase):
             nonlocal call_count
             call_count += 1
             if call_count == 1:
-                return Mock(
-                    text='{"url": "/2025/top", "parameter": "None"}'
-                )
+                return Mock(text='{"url": "/2025/top", "parameter": "None"}')
             else:
                 # レートリミットエラーをシミュレート
                 raise Exception("Rate limit exceeded")
@@ -515,7 +513,7 @@ class GeminiServiceTestCase(unittest.TestCase):
         # モックの設定
         mock_gemini_service.ask_sync.return_value = {
             "url": "/2025/participants",
-            "parameter": "search_participants"
+            "parameter": "search_participants",
         }
 
         # 複数回の連続リクエスト
@@ -523,10 +521,7 @@ class GeminiServiceTestCase(unittest.TestCase):
 
         def mock_ask_sync(*args, **kwargs):
             request_times.append(time.time())
-            return {
-                "url": "/2025/participants",
-                "parameter": "search_participants"
-            }
+            return {"url": "/2025/participants", "parameter": "search_participants"}
 
         mock_gemini_service.ask_sync.side_effect = mock_ask_sync
 
@@ -589,9 +584,7 @@ class GeminiServiceTestCase(unittest.TestCase):
             # 最初の2回は失敗、3回目は成功
             if len(call_times) <= 2:
                 raise Exception("API Error")
-            return Mock(
-                text='{"url": "/2025/top", "parameter": "None"}'
-            )
+            return Mock(text='{"url": "/2025/top", "parameter": "None"}')
 
         mock_client_instance.models.generate_content = Mock(
             side_effect=mock_generate_content
@@ -860,7 +853,7 @@ class GeminiServiceTestCase(unittest.TestCase):
         mock_get_translated_urls,
         mock_supabase,
     ):
-        """participant_detail: 初回取得でデータがない場合は404を返す"""
+        """participant_detail: 初回取得でデータがない場合は参加者ページにリダイレクトする"""
         mock_get_available_years.return_value = [2025, 2024]
         mock_is_gbb_ended.return_value = False
         mock_get_translated_urls.return_value = set()
@@ -871,7 +864,40 @@ class GeminiServiceTestCase(unittest.TestCase):
             sess["language"] = "ja"
 
         resp = self.client.get("/others/participant_detail?id=0&mode=single")
-        self.assertEqual(resp.status_code, 404)
+        self.assertEqual(resp.status_code, 302)
+        self.assertTrue(resp.location.endswith("/2025/participants"))
+
+    @patch("app.context_processors.get_translated_urls")
+    @patch("app.context_processors.is_gbb_ended")
+    @patch("app.context_processors.get_available_years")
+    def test_participant_detail_missing_params(
+        self,
+        mock_get_available_years,
+        mock_is_gbb_ended,
+        mock_get_translated_urls,
+    ):
+        """participant_detail: id/modeパラメータが無い場合は参加者ページにリダイレクトする"""
+        mock_get_available_years.return_value = [2025, 2024]
+        mock_is_gbb_ended.return_value = False
+        mock_get_translated_urls.return_value = set()
+
+        with self.client.session_transaction() as sess:
+            sess["language"] = "ja"
+
+        # idパラメータが無い場合
+        resp = self.client.get("/others/participant_detail?mode=single")
+        self.assertEqual(resp.status_code, 302)
+        self.assertTrue(resp.location.endswith("/2025/participants"))
+
+        # modeパラメータが無い場合
+        resp = self.client.get("/others/participant_detail?id=123")
+        self.assertEqual(resp.status_code, 302)
+        self.assertTrue(resp.location.endswith("/2025/participants"))
+
+        # 両方のパラメータが無い場合
+        resp = self.client.get("/others/participant_detail")
+        self.assertEqual(resp.status_code, 302)
+        self.assertTrue(resp.location.endswith("/2025/participants"))
 
 
 class SupabaseServiceTestCase(unittest.TestCase):
@@ -2674,7 +2700,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             "/2025/rule",
             "/2025/japan",
             "/2025/korea",
-            # 直接 participant_detail も対象に含める（存在確認/リンク抽出が目的、200 or 404を許容）
+            # 直接 participant_detail も対象に含める（存在確認/リンク抽出が目的、200 or リダイレクトを許容）
             "/others/participant_detail?id=2064&mode=single",  # JUNNO
             "/others/participant_detail?id=255&mode=team_member",  # TAKO
             "/others/participant_detail?id=1923&mode=team",  # WOLFGANG
