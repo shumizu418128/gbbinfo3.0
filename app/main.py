@@ -76,7 +76,6 @@ class Config:
 
 
 class TestConfig(Config):
-    CACHE_TYPE = "null"
     DEBUG = True
     SECRET_KEY = "test"
     TEMPLATES_AUTO_RELOAD = True

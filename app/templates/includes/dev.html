@@ -42,7 +42,8 @@
         <button id="pythonTab" onclick="showTab('python')" style="background: #007bff; color: #fff; border: none; padding: 10px 15px; cursor: pointer; font-size: 14px; border-radius: 4px 4px 0 0; margin-right: 2px; margin-bottom: 2px;">Python変数</button>
         <button id="requestTab" onclick="showTab('request')" style="background: #6c757d; color: #fff; border: none; padding: 10px 15px; cursor: pointer; font-size: 14px; border-radius: 4px 4px 0 0; margin-right: 2px; margin-bottom: 2px;">リクエスト</button>
         <button id="sessionTab" onclick="showTab('session')" style="background: #6c757d; color: #fff; border: none; padding: 10px 15px; cursor: pointer; font-size: 14px; border-radius: 4px 4px 0 0; margin-right: 2px; margin-bottom: 2px;">セッション</button>
-        <button id="environmentTab" onclick="showTab('environment')" style="background: #6c757d; color: #fff; border: none; padding: 10px 15px; cursor: pointer; font-size: 14px; border-radius: 4px 4px 0 0; margin-bottom: 2px;">環境情報</button>
+        <button id="environmentTab" onclick="showTab('environment')" style="background: #6c757d; color: #fff; border: none; padding: 10px 15px; cursor: pointer; font-size: 14px; border-radius: 4px 4px 0 0; margin-right: 2px; margin-bottom: 2px;">環境情報</button>
+        <button id="cacheTab" onclick="showTab('cache')" style="background: #6c757d; color: #fff; border: none; padding: 10px 15px; cursor: pointer; font-size: 14px; border-radius: 4px 4px 0 0; margin-bottom: 2px;">キャッシュ</button>
       </div>
 
       <!-- コンテンツエリア -->
@@ -50,6 +51,7 @@
       <div id="requestContent" style="font-family: 'Consolas', 'Courier New', 'Monaco', 'Menlo', monospace; white-space: pre-wrap; font-size: 16px; line-height: 1.5; background: #f8f8f8; padding: 15px; border-radius: 4px; border: 1px solid #ddd; display: none;"></div>
       <div id="sessionContent" style="font-family: 'Consolas', 'Courier New', 'Monaco', 'Menlo', monospace; white-space: pre-wrap; font-size: 16px; line-height: 1.5; background: #f8f8f8; padding: 15px; border-radius: 4px; border: 1px solid #ddd; display: none;"></div>
       <div id="environmentContent" style="font-family: 'Consolas', 'Courier New', 'Monaco', 'Menlo', monospace; white-space: pre-wrap; font-size: 16px; line-height: 1.5; background: #f8f8f8; padding: 15px; border-radius: 4px; border: 1px solid #ddd; display: none;"></div>
+      <div id="cacheContent" style="font-family: 'Consolas', 'Courier New', 'Monaco', 'Menlo', monospace; white-space: pre-wrap; font-size: 16px; line-height: 1.5; background: #f8f8f8; padding: 15px; border-radius: 4px; border: 1px solid #ddd; display: none;"></div>
   </div>
 </div>
 
@@ -177,13 +179,6 @@ function showDebugInfo() {
     path: "{{ request.path|default('') }}",
     method: "{{ request.method|default('') }}",
     url: "{{ request.url|default('') }}",
-    args: {{ request.args.to_dict()|tojson }},
-    form: {{ request.form.to_dict()|tojson }},
-    headers: {
-      {% for key, value in request.headers %}
-      "{{ key }}": "{{ value }}",
-      {% endfor %}
-    }
   };
 
   // セッション情報
@@ -209,11 +204,15 @@ function showDebugInfo() {
     }
   };
 
+  // キャッシュ情報
+  const cacheData = {{ cache_data|default({})|tojson }};
+
   // 各タブにデータを設定
   document.getElementById('pythonContent').innerHTML = syntaxHighlight(JSON.stringify(pythonData, null, 2));
   document.getElementById('requestContent').innerHTML = syntaxHighlight(JSON.stringify(requestData, null, 2));
   document.getElementById('sessionContent').innerHTML = syntaxHighlight(JSON.stringify(sessionData, null, 2));
   document.getElementById('environmentContent').innerHTML = syntaxHighlight(JSON.stringify(environmentData, null, 2));
+  document.getElementById('cacheContent').innerHTML = syntaxHighlight(JSON.stringify(cacheData, null, 2));
 
   // モーダルを表示
   document.getElementById('debugModal').style.display = 'block';
@@ -230,12 +229,14 @@ function showTab(tabName) {
   document.getElementById('requestContent').style.display = 'none';
   document.getElementById('sessionContent').style.display = 'none';
   document.getElementById('environmentContent').style.display = 'none';
+  document.getElementById('cacheContent').style.display = 'none';
 
   // 全てのタブボタンを非アクティブ状態に
   document.getElementById('pythonTab').style.background = '#6c757d';
   document.getElementById('requestTab').style.background = '#6c757d';
   document.getElementById('sessionTab').style.background = '#6c757d';
   document.getElementById('environmentTab').style.background = '#6c757d';
+  document.getElementById('cacheTab').style.background = '#6c757d';
 
   // 選択されたタブを表示してアクティブ状態に
   document.getElementById(tabName + 'Content').style.display = 'block';

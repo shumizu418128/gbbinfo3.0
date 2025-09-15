@@ -10,11 +10,6 @@ from app.models.supabase_client import supabase_service
 from app.settings import BASE_DIR, check_locale_paths_and_languages, delete_world_map
 from app.util.filter_eq import Operator
 
-AVAILABLE_YEARS = []
-TRANSLATED_URLS = set()
-
-is_gbb_ended_cache = {}
-
 
 # MARK: 年度一覧
 def get_available_years():
@@ -24,9 +19,14 @@ def get_available_years():
     Returns:
         list: 利用可能な年度（降順）のリスト
     """
-    global AVAILABLE_YEARS
-    if AVAILABLE_YEARS:
-        return AVAILABLE_YEARS
+    # ここに書かないと循環インポートになる
+    from app.main import flask_cache
+
+    cache_key = "AVAILABLE_YEARS"
+
+    cached_data = flask_cache.get(cache_key)
+    if cached_data is not None:
+        return cached_data
 
     year_data = supabase_service.get_data(
         table="Year",
@@ -34,9 +34,9 @@ def get_available_years():
     )
     available_years = [item["year"] for item in year_data]
     available_years.sort(reverse=True)
-    AVAILABLE_YEARS = available_years
+    flask_cache.set(cache_key, available_years, timeout=None)
 
-    return AVAILABLE_YEARS
+    return available_years
 
 
 # MARK: 翻訳済URL
@@ -54,16 +54,21 @@ def get_translated_urls():
         base.html, includes, 404.html等は除外します。
     """
 
-    global TRANSLATED_URLS
-    if TRANSLATED_URLS:
-        return TRANSLATED_URLS
+    # ここに書かないと循環インポートになる
+    from app.main import flask_cache
+
+    cache_key = "TRANSLATED_URLS"
+
+    cached_data = flask_cache.get(cache_key)
+    if cached_data is not None:
+        return cached_data
 
     language = "en"
 
     po_file_path = (
         BASE_DIR / "app" / "translations" / language / "LC_MESSAGES" / "messages.po"
     )
-    TRANSLATED_URLS = set()
+    translated_urls = set()
 
     try:
         with open(po_file_path, "r", encoding="utf-8") as f:
@@ -110,13 +115,15 @@ def get_translated_urls():
                             + "/"
                             + template_path.replace("common/", "").replace(".html", "")
                         )
-                        TRANSLATED_URLS.add(url_path)
+                        translated_urls.add(url_path)
                 else:
                     # 2024/foo.html → /2024/foo
                     url_path = "/" + template_path.replace(".html", "")
-                    TRANSLATED_URLS.add(url_path)
+                    translated_urls.add(url_path)
 
-    return TRANSLATED_URLS
+    flask_cache.set(cache_key, translated_urls, timeout=None)
+
+    return translated_urls
 
 
 # MARK: 最新年度
@@ -184,9 +191,16 @@ def is_gbb_ended(year):
     Returns:
         bool: GBB終了年度の場合はTrue、それ以外はFalse
     """
-    global is_gbb_ended_cache
-    if year in is_gbb_ended_cache:
-        return is_gbb_ended_cache[year]
+    # ここに書かないと循環インポートになる
+    from app.main import flask_cache
+
+    cache_key = "IS_GBB_ENDED_CACHE"
+
+    cached_data = flask_cache.get(cache_key)
+    if cached_data is not None:
+        return cached_data[year]
+
+    is_gbb_ended_cache = {}
 
     # タイムゾーンを考慮した現在時刻を取得
     now = datetime.now(timezone.utc)
@@ -215,8 +229,145 @@ def is_gbb_ended(year):
     if latest_year_ends_at and latest_year_ends_at.tzinfo is None:
         latest_year_ends_at = latest_year_ends_at.replace(tzinfo=timezone.utc)
 
+    # キャッシュに保存
     is_gbb_ended_cache[year] = latest_year_ends_at < now
+    flask_cache.set(cache_key, is_gbb_ended_cache, timeout=None)
+
     return is_gbb_ended_cache[year]
+
+
+# MARK: シリアライズ
+def _serialize_cache_value(value, max_size=1000):
+    """
+    キャッシュの値をJSONシリアライズ可能な形式に変換する内部関数。
+
+    Args:
+        value: シリアライズする値
+        max_size (int): 値の最大サイズ（これを超えると要約表示）
+
+    Returns:
+        JSONシリアライズ可能な値
+    """
+    import json
+    from datetime import date, datetime
+
+    try:
+        # 基本的なJSON対応型はそのまま返す
+        if value is None or isinstance(value, (bool, int, float, str)):
+            return value
+
+        # 日付型の場合は文字列に変換
+        if isinstance(value, (datetime, date)):
+            return value.isoformat()
+
+        # set型の場合はリストに変換
+        if isinstance(value, set):
+            if len(value) > 20:  # 大きなsetの場合は要約
+                return f"Set with {len(value)} items: {list(list(value)[:10])}..."
+            return list(value)
+
+        # frozenset型の場合もリストに変換
+        if isinstance(value, frozenset):
+            if len(value) > 20:  # 大きなfrozensetの場合は要約
+                return f"Frozenset with {len(value)} items: {list(list(value)[:10])}..."
+            return list(value)
+
+        # tuple型の場合はリストに変換
+        if isinstance(value, tuple):
+            if len(str(value)) > max_size:
+                return f"Tuple with {len(value)} items"
+            return list(value)
+
+        # dict型の場合
+        if isinstance(value, dict):
+            if len(str(value)) > max_size:
+                return f"Dict with {len(value)} keys: {list(value.keys())[:10]}..."
+            # 再帰的に各値をシリアライズ
+            serialized_dict = {}
+            for k, v in value.items():
+                try:
+                    serialized_dict[str(k)] = _serialize_cache_value(v, max_size // 10)
+                except Exception:
+                    serialized_dict[str(k)] = f"<Unserializable: {type(v).__name__}>"
+            return serialized_dict
+
+        # list型の場合
+        if isinstance(value, list):
+            if len(str(value)) > max_size:
+                return f"List with {len(value)} items: {value[:3]}..."
+            # 再帰的に各要素をシリアライズ
+            return [
+                _serialize_cache_value(item, max_size // 10) for item in value[:100]
+            ]
+
+        # その他のオブジェクトの場合
+        # まずJSONシリアライズを試行
+        try:
+            json.dumps(value)
+            return value
+        except (TypeError, ValueError):
+            # シリアライズできない場合は型情報と文字列表現を返す
+            if hasattr(value, "__dict__"):
+                return f"<Object: {type(value).__name__}> {str(value)[:100]}..."
+            else:
+                return f"<{type(value).__name__}> {str(value)[:100]}..."
+
+    except Exception as e:
+        return f"<Serialization Error: {str(e)}>"
+
+
+# MARK: キャッシュ情報
+def get_cache_info(flask_cache):
+    """
+    Flaskキャッシュの情報を取得する関数。
+
+    Args:
+        flask_cache: Flaskキャッシュオブジェクト
+
+    Returns:
+        dict: キャッシュの情報を含む辞書
+            - cache_type (str): キャッシュの種類
+            - cache_keys (list): キャッシュに保存されているキーのリスト
+            - cache_data (dict): 各キーとその値のペア
+            - cache_stats (dict): キャッシュの統計情報
+    """
+    if flask_cache is None:
+        return None
+
+    try:
+        cache_info = {}
+
+        # キャッシュの種類によって情報を取得
+        cache_backend = flask_cache.cache
+
+        # SimpleCache（メモリキャッシュ）の場合
+        if hasattr(cache_backend, "_cache"):
+            cache_dict = cache_backend._cache
+            all_keys = list(cache_dict.keys())
+
+            # 表示対象のキーを限定
+            target_keys = ["AVAILABLE_YEARS", "TRANSLATED_URLS", "IS_GBB_ENDED_CACHE"]
+            cache_info["cache_keys"] = [key for key in all_keys if key in target_keys]
+
+            # 指定されたキーの値のみを取得
+            for key in cache_info["cache_keys"]:
+                try:
+                    value = flask_cache.get(key)
+                    if value is not None:
+                        # JSONシリアライズ可能な形式に変換
+                        serialized_value = _serialize_cache_value(value)
+                        cache_info[key] = serialized_value
+                    else:
+                        cache_info[key] = None
+                except Exception as e:
+                    cache_info[key] = f"Error retrieving value: {str(e)}"
+
+        return cache_info
+
+    except Exception as e:
+        return {
+            "error": f"Failed to retrieve cache info: {str(e)}",
+        }
 
 
 # MARK: 共通変数
@@ -252,40 +403,55 @@ def common_variables(
             - is_pull_request (bool): プルリクエスト環境かどうか
             - scroll (str): スクロール位置（クエリパラメータ）
     """
+    # 年度をURLパスから取得
     year_str = request.path.split("/")[1]
-
-    # 年度が最新 or 試験公開年度か検証
     try:
         year = int(year_str)
     except Exception:
         year = datetime.now().year
 
-    available_years = get_available_years()
+    # 言語コード
+    language = (
+        session["language"]
+        if "language" in session and session["language"] in BABEL_SUPPORTED_LOCALES
+        else "ja"
+    )
+
+    # 翻訳済みURLセット
     translated_urls = get_translated_urls()
-    is_latest_year_flag = is_latest_year(year)
+
+    # 各種フラグ
+    available_years = get_available_years()
     is_early_access_flag = is_early_access(year)
+    is_gbb_ended_flag = is_gbb_ended(year)
+    is_latest_year_flag = is_latest_year(year)
+    is_translated_flag = is_translated(
+        request.path,
+        language,
+        translated_urls,
+    )
+    last_updated = format_datetime(LAST_UPDATED, "full")
+
+    # ここに書かないと循環インポートになる
+    from app.main import flask_cache
+
+    # キャッシュ情報を取得（開発・PR環境のみ）
+    cache_data = get_cache_info(flask_cache) if IS_LOCAL or IS_PULL_REQUEST else None
 
     return {
-        "year": year,
         "available_years": available_years,
-        # 言語のタプルリスト [("ja", "日本語"), ("en", "English"), ...]
-        "lang_names": LANGUAGES,
-        # 現在の言語コード
-        "language": session["language"]
-        if "language" in session and session["language"] in BABEL_SUPPORTED_LOCALES
-        else "ja",
-        "is_translated": is_translated(
-            request.path,
-            session["language"],
-            translated_urls,
-        ),
-        "last_updated": format_datetime(LAST_UPDATED, "full"),
-        "is_latest_year": is_latest_year_flag,
+        "cache_data": cache_data,
         "is_early_access": is_early_access_flag,
-        "is_gbb_ended": is_gbb_ended(year),
+        "is_gbb_ended": is_gbb_ended_flag,
+        "is_latest_year": is_latest_year_flag,
         "is_local": IS_LOCAL,
         "is_pull_request": IS_PULL_REQUEST,
+        "is_translated": is_translated_flag,
+        "lang_names": LANGUAGES,
+        "language": language,
+        "last_updated": last_updated,
         "scroll": request.args.get("scroll", ""),
+        "year": year,
     }
 
 
