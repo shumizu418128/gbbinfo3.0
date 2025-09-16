@@ -57,6 +57,18 @@ def participants_view(year: int):
         },
         pandas=True,
     )
+
+    # カテゴリ名なし = 未定の場合 (公式発表前)
+    if category_data.empty:
+        context = {
+            "participants": [],
+            "all_category": [],
+            "category": category,
+            "ticket_class": ticket_class,
+            "cancel": cancel,
+        }
+        return render_template("common/participants.html", **context)
+
     all_category_names = category_data["name"].tolist()
 
     # 引数の正当性チェック
