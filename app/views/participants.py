@@ -1,4 +1,4 @@
-from flask import redirect, render_template, request, session
+from flask import abort, redirect, render_template, request, session
 
 from app.models.supabase_client import supabase_service
 from app.util.filter_eq import Operator
@@ -40,6 +40,12 @@ def participants_view(year: int):
         },
         pandas=True,
     )
+    # supabaseから取得失敗した場合、500エラーを返す
+    if year_data is None or year_data.empty:
+        abort(500)
+
+    # 以降、supabaseと接続ができるとみなす
+
     all_categories_for_year_id = year_data["categories"].tolist()[0]
 
     # idから名前を取得
@@ -51,6 +57,18 @@ def participants_view(year: int):
         },
         pandas=True,
     )
+
+    # カテゴリ名なし = 未定の場合 (公式発表前)
+    if category_data.empty:
+        context = {
+            "participants": [],
+            "all_category": [],
+            "category": category,
+            "ticket_class": ticket_class,
+            "cancel": cancel,
+        }
+        return render_template("common/participants.html", **context)
+
     all_category_names = category_data["name"].tolist()
 
     # 引数の正当性チェック

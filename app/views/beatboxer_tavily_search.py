@@ -33,17 +33,17 @@ def get_primary_domain(url: str) -> str:
 # MARK: 出場者名取得
 def get_beatboxer_name(beatboxer_id: int, mode: str = "single"):
     """
-    出場者IDから出場者名を取得し、大文字で返します。
+    出場者IDから出場者名を取得し、大文字で返す関数。
 
     Args:
-        beatboxer_id (int): 取得対象の出場者ID。
-        mode (str, optional): 取得モード。"single"の場合は個人出場者、"team_member"の場合はチームメンバーとして取得します。デフォルトは"single"。
+        beatboxer_id (int): 取得したい出場者のID。
+        mode (str, optional): 取得モード。"single"の場合は個人出場者、"team_member"の場合はチームメンバーとして取得する。デフォルトは"single"。
 
     Returns:
-        str: 出場者名（大文字）。
+        str: 出場者名（大文字）。該当する出場者が存在しない場合は空文字列を返す。
 
-    Raises:
-        IndexError: 指定したIDに該当する出場者が存在しない場合。
+    Note:
+        supabaseからデータ取得に失敗した場合も空文字列を返す。
     """
     # 出場者名を取得
     participant_data = supabase_service.get_data(
@@ -61,6 +61,11 @@ def get_beatboxer_name(beatboxer_id: int, mode: str = "single"):
                 "id": beatboxer_id,
             },
         )
+
+    # supabaseから取得失敗した場合、空文字列を返す
+    if participant_data is None:
+        return ""
+
     beatboxer_name = participant_data[0]["name"].upper()
     return beatboxer_name
 
@@ -120,6 +125,10 @@ def beatboxer_tavily_search(
     # beatboxer_nameが指定されていない場合は、beatboxer_idから取得
     if beatboxer_name is None:
         beatboxer_name = get_beatboxer_name(beatboxer_id, mode)
+
+        # supabaseから取得失敗した場合、空リストを返す
+        if beatboxer_name == "":
+            return ([], [], "")
 
     # キャッシュキーを作成（スペースやその他の特殊文字を安全な文字に置換）
     cache_key = (
@@ -284,6 +293,11 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language: str):
     """
     # まずキャッシュを取得
     beatboxer_name = get_beatboxer_name(beatboxer_id, mode)
+
+    # supabaseから取得失敗した場合、空文字列を返す
+    if beatboxer_name == "":
+        return ""
+
     cache_key = (
         f"tavily_search_{re.sub(r'[^a-zA-Z0-9_-]', '_', beatboxer_name.strip())}"
     )

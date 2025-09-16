@@ -41,6 +41,15 @@ def rules_view(year: int):
         },
     )
 
+    # supabaseから取得失敗した場合、空のデータでページを表示する
+    if not participants_data:
+        context = {
+            "gbb_seed": [],
+            "other_seed": [],
+            "cancelled": [],
+        }
+        return render_template(f"{year}/rule.html", **context)
+
     gbb_seed = []
     other_seed = []
     cancelled = []
