@@ -1324,15 +1324,15 @@ msgstr "A fordítás nyújtása az egyes oldalakon"
 msgid "いい景色だろ？"
 msgstr "Ugye szép a kilátás?"
 
-#: templates/common/404.html:14
+#: templates/common/404.html:14 templates/common/500.html:14
 msgid "まもなくトップページへリダイレクトされます"
 msgstr "Hamarosan átirányítjuk a főoldalra."
 
-#: templates/common/404.html:14
+#: templates/common/404.html:14 templates/common/500.html:14
 msgid "リダイレクトされない場合、以下のボタンをご利用ください"
 msgstr "Ha nem irányít át, használja az alábbi gombot:"
 
-#: templates/common/404.html:17
+#: templates/common/404.html:17 templates/common/500.html:17
 msgid "トップページ"
 msgstr "főoldal"
 
@@ -1507,10 +1507,10 @@ msgid "関連サイト"
 msgstr "Kapcsolódó weboldalak"
 
 #: templates/others/participant_detail.html:182
-msgid "表示されている関連サイトやSNS情報は、自動検索によって取得されたものです。"
+msgid "表示されている関連サイトやSNS情報・紹介文は、自動検索によって取得されたものです。"
 msgstr ""
-"A megjelenített kapcsolódó webhelyek és közösségi oldalak adatai automatikus"
-" kereséssel kerültek lekérdezésre."
+"A megjelenített kapcsolódó webhelyek, közösségi média információk és "
+"bemutatkozó szövegek automatikus kereséssel kerültek lekérésre."
 
 #: templates/others/participant_detail.html:183
 msgid "内容に誤りが含まれている可能性があります。"

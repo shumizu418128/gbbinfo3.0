@@ -1317,15 +1317,15 @@ msgstr "Om oversettelser av hver side"
 msgid "いい景色だろ？"
 msgstr "Flott utsikt, ikke sant?"
 
-#: templates/common/404.html:14
+#: templates/common/404.html:14 templates/common/500.html:14
 msgid "まもなくトップページへリダイレクトされます"
 msgstr "Videresender deg til startsiden om kort tid"
 
-#: templates/common/404.html:14
+#: templates/common/404.html:14 templates/common/500.html:14
 msgid "リダイレクトされない場合、以下のボタンをご利用ください"
 msgstr "Hvis du ikke blir omdirigert, vennligst bruk knappen nedenfor."
 
-#: templates/common/404.html:17
+#: templates/common/404.html:17 templates/common/500.html:17
 msgid "トップページ"
 msgstr "Hovedside"
 
@@ -1500,10 +1500,10 @@ msgid "関連サイト"
 msgstr "Relaterte nettsteder"
 
 #: templates/others/participant_detail.html:182
-msgid "表示されている関連サイトやSNS情報は、自動検索によって取得されたものです。"
+msgid "表示されている関連サイトやSNS情報・紹介文は、自動検索によって取得されたものです。"
 msgstr ""
-"Informasjonen om relaterte nettsteder og sosiale medier som vises, er hentet"
-" gjennom automatisk søk."
+"De relaterte nettstedene, SNS-informasjonen og introduksjonen som vises, er "
+"hentet via automatisk søk."
 
 #: templates/others/participant_detail.html:183
 msgid "内容に誤りが含まれている可能性があります。"

@@ -1324,15 +1324,15 @@ msgstr "Mengenai penyediaan terjemahan setiap halaman"
 msgid "いい景色だろ？"
 msgstr "Bukankah pemandangannya bagus?"
 
-#: templates/common/404.html:14
+#: templates/common/404.html:14 templates/common/500.html:14
 msgid "まもなくトップページへリダイレクトされます"
 msgstr "Anda akan diubah hala ke halaman utama tidak lama lagi"
 
-#: templates/common/404.html:14
+#: templates/common/404.html:14 templates/common/500.html:14
 msgid "リダイレクトされない場合、以下のボタンをご利用ください"
 msgstr "Jika anda tidak dialihkan, sila gunakan butang di bawah"
 
-#: templates/common/404.html:17
+#: templates/common/404.html:17 templates/common/500.html:17
 msgid "トップページ"
 msgstr "Laman utama"
 
@@ -1507,10 +1507,10 @@ msgid "関連サイト"
 msgstr "Laman web berkaitan"
 
 #: templates/others/participant_detail.html:182
-msgid "表示されている関連サイトやSNS情報は、自動検索によって取得されたものです。"
+msgid "表示されている関連サイトやSNS情報・紹介文は、自動検索によって取得されたものです。"
 msgstr ""
-"Maklumat laman web dan SNS yang berkaitan yang dipaparkan telah diperoleh "
-"melalui carian automatik."
+"Maklumat tapak web dan maklumat SNS yang berkaitan yang dipaparkan, serta "
+"pengenalan adalah yang diperoleh melalui carian automatik."
 
 #: templates/others/participant_detail.html:183
 msgid "内容に誤りが含まれている可能性があります。"

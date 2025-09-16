@@ -1328,15 +1328,15 @@ msgstr "Per la traduzione di ciascuna pagina"
 msgid "いい景色だろ？"
 msgstr "È una bella vista, vero?"
 
-#: templates/common/404.html:14
+#: templates/common/404.html:14 templates/common/500.html:14
 msgid "まもなくトップページへリダイレクトされます"
 msgstr "Tra poco verrai reindirizzato alla pagina principale."
 
-#: templates/common/404.html:14
+#: templates/common/404.html:14 templates/common/500.html:14
 msgid "リダイレクトされない場合、以下のボタンをご利用ください"
 msgstr "Se non vieni reindirizzato, utilizza il seguente pulsante:"
 
-#: templates/common/404.html:17
+#: templates/common/404.html:17 templates/common/500.html:17
 msgid "トップページ"
 msgstr "Pagina principale"
 
@@ -1511,10 +1511,8 @@ msgid "関連サイト"
 msgstr "Siti correlati"
 
 #: templates/others/participant_detail.html:182
-msgid "表示されている関連サイトやSNS情報は、自動検索によって取得されたものです。"
-msgstr ""
-"Le informazioni sui siti e sui social network correlati visualizzate sono "
-"state ottenute tramite ricerca automatica."
+msgid "表示されている関連サイトやSNS情報・紹介文は、自動検索によって取得されたものです。"
+msgstr "表示されている関連サイトやSNS情報・紹介文は、自動検索によって取得されたものです。"
 
 #: templates/others/participant_detail.html:183
 msgid "内容に誤りが含まれている可能性があります。"

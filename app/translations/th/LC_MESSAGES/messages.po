@@ -1290,15 +1290,15 @@ msgstr "เกี่ยวกับการแปลหน้าต่างๆ
 msgid "いい景色だろ？"
 msgstr "วิวดีใช่ไหม?"
 
-#: templates/common/404.html:14
+#: templates/common/404.html:14 templates/common/500.html:14
 msgid "まもなくトップページへリダイレクトされます"
 msgstr "คุณกำลังจะถูกเปลี่ยนเส้นทางไปยังหน้าแรกในอีกไม่ช้า"
 
-#: templates/common/404.html:14
+#: templates/common/404.html:14 templates/common/500.html:14
 msgid "リダイレクトされない場合、以下のボタンをご利用ください"
 msgstr "หากไม่ถูกเปลี่ยนเส้นทาง โปรดใช้ปุ่มด้านล่าง"
 
-#: templates/common/404.html:17
+#: templates/common/404.html:17 templates/common/500.html:17
 msgid "トップページ"
 msgstr "หน้าแรก"
 
@@ -1473,9 +1473,10 @@ msgid "関連サイト"
 msgstr "เว็บไซต์ที่เกี่ยวข้อง"
 
 #: templates/others/participant_detail.html:182
-msgid "表示されている関連サイトやSNS情報は、自動検索によって取得されたものです。"
+msgid "表示されている関連サイトやSNS情報・紹介文は、自動検索によって取得されたものです。"
 msgstr ""
-"ข้อมูลเว็บไซต์ที่เกี่ยวข้องและ SNS ที่แสดงนั้นถูกดึงมาจากการค้นหาอัตโนมัติ"
+"ข้อมูลเว็บไซต์ที่เกี่ยวข้อง, ข้อมูล SNS "
+"และข้อความแนะนำที่แสดงเป็นข้อมูลที่ได้รับจากการค้นหาอัตโนมัติ"
 
 #: templates/others/participant_detail.html:183
 msgid "内容に誤りが含まれている可能性があります。"

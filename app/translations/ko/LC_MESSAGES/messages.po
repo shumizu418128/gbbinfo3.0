@@ -1221,15 +1221,15 @@ msgstr "각 페이지의 번역 제공에 대해"
 msgid "いい景色だろ？"
 msgstr "좋은 경치지?"
 
-#: templates/common/404.html:14
+#: templates/common/404.html:14 templates/common/500.html:14
 msgid "まもなくトップページへリダイレクトされます"
 msgstr "곧 톱 페이지로 리다이렉트됩니다"
 
-#: templates/common/404.html:14
+#: templates/common/404.html:14 templates/common/500.html:14
 msgid "リダイレクトされない場合、以下のボタンをご利用ください"
 msgstr "리다이렉트되지 않는 경우, 아래 버튼을 이용해 주십시오"
 
-#: templates/common/404.html:17
+#: templates/common/404.html:17 templates/common/500.html:17
 msgid "トップページ"
 msgstr "톱 페이지"
 
@@ -1402,8 +1402,8 @@ msgid "関連サイト"
 msgstr "관련 사이트"
 
 #: templates/others/participant_detail.html:182
-msgid "表示されている関連サイトやSNS情報は、自動検索によって取得されたものです。"
-msgstr "표시된 관련 사이트 및 SNS 정보는 자동 검색을 통해 얻은 것입니다."
+msgid "表示されている関連サイトやSNS情報・紹介文は、自動検索によって取得されたものです。"
+msgstr "표시된 관련 사이트 및 SNS 정보・소개문은 자동 검색으로 얻은 것입니다."
 
 #: templates/others/participant_detail.html:183
 msgid "内容に誤りが含まれている可能性があります。"

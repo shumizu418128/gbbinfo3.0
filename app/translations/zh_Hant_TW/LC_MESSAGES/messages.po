@@ -1209,15 +1209,15 @@ msgstr "關於各個頁面的翻譯提供"
 msgid "いい景色だろ？"
 msgstr "這風景不錯吧？"
 
-#: templates/common/404.html:14
+#: templates/common/404.html:14 templates/common/500.html:14
 msgid "まもなくトップページへリダイレクトされます"
 msgstr "即將重定向到主頁"
 
-#: templates/common/404.html:14
+#: templates/common/404.html:14 templates/common/500.html:14
 msgid "リダイレクトされない場合、以下のボタンをご利用ください"
 msgstr "如果未重定向，請使用以下按鈕"
 
-#: templates/common/404.html:17
+#: templates/common/404.html:17 templates/common/500.html:17
 msgid "トップページ"
 msgstr "主頁"
 
@@ -1390,8 +1390,8 @@ msgid "関連サイト"
 msgstr "相關網站"
 
 #: templates/others/participant_detail.html:182
-msgid "表示されている関連サイトやSNS情報は、自動検索によって取得されたものです。"
-msgstr "顯示的相關網站或社群媒體資訊，是透過自動搜尋取得的。"
+msgid "表示されている関連サイトやSNS情報・紹介文は、自動検索によって取得されたものです。"
+msgstr "顯示的相關網站、社群媒體資訊、介紹文，是透過自動搜尋取得的。"
 
 #: templates/others/participant_detail.html:183
 msgid "内容に誤りが含まれている可能性があります。"
