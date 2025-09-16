@@ -2,7 +2,7 @@ import os
 from collections import defaultdict
 
 import folium
-from flask import render_template, session
+from flask import abort, render_template, session
 
 from app.models.supabase_client import supabase_service
 
@@ -47,6 +47,11 @@ def world_map_view(year: int):
         },
         filters={"year": year, "is_cancelled": False},
     )
+    # supabaseから取得失敗した場合、500エラーを返す
+    if not participants_data:
+        return abort(500)
+
+    # 以降、supabaseと接続ができるとみなす
 
     participants_per_country = defaultdict(list)
 

@@ -54,7 +54,7 @@ def participant_detail_view():
             },
         )
         # データがない場合、出場者ページへリダイレクト
-        if len(beatboxer_data) == 0:
+        if not beatboxer_data:
             year = datetime.now().year
             return redirect(f"/{year}/participants")
 
@@ -101,7 +101,7 @@ def participant_detail_view():
         )
 
         # データがない場合、出場者ページへリダイレクト
-        if len(beatboxer_data) == 0:
+        if not beatboxer_data:
             year = datetime.now().year
             return redirect(f"/{year}/participants")
 

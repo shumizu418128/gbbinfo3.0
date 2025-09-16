@@ -61,6 +61,11 @@ def get_beatboxer_name(beatboxer_id: int, mode: str = "single"):
                 "id": beatboxer_id,
             },
         )
+
+    # supabaseから取得失敗した場合、空文字列を返す
+    if participant_data is None:
+        return ""
+
     beatboxer_name = participant_data[0]["name"].upper()
     return beatboxer_name
 
@@ -120,6 +125,10 @@ def beatboxer_tavily_search(
     # beatboxer_nameが指定されていない場合は、beatboxer_idから取得
     if beatboxer_name is None:
         beatboxer_name = get_beatboxer_name(beatboxer_id, mode)
+
+        # supabaseから取得失敗した場合、空リストを返す
+        if beatboxer_name == "":
+            return ([], [], "")
 
     # キャッシュキーを作成（スペースやその他の特殊文字を安全な文字に置換）
     cache_key = (
@@ -284,6 +293,11 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language: str):
     """
     # まずキャッシュを取得
     beatboxer_name = get_beatboxer_name(beatboxer_id, mode)
+
+    # supabaseから取得失敗した場合、空文字列を返す
+    if beatboxer_name == "":
+        return ""
+
     cache_key = (
         f"tavily_search_{re.sub(r'[^a-zA-Z0-9_-]', '_', beatboxer_name.strip())}"
     )
