@@ -243,8 +243,8 @@ def get_change_language_url(LANGUAGES, current_url):
         new_query = urlencode(query_params, doseq=True)
         new_url = urlunparse(
             (
-                parsed_url.scheme,
-                parsed_url.netloc,
+                "",
+                "",
                 parsed_url.path,
                 parsed_url.params,
                 new_query,
