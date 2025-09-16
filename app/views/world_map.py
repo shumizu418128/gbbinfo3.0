@@ -48,8 +48,8 @@ def world_map_view(year: int):
         filters={"year": year, "is_cancelled": False},
     )
     # supabaseから取得失敗した場合、500エラーを返す
-    if not participants_data:
-        return abort(500)
+    if participants_data is None:
+        abort(500)
 
     # 以降、supabaseと接続ができるとみなす
 

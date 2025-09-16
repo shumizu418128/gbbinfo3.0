@@ -39,7 +39,7 @@ def result_view(year: int):
         pandas=True,
     )
     # supabaseから取得失敗した場合、500エラーを返す
-    if not year_data:
+    if year_data is None or year_data.empty:
         abort(500)
 
     # 以降、supabaseと接続ができるとみなす

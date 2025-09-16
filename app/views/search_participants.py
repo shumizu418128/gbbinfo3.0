@@ -52,7 +52,7 @@ def post_search_participants(year: int):
         )
 
     # supabaseから取得失敗した場合、500エラーを返す
-    if not participants_data:
+    if participants_data is None or len(participants_data) == 0:
         abort(500)
 
     # 以降、supabaseと接続ができるとみなす
