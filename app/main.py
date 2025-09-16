@@ -268,6 +268,11 @@ def not_found(error):
     return common.not_found_page_view()
 
 
+@app.errorhandler(500)
+def internal_server_error(error):
+    return common.internal_server_error_view()
+
+
 def main():
     """WSGIサーバー用のエントリーポイント
 
