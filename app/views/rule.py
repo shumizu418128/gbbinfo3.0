@@ -41,7 +41,7 @@ def rules_view(year: int):
         },
     )
 
-    # supabaseから取得失敗した場合、500エラーを返す
+    # supabaseから取得失敗した場合、空のデータでページを表示する
     if not participants_data:
         context = {
             "gbb_seed": [],

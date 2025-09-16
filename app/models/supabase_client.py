@@ -349,7 +349,8 @@ class SupabaseService:
         # 用意したqueryを実行し、データを取得
         try:
             response = query.execute()
-        except Exception:
+        except Exception as e:
+            print("SupabaseClient get_data error:", e)
             return None
 
         # 取得したデータをキャッシュに保存
@@ -393,7 +394,8 @@ class SupabaseService:
         )
         try:
             response = query.execute()
-        except Exception:
+        except Exception as e:
+            print("SupabaseClient get_tavily_data error:", e)
             return None
 
         if len(response.data) == 0:
