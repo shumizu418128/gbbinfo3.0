@@ -77,6 +77,15 @@ def get_translated_urls():
         r"404\.html",  # 404.html
     ]
 
+    # 年度ごとに展開 中止年度は除外
+    year_data = supabase_service.get_data(
+        table="Year",
+        columns=["year"],
+        filters={f"categories__{Operator.IS_NOT}": None},
+        pandas=True,
+    )
+    available_years = year_data["year"].tolist()
+
     for line in po_content.split("\n"):
         if line.startswith("#: templates/"):
             # コメント行から複数パスを取得
@@ -94,14 +103,6 @@ def get_translated_urls():
 
                 # 年度ディレクトリ or commonディレクトリ
                 if template_path.startswith("common/"):
-                    # 年度ごとに展開
-                    year_data = supabase_service.get_data(
-                        table="Year",
-                        columns=["year"],
-                        filters={f"categories__{Operator.IS_NOT}": None},
-                        pandas=True,
-                    )
-                    available_years = year_data["year"].tolist()
                     for year in available_years:
                         # common/foo.html → /{year}/foo
                         url_path = (

@@ -288,4 +288,7 @@
   <url>
     <loc>https://gbbinfo-jpn.onrender.com/others/participant_detail</loc>
   </url>
+  <url>
+    <loc>https://gbbinfo-jpn.onrender.com/others/participant_detail?id=2081&mode=single</loc>
+  </url>
 </urlset>

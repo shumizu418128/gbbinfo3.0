@@ -82,24 +82,42 @@ class AppUrlsTestCase(unittest.TestCase):
         # モックデータの設定
         mock_get_years.return_value = [2025, 2024, 2023]
         mock_is_gbb_ended.return_value = False  # GBBは終了していないと仮定
-        mock_context_supabase.get_data.return_value = [
-            {
-                "year": 2025,
-                "categories__is_not": None,
-                "ends_at": "2025-12-31T23:59:59Z",
-            },
-            {
-                "year": 2024,
-                "categories__is_not": None,
-                "ends_at": "2024-12-31T23:59:59Z",
-            },
-            {
-                "year": 2023,
-                "categories__is_not": None,
-                "ends_at": "2023-12-31T23:59:59Z",
-            },
-        ]
-        # participant_detail内のSupabase呼び出しは空配列を返す（404でもテスト条件は満たす）
+
+        # context_processors内のSupabase呼び出しモック
+        def context_get_data_side_effect(*args, **kwargs):
+            table = kwargs.get("table")
+            pandas_flag = kwargs.get("pandas", False)
+            if table == "Year" and pandas_flag:
+                import pandas as pd
+
+                return pd.DataFrame(
+                    [
+                        {"year": 2025},
+                        {"year": 2024},
+                        {"year": 2023},
+                    ]
+                )
+            # 他の場合はデフォルトのリストを返す
+            return [
+                {
+                    "year": 2025,
+                    "categories__is_not": None,
+                    "ends_at": "2025-12-31T23:59:59Z",
+                },
+                {
+                    "year": 2024,
+                    "categories__is_not": None,
+                    "ends_at": "2024-12-31T23:59:59Z",
+                },
+                {
+                    "year": 2023,
+                    "categories__is_not": None,
+                    "ends_at": "2023-12-31T23:59:59Z",
+                },
+            ]
+
+        mock_context_supabase.get_data.side_effect = context_get_data_side_effect
+        # participant_detail内のSupabase呼び出しは空配列を返す（リダイレクトでもテスト条件は満たす）
         mock_view_supabase.get_data.return_value = []
 
         # world_map内のSupabase呼び出しは簡易モック
@@ -479,9 +497,7 @@ class GeminiServiceTestCase(unittest.TestCase):
             nonlocal call_count
             call_count += 1
             if call_count == 1:
-                return Mock(
-                    text='{"url": "/2025/top", "parameter": "None"}'
-                )
+                return Mock(text='{"url": "/2025/top", "parameter": "None"}')
             else:
                 # レートリミットエラーをシミュレート
                 raise Exception("Rate limit exceeded")
@@ -515,7 +531,7 @@ class GeminiServiceTestCase(unittest.TestCase):
         # モックの設定
         mock_gemini_service.ask_sync.return_value = {
             "url": "/2025/participants",
-            "parameter": "search_participants"
+            "parameter": "search_participants",
         }
 
         # 複数回の連続リクエスト
@@ -523,10 +539,7 @@ class GeminiServiceTestCase(unittest.TestCase):
 
         def mock_ask_sync(*args, **kwargs):
             request_times.append(time.time())
-            return {
-                "url": "/2025/participants",
-                "parameter": "search_participants"
-            }
+            return {"url": "/2025/participants", "parameter": "search_participants"}
 
         mock_gemini_service.ask_sync.side_effect = mock_ask_sync
 
@@ -589,9 +602,7 @@ class GeminiServiceTestCase(unittest.TestCase):
             # 最初の2回は失敗、3回目は成功
             if len(call_times) <= 2:
                 raise Exception("API Error")
-            return Mock(
-                text='{"url": "/2025/top", "parameter": "None"}'
-            )
+            return Mock(text='{"url": "/2025/top", "parameter": "None"}')
 
         mock_client_instance.models.generate_content = Mock(
             side_effect=mock_generate_content
@@ -860,7 +871,7 @@ class GeminiServiceTestCase(unittest.TestCase):
         mock_get_translated_urls,
         mock_supabase,
     ):
-        """participant_detail: 初回取得でデータがない場合は404を返す"""
+        """participant_detail: 初回取得でデータがない場合は参加者ページにリダイレクトする"""
         mock_get_available_years.return_value = [2025, 2024]
         mock_is_gbb_ended.return_value = False
         mock_get_translated_urls.return_value = set()
@@ -871,7 +882,40 @@ class GeminiServiceTestCase(unittest.TestCase):
             sess["language"] = "ja"
 
         resp = self.client.get("/others/participant_detail?id=0&mode=single")
-        self.assertEqual(resp.status_code, 404)
+        self.assertEqual(resp.status_code, 302)
+        self.assertTrue(resp.location.endswith("/2025/participants"))
+
+    @patch("app.context_processors.get_translated_urls")
+    @patch("app.context_processors.is_gbb_ended")
+    @patch("app.context_processors.get_available_years")
+    def test_participant_detail_missing_params(
+        self,
+        mock_get_available_years,
+        mock_is_gbb_ended,
+        mock_get_translated_urls,
+    ):
+        """participant_detail: id/modeパラメータが無い場合は参加者ページにリダイレクトする"""
+        mock_get_available_years.return_value = [2025, 2024]
+        mock_is_gbb_ended.return_value = False
+        mock_get_translated_urls.return_value = set()
+
+        with self.client.session_transaction() as sess:
+            sess["language"] = "ja"
+
+        # idパラメータが無い場合
+        resp = self.client.get("/others/participant_detail?mode=single")
+        self.assertEqual(resp.status_code, 302)
+        self.assertTrue(resp.location.endswith("/2025/participants"))
+
+        # modeパラメータが無い場合
+        resp = self.client.get("/others/participant_detail?id=123")
+        self.assertEqual(resp.status_code, 302)
+        self.assertTrue(resp.location.endswith("/2025/participants"))
+
+        # 両方のパラメータが無い場合
+        resp = self.client.get("/others/participant_detail")
+        self.assertEqual(resp.status_code, 302)
+        self.assertTrue(resp.location.endswith("/2025/participants"))
 
 
 class SupabaseServiceTestCase(unittest.TestCase):
@@ -1676,6 +1720,277 @@ class SupabaseServiceTestCase(unittest.TestCase):
                         SupabaseService()
 
                     self.assertEqual(str(context.exception), expected_message)
+
+
+class SupabaseErrorHandlingTestCase(unittest.TestCase):
+    """Supabaseからの応答がない場合のエラーハンドリングのテストケース"""
+
+    def setUp(self):
+        """テストの前準備"""
+        app.config["TESTING"] = True
+        app.config["WTF_CSRF_ENABLED"] = False
+        self.client = app.test_client()
+        self.app_context = app.app_context()
+        self.app_context.push()
+
+    def tearDown(self):
+        """テスト後のクリーンアップ"""
+        self.app_context.pop()
+
+    @patch("app.views.result.supabase_service")
+    @patch("app.context_processors.get_translated_urls")
+    @patch("app.context_processors.is_gbb_ended")
+    @patch("app.context_processors.get_available_years")
+    def test_result_view_supabase_no_response(
+        self,
+        mock_get_available_years,
+        mock_is_gbb_ended,
+        mock_get_translated_urls,
+        mock_supabase,
+    ):
+        """result_viewでSupabaseからの応答がない場合に500エラーが返されることをテスト"""
+        mock_get_available_years.return_value = [2025]
+        mock_is_gbb_ended.return_value = False
+        mock_get_translated_urls.return_value = set()
+
+        # Supabaseからの応答なし（空のDataFrame）
+        mock_supabase.get_data.return_value = None
+
+        with self.client.session_transaction() as sess:
+            sess["language"] = "ja"
+
+        resp = self.client.get("/2025/result?category=Loopstation")
+        self.assertEqual(resp.status_code, 500)
+
+    @patch("app.views.world_map.os.path.exists")
+    @patch("app.views.world_map.supabase_service")
+    @patch("app.context_processors.get_translated_urls")
+    @patch("app.context_processors.is_gbb_ended")
+    @patch("app.context_processors.get_available_years")
+    def test_world_map_view_supabase_no_response(
+        self,
+        mock_get_available_years,
+        mock_is_gbb_ended,
+        mock_get_translated_urls,
+        mock_supabase,
+        mock_os_path_exists,
+    ):
+        """world_map_viewでSupabaseからの応答がない場合に500エラーが返されることをテスト"""
+        mock_get_available_years.return_value = [2025]
+        mock_is_gbb_ended.return_value = False
+        mock_get_translated_urls.return_value = set()
+
+        # マップファイルが存在しないようにする
+        mock_os_path_exists.return_value = False
+
+        # Supabaseからの応答なし
+        mock_supabase.get_data.return_value = None
+
+        with self.client.session_transaction() as sess:
+            sess["language"] = "ja"
+
+        resp = self.client.get("/2025/world_map")
+        self.assertEqual(resp.status_code, 500)
+
+    @patch("app.views.participants.supabase_service")
+    @patch("app.context_processors.get_translated_urls")
+    @patch("app.context_processors.is_gbb_ended")
+    @patch("app.context_processors.get_available_years")
+    def test_participants_view_supabase_no_response(
+        self,
+        mock_get_available_years,
+        mock_is_gbb_ended,
+        mock_get_translated_urls,
+        mock_supabase,
+    ):
+        """participants_viewでSupabaseからの応答がない場合に500エラーが返されることをテスト"""
+        mock_get_available_years.return_value = [2025]
+        mock_is_gbb_ended.return_value = False
+        mock_get_translated_urls.return_value = set()
+
+        # Supabaseからの応答なし
+        mock_supabase.get_data.return_value = None
+
+        with self.client.session_transaction() as sess:
+            sess["language"] = "ja"
+
+        resp = self.client.get("/2025/participants")
+        self.assertEqual(resp.status_code, 500)
+
+    @patch("app.views.search_participants.supabase_service")
+    @patch("app.context_processors.get_translated_urls")
+    @patch("app.context_processors.is_gbb_ended")
+    @patch("app.context_processors.get_available_years")
+    def test_search_participants_supabase_no_response(
+        self,
+        mock_get_available_years,
+        mock_is_gbb_ended,
+        mock_get_translated_urls,
+        mock_supabase,
+    ):
+        """search_participantsでSupabaseからの応答がない場合に500エラーが返されることをテスト"""
+        mock_get_available_years.return_value = [2025]
+        mock_is_gbb_ended.return_value = False
+        mock_get_translated_urls.return_value = set()
+
+        # Supabaseからの応答なし
+        mock_supabase.get_data.return_value = None
+
+        with self.client.session_transaction() as sess:
+            sess["language"] = "ja"
+
+        request_data = json.dumps({"keyword": "test"})
+        resp = self.client.post(
+            "/2025/search_participants",
+            data=request_data,
+            content_type="application/json",
+        )
+        self.assertEqual(resp.status_code, 500)
+
+    @patch("app.views.result.supabase_service")
+    @patch("app.context_processors.get_translated_urls")
+    @patch("app.context_processors.is_gbb_ended")
+    @patch("app.context_processors.get_available_years")
+    def test_result_view_empty_dataframe(
+        self,
+        mock_get_available_years,
+        mock_is_gbb_ended,
+        mock_get_translated_urls,
+        mock_supabase,
+    ):
+        """result_viewで空のDataFrameが返される場合に500エラーが返されることをテスト"""
+        import pandas as pd
+
+        mock_get_available_years.return_value = [2025]
+        mock_is_gbb_ended.return_value = False
+        mock_get_translated_urls.return_value = set()
+
+        # 空のDataFrameを返す
+        mock_supabase.get_data.return_value = pd.DataFrame()
+
+        with self.client.session_transaction() as sess:
+            sess["language"] = "ja"
+
+        resp = self.client.get("/2025/result?category=Loopstation")
+        self.assertEqual(resp.status_code, 500)
+
+    @patch("app.views.participants.supabase_service")
+    @patch("app.context_processors.get_translated_urls")
+    @patch("app.context_processors.is_gbb_ended")
+    @patch("app.context_processors.get_available_years")
+    def test_participants_view_empty_dataframe(
+        self,
+        mock_get_available_years,
+        mock_is_gbb_ended,
+        mock_get_translated_urls,
+        mock_supabase,
+    ):
+        """participants_viewで空のDataFrameが返される場合に500エラーが返されることをテスト"""
+        import pandas as pd
+
+        mock_get_available_years.return_value = [2025]
+        mock_is_gbb_ended.return_value = False
+        mock_get_translated_urls.return_value = set()
+
+        # 空のDataFrameを返す
+        mock_supabase.get_data.return_value = pd.DataFrame()
+
+        with self.client.session_transaction() as sess:
+            sess["language"] = "ja"
+
+        resp = self.client.get("/2025/participants")
+        self.assertEqual(resp.status_code, 500)
+
+    @patch("app.views.search_participants.supabase_service")
+    @patch("app.context_processors.get_translated_urls")
+    @patch("app.context_processors.is_gbb_ended")
+    @patch("app.context_processors.get_available_years")
+    def test_search_participants_empty_response(
+        self,
+        mock_get_available_years,
+        mock_is_gbb_ended,
+        mock_get_translated_urls,
+        mock_supabase,
+    ):
+        """search_participantsで空のレスポンスが返される場合に500エラーが返されることをテスト"""
+        mock_get_available_years.return_value = [2025]
+        mock_is_gbb_ended.return_value = False
+        mock_get_translated_urls.return_value = set()
+
+        # 空のリストを返す
+        mock_supabase.get_data.return_value = []
+
+        with self.client.session_transaction() as sess:
+            sess["language"] = "ja"
+
+        request_data = json.dumps({"keyword": "test"})
+        resp = self.client.post(
+            "/2025/search_participants",
+            data=request_data,
+            content_type="application/json",
+        )
+        self.assertEqual(resp.status_code, 500)
+
+    @patch("app.views.rule.supabase_service")
+    @patch("app.context_processors.get_translated_urls")
+    @patch("app.context_processors.is_gbb_ended")
+    @patch("app.context_processors.get_available_years")
+    def test_rule_view_continues_with_empty_data(
+        self,
+        mock_get_available_years,
+        mock_is_gbb_ended,
+        mock_get_translated_urls,
+        mock_supabase,
+    ):
+        """rule_viewでSupabaseからの応答がない場合に空のデータでページを表示することをテスト
+
+        Note: rule.pyでは44-51行目でSupabaseからのデータが取得できない場合、
+        空のコンテキスト（gbb_seed, other_seed, cancelled すべて空配列）でページを表示する
+        """
+        mock_get_available_years.return_value = [2025]
+        mock_is_gbb_ended.return_value = False
+        mock_get_translated_urls.return_value = set()
+
+        # 空のリストを返す（Supabaseからデータが取得できない状況をシミュレート）
+        mock_supabase.get_data.return_value = []
+
+        with self.client.session_transaction() as sess:
+            sess["language"] = "ja"
+
+        resp = self.client.get("/2025/rule")
+        # rule.pyでは空のデータでもページを表示するため200が返される
+        self.assertEqual(resp.status_code, 200)
+
+        # レスポンスのHTMLに空のデータが適用されていることを確認
+        html = resp.get_data(as_text=True)
+        # 空のシード権獲得者リストでもページが正常に表示されることを確認
+        self.assertIn("rule", html.lower())  # ルールページが表示されていることを確認
+
+    @patch("app.views.rule.supabase_service")
+    @patch("app.context_processors.get_translated_urls")
+    @patch("app.context_processors.is_gbb_ended")
+    @patch("app.context_processors.get_available_years")
+    def test_rule_view_supabase_none_response(
+        self,
+        mock_get_available_years,
+        mock_is_gbb_ended,
+        mock_get_translated_urls,
+        mock_supabase,
+    ):
+        """rule_viewでSupabaseからNoneが返される場合のテスト"""
+        mock_get_available_years.return_value = [2025]
+        mock_is_gbb_ended.return_value = False
+        mock_get_translated_urls.return_value = set()
+
+        # Noneを返す（Supabaseからの応答がない状況をシミュレート）
+        mock_supabase.get_data.return_value = None
+
+        with self.client.session_transaction() as sess:
+            sess["language"] = "ja"
+
+        resp = self.client.get("/2025/rule")
+        # rule.pyでは応答がなくても空のデータでページを表示するため200が返される
+        self.assertEqual(resp.status_code, 200)
 
 
 class BeatboxerTavilySearchTestCase(unittest.TestCase):
@@ -2674,7 +2989,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             "/2025/rule",
             "/2025/japan",
             "/2025/korea",
-            # 直接 participant_detail も対象に含める（存在確認/リンク抽出が目的、200 or 404を許容）
+            # 直接 participant_detail も対象に含める（存在確認/リンク抽出が目的、200 or リダイレクトを許容）
             "/others/participant_detail?id=2064&mode=single",  # JUNNO
             "/others/participant_detail?id=255&mode=team_member",  # TAKO
             "/others/participant_detail?id=1923&mode=team",  # WOLFGANG

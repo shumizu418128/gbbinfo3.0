@@ -1,13 +1,14 @@
 import random
+from datetime import datetime
 from urllib.parse import quote
 
-from flask import render_template, request, session
+from flask import redirect, render_template, request, session
 
 from app.models.supabase_client import supabase_service
 from app.util.filter_eq import Operator
 from app.util.participant_edit import team_multi_country, wildcard_rank_sort
 
-from . import common
+MULTI_COUNTRY_TEAM_ISO_CODE = 9999
 
 
 # MARK: 出場者詳細
@@ -17,20 +18,21 @@ def participant_detail_view():
 
     リクエストから出場者ID（id）とモード（mode）を取得し、該当する出場者の詳細情報を取得して返します。
     チームメンバーの場合はParticipantMemberテーブルから、個人またはチームの場合はParticipantテーブルから情報を取得します。
-    データが存在しない場合は404ページを返します。
+    データが存在しない場合は参加者ページにリダイレクトします。
 
     Returns:
-        Response: 出場者詳細ページのHTMLレスポンス、または404ページ。
+        Response: 出場者詳細ページのHTMLレスポンス、または参加者ページへのリダイレクト。
 
     Raises:
-        なし（id, modeが無い場合やデータが存在しない場合は404ページを返す）
+        なし（id, modeが無い場合やデータが存在しない場合は参加者ページにリダイレクトする）
     """
     try:
         id = request.args["id"]  # 出場者ID
         mode = request.args["mode"]  # single, team, team_member
     except KeyError:
-        # id, modeが無い場合、404エラーを返す
-        return common.not_found_page_view()
+        # id, modeが無い場合、出場者ページへリダイレクト
+        year = datetime.now().year
+        return redirect(f"/{year}/participants")
 
     # チームメンバーの場合、情報を取得
     if mode == "team_member":
@@ -51,9 +53,10 @@ def participant_detail_view():
                 "id": id,
             },
         )
-        # データがない場合、404エラーを返す
-        if len(beatboxer_data) == 0:
-            return common.not_found_page_view()
+        # データがない場合、出場者ページへリダイレクト
+        if not beatboxer_data:
+            year = datetime.now().year
+            return redirect(f"/{year}/participants")
 
         beatboxer_detail = beatboxer_data[0]
 
@@ -97,9 +100,10 @@ def participant_detail_view():
             },
         )
 
-        # データがない場合、404エラーを返す
-        if len(beatboxer_data) == 0:
-            return common.not_found_page_view()
+        # データがない場合、出場者ページへリダイレクト
+        if not beatboxer_data:
+            year = datetime.now().year
+            return redirect(f"/{year}/participants")
 
         beatboxer_detail = beatboxer_data[0]
 
@@ -110,7 +114,7 @@ def participant_detail_view():
         language = session["language"]
 
         # 複数国籍のチームの場合、国名をまとめる
-        if beatboxer_detail["iso_code"] == 9999:
+        if beatboxer_detail["iso_code"] == MULTI_COUNTRY_TEAM_ISO_CODE:
             beatboxer_detail = team_multi_country(beatboxer_detail, language)
 
         # 1国籍のチームの場合、国名を取得
@@ -240,7 +244,7 @@ def participant_detail_view():
     same_year_category_edited = []
     for participant in same_year_category_participants:
         participant["name"] = participant["name"].upper()
-        if participant["iso_code"] == 9999:
+        if participant["iso_code"] == MULTI_COUNTRY_TEAM_ISO_CODE:
             participant = team_multi_country(participant, language)
         else:
             participant["country"] = participant["Country"]["names"][language]
@@ -262,7 +266,7 @@ def participant_detail_view():
     )
 
     same_year_category_mode = "single" if mode == "single" else "team"
-    genspark_query = quote(beatboxer_detail["name"] + " beatbox")
+    ai_search_query = quote(beatboxer_detail["name"] + " beatbox")
 
     context = {
         "beatboxer_detail": beatboxer_detail,
@@ -270,7 +274,7 @@ def participant_detail_view():
         "past_participation_data": past_data,
         "same_year_category_participants": same_year_category_edited,
         "same_year_category_mode": same_year_category_mode,
-        "genspark_query": genspark_query,
+        "ai_search_query": ai_search_query,
         "past_year_participation": past_year_participation,
     }
 

@@ -2,9 +2,11 @@ import os
 from collections import defaultdict
 
 import folium
-from flask import render_template, session
+from flask import abort, render_template, session
 
 from app.models.supabase_client import supabase_service
+
+MULTI_COUNTRY_TEAM_ISO_CODE = 9999
 
 
 # MARK: 世界地図
@@ -45,6 +47,11 @@ def world_map_view(year: int):
         },
         filters={"year": year, "is_cancelled": False},
     )
+    # supabaseから取得失敗した場合、500エラーを返す
+    if participants_data is None:
+        abort(500)
+
+    # 以降、supabaseと接続ができるとみなす
 
     participants_per_country = defaultdict(list)
 
@@ -66,7 +73,7 @@ def world_map_view(year: int):
             participant["mode"] = "single"
 
         # 複数国籍のチームの場合、該当国ごとにデータを追加
-        if participant["iso_code"] == 9999:
+        if participant["iso_code"] == MULTI_COUNTRY_TEAM_ISO_CODE:
             iso_code_list = set()
 
             for member in participant["ParticipantMember"]:

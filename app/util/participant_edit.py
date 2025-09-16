@@ -69,7 +69,5 @@ def wildcard_rank_sort(x):
             rank = int(m.group(1))
             year = int(m.group(2)) if m.group(2) else 0  # 年が無い場合は0
             return (year, rank)
-        else:
-            return (float("inf"), float("inf"))
-    else:
-        return (float("inf"), float("inf"))
+
+    return (float("inf"), float("inf"))

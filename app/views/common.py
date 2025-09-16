@@ -115,3 +115,11 @@ def not_found_page_view():
         "is_translated": True,
     }
     return render_template("common/404.html", context=context), 404
+
+
+# MARK: 500
+def internal_server_error_view():
+    """
+    500ページを表示する。
+    """
+    return render_template("common/500.html"), 500

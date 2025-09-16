@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBBINFO-JPN{% endblock %}
+{% block og_title %}GBBINFO-JPN{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{% endblock %}
+
+{% block head %}
+<meta name="robots" content="noindex, nofollow">
+{% endblock %}
+{% block content %}
+<h1>500 internal server error</h1>
+<p>{{_("まもなくトップページへリダイレクトされます")}}<br>{{_("リダイレクトされない場合、以下のボタンをご利用ください")}}</p>
+
+<div class="button-container">
+    <a href="/"><button type="button">{{_("トップページ")}}</button></a>
+</div>
+
+<script>
+    setTimeout(function() {
+        location.replace('/');
+    }, 2000);
+</script>
+
+{% endblock %}

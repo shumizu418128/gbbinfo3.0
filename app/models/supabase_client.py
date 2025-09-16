@@ -347,7 +347,11 @@ class SupabaseService:
                 query = query.order(order_by)
 
         # 用意したqueryを実行し、データを取得
-        response = query.execute()
+        try:
+            response = query.execute()
+        except Exception as e:
+            print("SupabaseClient get_data error:", e)
+            return None
 
         # 取得したデータをキャッシュに保存
         flask_cache.set(cache_key, response.data, timeout=15 * MINUTE)
@@ -388,7 +392,11 @@ class SupabaseService:
         query = (
             self.admin_client.table("Tavily").select(column).eq("cache_key", cache_key)
         )
-        response = query.execute()
+        try:
+            response = query.execute()
+        except Exception as e:
+            print("SupabaseClient get_tavily_data error:", e)
+            return None
 
         if len(response.data) == 0:
             return []

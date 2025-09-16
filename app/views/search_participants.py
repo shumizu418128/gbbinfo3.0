@@ -1,4 +1,4 @@
-from flask import jsonify, request
+from flask import abort, jsonify, request
 from rapidfuzz import process
 
 from app.models.supabase_client import supabase_service
@@ -36,7 +36,7 @@ def post_search_participants(year: int):
     )
 
     # 検索結果が無い場合、キーワードの最初1文字のみで検索
-    if len(participants_data) == 0:
+    if not participants_data:
         participants_data = supabase_service.get_data(
             table="Participant",
             columns=["id", "name", "category", "ticket_class", "is_cancelled"],
@@ -45,8 +45,17 @@ def post_search_participants(year: int):
                 "Category": ["id", "name"],
                 "ParticipantMember": ["id", "name"],
             },
-            filters={"year": year, f"name__{Operator.MATCH_IGNORE_CASE}": f"%{keyword[0]}%"},
+            filters={
+                "year": year,
+                f"name__{Operator.MATCH_IGNORE_CASE}": f"%{keyword[0]}%",
+            },
         )
+
+    # supabaseから取得失敗した場合、500エラーを返す
+    if participants_data is None or len(participants_data) == 0:
+        abort(500)
+
+    # 以降、supabaseと接続ができるとみなす
 
     for participant in participants_data:
         participant["name"] = participant["name"].upper()

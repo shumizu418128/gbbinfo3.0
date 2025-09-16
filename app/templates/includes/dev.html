@@ -57,6 +57,7 @@
 function showDebugInfo() {
   // Python変数
   const pythonData = {
+    // 共通変数
     year: {{ year|default('null') }},
     available_years: {{ available_years|default([])|tojson }},
     lang_names: {{ lang_names|default([])|tojson }},
@@ -68,7 +69,107 @@ function showDebugInfo() {
     is_gbb_ended: {{ is_gbb_ended|default(false)|tojson }},
     is_local: {{ is_local|default(false)|tojson }},
     is_pull_request: {{ is_pull_request|default(false)|tojson }},
-    scroll: "{{ scroll|default('') }}"
+    scroll: "{{ scroll|default('') }}",
+
+    // ページ専用変数（存在する場合のみ表示）
+    {% if participants is defined %}
+    participants: {{ participants|default([])|tojson }},
+    {% endif %}
+    {% if all_categories is defined %}
+    all_categories: {{ all_categories|default([])|tojson }},
+    {% endif %}
+    {% if participant is defined %}
+    participant: {{ participant|default({})|tojson }},
+    {% endif %}
+    {% if member is defined %}
+    member: {{ member|default({})|tojson }},
+    {% endif %}
+    {% if gbb_seed is defined %}
+    gbb_seed: {{ gbb_seed|default([])|tojson }},
+    {% endif %}
+    {% if other_seed is defined %}
+    other_seed: {{ other_seed|default([])|tojson }},
+    {% endif %}
+    {% if cancelled is defined %}
+    cancelled: {{ cancelled|default([])|tojson }},
+    {% endif %}
+    {% if search_results is defined %}
+    search_results: {{ search_results|default([])|tojson }},
+    {% endif %}
+    {% if results is defined %}
+    results: {{ results|default([])|tojson }},
+    {% endif %}
+    {% if ranking_results is defined %}
+    ranking_results: {{ ranking_results|default([])|tojson }},
+    {% endif %}
+    {% if tournament_results is defined %}
+    tournament_results: {{ tournament_results|default([])|tojson }},
+    {% endif %}
+    {% if countries is defined %}
+    countries: {{ countries|default([])|tojson }},
+    {% endif %}
+    {% if wildcards is defined %}
+    wildcards: {{ wildcards|default([])|tojson }},
+    {% endif %}
+
+    // participantsページ専用
+    {% if all_category is defined %}
+    all_category: {{ all_category|default([])|tojson }},
+    {% endif %}
+    {% if category is defined %}
+    category: "{{ category|default('') }}",
+    {% endif %}
+    {% if ticket_class is defined %}
+    ticket_class: "{{ ticket_class|default('') }}",
+    {% endif %}
+    {% if cancel is defined %}
+    cancel: "{{ cancel|default('') }}",
+    {% endif %}
+
+    // resultページ専用
+    {% if result_data is defined %}
+    result_data: {{ result_data|default({})|tojson }},
+    {% endif %}
+    {% if result_type is defined %}
+    result_type: "{{ result_type|default('') }}",
+    {% endif %}
+    {% if category_is_team is defined %}
+    category_is_team: {{ category_is_team|default(false)|tojson }},
+    {% endif %}
+
+    // participant_detailページ専用
+    {% if beatboxer_detail is defined %}
+    beatboxer_detail: {{ beatboxer_detail|default({})|tojson }},
+    {% endif %}
+    {% if mode is defined %}
+    mode: "{{ mode|default('') }}",
+    {% endif %}
+    {% if past_participation_data is defined %}
+    past_participation_data: {{ past_participation_data|default([])|tojson }},
+    {% endif %}
+    {% if same_year_category_participants is defined %}
+    same_year_category_participants: {{ same_year_category_participants|default([])|tojson }},
+    {% endif %}
+    {% if same_year_category_mode is defined %}
+    same_year_category_mode: "{{ same_year_category_mode|default('') }}",
+    {% endif %}
+    {% if ai_search_query is defined %}
+    ai_search_query: "{{ ai_search_query|default('') }}",
+    {% endif %}
+    {% if past_year_participation is defined %}
+    past_year_participation: {{ past_year_participation|default([])|tojson }},
+    {% endif %}
+
+    // その他のページ専用変数
+    {% if member is defined %}
+    member: {{ member|default({})|tojson }},
+    {% endif %}
+    {% if country_name is defined %}
+    country_name: "{{ country_name|default('') }}",
+    {% endif %}
+
+    // 注意: 新しいページ専用変数を見つけた場合は、上記のリストに手動で追加してください
+    _page_type: "{{ request.endpoint|default('unknown') }}"
   };
 
   // リクエスト情報
@@ -76,13 +177,6 @@ function showDebugInfo() {
     path: "{{ request.path|default('') }}",
     method: "{{ request.method|default('') }}",
     url: "{{ request.url|default('') }}",
-    args: {{ request.args.to_dict()|tojson }},
-    form: {{ request.form.to_dict()|tojson }},
-    headers: {
-      {% for key, value in request.headers %}
-      "{{ key }}": "{{ value }}",
-      {% endfor %}
-    }
   };
 
   // セッション情報
