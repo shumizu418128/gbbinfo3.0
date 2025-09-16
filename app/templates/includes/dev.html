@@ -177,13 +177,6 @@ function showDebugInfo() {
     path: "{{ request.path|default('') }}",
     method: "{{ request.method|default('') }}",
     url: "{{ request.url|default('') }}",
-    args: {{ request.args.to_dict()|tojson }},
-    form: {{ request.form.to_dict()|tojson }},
-    headers: {
-      {% for key, value in request.headers %}
-      "{{ key }}": "{{ value }}",
-      {% endfor %}
-    }
   };
 
   // セッション情報
