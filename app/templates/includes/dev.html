@@ -60,7 +60,7 @@ function showDebugInfo() {
     // 共通変数
     year: {{ year|default('null') }},
     available_years: {{ available_years|default([])|tojson }},
-    lang_names: {{ lang_names|default([])|tojson }},
+    change_language_urls: {{ change_language_urls|default([])|tojson }},
     language: "{{ language|default('') }}",
     is_translated: {{ is_translated|default(false)|tojson }},
     last_updated: "{{ last_updated|default('') }}",
