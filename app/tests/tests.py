@@ -82,23 +82,41 @@ class AppUrlsTestCase(unittest.TestCase):
         # モックデータの設定
         mock_get_years.return_value = [2025, 2024, 2023]
         mock_is_gbb_ended.return_value = False  # GBBは終了していないと仮定
-        mock_context_supabase.get_data.return_value = [
-            {
-                "year": 2025,
-                "categories__is_not": None,
-                "ends_at": "2025-12-31T23:59:59Z",
-            },
-            {
-                "year": 2024,
-                "categories__is_not": None,
-                "ends_at": "2024-12-31T23:59:59Z",
-            },
-            {
-                "year": 2023,
-                "categories__is_not": None,
-                "ends_at": "2023-12-31T23:59:59Z",
-            },
-        ]
+
+        # context_processors内のSupabase呼び出しモック
+        def context_get_data_side_effect(*args, **kwargs):
+            table = kwargs.get("table")
+            pandas_flag = kwargs.get("pandas", False)
+            if table == "Year" and pandas_flag:
+                import pandas as pd
+
+                return pd.DataFrame(
+                    [
+                        {"year": 2025},
+                        {"year": 2024},
+                        {"year": 2023},
+                    ]
+                )
+            # 他の場合はデフォルトのリストを返す
+            return [
+                {
+                    "year": 2025,
+                    "categories__is_not": None,
+                    "ends_at": "2025-12-31T23:59:59Z",
+                },
+                {
+                    "year": 2024,
+                    "categories__is_not": None,
+                    "ends_at": "2024-12-31T23:59:59Z",
+                },
+                {
+                    "year": 2023,
+                    "categories__is_not": None,
+                    "ends_at": "2023-12-31T23:59:59Z",
+                },
+            ]
+
+        mock_context_supabase.get_data.side_effect = context_get_data_side_effect
         # participant_detail内のSupabase呼び出しは空配列を返す（リダイレクトでもテスト条件は満たす）
         mock_view_supabase.get_data.return_value = []
 
