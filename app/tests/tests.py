@@ -3014,7 +3014,11 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
 
                 # ページにより0件の可能性もあるが、存在するリンクは正しいことを検証
                 for href in links:
-                    parsed = urlparse(href)
+                    # HTMLエンティティをデコード（&amp; → &）
+                    import html
+
+                    decoded_href = html.unescape(href)
+                    parsed = urlparse(decoded_href)
                     qs = parse_qs(parsed.query)
 
                     self.assertIn("id", qs, msg=f"id欠落: {href}")
