@@ -221,6 +221,7 @@ def is_gbb_ended(year):
     return is_gbb_ended_cache[year]
 
 
+# MARK: 言語URL
 def get_change_language_url(LANGUAGES, current_url):
     """
     現在のURLに対して、各言語ごとにlangクエリパラメータを付与したURLリストを生成します。
@@ -232,11 +233,12 @@ def get_change_language_url(LANGUAGES, current_url):
     Returns:
         list: 各言語ごとの(url, lang_name)のタプルリスト。
     """
-
     change_language_urls = []
+
+    parsed_url = urlparse(current_url)
+    query_params = parse_qs(parsed_url.query)
+
     for lang_code, lang_name in LANGUAGES:
-        parsed_url = urlparse(current_url)
-        query_params = parse_qs(parsed_url.query)
         query_params["lang"] = [lang_code]
         new_query = urlencode(query_params, doseq=True)
         new_url = urlunparse(
@@ -250,6 +252,7 @@ def get_change_language_url(LANGUAGES, current_url):
             )
         )
         change_language_urls.append((new_url, lang_name))
+
     return change_language_urls
 
 
