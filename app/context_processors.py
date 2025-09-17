@@ -8,7 +8,7 @@ from flask import request, session
 from flask_babel import format_datetime
 
 from app.models.supabase_client import supabase_service
-from app.settings import BASE_DIR, check_locale_paths_and_languages, delete_world_map
+from app.settings import BASE_DIR, delete_world_map
 from app.util.filter_eq import Operator
 
 AVAILABLE_YEARS = []
@@ -371,8 +371,5 @@ def initialize_background_tasks(BABEL_SUPPORTED_LOCALES):
         - 各タスクはアプリケーションの初期化時に一度だけ実行されます。
     """
     Thread(target=delete_world_map).start()
-    Thread(
-        target=check_locale_paths_and_languages, args=(BABEL_SUPPORTED_LOCALES,)
-    ).start()
     Thread(target=get_available_years).start()
     Thread(target=get_translated_urls).start()
