@@ -1,3 +1,4 @@
+import os
 import random
 import re
 import unicodedata
@@ -9,6 +10,10 @@ from rapidfuzz import process
 from app.config.config import PROMPT, SEARCH_CACHE
 from app.models.gemini_client import gemini_service
 from app.models.spreadsheet_client import spreadsheet_service
+
+others_url_list = [
+    file_name.replace(".html", "") for file_name in os.listdir("app/templates/others")
+]
 
 
 # MARK: URL作成
@@ -36,7 +41,7 @@ def create_url(year: int, url: str, parameter: str | None):
         parameter = "contact"
 
     # othersのURLは年度情報を削除
-    if url in ["result_stream", "how_to_plan", "about", "7tosmoke"]:
+    if url.replace(f"/{year}/", "") in others_url_list:
         response_url = url.replace(f"/{year}/", "/others/")
 
     # 7toSmoke最新情報の場合は7tosmokeこれだけガイドページに変更
