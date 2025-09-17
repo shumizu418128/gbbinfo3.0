@@ -501,12 +501,21 @@ class SupabaseService:
         for index, row in countries.iterrows():
             iso_code = row["iso_code"]
             names = row["names"]
+            updated = False
+
+            # 0は出場者未定を表す国コード
+            if iso_code == 0:
+                for add_language in add_langs:
+                    names[add_language] = "-"
+                updated = True
+
+            # 9999は複数国籍チームを表す国コード
+            if iso_code == 9999:
+                continue
 
             if not isinstance(names, dict):
                 print(f"国コード {iso_code} のnamesデータが辞書形式ではありません")
                 continue
-
-            updated = False
 
             # 削除
             for remove_language in remove_langs:
@@ -515,27 +524,28 @@ class SupabaseService:
                     updated = True
 
             # 追加
-            for add_language in add_langs:
-                if add_language not in names and "en" in names:
-                    # Geminiを使って翻訳
-                    prompt = PROMPT_TRANSLATE.format(
-                        lang=add_language, text=names["en"]
-                    )
+            if 0 < iso_code < 9999:
+                for add_language in add_langs:
+                    if add_language not in names and "en" in names:
+                        # Geminiを使って翻訳
+                        prompt = PROMPT_TRANSLATE.format(
+                            lang=add_language, text=names["en"]
+                        )
 
-                    try:
-                        translation_result = gemini_service.ask(prompt)
-                        if (
-                            translation_result
-                            and "translated_text" in translation_result
-                        ):
-                            names[add_language] = translation_result["translated_text"]
-                            updated = True
-                        else:
-                            print(
-                                f"国コード {iso_code} の {add_language} 翻訳に失敗しました"
-                            )
-                    except Exception as e:
-                        print(f"国コード {iso_code} の翻訳中にエラー: {e}")
+                        try:
+                            translation_result = gemini_service.ask(prompt)
+                            if (
+                                translation_result
+                                and "translated_text" in translation_result
+                            ):
+                                names[add_language] = translation_result["translated_text"]
+                                updated = True
+                            else:
+                                print(
+                                    f"国コード {iso_code} の {add_language} 翻訳に失敗しました"
+                                )
+                        except Exception as e:
+                            print(f"国コード {iso_code} の翻訳中にエラー: {e}")
 
             # 更新されたデータを保存
             if updated:
