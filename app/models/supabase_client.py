@@ -441,7 +441,7 @@ class SupabaseService:
 
         data = {
             "cache_key": cache_key,
-            "search_results": json.dumps(search_result, ensure_ascii=False),
+            "search_results": search_result,
         }
 
         # 失敗してもエラーにはしない
@@ -466,11 +466,11 @@ class SupabaseService:
         # ここに書かないと循環インポートになる
         from app.main import flask_cache
 
-        payload = {
-            "answer_translation": json.dumps(translated_answer, ensure_ascii=False),
+        data = {
+            "answer_translation": translated_answer,
         }
         try:
-            self.admin_client.table("Tavily").update(payload).eq(
+            self.admin_client.table("Tavily").update(data).eq(
                 "cache_key", cache_key
             ).execute()
         except APIError:
@@ -538,7 +538,9 @@ class SupabaseService:
                                 translation_result
                                 and "translated_text" in translation_result
                             ):
-                                names[add_language] = translation_result["translated_text"]
+                                names[add_language] = translation_result[
+                                    "translated_text"
+                                ]
                                 updated = True
                             else:
                                 print(
@@ -550,7 +552,10 @@ class SupabaseService:
             # 更新されたデータを保存
             if updated:
                 try:
-                    self.admin_client.table("Country").update({"names": names}).eq(
+                    data = {
+                        "names": names,
+                    }
+                    self.admin_client.table("Country").update(data).eq(
                         "iso_code", iso_code
                     ).execute()
                     print(f"国コード {iso_code} のnamesを更新しました")
