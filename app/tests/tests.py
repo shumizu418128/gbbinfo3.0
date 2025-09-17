@@ -1762,8 +1762,10 @@ class SupabaseServiceTestCase(unittest.TestCase):
                 mock_table.update.assert_called_once()
                 update_call = mock_table.update.call_args
                 self.assertIn("answer_translation", update_call[0][0])
-                expected_json = json.dumps(translated_answer, ensure_ascii=False)
-                self.assertEqual(update_call[0][0]["answer_translation"], expected_json)
+                # 辞書オブジェクトがそのまま渡されることを確認
+                self.assertEqual(
+                    update_call[0][0]["answer_translation"], translated_answer
+                )
                 mock_table.update.return_value.eq.assert_called_with(
                     "cache_key", cache_key
                 )
