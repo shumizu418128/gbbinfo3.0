@@ -352,7 +352,7 @@ class SupabaseService:
         try:
             response = query.execute()
         except Exception as e:
-            print("SupabaseClient get_data error:", e)
+            print("SupabaseClient get_data error:", e, flush=True)
             return None
 
         # 取得したデータをキャッシュに保存
@@ -397,7 +397,7 @@ class SupabaseService:
         try:
             response = query.execute()
         except Exception as e:
-            print("SupabaseClient get_tavily_data error:", e)
+            print("SupabaseClient get_tavily_data error:", e, flush=True)
             return None
 
         if len(response.data) == 0:
@@ -495,7 +495,7 @@ class SupabaseService:
         countries = self.get_data("Country", columns=["iso_code", "names"], pandas=True)
 
         if countries is None or countries.empty:
-            print("国データの取得に失敗しました")
+            print("国データの取得に失敗しました", flush=True)
             return
 
         for index, row in countries.iterrows():
@@ -514,7 +514,7 @@ class SupabaseService:
                 continue
 
             if not isinstance(names, dict):
-                print(f"国コード {iso_code} のnamesデータが辞書形式ではありません")
+                print(f"国コード {iso_code} のnamesデータが辞書形式ではありません", flush=True)
                 continue
 
             # 削除
@@ -544,10 +544,10 @@ class SupabaseService:
                                 updated = True
                             else:
                                 print(
-                                    f"国コード {iso_code} の {add_language} 翻訳に失敗しました"
+                                    f"国コード {iso_code} の {add_language} 翻訳に失敗しました", flush=True
                                 )
                         except Exception as e:
-                            print(f"国コード {iso_code} の翻訳中にエラー: {e}")
+                            print(f"国コード {iso_code} の翻訳中にエラー: {e}", flush=True)
 
             # 更新されたデータを保存
             if updated:
@@ -558,9 +558,8 @@ class SupabaseService:
                     self.admin_client.table("Country").update(data).eq(
                         "iso_code", iso_code
                     ).execute()
-                    print(f"国コード {iso_code} のnamesを更新しました")
                 except Exception as e:
-                    print(f"国コード {iso_code} の保存中にエラー: {e}")
+                    print(f"国コード {iso_code} の保存中にエラー: {e}", flush=True)
 
 
 # グローバルインスタンス
