@@ -346,7 +346,13 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language: str):
 
     # 翻訳
     prompt = PROMPT_TRANSLATE.format(text=answer, lang=language)
-    response = gemini_service.ask_sync(prompt)
+    retry = 5
+    for _ in range(retry):
+        response = gemini_service.ask_sync(prompt)
+        if response:
+            break
+
+    # 翻訳結果を取得
     if isinstance(response, list):
         response = response[0]
     try:
@@ -361,6 +367,7 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language: str):
     existing_cache = supabase_service.get_tavily_data(
         cache_key=cache_key, column="answer_translation"
     )
+    # 型チェック
     if len(existing_cache) > 0:
         try:
             if isinstance(existing_cache, list):

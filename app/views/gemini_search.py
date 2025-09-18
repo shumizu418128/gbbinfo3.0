@@ -89,12 +89,12 @@ def post_gemini_search(year: int, IS_LOCAL: bool, IS_PULL_REQUEST: bool):
         url = SEARCH_CACHE[question.upper()].replace("__year__", str(year))
 
     else:
+        print(f"question: {question}", flush=True)
+        prompt = PROMPT.format(year=year, question=question)
+
         # 最大5回リトライ
         retry = 5
         for _ in range(retry):
-            print(f"question: {question}", flush=True)
-            prompt = PROMPT.format(year=year, question=question)
-
             gemini_response = gemini_service.ask_sync(prompt)
             if gemini_response:
                 url = create_url(
