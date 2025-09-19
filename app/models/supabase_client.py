@@ -356,7 +356,7 @@ class SupabaseService:
             return None
 
         # 取得したデータをキャッシュに保存
-        flask_cache.set(cache_key, response.data, timeout=15 * MINUTE)
+        flask_cache.set(cache_key, response.data, timeout=30 * MINUTE)
 
         if pandas:
             return pd.DataFrame(response.data, index=None)
