@@ -138,4 +138,9 @@
 </select>
 </form>
 
+<div class="button-container">
+  <a href="/{{ year - 1 }}/participants"><button type="button">GBB {{ year - 1 }} {{_("Wildcard結果 & 出場者")}}</button></a>
+  <a href="/{{ year }}/rule"><button type="button">GBB {{ year }} {{_("ルール")}}</button></a>
+</div>
+
 {% endblock %}
