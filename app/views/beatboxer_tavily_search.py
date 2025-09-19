@@ -348,7 +348,7 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language: str):
     prompt = PROMPT_TRANSLATE.format(text=answer, lang=language)
     retry = 5
     for _ in range(retry):
-        response = gemini_service.ask_sync(prompt)
+        response = gemini_service.ask(prompt)
         if response:
             break
 

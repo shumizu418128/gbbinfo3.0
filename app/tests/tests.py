@@ -708,12 +708,12 @@ class GeminiServiceTestCase(unittest.TestCase):
             service = GeminiService()
 
             # 最初のリクエストは成功
-            result1 = service.ask_sync("first question")
+            result1 = service.ask("first question")
             self.assertIsInstance(result1, dict)
             self.assertIn("url", result1)
 
             # 2回目のリクエストはエラーハンドリングされて空辞書が返される
-            result2 = service.ask_sync("second question")
+            result2 = service.ask("second question")
             self.assertEqual(result2, {})
 
     @patch("app.views.gemini_search.spreadsheet_service")
@@ -727,7 +727,7 @@ class GeminiServiceTestCase(unittest.TestCase):
         client = app.test_client()
 
         # モックの設定
-        mock_gemini_service.ask_sync.return_value = {
+        mock_gemini_service.ask.return_value = {
             "url": "/2025/participants",
             "parameter": "search_participants",
         }
@@ -735,11 +735,11 @@ class GeminiServiceTestCase(unittest.TestCase):
         # 複数回の連続リクエスト
         request_times = []
 
-        def mock_ask_sync(*args, **kwargs):
+        def mock_ask(*args, **kwargs):
             request_times.append(time.time())
             return {"url": "/2025/participants", "parameter": "search_participants"}
 
-        mock_gemini_service.ask_sync.side_effect = mock_ask_sync
+        mock_gemini_service.ask.side_effect = mock_ask
 
         # Thread.start() で即時実行させるフェイクを設定
         class ImmediateThread:
@@ -765,7 +765,7 @@ class GeminiServiceTestCase(unittest.TestCase):
             # 正常にレスポンスが返されることを期待
             self.assertEqual(response.status_code, 200)
 
-        # ask_syncが呼ばれた回数を確認
+        # askが呼ばれた回数を確認
         self.assertEqual(len(request_times), 3)
 
         # スプレッドシート記録はモックされているため、実通信は発生しない
@@ -817,7 +817,7 @@ class GeminiServiceTestCase(unittest.TestCase):
                 result = None
                 for _ in range(5):
                     try:
-                        result = service.ask_sync("retry test")
+                        result = service.ask("retry test")
                         if result:
                             break
                     except Exception:
@@ -863,7 +863,7 @@ class GeminiServiceTestCase(unittest.TestCase):
             # 複数のスレッドで同時にリクエストを送信
             def worker(result_queue, worker_id):
                 try:
-                    result = service.ask_sync(f"test question {worker_id}")
+                    result = service.ask(f"test question {worker_id}")
                     result_queue.put((worker_id, result, time.time()))
                 except Exception:
                     result_queue.put((worker_id, {}, time.time()))
@@ -2704,7 +2704,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             # 検証
             self.assertEqual(result, "これは回答です")
             # Gemini APIが呼ばれていないことを確認
-            mock_gemini.ask_sync.assert_not_called()
+            mock_gemini.ask.assert_not_called()
 
     @patch("app.views.beatboxer_tavily_search.supabase_service")
     @patch("app.views.beatboxer_tavily_search.tavily_service")
@@ -2722,7 +2722,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             [],  # no cached translation
         ]
 
-        mock_gemini.ask_sync.return_value = {"translated_text": "これは回答です"}
+        mock_gemini.ask.return_value = {"translated_text": "これは回答です"}
 
         with patch("app.main.flask_cache") as mock_cache:
             mock_cache.get.return_value = None  # 内部キャッシュなし
@@ -2735,7 +2735,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             # 検証
             self.assertEqual(result, "これは回答です")
             # Gemini APIが呼ばれたことを確認
-            mock_gemini.ask_sync.assert_called_once()
+            mock_gemini.ask.assert_called_once()
 
     @patch("app.views.beatboxer_tavily_search.supabase_service")
     def test_translate_tavily_answer_no_search_result(self, mock_supabase):
@@ -2780,7 +2780,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         ]
 
         # Gemini APIがエラーを返す
-        mock_gemini.ask_sync.return_value = "Error occurred"
+        mock_gemini.ask.return_value = "Error occurred"
 
         with patch("app.main.flask_cache") as mock_cache:
             mock_cache.get.return_value = None
@@ -2810,7 +2810,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         ]
 
         # Gemini APIがリストを返す
-        mock_gemini.ask_sync.return_value = [{"translated_text": "これは回答です"}]
+        mock_gemini.ask.return_value = [{"translated_text": "これは回答です"}]
 
         with patch("app.main.flask_cache") as mock_cache:
             mock_cache.get.return_value = None

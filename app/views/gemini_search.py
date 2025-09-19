@@ -95,7 +95,7 @@ def post_gemini_search(year: int, IS_LOCAL: bool, IS_PULL_REQUEST: bool):
         # 最大5回リトライ
         retry = 5
         for _ in range(retry):
-            gemini_response = gemini_service.ask_sync(prompt)
+            gemini_response = gemini_service.ask(prompt)
             if gemini_response:
                 url = create_url(
                     year,
