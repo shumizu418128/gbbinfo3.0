@@ -319,7 +319,7 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language: str):
     )
 
     # あれば返す
-    if len(cached_answer) > 0:
+    if cached_answer is not None and len(cached_answer) > 0:
         try:
             # 最初の要素を取得
             if isinstance(cached_answer, list):
@@ -332,7 +332,9 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language: str):
             pass
 
     # なければ生成
-    search_result = supabase_service.get_tavily_data(cache_key=cache_key)
+    search_result = supabase_service.get_tavily_data(
+        cache_key=cache_key, column="search_results"
+    )
     try:
         # search_resultがリストの場合、最初の要素を取得
         if isinstance(search_result, list):
