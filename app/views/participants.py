@@ -270,6 +270,10 @@ def cancels_view(year: int):
         },
         filters={f"is_cancelled__{Operator.EQUAL}": True, "year": year},
     )
+    # supabaseから取得失敗した場合、500エラーを返す
+    if cancels_data is None:
+        abort(500)
+
     cancels_data.sort(
         key=lambda x: (
             x["category"],  # カテゴリでソート
