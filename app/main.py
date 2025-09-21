@@ -184,9 +184,7 @@ app.add_url_rule("/<int:year>/rule", "rule", rule.rules_view)
 app.add_url_rule(
     "/<int:year>/participants", "participants", participants.participants_view
 )
-app.add_url_rule(
-    "/<int:year>/cancels", "cancels", participants.cancels_view
-)
+app.add_url_rule("/<int:year>/cancels", "cancels", participants.cancels_view)
 app.add_url_rule("/<int:year>/result", "result", result.result_view)
 app.add_url_rule(
     "/<int:year>/japan", "japan", participants.participants_country_specific_view

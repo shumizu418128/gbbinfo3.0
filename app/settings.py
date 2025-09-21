@@ -27,4 +27,3 @@ def delete_world_map():
                         if file.endswith(".html"):
                             file_path = os.path.join(world_map_path, file)
                             os.remove(file_path)
-
