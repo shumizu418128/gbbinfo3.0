@@ -1,13 +1,4 @@
-"""
-Gemini API設定ファイル
-Google Gemini APIの安全設定とGBB検索機能を統合した設定ファイル
-"""
-
 from google.genai import types
-
-# =============================================================================
-# Google Gemini API Safety Settings
-# =============================================================================
 
 SAFETY_SETTINGS_BLOCK_ONLY_HIGH = [
     types.SafetySetting(
@@ -54,10 +45,6 @@ SAFETY_SETTINGS_BLOCK_NONE = [
         threshold=types.HarmBlockThreshold.BLOCK_NONE,
     ),
 ]
-
-# =============================================================================
-# GBB Search Configuration
-# =============================================================================
 
 SEARCH_CACHE = {
     "7TO": "/__year__/top_7tosmoke",
@@ -191,4 +178,30 @@ Keep names in English. Return JSON only. Strictly follow the JSON format for out
 }}
 
 Text: {text}
+"""
+
+FOLIUM_CUSTOM_CSS = """
+<style>
+    /* より強い詳細度でBootstrapのスタイルを上書き */
+    .leaflet-popup-content a,
+    .leaflet-popup-content-wrapper a,
+    div a {
+        color: rgb(0, 68, 204) !important;
+        word-wrap: break-word;
+        text-decoration: underline;
+    }
+
+    .leaflet-popup-content a:hover,
+    .leaflet-popup-content-wrapper a:hover,
+    div a:hover {
+        color: rgb(255, 100, 23) !important;
+        text-decoration: underline;
+    }
+
+    .leaflet-popup-content a:active,
+    .leaflet-popup-content-wrapper a:active,
+    div a:active {
+        color: rgb(0, 68, 204) !important;
+    }
+</style>
 """

@@ -4,6 +4,7 @@ from collections import defaultdict
 import folium
 from flask import abort, render_template, session
 
+from app.config.config import FOLIUM_CUSTOM_CSS
 from app.models.supabase_client import supabase_service
 
 MULTI_COUNTRY_TEAM_ISO_CODE = 9999
@@ -103,6 +104,8 @@ def world_map_view(year: int):
         },
     )
 
+    beatboxer_map.get_root().header.add_child(folium.Element(FOLIUM_CUSTOM_CSS))
+
     country_coordinates_data = supabase_service.get_data(
         table="Country",
         columns=["iso_code", "latitude", "longitude", "names"],
@@ -125,12 +128,13 @@ def world_map_view(year: int):
         ].values[0]
         country_name = country_names_dict[language]
 
-        # ポップアップの内容を作成
+        # ポップアップの内容を作成 (長い場合はスクロール可能にする)
         popup_content = "<div style=\"font-family: 'Noto sans JP'; font-size: 14px;\">"
-        country_header = f'<h3 style="margin: 0; color: #ff6417;">{country_name}</h3>'
-        team_info = (
-            f'<h4 style="margin: 0; color: #ff6417;">{len(participants)} team(s)</h4>'
-        )
+        if len(participants) > 7:
+            popup_content = "<div style=\"font-family: 'Noto sans JP'; font-size: 14px; max-height: 200px; overflow-y: scroll;\">"
+
+        country_header = f'<h3 style="margin: 0; color: #ff6417; font-weight: bold;">{country_name}</h3>'
+        team_info = f'<h4 style="margin: 0; color: #ff6417; font-weight: bold;">{len(participants)} team(s)</h4>'
         popup_content += country_header + team_info
 
         for participant in participants:
@@ -140,10 +144,6 @@ def world_map_view(year: int):
             </p>
             """
         popup_content += "</div>"
-
-        # ポップアップが長い場合はスクロール可能にする
-        if len(participants) > 7:
-            popup_content = f"<div style=\"font-family: 'Noto sans JP'; font-size: 14px; max-height: 300px; overflow-y: scroll;\">{popup_content}</div>"
 
         # 作ったポップアップをfoliumのPopupオブジェクトに入れる
         popup = folium.Popup(popup_content, max_width=1000)
