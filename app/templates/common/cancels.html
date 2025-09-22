@@ -9,6 +9,12 @@
 
 <h1>GBB {{ year }} {{_("辞退者一覧")}}</h1>
 
+{% if is_latest_year is true %}
+    <div style="text-align: center;">
+        <p>{{_("最終更新")}}<br>{{ last_updated }}</p>
+    </div>
+{% endif %}
+
 {% if cancels %}
     <table>
         <thead>
