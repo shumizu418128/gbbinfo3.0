@@ -283,6 +283,7 @@ class AppUrlsTestCase(unittest.TestCase):
                 (f"/{year}/result", f"{year}年 結果"),
                 (f"/{year}/japan", f"{year}年 日本人参加者"),
                 (f"/{year}/korea", f"{year}年 韓国人参加者"),
+                (f"/{year}/cancels", f"{year}年 辞退者一覧"),
             ]
             test_cases.extend(year_specific_endpoints)
 
@@ -329,6 +330,204 @@ class AppUrlsTestCase(unittest.TestCase):
                     or response.status_code is not None,
                     f"{description} ({url}) が適切なレスポンスを返しませんでした。ステータスコード: {response.status_code}",
                 )
+
+    @patch("app.views.participants.supabase_service")
+    @patch("app.context_processors.supabase_service")
+    @patch("app.context_processors.get_available_years")
+    @patch("app.context_processors.is_gbb_ended")
+    def test_2025_participants_translation_accessibility(
+        self,
+        mock_is_gbb_ended,
+        mock_get_years,
+        mock_context_supabase,
+        mock_participants_supabase,
+    ):
+        """
+        /2025/participants?lang=(すべての言語)にアクセスして200を返すことをテストします。
+
+        翻訳の問題がないかを確認するため、サポートされているすべての言語で
+        参加者ページが正常に表示されることを検証します。
+        """
+        # main.pyからサポートされている言語コードのリストを取得
+        from app.main import LANGUAGES
+
+        # 日本語以外の言語のみを対象とする（日本語はデフォルト言語なので翻訳ファイルが不要）
+        supported_languages = [code for code, _ in LANGUAGES if code != "ja"]
+
+        # モックデータの設定
+        mock_get_years.return_value = [2025, 2024, 2023]
+        mock_is_gbb_ended.return_value = False
+
+        # context_processors内のSupabase呼び出しモック
+        def context_get_data_side_effect(*args, **kwargs):
+            table = kwargs.get("table")
+            pandas_flag = kwargs.get("pandas", False)
+            if table == "Year" and pandas_flag:
+                import pandas as pd
+
+                return pd.DataFrame(
+                    [
+                        {"year": 2025},
+                        {"year": 2024},
+                        {"year": 2023},
+                    ]
+                )
+            # 他の場合はデフォルトのリストを返す
+            return [
+                {
+                    "year": 2025,
+                    "categories__is_not": None,
+                    "ends_at": "2025-12-31T23:59:59Z",
+                },
+                {
+                    "year": 2024,
+                    "categories__is_not": None,
+                    "ends_at": "2024-12-31T23:59:59Z",
+                },
+                {
+                    "year": 2023,
+                    "categories__is_not": None,
+                    "ends_at": "2023-12-31T23:59:59Z",
+                },
+            ]
+
+        mock_context_supabase.get_data.side_effect = context_get_data_side_effect
+
+        # participants内のSupabase呼び出しモック
+        def participants_get_data_side_effect(*args, **kwargs):
+            table = kwargs.get("table")
+            pandas_flag = kwargs.get("pandas", False)
+            if table == "Year" and pandas_flag:
+                import pandas as pd
+
+                return pd.DataFrame([{"categories": [1, 2]}])
+            if table == "Category" and pandas_flag:
+                import pandas as pd
+
+                return pd.DataFrame(
+                    [
+                        {"id": 1, "name": "Loopstation"},
+                        {"id": 2, "name": "Solo"},
+                    ]
+                )
+            if table == "Participant":
+                return [
+                    {
+                        "id": 1,
+                        "name": "ALPHA",
+                        "category": 1,
+                        "ticket_class": "GBB Seed",
+                        "is_cancelled": False,
+                        "iso_code": 392,
+                        "Category": {"id": 1, "name": "Loopstation"},
+                        "Country": {
+                            "iso_code": 392,
+                            "names": {
+                                "ja": "日本",
+                                "en": "Japan",
+                                "de": "Japan",
+                                "es": "Japón",
+                                "fr": "Japon",
+                                "hi": "जापान",
+                                "hu": "Japán",
+                                "it": "Giappone",
+                                "ko": "일본",
+                                "ms": "Jepun",
+                                "no": "Japan",
+                                "pt": "Japão",
+                                "ta": "ஜப்பான்",
+                                "th": "ญี่ปุ่น",
+                                "zh_Hans_CN": "日本",
+                                "zh_Hant_TW": "日本",
+                            },
+                        },
+                        "ParticipantMember": [],
+                    }
+                ]
+            return []
+
+        mock_participants_supabase.get_data.side_effect = (
+            participants_get_data_side_effect
+        )
+
+        # 各言語でテストを実行
+        for lang in supported_languages:
+            with self.subTest(language=lang):
+                # 必要なクエリパラメータを含めてURLを構築
+                url = f"/2025/participants?category=Loopstation&ticket_class=all&cancel=show&lang={lang}"
+                response = self.client.get(url)
+
+                # 200を期待（適切なパラメータがあるためリダイレクトは発生しないはず）
+                self.assertEqual(
+                    response.status_code,
+                    200,
+                    msg=f"言語 {lang} で {url} が200を返しませんでした（{response.status_code}）。翻訳に問題がある可能性があります。",
+                )
+
+                # レスポンスボディが空でないことも確認
+                html = response.get_data(as_text=True)
+                self.assertTrue(
+                    len(html) > 0,
+                    msg=f"言語 {lang} で {url} のレスポンスボディが空です。",
+                )
+
+    def test_language_consistency_across_modules(self):
+        """
+        main.py、translate.py、translationsフォルダの言語設定に矛盾がないかを確認するテストです。
+
+        日本語を除くすべての言語で一致していることを検証します。
+        """
+        # main.pyの言語設定を取得
+        from app.main import LANGUAGES
+
+        main_languages = set([code for code, _ in LANGUAGES if code != "ja"])
+
+        # translate.pyの言語設定を取得
+        from app.translations.translate import BABEL_SUPPORTED_LOCALES
+
+        translate_languages = set(BABEL_SUPPORTED_LOCALES)
+
+        # translationsフォルダの言語フォルダを取得
+        import os
+
+        translations_dir = "app/translations"
+        translation_folders = set()
+        if os.path.exists(translations_dir):
+            for item in os.listdir(translations_dir):
+                item_path = os.path.join(translations_dir, item)
+                if os.path.isdir(item_path) and item not in ["__pycache__"]:
+                    # LC_MESSAGESフォルダが存在することを確認
+                    lc_messages_path = os.path.join(item_path, "LC_MESSAGES")
+                    if os.path.exists(lc_messages_path):
+                        translation_folders.add(item)
+
+        # 言語設定の一致を確認
+        self.assertEqual(
+            main_languages,
+            translate_languages,
+            msg=f"main.pyとtranslate.pyの言語設定が一致しません。\n"
+            f"main.py(jaを除く): {sorted(main_languages)}\n"
+            f"translate.py: {sorted(translate_languages)}\n"
+            f"差分: {main_languages.symmetric_difference(translate_languages)}",
+        )
+
+        self.assertEqual(
+            main_languages,
+            translation_folders,
+            msg=f"main.pyとtranslationsフォルダの言語設定が一致しません。\n"
+            f"main.py(jaを除く): {sorted(main_languages)}\n"
+            f"translationsフォルダ: {sorted(translation_folders)}\n"
+            f"差分: {main_languages.symmetric_difference(translation_folders)}",
+        )
+
+        self.assertEqual(
+            translate_languages,
+            translation_folders,
+            msg=f"translate.pyとtranslationsフォルダの言語設定が一致しません。\n"
+            f"translate.py: {sorted(translate_languages)}\n"
+            f"translationsフォルダ: {sorted(translation_folders)}\n"
+            f"差分: {translate_languages.symmetric_difference(translation_folders)}",
+        )
 
 
 class ContextProcessorsTestCase(unittest.TestCase):
@@ -510,12 +709,12 @@ class GeminiServiceTestCase(unittest.TestCase):
             service = GeminiService()
 
             # 最初のリクエストは成功
-            result1 = service.ask_sync("first question")
+            result1 = service.ask("first question")
             self.assertIsInstance(result1, dict)
             self.assertIn("url", result1)
 
             # 2回目のリクエストはエラーハンドリングされて空辞書が返される
-            result2 = service.ask_sync("second question")
+            result2 = service.ask("second question")
             self.assertEqual(result2, {})
 
     @patch("app.views.gemini_search.spreadsheet_service")
@@ -529,7 +728,7 @@ class GeminiServiceTestCase(unittest.TestCase):
         client = app.test_client()
 
         # モックの設定
-        mock_gemini_service.ask_sync.return_value = {
+        mock_gemini_service.ask.return_value = {
             "url": "/2025/participants",
             "parameter": "search_participants",
         }
@@ -537,11 +736,11 @@ class GeminiServiceTestCase(unittest.TestCase):
         # 複数回の連続リクエスト
         request_times = []
 
-        def mock_ask_sync(*args, **kwargs):
+        def mock_ask(*args, **kwargs):
             request_times.append(time.time())
             return {"url": "/2025/participants", "parameter": "search_participants"}
 
-        mock_gemini_service.ask_sync.side_effect = mock_ask_sync
+        mock_gemini_service.ask.side_effect = mock_ask
 
         # Thread.start() で即時実行させるフェイクを設定
         class ImmediateThread:
@@ -567,7 +766,7 @@ class GeminiServiceTestCase(unittest.TestCase):
             # 正常にレスポンスが返されることを期待
             self.assertEqual(response.status_code, 200)
 
-        # ask_syncが呼ばれた回数を確認
+        # askが呼ばれた回数を確認
         self.assertEqual(len(request_times), 3)
 
         # スプレッドシート記録はモックされているため、実通信は発生しない
@@ -619,7 +818,7 @@ class GeminiServiceTestCase(unittest.TestCase):
                 result = None
                 for _ in range(5):
                     try:
-                        result = service.ask_sync("retry test")
+                        result = service.ask("retry test")
                         if result:
                             break
                     except Exception:
@@ -665,7 +864,7 @@ class GeminiServiceTestCase(unittest.TestCase):
             # 複数のスレッドで同時にリクエストを送信
             def worker(result_queue, worker_id):
                 try:
-                    result = service.ask_sync(f"test question {worker_id}")
+                    result = service.ask(f"test question {worker_id}")
                     result_queue.put((worker_id, result, time.time()))
                 except Exception:
                     result_queue.put((worker_id, {}, time.time()))
@@ -1564,8 +1763,10 @@ class SupabaseServiceTestCase(unittest.TestCase):
                 mock_table.update.assert_called_once()
                 update_call = mock_table.update.call_args
                 self.assertIn("answer_translation", update_call[0][0])
-                expected_json = json.dumps(translated_answer, ensure_ascii=False)
-                self.assertEqual(update_call[0][0]["answer_translation"], expected_json)
+                # 辞書オブジェクトがそのまま渡されることを確認
+                self.assertEqual(
+                    update_call[0][0]["answer_translation"], translated_answer
+                )
                 mock_table.update.return_value.eq.assert_called_with(
                     "cache_key", cache_key
                 )
@@ -2504,7 +2705,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             # 検証
             self.assertEqual(result, "これは回答です")
             # Gemini APIが呼ばれていないことを確認
-            mock_gemini.ask_sync.assert_not_called()
+            mock_gemini.ask.assert_not_called()
 
     @patch("app.views.beatboxer_tavily_search.supabase_service")
     @patch("app.views.beatboxer_tavily_search.tavily_service")
@@ -2522,7 +2723,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             [],  # no cached translation
         ]
 
-        mock_gemini.ask_sync.return_value = {"translated_text": "これは回答です"}
+        mock_gemini.ask.return_value = {"translated_text": "これは回答です"}
 
         with patch("app.main.flask_cache") as mock_cache:
             mock_cache.get.return_value = None  # 内部キャッシュなし
@@ -2535,7 +2736,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             # 検証
             self.assertEqual(result, "これは回答です")
             # Gemini APIが呼ばれたことを確認
-            mock_gemini.ask_sync.assert_called_once()
+            mock_gemini.ask.assert_called_once()
 
     @patch("app.views.beatboxer_tavily_search.supabase_service")
     def test_translate_tavily_answer_no_search_result(self, mock_supabase):
@@ -2580,7 +2781,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         ]
 
         # Gemini APIがエラーを返す
-        mock_gemini.ask_sync.return_value = "Error occurred"
+        mock_gemini.ask.return_value = "Error occurred"
 
         with patch("app.main.flask_cache") as mock_cache:
             mock_cache.get.return_value = None
@@ -2610,7 +2811,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         ]
 
         # Gemini APIがリストを返す
-        mock_gemini.ask_sync.return_value = [{"translated_text": "これは回答です"}]
+        mock_gemini.ask.return_value = [{"translated_text": "これは回答です"}]
 
         with patch("app.main.flask_cache") as mock_cache:
             mock_cache.get.return_value = None
@@ -3014,7 +3215,11 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
 
                 # ページにより0件の可能性もあるが、存在するリンクは正しいことを検証
                 for href in links:
-                    parsed = urlparse(href)
+                    # HTMLエンティティをデコード（&amp; → &）
+                    import html
+
+                    decoded_href = html.unescape(href)
+                    parsed = urlparse(decoded_href)
                     qs = parse_qs(parsed.query)
 
                     self.assertIn("id", qs, msg=f"id欠落: {href}")
@@ -3030,6 +3235,217 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                         mode_values and mode_values[0] in allowed_modes,
                         msg=f"mode不正: {href}",
                     )
+
+    @patch("app.views.participants.wildcard_rank_sort")
+    @patch("app.views.participants.supabase_service")
+    @patch("app.context_processors.get_translated_urls")
+    @patch("app.context_processors.is_gbb_ended")
+    @patch("app.context_processors.get_available_years")
+    def test_cancels_view_normal_case(
+        self,
+        mock_get_available_years,
+        mock_is_gbb_ended,
+        mock_get_translated_urls,
+        mock_supabase,
+        mock_wildcard_rank_sort,
+    ):
+        """cancels_viewの正常系テスト"""
+        mock_get_available_years.return_value = [2025, 2024, 2023]
+        mock_is_gbb_ended.return_value = False
+        mock_get_translated_urls.return_value = set()
+        mock_wildcard_rank_sort.return_value = 0
+
+        # 辞退者のモックデータ
+        cancels_data = [
+            {
+                "id": 1,
+                "name": "test_participant_1",
+                "category": "Loopstation",
+                "ticket_class": "GBB Seed",
+                "Category": {"name": "Loopstation"},
+                "ParticipantMember": [],  # シングル参加者
+            },
+            {
+                "id": 2,
+                "name": "test_team_1",
+                "category": "Tag Team",
+                "ticket_class": "Wildcard 1st",
+                "Category": {"name": "Tag Team"},
+                "ParticipantMember": [
+                    {"name": "Member1"},
+                    {"name": "Member2"},
+                ],  # チーム参加者
+            },
+        ]
+
+        mock_supabase.get_data.return_value = cancels_data
+
+        with self.client.session_transaction() as sess:
+            sess["language"] = "ja"
+
+        resp = self.client.get("/2025/cancels")
+        self.assertEqual(resp.status_code, 200)
+
+        # レスポンスの内容確認
+        response_data = resp.get_data(as_text=True)
+        self.assertIn("辞退者一覧", response_data)
+        self.assertIn("TEST_PARTICIPANT_1", response_data)  # 大文字変換確認
+        self.assertIn("TEST_TEAM_1", response_data)
+        self.assertIn("Loopstation", response_data)
+        self.assertIn("Tag Team", response_data)
+
+    @patch("app.views.participants.wildcard_rank_sort")
+    @patch("app.views.participants.supabase_service")
+    @patch("app.context_processors.get_translated_urls")
+    @patch("app.context_processors.is_gbb_ended")
+    @patch("app.context_processors.get_available_years")
+    def test_cancels_view_empty_data(
+        self,
+        mock_get_available_years,
+        mock_is_gbb_ended,
+        mock_get_translated_urls,
+        mock_supabase,
+        mock_wildcard_rank_sort,
+    ):
+        """cancels_viewで辞退者データが空の場合のテスト"""
+        mock_get_available_years.return_value = [2025, 2024, 2023]
+        mock_is_gbb_ended.return_value = False
+        mock_get_translated_urls.return_value = set()
+        mock_wildcard_rank_sort.return_value = 0
+
+        # 空のデータ
+        mock_supabase.get_data.return_value = []
+
+        with self.client.session_transaction() as sess:
+            sess["language"] = "ja"
+
+        resp = self.client.get("/2025/cancels")
+        self.assertEqual(resp.status_code, 200)
+
+        # 空の場合のメッセージ確認
+        response_data = resp.get_data(as_text=True)
+        self.assertIn("辞退者一覧", response_data)
+        self.assertIn("発表次第更新", response_data)
+
+    @patch("app.views.participants.supabase_service")
+    @patch("app.context_processors.get_translated_urls")
+    @patch("app.context_processors.is_gbb_ended")
+    @patch("app.context_processors.get_available_years")
+    def test_cancels_view_supabase_no_response(
+        self,
+        mock_get_available_years,
+        mock_is_gbb_ended,
+        mock_get_translated_urls,
+        mock_supabase,
+    ):
+        """cancels_viewでSupabaseからの応答がない場合に500エラーが返されることをテスト"""
+        mock_get_available_years.return_value = [2025]
+        mock_is_gbb_ended.return_value = False
+        mock_get_translated_urls.return_value = set()
+
+        # Supabaseからの応答なし
+        mock_supabase.get_data.return_value = None
+
+        with self.client.session_transaction() as sess:
+            sess["language"] = "ja"
+
+        resp = self.client.get("/2025/cancels")
+        self.assertEqual(resp.status_code, 500)
+
+    @patch("app.views.participants.wildcard_rank_sort")
+    @patch("app.context_processors.is_gbb_ended")
+    @patch("app.context_processors.get_available_years")
+    @patch("app.context_processors.supabase_service")
+    @patch("app.views.participants.supabase_service")
+    def test_2025_cancels_translation_accessibility(
+        self,
+        mock_participants_supabase,
+        mock_context_supabase,
+        mock_get_years,
+        mock_is_gbb_ended,
+        mock_wildcard_rank_sort,
+    ):
+        """
+        /2025/cancels?lang=(すべての言語)にアクセスして200を返すことをテストします。
+
+        翻訳の問題がないかを確認するため、サポートされているすべての言語で
+        辞退者ページが正常に表示されることを検証します。
+        """
+        # main.pyからサポートされている言語コードのリストを取得
+        from app.main import LANGUAGES
+
+        # 日本語以外の言語のみを対象とする（日本語はデフォルト言語なので翻訳ファイルが不要）
+        supported_languages = [code for code, _ in LANGUAGES if code != "ja"]
+
+        # モックデータの設定
+        mock_get_years.return_value = [2025, 2024, 2023]
+        mock_is_gbb_ended.return_value = False
+        mock_wildcard_rank_sort.return_value = 0
+
+        # context_processors内のSupabase呼び出しモック
+        def context_get_data_side_effect(*args, **kwargs):
+            table = kwargs.get("table")
+            pandas_flag = kwargs.get("pandas", False)
+            if table == "Year" and pandas_flag:
+                import pandas as pd
+
+                return pd.DataFrame(
+                    [
+                        {"year": 2025},
+                        {"year": 2024},
+                        {"year": 2023},
+                    ]
+                )
+            # 他の場合はデフォルトのリストを返す
+            return [
+                {
+                    "year": 2025,
+                    "categories__is_not": None,
+                    "ends_at": "2025-12-31T23:59:59Z",
+                },
+                {
+                    "year": 2024,
+                    "categories__is_not": None,
+                    "ends_at": "2024-12-31T23:59:59Z",
+                },
+                {
+                    "year": 2023,
+                    "categories__is_not": None,
+                    "ends_at": "2023-12-31T23:59:59Z",
+                },
+            ]
+
+        mock_context_supabase.get_data.side_effect = context_get_data_side_effect
+
+        # participants内のSupabase呼び出しモック - 辞退者データ
+        def participants_get_data_side_effect(*args, **kwargs):
+            table = kwargs.get("table")
+            if table == "Participant":
+                return [
+                    {
+                        "id": 1,
+                        "name": "test_participant_1",
+                        "category": "Loopstation",
+                        "ticket_class": "GBB Seed",
+                        "Category": {"name": "Loopstation"},
+                        "ParticipantMember": [],
+                    },
+                ]
+            return []
+
+        mock_participants_supabase.get_data.side_effect = (
+            participants_get_data_side_effect
+        )
+
+        # 各言語でページにアクセスしてテスト
+        for lang in supported_languages:
+            with self.subTest(language=lang):
+                resp = self.client.get(f"/2025/cancels?lang={lang}")
+                self.assertEqual(
+                    resp.status_code,
+                    200,
+                    msg=f"言語 {lang} で /2025/cancels が200を返しませんでした（{resp.status_code}）。",
+                )
 
 
 if __name__ == "__main__":

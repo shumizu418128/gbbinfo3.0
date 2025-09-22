@@ -8,6 +8,12 @@
 {% block content %}
 <h1>GBB {{ year }} {{_("大会結果")}}</h1>
 
+{% if is_latest_year is true %}
+  <div style="text-align: center;">
+    <p>{{_("最終更新")}}<br>{{ last_updated }}</p>
+  </div>
+{% endif %}
+
 {% if all_category %}
   <form method="get" action="/{{ year }}/result" class="participants_form">
     <label for="category">{{_("部門選択")}}</label>
@@ -86,6 +92,7 @@
 </form>
 
 <div class="button-container">
+  <a href="/{{ year - 1 }}/result"><button type="button">GBB {{ year - 1 }} {{_("大会結果")}}</button></a>
   <a href="/{{ year }}/rule"><button type="button">{{_("出場権詳細")}}</button></a>
   <a href="/{{ year }}/rule"><button type="button">{{_("ルール & 審査員")}}</button></a>
   <a href="/{{ year }}/participants"><button>{{_("Wildcard結果")}} & {{_("出場者")}}</button></a>

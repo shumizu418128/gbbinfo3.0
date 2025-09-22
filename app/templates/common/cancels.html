@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}GBB {{ year }} {{_("辞退者一覧")}} - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBB {{ year }} {{_("辞退者一覧")}} - GBBINFO-JPN{% endblock %}
+{% block og_title %}GBB {{ year }} {{_("辞退者一覧")}} - GBBINFO-JPN{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/cancels{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/cancels{% endblock %}
+{% block content %}
+
+<h1>GBB {{ year }} {{_("辞退者一覧")}}</h1>
+
+{% if is_latest_year is true %}
+    <div style="text-align: center;">
+        <p>{{_("最終更新")}}<br>{{ last_updated }}</p>
+    </div>
+{% endif %}
+
+{% if cancels %}
+    <table>
+        <thead>
+        <tr>
+            <th style="width: 33%;">{{_("名前")}}</th>
+            <th style="width: 34%;">{{_("部門")}}</th>
+            <th style="width: 33%;">{{_("出場権")}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for cancel in cancels %}
+            <tr>
+                <td>【{{_("辞退")}}】<br><a href="/others/participant_detail?id={{ cancel.id }}&mode={% if cancel.is_team %}team{% else %}single{% endif %}">{{ cancel.name }}</a></td>
+                <td><s>{{ cancel.category }}</s></td>
+                <td><s>{{ cancel.ticket_class }}</s></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>{{_("～発表次第更新～")}}</p>
+    <div style="height: 200px;"></div>
+{% endif %}
+
+<form method="GET" class="participants_form">
+<label for="year">{{_("その他の年度を確認：")}}</label>
+<select name="year" id="year" class="filter-select" onchange="redirect_year('cancels')">
+    {% for y in available_years %}
+    <option value="{{ y }}" {% if year == y %}selected{% endif %}>{{ y }}</option>
+    {% endfor %}
+</select>
+</form>
+
+<div class="button-container">
+    <a href="/{{ year }}/participants"><button>GBB {{ year }} {{_("出場者一覧")}}</button></a>
+    <a href="/{{ year }}/rule"><button>{{_("出場権詳細")}}</button></a>
+    <a href="/{{ year }}/rule?scroll=result_date"><button>{{_("Wildcard結果発表日")}}</button></a>
+    <a href="/{{ year }}/wildcards"><button>{{_("Wildcard一覧")}}</button></a>
+</div>
+
+
+{% endblock %}

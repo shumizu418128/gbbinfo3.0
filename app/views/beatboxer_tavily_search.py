@@ -319,7 +319,7 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language: str):
     )
 
     # あれば返す
-    if len(cached_answer) > 0:
+    if cached_answer is not None and len(cached_answer) > 0:
         try:
             # 最初の要素を取得
             if isinstance(cached_answer, list):
@@ -332,7 +332,9 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language: str):
             pass
 
     # なければ生成
-    search_result = supabase_service.get_tavily_data(cache_key=cache_key)
+    search_result = supabase_service.get_tavily_data(
+        cache_key=cache_key, column="search_results"
+    )
     try:
         # search_resultがリストの場合、最初の要素を取得
         if isinstance(search_result, list):
@@ -346,7 +348,13 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language: str):
 
     # 翻訳
     prompt = PROMPT_TRANSLATE.format(text=answer, lang=language)
-    response = gemini_service.ask_sync(prompt)
+    retry = 5
+    for _ in range(retry):
+        response = gemini_service.ask(prompt)
+        if response:
+            break
+
+    # 翻訳結果を取得
     if isinstance(response, list):
         response = response[0]
     try:
@@ -361,6 +369,7 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language: str):
     existing_cache = supabase_service.get_tavily_data(
         cache_key=cache_key, column="answer_translation"
     )
+    # 型チェック
     if len(existing_cache) > 0:
         try:
             if isinstance(existing_cache, list):

@@ -13,6 +13,9 @@
     <loc>https://gbbinfo-jpn.onrender.com/2013/top</loc>
   </url>
   <url>
+    <loc>https://gbbinfo-jpn.onrender.com/2013/cancels</loc>
+  </url>
+  <url>
     <loc>https://gbbinfo-jpn.onrender.com/2014/japan</loc>
   </url>
   <url>
@@ -23,6 +26,9 @@
   </url>
   <url>
     <loc>https://gbbinfo-jpn.onrender.com/2014/top</loc>
+  </url>
+  <url>
+    <loc>https://gbbinfo-jpn.onrender.com/2014/cancels</loc>
   </url>
   <url>
     <loc>https://gbbinfo-jpn.onrender.com/2015/japan</loc>
@@ -37,6 +43,9 @@
     <loc>https://gbbinfo-jpn.onrender.com/2015/top</loc>
   </url>
   <url>
+    <loc>https://gbbinfo-jpn.onrender.com/2015/cancels</loc>
+  </url>
+  <url>
     <loc>https://gbbinfo-jpn.onrender.com/2016/japan</loc>
   </url>
   <url>
@@ -47,6 +56,9 @@
   </url>
   <url>
     <loc>https://gbbinfo-jpn.onrender.com/2016/top</loc>
+  </url>
+  <url>
+    <loc>https://gbbinfo-jpn.onrender.com/2016/cancels</loc>
   </url>
   <url>
     <loc>https://gbbinfo-jpn.onrender.com/2017/japan</loc>
@@ -70,6 +82,9 @@
     <loc>https://gbbinfo-jpn.onrender.com/2017/top</loc>
   </url>
   <url>
+    <loc>https://gbbinfo-jpn.onrender.com/2017/cancels</loc>
+  </url>
+  <url>
     <loc>https://gbbinfo-jpn.onrender.com/2018/japan</loc>
   </url>
   <url>
@@ -89,6 +104,9 @@
   </url>
   <url>
     <loc>https://gbbinfo-jpn.onrender.com/2018/top</loc>
+  </url>
+  <url>
+    <loc>https://gbbinfo-jpn.onrender.com/2018/cancels</loc>
   </url>
   <url>
     <loc>https://gbbinfo-jpn.onrender.com/2019/japan</loc>
@@ -112,6 +130,9 @@
     <loc>https://gbbinfo-jpn.onrender.com/2019/result</loc>
   </url>
   <url>
+    <loc>https://gbbinfo-jpn.onrender.com/2019/cancels</loc>
+  </url>
+  <url>
     <loc>https://gbbinfo-jpn.onrender.com/2020/japan</loc>
   </url>
   <url>
@@ -131,6 +152,9 @@
   </url>
   <url>
     <loc>https://gbbinfo-jpn.onrender.com/2020/top</loc>
+  </url>
+  <url>
+    <loc>https://gbbinfo-jpn.onrender.com/2020/cancels</loc>
   </url>
   <url>
     <loc>https://gbbinfo-jpn.onrender.com/2021/japan</loc>
@@ -155,6 +179,9 @@
   </url>
   <url>
     <loc>https://gbbinfo-jpn.onrender.com/2021/top</loc>
+  </url>
+  <url>
+    <loc>https://gbbinfo-jpn.onrender.com/2021/cancels</loc>
   </url>
   <url>
     <loc>https://gbbinfo-jpn.onrender.com/2022/top</loc>
@@ -193,6 +220,9 @@
     <loc>https://gbbinfo-jpn.onrender.com/2023/wildcards</loc>
   </url>
   <url>
+    <loc>https://gbbinfo-jpn.onrender.com/2023/cancels</loc>
+  </url>
+  <url>
     <loc>https://gbbinfo-jpn.onrender.com/2024/japan</loc>
   </url>
   <url>
@@ -224,6 +254,9 @@
   </url>
   <url>
     <loc>https://gbbinfo-jpn.onrender.com/2024/wildcards</loc>
+  </url>
+  <url>
+    <loc>https://gbbinfo-jpn.onrender.com/2024/cancels</loc>
   </url>
   <url>
     <loc>https://gbbinfo-jpn.onrender.com/2025/bitomori</loc>
@@ -263,6 +296,9 @@
   </url>
   <url>
     <loc>https://gbbinfo-jpn.onrender.com/2025/wildcards</loc>
+  </url>
+  <url>
+    <loc>https://gbbinfo-jpn.onrender.com/2025/cancels</loc>
   </url>
   <url>
     <loc>https://gbbinfo-jpn.onrender.com/others/7tosmoke</loc>

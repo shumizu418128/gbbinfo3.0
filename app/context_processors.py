@@ -1,13 +1,14 @@
 import re
 from datetime import datetime, timezone
 from threading import Thread
+from urllib.parse import parse_qs, urlencode, urlparse, urlunparse
 
 from dateutil import parser
 from flask import request, session
 from flask_babel import format_datetime
 
 from app.models.supabase_client import supabase_service
-from app.settings import BASE_DIR, check_locale_paths_and_languages, delete_world_map
+from app.settings import BASE_DIR, delete_world_map
 from app.util.filter_eq import Operator
 
 AVAILABLE_YEARS = []
@@ -220,6 +221,41 @@ def is_gbb_ended(year):
     return is_gbb_ended_cache[year]
 
 
+# MARK: 言語URL
+def get_change_language_url(LANGUAGES, current_url):
+    """
+    現在のURLに対して、各言語ごとにlangクエリパラメータを付与したURLリストを生成します。
+
+    Args:
+        LANGUAGES (list): 言語コードと表示名のタプルリスト。
+        current_url (str): 現在のURL。
+
+    Returns:
+        list: 各言語ごとの(url, lang_name)のタプルリスト。
+    """
+    change_language_urls = []
+
+    parsed_url = urlparse(current_url)
+    query_params = parse_qs(parsed_url.query)
+
+    for lang_code, lang_name in LANGUAGES:
+        query_params["lang"] = [lang_code]
+        new_query = urlencode(query_params, doseq=True)
+        new_url = urlunparse(
+            (
+                "",
+                "",
+                parsed_url.path,
+                parsed_url.params,
+                new_query,
+                parsed_url.fragment,
+            )
+        )
+        change_language_urls.append((new_url, lang_name))
+
+    return change_language_urls
+
+
 # MARK: 共通変数
 def common_variables(
     BABEL_SUPPORTED_LOCALES,
@@ -242,7 +278,7 @@ def common_variables(
         dict: テンプレートで利用可能な共通変数の辞書。
             - year (int): 現在の年度
             - available_years (list): 利用可能な年度リスト
-            - lang_names (list): 言語コードと表示名のタプルリスト
+            - change_language_urls (list): 言語ごとのURLと表示名のタプルリスト
             - language (str): 現在の言語コード
             - is_translated (bool): 現在のページが翻訳済みかどうか
             - last_updated (str): 最終更新日時
@@ -262,6 +298,7 @@ def common_variables(
         year = datetime.now().year
 
     available_years = get_available_years()
+    change_language_urls = get_change_language_url(LANGUAGES, request.url)
     translated_urls = get_translated_urls()
     is_latest_year_flag = is_latest_year(year)
     is_early_access_flag = is_early_access(year)
@@ -269,9 +306,7 @@ def common_variables(
     return {
         "year": year,
         "available_years": available_years,
-        # 言語のタプルリスト [("ja", "日本語"), ("en", "English"), ...]
-        "lang_names": LANGUAGES,
-        # 現在の言語コード
+        "change_language_urls": change_language_urls,
         "language": session["language"]
         if "language" in session and session["language"] in BABEL_SUPPORTED_LOCALES
         else "ja",
@@ -336,8 +371,5 @@ def initialize_background_tasks(BABEL_SUPPORTED_LOCALES):
         - 各タスクはアプリケーションの初期化時に一度だけ実行されます。
     """
     Thread(target=delete_world_map).start()
-    Thread(
-        target=check_locale_paths_and_languages, args=(BABEL_SUPPORTED_LOCALES,)
-    ).start()
     Thread(target=get_available_years).start()
     Thread(target=get_translated_urls).start()

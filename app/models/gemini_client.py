@@ -101,10 +101,6 @@ class GeminiService:
                 print("レスポンスの処理前にエラーが発生しました", flush=True)
             return {}
 
-    # MARK: ask sync
-    def ask_sync(self, prompt: str):
-        return self.ask(prompt)
-
 
 # グローバルインスタンス
 gemini_service = GeminiService()

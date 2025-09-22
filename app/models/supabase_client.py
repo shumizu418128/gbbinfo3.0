@@ -13,6 +13,8 @@ from dotenv import load_dotenv
 from postgrest.exceptions import APIError
 from supabase import Client, create_client
 
+from app.config.config import PROMPT_TRANSLATE
+from app.models.gemini_client import gemini_service
 from app.util.filter_eq import Operator
 
 ALL_DATA = "*"
@@ -350,11 +352,11 @@ class SupabaseService:
         try:
             response = query.execute()
         except Exception as e:
-            print("SupabaseClient get_data error:", e)
+            print("SupabaseClient get_data error:", e, flush=True)
             return None
 
         # 取得したデータをキャッシュに保存
-        flask_cache.set(cache_key, response.data, timeout=15 * MINUTE)
+        flask_cache.set(cache_key, response.data, timeout=30 * MINUTE)
 
         if pandas:
             return pd.DataFrame(response.data, index=None)
@@ -395,7 +397,7 @@ class SupabaseService:
         try:
             response = query.execute()
         except Exception as e:
-            print("SupabaseClient get_tavily_data error:", e)
+            print("SupabaseClient get_tavily_data error:", e, flush=True)
             return None
 
         if len(response.data) == 0:
@@ -439,7 +441,7 @@ class SupabaseService:
 
         data = {
             "cache_key": cache_key,
-            "search_results": json.dumps(search_result, ensure_ascii=False),
+            "search_results": search_result,
         }
 
         # 失敗してもエラーにはしない
@@ -464,11 +466,11 @@ class SupabaseService:
         # ここに書かないと循環インポートになる
         from app.main import flask_cache
 
-        payload = {
-            "answer_translation": json.dumps(translated_answer, ensure_ascii=False),
+        data = {
+            "answer_translation": translated_answer,
         }
         try:
-            self.admin_client.table("Tavily").update(payload).eq(
+            self.admin_client.table("Tavily").update(data).eq(
                 "cache_key", cache_key
             ).execute()
         except APIError:
@@ -480,6 +482,88 @@ class SupabaseService:
                 cache_key + "_answer_translation", translated_answer, timeout=None
             )
 
+    # MARK: update country
+    def update_country_names(self, add_langs: list[str], remove_langs: list[str]):
+        """
+        Countryテーブルのnamesカラムを更新する
+
+        Args:
+            add_langs (list[str]): 追加する言語コードのリスト
+            remove_langs (list[str]): 削除する言語コードのリスト
+        """
+        # まず各国のnamesカラムを取得
+        countries = self.get_data("Country", columns=["iso_code", "names"], pandas=True)
+
+        if countries is None or countries.empty:
+            print("国データの取得に失敗しました", flush=True)
+            return
+
+        for index, row in countries.iterrows():
+            iso_code = row["iso_code"]
+            names = row["names"]
+            updated = False
+
+            # 0は出場者未定を表す国コード
+            if iso_code == 0:
+                for add_language in add_langs:
+                    names[add_language] = "-"
+                updated = True
+
+            # 9999は複数国籍チームを表す国コード
+            if iso_code == 9999:
+                continue
+
+            if not isinstance(names, dict):
+                print(f"国コード {iso_code} のnamesデータが辞書形式ではありません", flush=True)
+                continue
+
+            # 削除
+            for remove_language in remove_langs:
+                if remove_language in names:
+                    names.pop(remove_language)
+                    updated = True
+
+            # 追加
+            if 0 < iso_code < 9999:
+                for add_language in add_langs:
+                    if add_language not in names and "en" in names:
+                        # Geminiを使って翻訳
+                        prompt = PROMPT_TRANSLATE.format(
+                            lang=add_language, text=names["en"]
+                        )
+
+                        try:
+                            translation_result = gemini_service.ask(prompt)
+                            if (
+                                translation_result
+                                and "translated_text" in translation_result
+                            ):
+                                names[add_language] = translation_result[
+                                    "translated_text"
+                                ]
+                                updated = True
+                            else:
+                                print(
+                                    f"国コード {iso_code} の {add_language} 翻訳に失敗しました", flush=True
+                                )
+                        except Exception as e:
+                            print(f"国コード {iso_code} の翻訳中にエラー: {e}", flush=True)
+
+            # 更新されたデータを保存
+            if updated:
+                try:
+                    data = {
+                        "names": names,
+                    }
+                    self.admin_client.table("Country").update(data).eq(
+                        "iso_code", iso_code
+                    ).execute()
+                except Exception as e:
+                    print(f"国コード {iso_code} の保存中にエラー: {e}", flush=True)
+
 
 # グローバルインスタンス
 supabase_service = SupabaseService()
+
+# 国名を更新するときに使用
+# supabase_service.update_country_names(add_langs=["pt"], remove_langs=["zh_Hant_HK"])

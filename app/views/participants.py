@@ -251,3 +251,50 @@ def participants_country_specific_view(year: int):
         "participants": participants_data,
     }
     return render_template(f"common/{country_name}.html", **context)
+
+
+# MARK: 辞退者
+def cancels_view(year: int):
+    """指定された年の辞退者ページを表示するビュー関数。
+
+    Args:
+        year (int): 出場者データを取得する対象の年。
+    """
+    # 出場者データを取得
+    cancels_data = supabase_service.get_data(
+        table="Participant",
+        columns=["id", "name", "category", "ticket_class"],
+        join_tables={
+            "Category": ["name"],
+            "ParticipantMember": ["name"],
+        },
+        filters={f"is_cancelled__{Operator.EQUAL}": True, "year": year},
+    )
+    # supabaseから取得失敗した場合、500エラーを返す
+    if cancels_data is None:
+        abort(500)
+
+    cancels_data.sort(
+        key=lambda x: (
+            x["category"],  # カテゴリでソート
+            "Wildcard" in x["ticket_class"],  # Wildcard通過者は下
+            wildcard_rank_sort(x),  # Wildcardのランキング順にする
+            "GBB" not in x["ticket_class"],  # GBBによるシードは上
+        )
+    )
+
+    for cancel in cancels_data:
+        # 全員の名前を大文字に変換
+        cancel["name"] = cancel["name"].upper()
+
+        # カテゴリ名を取り出す
+        cancel["category"] = cancel["Category"]["name"]
+        cancel.pop("Category")
+
+        # メンバーがいればチームと判定
+        cancel["is_team"] = len(cancel["ParticipantMember"]) > 0
+
+    context = {
+        "cancels": cancels_data,
+    }
+    return render_template("common/cancels.html", **context)
