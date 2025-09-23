@@ -239,6 +239,7 @@ class SupabaseService:
         join_tables: Optional[dict] = None,
         filters: Optional[dict] = None,
         pandas: bool = False,
+        timeout: int = 30 * MINUTE,
         **filters_eq,
     ):
         """
@@ -251,6 +252,7 @@ class SupabaseService:
             join_tables (Optional[dict], optional): JOINするテーブルとそのカラムの指定。デフォルトはNone。
             filters (Optional[dict], optional): フィルタ条件を指定する辞書。デフォルトはNone。
             pandas (bool, optional): Trueの場合はpandas.DataFrameで返す。デフォルトはFalse。
+            timeout (int, optional): キャッシュの有効期限。デフォルトは30分。
             **filters_eq: その他、等価条件によるフィルタをキーワード引数で指定。
 
         Returns:
@@ -277,8 +279,7 @@ class SupabaseService:
         if cached_data is not None:
             if pandas:
                 return pd.DataFrame(cached_data, index=None)
-            else:
-                return cached_data
+            return cached_data
 
         # カラム指定の構築
         if join_tables:
@@ -356,12 +357,11 @@ class SupabaseService:
             return None
 
         # 取得したデータをキャッシュに保存
-        flask_cache.set(cache_key, response.data, timeout=30 * MINUTE)
+        flask_cache.set(cache_key, response.data, timeout=timeout)
 
         if pandas:
             return pd.DataFrame(response.data, index=None)
-        else:
-            return response.data
+        return response.data
 
     # MARK: ---
 

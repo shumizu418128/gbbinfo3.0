@@ -32,6 +32,7 @@ def get_available_years():
     year_data = supabase_service.get_data(
         table="Year",
         columns=["year"],
+        timeout=None,
     )
     available_years = [item["year"] for item in year_data]
     available_years.sort(reverse=True)
@@ -84,6 +85,7 @@ def get_translated_urls():
         columns=["year"],
         filters={f"categories__{Operator.IS_NOT}": None},
         pandas=True,
+        timeout=None,
     )
     available_years = year_data["year"].tolist()
 
@@ -201,6 +203,7 @@ def is_gbb_ended(year):
         table="Year",
         columns=["year", "ends_at"],
         filters={f"year__{Operator.EQUAL}": year},
+        timeout=None,
     )
     # 最新年度GBBの終了日を取得
     latest_year_ends_at = year_data[0]["ends_at"]
