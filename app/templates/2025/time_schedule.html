@@ -31,6 +31,14 @@
     </li>
   </ol>
 </div>
+<div class="button-container">
+  <a href="/{{ year }}/participants"><button>{{_("Wildcard結果")}} & {{_("出場者")}}</button></a>
+  {% if language == 'ko' %}
+    <a href="/{{ year }}/korea"><button>{{_("韓国代表")}}</button></a>
+  {% else %}
+    <a href="/{{ year }}/japan"><button>{{_("日本代表")}}</button></a>
+  {% endif %}
+</div>
 
 <h2 id="day1">Day1 - 10/31</h2>
 <table>
