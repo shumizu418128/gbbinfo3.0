@@ -43,7 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // スクロールイベントでドロップダウンの選択を更新 + スクロールバー
     window.addEventListener('scroll', () => {
-        updateDropdownSelection(headerArray, dropdown);
+        if (dropdown) {
+            updateDropdownSelection(headerArray, dropdown);
+        }
     });
 
     // スクロールバー
@@ -52,17 +54,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // 現在の位置情報を取得
         const currentOffsetTops = headerArray.map(header => header.offsetTop);
         const scrollPosition = window.scrollY + 51;
-        const dropdownIcon = document.querySelector('.headerDropdown-icon');
 
         if (scrollPosition < currentOffsetTops[0]) {
             dropdown.style.display = 'none';
-            dropdownIcon.style.display = 'none';
         } else {
             for (let index = headerArray.length - 1; index >= 0; index -= 1) {
                 if ((scrollPosition >= currentOffsetTops[index])) {
                     dropdown.value = index;
                     dropdown.style.display = '';
-                    dropdownIcon.style.display = '';
                     const dropdownWidth = dropdown.offsetWidth - 80;
                     const fontSize = calculateFontSize(headerArray[index].textContent, dropdownWidth);
                     dropdown.style.fontSize = `${fontSize}px`;
