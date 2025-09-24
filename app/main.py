@@ -68,7 +68,7 @@ class Config:
     BABEL_DEFAULT_TIMEZONE = "Asia/Tokyo"
     BABEL_TRANSLATION_DIRECTORIES = str(BASE_DIR / "app" / "translations")
     CACHE_DEFAULT_TIMEOUT = 0
-    CACHE_TYPE = "simple"
+    CACHE_TYPE = "filesystem"
     CACHE_DIR = str(BASE_DIR / "cache")
     DEBUG = False
     SECRET_KEY = os.getenv("SECRET_KEY")
