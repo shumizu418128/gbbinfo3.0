@@ -44,14 +44,23 @@ Important instructions:
 
 Text to translate: {text}"""
 
-    response = client.models.generate_content(
-        model="gemini-2.0-flash-lite",
-        contents=prompt,
-        config={
-            "response_mime_type": "application/json",
-            "response_schema": Translation,
-        },
-    )
+    while True:
+        try:
+            response = client.models.generate_content(
+                model="gemini-2.0-flash-lite",
+                contents=prompt,
+                config={
+                    "response_mime_type": "application/json",
+                    "response_schema": Translation,
+                },
+            )
+            break
+        except Exception as e:
+            if e.error.code == 503:
+                sleep(2)
+                continue
+            raise
+
     return response.parsed.translation
 
 
