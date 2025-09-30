@@ -94,15 +94,24 @@ def post_gemini_search(year: int, IS_LOCAL: bool, IS_PULL_REQUEST: bool):
 
         # 最大5回リトライ
         retry = 5
-        for _ in range(retry):
+        i = 0
+        while True:
             gemini_response = gemini_service.ask(prompt)
-            if gemini_response:
+            # urlを正しく作れた場合
+            if gemini_response.get("url") is not None:
                 url = create_url(
                     year,
                     gemini_response["url"],
                     gemini_response["parameter"],
                 )
                 break
+            # 503エラーは、失敗とはみなさず、リトライする
+            if gemini_response.get("error_code") == 503:
+                continue
+            # 失敗し続けた場合は500エラーを返す
+            i += 1
+            if i >= retry:
+                return jsonify({"url": ""}), 500
 
     # スプシに記録
     if IS_LOCAL is False and IS_PULL_REQUEST is False:

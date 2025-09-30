@@ -104,7 +104,6 @@ h1 {
     margin-bottom: 10px;
     text-align: center;
     font-weight: bold;
-    border-radius: 6px;
 }
 
 h2 {
@@ -116,14 +115,14 @@ h2 {
     font-weight: bold;
     margin-top: 100px;
     margin-bottom: 10px;
-    border-radius: 6px;
+    border-radius: 8px;
 }
 
 h3 {
     color: white;
     font-size: 20px;
     background: rgba(0, 0, 0, 0.4);
-    border-radius: 6px;
+    border-radius: 16px;
     text-align: center;
     margin-top: 15px;
     margin-bottom: 5px;

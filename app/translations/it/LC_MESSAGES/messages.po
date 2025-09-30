@@ -51,7 +51,7 @@ msgid "本戦審査員一覧"
 msgstr "Elenco dei Giudici della Fase Finale"
 
 #: templates/2024/rule.html:50 templates/2024/rule.html:316
-#: templates/2025/rule.html:49 templates/2025/rule.html:350
+#: templates/2025/rule.html:49 templates/2025/rule.html:361
 msgid "Wildcard審査員一覧"
 msgstr "Lista dei giudici Wildcard"
 
@@ -92,11 +92,11 @@ msgstr "Si prega di rivedere le regole."
 #: templates/2024/rule.html:324 templates/2025/rule.html:74
 #: templates/2025/rule.html:139 templates/2025/rule.html:165
 #: templates/2025/rule.html:195 templates/2025/rule.html:250
-#: templates/2025/rule.html:313 templates/2025/rule.html:355
+#: templates/2025/rule.html:313 templates/2025/rule.html:366
 #: templates/2025/wildcard_regulation.html:85
 #: templates/2025/wildcard_regulation.html:142
 #: templates/2025/wildcard_regulation.html:201
-#: templates/common/cancels.html:17 templates/common/japan.html:22
+#: templates/common/cancels.html:23 templates/common/japan.html:22
 #: templates/common/korea.html:22 templates/common/participants.html:128
 #: templates/others/participant_detail.html:31
 #: templates/others/participant_detail.html:136
@@ -149,9 +149,9 @@ msgstr "Testa di serie - GBB"
 #: templates/2024/rule.html:194 templates/2025/rule.html:138
 #: templates/2025/rule.html:164 templates/2025/rule.html:194
 #: templates/2025/wildcard_regulation.html:142
-#: templates/common/cancels.html:16 templates/common/japan.html:21
+#: templates/common/cancels.html:22 templates/common/japan.html:21
 #: templates/common/korea.html:21 templates/common/participants.html:44
-#: templates/common/participants.html:127 templates/common/result.html:51
+#: templates/common/participants.html:127 templates/common/result.html:57
 #: templates/others/participant_detail.html:63
 #: templates/others/participant_detail.html:135
 #: templates/others/participant_detail.html:198
@@ -161,7 +161,7 @@ msgstr "Nome"
 #: templates/2024/rule.html:144 templates/2024/rule.html:170
 #: templates/2024/rule.html:196 templates/2025/rule.html:140
 #: templates/2025/rule.html:166 templates/2025/rule.html:196
-#: templates/common/cancels.html:18 templates/common/japan.html:23
+#: templates/common/cancels.html:24 templates/common/japan.html:23
 #: templates/common/korea.html:23 templates/common/participants.html:46
 #: templates/common/participants.html:129
 #: templates/others/participant_detail.html:47
@@ -174,9 +174,9 @@ msgstr "Diritti di partecipazione"
 #: templates/2025/rule.html:186 templates/2025/rule.html:216
 #: templates/2025/stream.html:15 templates/2025/time_schedule.html:53
 #: templates/2025/time_schedule.html:81 templates/2025/time_schedule.html:109
-#: templates/2025/time_schedule.html:141 templates/common/cancels.html:32
+#: templates/2025/time_schedule.html:141 templates/common/cancels.html:38
 #: templates/common/participants.html:19 templates/common/participants.html:83
-#: templates/common/result.html:65
+#: templates/common/result.html:71
 msgid "～発表次第更新～"
 msgstr "～Aggiornamento al rilascio～"
 
@@ -189,7 +189,7 @@ msgid "シード権辞退者一覧"
 msgstr "Elenco rinunce al seeding"
 
 #: templates/2024/rule.html:203 templates/2025/rule.html:203
-#: templates/common/cancels.html:24 templates/common/japan.html:30
+#: templates/common/cancels.html:30 templates/common/japan.html:30
 #: templates/common/korea.html:31 templates/common/participants.html:54
 #: templates/others/participant_detail.html:21
 #: templates/others/participant_detail.html:71
@@ -203,7 +203,7 @@ msgstr "Rinuncia"
 
 #: templates/2024/rule.html:221 templates/2024/time_schedule.html:100
 #: templates/2024/time_schedule.html:230 templates/2025/rule.html:221
-#: templates/common/cancels.html:46
+#: templates/common/cancels.html:52
 #: templates/others/participant_detail.html:160
 #: templates/others/participant_detail.html:167
 msgid "出場者一覧"
@@ -308,7 +308,7 @@ msgstr "Giudici sconosciuti"
 msgid "例年発表なし"
 msgstr "Ogni anno, nessun annuncio."
 
-#: templates/2024/rule.html:318 templates/2025/rule.html:384
+#: templates/2024/rule.html:318 templates/2025/rule.html:395
 msgid "本戦審査員一覧はこちら"
 msgstr "L'elenco dei giudici della fase finale è qui."
 
@@ -491,9 +491,9 @@ msgstr "Sito di informazioni non ufficiale"
 
 #: templates/2024/top.html:40 templates/2024/top_7tosmoke.html:28
 #: templates/2025/top.html:154 templates/2025/top_7tosmoke.html:28
-#: templates/common/japan.html:13 templates/common/korea.html:13
-#: templates/common/participants.html:14
-#: templates/includes/popup_no_info.html:7
+#: templates/common/cancels.html:14 templates/common/japan.html:13
+#: templates/common/korea.html:13 templates/common/participants.html:14
+#: templates/common/result.html:13 templates/includes/popup_no_info.html:7
 msgid "最終更新"
 msgstr "最終更新"
 
@@ -513,10 +513,10 @@ msgstr "Annuncio dei risultati della diretta di Wildcard"
 #: templates/2024/top.html:91 templates/2024/wildcards.html:3
 #: templates/2024/wildcards.html:4 templates/2024/wildcards.html:5
 #: templates/2024/wildcards.html:9 templates/2025/rule.html:19
-#: templates/2025/rule.html:389 templates/2025/top.html:149
+#: templates/2025/rule.html:400 templates/2025/top.html:149
 #: templates/2025/wildcards.html:3 templates/2025/wildcards.html:4
 #: templates/2025/wildcards.html:5 templates/2025/wildcards.html:9
-#: templates/common/cancels.html:49 templates/common/participants.html:101
+#: templates/common/cancels.html:55 templates/common/participants.html:101
 #: templates/others/result_stream.html:40 templates/others/translation.html:25
 msgid "Wildcard一覧"
 msgstr "Elenco Wildcard"
@@ -674,6 +674,20 @@ msgid "Tag Team部門・Crew部門参加希望の方はご注意ください。"
 msgstr ""
 "Attenzione per chi desidera partecipare alle categorie Tag Team e Crew."
 
+#: templates/2025/rule.html:343
+msgid "レフェリー"
+msgstr "レフェリー"
+
+#: templates/2025/rule.html:351
+msgid "レフェリーについて"
+msgstr "レフェリーについて"
+
+#: templates/2025/rule.html:352
+msgid ""
+"レフェリーは、GBB23から導入された、審査員とは別のメンバーです。審査員は各出場者の評価を行うのに対し、レフェリーは「ルールを守っているか」を確認する役割を担います。"
+msgstr ""
+"レフェリーは、GBB23から導入された、審査員とは別のメンバーです。審査員は各出場者の評価を行うのに対し、レフェリーは「ルールを守っているか」を確認する役割を担います。"
+
 #: templates/2025/stream.html:14
 msgid "GBB24では本番8日前公開"
 msgstr "GBB24: Pubblicato 8 giorni prima dell'evento."
@@ -706,7 +720,7 @@ msgstr ""
 "DM lo sviluppatore di GBBINFO-JPN su Twitter."
 
 #: templates/2025/ticket.html:27 templates/common/japan.html:50
-#: templates/common/korea.html:62 templates/common/result.html:91
+#: templates/common/korea.html:62 templates/common/result.html:97
 #: templates/others/result_stream.html:18 templates/others/translation.html:19
 msgid "ルール & 審査員"
 msgstr "Regole & Giudici"
@@ -1123,22 +1137,22 @@ msgstr "Guida"
 #: templates/2024/rule.html:220 templates/2024/time_schedule.html:99
 #: templates/2024/time_schedule.html:229 templates/2024/top.html:47
 #: templates/2025/rule.html:67 templates/2025/rule.html:220
-#: templates/2025/rule.html:347 templates/2025/ticket.html:28
+#: templates/2025/rule.html:358 templates/2025/ticket.html:28
 #: templates/2025/time_schedule.html:88 templates/2025/top.html:105
 #: templates/2025/wildcards.html:14 templates/2025/wildcards.html:83
 #: templates/base.html:118 templates/base.html:266
-#: templates/common/participants.html:25 templates/common/result.html:92
+#: templates/common/participants.html:25 templates/common/result.html:98
 #: templates/includes/participants_form.html:13
 #: templates/others/result_stream.html:39
 msgid "Wildcard結果"
 msgstr "Risultati Wildcard"
 
 #: templates/2024/top.html:47 templates/2025/rule.html:67
-#: templates/2025/rule.html:347 templates/2025/ticket.html:28
+#: templates/2025/rule.html:358 templates/2025/ticket.html:28
 #: templates/2025/time_schedule.html:88 templates/2025/top.html:105
 #: templates/2025/wildcards.html:14 templates/2025/wildcards.html:83
 #: templates/base.html:118 templates/base.html:266
-#: templates/common/result.html:92 templates/others/result_stream.html:39
+#: templates/common/result.html:98 templates/others/result_stream.html:39
 msgid "出場者"
 msgstr "Partecipanti"
 
@@ -1158,7 +1172,7 @@ msgstr "Regole"
 
 #: templates/2024/rule.html:280 templates/2024/rule.html:325
 #: templates/2024/top.html:51 templates/2025/rule.html:314
-#: templates/2025/rule.html:356 templates/2025/time_schedule.html:60
+#: templates/2025/rule.html:367 templates/2025/time_schedule.html:60
 #: templates/2025/top.html:66 templates/2025/top.html:109
 #: templates/2025/wildcards.html:15 templates/2025/wildcards.html:84
 #: templates/base.html:119
@@ -1173,7 +1187,7 @@ msgstr "Giudici"
 #: templates/2024/top.html:55 templates/2024/top_7tosmoke.html:36
 #: templates/2025/rule.html:18 templates/2025/rule.html:66
 #: templates/2025/rule.html:238 templates/2025/rule.html:301
-#: templates/2025/rule.html:346 templates/2025/rule.html:388
+#: templates/2025/rule.html:357 templates/2025/rule.html:399
 #: templates/2025/time_schedule.html:59 templates/2025/time_schedule.html:115
 #: templates/2025/time_schedule.html:147 templates/2025/top.html:165
 #: templates/2025/top_7tosmoke.html:36 templates/2025/wildcards.html:112
@@ -1242,7 +1256,7 @@ msgstr "Trasmissione del giorno"
 #: templates/2025/top.html:80 templates/2025/top.html:142
 #: templates/base.html:133 templates/common/result.html:3
 #: templates/common/result.html:4 templates/common/result.html:5
-#: templates/common/result.html:9 templates/common/result.html:89
+#: templates/common/result.html:9 templates/common/result.html:95
 #: templates/others/participant_detail.html:161
 #: templates/others/participant_detail.html:168
 #: templates/others/participant_detail.html:244
@@ -1352,19 +1366,19 @@ msgstr "Se non vieni reindirizzato, utilizza il seguente pulsante:"
 msgid "トップページ"
 msgstr "Pagina principale"
 
-#: templates/common/cancels.html:37 templates/common/japan.html:59
+#: templates/common/cancels.html:43 templates/common/japan.html:59
 #: templates/common/korea.html:71 templates/common/participants.html:105
-#: templates/common/result.html:80
+#: templates/common/result.html:86
 msgid "その他の年度を確認："
 msgstr "Verifica altri anni:"
 
-#: templates/common/cancels.html:47 templates/common/japan.html:49
+#: templates/common/cancels.html:53 templates/common/japan.html:49
 #: templates/common/korea.html:61 templates/common/participants.html:99
-#: templates/common/result.html:90
+#: templates/common/result.html:96
 msgid "出場権詳細"
 msgstr "Dettagli dei diritti di partecipazione"
 
-#: templates/common/cancels.html:48 templates/common/japan.html:51
+#: templates/common/cancels.html:54 templates/common/japan.html:51
 #: templates/common/korea.html:63 templates/common/participants.html:100
 #: templates/others/result_stream.html:19
 msgid "Wildcard結果発表日"
@@ -1435,20 +1449,20 @@ msgstr "Risultati della ricerca"
 msgid "全出場者を地図にマッピングしました。"
 msgstr "Ho mappato tutti i partecipanti sulla mappa."
 
-#: templates/common/result.html:13 templates/common/result.html:70
+#: templates/common/result.html:19 templates/common/result.html:76
 #: templates/includes/participants_form.html:3
 msgid "部門選択"
 msgstr "Seleziona Dipartimento"
 
-#: templates/common/result.html:28
+#: templates/common/result.html:34
 msgid "勝ち"
 msgstr "Vittoria"
 
-#: templates/common/result.html:30
+#: templates/common/result.html:36
 msgid "負け"
 msgstr "Sconfitta"
 
-#: templates/common/result.html:50
+#: templates/common/result.html:56
 msgid "順位"
 msgstr "Classifica"
 

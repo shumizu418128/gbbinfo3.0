@@ -83,7 +83,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .button-container a button.disabled-button,
@@ -99,7 +99,7 @@ button {
     background-color: rgb(255, 100, 23);
     background-image: none;
     border-color: white;
-    transform: scale(1.05);
+    transform: translateY(1px);
 }
 
 @media (max-width: 768px) {
@@ -151,8 +151,7 @@ button {
     font-family: 'Noto sans JP';
     background-color: rgba(255, 255, 255, 0.5);
     padding: 10px;
-    border-radius: 6px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
 }
 
 .filter-select {
@@ -165,7 +164,7 @@ button {
     margin-bottom: 5px;
     border-radius: 6px;
     font-family: 'Noto sans JP';
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
 }
 
 .filter-select:focus {
@@ -186,10 +185,9 @@ button {
     left: 50%;
     transform: translateX(-50%);
     width: 101%;
-    display: block;
     z-index: 2;
     color: white;
-    background-color: rgba(0, 0, 0, 0.4);
+    background: linear-gradient(to bottom, rgb(0, 0, 0), rgba(0, 0, 0, 0));
     font-size: 24px;
     font-weight: bold;
     font-family: 'Noto sans JP';
@@ -198,10 +196,11 @@ button {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background-image: url('/static/images/icon/icon-arrow.webp');
-    background-repeat: no-repeat;
-    background-position: right 0px center;
-    background-size: 40px 40px;
+}
+
+.headerDropdown option {
+    background-color: white;
+    color: rgb(34, 34, 34);
 }
 
 .hamburger-menu {
@@ -215,10 +214,9 @@ button {
     position: fixed;
     bottom: 60px;
     right: 20px;
-    border-radius: 6px;
     z-index: 5;
     background-color: rgba(0, 0, 0, 0.4);
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.6);
 }
 
 .hamburger-menu p {
@@ -235,7 +233,6 @@ button {
     right: 20px;
     background: rgba(0, 0, 0, 0.5);
     padding: 5px;
-    border-radius: 6px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     z-index: 6;
     width: 70%;
@@ -305,7 +302,6 @@ button {
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%;
     height: 50px;
     z-index: 20;
 }
@@ -315,7 +311,7 @@ button {
     text-align: center;
     box-sizing: border-box;
     padding: 5px;
-    background: rgba(0, 0, 0, 0.4);
+    background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0));
     border: none;
     display: flex;
     align-items: center;
@@ -347,7 +343,6 @@ button {
     justify-content: center;
     align-items: center;
     transform: translate(-50%, -30%);
-    border-radius: 6px;
 }
 
 .close-button {
@@ -377,13 +372,11 @@ button {
     justify-content: center;
     align-items: center;
     transform: translate(-50%, -30%);
-    border-radius: 6px;
 }
 
 .dropdown-content {
     position: absolute;
     background-color: white;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.4);
     z-index: 3;
     bottom: 100%;
     left: 0%;
