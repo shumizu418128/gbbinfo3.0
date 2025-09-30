@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function calculateFontSize(text, maxWidth) {
-        let fontSize = 24;
+        let fontSize = 28;
         let textWidth = getTextWidth(text, fontSize);
         while (textWidth >= maxWidth) {
             fontSize -= 1;
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if ((scrollPosition >= currentOffsetTops[index])) {
                     dropdown.value = index;
                     dropdown.style.display = '';
-                    const dropdownWidth = dropdown.offsetWidth - 80;
+                    const dropdownWidth = dropdown.offsetWidth - 40;
                     const fontSize = calculateFontSize(headerArray[index].textContent, dropdownWidth);
                     dropdown.style.fontSize = `${fontSize}px`;
                     break;
