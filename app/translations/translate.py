@@ -35,7 +35,7 @@ class Translation(BaseModel):
 
 def gemini_translate(text, lang):
     client = genai.Client()
-    prompt = f"""Translate the following text to {lang}.
+    prompt = f"""Translate the following text to language code:'{lang}'.
 Important instructions:
 1. Return ONLY the translated text
 2. Do NOT add any placeholders or variables that weren't in the original text
@@ -72,10 +72,17 @@ def translate(path, lang):
         print(f"Error reading {path}: {e}")
         raise
 
+    ZH = ["zh_Hans_CN", "zh_Hant_TW"]
+
     # エスケープが異常に多い場合は fuzzy フラグを付与
     for entry in po.translated_entries():
         if "\\" in entry.msgstr:
             entry.flags.append("fuzzy")
+        if entry.msgid == entry.msgstr:  # 同じ言葉で
+            if lang not in ZH:  # 中国語ではない場合はフラグを付与
+                entry.flags.append("fuzzy")
+            elif len(entry.msgid) > 10:  # 中国語でも、10文字以上は fuzzy フラグを付与
+                entry.flags.append("fuzzy")
 
     po.save(path)  # プレースホルダーの検証結果を保存
     po = polib.pofile(path)  # 再度ファイルを読み込む
@@ -87,31 +94,48 @@ def translate(path, lang):
         print(msgids)
 
     for entry in tqdm(untranslated_entries, desc=f"{lang} の翻訳"):
-        # ダブルクオーテーションが含まれている場合、翻訳失敗することがあるので対処
-        if '"' in entry.msgid:
-            raise Exception(f"{lang}: {entry.msgid}")
+        while True:
+            # ダブルクオーテーションが含まれている場合、翻訳失敗することがあるので対処
+            if '"' in entry.msgid:
+                raise Exception(f"{lang}: {entry.msgid}")
 
-        # 翻訳を依頼
-        translation = gemini_translate(
-            text=entry.msgid,
-            lang=lang,
-        )
+            # 翻訳を依頼
+            translation = gemini_translate(
+                text=entry.msgid,
+                lang=lang,
+            )
 
-        # 翻訳結果を保存
-        entry.msgstr = translation
+            # 翻訳結果を保存
+            entry.msgstr = translation
 
-        # fuzzy フラグを削除
-        if "fuzzy" in entry.flags:
-            entry.flags.remove("fuzzy")
-        sleep(2)
+            # fuzzy フラグを削除
+            if "fuzzy" in entry.flags:
+                entry.flags.remove("fuzzy")
+            sleep(2)
+
+            if entry.msgid != entry.msgstr:
+                break
+
+            # 中国語は重複を許可
+            if lang in ZH:
+                break
+
+            print(entry.msgid, entry.msgstr)
+            print("翻訳失敗")
+            po.save(path)
+            po = polib.pofile(path)
 
     po.save(path)
 
 
 def main():
     # Generate translation messages
-    os.system(f"cd {BASE_DIR} && pybabel extract --omit-header --no-wrap --sort-by-file -F babel.cfg -o {POT_FILE} .")
-    os.system(f"cd {BASE_DIR} && pybabel update --omit-header --no-wrap -i {POT_FILE} -d {LOCALE_DIR}")
+    os.system(
+        f"cd {BASE_DIR} && pybabel extract --omit-header --no-wrap --sort-by-file -F babel.cfg -o {POT_FILE} ."
+    )
+    os.system(
+        f"cd {BASE_DIR} && pybabel update --omit-header --no-wrap -i {POT_FILE} -d {LOCALE_DIR}"
+    )
 
     for lang in BABEL_SUPPORTED_LOCALES:
         path = os.path.join(LOCALE_DIR, lang, "LC_MESSAGES", "messages.po")
