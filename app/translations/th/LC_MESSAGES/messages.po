@@ -344,7 +344,7 @@ msgstr "ตั๋วぴあ"
 
 #: templates/2024/ticket.html:15
 msgid "楽天チケット"
-msgstr "楽天チケット"
+msgstr "ราคุเท็นทิคเก็ต"
 
 #: templates/2024/time_schedule.html:11 templates/2025/time_schedule.html:12
 msgid "時刻はあくまでも予定です。"
@@ -701,9 +701,8 @@ msgid "購入を希望する場合、ご本人様へ直接DM or リプライに�
 msgstr "หากต้องการซื้อ กรุณาติดต่อผู้ขายโดยตรงทาง DM หรือ reply"
 
 #: templates/2025/ticket.html:22
-msgid "10月1日 掲載開始予定 (現在掲載希望の方を募集中)"
-msgstr ""
-"จะเริ่มเผยแพร่ในวันที่ 1 ตุลาคม (ขณะนี้เรากำลังมองหาผู้ที่ต้องการเผยแพร่)"
+msgid "掲載申込があり次第、掲載開始予定 (現在掲載申込を募集中)"
+msgstr "มีแผนจะเริ่มโพสต์เมื่อมีการสมัครโพสต์ (ตอนนี้กำลังรับสมัคร)"
 
 #: templates/2025/ticket.html:23
 msgid "譲渡希望ツイートの掲載をご希望の場合、GBBINFO-JPN開発者 TwitterへDMにてご連絡ください。"
@@ -1302,7 +1301,9 @@ msgstr "กลับไปหน้าแรก"
 
 #: templates/2025/ticket.html:24 templates/base.html:285
 msgid "GBBINFO-JPN開発者 Twitter"
-msgstr "GBBINFO-JPN開発者 Twitter"
+msgstr ""
+"GBBINFO-JPN\n"
+"นักพัฒนา Twitter"
 
 #: templates/base.html:287
 msgid "GBBINFO-JPNについて"

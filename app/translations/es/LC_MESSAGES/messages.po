@@ -339,7 +339,7 @@ msgstr "Resultados de comodín & Participantes"
 #: templates/2025/ticket.html:9 templates/2025/top_7tosmoke.html:35
 #: templates/others/translation.html:22
 msgid "会場 & チケット"
-msgstr "会場 & チケット"
+msgstr "Lugar & Entradas"
 
 #: templates/2024/ticket.html:10
 msgid "【完売】公式販売"
@@ -351,7 +351,7 @@ msgstr "Tickets Pia"
 
 #: templates/2024/ticket.html:15
 msgid "楽天チケット"
-msgstr "楽天チケット"
+msgstr "Rakuten Ticket"
 
 #: templates/2024/time_schedule.html:11 templates/2025/time_schedule.html:12
 msgid "時刻はあくまでも予定です。"
@@ -398,7 +398,7 @@ msgstr "Apertura de puertas"
 #: templates/2024/time_schedule.html:61 templates/2024/time_schedule.html:118
 #: templates/2024/time_schedule.html:175 templates/2024/time_schedule.html:256
 msgid "ABEMA配信スタート"
-msgstr "ABEMA配信スタート"
+msgstr "Comienza la transmisión de ABEMA"
 
 #: templates/2024/time_schedule.html:65 templates/2024/time_schedule.html:122
 #: templates/2024/time_schedule.html:179
@@ -726,8 +726,10 @@ msgstr ""
 "respuesta."
 
 #: templates/2025/ticket.html:22
-msgid "10月1日 掲載開始予定 (現在掲載希望の方を募集中)"
-msgstr "Se publicará el 1 de octubre (ahora se buscan candidatos)"
+msgid "掲載申込があり次第、掲載開始予定 (現在掲載申込を募集中)"
+msgstr ""
+"La publicación comenzará tan pronto como se reciba la solicitud (ahora se "
+"aceptan solicitudes)"
 
 #: templates/2025/ticket.html:23
 msgid "譲渡希望ツイートの掲載をご希望の場合、GBBINFO-JPN開発者 TwitterへDMにてご連絡ください。"
@@ -1355,7 +1357,7 @@ msgstr "Volver a la página principal"
 
 #: templates/2025/ticket.html:24 templates/base.html:285
 msgid "GBBINFO-JPN開発者 Twitter"
-msgstr "GBBINFO-JPN開発者 Twitter"
+msgstr "GBBINFO-JPN desarrolladores Twitter"
 
 #: templates/base.html:287
 msgid "GBBINFO-JPNについて"

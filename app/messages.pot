@@ -642,7 +642,7 @@ msgid "購入を希望する場合、ご本人様へ直接DM or リプライに�
 msgstr ""
 
 #: templates/2025/ticket.html:22
-msgid "10月1日 掲載開始予定 (現在掲載希望の方を募集中)"
+msgid "掲載申込があり次第、掲載開始予定 (現在掲載申込を募集中)"
 msgstr ""
 
 #: templates/2025/ticket.html:23

@@ -473,7 +473,7 @@ msgstr "非官方資訊網站"
 #: templates/common/korea.html:13 templates/common/participants.html:14
 #: templates/common/result.html:13 templates/includes/popup_no_info.html:7
 msgid "最終更新"
-msgstr "最終更新"
+msgstr "最後更新"
 
 #: templates/2024/top.html:80
 msgid "みんなで鑑賞会"
@@ -655,12 +655,12 @@ msgid "購入を希望する場合、ご本人様へ直接DM or リプライに�
 msgstr "如欲購買，請直接DM或回覆給本人。"
 
 #: templates/2025/ticket.html:22
-msgid "10月1日 掲載開始予定 (現在掲載希望の方を募集中)"
-msgstr "10月1日 預計刊登 (現正招募希望刊登者)"
+msgid "掲載申込があり次第、掲載開始予定 (現在掲載申込を募集中)"
+msgstr "刊登申請一旦提出，即可開始刊登 (目前正招募刊登申請)"
 
 #: templates/2025/ticket.html:23
 msgid "譲渡希望ツイートの掲載をご希望の場合、GBBINFO-JPN開発者 TwitterへDMにてご連絡ください。"
-msgstr "譲渡希望ツイートの掲載をご希望の場合、GBBINFO-JPN開発者 TwitterへDMにてご連絡ください。"
+msgstr "如欲刊登轉讓推文，請透過 Twitter DM 聯繫 GBBINFO-JPN 開發者。"
 
 #: templates/2025/ticket.html:27 templates/common/japan.html:50
 #: templates/common/korea.html:62 templates/common/result.html:97

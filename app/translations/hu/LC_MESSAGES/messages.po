@@ -711,8 +711,10 @@ msgstr ""
 " személyes üzenetekben vagy a válaszokban."
 
 #: templates/2025/ticket.html:22
-msgid "10月1日 掲載開始予定 (現在掲載希望の方を募集中)"
-msgstr "Megjelenés: október 1. (Jelenleg várjuk a jelentkezőket)"
+msgid "掲載申込があり次第、掲載開始予定 (現在掲載申込を募集中)"
+msgstr ""
+"Amint a hirdetési kérelmek megérkeznek, a közzététel megkezdődik (jelenleg "
+"hirdetési kérelmeket gyűjtünk)."
 
 #: templates/2025/ticket.html:23
 msgid "譲渡希望ツイートの掲載をご希望の場合、GBBINFO-JPN開発者 TwitterへDMにてご連絡ください。"

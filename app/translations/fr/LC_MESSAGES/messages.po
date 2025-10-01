@@ -338,7 +338,7 @@ msgstr "Résultats Wildcard & Participants"
 #: templates/2025/ticket.html:9 templates/2025/top_7tosmoke.html:35
 #: templates/others/translation.html:22
 msgid "会場 & チケット"
-msgstr "会場 & チケット"
+msgstr "Lieu & Billets"
 
 #: templates/2024/ticket.html:10
 msgid "【完売】公式販売"
@@ -727,10 +727,10 @@ msgstr ""
 "concernée par DM ou via un reply."
 
 #: templates/2025/ticket.html:22
-msgid "10月1日 掲載開始予定 (現在掲載希望の方を募集中)"
+msgid "掲載申込があり次第、掲載開始予定 (現在掲載申込を募集中)"
 msgstr ""
-"Publication prévue le 1er octobre (nous recherchons actuellement des "
-"personnes souhaitant publier)"
+"La publication débutera dès réception de la demande de publication (nous "
+"recrutons actuellement des candidats pour la publication)."
 
 #: templates/2025/ticket.html:23
 msgid "譲渡希望ツイートの掲載をご希望の場合、GBBINFO-JPN開発者 TwitterへDMにてご連絡ください。"

@@ -717,8 +717,10 @@ msgstr ""
 "balasan."
 
 #: templates/2025/ticket.html:22
-msgid "10月1日 掲載開始予定 (現在掲載希望の方を募集中)"
-msgstr "Dijangka mula diterbitkan pada 1 Oktober (kini menerima permohonan)"
+msgid "掲載申込があり次第、掲載開始予定 (現在掲載申込を募集中)"
+msgstr ""
+"Permohonan penyenaraian akan bermula sebaik sahaja permohonan penyenaraian "
+"diterima (kini menerima permohonan penyenaraian)"
 
 #: templates/2025/ticket.html:23
 msgid "譲渡希望ツイートの掲載をご希望の場合、GBBINFO-JPN開発者 TwitterへDMにてご連絡ください。"

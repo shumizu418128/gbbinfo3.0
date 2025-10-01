@@ -715,8 +715,10 @@ msgstr ""
 "கொள்ளவும்."
 
 #: templates/2025/ticket.html:22
-msgid "10月1日 掲載開始予定 (現在掲載希望の方を募集中)"
-msgstr "10月1日 வெளியிட தொடங்கும் (தற்போது வெளியிட விரும்புவோரை வரவேற்கிறோம்)"
+msgid "掲載申込があり次第、掲載開始予定 (現在掲載申込を募集中)"
+msgstr ""
+"பதிவு விண்ணப்பம் கிடைத்தவுடன் வெளியீடு தொடங்கும் (தற்போது பதிவு "
+"விண்ணப்பங்கள் வரவேற்கப்படுகின்றன)"
 
 #: templates/2025/ticket.html:23
 msgid "譲渡希望ツイートの掲載をご希望の場合、GBBINFO-JPN開発者 TwitterへDMにてご連絡ください。"
@@ -1346,7 +1348,7 @@ msgstr "வீட்டிற்கு திரும்பவும்"
 
 #: templates/2025/ticket.html:24 templates/base.html:285
 msgid "GBBINFO-JPN開発者 Twitter"
-msgstr "GBBINFO-JPN開発者 Twitter"
+msgstr "GBBINFO-JPN டெவலப்பர் ட்விட்டர்"
 
 #: templates/base.html:287
 msgid "GBBINFO-JPNについて"

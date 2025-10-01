@@ -121,7 +121,7 @@ msgstr ""
 
 #: templates/2024/rule.html:122 templates/2025/rule.html:119
 msgid "Producerとは"
-msgstr "Producerとは"
+msgstr "Cos'è il Producer"
 
 #: templates/2024/rule.html:123 templates/2025/rule.html:121
 msgid ""
@@ -495,7 +495,7 @@ msgstr "Sito di informazioni non ufficiale"
 #: templates/common/korea.html:13 templates/common/participants.html:14
 #: templates/common/result.html:13 templates/includes/popup_no_info.html:7
 msgid "最終更新"
-msgstr "最終更新"
+msgstr "Ultimo aggiornamento"
 
 #: templates/2024/top.html:80
 msgid "みんなで鑑賞会"
@@ -655,7 +655,10 @@ msgstr "ルールには「シード権大会においてGBB出場権が与えら
 msgid ""
 "例：シード権大会優勝者が、すでにWildcardで出場権を獲得していた場合、シード権大会2位ではなく、Wildcard下位からの繰り上げが行われます。"
 msgstr ""
-"例：シード権大会優勝者が、すでにWildcardで出場権を獲得していた場合、シード権大会2位ではなく、Wildcard下位からの繰り上げが行われます。"
+"Esempio: se il vincitore del torneo di seed ha già ottenuto il diritto di "
+"partecipazione tramite Wildcard, il posto non verrà assegnato al secondo "
+"classificato del torneo di seed, ma verrà ripescato dal successivo "
+"classificato nella graduatoria Wildcard."
 
 #: templates/2025/rule.html:257 templates/2025/wildcard_regulation.html:208
 msgid "制限時間を使い切らず余らせた場合、3秒につき最終順位を1つ下げる"
@@ -676,17 +679,19 @@ msgstr ""
 
 #: templates/2025/rule.html:343
 msgid "レフェリー"
-msgstr "レフェリー"
+msgstr "arbitro"
 
 #: templates/2025/rule.html:351
 msgid "レフェリーについて"
-msgstr "レフェリーについて"
+msgstr "Informazioni sull'arbitro"
 
 #: templates/2025/rule.html:352
 msgid ""
 "レフェリーは、GBB23から導入された、審査員とは別のメンバーです。審査員は各出場者の評価を行うのに対し、レフェリーは「ルールを守っているか」を確認する役割を担います。"
 msgstr ""
-"レフェリーは、GBB23から導入された、審査員とは別のメンバーです。審査員は各出場者の評価を行うのに対し、レフェリーは「ルールを守っているか」を確認する役割を担います。"
+"L'arbitro, introdotto dal GBB23, è un membro diverso dai giudici. Mentre i "
+"giudici valutano ogni concorrente, l'arbitro ha il ruolo di verificare se "
+"\"le regole sono state rispettate\"."
 
 #: templates/2025/stream.html:14
 msgid "GBB24では本番8日前公開"
@@ -710,8 +715,11 @@ msgstr ""
 "tramite DM o reply."
 
 #: templates/2025/ticket.html:22
-msgid "10月1日 掲載開始予定 (現在掲載希望の方を募集中)"
-msgstr "掲載開始予定 10月1日 (現在掲載希望の方を募集中)"
+msgid "掲載申込があり次第、掲載開始予定 (現在掲載申込を募集中)"
+msgstr ""
+"Non appena riceviamo le richieste di pubblicazione, inizieremo la "
+"pubblicazione (stiamo attualmente raccogliendo le richieste di "
+"pubblicazione)"
 
 #: templates/2025/ticket.html:23
 msgid "譲渡希望ツイートの掲載をご希望の場合、GBBINFO-JPN開発者 TwitterへDMにてご連絡ください。"
@@ -796,7 +804,7 @@ msgstr "Lista di tutti i partecipanti"
 #: templates/common/cancels.html:5 templates/common/cancels.html:10
 #: templates/common/participants.html:143
 msgid "辞退者一覧"
-msgstr "辞退者一覧"
+msgstr "Elenco dei rinunciatari"
 
 #: templates/2025/top.html:94 templates/includes/popup_early_access.html:8
 #: templates/includes/popup_ended.html:14
@@ -1096,12 +1104,12 @@ msgid ""
 "Swissbeatboxが主催するHuman Beatboxの世界大会「Grand Beatbox "
 "Battle」の各種情報を、見やすくまとめたサイトです。"
 msgstr ""
-"Swissbeatboxが主催するHuman Beatboxの世界大会「Grand Beatbox "
-"Battle」の各種情報を、見やすくまとめたサイトです。"
+"È un sito che fornisce informazioni sul Grand Beatbox Battle, la "
+"competizione mondiale di Human Beatbox organizzata da Swissbeatbox."
 
 #: templates/base.html:112 templates/base.html:115
 msgid "メニュー"
-msgstr "メニュー"
+msgstr "Menu"
 
 #: templates/2024/rule.html:22 templates/2024/rule.html:71
 #: templates/2024/rule.html:130 templates/2024/rule.html:228
@@ -1338,7 +1346,7 @@ msgstr "Torna alla pagina principale"
 
 #: templates/2025/ticket.html:24 templates/base.html:285
 msgid "GBBINFO-JPN開発者 Twitter"
-msgstr "GBBINFO-JPN開発者 Twitter"
+msgstr "GBBINFO-JPN sviluppatori Twitter"
 
 #: templates/base.html:287
 msgid "GBBINFO-JPNについて"
@@ -1426,7 +1434,7 @@ msgstr "Partecipanti & Rinunce"
 #: templates/others/participant_detail.html:103
 #: templates/others/participant_detail.html:199
 msgid "国"
-msgstr "国"
+msgstr "Paese"
 
 #: templates/common/participants.html:114
 #: templates/common/participants.html:117
@@ -1481,7 +1489,7 @@ msgstr "This is the GBB {year} page, which still has little information."
 #: templates/includes/popup_early_access.html:6
 #, python-brace-format
 msgid "GBB {year} の情報はこちら"
-msgstr "GBB {year} の情報はこちら"
+msgstr "Informazioni su GBB {year} qui"
 
 #: templates/includes/ended.html:3 templates/includes/popup_ended.html:6
 msgid "中止"
@@ -1540,7 +1548,9 @@ msgstr "Siti correlati"
 
 #: templates/others/participant_detail.html:182
 msgid "表示されている関連サイトやSNS情報・紹介文は、自動検索によって取得されたものです。"
-msgstr "表示されている関連サイトやSNS情報・紹介文は、自動検索によって取得されたものです。"
+msgstr ""
+"Le informazioni sui siti correlati, sui social network e le descrizioni "
+"mostrate sono state ottenute tramite ricerca automatica."
 
 #: templates/others/participant_detail.html:183
 msgid "内容に誤りが含まれている可能性があります。"

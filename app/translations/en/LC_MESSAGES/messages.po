@@ -713,10 +713,10 @@ msgstr ""
 "If you wish to purchase, please contact the person directly via DM or reply."
 
 #: templates/2025/ticket.html:22
-msgid "10月1日 掲載開始予定 (現在掲載希望の方を募集中)"
+msgid "掲載申込があり次第、掲載開始予定 (現在掲載申込を募集中)"
 msgstr ""
-"To be published on October 1st (currently recruiting those who wish to "
-"publish)"
+"Publication will start as soon as an application is received (currently "
+"accepting applications)."
 
 #: templates/2025/ticket.html:23
 msgid "譲渡希望ツイートの掲載をご希望の場合、GBBINFO-JPN開発者 TwitterへDMにてご連絡ください。"

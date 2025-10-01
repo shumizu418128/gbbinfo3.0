@@ -722,12 +722,16 @@ msgstr ""
 "direkt per DM oder Reply."
 
 #: templates/2025/ticket.html:22
-msgid "10月1日 掲載開始予定 (現在掲載希望の方を募集中)"
-msgstr "Veröffentlichung am 1. Oktober geplant (Interessenten werden gesucht)"
+msgid "掲載申込があり次第、掲載開始予定 (現在掲載申込を募集中)"
+msgstr ""
+"Nachdem ein Eintrag beantragt wurde, ist eine Veröffentlichung geplant "
+"(derzeit werden Einträge entgegengenommen)"
 
 #: templates/2025/ticket.html:23
 msgid "譲渡希望ツイートの掲載をご希望の場合、GBBINFO-JPN開発者 TwitterへDMにてご連絡ください。"
-msgstr "譲渡希望ツイートの掲載をご希望の場合、GBBINFO-JPN開発者 TwitterへDMにてご連絡ください。"
+msgstr ""
+"Wenn Sie eine Übertragung von Tweets veröffentlichen möchten, wenden Sie "
+"sich bitte per DM an den GBBINFO-JPN-Entwickler Twitter."
 
 #: templates/2025/ticket.html:27 templates/common/japan.html:50
 #: templates/common/korea.html:62 templates/common/result.html:97
@@ -1598,7 +1602,9 @@ msgstr "Geschäftsjahr: 2024 und später"
 
 #: templates/others/translation.html:30
 msgid "なお、翻訳対応言語は、アクセス状況に応じて随時追加予定です。"
-msgstr "なお、翻訳対応言語は、アクセス状況に応じて随時追加予定です。"
+msgstr ""
+"Die unterstützten Übersetzungssprachen werden je nach Zugriffssituation "
+"laufend erweitert."
 
 #: templates/others/translation.html:32
 msgid "翻訳を提供していないページは、原文である日本語で表示されます。"

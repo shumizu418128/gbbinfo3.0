@@ -190,7 +190,7 @@ msgstr "种子选手弃权者名单"
 #: templates/others/participant_detail.html:144
 #: templates/others/participant_detail.html:208
 msgid "辞退"
-msgstr "辞退"
+msgstr "弃权"
 
 #: templates/2024/rule.html:221 templates/2024/time_schedule.html:100
 #: templates/2024/time_schedule.html:230 templates/2025/rule.html:221
@@ -363,7 +363,7 @@ msgstr "时刻"
 #: templates/2025/time_schedule.html:40 templates/2025/time_schedule.html:68
 #: templates/2025/time_schedule.html:96 templates/2025/time_schedule.html:128
 msgid "内容"
-msgstr "内容"
+msgstr "项目"
 
 #: templates/2024/time_schedule.html:57 templates/2024/time_schedule.html:114
 #: templates/2024/time_schedule.html:171 templates/2024/time_schedule.html:244
@@ -657,12 +657,12 @@ msgid "購入を希望する場合、ご本人様へ直接DM or リプライに�
 msgstr "如需购买，请直接通过DM或回复联系本人。"
 
 #: templates/2025/ticket.html:22
-msgid "10月1日 掲載開始予定 (現在掲載希望の方を募集中)"
-msgstr "10月1日 开始刊登预定 (现正招募希望刊登者)"
+msgid "掲載申込があり次第、掲載開始予定 (現在掲載申込を募集中)"
+msgstr "收到刊登申请后，预计开始刊登（目前正在接受刊登申请）"
 
 #: templates/2025/ticket.html:23
 msgid "譲渡希望ツイートの掲載をご希望の場合、GBBINFO-JPN開発者 TwitterへDMにてご連絡ください。"
-msgstr "譲渡希望ツイートの掲載をご希望の場合、GBBINFO-JPN開発者 TwitterへDMにてご連絡ください。"
+msgstr "如果您希望发布转让推文，请通过Twitter私信联系GBBINFO-JPN开发者。"
 
 #: templates/2025/ticket.html:27 templates/common/japan.html:50
 #: templates/common/korea.html:62 templates/common/result.html:97
@@ -1299,7 +1299,7 @@ msgstr "仅限退赛者"
 
 #: templates/common/participants.html:37
 msgid "出場者 & 辞退者を表示"
-msgstr "出場者 & 辞退者を表示"
+msgstr "显示参赛者 & 退出者"
 
 #: templates/common/participants.html:45
 #: templates/others/participant_detail.html:39
