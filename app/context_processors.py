@@ -202,26 +202,14 @@ def is_gbb_ended(year):
     year_data = supabase_service.get_data(
         table="Year",
         columns=["year", "ends_at"],
-        filters={f"year__{Operator.EQUAL}": year},
         timeout=None,
     )
-    # 最新年度GBBの終了日を取得
-    latest_year_ends_at = year_data[0]["ends_at"]
-
-    # 最新年度終了日がない場合、1つ前のGBB終了日を取得
-    if latest_year_ends_at is None:
-        latest_year_ends_at = year_data[1]["ends_at"]
-
-    # latest_year_ends_atが文字列の場合はdatetime型に変換
-    if isinstance(latest_year_ends_at, str):
-        latest_year_ends_at = parser.parse(latest_year_ends_at)
-
-    # latest_year_ends_atがナイーブな場合はタイムゾーンを適用
-    if latest_year_ends_at and latest_year_ends_at.tzinfo is None:
-        latest_year_ends_at = latest_year_ends_at.replace(tzinfo=timezone.utc)
-
-    is_gbb_ended_cache[year] = latest_year_ends_at < now
-    return is_gbb_ended_cache[year]
+    # GBBが終了したか調べる
+    for item in year_data:
+        if item["year"] == year and item["ends_at"]:
+            datetime_ends_at = parser.parse(item["ends_at"])
+            return datetime_ends_at < now
+    return False
 
 
 # MARK: 言語URL
