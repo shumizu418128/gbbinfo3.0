@@ -68,6 +68,103 @@ Text to translate: {text}"""
     return response.parsed.translation
 
 
+def reuse_obsolete_translations(po):
+    """
+    コメントアウトされた翻訳（obsolete entries）を再利用する。
+
+    Args:
+        po: polib.POFile オブジェクト
+    """
+    # コメントアウトされたエントリを取得
+    obsolete_entries = po.obsolete_entries()
+
+    if not obsolete_entries:
+        return
+
+    print(f"Found {len(obsolete_entries)} obsolete translations to check for reuse")
+
+    # 現在のエントリの辞書を作成（msgid -> entry）
+    current_entries = {entry.msgid: entry for entry in po}
+
+    reused_count = 0
+
+    for obsolete_entry in obsolete_entries:
+        # コメントアウトされた翻訳に有効なmsgstrがある場合
+        if obsolete_entry.msgstr and obsolete_entry.msgstr.strip():
+            # 同じmsgidの現在のエントリが存在し、未翻訳またはfuzzyの場合
+            if obsolete_entry.msgid in current_entries:
+                current_entry = current_entries[obsolete_entry.msgid]
+
+                # 未翻訳またはfuzzyの場合のみ再利用
+                if (
+                    not current_entry.msgstr
+                    or current_entry.msgstr.strip() == ""
+                    or "fuzzy" in current_entry.flags
+                ):
+                    # 翻訳を再利用
+                    current_entry.msgstr = obsolete_entry.msgstr
+
+                    # fuzzyフラグを削除
+                    if "fuzzy" in current_entry.flags:
+                        current_entry.flags.remove("fuzzy")
+
+                    # コメントに再利用の情報を追加
+                    if not current_entry.comment:
+                        current_entry.comment = ""
+                    current_entry.comment += "\nReused from obsolete translation"
+
+                    reused_count += 1
+                    print(f"Reused translation for: {obsolete_entry.msgid[:50]}...")
+
+    print(f"Reused {reused_count} translations from obsolete entries")
+
+
+def prioritize_existing_translations(po, untranslated_entries):
+    """
+    既存の翻訳を優先的に使用する。
+    同じmsgidの翻訳が既に存在する場合、それを優先的に使用する。
+
+    Args:
+        po: polib.POFile オブジェクト
+        untranslated_entries: 未翻訳エントリのリスト
+    """
+    # 全てのエントリの辞書を作成（msgid -> entry）
+    # all_entries = {entry.msgid: entry for entry in po}
+
+    prioritized_count = 0
+
+    for entry in untranslated_entries[
+        :
+    ]:  # コピーを作成してイテレーション中にリストを変更
+        # 同じmsgidの他のエントリを検索
+        for other_entry in po:
+            if (
+                other_entry.msgid == entry.msgid
+                and other_entry != entry
+                and other_entry.msgstr
+                and other_entry.msgstr.strip()
+            ):
+                # 既存の翻訳をコピー
+                entry.msgstr = other_entry.msgstr
+
+                # fuzzyフラグを削除
+                if "fuzzy" in entry.flags:
+                    entry.flags.remove("fuzzy")
+
+                # コメントに優先使用の情報を追加
+                if not entry.comment:
+                    entry.comment = ""
+                entry.comment += "\nReused from existing translation"
+
+                # 未翻訳リストから削除
+                untranslated_entries.remove(entry)
+                prioritized_count += 1
+                print(f"Prioritized existing translation for: {entry.msgid[:50]}...")
+                break
+
+    print(f"Prioritized {prioritized_count} existing translations")
+
+
 def translate(path, lang):
     try:
         print(f"Processing {lang}: {path}")
@@ -77,6 +174,9 @@ def translate(path, lang):
         raise
 
     ZH = ["zh_Hans_CN", "zh_Hant_TW"]
+
+    # コメントアウトされた翻訳を再利用
+    reuse_obsolete_translations(po)
 
     # エスケープが異常に多い場合は fuzzy フラグを付与
     for entry in po.translated_entries():
@@ -96,6 +196,9 @@ def translate(path, lang):
     msgids = [entry.msgid for entry in untranslated_entries]
     if msgids:
         print(msgids)
+
+    # 既存の翻訳を優先的に使用
+    prioritize_existing_translations(po, untranslated_entries)
 
     for entry in tqdm(untranslated_entries, desc=f"{lang} の翻訳"):
         while True:
