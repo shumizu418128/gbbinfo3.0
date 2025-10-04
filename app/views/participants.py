@@ -38,6 +38,7 @@ def participants_view(year: int):
         filters={
             "year": year,
         },
+        timeout=None,
         pandas=True,
     )
     # supabaseから取得失敗した場合、500エラーを返す
