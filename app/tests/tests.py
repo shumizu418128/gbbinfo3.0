@@ -3491,7 +3491,7 @@ class YearRequirementsTestCase(unittest.TestCase):
         Returns:
             None
         """
-        required_files = ["top.html", "rule.html", "ticket.html"]
+        required_files = ["top.html", "rule.html", "ticket.html", "time_schedule.html"]
 
         for year in self.available_years:
             if year == 2022:
