@@ -563,7 +563,7 @@ msgstr "फोन नंबर"
 msgid "チケット販売ページ記載の番号"
 msgstr "टिकट बिक्री पृष्ठ"
 
-#: templates/2024/top.html:140 templates/2025/top.html:219
+#: templates/2024/top.html:140 templates/2025/top.html:223
 msgid "なお上記電話番号は、当サイトとは無関係です。"
 msgstr "कृपया ध्यान दें कि उपरोक्त टेलीफोन नंबर इस साइट से संबद्ध नहीं हैं।"
 
@@ -816,6 +816,11 @@ msgstr "टिकट बिक्री पृष्ठ"
 #: templates/2025/top.html:207
 msgid "記載の番号"
 msgstr "दर्ज नंबर"
+
+#: templates/2025/top.html:211
+#, python-brace-format
+msgid "GBB {year} 会場webサイトに記載のあった番号"
+msgstr "GBB {year}会場webサイトに記載のあった番号"
 
 #: templates/2025/wildcard_regulation.html:9
 msgid "レギュレーション"
@@ -1215,7 +1220,7 @@ msgstr "जापान प्रतिनिधि"
 #: templates/2024/top.html:76 templates/2024/top.html:132
 #: templates/2024/top.html:136 templates/2025/ticket.html:11
 #: templates/2025/ticket.html:12 templates/2025/top.html:134
-#: templates/2025/top.html:211 templates/2025/top.html:215
+#: templates/2025/top.html:215 templates/2025/top.html:219
 #: templates/base.html:129
 msgid "会場"
 msgstr "स्थल"

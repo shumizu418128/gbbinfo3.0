@@ -573,7 +573,7 @@ msgstr "Numéro de téléphone"
 msgid "チケット販売ページ記載の番号"
 msgstr "Page de vente de billets"
 
-#: templates/2024/top.html:140 templates/2025/top.html:219
+#: templates/2024/top.html:140 templates/2025/top.html:223
 msgid "なお上記電話番号は、当サイトとは無関係です。"
 msgstr ""
 "Veuillez noter que le numéro de téléphone ci-dessus n'est pas associé à ce "
@@ -836,6 +836,11 @@ msgstr "Page de vente de billets"
 #: templates/2025/top.html:207
 msgid "記載の番号"
 msgstr "Numéro indiqué"
+
+#: templates/2025/top.html:211
+#, python-brace-format
+msgid "GBB {year} 会場webサイトに記載のあった番号"
+msgstr "GBB {year} numéro indiqué sur le site web du lieu"
 
 #: templates/2025/wildcard_regulation.html:9
 msgid "レギュレーション"
@@ -1253,7 +1258,7 @@ msgstr "Équipe nationale du Japon"
 #: templates/2024/top.html:76 templates/2024/top.html:132
 #: templates/2024/top.html:136 templates/2025/ticket.html:11
 #: templates/2025/ticket.html:12 templates/2025/top.html:134
-#: templates/2025/top.html:211 templates/2025/top.html:215
+#: templates/2025/top.html:215 templates/2025/top.html:219
 #: templates/base.html:129
 msgid "会場"
 msgstr "le lieu"

@@ -567,7 +567,7 @@ msgstr "தொலைபேசி எண்"
 msgid "チケット販売ページ記載の番号"
 msgstr "டிக்கெட் விற்பனை பக்கம்"
 
-#: templates/2024/top.html:140 templates/2025/top.html:219
+#: templates/2024/top.html:140 templates/2025/top.html:223
 msgid "なお上記電話番号は、当サイトとは無関係です。"
 msgstr "மேலே உள்ள தொலைபேசி எண் இந்த தளத்துடன் தொடர்பில்லாதது."
 
@@ -824,6 +824,11 @@ msgstr "டிக்கெட் விற்பனை பக்கம்"
 #: templates/2025/top.html:207
 msgid "記載の番号"
 msgstr "கொடுக்கப்பட்ட எண்"
+
+#: templates/2025/top.html:211
+#, python-brace-format
+msgid "GBB {year} 会場webサイトに記載のあった番号"
+msgstr "GBB {year} மண்டபம் இணையதளத்தில் பட்டியலிடப்பட்ட எண்"
 
 #: templates/2025/wildcard_regulation.html:9
 msgid "レギュレーション"
@@ -1238,7 +1243,7 @@ msgstr "ஜப்பான் அணி"
 #: templates/2024/top.html:76 templates/2024/top.html:132
 #: templates/2024/top.html:136 templates/2025/ticket.html:11
 #: templates/2025/ticket.html:12 templates/2025/top.html:134
-#: templates/2025/top.html:211 templates/2025/top.html:215
+#: templates/2025/top.html:215 templates/2025/top.html:219
 #: templates/base.html:129
 msgid "会場"
 msgstr "இடம்"
