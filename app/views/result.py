@@ -55,6 +55,18 @@ def result_view(year: int):
         },
         pandas=True,
     )
+
+    # カテゴリがない場合、まだ発表前なので空データで早期リターン
+    if category_data.empty:
+        context = {
+            "category": "",
+            "category_is_team": False,
+            "result_data": [],
+            "result_type": "",
+            "all_category": [],
+        }
+        return render_template("common/result.html", **context)
+
     all_category_names = category_data["name"].tolist()
 
     # 引数の正当性チェック
