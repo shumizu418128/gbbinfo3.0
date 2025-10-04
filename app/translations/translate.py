@@ -29,6 +29,10 @@ BABEL_SUPPORTED_LOCALES = [
 ]
 
 
+GEMINI_MODEL = "gemini-2.5-flash-lite"
+GEMINI_SLEEP_TIME = 4
+
+
 class Translation(BaseModel):
     translation: str
 
@@ -47,7 +51,7 @@ Text to translate: {text}"""
     while True:
         try:
             response = client.models.generate_content(
-                model="gemini-2.0-flash-lite",
+                model=GEMINI_MODEL,
                 contents=prompt,
                 config={
                     "response_mime_type": "application/json",
@@ -57,7 +61,7 @@ Text to translate: {text}"""
             break
         except Exception as e:
             if e.error.code == 503:
-                sleep(2)
+                sleep(GEMINI_SLEEP_TIME)
                 continue
             raise
 
@@ -111,7 +115,7 @@ def translate(path, lang):
             # fuzzy フラグを削除
             if "fuzzy" in entry.flags:
                 entry.flags.remove("fuzzy")
-            sleep(2)
+            sleep(GEMINI_SLEEP_TIME)
 
             if entry.msgid != entry.msgstr:
                 break
