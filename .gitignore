@@ -121,6 +121,5 @@ dmypy.json
 .DS_Store
 Thumbs.db
 
-# app/templates/(年)/world_map ディレクトリを無視
-/app/templates/*/world_map/
+/app/templates/*/world_map/*.html
 cache/
