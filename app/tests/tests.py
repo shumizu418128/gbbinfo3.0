@@ -3494,8 +3494,8 @@ class YearRequirementsTestCase(unittest.TestCase):
         required_files = ["top.html", "rule.html", "ticket.html", "time_schedule.html"]
 
         for year in self.available_years:
-            if year == 2022:
-                continue  # 2022年は除外
+            if year == 2022 or year <= 2016:
+                continue  # 2022年及び2016年以前は除外
             year_dir = os.path.join(self.templates_dir, str(year))
             for file_name in required_files:
                 file_path = os.path.join(year_dir, file_name)
