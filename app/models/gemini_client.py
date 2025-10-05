@@ -1,10 +1,10 @@
-import hashlib
 import json
 import os
 
 from google import genai
 from ratelimit import limits, sleep_and_retry
 
+from app.cache_manager import cache_manager
 from app.config.config import (
     SAFETY_SETTINGS_BLOCK_ONLY_HIGH,
 )
@@ -36,6 +36,7 @@ class GeminiService:
     # MARK: ask
     @sleep_and_retry
     @limits(calls=1, period=2)  # 2秒間に1回のコール制限
+    @cache_manager.memoize(timeout=None)  # 永続キャッシュ
     def ask(self, prompt: str):
         """
         Gemini APIに同期で質問を送信し、レスポンスを取得する。
@@ -50,18 +51,6 @@ class GeminiService:
             ValueError: GEMINI_API_KEYが設定されていない場合に発生。
             Exception: Gemini API呼び出し時にその他の例外が発生した場合に発生。
         """
-
-        # ここに書かないと循環インポートになる
-        from app.main import flask_cache
-
-        # キャッシュキーを生成
-        cache_key = "gemini_search_" + hashlib.md5(prompt.encode("utf-8")).hexdigest()
-
-        # キャッシュから取得を試行 あるなら返す
-        cached_data = flask_cache.get(cache_key)
-        if cached_data is not None:
-            return cached_data
-
         # あとの置き換えでエラーになるので、シングルクォーテーションを削除
         prompt = prompt.replace("'", " ")
 
@@ -88,7 +77,6 @@ class GeminiService:
             if isinstance(response_dict, list) and len(response_dict) > 0:
                 response_dict = response_dict[0]
 
-            flask_cache.set(cache_key, response_dict)
             return response_dict
 
         except Exception as e:

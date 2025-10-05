@@ -8,8 +8,8 @@ from flask import (
     send_file,
 )
 from flask_babel import Babel, _
-from flask_caching import Cache
 
+from app.cache_manager import cache_manager
 from app.context_processors import (
     common_variables,
     get_locale,
@@ -100,7 +100,7 @@ else:
     IS_LOCAL = False
     IS_PULL_REQUEST = os.getenv("IS_PULL_REQUEST") == "true"
 
-flask_cache = Cache(app)
+cache_manager.init_app(app)
 babel = Babel(app)
 test = _("test")  # テスト翻訳
 

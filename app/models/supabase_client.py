@@ -13,6 +13,7 @@ from dotenv import load_dotenv
 from postgrest.exceptions import APIError
 from supabase import Client, create_client
 
+from app.cache_manager import cache_manager
 from app.config.config import PROMPT_TRANSLATE
 from app.models.gemini_client import gemini_service
 from app.util.filter_eq import Operator
@@ -231,6 +232,7 @@ class SupabaseService:
         return f"supabase_data_{cache_key}"
 
     # MARK: get
+    @cache_manager.memoize(timeout=30 * MINUTE)
     def get_data(
         self,
         table: str,
@@ -261,25 +263,6 @@ class SupabaseService:
         Raises:
             ValueError: テーブル名が指定されていない場合や、取得に失敗した場合に発生。
         """
-        # ここに書かないと循環インポートになる
-        from app.main import flask_cache
-
-        # キャッシュキーを生成
-        cache_key = self._generate_cache_key(
-            table=table,
-            columns=columns,
-            order_by=order_by,
-            join_tables=join_tables,
-            filters=filters,
-            **filters_eq,
-        )
-
-        # キャッシュから取得を試行 あるなら返す
-        cached_data = flask_cache.get(cache_key)
-        if cached_data is not None:
-            if pandas:
-                return pd.DataFrame(cached_data, index=None)
-            return cached_data
 
         # カラム指定の構築
         if join_tables:
@@ -356,9 +339,6 @@ class SupabaseService:
             print("SupabaseClient get_data error:", e, flush=True)
             return None
 
-        # 取得したデータをキャッシュに保存
-        flask_cache.set(cache_key, response.data, timeout=timeout)
-
         if pandas:
             return pd.DataFrame(response.data, index=None)
         return response.data
@@ -366,6 +346,7 @@ class SupabaseService:
     # MARK: ---
 
     # MARK: tavily get
+    @cache_manager.memoize(timeout=None)
     def get_tavily_data(self, cache_key: str, column: str = "search_results"):
         """
         SupabaseのTavilyテーブルから指定したカラムのデータを取得し、アプリ内キャッシュにも保存するメソッド。
@@ -383,13 +364,6 @@ class SupabaseService:
             - 取得したデータはJSON文字列の場合はデコードし、Noneの場合は空リストに正規化します。
             - 取得したデータはアプリ内キャッシュ(flask_cache)にも保存されます。
         """
-        # ここに書かないと循環インポートになる
-        from app.main import flask_cache
-
-        # 内部キャッシュのみkeyはカラム名を含める
-        search_result = flask_cache.get(cache_key + "_" + column)
-        if search_result is not None:
-            return search_result
 
         query = (
             self.admin_client.table("Tavily").select(column).eq("cache_key", cache_key)
@@ -415,11 +389,10 @@ class SupabaseService:
         else:
             data = response_results if response_results is not None else []
 
-        # キャッシュに保存（内部キャッシュのみkeyはカラム名を含める）
-        flask_cache.set(cache_key + "_" + column, data, timeout=None)
         return data
 
     # MARK: insert
+    @cache_manager.memoize(timeout=None)
     def insert_tavily_data(self, cache_key: str, search_result: dict):
         """
         Tavilyの検索結果データをSupabaseのTavilyテーブルに挿入し、アプリ内キャッシュにも保存するメソッド。
@@ -433,11 +406,6 @@ class SupabaseService:
             - 検索結果はJSON文字列としてSupabaseのTavilyテーブルに保存されます。
             - DB挿入に失敗しても例外は握りつぶします。
         """
-        # ここに書かないと循環インポートになる
-        from app.main import flask_cache
-
-        # 即時にアプリキャッシュへ保存（DB 失敗でもレスポンスは可能）
-        flask_cache.set(cache_key + "_search_results", search_result, timeout=None)
 
         data = {
             "cache_key": cache_key,
@@ -451,6 +419,7 @@ class SupabaseService:
             pass
 
     # MARK: update
+    @cache_manager.memoize(timeout=None)
     def update_translated_answer(self, cache_key: str, translated_answer: dict):
         """
         Tavilyの翻訳済み回答を更新する
@@ -463,9 +432,6 @@ class SupabaseService:
             - SupabaseのTavilyテーブルのanswer_translationカラムを更新します。
             - DB更新に失敗しても例外は握りつぶし、アプリ内キャッシュは必ず最新化します。
         """
-        # ここに書かないと循環インポートになる
-        from app.main import flask_cache
-
         data = {
             "answer_translation": translated_answer,
         }
@@ -476,13 +442,9 @@ class SupabaseService:
         except APIError:
             # DB失敗は握りつぶす（次回以降で再試行）
             pass
-        finally:
-            # アプリ内キャッシュを最新化
-            flask_cache.set(
-                cache_key + "_answer_translation", translated_answer, timeout=None
-            )
 
     # MARK: update country
+    @cache_manager.memoize(timeout=None)
     def update_country_names(self, add_langs: list[str], remove_langs: list[str]):
         """
         Countryテーブルのnamesカラムを更新する
@@ -514,7 +476,10 @@ class SupabaseService:
                 continue
 
             if not isinstance(names, dict):
-                print(f"国コード {iso_code} のnamesデータが辞書形式ではありません", flush=True)
+                print(
+                    f"国コード {iso_code} のnamesデータが辞書形式ではありません",
+                    flush=True,
+                )
                 continue
 
             # 削除
@@ -544,10 +509,13 @@ class SupabaseService:
                                 updated = True
                             else:
                                 print(
-                                    f"国コード {iso_code} の {add_language} 翻訳に失敗しました", flush=True
+                                    f"国コード {iso_code} の {add_language} 翻訳に失敗しました",
+                                    flush=True,
                                 )
                         except Exception as e:
-                            print(f"国コード {iso_code} の翻訳中にエラー: {e}", flush=True)
+                            print(
+                                f"国コード {iso_code} の翻訳中にエラー: {e}", flush=True
+                            )
 
             # 更新されたデータを保存
             if updated:

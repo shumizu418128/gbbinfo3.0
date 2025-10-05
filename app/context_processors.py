@@ -7,14 +7,13 @@ from dateutil import parser
 from flask import request, session
 from flask_babel import format_datetime
 
+from app.cache_manager import cache_manager
 from app.models.supabase_client import supabase_service
 from app.settings import BASE_DIR, delete_world_map
 from app.util.filter_eq import Operator
 
 AVAILABLE_YEARS = []
 TRANSLATED_URLS = set()
-
-is_gbb_ended_cache = {}
 
 
 # MARK: 年度一覧
@@ -124,6 +123,7 @@ def get_translated_urls():
 
 
 # MARK: 最新年度
+@cache_manager.memoize(timeout=None)
 def is_latest_year(year):
     """
     指定された年度が最新年度または今年であるかを判定します。
@@ -134,13 +134,17 @@ def is_latest_year(year):
     Returns:
         bool: 最新年度または今年の場合はTrue、それ以外はFalse
     """
+    # キャッシュにない場合は計算
     dt_now = datetime.now()
     now = dt_now.year
     latest_year = max(get_available_years())
-    return now <= year <= latest_year
+    result = now <= year <= latest_year
+
+    return result
 
 
 # MARK: 試験公開年度
+@cache_manager.memoize(timeout=None)
 def is_early_access(year):
     """
     指定された年度が、試験公開年度かを判定します。
@@ -151,9 +155,12 @@ def is_early_access(year):
     Returns:
         bool: 試験公開年度の場合はTrue、それ以外はFalse
     """
+    # キャッシュにない場合は計算
     dt_now = datetime.now()
     now = dt_now.year
-    return year > now
+    result = year > now
+
+    return result
 
 
 # MARK: 翻訳対応可否
@@ -178,6 +185,7 @@ def is_translated(url, language, translated_urls):
 
 
 # MARK: GBB終了年度
+@cache_manager.memoize(timeout=None)
 def is_gbb_ended(year):
     """
     指定された年度がGBB終了年度かを判定します。
@@ -188,10 +196,6 @@ def is_gbb_ended(year):
     Returns:
         bool: GBB終了年度の場合はTrue、それ以外はFalse
     """
-    global is_gbb_ended_cache
-    if year in is_gbb_ended_cache:
-        return is_gbb_ended_cache[year]
-
     # タイムゾーンを考慮した現在時刻を取得
     now = datetime.now(timezone.utc)
 

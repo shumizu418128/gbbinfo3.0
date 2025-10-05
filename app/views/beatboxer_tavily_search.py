@@ -303,10 +303,10 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language: str):
     )
 
     # 内部キャッシュを取得
-    from app.main import flask_cache
+    from app.cache_manager import cache_manager
 
     # 内部キャッシュがあれば返す
-    internal_cache_answer = flask_cache.get(cache_key + "_answer_translation")
+    internal_cache_answer = cache_manager.cache.get(cache_key + "_answer_translation")
     if internal_cache_answer:
         try:
             return internal_cache_answer[language]
