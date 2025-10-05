@@ -38,10 +38,11 @@ def participants_view(year: int):
         filters={
             "year": year,
         },
+        timeout=0,
         pandas=True,
     )
     # supabaseから取得失敗した場合、500エラーを返す
-    if year_data is None or year_data.empty:
+    if year_data.empty:
         abort(500)
 
     # 以降、supabaseと接続ができるとみなす
@@ -49,14 +50,18 @@ def participants_view(year: int):
     all_categories_for_year_id = year_data["categories"].tolist()[0]
 
     # idから名前を取得
-    category_data = supabase_service.get_data(
-        table="Category",
-        columns=["id", "name"],
-        filters={
-            f"id__{Operator.IN_}": all_categories_for_year_id,
-        },
-        pandas=True,
-    )
+    try:
+        category_data = supabase_service.get_data(
+            table="Category",
+            columns=["id", "name"],
+            filters={
+                f"id__{Operator.IN_}": all_categories_for_year_id,
+            },
+            pandas=True,
+            raise_error=True,
+        )
+    except Exception:
+        abort(500)
 
     # カテゴリ名なし = 未定の場合 (公式発表前)
     if category_data.empty:
@@ -114,16 +119,27 @@ def participants_view(year: int):
         filters["is_cancelled"] = True
 
     # 出場者データを取得
-    participants_data = supabase_service.get_data(
-        table="Participant",
-        columns=["id", "name", "category", "ticket_class", "is_cancelled", "iso_code"],
-        join_tables={
-            "Category": ["id", "name"],
-            "ParticipantMember": ["name", "Country(names)"],
-            "Country": ["iso_code", "names"],
-        },
-        filters=filters,
-    )
+    try:
+        participants_data = supabase_service.get_data(
+            table="Participant",
+            columns=[
+                "id",
+                "name",
+                "category",
+                "ticket_class",
+                "is_cancelled",
+                "iso_code",
+            ],
+            join_tables={
+                "Category": ["id", "name"],
+                "ParticipantMember": ["name", "Country(names)"],
+                "Country": ["iso_code", "names"],
+            },
+            filters=filters,
+            raise_error=True,
+        )
+    except Exception:
+        abort(500)
     participants_data.sort(
         key=lambda x: (
             x["is_cancelled"],  # キャンセルした人は下
@@ -194,32 +210,43 @@ def participants_country_specific_view(year: int):
         iso_code = 410
 
     # 出場者データを取得
-    participants_data = supabase_service.get_data(
-        table="Participant",
-        columns=["id", "name", "category", "ticket_class", "is_cancelled", "iso_code"],
-        join_tables={
-            "Category": ["id", "name"],
-            "ParticipantMember": ["name"],
-        },
-        filters={
-            "year": year,
-            "iso_code": iso_code,
-        },
-    )
-
-    # 複数か国のチームも調べる
-    multi_country_team_data = supabase_service.get_data(
-        table="Participant",
-        columns=["id", "name", "category", "ticket_class", "is_cancelled"],
-        join_tables={
-            "Category": ["id", "name"],
-            "ParticipantMember": ["name", "iso_code"],
-        },
-        filters={
-            "year": year,
-            "iso_code": MULTI_COUNTRY_TEAM_ISO_CODE,
-        },
-    )
+    try:
+        participants_data = supabase_service.get_data(
+            table="Participant",
+            columns=[
+                "id",
+                "name",
+                "category",
+                "ticket_class",
+                "is_cancelled",
+                "iso_code",
+            ],
+            join_tables={
+                "Category": ["id", "name"],
+                "ParticipantMember": ["name"],
+            },
+            filters={
+                "year": year,
+                "iso_code": iso_code,
+            },
+            raise_error=True,
+        )
+        # 複数か国のチームも調べる
+        multi_country_team_data = supabase_service.get_data(
+            table="Participant",
+            columns=["id", "name", "category", "ticket_class", "is_cancelled"],
+            join_tables={
+                "Category": ["id", "name"],
+                "ParticipantMember": ["name", "iso_code"],
+            },
+            filters={
+                "year": year,
+                "iso_code": MULTI_COUNTRY_TEAM_ISO_CODE,
+            },
+            raise_error=True,
+        )
+    except Exception:
+        abort(500)
 
     # 探している国籍のチームだった場合、そのチームを追加
     for team in multi_country_team_data:
@@ -261,17 +288,19 @@ def cancels_view(year: int):
         year (int): 出場者データを取得する対象の年。
     """
     # 出場者データを取得
-    cancels_data = supabase_service.get_data(
-        table="Participant",
-        columns=["id", "name", "category", "ticket_class"],
-        join_tables={
-            "Category": ["name"],
-            "ParticipantMember": ["name"],
-        },
-        filters={f"is_cancelled__{Operator.EQUAL}": True, "year": year},
-    )
+    try:
+        cancels_data = supabase_service.get_data(
+            table="Participant",
+            columns=["id", "name", "category", "ticket_class"],
+            join_tables={
+                "Category": ["name"],
+                "ParticipantMember": ["name"],
+            },
+            raise_error=True,
+            filters={f"is_cancelled__{Operator.EQUAL}": True, "year": year},
+        )
     # supabaseから取得失敗した場合、500エラーを返す
-    if cancels_data is None:
+    except Exception:
         abort(500)
 
     cancels_data.sort(
