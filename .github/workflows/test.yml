@@ -30,6 +30,7 @@ jobs:
         uv pip install --system pytest pytest-cov
 
     - name: Run tests with pytest
+      id: test
       env:
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
         TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
@@ -43,3 +44,72 @@ jobs:
         IS_PULL_REQUEST: ${{ github.event_name == 'pull_request' }}
       run: |
         python -m pytest app/tests/tests.py -v --tb=short
+        echo "test_result=success" >> $GITHUB_OUTPUT
+
+    - name: Notify test results to webhook
+      if: always()
+      env:
+        WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+      run: |
+        if [ -z "$WEBHOOK_URL" ]; then
+          echo "WEBHOOK_URL is not set, skipping notification"
+          exit 0
+        fi
+
+        if [ "${{ steps.test.outcome }}" == "success" ]; then
+          STATUS="✅ 成功"
+          COLOR="good"
+        else
+          STATUS="❌ 失敗"
+          COLOR="danger"
+        fi
+
+        PAYLOAD=$(cat <<EOF
+        {
+          "text": "テスト結果通知",
+          "attachments": [
+            {
+              "color": "$COLOR",
+              "fields": [
+                {
+                  "title": "ステータス",
+                  "value": "$STATUS",
+                  "short": true
+                },
+                {
+                  "title": "リポジトリ",
+                  "value": "${{ github.repository }}",
+                  "short": true
+                },
+                {
+                  "title": "ブランチ",
+                  "value": "${{ github.ref_name }}",
+                  "short": true
+                },
+                {
+                  "title": "コミット",
+                  "value": "${{ github.sha }}",
+                  "short": true
+                },
+                {
+                  "title": "実行者",
+                  "value": "${{ github.actor }}",
+                  "short": true
+                },
+                {
+                  "title": "イベント",
+                  "value": "${{ github.event_name }}",
+                  "short": true
+                }
+              ],
+              "footer": "GitHub Actions",
+              "ts": $(date +%s)
+            }
+          ]
+        }
+        EOF
+        )
+
+        curl -X POST -H 'Content-type: application/json' \
+          --data "$PAYLOAD" \
+          "$WEBHOOK_URL"
