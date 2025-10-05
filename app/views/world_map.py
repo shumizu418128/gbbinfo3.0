@@ -38,21 +38,20 @@ def world_map_view(year: int):
     if os.path.exists(map_save_path):
         return render_template(f"{year}/world_map/{language}.html")
 
-    participants_data = supabase_service.get_data(
-        table="Participant",
-        columns=["id", "name", "iso_code"],
-        order_by="category",
-        join_tables={
-            "Category": ["id", "name"],
-            "ParticipantMember": ["Country(iso_code)"],
-        },
-        filters={"year": year, "is_cancelled": False},
-    )
-    # supabaseから取得失敗した場合、500エラーを返す
-    if participants_data is None:
+    try:
+        participants_data = supabase_service.get_data(
+            table="Participant",
+            columns=["id", "name", "iso_code"],
+            order_by="category",
+            join_tables={
+                "Category": ["id", "name"],
+                "ParticipantMember": ["Country(iso_code)"],
+            },
+            filters={"year": year, "is_cancelled": False},
+            raise_error=True,
+        )
+    except Exception:
         abort(500)
-
-    # 以降、supabaseと接続ができるとみなす
 
     participants_per_country = defaultdict(list)
 
@@ -106,11 +105,15 @@ def world_map_view(year: int):
 
     beatboxer_map.get_root().header.add_child(folium.Element(FOLIUM_CUSTOM_CSS))
 
-    country_coordinates_data = supabase_service.get_data(
-        table="Country",
-        columns=["iso_code", "latitude", "longitude", "names"],
-        pandas=True,
-    )
+    try:
+        country_coordinates_data = supabase_service.get_data(
+            table="Country",
+            columns=["iso_code", "latitude", "longitude", "names"],
+            pandas=True,
+            raise_error=True,
+        )
+    except Exception:
+        abort(500)
 
     # iso_code をキーに O(1) 参照できる辞書へ変換
     country_rows = {

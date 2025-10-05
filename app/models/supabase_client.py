@@ -240,6 +240,7 @@ class SupabaseService:
         filters: Optional[dict] = None,
         pandas: bool = False,
         timeout: int = 30 * MINUTE,
+        raise_error: bool = False,
         **filters_eq,
     ):
         """
@@ -354,7 +355,11 @@ class SupabaseService:
             response = query.execute()
         except Exception as e:
             print("SupabaseClient get_data error:", e, flush=True)
-            return None
+            if raise_error:
+                raise e
+            if pandas:
+                return pd.DataFrame([], index=None)
+            return []
 
         # 取得したデータをキャッシュに保存
         flask_cache.set(cache_key, response.data, timeout=timeout)
@@ -366,7 +371,9 @@ class SupabaseService:
     # MARK: ---
 
     # MARK: tavily get
-    def get_tavily_data(self, cache_key: str, column: str = "search_results"):
+    def get_tavily_data(
+        self, cache_key: str, column: str = "search_results", raise_error: bool = False
+    ):
         """
         SupabaseのTavilyテーブルから指定したカラムのデータを取得し、アプリ内キャッシュにも保存するメソッド。
 
@@ -398,7 +405,9 @@ class SupabaseService:
             response = query.execute()
         except Exception as e:
             print("SupabaseClient get_tavily_data error:", e, flush=True)
-            return None
+            if raise_error:
+                raise e
+            return []
 
         if len(response.data) == 0:
             return []
@@ -494,7 +503,7 @@ class SupabaseService:
         # まず各国のnamesカラムを取得
         countries = self.get_data("Country", columns=["iso_code", "names"], pandas=True)
 
-        if countries is None or countries.empty:
+        if countries.empty:
             print("国データの取得に失敗しました", flush=True)
             return
 
@@ -514,7 +523,10 @@ class SupabaseService:
                 continue
 
             if not isinstance(names, dict):
-                print(f"国コード {iso_code} のnamesデータが辞書形式ではありません", flush=True)
+                print(
+                    f"国コード {iso_code} のnamesデータが辞書形式ではありません",
+                    flush=True,
+                )
                 continue
 
             # 削除
@@ -544,10 +556,13 @@ class SupabaseService:
                                 updated = True
                             else:
                                 print(
-                                    f"国コード {iso_code} の {add_language} 翻訳に失敗しました", flush=True
+                                    f"国コード {iso_code} の {add_language} 翻訳に失敗しました",
+                                    flush=True,
                                 )
                         except Exception as e:
-                            print(f"国コード {iso_code} の翻訳中にエラー: {e}", flush=True)
+                            print(
+                                f"国コード {iso_code} の翻訳中にエラー: {e}", flush=True
+                            )
 
             # 更新されたデータを保存
             if updated:

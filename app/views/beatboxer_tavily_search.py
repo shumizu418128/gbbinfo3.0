@@ -63,7 +63,7 @@ def get_beatboxer_name(beatboxer_id: int, mode: str = "single"):
         )
 
     # supabaseから取得失敗した場合、空文字列を返す
-    if participant_data is None:
+    if len(participant_data) == 0:
         return ""
 
     beatboxer_name = participant_data[0]["name"].upper()
@@ -319,7 +319,7 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language: str):
     )
 
     # あれば返す
-    if cached_answer is not None and len(cached_answer) > 0:
+    if len(cached_answer) > 0:
         try:
             # 最初の要素を取得
             if isinstance(cached_answer, list):

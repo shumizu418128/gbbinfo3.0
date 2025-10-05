@@ -37,25 +37,23 @@ def post_search_participants(year: int):
 
     # 検索結果が無い場合、キーワードの最初1文字のみで検索
     if not participants_data:
-        participants_data = supabase_service.get_data(
-            table="Participant",
-            columns=["id", "name", "category", "ticket_class", "is_cancelled"],
-            order_by="category",
-            join_tables={
-                "Category": ["id", "name"],
-                "ParticipantMember": ["id", "name"],
-            },
-            filters={
-                "year": year,
-                f"name__{Operator.MATCH_IGNORE_CASE}": f"%{keyword[0]}%",
-            },
-        )
-
-    # supabaseから取得失敗した場合、500エラーを返す
-    if participants_data is None or len(participants_data) == 0:
-        abort(500)
-
-    # 以降、supabaseと接続ができるとみなす
+        try:
+            participants_data = supabase_service.get_data(
+                table="Participant",
+                columns=["id", "name", "category", "ticket_class", "is_cancelled"],
+                order_by="category",
+                join_tables={
+                    "Category": ["id", "name"],
+                    "ParticipantMember": ["id", "name"],
+                },
+                filters={
+                    "year": year,
+                    f"name__{Operator.MATCH_IGNORE_CASE}": f"%{keyword[0]}%",
+                },
+                raise_error=True,
+            )
+        except Exception:
+            abort(500)
 
     for participant in participants_data:
         participant["name"] = participant["name"].upper()
@@ -72,22 +70,26 @@ def post_search_participants(year: int):
         )
         del participant["ParticipantMember"]
 
-    members_data = supabase_service.get_data(
-        table="ParticipantMember",
-        columns=["id"],
-        join_tables={
-            "Participant": [
-                "id",
-                "year",
-                "name",
-                "ticket_class",
-                "is_cancelled",
-                "Category(name)",
-                "ParticipantMember(name)",
-            ],
-        },
-        filters={f"name__{Operator.MATCH_IGNORE_CASE}": f"%{keyword}%"},
-    )
+    try:
+        members_data = supabase_service.get_data(
+            table="ParticipantMember",
+            columns=["id"],
+            join_tables={
+                "Participant": [
+                    "id",
+                    "year",
+                    "name",
+                    "ticket_class",
+                    "is_cancelled",
+                    "Category(name)",
+                    "ParticipantMember(name)",
+                ],
+            },
+            raise_error=True,
+            filters={f"name__{Operator.MATCH_IGNORE_CASE}": f"%{keyword}%"},
+        )
+    except Exception:
+        abort(500)
 
     for member in members_data:
         if member["Participant"]["year"] == year:
