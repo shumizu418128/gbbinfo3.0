@@ -17,6 +17,7 @@ from app.context_processors import (
 )
 from app.views import (
     beatboxer_tavily_search,
+    cache_stats,
     common,
     gemini_search,
     language,
@@ -135,6 +136,9 @@ def locale_selector():
 #####################################################################
 # MARK: URL
 #####################################################################
+# キャッシュ統計情報
+app.register_blueprint(cache_stats.cache_stats_bp)
+
 # リダイレクト
 app.add_url_rule("/", "redirect_to_latest_top", common.top_redirect_view)
 app.add_url_rule(
