@@ -112,20 +112,24 @@ def world_map_view(year: int):
         pandas=True,
     )
 
+    # iso_code をキーに O(1) 参照できる辞書へ変換
+    country_rows = {
+        int(row["iso_code"]): (
+            row["latitude"],
+            row["longitude"],
+            row["names"],
+        )
+        for _, row in country_coordinates_data.iterrows()
+    }
+
     for iso_code, participants in participants_per_country.items():
-        # 国の緯度経度を取得
-        latitude = country_coordinates_data.loc[
-            country_coordinates_data["iso_code"] == iso_code, "latitude"
-        ].values[0]
-        longitude = country_coordinates_data.loc[
-            country_coordinates_data["iso_code"] == iso_code, "longitude"
-        ].values[0]
+        # 国の緯度経度・名称を辞書から取得（存在しない場合はスキップ）
+        if iso_code not in country_rows:
+            continue
+        latitude, longitude, country_names_dict = country_rows[iso_code]
         location = (latitude, longitude)
 
         # 国名を取得
-        country_names_dict = country_coordinates_data.loc[
-            country_coordinates_data["iso_code"] == iso_code, "names"
-        ].values[0]
         country_name = country_names_dict[language]
 
         # ポップアップの内容を作成 (長い場合はスクロール可能にする)

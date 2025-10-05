@@ -369,7 +369,7 @@ def get_locale(BABEL_SUPPORTED_LOCALES):
 
 
 # MARK: 初期化タスク
-def initialize_background_tasks(BABEL_SUPPORTED_LOCALES):
+def initialize_background_tasks(IS_LOCAL):
     """
     バックグラウンドタスクの初期化を行います。
 
@@ -385,6 +385,7 @@ def initialize_background_tasks(BABEL_SUPPORTED_LOCALES):
         - check_locale_paths_and_languagesにはBABEL_SUPPORTED_LOCALESが引数として渡されます。
         - 各タスクはアプリケーションの初期化時に一度だけ実行されます。
     """
-    Thread(target=delete_world_map).start()
+    if IS_LOCAL:
+        Thread(target=delete_world_map).start()
     Thread(target=get_available_years).start()
     Thread(target=get_translated_urls).start()
