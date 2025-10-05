@@ -1954,8 +1954,8 @@ class SupabaseErrorHandlingTestCase(unittest.TestCase):
         mock_is_gbb_ended.return_value = False
         mock_get_translated_urls.return_value = set()
 
-        # Supabaseからの応答なし（空のDataFrame）
-        mock_supabase.get_data.return_value = None
+        # 取得失敗: raise_error=True の呼び出しを例外で表現
+        mock_supabase.get_data.side_effect = Exception("supabase error")
 
         with self.client.session_transaction() as sess:
             sess["language"] = "ja"
@@ -1984,8 +1984,8 @@ class SupabaseErrorHandlingTestCase(unittest.TestCase):
         # マップファイルが存在しないようにする
         mock_os_path_exists.return_value = False
 
-        # Supabaseからの応答なし
-        mock_supabase.get_data.return_value = None
+        # 取得失敗: raise_error=True の呼び出しを例外で表現
+        mock_supabase.get_data.side_effect = Exception("supabase error")
 
         with self.client.session_transaction() as sess:
             sess["language"] = "ja"
@@ -2009,8 +2009,10 @@ class SupabaseErrorHandlingTestCase(unittest.TestCase):
         mock_is_gbb_ended.return_value = False
         mock_get_translated_urls.return_value = set()
 
-        # Supabaseからの応答なし
-        mock_supabase.get_data.return_value = None
+        # 取得失敗: pandas=True かつ raise_error 未指定のため空DataFrameを返す想定
+        import pandas as pd
+
+        mock_supabase.get_data.return_value = pd.DataFrame()
 
         with self.client.session_transaction() as sess:
             sess["language"] = "ja"
@@ -2034,8 +2036,8 @@ class SupabaseErrorHandlingTestCase(unittest.TestCase):
         mock_is_gbb_ended.return_value = False
         mock_get_translated_urls.return_value = set()
 
-        # Supabaseからの応答なし
-        mock_supabase.get_data.return_value = None
+        # 1回目（raise_error未指定）: 空リスト、2回目（raise_error=True）: 例外
+        mock_supabase.get_data.side_effect = [[], Exception("supabase error")]
 
         with self.client.session_transaction() as sess:
             sess["language"] = "ja"
@@ -2060,14 +2062,13 @@ class SupabaseErrorHandlingTestCase(unittest.TestCase):
         mock_supabase,
     ):
         """result_viewで空のDataFrameが返される場合に500エラーが返されることをテスト"""
-        import pandas as pd
 
         mock_get_available_years.return_value = [2025]
         mock_is_gbb_ended.return_value = False
         mock_get_translated_urls.return_value = set()
 
-        # 空のDataFrameを返す
-        mock_supabase.get_data.return_value = pd.DataFrame()
+        # 取得失敗: raise_error=True の呼び出しを例外で表現
+        mock_supabase.get_data.side_effect = Exception("supabase error")
 
         with self.client.session_transaction() as sess:
             sess["language"] = "ja"
@@ -2113,7 +2114,7 @@ class SupabaseErrorHandlingTestCase(unittest.TestCase):
         mock_get_translated_urls,
         mock_supabase,
     ):
-        """search_participantsで空のレスポンスが返される場合に500エラーが返されることをテスト"""
+        """search_participantsで空のレスポンスが返される場合に200と空配列が返ることをテスト"""
         mock_get_available_years.return_value = [2025]
         mock_is_gbb_ended.return_value = False
         mock_get_translated_urls.return_value = set()
@@ -2130,7 +2131,8 @@ class SupabaseErrorHandlingTestCase(unittest.TestCase):
             data=request_data,
             content_type="application/json",
         )
-        self.assertEqual(resp.status_code, 500)
+        self.assertEqual(resp.status_code, 200)
+        self.assertEqual(resp.get_json(), [])
 
     @patch("app.views.rule.supabase_service")
     @patch("app.context_processors.get_translated_urls")
@@ -2318,9 +2320,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         # 空の結果を返す
         mock_supabase.get_data.return_value = []
 
-        # IndexErrorが発生することを確認
-        with self.assertRaises(IndexError):
-            get_beatboxer_name(beatboxer_id=999, mode="single")
+        # 新仕様: 見つからない場合は空文字列を返す
+        self.assertEqual(get_beatboxer_name(beatboxer_id=999, mode="single"), "")
 
     @patch("app.views.beatboxer_tavily_search.supabase_service")
     @patch("app.views.beatboxer_tavily_search.tavily_service")
@@ -3343,8 +3344,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         mock_is_gbb_ended.return_value = False
         mock_get_translated_urls.return_value = set()
 
-        # Supabaseからの応答なし
-        mock_supabase.get_data.return_value = None
+        # 取得失敗: raise_error=True の呼び出しを例外で表現
+        mock_supabase.get_data.side_effect = Exception("supabase error")
 
         with self.client.session_transaction() as sess:
             sess["language"] = "ja"
