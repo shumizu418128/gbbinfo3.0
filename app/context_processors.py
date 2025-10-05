@@ -202,12 +202,14 @@ def is_gbb_ended(year):
     year_data = supabase_service.get_data(
         table="Year",
         columns=["year", "ends_at"],
+        filters={"year": year},
         timeout=None,
     )
     # GBBが終了したか調べる
-    for item in year_data:
-        if item["year"] == year and item["ends_at"]:
-            datetime_ends_at = parser.parse(item["ends_at"])
+    if year_data:
+        ends_at = year_data[0]["ends_at"]
+        if ends_at:
+            datetime_ends_at = parser.parse(ends_at)
             return datetime_ends_at < now
     return False
 
