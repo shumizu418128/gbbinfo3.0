@@ -32,14 +32,14 @@ def result_view(year: int):
     # その年のカテゴリ一覧を取得
     try:
         year_data = supabase_service.get_data(
-        table="Year",
-        columns=["categories"],
-        filters={
-            "year": year,
-        },
-        timeout=None,
-        pandas=True,
-        raise_error=True,
+            table="Year",
+            columns=["categories"],
+            filters={
+                "year": year,
+            },
+            timeout=0,
+            pandas=True,
+            raise_error=True,
         )
     except Exception:
         abort(500)
@@ -101,7 +101,7 @@ def result_view(year: int):
                 "year": year,
                 "category": category_id,
             },
-            raise_error=True
+            raise_error=True,
         )
 
         # ない場合、順位制のデータを取得

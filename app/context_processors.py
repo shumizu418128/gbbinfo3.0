@@ -32,13 +32,13 @@ def get_available_years():
     year_data = supabase_service.get_data(
         table="Year",
         columns=["year"],
-        timeout=None,
+        timeout=0,
     )
     available_years = [item["year"] for item in year_data]
     available_years.sort(reverse=True)
 
     # キャッシュに保存（タイムアウトなし）
-    flask_cache.set(cache_key, available_years, timeout=None)
+    flask_cache.set(cache_key, available_years, timeout=0)
 
     return available_years
 
@@ -91,7 +91,7 @@ def get_translated_urls():
         columns=["year"],
         filters={f"categories__{Operator.IS_NOT}": None},
         pandas=True,
-        timeout=None,
+        timeout=0,
     )
     available_years = year_data["year"].tolist()
 
@@ -127,7 +127,7 @@ def get_translated_urls():
                     translated_urls.add(url_path)
 
     # キャッシュに保存（タイムアウトなし）
-    flask_cache.set(cache_key, translated_urls, timeout=None)
+    flask_cache.set(cache_key, translated_urls, timeout=0)
 
     return translated_urls
 
@@ -151,12 +151,7 @@ def is_latest_year(year):
     if not available_years:
         return year == now
 
-    # Noneを除外してから最大値を取得
-    valid_years = [y for y in available_years if y is not None]
-    if not valid_years:
-        return year == now
-
-    latest_year = max(valid_years)
+    latest_year = max(available_years)
     return now <= year <= latest_year
 
 
@@ -228,7 +223,7 @@ def is_gbb_ended(year):
             table="Year",
             columns=["year", "ends_at"],
             filters={"year": year},
-            timeout=None,
+            timeout=0,
         )
         # GBBが終了したか調べる
         if year_data:
@@ -242,7 +237,7 @@ def is_gbb_ended(year):
             result = False
 
     # キャッシュに保存（タイムアウトなし）
-    flask_cache.set(cache_key, result, timeout=None)
+    flask_cache.set(cache_key, result, timeout=0)
 
     return result
 

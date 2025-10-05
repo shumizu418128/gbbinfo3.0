@@ -38,7 +38,7 @@ def participants_view(year: int):
         filters={
             "year": year,
         },
-        timeout=None,
+        timeout=0,
         pandas=True,
     )
     # supabaseから取得失敗した場合、500エラーを返す
@@ -122,7 +122,14 @@ def participants_view(year: int):
     try:
         participants_data = supabase_service.get_data(
             table="Participant",
-            columns=["id", "name", "category", "ticket_class", "is_cancelled", "iso_code"],
+            columns=[
+                "id",
+                "name",
+                "category",
+                "ticket_class",
+                "is_cancelled",
+                "iso_code",
+            ],
             join_tables={
                 "Category": ["id", "name"],
                 "ParticipantMember": ["name", "Country(names)"],
@@ -206,7 +213,14 @@ def participants_country_specific_view(year: int):
     try:
         participants_data = supabase_service.get_data(
             table="Participant",
-            columns=["id", "name", "category", "ticket_class", "is_cancelled", "iso_code"],
+            columns=[
+                "id",
+                "name",
+                "category",
+                "ticket_class",
+                "is_cancelled",
+                "iso_code",
+            ],
             join_tables={
                 "Category": ["id", "name"],
                 "ParticipantMember": ["name"],
