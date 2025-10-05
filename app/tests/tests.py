@@ -548,10 +548,10 @@ class ContextProcessorsTestCase(unittest.TestCase):
     @patch("app.context_processors.supabase_service")
     def test_get_available_years(self, mock_supabase):
         """利用可能な年度の取得テスト"""
-        # グローバル変数をクリア
-        import app.context_processors
+        # キャッシュをクリア
+        from app.main import flask_cache
 
-        app.context_processors.AVAILABLE_YEARS = []
+        flask_cache.delete("available_years")
 
         # モックデータの設定
         mock_supabase.get_data.return_value = [
