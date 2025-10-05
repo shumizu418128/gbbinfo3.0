@@ -20,7 +20,7 @@ from app.util.filter_eq import Operator
 ALL_DATA = "*"
 MINUTE = 60
 # クライアントの最大使用回数
-MAX_CLIENT_USAGE = 100
+MAX_CLIENT_USAGE = 50
 
 # ここに書かないと読み込みタイミングが遅くなってエラーになる
 load_dotenv()
