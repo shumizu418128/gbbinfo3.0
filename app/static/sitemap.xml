@@ -327,4 +327,28 @@
   <url>
     <loc>https://gbbinfo-jpn.onrender.com/others/participant_detail?id=2081&mode=single</loc>
   </url>
+  <url>
+    <loc>https://gbbinfo-jpn.onrender.com/2026/japan</loc>
+  </url>
+  <url>
+    <loc>https://gbbinfo-jpn.onrender.com/2026/korea</loc>
+  </url>
+  <url>
+    <loc>https://gbbinfo-jpn.onrender.com/2026/participants</loc>
+  </url>
+  <url>
+    <loc>https://gbbinfo-jpn.onrender.com/2026/result</loc>
+  </url>
+  <url>
+    <loc>https://gbbinfo-jpn.onrender.com/2026/rule</loc>
+  </url>
+  <url>
+    <loc>https://gbbinfo-jpn.onrender.com/2026/ticket</loc>
+  </url>
+  <url>
+    <loc>https://gbbinfo-jpn.onrender.com/2026/top</loc>
+  </url>
+  <url>
+    <loc>https://gbbinfo-jpn.onrender.com/2026/cancels</loc>
+  </url>
 </urlset>
