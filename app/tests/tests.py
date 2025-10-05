@@ -816,9 +816,10 @@ class GeminiServiceTestCase(unittest.TestCase):
 
                 # 5回リトライするロジックをシミュレート
                 result = None
-                for _ in range(5):
+                for i in range(5):
                     try:
-                        result = service.ask("retry test")
+                        # 各リトライで異なるプロンプトを使用してキャッシュを回避
+                        result = service.ask(f"retry test {i}")
                         if result:
                             break
                     except Exception:
