@@ -392,7 +392,6 @@ class SupabaseService:
         return data
 
     # MARK: insert
-    @cache_manager.memoize(timeout=None)
     def insert_tavily_data(self, cache_key: str, search_result: dict):
         """
         Tavilyの検索結果データをSupabaseのTavilyテーブルに挿入し、アプリ内キャッシュにも保存するメソッド。
@@ -419,7 +418,6 @@ class SupabaseService:
             pass
 
     # MARK: update
-    @cache_manager.memoize(timeout=None)
     def update_translated_answer(self, cache_key: str, translated_answer: dict):
         """
         Tavilyの翻訳済み回答を更新する
@@ -443,8 +441,10 @@ class SupabaseService:
             # DB失敗は握りつぶす（次回以降で再試行）
             pass
 
+        # アプリ内キャッシュを更新（DB更新の成否に関わらず）
+        cache_manager.cache.set(cache_key + "_answer_translation", translated_answer)
+
     # MARK: update country
-    @cache_manager.memoize(timeout=None)
     def update_country_names(self, add_langs: list[str], remove_langs: list[str]):
         """
         Countryテーブルのnamesカラムを更新する

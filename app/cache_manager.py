@@ -5,6 +5,7 @@
 循環インポートを回避するために使用されます。
 """
 
+import hashlib
 import threading
 
 from flask import Flask
@@ -119,9 +120,9 @@ class CacheManager:
                     return func(*args, **kwargs)
 
                 # キャッシュキーを生成
-                cache_key = (
-                    f"{func.__name__}:{hash(str(args) + str(sorted(kwargs.items())))}"
-                )
+                key_payload = str(args) + str(sorted(kwargs.items()))
+                key_hash = hashlib.md5(key_payload.encode("utf-8")).hexdigest()
+                cache_key = f"{func.__name__}:{key_hash}"
 
                 # キャッシュから取得を試行
                 cached_result = self._cache.get(cache_key)

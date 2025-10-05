@@ -1304,7 +1304,7 @@ class SupabaseServiceTestCase(unittest.TestCase):
 
         # フェイクキャッシュを差し替え
         dict_cache = self.DictCache()
-        with patch("app.main.flask_cache", dict_cache):
+        with patch("app.cache_manager.cache_manager._cache", dict_cache):
             service = SupabaseService()
 
             # 読み取り用クエリモックを準備
@@ -1389,7 +1389,7 @@ class SupabaseServiceTestCase(unittest.TestCase):
         from app.models.supabase_client import SupabaseService
 
         dict_cache = self.DictCache()
-        with patch("app.main.flask_cache", dict_cache):
+        with patch("app.cache_manager.cache_manager._cache", dict_cache):
             service = SupabaseService()
             query = self.QueryMock()
             query.response_data = [
@@ -1407,7 +1407,7 @@ class SupabaseServiceTestCase(unittest.TestCase):
         from app.models.supabase_client import SupabaseService
 
         dict_cache = self.DictCache()
-        with patch("app.main.flask_cache", dict_cache):
+        with patch("app.cache_manager.cache_manager._cache", dict_cache):
             service = SupabaseService()
 
             # 管理者クライアントのセットアップ
@@ -1741,7 +1741,7 @@ class SupabaseServiceTestCase(unittest.TestCase):
 
             # キャッシュと管理者クライアントをモック
             dict_cache = self.DictCache()
-            with patch("app.main.flask_cache", dict_cache):
+            with patch("app.cache_manager.cache_manager._cache", dict_cache):
                 # 管理者クライアントのモック
                 mock_admin_client = Mock()
                 mock_table = Mock()
@@ -1797,7 +1797,7 @@ class SupabaseServiceTestCase(unittest.TestCase):
 
             # キャッシュと管理者クライアントをモック
             dict_cache = self.DictCache()
-            with patch("app.main.flask_cache", dict_cache):
+            with patch("app.cache_manager.cache_manager._cache", dict_cache):
                 # 管理者クライアントのモック（APIErrorを発生させる）
                 mock_admin_client = Mock()
                 mock_table = Mock()
@@ -2694,7 +2694,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             {"ja": "これは回答です"},  # cached translation
         ]
 
-        with patch("app.main.flask_cache") as mock_cache:
+        with patch("app.cache_manager.cache_manager._cache") as mock_cache:
             mock_cache.get.return_value = {"ja": "これは回答です"}  # 内部キャッシュ
 
             # テスト実行
@@ -2725,7 +2725,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
 
         mock_gemini.ask.return_value = {"translated_text": "これは回答です"}
 
-        with patch("app.main.flask_cache") as mock_cache:
+        with patch("app.cache_manager.cache_manager._cache") as mock_cache:
             mock_cache.get.return_value = None  # 内部キャッシュなし
 
             # テスト実行
@@ -2743,7 +2743,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         """translate_tavily_answer関数で検索結果がない場合をテストする"""
         from app.views.beatboxer_tavily_search import translate_tavily_answer
 
-        with patch("app.main.flask_cache") as mock_cache:
+        with patch("app.cache_manager.cache_manager._cache") as mock_cache:
             mock_cache.get.return_value = None
 
             # モックデータの設定
@@ -2783,7 +2783,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         # Gemini APIがエラーを返す
         mock_gemini.ask.return_value = "Error occurred"
 
-        with patch("app.main.flask_cache") as mock_cache:
+        with patch("app.cache_manager.cache_manager._cache") as mock_cache:
             mock_cache.get.return_value = None
 
             # テスト実行
@@ -2813,7 +2813,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         # Gemini APIがリストを返す
         mock_gemini.ask.return_value = [{"translated_text": "これは回答です"}]
 
-        with patch("app.main.flask_cache") as mock_cache:
+        with patch("app.cache_manager.cache_manager._cache") as mock_cache:
             mock_cache.get.return_value = None
 
             # テスト実行
