@@ -209,8 +209,7 @@ jobs:
 
         # Send notification if any skip conditions are met
         if [ "$SKIP_PREVIEW" = true ] || [ "$SKIP_RENDER" = true ]; then
-          PAYLOAD=$(cat <<EOF
-          {
+          PAYLOAD='{
             "text": "スキップ条件検出通知",
             "attachments": [
               {
@@ -223,7 +222,7 @@ jobs:
                   },
                   {
                     "title": "詳細",
-                    "value": "$SKIP_MESSAGE",
+                    "value": "'"$SKIP_MESSAGE"'",
                     "short": false
                   },
                   {
@@ -253,12 +252,10 @@ jobs:
                   }
                 ],
                 "footer": "GitHub Actions",
-                "ts": $(date +%s)
+                "ts": '$(date +%s)'
               }
             ]
-          }
-          EOF
-          )
+          }'
 
           curl -X POST -H 'Content-type: application/json' \
             --data "$PAYLOAD" \
