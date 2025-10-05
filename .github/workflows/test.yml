@@ -2,9 +2,9 @@ name: Run Tests
 
 on:
   push:
-    branches: [ "main", "develop" ]
-  pull_request:
     branches: [ "main" ]
+  pull_request:
+    branches: [ "*" ]
 
 jobs:
   test:
@@ -13,6 +13,65 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+
+    - name: Notify test start to webhook
+      env:
+        WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+      run: |
+        if [ -z "$WEBHOOK_URL" ]; then
+          echo "WEBHOOK_URL is not set, skipping start notification"
+          exit 0
+        fi
+
+        PAYLOAD=$(cat <<EOF
+        {
+          "text": "テスト開始通知",
+          "attachments": [
+            {
+              "color": "#0000ff",
+              "fields": [
+                {
+                  "title": "ステータス",
+                  "value": "🚀 テスト開始",
+                  "short": true
+                },
+                {
+                  "title": "リポジトリ",
+                  "value": "${{ github.repository }}",
+                  "short": true
+                },
+                {
+                  "title": "ブランチ",
+                  "value": "${{ github.ref_name }}",
+                  "short": true
+                },
+                {
+                  "title": "コミット",
+                  "value": "${{ github.sha }}",
+                  "short": true
+                },
+                {
+                  "title": "実行者",
+                  "value": "${{ github.actor }}",
+                  "short": true
+                },
+                {
+                  "title": "イベント",
+                  "value": "${{ github.event_name }}",
+                  "short": true
+                }
+              ],
+              "footer": "GitHub Actions",
+              "ts": $(date +%s)
+            }
+          ]
+        }
+        EOF
+        )
+
+        curl -X POST -H 'Content-type: application/json' \
+          --data "$PAYLOAD" \
+          "$WEBHOOK_URL"
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -113,3 +172,97 @@ jobs:
         curl -X POST -H 'Content-type: application/json' \
           --data "$PAYLOAD" \
           "$WEBHOOK_URL"
+
+    - name: Check for skip conditions and notify
+      if: always()
+      env:
+        WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+      run: |
+        if [ -z "$WEBHOOK_URL" ]; then
+          echo "WEBHOOK_URL is not set, skipping skip notification"
+          exit 0
+        fi
+
+        SKIP_PREVIEW=false
+        SKIP_RENDER=false
+        SKIP_MESSAGE=""
+
+        # Check PR title for preview skip
+        if [ "${{ github.event_name }}" == "pull_request" ]; then
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          if echo "$PR_TITLE" | grep -qiE "\[skip preview\]|\[preview skip\]"; then
+            SKIP_PREVIEW=true
+            SKIP_MESSAGE="PRタイトルにpreview skipが検出されました"
+          fi
+        fi
+
+        # Check commit message for render skip
+        COMMIT_MESSAGE="${{ github.event.head_commit.message }}"
+        if echo "$COMMIT_MESSAGE" | grep -qiE "\[skip render\]|\[render skip\]"; then
+          SKIP_RENDER=true
+          if [ -n "$SKIP_MESSAGE" ]; then
+            SKIP_MESSAGE="$SKIP_MESSAGE, コミットメッセージにrender skipが検出されました"
+          else
+            SKIP_MESSAGE="コミットメッセージにrender skipが検出されました"
+          fi
+        fi
+
+        # Send notification if any skip conditions are met
+        if [ "$SKIP_PREVIEW" = true ] || [ "$SKIP_RENDER" = true ]; then
+          PAYLOAD=$(cat <<EOF
+          {
+            "text": "スキップ条件検出通知",
+            "attachments": [
+              {
+                "color": "#ffa500",
+                "fields": [
+                  {
+                    "title": "ステータス",
+                    "value": "⚠️ スキップ条件検出",
+                    "short": true
+                  },
+                  {
+                    "title": "詳細",
+                    "value": "$SKIP_MESSAGE",
+                    "short": false
+                  },
+                  {
+                    "title": "リポジトリ",
+                    "value": "${{ github.repository }}",
+                    "short": true
+                  },
+                  {
+                    "title": "ブランチ",
+                    "value": "${{ github.ref_name }}",
+                    "short": true
+                  },
+                  {
+                    "title": "コミット",
+                    "value": "${{ github.sha }}",
+                    "short": true
+                  },
+                  {
+                    "title": "実行者",
+                    "value": "${{ github.actor }}",
+                    "short": true
+                  },
+                  {
+                    "title": "イベント",
+                    "value": "${{ github.event_name }}",
+                    "short": true
+                  }
+                ],
+                "footer": "GitHub Actions",
+                "ts": $(date +%s)
+              }
+            ]
+          }
+          EOF
+          )
+
+          curl -X POST -H 'Content-type: application/json' \
+            --data "$PAYLOAD" \
+            "$WEBHOOK_URL"
+        else
+          echo "No skip conditions detected"
+        fi
