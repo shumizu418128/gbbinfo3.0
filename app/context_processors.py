@@ -145,7 +145,18 @@ def is_latest_year(year):
     """
     dt_now = datetime.now()
     now = dt_now.year
-    latest_year = max(get_available_years())
+    available_years = get_available_years()
+
+    # 利用可能な年度がない場合は現在年度と比較
+    if not available_years:
+        return year == now
+
+    # Noneを除外してから最大値を取得
+    valid_years = [y for y in available_years if y is not None]
+    if not valid_years:
+        return year == now
+
+    latest_year = max(valid_years)
     return now <= year <= latest_year
 
 
