@@ -19,8 +19,9 @@ def api_cache_stats():
     Returns:
         dict: キャッシュ統計情報のJSONレスポンス
     """
-    stats = cache_manager.get_cache_stats()
-    return jsonify({"success": True, "data": stats})
+    # 詳細な統計情報を取得
+    detailed_stats = cache_manager.get_detailed_cache_stats()
+    return jsonify({"data": detailed_stats})
 
 
 @cache_stats_bp.route("/api/cache-stats/reset", methods=["POST"])
@@ -32,5 +33,5 @@ def reset_cache_stats():
     """
     cache_manager.reset_cache_stats()
     return jsonify(
-        {"success": True, "message": "キャッシュ統計情報をリセットしました。"}
+        {"message": "キャッシュ統計情報をリセットしました。"}
     )
