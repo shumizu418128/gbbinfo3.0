@@ -97,6 +97,9 @@ class GeminiService:
             try:
                 print(f"処理済みレスポンス: {response_text}", flush=True)
                 print(f"元のレスポンス: {response.text}", flush=True)
+                error_code = response_dict.get("error", {}).get("code")
+                if error_code is not None:
+                    return {"error_code": error_code}
             except NameError:
                 print("レスポンスの処理前にエラーが発生しました", flush=True)
             return {}

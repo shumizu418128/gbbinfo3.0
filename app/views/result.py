@@ -30,31 +30,47 @@ def result_view(year: int):
     category = request.args.get("category")
 
     # その年のカテゴリ一覧を取得
-    year_data = supabase_service.get_data(
-        table="Year",
-        columns=["categories"],
-        filters={
-            "year": year,
-        },
-        pandas=True,
-    )
-    # supabaseから取得失敗した場合、500エラーを返す
-    if year_data is None or year_data.empty:
+    try:
+        year_data = supabase_service.get_data(
+            table="Year",
+            columns=["categories"],
+            filters={
+                "year": year,
+            },
+            timeout=0,
+            pandas=True,
+            raise_error=True,
+        )
+    except Exception:
         abort(500)
-
-    # 以降、supabaseと接続ができるとみなす
 
     all_categories_for_year_id = year_data["categories"].tolist()[0]
 
     # idから名前を取得
-    category_data = supabase_service.get_data(
-        table="Category",
-        columns=["id", "name", "is_team"],
-        filters={
-            f"id__{Operator.IN_}": all_categories_for_year_id,
-        },
-        pandas=True,
-    )
+    try:
+        category_data = supabase_service.get_data(
+            table="Category",
+            columns=["id", "name", "is_team"],
+            filters={
+                f"id__{Operator.IN_}": all_categories_for_year_id,
+            },
+            pandas=True,
+            raise_error=True,
+        )
+    except Exception:
+        abort(500)
+
+    # カテゴリがない場合、まだ発表前なので空データで早期リターン
+    if category_data.empty:
+        context = {
+            "category": "",
+            "category_is_team": False,
+            "result_data": [],
+            "result_type": "",
+            "all_category": [],
+        }
+        return render_template("common/result.html", **context)
+
     all_category_names = category_data["name"].tolist()
 
     # 引数の正当性チェック
@@ -73,33 +89,38 @@ def result_view(year: int):
     # データ取得
     # まずトーナメント制のデータを取得
     result_type = "tournament"
-    result_data = supabase_service.get_data(
-        table="TournamentResult",
-        columns=["round", "winner", "loser"],
-        join_tables={
-            "winner:Participant!TournamentResult_winner_fkey": ["id", "name"],
-            "loser:Participant!TournamentResult_loser_fkey": ["id", "name"],
-        },
-        filters={
-            "year": year,
-            "category": category_id,
-        },
-    )
-
-    # ない場合、順位制のデータを取得
-    if len(result_data) == 0:
-        result_type = "ranking"
+    try:
         result_data = supabase_service.get_data(
-            table="RankingResult",
-            columns=["round", "participant", "rank"],
+            table="TournamentResult",
+            columns=["round", "winner", "loser"],
             join_tables={
-                "Participant": ["id", "name"],
+                "winner:Participant!TournamentResult_winner_fkey": ["id", "name"],
+                "loser:Participant!TournamentResult_loser_fkey": ["id", "name"],
             },
             filters={
                 "year": year,
                 "category": category_id,
             },
+            raise_error=True,
         )
+
+        # ない場合、順位制のデータを取得
+        if len(result_data) == 0:
+            result_type = "ranking"
+            result_data = supabase_service.get_data(
+                table="RankingResult",
+                columns=["round", "participant", "rank"],
+                join_tables={
+                    "Participant": ["id", "name"],
+                },
+                filters={
+                    "year": year,
+                    "category": category_id,
+                },
+                raise_error=True,
+            )
+    except Exception:
+        abort(500)
 
     # 両方ない場合、データなしとして扱う
     if len(result_data) == 0:

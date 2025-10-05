@@ -11,11 +11,6 @@ from app.models.supabase_client import supabase_service
 from app.settings import BASE_DIR, delete_world_map
 from app.util.filter_eq import Operator
 
-AVAILABLE_YEARS = []
-TRANSLATED_URLS = set()
-
-is_gbb_ended_cache = {}
-
 
 # MARK: 年度一覧
 def get_available_years():
@@ -25,19 +20,27 @@ def get_available_years():
     Returns:
         list: 利用可能な年度（降順）のリスト
     """
-    global AVAILABLE_YEARS
-    if AVAILABLE_YEARS:
-        return AVAILABLE_YEARS
+    # ここに書かないと循環インポートになる
+    from app.main import flask_cache
+
+    cache_key = "available_years"
+    cached_years = flask_cache.get(cache_key)
+
+    if cached_years is not None:
+        return cached_years
 
     year_data = supabase_service.get_data(
         table="Year",
         columns=["year"],
+        timeout=0,
     )
     available_years = [item["year"] for item in year_data]
     available_years.sort(reverse=True)
-    AVAILABLE_YEARS = available_years
 
-    return AVAILABLE_YEARS
+    # キャッシュに保存（タイムアウトなし）
+    flask_cache.set(cache_key, available_years, timeout=0)
+
+    return available_years
 
 
 # MARK: 翻訳済URL
@@ -54,17 +57,21 @@ def get_translated_urls():
         common/配下のテンプレートは年度ごとに展開されるため、全年度分を生成します。
         base.html, includes, 404.html等は除外します。
     """
+    # ここに書かないと循環インポートになる
+    from app.main import flask_cache
 
-    global TRANSLATED_URLS
-    if TRANSLATED_URLS:
-        return TRANSLATED_URLS
+    cache_key = "translated_urls"
+    cached_urls = flask_cache.get(cache_key)
+
+    if cached_urls is not None:
+        return cached_urls
 
     language = "en"
 
     po_file_path = (
         BASE_DIR / "app" / "translations" / language / "LC_MESSAGES" / "messages.po"
     )
-    TRANSLATED_URLS = set()
+    translated_urls = set()
 
     try:
         with open(po_file_path, "r", encoding="utf-8") as f:
@@ -84,6 +91,7 @@ def get_translated_urls():
         columns=["year"],
         filters={f"categories__{Operator.IS_NOT}": None},
         pandas=True,
+        timeout=0,
     )
     available_years = year_data["year"].tolist()
 
@@ -112,13 +120,16 @@ def get_translated_urls():
                             + "/"
                             + template_path.replace("common/", "").replace(".html", "")
                         )
-                        TRANSLATED_URLS.add(url_path)
+                        translated_urls.add(url_path)
                 else:
                     # 2024/foo.html → /2024/foo
                     url_path = "/" + template_path.replace(".html", "")
-                    TRANSLATED_URLS.add(url_path)
+                    translated_urls.add(url_path)
 
-    return TRANSLATED_URLS
+    # キャッシュに保存（タイムアウトなし）
+    flask_cache.set(cache_key, translated_urls, timeout=0)
+
+    return translated_urls
 
 
 # MARK: 最新年度
@@ -134,7 +145,13 @@ def is_latest_year(year):
     """
     dt_now = datetime.now()
     now = dt_now.year
-    latest_year = max(get_available_years())
+    available_years = get_available_years()
+
+    # 利用可能な年度がない場合は現在年度と比較
+    if not available_years:
+        return year == now
+
+    latest_year = max(available_years)
     return now <= year <= latest_year
 
 
@@ -186,39 +203,43 @@ def is_gbb_ended(year):
     Returns:
         bool: GBB終了年度の場合はTrue、それ以外はFalse
     """
-    global is_gbb_ended_cache
-    if year in is_gbb_ended_cache:
-        return is_gbb_ended_cache[year]
+    # ここに書かないと循環インポートになる
+    from app.main import flask_cache
+
+    cache_key = f"gbb_ended_{year}"
+    cached_result = flask_cache.get(cache_key)
+
+    if cached_result is not None:
+        return cached_result
 
     # タイムゾーンを考慮した現在時刻を取得
     now = datetime.now(timezone.utc)
 
     # 過去年度は常にTrue
     if year < now.year:
-        return True
+        result = True
+    else:
+        year_data = supabase_service.get_data(
+            table="Year",
+            columns=["year", "ends_at"],
+            filters={"year": year},
+            timeout=0,
+        )
+        # GBBが終了したか調べる
+        if year_data:
+            ends_at = year_data[0]["ends_at"]
+            if ends_at:
+                datetime_ends_at = parser.parse(ends_at)
+                result = datetime_ends_at < now
+            else:
+                result = False
+        else:
+            result = False
 
-    year_data = supabase_service.get_data(
-        table="Year",
-        columns=["year", "ends_at"],
-        filters={f"year__{Operator.EQUAL}": year},
-    )
-    # 最新年度GBBの終了日を取得
-    latest_year_ends_at = year_data[0]["ends_at"]
+    # キャッシュに保存（タイムアウトなし）
+    flask_cache.set(cache_key, result, timeout=0)
 
-    # 最新年度終了日がない場合、1つ前のGBB終了日を取得
-    if latest_year_ends_at is None:
-        latest_year_ends_at = year_data[1]["ends_at"]
-
-    # latest_year_ends_atが文字列の場合はdatetime型に変換
-    if isinstance(latest_year_ends_at, str):
-        latest_year_ends_at = parser.parse(latest_year_ends_at)
-
-    # latest_year_ends_atがナイーブな場合はタイムゾーンを適用
-    if latest_year_ends_at and latest_year_ends_at.tzinfo is None:
-        latest_year_ends_at = latest_year_ends_at.replace(tzinfo=timezone.utc)
-
-    is_gbb_ended_cache[year] = latest_year_ends_at < now
-    return is_gbb_ended_cache[year]
+    return result
 
 
 # MARK: 言語URL
@@ -354,7 +375,7 @@ def get_locale(BABEL_SUPPORTED_LOCALES):
 
 
 # MARK: 初期化タスク
-def initialize_background_tasks(BABEL_SUPPORTED_LOCALES):
+def initialize_background_tasks(IS_LOCAL):
     """
     バックグラウンドタスクの初期化を行います。
 
@@ -370,6 +391,7 @@ def initialize_background_tasks(BABEL_SUPPORTED_LOCALES):
         - check_locale_paths_and_languagesにはBABEL_SUPPORTED_LOCALESが引数として渡されます。
         - 各タスクはアプリケーションの初期化時に一度だけ実行されます。
     """
-    Thread(target=delete_world_map).start()
+    if IS_LOCAL:
+        Thread(target=delete_world_map).start()
     Thread(target=get_available_years).start()
     Thread(target=get_translated_urls).start()

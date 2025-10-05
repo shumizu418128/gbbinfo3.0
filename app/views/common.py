@@ -122,4 +122,7 @@ def internal_server_error_view():
     """
     500ページを表示する。
     """
-    return render_template("common/500.html"), 500
+    context = {
+        "is_translated": True,
+    }
+    return render_template("common/500.html", context=context), 500

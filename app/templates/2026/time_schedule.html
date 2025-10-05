@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}GBB {{ year }} {{_("タイムスケジュール")}} - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBB {{ year }} {{_("タイムスケジュール")}} - GBBINFO-JPN{% endblock %}
+{% block og_title %}GBB {{ year }} {{_("タイムスケジュール")}} - GBBINFO-JPN{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/time_schedule{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/time_schedule{% endblock %}
+{% block content %}
+
+<h1>GBB {{ year }} {{_("タイムスケジュール")}}</h1>
+<p>{{_("～発表次第更新～")}}</p>
+
+{% endblock %}

@@ -2,9 +2,9 @@ name: Run Tests
 
 on:
   push:
-    branches: [ "main", "develop" ]
-  pull_request:
     branches: [ "main" ]
+  pull_request:
+    branches: [ "*" ]
 
 jobs:
   test:
@@ -13,6 +13,65 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+
+    - name: Notify test start to webhook
+      env:
+        WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+      run: |
+        if [ -z "$WEBHOOK_URL" ]; then
+          echo "WEBHOOK_URL is not set, skipping start notification"
+          exit 0
+        fi
+
+        PAYLOAD=$(cat <<EOF
+        {
+          "text": "テスト開始通知",
+          "attachments": [
+            {
+              "color": "#0000ff",
+              "fields": [
+                {
+                  "title": "ステータス",
+                  "value": "🚀 テスト開始",
+                  "short": true
+                },
+                {
+                  "title": "リポジトリ",
+                  "value": "${{ github.repository }}",
+                  "short": true
+                },
+                {
+                  "title": "ブランチ",
+                  "value": "${{ github.ref_name }}",
+                  "short": true
+                },
+                {
+                  "title": "コミット",
+                  "value": "${{ github.sha }}",
+                  "short": true
+                },
+                {
+                  "title": "実行者",
+                  "value": "${{ github.actor }}",
+                  "short": true
+                },
+                {
+                  "title": "イベント",
+                  "value": "${{ github.event_name }}",
+                  "short": true
+                }
+              ],
+              "footer": "GitHub Actions",
+              "ts": $(date +%s)
+            }
+          ]
+        }
+        EOF
+        )
+
+        curl -X POST -H 'Content-type: application/json' \
+          --data "$PAYLOAD" \
+          "$WEBHOOK_URL"
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -24,37 +83,13 @@ jobs:
       with:
         version: "latest"
 
-    - name: Cache uv dependencies
-      uses: actions/cache@v3
-      with:
-        path: ~/.cache/uv
-        key: ${{ runner.os }}-uv-${{ hashFiles('**/requirements.txt') }}
-        restore-keys: |
-          ${{ runner.os }}-uv-
-
     - name: Install dependencies with uv
       run: |
         uv pip install --system -r requirements.txt
         uv pip install --system pytest pytest-cov
 
-    - name: Set up environment variables
-      env:
-        # GitHub Secretsから機密情報を取得
-        SECRET_KEY: ${{ secrets.SECRET_KEY }}
-        TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
-        GOOGLE_SHEET_CREDENTIALS: ${{ secrets.GOOGLE_SHEET_CREDENTIALS }}
-        SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-        SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
-        SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        # テスト用の環境変数
-        FLASK_ENV: testing
-        TESTING: true
-        IS_PULL_REQUEST: ${{ github.event_name == 'pull_request' }}
-      run: |
-        echo "Environment variables set for testing"
-
     - name: Run tests with pytest
+      id: test
       env:
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
         TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
@@ -68,19 +103,163 @@ jobs:
         IS_PULL_REQUEST: ${{ github.event_name == 'pull_request' }}
       run: |
         python -m pytest app/tests/tests.py -v --tb=short
+        echo "test_result=success" >> $GITHUB_OUTPUT
 
-    - name: Run tests with unittest (fallback)
-      if: failure()
+    - name: Notify test results to webhook
+      if: always()
       env:
-        SECRET_KEY: ${{ secrets.SECRET_KEY }}
-        TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
-        GOOGLE_SHEET_CREDENTIALS: ${{ secrets.GOOGLE_SHEET_CREDENTIALS }}
-        SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-        SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
-        SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        FLASK_ENV: testing
-        TESTING: true
-        IS_PULL_REQUEST: ${{ github.event_name == 'pull_request' }}
+        WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
       run: |
-        python -m unittest app.tests.tests -v
+        if [ -z "$WEBHOOK_URL" ]; then
+          echo "WEBHOOK_URL is not set, skipping notification"
+          exit 0
+        fi
+
+        if [ "${{ steps.test.outcome }}" == "success" ]; then
+          STATUS="✅ 成功"
+          COLOR="good"
+        else
+          STATUS="❌ 失敗"
+          COLOR="danger"
+        fi
+
+        PAYLOAD=$(cat <<EOF
+        {
+          "text": "テスト結果通知",
+          "attachments": [
+            {
+              "color": "$COLOR",
+              "fields": [
+                {
+                  "title": "ステータス",
+                  "value": "$STATUS",
+                  "short": true
+                },
+                {
+                  "title": "リポジトリ",
+                  "value": "${{ github.repository }}",
+                  "short": true
+                },
+                {
+                  "title": "ブランチ",
+                  "value": "${{ github.ref_name }}",
+                  "short": true
+                },
+                {
+                  "title": "コミット",
+                  "value": "${{ github.sha }}",
+                  "short": true
+                },
+                {
+                  "title": "実行者",
+                  "value": "${{ github.actor }}",
+                  "short": true
+                },
+                {
+                  "title": "イベント",
+                  "value": "${{ github.event_name }}",
+                  "short": true
+                }
+              ],
+              "footer": "GitHub Actions",
+              "ts": $(date +%s)
+            }
+          ]
+        }
+        EOF
+        )
+
+        curl -X POST -H 'Content-type: application/json' \
+          --data "$PAYLOAD" \
+          "$WEBHOOK_URL"
+
+    - name: Check for skip conditions and notify
+      if: always()
+      env:
+        WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+      run: |
+        if [ -z "$WEBHOOK_URL" ]; then
+          echo "WEBHOOK_URL is not set, skipping skip notification"
+          exit 0
+        fi
+
+        SKIP_PREVIEW=false
+        SKIP_RENDER=false
+        SKIP_MESSAGE=""
+
+        # Check PR title for preview skip
+        if [ "${{ github.event_name }}" == "pull_request" ]; then
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          if echo "$PR_TITLE" | grep -qiE "\[skip preview\]|\[preview skip\]"; then
+            SKIP_PREVIEW=true
+            SKIP_MESSAGE="PRタイトルにpreview skipが検出されました"
+          fi
+        fi
+
+        # Check commit message for render skip
+        COMMIT_MESSAGE="${{ github.event.head_commit.message }}"
+        if echo "$COMMIT_MESSAGE" | grep -qiE "\[skip render\]|\[render skip\]"; then
+          SKIP_RENDER=true
+          if [ -n "$SKIP_MESSAGE" ]; then
+            SKIP_MESSAGE="$SKIP_MESSAGE, コミットメッセージにrender skipが検出されました"
+          else
+            SKIP_MESSAGE="コミットメッセージにrender skipが検出されました"
+          fi
+        fi
+
+        # Send notification if any skip conditions are met
+        if [ "$SKIP_PREVIEW" = true ] || [ "$SKIP_RENDER" = true ]; then
+          PAYLOAD='{
+            "text": "スキップ条件検出通知",
+            "attachments": [
+              {
+                "color": "#ffa500",
+                "fields": [
+                  {
+                    "title": "ステータス",
+                    "value": "⚠️ スキップ条件検出",
+                    "short": true
+                  },
+                  {
+                    "title": "詳細",
+                    "value": "'"$SKIP_MESSAGE"'",
+                    "short": false
+                  },
+                  {
+                    "title": "リポジトリ",
+                    "value": "${{ github.repository }}",
+                    "short": true
+                  },
+                  {
+                    "title": "ブランチ",
+                    "value": "${{ github.ref_name }}",
+                    "short": true
+                  },
+                  {
+                    "title": "コミット",
+                    "value": "${{ github.sha }}",
+                    "short": true
+                  },
+                  {
+                    "title": "実行者",
+                    "value": "${{ github.actor }}",
+                    "short": true
+                  },
+                  {
+                    "title": "イベント",
+                    "value": "${{ github.event_name }}",
+                    "short": true
+                  }
+                ],
+                "footer": "GitHub Actions",
+                "ts": '$(date +%s)'
+              }
+            ]
+          }'
+
+          curl -X POST -H 'Content-type: application/json' \
+            --data "$PAYLOAD" \
+            "$WEBHOOK_URL"
+        else
+          echo "No skip conditions detected"
+        fi
