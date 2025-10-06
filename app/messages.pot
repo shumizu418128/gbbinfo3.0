@@ -12,6 +12,7 @@ msgstr ""
 #: templates/2024/rule.html:26 templates/2024/time_schedule.html:16
 #: templates/2025/rule.html:26 templates/2025/time_schedule.html:18
 #: templates/2025/wildcard_regulation.html:26
+#: templates/2026/time_schedule.html:20
 msgid "目次"
 msgstr ""
 
@@ -155,11 +156,13 @@ msgstr ""
 #: templates/2025/stream.html:15 templates/2025/time_schedule.html:53
 #: templates/2025/time_schedule.html:81 templates/2025/time_schedule.html:109
 #: templates/2025/time_schedule.html:141 templates/2026/rule.html:11
-#: templates/2026/ticket.html:12 templates/2026/ticket.html:13
-#: templates/2026/time_schedule.html:11 templates/2026/top.html:195
-#: templates/2026/top.html:196 templates/common/cancels.html:38
-#: templates/common/participants.html:19 templates/common/participants.html:83
-#: templates/common/result.html:71
+#: templates/2026/ticket.html:13 templates/2026/time_schedule.html:44
+#: templates/2026/time_schedule.html:48 templates/2026/time_schedule.html:52
+#: templates/2026/time_schedule.html:72 templates/2026/time_schedule.html:76
+#: templates/2026/time_schedule.html:80 templates/2026/time_schedule.html:100
+#: templates/2026/time_schedule.html:104 templates/2026/time_schedule.html:108
+#: templates/common/cancels.html:38 templates/common/participants.html:19
+#: templates/common/participants.html:83 templates/common/result.html:71
 msgid "～発表次第更新～"
 msgstr ""
 
@@ -328,6 +331,7 @@ msgid "楽天チケット"
 msgstr ""
 
 #: templates/2024/time_schedule.html:11 templates/2025/time_schedule.html:12
+#: templates/2026/time_schedule.html:15
 msgid "時刻はあくまでも予定です。"
 msgstr ""
 
@@ -347,6 +351,8 @@ msgstr ""
 #: templates/2024/time_schedule.html:164 templates/2024/time_schedule.html:237
 #: templates/2025/time_schedule.html:39 templates/2025/time_schedule.html:67
 #: templates/2025/time_schedule.html:95 templates/2025/time_schedule.html:127
+#: templates/2026/time_schedule.html:38 templates/2026/time_schedule.html:66
+#: templates/2026/time_schedule.html:94
 msgid "時刻"
 msgstr ""
 
@@ -354,6 +360,8 @@ msgstr ""
 #: templates/2024/time_schedule.html:165 templates/2024/time_schedule.html:238
 #: templates/2025/time_schedule.html:40 templates/2025/time_schedule.html:68
 #: templates/2025/time_schedule.html:96 templates/2025/time_schedule.html:128
+#: templates/2026/time_schedule.html:39 templates/2026/time_schedule.html:67
+#: templates/2026/time_schedule.html:95
 msgid "内容"
 msgstr ""
 
@@ -361,6 +369,8 @@ msgstr ""
 #: templates/2024/time_schedule.html:171 templates/2024/time_schedule.html:244
 #: templates/2025/time_schedule.html:46 templates/2025/time_schedule.html:74
 #: templates/2025/time_schedule.html:102 templates/2025/time_schedule.html:134
+#: templates/2026/time_schedule.html:45 templates/2026/time_schedule.html:73
+#: templates/2026/time_schedule.html:101
 msgid "入場開始"
 msgstr ""
 
@@ -378,6 +388,8 @@ msgstr ""
 #: templates/2024/time_schedule.html:183 templates/2024/time_schedule.html:248
 #: templates/2025/time_schedule.html:50 templates/2025/time_schedule.html:78
 #: templates/2025/time_schedule.html:106 templates/2025/time_schedule.html:138
+#: templates/2026/time_schedule.html:49 templates/2026/time_schedule.html:77
+#: templates/2026/time_schedule.html:105
 msgid "スタート"
 msgstr ""
 
@@ -396,6 +408,8 @@ msgstr ""
 #: templates/2024/time_schedule.html:219 templates/2024/time_schedule.html:280
 #: templates/2025/time_schedule.html:54 templates/2025/time_schedule.html:82
 #: templates/2025/time_schedule.html:110 templates/2025/time_schedule.html:142
+#: templates/2026/time_schedule.html:53 templates/2026/time_schedule.html:81
+#: templates/2026/time_schedule.html:109
 msgid "終了"
 msgstr ""
 
@@ -502,7 +516,7 @@ msgstr ""
 #: templates/2024/top.html:104 templates/2024/top.html:118
 #: templates/2024/top_7tosmoke.html:46 templates/2025/top.html:178
 #: templates/2025/top.html:192 templates/2025/top_7tosmoke.html:48
-#: templates/2026/top.html:166 templates/2026/top.html:180
+#: templates/2026/top.html:166
 msgid "お問い合わせ"
 msgstr ""
 
@@ -532,17 +546,14 @@ msgid "GBBの各種情報は、発表が非常に遅いことで有名です。�
 msgstr ""
 
 #: templates/2024/top.html:119 templates/2025/top.html:198
-#: templates/2026/top.html:186
 msgid "過去のGBBにおいて、下記番号に電話したらGBB詳細情報を教えてくれた、という報告が相次ぎました。"
 msgstr ""
 
 #: templates/2024/top.html:123 templates/2025/top.html:202
-#: templates/2026/top.html:190
 msgid "場所"
 msgstr ""
 
 #: templates/2024/top.html:124 templates/2025/top.html:203
-#: templates/2026/top.html:191
 msgid "電話番号"
 msgstr ""
 
@@ -551,7 +562,6 @@ msgid "チケット販売ページ記載の番号"
 msgstr ""
 
 #: templates/2024/top.html:140 templates/2025/top.html:223
-#: templates/2026/top.html:199
 msgid "なお上記電話番号は、当サイトとは無関係です。"
 msgstr ""
 
@@ -765,7 +775,7 @@ msgstr ""
 msgid "閉じる"
 msgstr ""
 
-#: templates/2025/top.html:195 templates/2026/top.html:183
+#: templates/2025/top.html:195
 msgid "お探しの情報は、当サイトにありません。下記お問い合わせより、GBB運営に直接お尋ねください。"
 msgstr ""
 
@@ -1004,8 +1014,12 @@ msgstr ""
 msgid "開催地：ポーランド・ワルシャワ"
 msgstr ""
 
-#: templates/2026/top.html:31
-msgid "開催日未定"
+#: templates/2026/time_schedule.html:16
+msgid "最後にポーランド・ワルシャワで開催された、GBB 2021では、予定から約2時間遅延しました。"
+msgstr ""
+
+#: templates/2026/time_schedule.html:17
+msgid "なお、GBB 2022は中止され、GBB 2023~2025は、東京で開催されました。"
 msgstr ""
 
 #: templates/base.html:34 templates/base.html:44 templates/base.html:48
@@ -1041,7 +1055,8 @@ msgstr ""
 #: templates/2025/wildcard_regulation.html:193
 #: templates/2025/wildcard_regulation.html:194
 #: templates/2025/wildcard_regulation.html:255
-#: templates/2025/wildcard_regulation.html:256 templates/2026/top.html:3
+#: templates/2025/wildcard_regulation.html:256
+#: templates/2026/time_schedule.html:115 templates/2026/top.html:3
 #: templates/2026/top.html:4 templates/2026/top.html:5
 #: templates/2026/top.html:25 templates/2026/top.html:92
 #: templates/2026/top.html:161 templates/base.html:117 templates/base.html:150
@@ -1055,7 +1070,8 @@ msgstr ""
 #: templates/2025/rule.html:358 templates/2025/ticket.html:28
 #: templates/2025/time_schedule.html:88 templates/2025/top.html:105
 #: templates/2025/wildcards.html:14 templates/2025/wildcards.html:83
-#: templates/2026/top.html:97 templates/base.html:118 templates/base.html:266
+#: templates/2026/time_schedule.html:87 templates/2026/top.html:97
+#: templates/base.html:118 templates/base.html:266
 #: templates/common/participants.html:25 templates/common/result.html:98
 #: templates/includes/participants_form.html:13
 #: templates/others/result_stream.html:39
@@ -1066,7 +1082,8 @@ msgstr ""
 #: templates/2025/rule.html:358 templates/2025/ticket.html:28
 #: templates/2025/time_schedule.html:88 templates/2025/top.html:105
 #: templates/2025/wildcards.html:14 templates/2025/wildcards.html:83
-#: templates/2026/top.html:97 templates/base.html:118 templates/base.html:266
+#: templates/2026/time_schedule.html:87 templates/2026/top.html:97
+#: templates/base.html:118 templates/base.html:266
 #: templates/common/result.html:98 templates/others/result_stream.html:39
 msgid "出場者"
 msgstr ""
@@ -1082,9 +1099,9 @@ msgstr ""
 #: templates/2025/wildcard_regulation.html:202 templates/2025/wildcards.html:15
 #: templates/2025/wildcards.html:84 templates/2026/rule.html:3
 #: templates/2026/rule.html:4 templates/2026/rule.html:5
-#: templates/2026/rule.html:10 templates/2026/top.html:62
-#: templates/2026/top.html:101 templates/base.html:119
-#: templates/common/participants.html:142
+#: templates/2026/rule.html:10 templates/2026/time_schedule.html:59
+#: templates/2026/top.html:62 templates/2026/top.html:101
+#: templates/base.html:119 templates/common/participants.html:142
 msgid "ルール"
 msgstr ""
 
@@ -1093,8 +1110,8 @@ msgstr ""
 #: templates/2025/rule.html:367 templates/2025/time_schedule.html:60
 #: templates/2025/top.html:66 templates/2025/top.html:109
 #: templates/2025/wildcards.html:15 templates/2025/wildcards.html:84
-#: templates/2026/top.html:67 templates/2026/top.html:101
-#: templates/base.html:119
+#: templates/2026/time_schedule.html:59 templates/2026/top.html:67
+#: templates/2026/top.html:101 templates/base.html:119
 msgid "審査員"
 msgstr ""
 
@@ -1110,6 +1127,7 @@ msgstr ""
 #: templates/2025/time_schedule.html:59 templates/2025/time_schedule.html:115
 #: templates/2025/time_schedule.html:147 templates/2025/top.html:165
 #: templates/2025/top_7tosmoke.html:36 templates/2025/wildcards.html:112
+#: templates/2026/time_schedule.html:58 templates/2026/time_schedule.html:114
 #: templates/2026/top.html:157 templates/base.html:120
 msgid "現地観戦計画のたてかた"
 msgstr ""
@@ -1174,8 +1192,9 @@ msgstr ""
 #: templates/2025/stream.html:3 templates/2025/stream.html:4
 #: templates/2025/stream.html:5 templates/2025/stream.html:9
 #: templates/2025/time_schedule.html:87 templates/2025/top.html:138
-#: templates/2025/top_7tosmoke.html:40 templates/2026/top.html:130
-#: templates/base.html:130 templates/others/translation.html:23
+#: templates/2025/top_7tosmoke.html:40 templates/2026/time_schedule.html:86
+#: templates/2026/top.html:130 templates/base.html:130
+#: templates/others/translation.html:23
 msgid "当日配信"
 msgstr ""
 
