@@ -1015,7 +1015,7 @@ msgid "開催地：ポーランド・ワルシャワ"
 msgstr ""
 
 #: templates/2026/time_schedule.html:16
-msgid "最後にポーランド・ワルシャワで開催された、GBB 2021では、予定から約2時間遅延しました。"
+msgid "GBBが最後にポーランド・ワルシャワで開催された年は2021年ですが、GBB 2021は予定から約2時間遅延しました。"
 msgstr ""
 
 #: templates/2026/time_schedule.html:17

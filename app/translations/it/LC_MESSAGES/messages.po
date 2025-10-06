@@ -1152,10 +1152,10 @@ msgid "開催地：ポーランド・ワルシャワ"
 msgstr "Luogo: Varsavia, Polonia"
 
 #: templates/2026/time_schedule.html:16
-msgid "最後にポーランド・ワルシャワで開催された、GBB 2021では、予定から約2時間遅延しました。"
+msgid "GBBが最後にポーランド・ワルシャワで開催された年は2021年ですが、GBB 2021は予定から約2時間遅延しました。"
 msgstr ""
-"Al GBB 2021, che si è tenuto a Varsavia, in Polonia, alla fine, ha subito un"
-" ritardo di circa 2 ore rispetto al programma."
+"L'ultimo anno in cui si è tenuto il GBB a Varsavia, Polonia, è stato il "
+"2021, ma il GBB 2021 ha ritardato di circa 2 ore rispetto al previsto."
 
 #: templates/2026/time_schedule.html:17
 msgid "なお、GBB 2022は中止され、GBB 2023~2025は、東京で開催されました。"
