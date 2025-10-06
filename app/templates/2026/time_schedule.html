@@ -8,6 +8,111 @@
 {% block content %}
 
 <h1>GBB {{ year }} {{_("タイムスケジュール")}}</h1>
-<p>{{_("～発表次第更新～")}}</p>
+
+<!-- TODO: 更新したらこの表示を消す -->
+{% include 'includes/popup_no_info.html' %}
+
+<p>{{_("時刻はあくまでも予定です。")}}</p>
+<p>{{_("最後にポーランド・ワルシャワで開催された、GBB 2021では、予定から約2時間遅延しました。")}}</p>
+<p>{{_("なお、GBB 2022は中止され、GBB 2023~2025は、東京で開催されました。")}}</p>
+
+<div>
+    <h2>{{_("目次")}}</h2>
+    <ol>
+        <li>
+            <a href="#day1">Day1 - 9/25</a>
+        </li>
+        <li>
+            <a href="#day2">Day2 - 9/26</a>
+        </li>
+        <li>
+            <a href="#_7ts">7toSmoke - ?/?</a>
+        </li>
+    </ol>
+</div>
+
+<h2 id="day1">Day1 - 9/25</h2>
+<table>
+    <thead>
+        <tr>
+            <th>{{_("時刻")}}</th>
+            <th>{{_("内容")}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{_("～発表次第更新～")}}</td>
+            <td>{{_("入場開始")}}</td>
+        </tr>
+        <tr>
+            <td>{{_("～発表次第更新～")}}</td>
+            <td>{{_("スタート")}}</td>
+        </tr>
+        <tr>
+            <td>{{_("～発表次第更新～")}}</td>
+            <td>{{_("終了")}}</td>
+        </tr>
+    </tbody>
+</table>
+<div class="button-container">
+    <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+    <a href="/{{ year }}/rule"><button>{{_("ルール")}} & {{_("審査員")}}</button></a>
+</div>
+
+<h2 id="day2">Day2 - 9/26</h2>
+<table>
+    <thead>
+        <tr>
+            <th>{{_("時刻")}}</th>
+            <th>{{_("内容")}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{_("～発表次第更新～")}}</td>
+            <td>{{_("入場開始")}}</td>
+        </tr>
+        <tr>
+            <td>{{_("～発表次第更新～")}}</td>
+            <td>{{_("スタート")}}</td>
+        </tr>
+        <tr>
+            <td>{{_("～発表次第更新～")}}</td>
+            <td>{{_("終了")}}</td>
+        </tr>
+    </tbody>
+</table>
+<div class="button-container">
+    <a href="/{{ year }}/stream"><button>{{_("当日配信")}}</button></a>
+    <a href="/{{ year }}/participants"><button>{{_("Wildcard結果")}} & {{_("出場者")}}</button></a>
+</div>
+
+<h2 id="_7ts" name="7tosmoke">7toSmoke - ?/?</h2>
+<table>
+    <thead>
+        <tr>
+            <th>{{_("時刻")}}</th>
+            <th>{{_("内容")}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{_("～発表次第更新～")}}</td>
+            <td>{{_("入場開始")}}</td>
+        </tr>
+        <tr>
+            <td>{{_("～発表次第更新～")}}</td>
+            <td>{{_("スタート")}}</td>
+        </tr>
+        <tr>
+            <td>{{_("～発表次第更新～")}}</td>
+            <td>{{_("終了")}}</td>
+        </tr>
+    </tbody>
+</table>
+<div class="button-container">
+    <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+    <a href="/{{ year }}/top_7tosmoke"><button>7toSmoke {{_("これだけガイド")}}</button></a>
+</div>
 
 {% endblock %}
