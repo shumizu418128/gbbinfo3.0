@@ -67,7 +67,7 @@ class Config:
     BABEL_SUPPORTED_LOCALES = [code for code, _ in LANGUAGES]
     BABEL_DEFAULT_TIMEZONE = "Asia/Tokyo"
     BABEL_TRANSLATION_DIRECTORIES = str(BASE_DIR / "app" / "translations")
-    CACHE_DEFAULT_TIMEOUT = None  # キャッシュの有効期限を無期限に設定
+    CACHE_DEFAULT_TIMEOUT = 0  # キャッシュの有効期限を無期限に設定（0 は無期限）
     CACHE_TYPE = "filesystem"
     CACHE_DIR = str(BASE_DIR / "cache")
     DEBUG = False
