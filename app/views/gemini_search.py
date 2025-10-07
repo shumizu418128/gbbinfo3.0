@@ -8,8 +8,11 @@ from flask import jsonify, request
 from rapidfuzz import process
 
 from app.config.config import PROMPT, SEARCH_CACHE
+from app.config.logging_config import get_logger
 from app.models.gemini_client import gemini_service
 from app.models.spreadsheet_client import spreadsheet_service
+
+logger = get_logger(__name__)
 
 others_url_list = [
     file_name.replace(".html", "") for file_name in os.listdir("app/templates/others")
@@ -89,7 +92,7 @@ def post_gemini_search(year: int, IS_LOCAL: bool, IS_PULL_REQUEST: bool):
         url = SEARCH_CACHE[question.upper()].replace("__year__", str(year))
 
     else:
-        print(f"question: {question}", flush=True)
+        logger.info(f"[post_gemini_search] Processing search question: {question}")
         prompt = PROMPT.format(year=year, question=question)
 
         # 最大5回リトライ

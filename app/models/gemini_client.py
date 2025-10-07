@@ -8,6 +8,9 @@ from ratelimit import limits, sleep_and_retry
 from app.config.config import (
     SAFETY_SETTINGS_BLOCK_ONLY_HIGH,
 )
+from app.config.logging_config import get_logger
+
+logger = get_logger(__name__)
 
 
 class GeminiService:
@@ -92,16 +95,16 @@ class GeminiService:
             return response_dict
 
         except Exception as e:
-            print(f"GeminiService ask API呼び出し失敗: {e}", flush=True)
+            logger.error(f"[ask] GeminiService ask API call failed: {e}")
             # response_textとresponseが定義されている場合のみ出力
             try:
-                print(f"処理済みレスポンス: {response_text}", flush=True)
-                print(f"元のレスポンス: {response.text}", flush=True)
+                logger.debug(f"[ask] Processed response: {response_text}")
+                logger.debug(f"[ask] Original response: {response.text}")
                 error_code = response_dict.get("error", {}).get("code")
                 if error_code is not None:
                     return {"error_code": error_code}
             except NameError:
-                print("レスポンスの処理前にエラーが発生しました", flush=True)
+                logger.error("[ask] Error occurred before processing response")
             return {}
 
 

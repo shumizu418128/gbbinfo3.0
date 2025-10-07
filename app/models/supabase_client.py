@@ -14,8 +14,11 @@ from postgrest.exceptions import APIError
 from supabase import Client, create_client
 
 from app.config.config import PROMPT_TRANSLATE
+from app.config.logging_config import get_logger
 from app.models.gemini_client import gemini_service
 from app.util.filter_eq import Operator
+
+logger = get_logger(__name__)
 
 ALL_DATA = "*"
 MINUTE = 60
@@ -354,7 +357,7 @@ class SupabaseService:
         try:
             response = query.execute()
         except Exception as e:
-            print("SupabaseClient get_data error:", e, flush=True)
+            logger.error(f"[get_data] SupabaseClient get_data error: {e}")
             if raise_error:
                 raise e
             if pandas:
@@ -404,7 +407,7 @@ class SupabaseService:
         try:
             response = query.execute()
         except Exception as e:
-            print("SupabaseClient get_tavily_data error:", e, flush=True)
+            logger.error(f"[get_tavily_data] SupabaseClient get_tavily_data error: {e}")
             if raise_error:
                 raise e
             return []
@@ -504,7 +507,7 @@ class SupabaseService:
         countries = self.get_data("Country", columns=["iso_code", "names"], pandas=True)
 
         if countries.empty:
-            print("国データの取得に失敗しました", flush=True)
+            logger.error("[update_country_names] Failed to retrieve country data")
             return
 
         for index, row in countries.iterrows():
@@ -523,9 +526,8 @@ class SupabaseService:
                 continue
 
             if not isinstance(names, dict):
-                print(
-                    f"国コード {iso_code} のnamesデータが辞書形式ではありません",
-                    flush=True,
+                logger.warning(
+                    f"[update_country_names] Country code {iso_code} names data is not in dictionary format"
                 )
                 continue
 
@@ -555,13 +557,12 @@ class SupabaseService:
                                 ]
                                 updated = True
                             else:
-                                print(
-                                    f"国コード {iso_code} の {add_language} 翻訳に失敗しました",
-                                    flush=True,
+                                logger.warning(
+                                    f"[update_country_names] Failed to translate country code {iso_code} to {add_language}"
                                 )
                         except Exception as e:
-                            print(
-                                f"国コード {iso_code} の翻訳中にエラー: {e}", flush=True
+                            logger.error(
+                                f"[update_country_names] Error during translation for country code {iso_code}: {e}"
                             )
 
             # 更新されたデータを保存
@@ -574,7 +575,9 @@ class SupabaseService:
                         "iso_code", iso_code
                     ).execute()
                 except Exception as e:
-                    print(f"国コード {iso_code} の保存中にエラー: {e}", flush=True)
+                    logger.error(
+                        f"[update_country_names] Error while saving country code {iso_code}: {e}"
+                    )
 
 
 # グローバルインスタンス
