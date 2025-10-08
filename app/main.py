@@ -1,4 +1,3 @@
-import logging
 import os
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -10,6 +9,7 @@ from flask import (
 from flask_babel import Babel, _
 from flask_caching import Cache
 
+from app.config.logging_config import get_logger, setup_logging
 from app.context_processors import (
     common_variables,
     get_locale,
@@ -28,10 +28,9 @@ from app.views import (
     world_map,
 )
 
-# waitress.queue ロガーを無効化
-_waitress_queue_logger = logging.getLogger("waitress.queue")
-_waitress_queue_logger.propagate = False
-_waitress_queue_logger.disabled = True
+# ロギング設定を初期化
+setup_logging()
+logger = get_logger(__name__)
 
 app = Flask(__name__)
 
