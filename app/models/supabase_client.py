@@ -357,7 +357,7 @@ class SupabaseService:
         try:
             response = query.execute()
         except Exception as e:
-            logger.exception(f"[get_data] SupabaseClient get_data error: {e}")
+            logger.exception("[get_data] SupabaseClient get_data error")
             if raise_error:
                 raise e
             if pandas:

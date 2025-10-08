@@ -95,8 +95,8 @@ class GeminiService:
             flask_cache.set(cache_key, response_dict, timeout=0)
             return response_dict
 
-        except Exception as e:
-            logger.exception(f"[ask] GeminiService ask API call failed: {e}")
+        except Exception:
+            logger.exception("[ask] GeminiService ask API call failed")
             # response_textとresponseが定義されている場合のみ出力
             try:
                 logger.debug(f"[ask] Processed response: {response_text}")
