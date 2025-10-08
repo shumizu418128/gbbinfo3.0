@@ -123,4 +123,3 @@ Thumbs.db
 
 /app/templates/*/world_map/*.html
 cache/
-logs/

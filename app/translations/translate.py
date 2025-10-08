@@ -6,10 +6,6 @@ from google import genai
 from pydantic import BaseModel
 from tqdm import tqdm
 
-from app.config.logging_config import get_logger
-
-logger = get_logger(__name__)
-
 BASE_DIR = os.path.abspath("app")
 LOCALE_DIR = os.path.join(BASE_DIR, "translations")
 POT_FILE = os.path.join(BASE_DIR, "messages.pot")
@@ -85,9 +81,7 @@ def reuse_obsolete_translations(po):
     if not obsolete_entries:
         return
 
-    logger.info(
-        f"[reuse_obsolete_translations] Found {len(obsolete_entries)} obsolete translations to check for reuse"
-    )
+    print(f"Found {len(obsolete_entries)} obsolete translations to check for reuse")
 
     # 現在のエントリの辞書を作成（msgid -> entry）
     current_entries = {entry.msgid: entry for entry in po}
@@ -120,13 +114,9 @@ def reuse_obsolete_translations(po):
                     current_entry.comment += "\nReused from obsolete translation"
 
                     reused_count += 1
-                    logger.debug(
-                        f"[reuse_obsolete_translations] Reused translation for: {obsolete_entry.msgid[:50]}..."
-                    )
+                    print(f"Reused translation for: {obsolete_entry.msgid[:50]}...")
 
-    logger.info(
-        f"[reuse_obsolete_translations] Reused {reused_count} translations from obsolete entries"
-    )
+    print(f"Reused {reused_count} translations from obsolete entries")
 
 
 def prioritize_existing_translations(po, untranslated_entries):
@@ -169,22 +159,18 @@ def prioritize_existing_translations(po, untranslated_entries):
                 # 未翻訳リストから削除
                 untranslated_entries.remove(entry)
                 prioritized_count += 1
-                logger.debug(
-                    f"[prioritize_existing_translations] Prioritized existing translation for: {entry.msgid[:50]}..."
-                )
+                print(f"Prioritized existing translation for: {entry.msgid[:50]}...")
                 break
 
-    logger.info(
-        f"[prioritize_existing_translations] Prioritized {prioritized_count} existing translations"
-    )
+    print(f"Prioritized {prioritized_count} existing translations")
 
 
 def translate(path, lang):
     try:
-        logger.info(f"[main] Processing {lang}: {path}")
+        print(f"Processing {lang}: {path}")
         po = polib.pofile(path)
-    except Exception:
-        logger.exception(f"[main] Error reading {path}")
+    except Exception as e:
+        print(f"Error reading {path}: {e}")
         raise
 
     ZH = ["zh_Hans_CN", "zh_Hant_TW"]
@@ -209,7 +195,7 @@ def translate(path, lang):
     untranslated_entries = po.untranslated_entries() + po.fuzzy_entries()
     msgids = [entry.msgid for entry in untranslated_entries]
     if msgids:
-        logger.debug(f"[main] Message IDs to translate: {msgids}")
+        print(msgids)
 
     # 既存の翻訳を優先的に使用
     prioritize_existing_translations(po, untranslated_entries)
@@ -241,8 +227,8 @@ def translate(path, lang):
             if lang in ZH:
                 break
 
-            logger.debug(f"[main] Translation: {entry.msgid} -> {entry.msgstr}")
-            logger.warning("[main] Translation failed")
+            print(entry.msgid, entry.msgstr)
+            print("翻訳失敗")
             po.save(path)
             po = polib.pofile(path)
 
@@ -271,7 +257,7 @@ def main():
 
     # Compile translation messages
     os.system(f"cd {BASE_DIR} && pybabel compile --statistics -d {LOCALE_DIR}")
-    logger.info("[main] Translation process finished")
+    print("Finished")
 
 
 if __name__ == "__main__":
