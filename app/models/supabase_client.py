@@ -19,8 +19,6 @@ from app.util.filter_eq import Operator
 
 ALL_DATA = "*"
 MINUTE = 60
-# クライアントの最大使用回数
-MAX_CLIENT_USAGE = 50
 
 # ここに書かないと読み込みタイミングが遅くなってエラーになる
 load_dotenv()
@@ -59,16 +57,12 @@ class SupabaseService:
 
         self._read_only_client: Optional[Client] = None
         self._admin_client: Optional[Client] = None
-        # クライアント使用回数カウンター
-        self._read_only_usage_count: int = 0
-        self._admin_usage_count: int = 0
 
     # MARK: read only
     @property
     def read_only_client(self) -> Client:
         """Supabaseクライアントのインスタンスを取得（読み取り専用）
-
-        使用回数が最大値に達した場合は自動的にクライアントを再生成します。
+        遅延初期化しないとtestでエラーになる
 
         Returns:
             Client: Supabaseクライアントのインスタンス
@@ -76,41 +70,18 @@ class SupabaseService:
         Raises:
             ValueError: 環境変数SUPABASE_URLまたはSUPABASE_ANON_KEYが設定されていない場合
         """
-        # 使用回数チェック - 最大値に達していたらクライアントをリセット
-        if self._read_only_usage_count >= MAX_CLIENT_USAGE:
-            self._read_only_client = None
-            self._read_only_usage_count = 0
-
         if self._read_only_client is None:
             supabase_url = os.getenv("SUPABASE_URL")
             supabase_key = os.getenv("SUPABASE_ANON_KEY")
-
             self._read_only_client = create_client(supabase_url, supabase_key)
 
-        # 使用回数をインクリメント
-        self._read_only_usage_count += 1
-
         return self._read_only_client
-
-    @read_only_client.setter
-    def read_only_client(self, value: Optional[Client]):
-        """Supabaseクライアントのインスタンスを設定（読み取り専用）
-
-        主にテスト用途で使用されます。
-
-        Args:
-            value: 設定するSupabaseクライアントのインスタンス
-        """
-        self._read_only_client = value
-        # カウンターもリセット
-        self._read_only_usage_count = 0
 
     # MARK: admin
     @property
     def admin_client(self) -> Client:
         """Supabaseクライアントのインスタンスを取得（管理者権限）
-
-        使用回数が最大値に達した場合は自動的にクライアントを再生成します。
+        遅延初期化しないとtestでエラーになる
 
         Returns:
             Client: Supabaseクライアントのインスタンス
@@ -118,19 +89,10 @@ class SupabaseService:
         Raises:
             ValueError: 環境変数SUPABASE_URLまたはSUPABASE_SERVICE_ROLE_KEYが設定されていない場合
         """
-        # 使用回数チェック - 最大値に達していたらクライアントをリセット
-        if self._admin_usage_count >= MAX_CLIENT_USAGE:
-            self._admin_client = None
-            self._admin_usage_count = 0
-
         if self._admin_client is None:
             supabase_url = os.getenv("SUPABASE_URL")
             supabase_key = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
-
             self._admin_client = create_client(supabase_url, supabase_key)
-
-        # 使用回数をインクリメント
-        self._admin_usage_count += 1
 
         return self._admin_client
 
