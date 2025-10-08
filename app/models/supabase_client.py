@@ -357,7 +357,7 @@ class SupabaseService:
         try:
             response = query.execute()
         except Exception as e:
-            logger.error(f"[get_data] SupabaseClient get_data error: {e}")
+            logger.exception(f"[get_data] SupabaseClient get_data error: {e}")
             if raise_error:
                 raise e
             if pandas:
@@ -407,7 +407,9 @@ class SupabaseService:
         try:
             response = query.execute()
         except Exception as e:
-            logger.error(f"[get_tavily_data] SupabaseClient get_tavily_data error: {e}")
+            logger.exception(
+                f"[get_tavily_data] SupabaseClient get_tavily_data error: {e}"
+            )
             if raise_error:
                 raise e
             return []
@@ -561,7 +563,7 @@ class SupabaseService:
                                     f"[update_country_names] Failed to translate country code {iso_code} to {add_language}"
                                 )
                         except Exception as e:
-                            logger.error(
+                            logger.exception(
                                 f"[update_country_names] Error during translation for country code {iso_code}: {e}"
                             )
 
@@ -575,7 +577,7 @@ class SupabaseService:
                         "iso_code", iso_code
                     ).execute()
                 except Exception as e:
-                    logger.error(
+                    logger.exception(
                         f"[update_country_names] Error while saving country code {iso_code}: {e}"
                     )
 

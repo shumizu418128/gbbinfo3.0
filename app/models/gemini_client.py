@@ -96,7 +96,7 @@ class GeminiService:
             return response_dict
 
         except Exception as e:
-            logger.error(f"[ask] GeminiService ask API call failed: {e}")
+            logger.exception(f"[ask] GeminiService ask API call failed: {e}")
             # response_textとresponseが定義されている場合のみ出力
             try:
                 logger.debug(f"[ask] Processed response: {response_text}")
@@ -105,7 +105,7 @@ class GeminiService:
                 if error_code is not None:
                     return {"error_code": error_code}
             except NameError:
-                logger.error("[ask] Error occurred before processing response")
+                logger.exception("[ask] Error occurred before processing response")
             return {}
 
 

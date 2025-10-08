@@ -184,7 +184,7 @@ def translate(path, lang):
         logger.info(f"[main] Processing {lang}: {path}")
         po = polib.pofile(path)
     except Exception as e:
-        logger.error(f"[main] Error reading {path}: {e}")
+        logger.exception(f"[main] Error reading {path}: {e}")
         raise
 
     ZH = ["zh_Hans_CN", "zh_Hant_TW"]
