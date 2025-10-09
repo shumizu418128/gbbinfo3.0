@@ -88,7 +88,7 @@ class GeminiService:
             if isinstance(response_dict, list) and len(response_dict) > 0:
                 response_dict = response_dict[0]
 
-            flask_cache.set(cache_key, response_dict)
+            flask_cache.set(cache_key, response_dict, timeout=0)
             return response_dict
 
         except Exception as e:

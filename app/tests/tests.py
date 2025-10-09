@@ -1316,34 +1316,40 @@ class SupabaseServiceTestCase(unittest.TestCase):
         # フェイクキャッシュを差し替え
         dict_cache = self.DictCache()
         with patch("app.main.flask_cache", dict_cache):
-            service = SupabaseService()
-
             # 読み取り用クエリモックを準備
             query = self.QueryMock()
             query.response_data = [{"id": 1, "name": "Alice"}]
-            service.read_only_client = self.FakeClient(query)
 
-            # JOIN + 高度フィルタ + 等価フィルタ + 降順ソート
-            result1 = service.get_data(
-                table="Participant",
-                columns=["id", "name"],
-                join_tables={
-                    "Country": ["names", "iso_code"],
-                    "ParticipantMember": ["name", "Country(names)"],
-                },
-                filters={
-                    "age__gt": 18,
-                    "name__ilike": "%test%",
-                    "status__neq": "inactive",
-                    "tags__contains": ["a"],
-                    "role__in": ["user", "admin"],
-                    "categories__is_not": None,
-                    "title__not_like": "%bot%",
-                    "title__not_ilike": "%spam%",
-                },
-                order_by="-created_at",
-                year=2025,
-            )
+            with patch(
+                "app.models.supabase_client.create_client"
+            ) as mock_create_client:
+                mock_create_client.return_value = self.FakeClient(query)
+
+                service = SupabaseService()
+                # クライアントプロパティをリセットしてモックが使われるようにする
+                service._read_only_client = None
+
+                # JOIN + 高度フィルタ + 等価フィルタ + 降順ソート
+                result1 = service.get_data(
+                    table="Participant",
+                    columns=["id", "name"],
+                    join_tables={
+                        "Country": ["names", "iso_code"],
+                        "ParticipantMember": ["name", "Country(names)"],
+                    },
+                    filters={
+                        "age__gt": 18,
+                        "name__ilike": "%test%",
+                        "status__neq": "inactive",
+                        "tags__contains": ["a"],
+                        "role__in": ["user", "admin"],
+                        "categories__is_not": None,
+                        "title__not_like": "%bot%",
+                        "title__not_ilike": "%spam%",
+                    },
+                    order_by="-created_at",
+                    year=2025,
+                )
 
             # 返却値
             self.assertEqual(result1, [{"id": 1, "name": "Alice"}])
@@ -1401,17 +1407,24 @@ class SupabaseServiceTestCase(unittest.TestCase):
 
         dict_cache = self.DictCache()
         with patch("app.main.flask_cache", dict_cache):
-            service = SupabaseService()
             query = self.QueryMock()
             query.response_data = [
                 {"id": 1, "name": "Alice"},
                 {"id": 2, "name": "Bob"},
             ]
-            service.read_only_client = self.FakeClient(query)
 
-            df = service.get_data(table="User", pandas=True)
-            self.assertIsInstance(df, pd.DataFrame)
-            self.assertEqual(len(df), 2)
+            with patch(
+                "app.models.supabase_client.create_client"
+            ) as mock_create_client:
+                mock_create_client.return_value = self.FakeClient(query)
+
+                service = SupabaseService()
+                # クライアントプロパティをリセットしてモックが使われるようにする
+                service._read_only_client = None
+
+                df = service.get_data(table="User", pandas=True)
+                self.assertIsInstance(df, pd.DataFrame)
+                self.assertEqual(len(df), 2)
 
     def test_tavily_get_insert_and_cache(self):
         """Tavilyデータの取得・保存とキャッシュ動作を検証する。"""
@@ -1494,159 +1507,43 @@ class SupabaseServiceTestCase(unittest.TestCase):
         """read_only_client propertyのgetter動作を検証する。"""
         from app.models.supabase_client import SupabaseService
 
-        # 環境変数を設定
-        with patch.dict(
-            os.environ,
-            {
-                "SUPABASE_URL": "http://localhost",
-                "SUPABASE_ANON_KEY": "anon_key",
-                "SUPABASE_SERVICE_ROLE_KEY": "service_key",
-            },
-        ):
-            service = SupabaseService()
+        service = SupabaseService()
 
-            # 初回アクセス - クライアントが作成される
-            with patch(
-                "app.models.supabase_client.create_client"
-            ) as mock_create_client:
-                mock_client = Mock()
-                mock_create_client.return_value = mock_client
-
-                client1 = service.read_only_client
-                self.assertEqual(client1, mock_client)
-                self.assertEqual(service._read_only_usage_count, 1)
-                mock_create_client.assert_called_once_with(
-                    "http://localhost", "anon_key"
-                )
-
-            # 2回目のアクセス - キャッシュされたクライアントが返される
-            client2 = service.read_only_client
-            self.assertEqual(client2, mock_client)
-            self.assertEqual(service._read_only_usage_count, 2)
-
-    def test_read_only_client_property_setter(self):
-        """read_only_client propertyのsetter動作を検証する。"""
-        from app.models.supabase_client import SupabaseService
-
-        # 環境変数を設定
-        with patch.dict(
-            os.environ,
-            {
-                "SUPABASE_URL": "http://localhost",
-                "SUPABASE_ANON_KEY": "anon_key",
-                "SUPABASE_SERVICE_ROLE_KEY": "service_key",
-            },
-        ):
-            service = SupabaseService()
-
-            # まずカウンターを増やしておく
-            service._read_only_usage_count = 5
-
-            # setterでクライアントを設定
+        # 初回アクセス - クライアントが作成される
+        with patch("app.models.supabase_client.create_client") as mock_create_client:
             mock_client = Mock()
-            service.read_only_client = mock_client
+            mock_create_client.return_value = mock_client
 
-            # クライアントとカウンターがリセットされていることを確認
-            self.assertEqual(service._read_only_client, mock_client)
-            self.assertEqual(service._read_only_usage_count, 0)
+            client1 = service.read_only_client
+            self.assertEqual(client1, mock_client)
+            mock_create_client.assert_called_once_with(
+                os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_ANON_KEY")
+            )
 
-    def test_read_only_client_usage_limit_reset(self):
-        """read_only_clientが使用回数上限に達した際にリセットされることを検証する。"""
-        from app.models.supabase_client import MAX_CLIENT_USAGE, SupabaseService
-
-        # 環境変数を設定
-        with patch.dict(
-            os.environ,
-            {
-                "SUPABASE_URL": "http://localhost",
-                "SUPABASE_ANON_KEY": "anon_key",
-                "SUPABASE_SERVICE_ROLE_KEY": "service_key",
-            },
-        ):
-            service = SupabaseService()
-
-            # 使用回数上限までカウントを進める
-            service._read_only_usage_count = MAX_CLIENT_USAGE
-
-            with patch(
-                "app.models.supabase_client.create_client"
-            ) as mock_create_client:
-                mock_client = Mock()
-                mock_create_client.return_value = mock_client
-
-                # 上限に達しているので新しいクライアントが作成される
-                client = service.read_only_client
-                self.assertEqual(client, mock_client)
-                self.assertEqual(
-                    service._read_only_usage_count, 1
-                )  # リセットされて1になる
-                mock_create_client.assert_called_once()
+        # 2回目のアクセス - キャッシュされたクライアントが返される
+        client2 = service.read_only_client
+        self.assertEqual(client2, mock_client)
 
     def test_admin_client_property_getter(self):
         """admin_client propertyのgetter動作を検証する。"""
         from app.models.supabase_client import SupabaseService
 
-        # 環境変数を設定
-        with patch.dict(
-            os.environ,
-            {
-                "SUPABASE_URL": "http://localhost",
-                "SUPABASE_ANON_KEY": "anon_key",
-                "SUPABASE_SERVICE_ROLE_KEY": "service_key",
-            },
-        ):
-            service = SupabaseService()
+        service = SupabaseService()
 
-            # 初回アクセス - 管理者クライアントが作成される
-            with patch(
-                "app.models.supabase_client.create_client"
-            ) as mock_create_client:
-                mock_client = Mock()
-                mock_create_client.return_value = mock_client
+        # 初回アクセス - 管理者クライアントが作成される
+        with patch("app.models.supabase_client.create_client") as mock_create_client:
+            mock_client = Mock()
+            mock_create_client.return_value = mock_client
 
-                client1 = service.admin_client
-                self.assertEqual(client1, mock_client)
-                self.assertEqual(service._admin_usage_count, 1)
-                mock_create_client.assert_called_once_with(
-                    "http://localhost", "service_key"
-                )
+            client1 = service.admin_client
+            self.assertEqual(client1, mock_client)
+            mock_create_client.assert_called_once_with(
+                os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_SERVICE_ROLE_KEY")
+            )
 
-            # 2回目のアクセス - キャッシュされたクライアントが返される
-            client2 = service.admin_client
-            self.assertEqual(client2, mock_client)
-            self.assertEqual(service._admin_usage_count, 2)
-
-    def test_admin_client_usage_limit_reset(self):
-        """admin_clientが使用回数上限に達した際にリセットされることを検証する。"""
-        from app.models.supabase_client import MAX_CLIENT_USAGE, SupabaseService
-
-        # 環境変数を設定
-        with patch.dict(
-            os.environ,
-            {
-                "SUPABASE_URL": "http://localhost",
-                "SUPABASE_ANON_KEY": "anon_key",
-                "SUPABASE_SERVICE_ROLE_KEY": "service_key",
-            },
-        ):
-            service = SupabaseService()
-
-            # 使用回数上限までカウントを進める
-            service._admin_usage_count = MAX_CLIENT_USAGE
-
-            with patch(
-                "app.models.supabase_client.create_client"
-            ) as mock_create_client:
-                mock_client = Mock()
-                mock_create_client.return_value = mock_client
-
-                # 上限に達しているので新しいクライアントが作成される
-                client = service.admin_client
-                self.assertEqual(client, mock_client)
-                self.assertEqual(service._admin_usage_count, 1)  # リセットされて1になる
-                mock_create_client.assert_called_once_with(
-                    "http://localhost", "service_key"
-                )
+        # 2回目のアクセス - キャッシュされたクライアントが返される
+        client2 = service.admin_client
+        self.assertEqual(client2, mock_client)
 
     def test_apply_filter_all_operators(self):
         """_apply_filterプライベートメソッドのすべてのオペレーターをテストする。"""
@@ -1835,22 +1732,11 @@ class SupabaseServiceTestCase(unittest.TestCase):
         """__init__メソッドが正常に初期化されることをテストする。"""
         from app.models.supabase_client import SupabaseService
 
-        # 必要な環境変数を設定
-        with patch.dict(
-            os.environ,
-            {
-                "SUPABASE_URL": "http://localhost",
-                "SUPABASE_ANON_KEY": "anon_key",
-                "SUPABASE_SERVICE_ROLE_KEY": "service_key",
-            },
-        ):
-            service = SupabaseService()
+        service = SupabaseService()
 
-            # インスタンス変数が正しく初期化されていることを確認
-            self.assertIsNone(service._read_only_client)
-            self.assertIsNone(service._admin_client)
-            self.assertEqual(service._read_only_usage_count, 0)
-            self.assertEqual(service._admin_usage_count, 0)
+        # インスタンス変数が正しく初期化されていることを確認
+        self.assertIsNone(service._read_only_client)
+        self.assertIsNone(service._admin_client)
 
     def test_constructor_missing_env_vars(self):
         """__init__メソッドが環境変数不足時に適切にエラーを発生させることをテストする。"""
