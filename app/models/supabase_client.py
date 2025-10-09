@@ -6,6 +6,7 @@ SupabaseとのAPIやりとり用
 import hashlib
 import json
 import os
+import traceback
 from typing import Optional
 
 import pandas as pd
@@ -289,7 +290,9 @@ class SupabaseService:
                 columns_str = ",".join(columns)
 
         # クエリを構築
-        query = self.read_only_client.table(table).select(columns_str)
+        # なぜかread_onlyの動作が不安定なので、一時的にadmin_clientを使用
+        # query = self.read_only_client.table(table).select(columns_str)
+        query = self.admin_client.table(table).select(columns_str)
 
         # 高度なフィルター条件を適用
         if filters:
@@ -316,7 +319,8 @@ class SupabaseService:
         try:
             response = query.execute()
         except Exception as e:
-            print("SupabaseClient get_data error:", e, flush=True)
+            print("SupabaseClient get_data error:", flush=True)
+            traceback.print_exc()
             if raise_error:
                 raise e
             if pandas:

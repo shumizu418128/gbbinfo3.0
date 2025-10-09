@@ -72,3 +72,4 @@ staticfiles/
 node_modules/
 npm-debug.log*
 backup/
+app/tests/
