@@ -1316,8 +1316,6 @@ class SupabaseServiceTestCase(unittest.TestCase):
         # フェイクキャッシュを差し替え
         dict_cache = self.DictCache()
         with patch("app.main.flask_cache", dict_cache):
-            service = SupabaseService()
-
             # 読み取り用クエリモックを準備
             query = self.QueryMock()
             query.response_data = [{"id": 1, "name": "Alice"}]
@@ -1326,30 +1324,32 @@ class SupabaseServiceTestCase(unittest.TestCase):
                 "app.models.supabase_client.create_client"
             ) as mock_create_client:
                 mock_create_client.return_value = self.FakeClient(query)
-                # 初回アクセスでモッククライアントが作成されることを確認
-                _ = service.read_only_client
 
-            # JOIN + 高度フィルタ + 等価フィルタ + 降順ソート
-            result1 = service.get_data(
-                table="Participant",
-                columns=["id", "name"],
-                join_tables={
-                    "Country": ["names", "iso_code"],
-                    "ParticipantMember": ["name", "Country(names)"],
-                },
-                filters={
-                    "age__gt": 18,
-                    "name__ilike": "%test%",
-                    "status__neq": "inactive",
-                    "tags__contains": ["a"],
-                    "role__in": ["user", "admin"],
-                    "categories__is_not": None,
-                    "title__not_like": "%bot%",
-                    "title__not_ilike": "%spam%",
-                },
-                order_by="-created_at",
-                year=2025,
-            )
+                service = SupabaseService()
+                # クライアントプロパティをリセットしてモックが使われるようにする
+                service._read_only_client = None
+
+                # JOIN + 高度フィルタ + 等価フィルタ + 降順ソート
+                result1 = service.get_data(
+                    table="Participant",
+                    columns=["id", "name"],
+                    join_tables={
+                        "Country": ["names", "iso_code"],
+                        "ParticipantMember": ["name", "Country(names)"],
+                    },
+                    filters={
+                        "age__gt": 18,
+                        "name__ilike": "%test%",
+                        "status__neq": "inactive",
+                        "tags__contains": ["a"],
+                        "role__in": ["user", "admin"],
+                        "categories__is_not": None,
+                        "title__not_like": "%bot%",
+                        "title__not_ilike": "%spam%",
+                    },
+                    order_by="-created_at",
+                    year=2025,
+                )
 
             # 返却値
             self.assertEqual(result1, [{"id": 1, "name": "Alice"}])
@@ -1407,7 +1407,6 @@ class SupabaseServiceTestCase(unittest.TestCase):
 
         dict_cache = self.DictCache()
         with patch("app.main.flask_cache", dict_cache):
-            service = SupabaseService()
             query = self.QueryMock()
             query.response_data = [
                 {"id": 1, "name": "Alice"},
@@ -1418,12 +1417,14 @@ class SupabaseServiceTestCase(unittest.TestCase):
                 "app.models.supabase_client.create_client"
             ) as mock_create_client:
                 mock_create_client.return_value = self.FakeClient(query)
-                # 初回アクセスでモッククライアントが作成されることを確認
-                _ = service.read_only_client
 
-            df = service.get_data(table="User", pandas=True)
-            self.assertIsInstance(df, pd.DataFrame)
-            self.assertEqual(len(df), 2)
+                service = SupabaseService()
+                # クライアントプロパティをリセットしてモックが使われるようにする
+                service._read_only_client = None
+
+                df = service.get_data(table="User", pandas=True)
+                self.assertIsInstance(df, pd.DataFrame)
+                self.assertEqual(len(df), 2)
 
     def test_tavily_get_insert_and_cache(self):
         """Tavilyデータの取得・保存とキャッシュ動作を検証する。"""
