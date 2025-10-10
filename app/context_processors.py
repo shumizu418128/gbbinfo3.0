@@ -217,28 +217,32 @@ def is_gbb_ended(year):
 
     # 過去年度は常にTrue
     if year < now.year:
-        result = True
-    else:
-        year_data = supabase_service.get_data(
-            table="Year",
-            columns=["year", "ends_at"],
-            filters={"year": year},
-            timeout=0,
-        )
-        # GBBが終了したか調べる
-        if year_data:
-            ends_at = year_data[0]["ends_at"]
-            if ends_at:
-                datetime_ends_at = parser.parse(ends_at)
-                result = datetime_ends_at < now
-            else:
-                result = False
-        else:
-            result = False
+        flask_cache.set(cache_key, True, timeout=0)
+        return True
 
-    # キャッシュに保存（タイムアウトなし）
+    # 年度データを取得
+    year_data = supabase_service.get_data(
+        table="Year",
+        columns=["year", "ends_at"],
+        filters={"year": year},
+        timeout=0,
+    )
+
+    # データが存在しない場合 (おそらくありえない)
+    if not year_data:
+        flask_cache.set(cache_key, False, timeout=0)
+        return False
+
+    # 終了日時が設定されていない場合 (未定 = まだ始まっていない とみなす)
+    ends_at = year_data[0]["ends_at"]
+    if not ends_at:
+        flask_cache.set(cache_key, False, timeout=0)
+        return False
+
+    # 終了日時と現在時刻を比較
+    datetime_ends_at = parser.parse(ends_at)
+    result = datetime_ends_at < now
     flask_cache.set(cache_key, result, timeout=0)
-
     return result
 
 
