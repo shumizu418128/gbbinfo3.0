@@ -92,13 +92,8 @@ def post_gemini_search(year: int, IS_LOCAL: bool, IS_PULL_REQUEST: bool):
         print(f"question: {question}", flush=True)
         prompt = PROMPT.format(year=year, question=question)
 
-        # 最大5回リトライ
-        retry = 5
-        for _ in range(retry):
-            gemini_response = gemini_service.ask(prompt)
-            if gemini_response.get("url") is not None:
-                break
-        else:
+        gemini_response = gemini_service.ask(prompt)
+        if gemini_response.get("url") is None:
             return jsonify({"url": ""}), 500
 
         url = create_url(
