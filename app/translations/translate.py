@@ -238,10 +238,10 @@ def translate(path, lang):
 def main():
     # Generate translation messages
     os.system(
-        f"cd {BASE_DIR} && pybabel extract --omit-header --no-wrap --sort-by-file -F babel.cfg -o {POT_FILE} ."
+        f"cd {BASE_DIR} && python -m babel.messages.frontend extract --omit-header --no-wrap --sort-by-file -F babel.cfg -o {POT_FILE} ."
     )
     os.system(
-        f"cd {BASE_DIR} && pybabel update --omit-header --no-wrap -i {POT_FILE} -d {LOCALE_DIR}"
+        f"cd {BASE_DIR} && python -m babel.messages.frontend update --omit-header --no-wrap -i {POT_FILE} -d {LOCALE_DIR}"
     )
 
     for lang in BABEL_SUPPORTED_LOCALES:
@@ -250,13 +250,15 @@ def main():
         # ファイルが存在しない場合は新規作成
         if not os.path.exists(path):
             os.system(
-                f"cd {BASE_DIR} && pybabel init --omit-header --no-wrap -i {POT_FILE} -d {LOCALE_DIR} -l {lang}"
+                f"cd {BASE_DIR} && python -m babel.messages.frontend init --omit-header --no-wrap -i {POT_FILE} -d {LOCALE_DIR} -l {lang}"
             )
 
         translate(path, lang)
 
     # Compile translation messages
-    os.system(f"cd {BASE_DIR} && pybabel compile --statistics -d {LOCALE_DIR}")
+    os.system(
+        f"cd {BASE_DIR} && python -m babel.messages.frontend compile --statistics -d {LOCALE_DIR}"
+    )
     print("Finished")
 
 

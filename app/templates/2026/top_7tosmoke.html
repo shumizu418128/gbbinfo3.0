@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}GBB {{ year }} 7toSmoke - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBB {{ year }} 7toSmoke - GBBINFO-JPN{% endblock %}
+{% block og_title %}GBB {{ year }} 7toSmoke - GBBINFO-JPN{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/top_7tosmoke{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/top_7tosmoke{% endblock %}
+{% block content %}
+<h1>GBB {{ year }} 7toSmoke</h1>
+<div style="text-align: center;">
+  <p>7toSmoke: {{ _("開催日未定") }}</p>
+  <p>{{_("公式よりもわかりやすい！")}}<br>GBB {{ year }} 7toSmoke {{_("非公式情報サイト")}}</p>
+</div>
+
+{% if is_latest_year is true %}
+  <form id="search-form-top" class="search-container" action="/{{ year }}/search" method="POST">
+
+    <input type="text" name="question" id="question-top" placeholder="{{ _('例：現地観戦計画のたてかた') }}" required>
+    <button type="submit"></button>
+  </form>
+  <div id="loading" class="loading"></div>
+{% endif %}
+
+<h2>{{_("これだけガイド")}}</h2>
+
+{% if is_latest_year is true %}
+  <div style="text-align: center;">
+    <p>{{_("最終更新")}}<br>{{ last_updated }}</p>
+  </div>
+{% endif %}
+
+<div class="button-container">
+  <a href="/others/7tosmoke"><button>{{_("7toSmokeとは")}}</button></a>
+  <a href="/others/7tosmoke"><button>{{_("7toSmokeルール & 参加方法")}}</button></a>
+  <a href="/{{ year }}/ticket"><button>{{_("会場 & チケット")}}</button></a>
+  <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+</div>
+<div class="button-container">
+  <a href="/{{ year }}/time_schedule?scroll=7tosmoke"><button>{{_("タイムスケジュール")}}</button></a>
+  <a href="/{{ year }}/stream"><button>{{_("当日配信")}}</button></a>
+</div>
+
+<p>{{_("7toSmokeは、GBB本戦に比べて最新情報の公開が非常に遅い傾向にあり、そもそも情報が発表されないまま本番を迎えてしまったケースもあります。")}}</p>
+<p>{{_("諦めましょう。")}}</p>
+
+{% if is_latest_year is true %}
+  <div class="button-container">
+    <a href="/{{ year }}/top#contact"><button>{{_("お問い合わせ")}}</button></a>
+  </div>
+{% endif %}
+
+{% endblock %}

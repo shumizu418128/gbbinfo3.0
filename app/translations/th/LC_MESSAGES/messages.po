@@ -336,7 +336,8 @@ msgstr "ผลลัพธ์ Wildcard & ผู้เข้าร่วม"
 #: templates/2024/top_7tosmoke.html:35 templates/2025/ticket.html:3
 #: templates/2025/ticket.html:4 templates/2025/ticket.html:5
 #: templates/2025/ticket.html:9 templates/2025/top_7tosmoke.html:35
-#: templates/2026/ticket.html:10 templates/others/translation.html:22
+#: templates/2026/ticket.html:10 templates/2026/top_7tosmoke.html:35
+#: templates/others/translation.html:22
 msgid "会場 & チケット"
 msgstr "สถานที่ & ตั๋ว"
 
@@ -493,22 +494,22 @@ msgstr "วันจัดงาน"
 
 #: templates/2024/top.html:24 templates/2024/top_7tosmoke.html:12
 #: templates/2025/top.html:32 templates/2025/top_7tosmoke.html:12
-#: templates/2026/top.html:32
+#: templates/2026/top.html:32 templates/2026/top_7tosmoke.html:12
 msgid "公式よりもわかりやすい！"
 msgstr "เข้าใจง่ายกว่าทางการ!"
 
 #: templates/2024/top.html:24 templates/2024/top_7tosmoke.html:12
 #: templates/2025/top.html:32 templates/2025/top_7tosmoke.html:12
-#: templates/2026/top.html:32
+#: templates/2026/top.html:32 templates/2026/top_7tosmoke.html:12
 msgid "非公式情報サイト"
 msgstr "เว็บไซต์ข้อมูลที่ไม่เป็นทางการ"
 
 #: templates/2024/top.html:40 templates/2024/top_7tosmoke.html:28
 #: templates/2025/top.html:154 templates/2025/top_7tosmoke.html:28
-#: templates/2026/top.html:146 templates/common/cancels.html:14
-#: templates/common/japan.html:13 templates/common/korea.html:13
-#: templates/common/participants.html:14 templates/common/result.html:13
-#: templates/includes/popup_no_info.html:7
+#: templates/2026/top.html:146 templates/2026/top_7tosmoke.html:28
+#: templates/common/cancels.html:14 templates/common/japan.html:13
+#: templates/common/korea.html:13 templates/common/participants.html:14
+#: templates/common/result.html:13 templates/includes/popup_no_info.html:7
 msgid "最終更新"
 msgstr "ปรับปรุงล่าสุด"
 
@@ -541,7 +542,7 @@ msgstr "รายการ Wildcard"
 #: templates/2024/top.html:104 templates/2024/top.html:118
 #: templates/2024/top_7tosmoke.html:46 templates/2025/top.html:178
 #: templates/2025/top.html:192 templates/2025/top_7tosmoke.html:48
-#: templates/2026/top.html:166
+#: templates/2026/top.html:166 templates/2026/top_7tosmoke.html:48
 msgid "お問い合わせ"
 msgstr "ติดต่อเรา"
 
@@ -597,14 +598,17 @@ msgid "なお上記電話番号は、当サイトとは無関係です。"
 msgstr "หมายเลขโทรศัพท์ข้างต้นไม่มีส่วนเกี่ยวข้องกับเว็บไซต์นี้"
 
 #: templates/2024/top_7tosmoke.html:33 templates/2025/top_7tosmoke.html:33
+#: templates/2026/top_7tosmoke.html:33
 msgid "7toSmokeとは"
 msgstr "7toSmoke คืออะไร"
 
 #: templates/2024/top_7tosmoke.html:34 templates/2025/top_7tosmoke.html:34
+#: templates/2026/top_7tosmoke.html:34
 msgid "7toSmokeルール & 参加方法"
 msgstr "กฎ 7toSmoke และวิธีการเข้าร่วม"
 
 #: templates/2024/top_7tosmoke.html:41 templates/2025/top_7tosmoke.html:43
+#: templates/2026/top_7tosmoke.html:43
 msgid ""
 "7toSmokeは、GBB本戦に比べて最新情報の公開が非常に遅い傾向にあり、そもそも情報が発表されないまま本番を迎えてしまったケースもあります。"
 msgstr ""
@@ -612,6 +616,7 @@ msgstr ""
 "และมีบางกรณีที่การแข่งขันเริ่มต้นขึ้นโดยไม่มีการประกาศข้อมูลใดๆ เลย"
 
 #: templates/2024/top_7tosmoke.html:42 templates/2025/top_7tosmoke.html:44
+#: templates/2026/top_7tosmoke.html:44
 msgid "諦めましょう。"
 msgstr "เรามาทำใจยอมรับกันเถอะ"
 
@@ -1120,6 +1125,10 @@ msgstr ""
 msgid "なお、GBB 2022は中止され、GBB 2023~2025は、東京で開催されました。"
 msgstr "อนึ่ง GBB 2022 ถูกยกเลิก และ GBB 2023~2025 จัดขึ้นที่โตเกียว"
 
+#: templates/2026/top_7tosmoke.html:11
+msgid "開催日未定"
+msgstr "ยังไม่กำหนดวันจัดงาน"
+
 #: templates/base.html:34 templates/base.html:44 templates/base.html:48
 msgid ""
 "Swissbeatboxが主催するHuman Beatboxの世界大会「Grand Beatbox "
@@ -1161,8 +1170,9 @@ msgstr "เมนู"
 #: templates/2026/time_schedule.html:115 templates/2026/top.html:3
 #: templates/2026/top.html:4 templates/2026/top.html:5
 #: templates/2026/top.html:25 templates/2026/top.html:92
-#: templates/2026/top.html:161 templates/base.html:117 templates/base.html:150
-#: templates/base.html:260 templates/others/participant_detail.html:126
+#: templates/2026/top.html:161 templates/2026/top_7tosmoke.html:24
+#: templates/base.html:117 templates/base.html:150 templates/base.html:260
+#: templates/others/participant_detail.html:126
 msgid "これだけガイド"
 msgstr "คู่มือฉบับย่อ"
 
@@ -1231,7 +1241,8 @@ msgstr "กรรมการ"
 #: templates/2025/time_schedule.html:147 templates/2025/top.html:165
 #: templates/2025/top_7tosmoke.html:36 templates/2025/wildcards.html:112
 #: templates/2026/time_schedule.html:58 templates/2026/time_schedule.html:114
-#: templates/2026/top.html:157 templates/base.html:120
+#: templates/2026/top.html:157 templates/2026/top_7tosmoke.html:36
+#: templates/base.html:120
 msgid "現地観戦計画のたてかた"
 msgstr "วิธีวางแผนการชมการแข่งขันจริง"
 
@@ -1246,7 +1257,8 @@ msgstr "วิธีวางแผนการชมการแข่งขั
 #: templates/2026/time_schedule.html:3 templates/2026/time_schedule.html:4
 #: templates/2026/time_schedule.html:5 templates/2026/time_schedule.html:10
 #: templates/2026/top.html:17 templates/2026/top.html:109
-#: templates/base.html:123 templates/others/translation.html:20
+#: templates/2026/top_7tosmoke.html:39 templates/base.html:123
+#: templates/others/translation.html:20
 msgid "タイムスケジュール"
 msgstr "ตารางเวลา"
 
@@ -1296,8 +1308,8 @@ msgstr "ตั๋ว"
 #: templates/2025/stream.html:5 templates/2025/stream.html:9
 #: templates/2025/time_schedule.html:87 templates/2025/top.html:138
 #: templates/2025/top_7tosmoke.html:40 templates/2026/time_schedule.html:86
-#: templates/2026/top.html:130 templates/base.html:130
-#: templates/others/translation.html:23
+#: templates/2026/top.html:130 templates/2026/top_7tosmoke.html:40
+#: templates/base.html:130 templates/others/translation.html:23
 msgid "当日配信"
 msgstr "การถ่ายทอดสดในวันนั้น"
 
@@ -1363,8 +1375,8 @@ msgstr "ลองค้นหาเกี่ยวกับ GBB {year} ดู"
 
 #: templates/2024/top.html:30 templates/2024/top_7tosmoke.html:18
 #: templates/2025/top.html:37 templates/2025/top_7tosmoke.html:18
-#: templates/2026/top.html:37 templates/base.html:241
-#: templates/includes/bottom_navigation.html:52
+#: templates/2026/top.html:37 templates/2026/top_7tosmoke.html:18
+#: templates/base.html:241 templates/includes/bottom_navigation.html:52
 msgid "例：現地観戦計画のたてかた"
 msgstr "ตัวอย่าง: วิธีวางแผนสำหรับการชมการแข่งขันจริง"
 
