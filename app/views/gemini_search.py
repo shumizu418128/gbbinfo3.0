@@ -17,7 +17,7 @@ others_url_list = [
 
 
 # MARK: URL作成
-def create_url(year: int, url: str, parameter: str | None):
+def create_url(year: int, url: str, parameter: str):
     """
     指定された情報に基づいてレスポンスURLを作成します。
 
@@ -97,7 +97,7 @@ def post_gemini_search(year: int, IS_LOCAL: bool, IS_PULL_REQUEST: bool):
             return jsonify({"url": ""}), 500
 
         url = create_url(
-            year, gemini_response.get("url"), gemini_response.get("parameter")
+            year, gemini_response.get("url"), gemini_response.get("parameter", "")
         )
 
     # スプシに記録
