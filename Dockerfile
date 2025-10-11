@@ -1,5 +1,4 @@
-# Python 3.12をベースイメージとして使用
-FROM python:3.12-slim
+FROM python:3.13-slim
 
 ENV TZ=Asia/Tokyo
 
