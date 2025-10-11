@@ -1046,13 +1046,21 @@ msgstr "현재까지 다음의 단편적인 정보만이 발표되었습니다."
 msgid "Producer部門は廃止"
 msgstr "Producer 부서는 폐지"
 
-#: templates/2026/rule.html:36
-msgid "新部門として「SHOWCASE」を追加。これは、バトルを行わない部門"
-msgstr "신규 부서로 'SHOWCASE'를 추가했습니다. 이것은 배틀을 하지 않는 부서입니다."
+#: templates/2026/rule.html:37
+msgid "新部門として「SHOWCASE」を追加"
+msgstr "신규 부서로 'SHOWCASE' 추가"
+
+#: templates/2026/rule.html:40
+msgid "この部門では、バトルを行わない"
+msgstr "이 부서에서는 전투를 수행하지 않습니다"
+
+#: templates/2026/rule.html:43
+msgid "Wildcardの審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価"
+msgstr "Wildcard의 심사는 다른 부문과는 다른 기준으로 진행되며, 스토리, 예술성, 독창성 등으로 평가됩니다."
 
 #: templates/2026/ticket.html:11
-msgid "開催地：ポーランド・ワルシャワ"
-msgstr "개최지: 폴란드 바르샤바"
+msgid "ポーランド・ワルシャワ"
+msgstr "폴란드 바르샤바"
 
 #: templates/2026/time_schedule.html:16
 msgid "GBBが最後にポーランド・ワルシャワで開催された年は2021年ですが、GBB 2021は予定から約2時間遅延しました。"
@@ -1595,3 +1603,9 @@ msgstr "번역을 제공하지 않는 페이지는 원문인 일본어로 표시
 
 #~ msgid "作成者：ぬる湯さん"
 #~ msgstr "작성자: 누루유님"
+
+#~ msgid "バトルを行わない部門"
+#~ msgstr ""
+
+#~ msgid "審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価"
+#~ msgstr ""

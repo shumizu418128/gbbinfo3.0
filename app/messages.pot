@@ -1019,12 +1019,20 @@ msgstr ""
 msgid "Producer部門は廃止"
 msgstr ""
 
-#: templates/2026/rule.html:36
-msgid "新部門として「SHOWCASE」を追加。これは、バトルを行わない部門"
+#: templates/2026/rule.html:37
+msgid "新部門として「SHOWCASE」を追加"
+msgstr ""
+
+#: templates/2026/rule.html:40
+msgid "この部門では、バトルを行わない"
+msgstr ""
+
+#: templates/2026/rule.html:43
+msgid "Wildcardの審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価"
 msgstr ""
 
 #: templates/2026/ticket.html:11
-msgid "開催地：ポーランド・ワルシャワ"
+msgid "ポーランド・ワルシャワ"
 msgstr ""
 
 #: templates/2026/time_schedule.html:16

@@ -1149,15 +1149,23 @@ msgstr ""
 msgid "Producer部門は廃止"
 msgstr "Producer részleg megszüntetve"
 
-#: templates/2026/rule.html:36
-msgid "新部門として「SHOWCASE」を追加。これは、バトルを行わない部門"
+#: templates/2026/rule.html:37
+msgid "新部門として「SHOWCASE」を追加"
+msgstr "Új részlegként hozzáadva a „SHOWCASE”"
+
+#: templates/2026/rule.html:40
+msgid "この部門では、バトルを行わない"
+msgstr "Ebben a részlegben nem folynak csaták."
+
+#: templates/2026/rule.html:43
+msgid "Wildcardの審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価"
 msgstr ""
-"Új részlegként hozzáadtuk a \"SHOWCASE\"-t. Ez egy olyan részleg, ahol nincs"
-" küzdelem"
+"A Wildcard zsűrizése más kategóriáktól eltérő kritériumok szerint zajlik, és"
+" a történet, a művészeti érték, az egyediség stb. alapján értékelik."
 
 #: templates/2026/ticket.html:11
-msgid "開催地：ポーランド・ワルシャワ"
-msgstr "Helyszín: Varsó, Lengyelország"
+msgid "ポーランド・ワルシャワ"
+msgstr "Lengyelország, Varsó"
 
 #: templates/2026/time_schedule.html:16
 msgid "GBBが最後にポーランド・ワルシャワで開催された年は2021年ですが、GBB 2021は予定から約2時間遅延しました。"
@@ -1720,3 +1728,9 @@ msgstr ""
 
 #~ msgid "作成者：ぬる湯さん"
 #~ msgstr "Szerző: nuruyu-san"
+
+#~ msgid "バトルを行わない部門"
+#~ msgstr ""
+
+#~ msgid "審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価"
+#~ msgstr ""
