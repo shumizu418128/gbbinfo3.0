@@ -1650,6 +1650,12 @@ msgstr "Mungkin terdapat kesilapan dalam kandungan."
 msgid "もっと調べる"
 msgstr "Ketahui lebih lanjut"
 
+#: templates/others/participant_detail.html:188
+#: templates/others/participant_detail.html:191
+#, python-brace-format
+msgid "{name}について、詳しく調べてください"
+msgstr "Sila selidik lebih lanjut mengenai {name}"
+
 #: templates/others/participant_detail.html:191
 msgid "ChatGPTに聞く"
 msgstr "Tanya ChatGPT"

@@ -1637,6 +1637,12 @@ msgstr "संभावना है कि सामग्री में त�
 msgid "もっと調べる"
 msgstr "और जानें"
 
+#: templates/others/participant_detail.html:188
+#: templates/others/participant_detail.html:191
+#, python-brace-format
+msgid "{name}について、詳しく調べてください"
+msgstr "{name} के बारे में अधिक जानकारी प्राप्त करें।"
+
 #: templates/others/participant_detail.html:191
 msgid "ChatGPTに聞く"
 msgstr "चैटजीपीटी से पूछें"

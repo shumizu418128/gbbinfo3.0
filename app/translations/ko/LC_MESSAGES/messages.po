@@ -1537,6 +1537,12 @@ msgstr "내용에 오류가 포함되어 있을 수 있습니다."
 msgid "もっと調べる"
 msgstr "더 알아보기"
 
+#: templates/others/participant_detail.html:188
+#: templates/others/participant_detail.html:191
+#, python-brace-format
+msgid "{name}について、詳しく調べてください"
+msgstr "{name}에 대해 자세히 알아보세요."
+
 #: templates/others/participant_detail.html:191
 msgid "ChatGPTに聞く"
 msgstr "ChatGPT에게 묻기"
