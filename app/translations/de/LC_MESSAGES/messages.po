@@ -541,8 +541,7 @@ msgstr "Bekanntgabe der Wildcard-Ergebnisse"
 #: templates/2025/wildcards.html:3 templates/2025/wildcards.html:4
 #: templates/2025/wildcards.html:5 templates/2025/wildcards.html:9
 #: templates/2026/top.html:141 templates/common/cancels.html:55
-#: templates/common/participants.html:101
-#: templates/others/result_stream.html:40 templates/others/translation.html:25
+#: templates/common/participants.html:101 templates/others/translation.html:25
 msgid "Wildcard一覧"
 msgstr "Wildcard-Liste"
 
@@ -769,7 +768,7 @@ msgstr ""
 
 #: templates/2025/ticket.html:27 templates/common/japan.html:50
 #: templates/common/korea.html:62 templates/common/result.html:97
-#: templates/others/result_stream.html:18 templates/others/translation.html:19
+#: templates/others/translation.html:19
 msgid "ルール & 審査員"
 msgstr "Regeln & Juroren"
 
@@ -1238,7 +1237,6 @@ msgstr "Guide"
 #: templates/base.html:118 templates/base.html:266
 #: templates/common/participants.html:25 templates/common/result.html:98
 #: templates/includes/participants_form.html:13
-#: templates/others/result_stream.html:39
 msgid "Wildcard結果"
 msgstr "Wildcard-Ergebnis"
 
@@ -1248,7 +1246,7 @@ msgstr "Wildcard-Ergebnis"
 #: templates/2025/wildcards.html:14 templates/2025/wildcards.html:83
 #: templates/2026/time_schedule.html:87 templates/2026/top.html:97
 #: templates/base.html:118 templates/base.html:266
-#: templates/common/result.html:98 templates/others/result_stream.html:39
+#: templates/common/result.html:98
 msgid "出場者"
 msgstr "Teilnehmer"
 
@@ -1498,7 +1496,6 @@ msgstr "Teilnahmeberechtigungsdetails"
 
 #: templates/common/cancels.html:54 templates/common/japan.html:51
 #: templates/common/korea.html:63 templates/common/participants.html:100
-#: templates/others/result_stream.html:19
 msgid "Wildcard結果発表日"
 msgstr "Bekanntmachung des Wildcard-Ergebnisses"
 

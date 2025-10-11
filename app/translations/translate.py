@@ -108,11 +108,6 @@ def reuse_obsolete_translations(po):
                     if "fuzzy" in current_entry.flags:
                         current_entry.flags.remove("fuzzy")
 
-                    # コメントに再利用の情報を追加
-                    if not current_entry.comment:
-                        current_entry.comment = ""
-                    current_entry.comment += "\nReused from obsolete translation"
-
                     reused_count += 1
                     print(f"Reused translation for: {obsolete_entry.msgid[:50]}...")
 
@@ -151,11 +146,6 @@ def prioritize_existing_translations(po, untranslated_entries):
                 if "fuzzy" in entry.flags:
                     entry.flags.remove("fuzzy")
 
-                # コメントに優先使用の情報を追加
-                if not entry.comment:
-                    entry.comment = ""
-                entry.comment += "\nReused from existing translation"
-
                 # 未翻訳リストから削除
                 untranslated_entries.remove(entry)
                 prioritized_count += 1
@@ -163,6 +153,22 @@ def prioritize_existing_translations(po, untranslated_entries):
                 break
 
     print(f"Prioritized {prioritized_count} existing translations")
+
+
+ZH = ["zh_Hans_CN", "zh_Hant_TW"]
+
+
+def translation_check(entry, lang):
+    if entry.msgid == entry.msgstr:  # 同じ言葉で
+        # 中国語ではない場合はフラグを付与
+        if lang not in ZH:
+            entry.flags.append("fuzzy")
+
+        # 中国語でも、10文字以上またはひらがな・カタカナを含む場合は fuzzy フラグを付与
+        elif len(entry.msgid) > 10 or any(
+            "\u3040" <= c <= "\u30ff" for c in entry.msgid
+        ):
+            entry.flags.append("fuzzy")
 
 
 def translate(path, lang):
@@ -173,20 +179,12 @@ def translate(path, lang):
         print(f"Error reading {path}: {e}")
         raise
 
-    ZH = ["zh_Hans_CN", "zh_Hant_TW"]
-
     # コメントアウトされた翻訳を再利用
     reuse_obsolete_translations(po)
 
     # エスケープが異常に多い場合は fuzzy フラグを付与
     for entry in po.translated_entries():
-        if "\\" in entry.msgstr:
-            entry.flags.append("fuzzy")
-        if entry.msgid == entry.msgstr:  # 同じ言葉で
-            if lang not in ZH:  # 中国語ではない場合はフラグを付与
-                entry.flags.append("fuzzy")
-            elif len(entry.msgid) > 10:  # 中国語でも、10文字以上は fuzzy フラグを付与
-                entry.flags.append("fuzzy")
+        translation_check(entry, lang)
 
     po.save(path)  # プレースホルダーの検証結果を保存
     po = polib.pofile(path)  # 再度ファイルを読み込む
@@ -223,8 +221,8 @@ def translate(path, lang):
             if entry.msgid != entry.msgstr:
                 break
 
-            # 中国語は重複を許可
-            if lang in ZH:
+            # 中国語 かつ ひらがな・カタカナが含まれていない場合のみ重複を許可
+            if lang in ZH and not any("\u3040" <= c <= "\u30ff" for c in entry.msgid):
                 break
 
             print(entry.msgid, entry.msgstr)

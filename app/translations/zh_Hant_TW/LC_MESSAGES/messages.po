@@ -518,8 +518,7 @@ msgstr "Wildcard結果發佈直播"
 #: templates/2025/wildcards.html:3 templates/2025/wildcards.html:4
 #: templates/2025/wildcards.html:5 templates/2025/wildcards.html:9
 #: templates/2026/top.html:141 templates/common/cancels.html:55
-#: templates/common/participants.html:101
-#: templates/others/result_stream.html:40 templates/others/translation.html:25
+#: templates/common/participants.html:101 templates/others/translation.html:25
 msgid "Wildcard一覧"
 msgstr "Wildcard列表"
 
@@ -698,7 +697,7 @@ msgstr "如欲刊登轉讓推文，請透過 Twitter DM 聯繫 GBBINFO-JPN 開�
 
 #: templates/2025/ticket.html:27 templates/common/japan.html:50
 #: templates/common/korea.html:62 templates/common/result.html:97
-#: templates/others/result_stream.html:18 templates/others/translation.html:19
+#: templates/others/translation.html:19
 msgid "ルール & 審査員"
 msgstr "規則 & 評審"
 
@@ -1101,7 +1100,6 @@ msgstr "指南"
 #: templates/base.html:118 templates/base.html:266
 #: templates/common/participants.html:25 templates/common/result.html:98
 #: templates/includes/participants_form.html:13
-#: templates/others/result_stream.html:39
 msgid "Wildcard結果"
 msgstr "Wildcard結果"
 
@@ -1111,7 +1109,7 @@ msgstr "Wildcard結果"
 #: templates/2025/wildcards.html:14 templates/2025/wildcards.html:83
 #: templates/2026/time_schedule.html:87 templates/2026/top.html:97
 #: templates/base.html:118 templates/base.html:266
-#: templates/common/result.html:98 templates/others/result_stream.html:39
+#: templates/common/result.html:98
 msgid "出場者"
 msgstr "參賽者"
 
@@ -1355,7 +1353,6 @@ msgstr "參賽權詳細"
 
 #: templates/common/cancels.html:54 templates/common/japan.html:51
 #: templates/common/korea.html:63 templates/common/participants.html:100
-#: templates/others/result_stream.html:19
 msgid "Wildcard結果発表日"
 msgstr "外卡結果發表日"
 
@@ -1527,7 +1524,7 @@ msgstr "更多資訊"
 #: templates/others/participant_detail.html:191
 #, python-brace-format
 msgid "{name}について、詳しく調べてください"
-msgstr "{name}について、詳しく調べてください"
+msgstr "關於{name}，請詳細調查。"
 
 #: templates/others/participant_detail.html:191
 msgid "ChatGPTに聞く"
