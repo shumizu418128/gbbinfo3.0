@@ -31,7 +31,7 @@ msgstr "주의 사항"
 #: templates/2024/rule.html:34 templates/2024/rule.html:74
 #: templates/2025/rule.html:33 templates/2025/rule.html:70
 #: templates/2025/wildcard_regulation.html:33
-#: templates/2025/wildcard_regulation.html:81
+#: templates/2025/wildcard_regulation.html:81 templates/2026/rule.html:19
 msgid "開催部門一覧"
 msgstr "개최 부문 목록"
 
@@ -165,14 +165,14 @@ msgstr "출전권"
 #: templates/2025/rule.html:186 templates/2025/rule.html:216
 #: templates/2025/stream.html:15 templates/2025/time_schedule.html:53
 #: templates/2025/time_schedule.html:81 templates/2025/time_schedule.html:109
-#: templates/2025/time_schedule.html:141 templates/2026/rule.html:11
-#: templates/2026/ticket.html:13 templates/2026/time_schedule.html:44
-#: templates/2026/time_schedule.html:48 templates/2026/time_schedule.html:52
-#: templates/2026/time_schedule.html:72 templates/2026/time_schedule.html:76
-#: templates/2026/time_schedule.html:80 templates/2026/time_schedule.html:100
-#: templates/2026/time_schedule.html:104 templates/2026/time_schedule.html:108
-#: templates/common/cancels.html:38 templates/common/participants.html:19
-#: templates/common/participants.html:83 templates/common/result.html:71
+#: templates/2025/time_schedule.html:141 templates/2026/ticket.html:13
+#: templates/2026/time_schedule.html:44 templates/2026/time_schedule.html:48
+#: templates/2026/time_schedule.html:52 templates/2026/time_schedule.html:72
+#: templates/2026/time_schedule.html:76 templates/2026/time_schedule.html:80
+#: templates/2026/time_schedule.html:100 templates/2026/time_schedule.html:104
+#: templates/2026/time_schedule.html:108 templates/common/cancels.html:38
+#: templates/common/participants.html:19 templates/common/participants.html:83
+#: templates/common/result.html:71
 msgid "～発表次第更新～"
 msgstr "～발표에 따라 업데이트～"
 
@@ -439,7 +439,7 @@ msgstr "준결승・3위 결정전・결승"
 
 #: templates/2024/time_schedule.html:207 templates/2024/time_schedule.html:211
 msgid "3位決定戦・決勝"
-msgstr "3위 결정전・결승"
+msgstr "3위 결정전·결승"
 
 #: templates/2024/time_schedule.html:215 templates/2024/time_schedule.html:268
 msgid "セレモニー"
@@ -492,10 +492,11 @@ msgstr "비공식 정보 사이트"
 
 #: templates/2024/top.html:40 templates/2024/top_7tosmoke.html:28
 #: templates/2025/top.html:154 templates/2025/top_7tosmoke.html:28
-#: templates/2026/top.html:146 templates/2026/top_7tosmoke.html:28
-#: templates/common/cancels.html:14 templates/common/japan.html:13
-#: templates/common/korea.html:13 templates/common/participants.html:14
-#: templates/common/result.html:13 templates/includes/popup_no_info.html:7
+#: templates/2026/rule.html:13 templates/2026/top.html:146
+#: templates/2026/top_7tosmoke.html:28 templates/common/cancels.html:14
+#: templates/common/japan.html:13 templates/common/korea.html:13
+#: templates/common/participants.html:14 templates/common/result.html:13
+#: templates/includes/popup_no_info.html:7
 msgid "最終更新"
 msgstr "최종 업데이트"
 
@@ -613,10 +614,6 @@ msgstr "마감"
 msgid "今回公開するWildcard一覧は、有志が作成した、非公式のものです。"
 msgstr "이번에 공개하는 Wildcard 목록은 자원봉사자가 작성한 비공식적인 것입니다."
 
-#: templates/2024/wildcards.html:74 templates/2025/wildcards.html:90
-msgid "作成者：ぬる湯さん"
-msgstr "작성자: 누루유님"
-
 #: templates/2024/wildcards.html:78 templates/2025/wildcards.html:94
 msgid "すべて手作業で制作されたものであるため、重複や欠落がある可能性があります。"
 msgstr "모두 수작업으로 제작된 것이므로 중복이나 누락이 있을 수 있습니다."
@@ -664,7 +661,7 @@ msgstr "※중앙 유럽 시간에는 서머타임이 있습니다. 2025년 서�
 
 #: templates/2025/rule.html:285 templates/2025/wildcard_regulation.html:235
 msgid "Tag Team部門・Crew部門参加希望の方はご注意ください。"
-msgstr "Tag Team 부문・Crew 부문 참가 희망자는 주의해 주십시오."
+msgstr "태그팀 부문/크루 부문 참가 희망자는 주의하시기 바랍니다."
 
 #: templates/2025/rule.html:343
 msgid "レフェリー"
@@ -1040,6 +1037,18 @@ msgstr "Wildcard 비디오 제작에 사용된 모든 파일을 백업을 포함
 #: templates/2025/wildcard_regulation.html:265
 msgid "皆さんのWildcardを楽しみにしています！"
 msgstr "여러분의 Wildcard를 기대하고 있습니다!"
+
+#: templates/2026/rule.html:16
+msgid "現時点で、以下の断片的な情報のみ発表されています。"
+msgstr "현재까지 다음의 단편적인 정보만이 발표되었습니다."
+
+#: templates/2026/rule.html:35
+msgid "Producer部門は廃止"
+msgstr "Producer 부서는 폐지"
+
+#: templates/2026/rule.html:36
+msgid "新部門として「SHOWCASE」を追加。これは、バトルを行わない部門"
+msgstr "신규 부서로 'SHOWCASE'를 추가했습니다. 이것은 배틀을 하지 않는 부서입니다."
 
 #: templates/2026/ticket.html:11
 msgid "開催地：ポーランド・ワルシャワ"
@@ -1500,7 +1509,7 @@ msgstr "표시 선택"
 
 #: templates/includes/participants_form.html:19
 msgid "出場者・辞退者"
-msgstr "출전자・사퇴자"
+msgstr "출연자・포기자"
 
 #: templates/includes/popup_no_info.html:5
 msgid "情報なし"
@@ -1524,7 +1533,7 @@ msgstr "관련 사이트"
 
 #: templates/others/participant_detail.html:182
 msgid "表示されている関連サイトやSNS情報・紹介文は、自動検索によって取得されたものです。"
-msgstr "표시된 관련 사이트 및 SNS 정보・소개문은 자동 검색으로 얻은 것입니다."
+msgstr "표시된 관련 사이트 및 SNS 정보/소개는 자동 검색을 통해 얻어진 것입니다."
 
 #: templates/others/participant_detail.html:183
 msgid "内容に誤りが含まれている可能性があります。"
@@ -1583,3 +1592,6 @@ msgstr "번역을 제공하지 않는 페이지는 원문인 일본어로 표시
 
 #~ msgid "10月1日 掲載募集開始予定"
 #~ msgstr "10월 1일 게재 모집 시작 예정"
+
+#~ msgid "作成者：ぬる湯さん"
+#~ msgstr "작성자: 누루유님"

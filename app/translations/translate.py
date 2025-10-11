@@ -1,4 +1,5 @@
 import os
+import re
 from time import sleep
 
 import polib
@@ -29,7 +30,7 @@ BABEL_SUPPORTED_LOCALES = [
 ]
 
 
-GEMINI_MODEL = "gemini-2.5-flash-lite"
+GEMINI_MODEL = "gemini-2.5-flash"
 GEMINI_SLEEP_TIME = 4
 
 
@@ -65,7 +66,10 @@ Text to translate: {text}"""
                 continue
             raise
 
-    return response.parsed.translation
+    try:
+        return response.parsed.translation
+    except Exception:
+        return text
 
 
 def reuse_obsolete_translations(po):
@@ -165,10 +169,14 @@ def translation_check(entry, lang):
             entry.flags.append("fuzzy")
 
         # 中国語でも、10文字以上またはひらがな・カタカナを含む場合は fuzzy フラグを付与
-        elif len(entry.msgid) > 10 or any(
-            "\u3040" <= c <= "\u30ff" for c in entry.msgid
+        elif len(entry.msgid) > 10 or re.search(
+            r"[\u3041-\u3096\u30A1-\u30FA]", entry.msgid
         ):
             entry.flags.append("fuzzy")
+
+    # 翻訳結果がひらがな・カタカナを含む場合は fuzzy フラグを付与
+    if re.search(r"[\u3041-\u3096\u30A1-\u30FA]", entry.msgstr):
+        entry.flags.append("fuzzy")
 
 
 def translate(path, lang):
@@ -218,17 +226,20 @@ def translate(path, lang):
                 entry.flags.remove("fuzzy")
             sleep(GEMINI_SLEEP_TIME)
 
-            if entry.msgid != entry.msgstr:
+            # 翻訳結果が変わっていて、ひらがな・カタカナが含まれていない場合成功
+            if entry.msgid != entry.msgstr and not re.search(
+                r"[\u3041-\u3096\u30A1-\u30FA]", entry.msgstr
+            ):
                 break
 
-            # 中国語 かつ ひらがな・カタカナが含まれていない場合のみ重複を許可
-            if lang in ZH and not any("\u3040" <= c <= "\u30ff" for c in entry.msgid):
+            # 中国語 かつ 原文にひらがな・カタカナが含まれていない場合のみ、翻訳結果がそのままでも成功
+            if lang in ZH and not re.search(
+                r"[\u3041-\u3096\u30A1-\u30FA]", entry.msgid
+            ):
                 break
 
             print(entry.msgid, entry.msgstr)
             print("翻訳失敗")
-            po.save(path)
-            po = polib.pofile(path)
 
     po.save(path)
 

@@ -32,7 +32,7 @@ msgstr "Aviso importante"
 #: templates/2024/rule.html:34 templates/2024/rule.html:74
 #: templates/2025/rule.html:33 templates/2025/rule.html:70
 #: templates/2025/wildcard_regulation.html:33
-#: templates/2025/wildcard_regulation.html:81
+#: templates/2025/wildcard_regulation.html:81 templates/2026/rule.html:19
 msgid "開催部門一覧"
 msgstr "Lista de categorías del evento"
 
@@ -179,14 +179,14 @@ msgstr "Clasificación"
 #: templates/2025/rule.html:186 templates/2025/rule.html:216
 #: templates/2025/stream.html:15 templates/2025/time_schedule.html:53
 #: templates/2025/time_schedule.html:81 templates/2025/time_schedule.html:109
-#: templates/2025/time_schedule.html:141 templates/2026/rule.html:11
-#: templates/2026/ticket.html:13 templates/2026/time_schedule.html:44
-#: templates/2026/time_schedule.html:48 templates/2026/time_schedule.html:52
-#: templates/2026/time_schedule.html:72 templates/2026/time_schedule.html:76
-#: templates/2026/time_schedule.html:80 templates/2026/time_schedule.html:100
-#: templates/2026/time_schedule.html:104 templates/2026/time_schedule.html:108
-#: templates/common/cancels.html:38 templates/common/participants.html:19
-#: templates/common/participants.html:83 templates/common/result.html:71
+#: templates/2025/time_schedule.html:141 templates/2026/ticket.html:13
+#: templates/2026/time_schedule.html:44 templates/2026/time_schedule.html:48
+#: templates/2026/time_schedule.html:52 templates/2026/time_schedule.html:72
+#: templates/2026/time_schedule.html:76 templates/2026/time_schedule.html:80
+#: templates/2026/time_schedule.html:100 templates/2026/time_schedule.html:104
+#: templates/2026/time_schedule.html:108 templates/common/cancels.html:38
+#: templates/common/participants.html:19 templates/common/participants.html:83
+#: templates/common/result.html:71
 msgid "～発表次第更新～"
 msgstr "～Actualización según anuncio～"
 
@@ -517,10 +517,11 @@ msgstr "Sitio de información no oficial"
 
 #: templates/2024/top.html:40 templates/2024/top_7tosmoke.html:28
 #: templates/2025/top.html:154 templates/2025/top_7tosmoke.html:28
-#: templates/2026/top.html:146 templates/2026/top_7tosmoke.html:28
-#: templates/common/cancels.html:14 templates/common/japan.html:13
-#: templates/common/korea.html:13 templates/common/participants.html:14
-#: templates/common/result.html:13 templates/includes/popup_no_info.html:7
+#: templates/2026/rule.html:13 templates/2026/top.html:146
+#: templates/2026/top_7tosmoke.html:28 templates/common/cancels.html:14
+#: templates/common/japan.html:13 templates/common/korea.html:13
+#: templates/common/participants.html:14 templates/common/result.html:13
+#: templates/includes/popup_no_info.html:7
 msgid "最終更新"
 msgstr "Última actualización"
 
@@ -651,10 +652,6 @@ msgid "今回公開するWildcard一覧は、有志が作成した、非公式�
 msgstr ""
 "La lista de Wildcard que se publica esta vez es una creación no oficial "
 "realizada por voluntarios."
-
-#: templates/2024/wildcards.html:74 templates/2025/wildcards.html:90
-msgid "作成者：ぬる湯さん"
-msgstr "Creado por: ぬる湯さん"
 
 #: templates/2024/wildcards.html:78 templates/2025/wildcards.html:94
 msgid "すべて手作業で制作されたものであるため、重複や欠落がある可能性があります。"
@@ -1074,8 +1071,8 @@ msgstr ""
 #: templates/2025/wildcard_regulation.html:177
 msgid "ぜひここのスクリーンショットをとってSNSで拡散してください。推しが失格にならないために..."
 msgstr ""
-"Por favor, toma una captura de pantalla de esto y compártela en redes "
-"sociales. Para que tu *[推し]* no sea descalificado..."
+"Por favor, tome una captura de pantalla de esto y difúndala en las redes "
+"sociales. Para que tu favorito no sea descalificado..."
 
 #: templates/2025/wildcard_regulation.html:179
 msgid "生のオーディオと生のビデオ (カメラのオーディオを含む) の提出が必要"
@@ -1147,8 +1144,8 @@ msgstr "Se prohíbe el uso de samples grabados previamente."
 #: templates/2025/wildcard_regulation.html:251
 msgid "FOH (ミキシング デスク) または録音への出力はステレオ信号である必要があり、マルチチャンネル出力は禁止"
 msgstr ""
-"La salida a FOH (ミキシング デスク) o a grabación debe ser una señal estéreo; las "
-"salidas multicanal están prohibidas."
+"La salida a FOH (consola de mezcla) o a la grabación debe ser una señal "
+"estéreo, y las salidas multicanal están prohibidas"
 
 #: templates/2025/wildcard_regulation.html:262
 msgid "Wildcard動画の作成にあたり使用したすべてのファイルを、バックアップ含め保存しておき、いつでも提出できるようにしておく"
@@ -1160,6 +1157,22 @@ msgstr ""
 #: templates/2025/wildcard_regulation.html:265
 msgid "皆さんのWildcardを楽しみにしています！"
 msgstr "¡Esperamos con ansias vuestra Wildcard!"
+
+#: templates/2026/rule.html:16
+msgid "現時点で、以下の断片的な情報のみ発表されています。"
+msgstr ""
+"Por el momento, solo se ha hecho público el siguiente fragmento de "
+"información."
+
+#: templates/2026/rule.html:35
+msgid "Producer部門は廃止"
+msgstr "El departamento de productores se elimina"
+
+#: templates/2026/rule.html:36
+msgid "新部門として「SHOWCASE」を追加。これは、バトルを行わない部門"
+msgstr ""
+"Se ha añadido \"SHOWCASE\" como nuevo departamento. Este es un departamento "
+"en el que no se realizan batallas."
 
 #: templates/2026/ticket.html:11
 msgid "開催地：ポーランド・ワルシャワ"
@@ -1723,3 +1736,6 @@ msgstr ""
 
 #~ msgid "10月1日 掲載募集開始予定"
 #~ msgstr "Se publicará la convocatoria el 1 de octubre."
+
+#~ msgid "作成者：ぬる湯さん"
+#~ msgstr "Creado por: Nuru yu-san"

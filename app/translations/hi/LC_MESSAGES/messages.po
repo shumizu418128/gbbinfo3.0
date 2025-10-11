@@ -32,7 +32,7 @@ msgstr "**ध्यान दें:**"
 #: templates/2024/rule.html:34 templates/2024/rule.html:74
 #: templates/2025/rule.html:33 templates/2025/rule.html:70
 #: templates/2025/wildcard_regulation.html:33
-#: templates/2025/wildcard_regulation.html:81
+#: templates/2025/wildcard_regulation.html:81 templates/2026/rule.html:19
 msgid "開催部門一覧"
 msgstr "आयोजन विभाग सूची"
 
@@ -174,14 +174,14 @@ msgstr "योग्यता"
 #: templates/2025/rule.html:186 templates/2025/rule.html:216
 #: templates/2025/stream.html:15 templates/2025/time_schedule.html:53
 #: templates/2025/time_schedule.html:81 templates/2025/time_schedule.html:109
-#: templates/2025/time_schedule.html:141 templates/2026/rule.html:11
-#: templates/2026/ticket.html:13 templates/2026/time_schedule.html:44
-#: templates/2026/time_schedule.html:48 templates/2026/time_schedule.html:52
-#: templates/2026/time_schedule.html:72 templates/2026/time_schedule.html:76
-#: templates/2026/time_schedule.html:80 templates/2026/time_schedule.html:100
-#: templates/2026/time_schedule.html:104 templates/2026/time_schedule.html:108
-#: templates/common/cancels.html:38 templates/common/participants.html:19
-#: templates/common/participants.html:83 templates/common/result.html:71
+#: templates/2025/time_schedule.html:141 templates/2026/ticket.html:13
+#: templates/2026/time_schedule.html:44 templates/2026/time_schedule.html:48
+#: templates/2026/time_schedule.html:52 templates/2026/time_schedule.html:72
+#: templates/2026/time_schedule.html:76 templates/2026/time_schedule.html:80
+#: templates/2026/time_schedule.html:100 templates/2026/time_schedule.html:104
+#: templates/2026/time_schedule.html:108 templates/common/cancels.html:38
+#: templates/common/participants.html:19 templates/common/participants.html:83
+#: templates/common/result.html:71
 msgid "～発表次第更新～"
 msgstr "घोषणा होते ही अद्यतन किया जाएगा (～発表次第更新～)।"
 
@@ -301,7 +301,7 @@ msgstr "बिना डिवाइस प्रतिबंध के"
 
 #: templates/2024/rule.html:274 templates/2025/rule.html:307
 msgid "Wildcard審査員一覧はこちら"
-msgstr "यहां Wildcard審査員一覧はこちら"
+msgstr "वाइल्डकार्ड न्यायाधीशों की सूची यहां देखें"
 
 #: templates/2024/rule.html:306 templates/2025/rule.html:340
 msgid "審査員不明"
@@ -347,7 +347,7 @@ msgstr "【बिक गया】आधिकारिक बिक्री"
 
 #: templates/2024/ticket.html:13
 msgid "チケットぴあ"
-msgstr "टिकटぴあ"
+msgstr "टिकट पिया"
 
 #: templates/2024/ticket.html:15
 msgid "楽天チケット"
@@ -469,7 +469,7 @@ msgstr "स्रोत: स्थल की आधिकारिक वेब�
 
 #: templates/2024/time_schedule.html:256
 msgid "ソース：ABEMA配信ページ"
-msgstr "स्रोत: ABEMA配信ページ"
+msgstr "स्रोत: ABEMA प्रसारण पृष्ठ"
 
 #: templates/2024/time_schedule.html:256
 msgid "予選開始より遅い理由は不明"
@@ -506,10 +506,11 @@ msgstr "अनौपचारिक सूचना स्थल"
 
 #: templates/2024/top.html:40 templates/2024/top_7tosmoke.html:28
 #: templates/2025/top.html:154 templates/2025/top_7tosmoke.html:28
-#: templates/2026/top.html:146 templates/2026/top_7tosmoke.html:28
-#: templates/common/cancels.html:14 templates/common/japan.html:13
-#: templates/common/korea.html:13 templates/common/participants.html:14
-#: templates/common/result.html:13 templates/includes/popup_no_info.html:7
+#: templates/2026/rule.html:13 templates/2026/top.html:146
+#: templates/2026/top_7tosmoke.html:28 templates/common/cancels.html:14
+#: templates/common/japan.html:13 templates/common/korea.html:13
+#: templates/common/participants.html:14 templates/common/result.html:13
+#: templates/includes/popup_no_info.html:7
 msgid "最終更新"
 msgstr "अंतिम अपडेट"
 
@@ -637,10 +638,6 @@ msgstr ""
 "इस बार जारी की जा रही Wildcard सूची, स्वयंसेवकों द्वारा बनाई गई, एक "
 "अनौपचारिक सूची है।"
 
-#: templates/2024/wildcards.html:74 templates/2025/wildcards.html:90
-msgid "作成者：ぬる湯さん"
-msgstr "लेखक:ぬる湯さん"
-
 #: templates/2024/wildcards.html:78 templates/2025/wildcards.html:94
 msgid "すべて手作業で制作されたものであるため、重複や欠落がある可能性があります。"
 msgstr ""
@@ -663,7 +660,9 @@ msgstr "【बीटबॉक्सर के लिए】Wildcard विनि�
 
 #: templates/2025/rule.html:225
 msgid "GBB出場辞退が発生した場合、Wildcard下位からの繰り上げが行われます。"
-msgstr "GBB出場辞退が発生 होने पर, Wildcard के निचले पायदान से प्रमोशन किया जाएगा।"
+msgstr ""
+"अगर GBB से नाम वापस लिया जाता है, तो वाइल्डकार्ड में निचले स्थान से पदोन्नति"
+" की जाएगी।"
 
 #: templates/2025/rule.html:229
 msgid "いかなる理由があっても、シード権大会2位以下の人に、出場権は与えられません。"
@@ -867,7 +866,7 @@ msgstr "दर्ज नंबर"
 #: templates/2025/top.html:211
 #, python-brace-format
 msgid "GBB {year} 会場webサイトに記載のあった番号"
-msgstr "GBB {year}会場webサイトに記載のあった番号"
+msgstr "GBB {year} वेन्यू वेबसाइट पर उल्लिखित संख्या"
 
 #: templates/2025/wildcard_regulation.html:9
 msgid "レギュレーション"
@@ -1126,6 +1125,20 @@ msgstr ""
 #: templates/2025/wildcard_regulation.html:265
 msgid "皆さんのWildcardを楽しみにしています！"
 msgstr "आप सभी के Wildcard का इंतज़ार है!"
+
+#: templates/2026/rule.html:16
+msgid "現時点で、以下の断片的な情報のみ発表されています。"
+msgstr "वर्तमान में, केवल निम्नलिखित आंशिक जानकारी जारी की गई है।"
+
+#: templates/2026/rule.html:35
+msgid "Producer部門は廃止"
+msgstr "Producer विभाग को समाप्त कर दिया गया है"
+
+#: templates/2026/rule.html:36
+msgid "新部門として「SHOWCASE」を追加。これは、バトルを行わない部門"
+msgstr ""
+"एक नए अनुभाग के रूप में 'SHOWCASE' जोड़ा गया। यह वह अनुभाग है जहाँ कोई लड़ाई"
+" नहीं होगी"
 
 #: templates/2026/ticket.html:11
 msgid "開催地：ポーランド・ワルシャワ"
@@ -1690,3 +1703,6 @@ msgstr "翻訳 प्रदान नहीं करने वाले पृ�
 
 #~ msgid "10月1日 掲載募集開始予定"
 #~ msgstr "10月1日掲載募集 शुरू होने की उम्मीद"
+
+#~ msgid "作成者：ぬる湯さん"
+#~ msgstr "लेखक: नुरुयू जी"
