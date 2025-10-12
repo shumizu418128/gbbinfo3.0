@@ -1,4 +1,5 @@
 import os
+import re
 from time import sleep
 
 import polib
@@ -29,7 +30,7 @@ BABEL_SUPPORTED_LOCALES = [
 ]
 
 
-GEMINI_MODEL = "gemini-2.5-flash-lite"
+GEMINI_MODEL = "gemini-2.5-flash"
 GEMINI_SLEEP_TIME = 4
 
 
@@ -65,7 +66,10 @@ Text to translate: {text}"""
                 continue
             raise
 
-    return response.parsed.translation
+    try:
+        return response.parsed.translation
+    except Exception:
+        return text
 
 
 def reuse_obsolete_translations(po):
@@ -108,11 +112,6 @@ def reuse_obsolete_translations(po):
                     if "fuzzy" in current_entry.flags:
                         current_entry.flags.remove("fuzzy")
 
-                    # コメントに再利用の情報を追加
-                    if not current_entry.comment:
-                        current_entry.comment = ""
-                    current_entry.comment += "\nReused from obsolete translation"
-
                     reused_count += 1
                     print(f"Reused translation for: {obsolete_entry.msgid[:50]}...")
 
@@ -151,11 +150,6 @@ def prioritize_existing_translations(po, untranslated_entries):
                 if "fuzzy" in entry.flags:
                     entry.flags.remove("fuzzy")
 
-                # コメントに優先使用の情報を追加
-                if not entry.comment:
-                    entry.comment = ""
-                entry.comment += "\nReused from existing translation"
-
                 # 未翻訳リストから削除
                 untranslated_entries.remove(entry)
                 prioritized_count += 1
@@ -163,6 +157,26 @@ def prioritize_existing_translations(po, untranslated_entries):
                 break
 
     print(f"Prioritized {prioritized_count} existing translations")
+
+
+ZH = ["zh_Hans_CN", "zh_Hant_TW"]
+
+
+def translation_check(entry, lang):
+    if entry.msgid == entry.msgstr:  # 同じ言葉で
+        # 中国語ではない場合はフラグを付与
+        if lang not in ZH:
+            entry.flags.append("fuzzy")
+
+        # 中国語でも、10文字以上またはひらがな・カタカナを含む場合は fuzzy フラグを付与
+        elif len(entry.msgid) > 10 or re.search(
+            r"[\u3041-\u3096\u30A1-\u30FA]", entry.msgid
+        ):
+            entry.flags.append("fuzzy")
+
+    # 翻訳結果がひらがな・カタカナを含む場合は fuzzy フラグを付与
+    if re.search(r"[\u3041-\u3096\u30A1-\u30FA]", entry.msgstr):
+        entry.flags.append("fuzzy")
 
 
 def translate(path, lang):
@@ -173,20 +187,12 @@ def translate(path, lang):
         print(f"Error reading {path}: {e}")
         raise
 
-    ZH = ["zh_Hans_CN", "zh_Hant_TW"]
-
     # コメントアウトされた翻訳を再利用
     reuse_obsolete_translations(po)
 
     # エスケープが異常に多い場合は fuzzy フラグを付与
     for entry in po.translated_entries():
-        if "\\" in entry.msgstr:
-            entry.flags.append("fuzzy")
-        if entry.msgid == entry.msgstr:  # 同じ言葉で
-            if lang not in ZH:  # 中国語ではない場合はフラグを付与
-                entry.flags.append("fuzzy")
-            elif len(entry.msgid) > 10:  # 中国語でも、10文字以上は fuzzy フラグを付与
-                entry.flags.append("fuzzy")
+        translation_check(entry, lang)
 
     po.save(path)  # プレースホルダーの検証結果を保存
     po = polib.pofile(path)  # 再度ファイルを読み込む
@@ -220,17 +226,20 @@ def translate(path, lang):
                 entry.flags.remove("fuzzy")
             sleep(GEMINI_SLEEP_TIME)
 
-            if entry.msgid != entry.msgstr:
+            # 翻訳結果が変わっていて、ひらがな・カタカナが含まれていない場合成功
+            if entry.msgid != entry.msgstr and not re.search(
+                r"[\u3041-\u3096\u30A1-\u30FA]", entry.msgstr
+            ):
                 break
 
-            # 中国語は重複を許可
-            if lang in ZH:
+            # 中国語 かつ 原文にひらがな・カタカナが含まれていない場合のみ、翻訳結果がそのままでも成功
+            if lang in ZH and not re.search(
+                r"[\u3041-\u3096\u30A1-\u30FA]", entry.msgid
+            ):
                 break
 
             print(entry.msgid, entry.msgstr)
             print("翻訳失敗")
-            po.save(path)
-            po = polib.pofile(path)
 
     po.save(path)
 
@@ -238,10 +247,10 @@ def translate(path, lang):
 def main():
     # Generate translation messages
     os.system(
-        f"cd {BASE_DIR} && pybabel extract --omit-header --no-wrap --sort-by-file -F babel.cfg -o {POT_FILE} ."
+        f"cd {BASE_DIR} && python -m babel.messages.frontend extract --omit-header --no-wrap --sort-by-file -F babel.cfg -o {POT_FILE} ."
     )
     os.system(
-        f"cd {BASE_DIR} && pybabel update --omit-header --no-wrap -i {POT_FILE} -d {LOCALE_DIR}"
+        f"cd {BASE_DIR} && python -m babel.messages.frontend update --omit-header --no-wrap -i {POT_FILE} -d {LOCALE_DIR}"
     )
 
     for lang in BABEL_SUPPORTED_LOCALES:
@@ -250,13 +259,15 @@ def main():
         # ファイルが存在しない場合は新規作成
         if not os.path.exists(path):
             os.system(
-                f"cd {BASE_DIR} && pybabel init --omit-header --no-wrap -i {POT_FILE} -d {LOCALE_DIR} -l {lang}"
+                f"cd {BASE_DIR} && python -m babel.messages.frontend init --omit-header --no-wrap -i {POT_FILE} -d {LOCALE_DIR} -l {lang}"
             )
 
         translate(path, lang)
 
     # Compile translation messages
-    os.system(f"cd {BASE_DIR} && pybabel compile --statistics -d {LOCALE_DIR}")
+    os.system(
+        f"cd {BASE_DIR} && python -m babel.messages.frontend compile --statistics -d {LOCALE_DIR}"
+    )
     print("Finished")
 
 

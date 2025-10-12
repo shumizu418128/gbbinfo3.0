@@ -3389,7 +3389,7 @@ class YearRequirementsTestCase(unittest.TestCase):
         Returns:
             None
         """
-        required_files = ["top.html", "rule.html", "ticket.html", "time_schedule.html"]
+        required_files = ["top.html", "rule.html", "ticket.html", "time_schedule.html", "top_7tosmoke.html"]
 
         for year in self.available_years:
             if year <= 2022:

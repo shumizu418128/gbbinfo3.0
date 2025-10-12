@@ -8,6 +8,60 @@
 {% block content %}
 
 <h1>GBB {{ year }} {{_("ルール")}}</h1>
-<p>{{_("～発表次第更新～")}}</p>
+
+<div style="text-align: center;">
+    <p>{{_("最終更新")}}<br>{{ last_updated }}</p>
+</div>
+
+<p>{{_("現時点で、以下の断片的な情報のみ発表されています。")}}</p>
+<ul>
+    <li>
+        {{_("開催部門一覧")}}
+        <ul>
+            <li>
+                Loopstation
+            </li>
+            <li>
+                Solo
+            </li>
+            <li>
+                Tag Team
+            </li>
+            <li>
+                Crew
+            </li>
+        </ul>
+    </li>
+</ul>
+<ul>
+    <li>{{_("Producer部門は廃止")}}</li>
+</ul>
+<ul>
+    <li>
+        {{_("新部門として「SHOWCASE」を追加")}}
+        <ul>
+            <li>
+                {{_("この部門では、バトルを行わない")}}
+            </li>
+            <li>
+                {{_("Wildcardの審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価")}}
+            </li>
+            <li>
+                SHOWCASE - {{_("開催部門一覧")}}
+                <ul>
+                    <li>
+                        SHOWCASE - Solo
+                    </li>
+                    <li>
+                        SHOWCASE - Loopstation
+                    </li>
+                    <li>
+                        SHOWCASE - Producer
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
 
 {% endblock %}

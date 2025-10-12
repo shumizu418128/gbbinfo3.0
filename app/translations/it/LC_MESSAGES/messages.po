@@ -32,7 +32,7 @@ msgstr "AVVERTENZE"
 #: templates/2024/rule.html:34 templates/2024/rule.html:74
 #: templates/2025/rule.html:33 templates/2025/rule.html:70
 #: templates/2025/wildcard_regulation.html:33
-#: templates/2025/wildcard_regulation.html:81
+#: templates/2025/wildcard_regulation.html:81 templates/2026/rule.html:19
 msgid "開催部門一覧"
 msgstr "Elenco delle categorie"
 
@@ -128,9 +128,7 @@ msgstr "Cos'è il Producer"
 msgid ""
 "Loopstationのセカンドデバイス（Loopstationに接続する端末）ありの部門で、GBB23で「Producer "
 "showcase」として新設されました。その代わり、Loopstation部門においてセカンドデバイスの使用が禁止されます。"
-msgstr ""
-"Loopstation のセカンドデバイス（Loopstation に接続する端末）ありの部門で、GBB23 で「Producer "
-"showcase」として新設されました。その代わり、Loopstation 部門においてセカンドデバイスの使用が禁止されます。"
+msgstr "Questa categoria è stata creata come "
 
 #: templates/2024/rule.html:126 templates/2025/rule.html:117
 msgid "忘れられたTag Team Loopstation..."
@@ -175,14 +173,14 @@ msgstr "Diritti di partecipazione"
 #: templates/2025/rule.html:186 templates/2025/rule.html:216
 #: templates/2025/stream.html:15 templates/2025/time_schedule.html:53
 #: templates/2025/time_schedule.html:81 templates/2025/time_schedule.html:109
-#: templates/2025/time_schedule.html:141 templates/2026/rule.html:11
-#: templates/2026/ticket.html:13 templates/2026/time_schedule.html:44
-#: templates/2026/time_schedule.html:48 templates/2026/time_schedule.html:52
-#: templates/2026/time_schedule.html:72 templates/2026/time_schedule.html:76
-#: templates/2026/time_schedule.html:80 templates/2026/time_schedule.html:100
-#: templates/2026/time_schedule.html:104 templates/2026/time_schedule.html:108
-#: templates/common/cancels.html:38 templates/common/participants.html:19
-#: templates/common/participants.html:83 templates/common/result.html:71
+#: templates/2025/time_schedule.html:141 templates/2026/ticket.html:13
+#: templates/2026/time_schedule.html:44 templates/2026/time_schedule.html:48
+#: templates/2026/time_schedule.html:52 templates/2026/time_schedule.html:72
+#: templates/2026/time_schedule.html:76 templates/2026/time_schedule.html:80
+#: templates/2026/time_schedule.html:100 templates/2026/time_schedule.html:104
+#: templates/2026/time_schedule.html:108 templates/common/cancels.html:38
+#: templates/common/participants.html:19 templates/common/participants.html:83
+#: templates/common/result.html:71
 msgid "～発表次第更新～"
 msgstr "～Aggiornamento al rilascio～"
 
@@ -339,7 +337,8 @@ msgstr "Risultati Wildcard & Partecipanti"
 #: templates/2024/top_7tosmoke.html:35 templates/2025/ticket.html:3
 #: templates/2025/ticket.html:4 templates/2025/ticket.html:5
 #: templates/2025/ticket.html:9 templates/2025/top_7tosmoke.html:35
-#: templates/2026/ticket.html:10 templates/others/translation.html:22
+#: templates/2026/ticket.html:10 templates/2026/top_7tosmoke.html:35
+#: templates/others/translation.html:22
 msgid "会場 & チケット"
 msgstr "Luogo & Biglietti"
 
@@ -499,19 +498,20 @@ msgstr "Data dell'evento"
 
 #: templates/2024/top.html:24 templates/2024/top_7tosmoke.html:12
 #: templates/2025/top.html:32 templates/2025/top_7tosmoke.html:12
-#: templates/2026/top.html:32
+#: templates/2026/top.html:32 templates/2026/top_7tosmoke.html:12
 msgid "公式よりもわかりやすい！"
 msgstr "Più facile da capire della formula!"
 
 #: templates/2024/top.html:24 templates/2024/top_7tosmoke.html:12
 #: templates/2025/top.html:32 templates/2025/top_7tosmoke.html:12
-#: templates/2026/top.html:32
+#: templates/2026/top.html:32 templates/2026/top_7tosmoke.html:12
 msgid "非公式情報サイト"
 msgstr "Sito di informazioni non ufficiale"
 
 #: templates/2024/top.html:40 templates/2024/top_7tosmoke.html:28
 #: templates/2025/top.html:154 templates/2025/top_7tosmoke.html:28
-#: templates/2026/top.html:146 templates/common/cancels.html:14
+#: templates/2026/rule.html:13 templates/2026/top.html:146
+#: templates/2026/top_7tosmoke.html:28 templates/common/cancels.html:14
 #: templates/common/japan.html:13 templates/common/korea.html:13
 #: templates/common/participants.html:14 templates/common/result.html:13
 #: templates/includes/popup_no_info.html:7
@@ -539,15 +539,14 @@ msgstr "Annuncio dei risultati della diretta di Wildcard"
 #: templates/2025/wildcards.html:3 templates/2025/wildcards.html:4
 #: templates/2025/wildcards.html:5 templates/2025/wildcards.html:9
 #: templates/2026/top.html:141 templates/common/cancels.html:55
-#: templates/common/participants.html:101
-#: templates/others/result_stream.html:40 templates/others/translation.html:25
+#: templates/common/participants.html:101 templates/others/translation.html:25
 msgid "Wildcard一覧"
 msgstr "Elenco Wildcard"
 
 #: templates/2024/top.html:104 templates/2024/top.html:118
 #: templates/2024/top_7tosmoke.html:46 templates/2025/top.html:178
 #: templates/2025/top.html:192 templates/2025/top_7tosmoke.html:48
-#: templates/2026/top.html:166
+#: templates/2026/top.html:166 templates/2026/top_7tosmoke.html:48
 msgid "お問い合わせ"
 msgstr "Contattaci"
 
@@ -604,14 +603,17 @@ msgstr ""
 "Si precisa che il suddetto numero di telefono non è collegato a questo sito."
 
 #: templates/2024/top_7tosmoke.html:33 templates/2025/top_7tosmoke.html:33
+#: templates/2026/top_7tosmoke.html:33
 msgid "7toSmokeとは"
 msgstr "Cosa è 7toSmoke"
 
 #: templates/2024/top_7tosmoke.html:34 templates/2025/top_7tosmoke.html:34
+#: templates/2026/top_7tosmoke.html:34
 msgid "7toSmokeルール & 参加方法"
 msgstr "Regole 7toSmoke & Istruzioni per la partecipazione"
 
 #: templates/2024/top_7tosmoke.html:41 templates/2025/top_7tosmoke.html:43
+#: templates/2026/top_7tosmoke.html:43
 msgid ""
 "7toSmokeは、GBB本戦に比べて最新情報の公開が非常に遅い傾向にあり、そもそも情報が発表されないまま本番を迎えてしまったケースもあります。"
 msgstr ""
@@ -620,6 +622,7 @@ msgstr ""
 "informazioni venissero annunciate."
 
 #: templates/2024/top_7tosmoke.html:42 templates/2025/top_7tosmoke.html:44
+#: templates/2026/top_7tosmoke.html:44
 msgid "諦めましょう。"
 msgstr "Arrendiamoci."
 
@@ -639,10 +642,6 @@ msgid "今回公開するWildcard一覧は、有志が作成した、非公式�
 msgstr ""
 "L'elenco di Wildcard che sarà pubblicato è stato creato da volontari e non è"
 " ufficiale."
-
-#: templates/2024/wildcards.html:74 templates/2025/wildcards.html:90
-msgid "作成者：ぬる湯さん"
-msgstr "Creato da: nuruyu"
 
 #: templates/2024/wildcards.html:78 templates/2025/wildcards.html:94
 msgid "すべて手作業で制作されたものであるため、重複や欠落がある可能性があります。"
@@ -668,17 +667,21 @@ msgstr "【Per beatboxer】Spiegazione del regolamento Wildcard"
 #: templates/2025/rule.html:225
 msgid "GBB出場辞退が発生した場合、Wildcard下位からの繰り上げが行われます。"
 msgstr ""
-"GBB\n"
-"\n"
-"出場辞退が発生した場合、Wildcard下位からの繰り上げが行われます。"
+"In caso di rinuncia alla GBB, verrà effettuato un ripescaggio dalla Wildcard"
+" con la posizione più bassa."
 
 #: templates/2025/rule.html:229
 msgid "いかなる理由があっても、シード権大会2位以下の人に、出場権は与えられません。"
-msgstr "どんな理由があっても、シード権大会2位以下の人には、出場権は与えられません。"
+msgstr ""
+"Per nessun motivo, l'ammissione non sarà concessa a coloro che si sono "
+"classificati dal secondo posto in giù in un torneo con teste di serie."
 
 #: templates/2025/rule.html:230
 msgid "「シード権大会においてGBB出場権が与えられるのは、例外なく、常に優勝者のみである」とルールに明記されています。"
-msgstr "ルールには「シード権大会においてGBB出場権が与えられるのは、例外なく、常に優勝者のみである」と明記されています。"
+msgstr ""
+"Nel regolamento è chiaramente specificato che, nei tornei di seeding, la "
+"qualificazione al GBB è concessa, senza eccezioni, sempre e solo al "
+"vincitore."
 
 #: templates/2025/rule.html:233
 msgid ""
@@ -758,7 +761,7 @@ msgstr ""
 
 #: templates/2025/ticket.html:27 templates/common/japan.html:50
 #: templates/common/korea.html:62 templates/common/result.html:97
-#: templates/others/result_stream.html:18 templates/others/translation.html:19
+#: templates/others/translation.html:19
 msgid "ルール & 審査員"
 msgstr "Regole & Giudici"
 
@@ -1046,7 +1049,9 @@ msgstr ""
 
 #: templates/2025/wildcard_regulation.html:168
 msgid "上記2つが両方できていない場合は、失格"
-msgstr "Se non sono state completate entrambe le 上記2つ, si viene squalificati."
+msgstr ""
+"Se non sono state soddisfatte entrambe le due condizioni di cui sopra, "
+"squalifica."
 
 #: templates/2025/wildcard_regulation.html:171
 #: templates/2025/wildcard_regulation.html:172
@@ -1133,7 +1138,7 @@ msgstr "È vietato l'uso di campioni preregistrati."
 #: templates/2025/wildcard_regulation.html:251
 msgid "FOH (ミキシング デスク) または録音への出力はステレオ信号である必要があり、マルチチャンネル出力は禁止"
 msgstr ""
-"L'uscita verso il FOH (ミキシング デスク) o la registrazione deve essere un segnale "
+"L'uscita per il FOH (mixer) o per la registrazione deve essere un segnale "
 "stereo; l'uscita multicanale è proibita."
 
 #: templates/2025/wildcard_regulation.html:262
@@ -1147,9 +1152,34 @@ msgstr ""
 msgid "皆さんのWildcardを楽しみにしています！"
 msgstr "Non vedo l'ora di vedere le vostre Wildcard!"
 
+#: templates/2026/rule.html:16
+msgid "現時点で、以下の断片的な情報のみ発表されています。"
+msgstr ""
+"Al momento, sono state rilasciate solo le seguenti informazioni "
+"frammentarie."
+
+#: templates/2026/rule.html:35
+msgid "Producer部門は廃止"
+msgstr "Il dipartimento produttori è stato abolito"
+
+#: templates/2026/rule.html:37
+msgid "新部門として「SHOWCASE」を追加"
+msgstr "Aggiunto \"SHOWCASE\" come nuovo dipartimento"
+
+#: templates/2026/rule.html:40
+msgid "この部門では、バトルを行わない"
+msgstr "In questo dipartimento non si combatte."
+
+#: templates/2026/rule.html:43
+msgid "Wildcardの審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価"
+msgstr ""
+"La valutazione della Wildcard viene effettuata con criteri diversi rispetto "
+"alle altre sezioni e viene giudicata in base alla trama, al valore "
+"artistico, all'originalità, ecc."
+
 #: templates/2026/ticket.html:11
-msgid "開催地：ポーランド・ワルシャワ"
-msgstr "Luogo: Varsavia, Polonia"
+msgid "ポーランド・ワルシャワ"
+msgstr "Varsavia, Polonia"
 
 #: templates/2026/time_schedule.html:16
 msgid "GBBが最後にポーランド・ワルシャワで開催された年は2021年ですが、GBB 2021は予定から約2時間遅延しました。"
@@ -1161,6 +1191,10 @@ msgstr ""
 msgid "なお、GBB 2022は中止され、GBB 2023~2025は、東京で開催されました。"
 msgstr ""
 "Inoltre, GBB 2022 è stato annullato e GBB 2023~2025 si è tenuto a Tokyo."
+
+#: templates/2026/top_7tosmoke.html:11
+msgid "開催日未定"
+msgstr "Data di svolgimento non definita"
 
 #: templates/base.html:34 templates/base.html:44 templates/base.html:48
 msgid ""
@@ -1203,8 +1237,9 @@ msgstr "Menu"
 #: templates/2026/time_schedule.html:115 templates/2026/top.html:3
 #: templates/2026/top.html:4 templates/2026/top.html:5
 #: templates/2026/top.html:25 templates/2026/top.html:92
-#: templates/2026/top.html:161 templates/base.html:117 templates/base.html:150
-#: templates/base.html:260 templates/others/participant_detail.html:126
+#: templates/2026/top.html:161 templates/2026/top_7tosmoke.html:24
+#: templates/base.html:117 templates/base.html:150 templates/base.html:260
+#: templates/others/participant_detail.html:126
 msgid "これだけガイド"
 msgstr "Guida"
 
@@ -1218,7 +1253,6 @@ msgstr "Guida"
 #: templates/base.html:118 templates/base.html:266
 #: templates/common/participants.html:25 templates/common/result.html:98
 #: templates/includes/participants_form.html:13
-#: templates/others/result_stream.html:39
 msgid "Wildcard結果"
 msgstr "Risultati Wildcard"
 
@@ -1228,7 +1262,7 @@ msgstr "Risultati Wildcard"
 #: templates/2025/wildcards.html:14 templates/2025/wildcards.html:83
 #: templates/2026/time_schedule.html:87 templates/2026/top.html:97
 #: templates/base.html:118 templates/base.html:266
-#: templates/common/result.html:98 templates/others/result_stream.html:39
+#: templates/common/result.html:98
 msgid "出場者"
 msgstr "Partecipanti"
 
@@ -1273,7 +1307,8 @@ msgstr "Giudici"
 #: templates/2025/time_schedule.html:147 templates/2025/top.html:165
 #: templates/2025/top_7tosmoke.html:36 templates/2025/wildcards.html:112
 #: templates/2026/time_schedule.html:58 templates/2026/time_schedule.html:114
-#: templates/2026/top.html:157 templates/base.html:120
+#: templates/2026/top.html:157 templates/2026/top_7tosmoke.html:36
+#: templates/base.html:120
 msgid "現地観戦計画のたてかた"
 msgstr "Guida per assistere all'evento dal vivo"
 
@@ -1288,7 +1323,8 @@ msgstr "Guida per assistere all'evento dal vivo"
 #: templates/2026/time_schedule.html:3 templates/2026/time_schedule.html:4
 #: templates/2026/time_schedule.html:5 templates/2026/time_schedule.html:10
 #: templates/2026/top.html:17 templates/2026/top.html:109
-#: templates/base.html:123 templates/others/translation.html:20
+#: templates/2026/top_7tosmoke.html:39 templates/base.html:123
+#: templates/others/translation.html:20
 msgid "タイムスケジュール"
 msgstr "Programma dell'evento"
 
@@ -1338,8 +1374,8 @@ msgstr "Biglietti"
 #: templates/2025/stream.html:5 templates/2025/stream.html:9
 #: templates/2025/time_schedule.html:87 templates/2025/top.html:138
 #: templates/2025/top_7tosmoke.html:40 templates/2026/time_schedule.html:86
-#: templates/2026/top.html:130 templates/base.html:130
-#: templates/others/translation.html:23
+#: templates/2026/top.html:130 templates/2026/top_7tosmoke.html:40
+#: templates/base.html:130 templates/others/translation.html:23
 msgid "当日配信"
 msgstr "Trasmissione del giorno"
 
@@ -1407,8 +1443,8 @@ msgstr "Let's search for GBB {year}"
 
 #: templates/2024/top.html:30 templates/2024/top_7tosmoke.html:18
 #: templates/2025/top.html:37 templates/2025/top_7tosmoke.html:18
-#: templates/2026/top.html:37 templates/base.html:241
-#: templates/includes/bottom_navigation.html:52
+#: templates/2026/top.html:37 templates/2026/top_7tosmoke.html:18
+#: templates/base.html:241 templates/includes/bottom_navigation.html:52
 msgid "例：現地観戦計画のたてかた"
 msgstr "Esempio: Come pianificare la visione dal vivo"
 
@@ -1474,7 +1510,6 @@ msgstr "Dettagli dei diritti di partecipazione"
 
 #: templates/common/cancels.html:54 templates/common/japan.html:51
 #: templates/common/korea.html:63 templates/common/participants.html:100
-#: templates/others/result_stream.html:19
 msgid "Wildcard結果発表日"
 msgstr "Data di annuncio dei risultati del wildcard"
 
@@ -1646,6 +1681,12 @@ msgstr "È possibile che il contenuto contenga errori."
 msgid "もっと調べる"
 msgstr "Scopri di più"
 
+#: templates/others/participant_detail.html:188
+#: templates/others/participant_detail.html:191
+#, python-brace-format
+msgid "{name}について、詳しく調べてください"
+msgstr "Per favore, ricerca {name} in dettaglio"
+
 #: templates/others/participant_detail.html:191
 msgid "ChatGPTに聞く"
 msgstr "Ask ChatGPT"
@@ -1698,3 +1739,12 @@ msgstr ""
 
 #~ msgid "10月1日 掲載募集開始予定"
 #~ msgstr "1 ottobre - Pubblicazione annunci in programma"
+
+#~ msgid "作成者：ぬる湯さん"
+#~ msgstr "Creato da: nuruyu"
+
+#~ msgid "バトルを行わない部門"
+#~ msgstr ""
+
+#~ msgid "審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価"
+#~ msgstr ""

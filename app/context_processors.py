@@ -217,28 +217,32 @@ def is_gbb_ended(year):
 
     # 過去年度は常にTrue
     if year < now.year:
-        result = True
-    else:
-        year_data = supabase_service.get_data(
-            table="Year",
-            columns=["year", "ends_at"],
-            filters={"year": year},
-            timeout=0,
-        )
-        # GBBが終了したか調べる
-        if year_data:
-            ends_at = year_data[0]["ends_at"]
-            if ends_at:
-                datetime_ends_at = parser.parse(ends_at)
-                result = datetime_ends_at < now
-            else:
-                result = False
-        else:
-            result = False
+        flask_cache.set(cache_key, True, timeout=0)
+        return True
 
-    # キャッシュに保存（タイムアウトなし）
+    # 年度データを取得
+    year_data = supabase_service.get_data(
+        table="Year",
+        columns=["year", "ends_at"],
+        filters={"year": year},
+        timeout=0,
+    )
+
+    # データが存在しない場合 (おそらくありえない)
+    if not year_data:
+        flask_cache.set(cache_key, False, timeout=0)
+        return False
+
+    # 終了日時が設定されていない場合 (未定 = まだ始まっていない とみなす)
+    ends_at = year_data[0]["ends_at"]
+    if not ends_at:
+        flask_cache.set(cache_key, False, timeout=0)
+        return False
+
+    # 終了日時と現在時刻を比較
+    datetime_ends_at = parser.parse(ends_at)
+    result = datetime_ends_at < now
     flask_cache.set(cache_key, result, timeout=0)
-
     return result
 
 
@@ -318,27 +322,18 @@ def common_variables(
     except Exception:
         year = datetime.now().year
 
-    available_years = get_available_years()
-    change_language_urls = get_change_language_url(LANGUAGES, request.url)
     translated_urls = get_translated_urls()
-    is_latest_year_flag = is_latest_year(year)
-    is_early_access_flag = is_early_access(year)
+    language = session["language"]
 
     return {
         "year": year,
-        "available_years": available_years,
-        "change_language_urls": change_language_urls,
-        "language": session["language"]
-        if "language" in session and session["language"] in BABEL_SUPPORTED_LOCALES
-        else "ja",
-        "is_translated": is_translated(
-            request.path,
-            session["language"],
-            translated_urls,
-        ),
+        "available_years": get_available_years(),
+        "change_language_urls": get_change_language_url(LANGUAGES, request.url),
+        "language": language,
+        "is_translated": is_translated(request.path, language, translated_urls),
         "last_updated": format_datetime(LAST_UPDATED, "full"),
-        "is_latest_year": is_latest_year_flag,
-        "is_early_access": is_early_access_flag,
+        "is_latest_year": is_latest_year(year),
+        "is_early_access": is_early_access(year),
         "is_gbb_ended": is_gbb_ended(year),
         "is_local": IS_LOCAL,
         "is_pull_request": IS_PULL_REQUEST,

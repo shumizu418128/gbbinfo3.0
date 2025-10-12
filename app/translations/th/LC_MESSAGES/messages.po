@@ -32,7 +32,7 @@ msgstr "ข้อควรระวัง"
 #: templates/2024/rule.html:34 templates/2024/rule.html:74
 #: templates/2025/rule.html:33 templates/2025/rule.html:70
 #: templates/2025/wildcard_regulation.html:33
-#: templates/2025/wildcard_regulation.html:81
+#: templates/2025/wildcard_regulation.html:81 templates/2026/rule.html:19
 msgid "開催部門一覧"
 msgstr "รายการประเภทการแข่งขัน"
 
@@ -175,14 +175,14 @@ msgstr "สิทธิ์เข้าร่วม"
 #: templates/2025/rule.html:186 templates/2025/rule.html:216
 #: templates/2025/stream.html:15 templates/2025/time_schedule.html:53
 #: templates/2025/time_schedule.html:81 templates/2025/time_schedule.html:109
-#: templates/2025/time_schedule.html:141 templates/2026/rule.html:11
-#: templates/2026/ticket.html:13 templates/2026/time_schedule.html:44
-#: templates/2026/time_schedule.html:48 templates/2026/time_schedule.html:52
-#: templates/2026/time_schedule.html:72 templates/2026/time_schedule.html:76
-#: templates/2026/time_schedule.html:80 templates/2026/time_schedule.html:100
-#: templates/2026/time_schedule.html:104 templates/2026/time_schedule.html:108
-#: templates/common/cancels.html:38 templates/common/participants.html:19
-#: templates/common/participants.html:83 templates/common/result.html:71
+#: templates/2025/time_schedule.html:141 templates/2026/ticket.html:13
+#: templates/2026/time_schedule.html:44 templates/2026/time_schedule.html:48
+#: templates/2026/time_schedule.html:52 templates/2026/time_schedule.html:72
+#: templates/2026/time_schedule.html:76 templates/2026/time_schedule.html:80
+#: templates/2026/time_schedule.html:100 templates/2026/time_schedule.html:104
+#: templates/2026/time_schedule.html:108 templates/common/cancels.html:38
+#: templates/common/participants.html:19 templates/common/participants.html:83
+#: templates/common/result.html:71
 msgid "～発表次第更新～"
 msgstr "～จะมีการอัปเดตเมื่อประกาศ～"
 
@@ -336,7 +336,8 @@ msgstr "ผลลัพธ์ Wildcard & ผู้เข้าร่วม"
 #: templates/2024/top_7tosmoke.html:35 templates/2025/ticket.html:3
 #: templates/2025/ticket.html:4 templates/2025/ticket.html:5
 #: templates/2025/ticket.html:9 templates/2025/top_7tosmoke.html:35
-#: templates/2026/ticket.html:10 templates/others/translation.html:22
+#: templates/2026/ticket.html:10 templates/2026/top_7tosmoke.html:35
+#: templates/others/translation.html:22
 msgid "会場 & チケット"
 msgstr "สถานที่ & ตั๋ว"
 
@@ -346,7 +347,7 @@ msgstr "【สินค้าหมด】ช่องทางจำหน่า
 
 #: templates/2024/ticket.html:13
 msgid "チケットぴあ"
-msgstr "ตั๋วぴあ"
+msgstr "ทิคเก็ตเพีย"
 
 #: templates/2024/ticket.html:15
 msgid "楽天チケット"
@@ -493,19 +494,20 @@ msgstr "วันจัดงาน"
 
 #: templates/2024/top.html:24 templates/2024/top_7tosmoke.html:12
 #: templates/2025/top.html:32 templates/2025/top_7tosmoke.html:12
-#: templates/2026/top.html:32
+#: templates/2026/top.html:32 templates/2026/top_7tosmoke.html:12
 msgid "公式よりもわかりやすい！"
 msgstr "เข้าใจง่ายกว่าทางการ!"
 
 #: templates/2024/top.html:24 templates/2024/top_7tosmoke.html:12
 #: templates/2025/top.html:32 templates/2025/top_7tosmoke.html:12
-#: templates/2026/top.html:32
+#: templates/2026/top.html:32 templates/2026/top_7tosmoke.html:12
 msgid "非公式情報サイト"
 msgstr "เว็บไซต์ข้อมูลที่ไม่เป็นทางการ"
 
 #: templates/2024/top.html:40 templates/2024/top_7tosmoke.html:28
 #: templates/2025/top.html:154 templates/2025/top_7tosmoke.html:28
-#: templates/2026/top.html:146 templates/common/cancels.html:14
+#: templates/2026/rule.html:13 templates/2026/top.html:146
+#: templates/2026/top_7tosmoke.html:28 templates/common/cancels.html:14
 #: templates/common/japan.html:13 templates/common/korea.html:13
 #: templates/common/participants.html:14 templates/common/result.html:13
 #: templates/includes/popup_no_info.html:7
@@ -533,15 +535,14 @@ msgstr "การถ่ายทอดสดประกาศผล Wildcard"
 #: templates/2025/wildcards.html:3 templates/2025/wildcards.html:4
 #: templates/2025/wildcards.html:5 templates/2025/wildcards.html:9
 #: templates/2026/top.html:141 templates/common/cancels.html:55
-#: templates/common/participants.html:101
-#: templates/others/result_stream.html:40 templates/others/translation.html:25
+#: templates/common/participants.html:101 templates/others/translation.html:25
 msgid "Wildcard一覧"
 msgstr "รายการ Wildcard"
 
 #: templates/2024/top.html:104 templates/2024/top.html:118
 #: templates/2024/top_7tosmoke.html:46 templates/2025/top.html:178
 #: templates/2025/top.html:192 templates/2025/top_7tosmoke.html:48
-#: templates/2026/top.html:166
+#: templates/2026/top.html:166 templates/2026/top_7tosmoke.html:48
 msgid "お問い合わせ"
 msgstr "ติดต่อเรา"
 
@@ -597,14 +598,17 @@ msgid "なお上記電話番号は、当サイトとは無関係です。"
 msgstr "หมายเลขโทรศัพท์ข้างต้นไม่มีส่วนเกี่ยวข้องกับเว็บไซต์นี้"
 
 #: templates/2024/top_7tosmoke.html:33 templates/2025/top_7tosmoke.html:33
+#: templates/2026/top_7tosmoke.html:33
 msgid "7toSmokeとは"
 msgstr "7toSmoke คืออะไร"
 
 #: templates/2024/top_7tosmoke.html:34 templates/2025/top_7tosmoke.html:34
+#: templates/2026/top_7tosmoke.html:34
 msgid "7toSmokeルール & 参加方法"
 msgstr "กฎ 7toSmoke และวิธีการเข้าร่วม"
 
 #: templates/2024/top_7tosmoke.html:41 templates/2025/top_7tosmoke.html:43
+#: templates/2026/top_7tosmoke.html:43
 msgid ""
 "7toSmokeは、GBB本戦に比べて最新情報の公開が非常に遅い傾向にあり、そもそも情報が発表されないまま本番を迎えてしまったケースもあります。"
 msgstr ""
@@ -612,6 +616,7 @@ msgstr ""
 "และมีบางกรณีที่การแข่งขันเริ่มต้นขึ้นโดยไม่มีการประกาศข้อมูลใดๆ เลย"
 
 #: templates/2024/top_7tosmoke.html:42 templates/2025/top_7tosmoke.html:44
+#: templates/2026/top_7tosmoke.html:44
 msgid "諦めましょう。"
 msgstr "เรามาทำใจยอมรับกันเถอะ"
 
@@ -630,10 +635,6 @@ msgid "今回公開するWildcard一覧は、有志が作成した、非公式�
 msgstr ""
 "รายการ Wildcard ที่จะเปิดเผยในครั้งนี้เป็นรายการอย่างไม่เป็นทางการ "
 "ซึ่งจัดทำโดยอาสาสมัคร"
-
-#: templates/2024/wildcards.html:74 templates/2025/wildcards.html:90
-msgid "作成者：ぬる湯さん"
-msgstr "ผู้สร้าง: ぬる湯さん"
 
 #: templates/2024/wildcards.html:78 templates/2025/wildcards.html:94
 msgid "すべて手作業で制作されたものであるため、重複や欠落がある可能性があります。"
@@ -741,7 +742,7 @@ msgstr ""
 
 #: templates/2025/ticket.html:27 templates/common/japan.html:50
 #: templates/common/korea.html:62 templates/common/result.html:97
-#: templates/others/result_stream.html:18 templates/others/translation.html:19
+#: templates/others/translation.html:19
 msgid "ルール & 審査員"
 msgstr "กฎ & ผู้ตัดสิน"
 
@@ -867,7 +868,7 @@ msgstr "หน้าเพจนี้จะอธิบายกฎสำคั
 
 #: templates/2025/wildcard_regulation.html:22
 msgid "【Beatboxファン向け】"
-msgstr "สำหรับแฟนๆ 【Beatboxファン向け】"
+msgstr "สำหรับแฟนบีทบ็อกซ์"
 
 #: templates/2025/wildcard_regulation.html:37
 #: templates/2025/wildcard_regulation.html:121
@@ -1093,8 +1094,8 @@ msgstr "ห้ามใช้ตัวอย่างเสียงที่บ
 #: templates/2025/wildcard_regulation.html:251
 msgid "FOH (ミキシング デスク) または録音への出力はステレオ信号である必要があり、マルチチャンネル出力は禁止"
 msgstr ""
-"เอาต์พุตไปยัง FOH (ミキシング デスク) หรือการบันทึกต้องเป็นสัญญาณสเตอริโอ "
-"ห้ามใช้เอาต์พุตแบบหลายช่องสัญญาณ"
+"เอาต์พุตไปยัง FOH (โต๊ะผสมเสียง) หรือการบันทึกจะต้องเป็นสัญญาณสเตอริโอ "
+"และห้ามเอาต์พุตหลายช่องสัญญาณ"
 
 #: templates/2025/wildcard_regulation.html:262
 msgid "Wildcard動画の作成にあたり使用したすべてのファイルを、バックアップ含め保存しておき、いつでも提出できるようにしておく"
@@ -1106,9 +1107,31 @@ msgstr ""
 msgid "皆さんのWildcardを楽しみにしています！"
 msgstr "พวกเราตื่นเต้นกับ Wildcard ของทุกคน!"
 
+#: templates/2026/rule.html:16
+msgid "現時点で、以下の断片的な情報のみ発表されています。"
+msgstr "ขณะนี้ ข้อมูลที่เผยแพร่มีเพียงบางส่วนดังต่อไปนี้"
+
+#: templates/2026/rule.html:35
+msgid "Producer部門は廃止"
+msgstr "แผนกโปรดิวเซอร์ถูกยกเลิก"
+
+#: templates/2026/rule.html:37
+msgid "新部門として「SHOWCASE」を追加"
+msgstr "เพิ่ม \"SHOWCASE\" เป็นแผนกใหม่"
+
+#: templates/2026/rule.html:40
+msgid "この部門では、バトルを行わない"
+msgstr "ในแผนกนี้จะไม่มีการต่อสู้"
+
+#: templates/2026/rule.html:43
+msgid "Wildcardの審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価"
+msgstr ""
+"การพิจารณาไวลด์การ์ดดำเนินการโดยใช้เกณฑ์ที่แตกต่างจากแผนกอื่น "
+"และประเมินจากเรื่องราว ศิลปะ และความเป็นเอกลักษณ์ เป็นต้น"
+
 #: templates/2026/ticket.html:11
-msgid "開催地：ポーランド・ワルシャワ"
-msgstr "สถานที่: วอร์ซอ, โปแลนด์"
+msgid "ポーランド・ワルシャワ"
+msgstr "โปแลนด์-วอร์ซอ"
 
 #: templates/2026/time_schedule.html:16
 msgid "GBBが最後にポーランド・ワルシャワで開催された年は2021年ですが、GBB 2021は予定から約2時間遅延しました。"
@@ -1119,6 +1142,10 @@ msgstr ""
 #: templates/2026/time_schedule.html:17
 msgid "なお、GBB 2022は中止され、GBB 2023~2025は、東京で開催されました。"
 msgstr "อนึ่ง GBB 2022 ถูกยกเลิก และ GBB 2023~2025 จัดขึ้นที่โตเกียว"
+
+#: templates/2026/top_7tosmoke.html:11
+msgid "開催日未定"
+msgstr "ยังไม่กำหนดวันจัดงาน"
 
 #: templates/base.html:34 templates/base.html:44 templates/base.html:48
 msgid ""
@@ -1161,8 +1188,9 @@ msgstr "เมนู"
 #: templates/2026/time_schedule.html:115 templates/2026/top.html:3
 #: templates/2026/top.html:4 templates/2026/top.html:5
 #: templates/2026/top.html:25 templates/2026/top.html:92
-#: templates/2026/top.html:161 templates/base.html:117 templates/base.html:150
-#: templates/base.html:260 templates/others/participant_detail.html:126
+#: templates/2026/top.html:161 templates/2026/top_7tosmoke.html:24
+#: templates/base.html:117 templates/base.html:150 templates/base.html:260
+#: templates/others/participant_detail.html:126
 msgid "これだけガイド"
 msgstr "คู่มือฉบับย่อ"
 
@@ -1176,7 +1204,6 @@ msgstr "คู่มือฉบับย่อ"
 #: templates/base.html:118 templates/base.html:266
 #: templates/common/participants.html:25 templates/common/result.html:98
 #: templates/includes/participants_form.html:13
-#: templates/others/result_stream.html:39
 msgid "Wildcard結果"
 msgstr "ผลลัพธ์ Wildcard"
 
@@ -1186,7 +1213,7 @@ msgstr "ผลลัพธ์ Wildcard"
 #: templates/2025/wildcards.html:14 templates/2025/wildcards.html:83
 #: templates/2026/time_schedule.html:87 templates/2026/top.html:97
 #: templates/base.html:118 templates/base.html:266
-#: templates/common/result.html:98 templates/others/result_stream.html:39
+#: templates/common/result.html:98
 msgid "出場者"
 msgstr "ผู้เข้าแข่งขัน"
 
@@ -1231,7 +1258,8 @@ msgstr "กรรมการ"
 #: templates/2025/time_schedule.html:147 templates/2025/top.html:165
 #: templates/2025/top_7tosmoke.html:36 templates/2025/wildcards.html:112
 #: templates/2026/time_schedule.html:58 templates/2026/time_schedule.html:114
-#: templates/2026/top.html:157 templates/base.html:120
+#: templates/2026/top.html:157 templates/2026/top_7tosmoke.html:36
+#: templates/base.html:120
 msgid "現地観戦計画のたてかた"
 msgstr "วิธีวางแผนการชมการแข่งขันจริง"
 
@@ -1246,7 +1274,8 @@ msgstr "วิธีวางแผนการชมการแข่งขั
 #: templates/2026/time_schedule.html:3 templates/2026/time_schedule.html:4
 #: templates/2026/time_schedule.html:5 templates/2026/time_schedule.html:10
 #: templates/2026/top.html:17 templates/2026/top.html:109
-#: templates/base.html:123 templates/others/translation.html:20
+#: templates/2026/top_7tosmoke.html:39 templates/base.html:123
+#: templates/others/translation.html:20
 msgid "タイムスケジュール"
 msgstr "ตารางเวลา"
 
@@ -1296,8 +1325,8 @@ msgstr "ตั๋ว"
 #: templates/2025/stream.html:5 templates/2025/stream.html:9
 #: templates/2025/time_schedule.html:87 templates/2025/top.html:138
 #: templates/2025/top_7tosmoke.html:40 templates/2026/time_schedule.html:86
-#: templates/2026/top.html:130 templates/base.html:130
-#: templates/others/translation.html:23
+#: templates/2026/top.html:130 templates/2026/top_7tosmoke.html:40
+#: templates/base.html:130 templates/others/translation.html:23
 msgid "当日配信"
 msgstr "การถ่ายทอดสดในวันนั้น"
 
@@ -1363,8 +1392,8 @@ msgstr "ลองค้นหาเกี่ยวกับ GBB {year} ดู"
 
 #: templates/2024/top.html:30 templates/2024/top_7tosmoke.html:18
 #: templates/2025/top.html:37 templates/2025/top_7tosmoke.html:18
-#: templates/2026/top.html:37 templates/base.html:241
-#: templates/includes/bottom_navigation.html:52
+#: templates/2026/top.html:37 templates/2026/top_7tosmoke.html:18
+#: templates/base.html:241 templates/includes/bottom_navigation.html:52
 msgid "例：現地観戦計画のたてかた"
 msgstr "ตัวอย่าง: วิธีวางแผนสำหรับการชมการแข่งขันจริง"
 
@@ -1430,7 +1459,6 @@ msgstr "รายละเอียดสิทธิ์การเข้าร
 
 #: templates/common/cancels.html:54 templates/common/japan.html:51
 #: templates/common/korea.html:63 templates/common/participants.html:100
-#: templates/others/result_stream.html:19
 msgid "Wildcard結果発表日"
 msgstr "วันประกาศผล Wildcard"
 
@@ -1602,6 +1630,12 @@ msgstr "อาจมีข้อผิดพลาดในเนื้อหา
 msgid "もっと調べる"
 msgstr "ค้นหาเพิ่มเติม"
 
+#: templates/others/participant_detail.html:188
+#: templates/others/participant_detail.html:191
+#, python-brace-format
+msgid "{name}について、詳しく調べてください"
+msgstr "{name}เกี่ยวกับ, โปรดค้นหาข้อมูลเพิ่มเติม"
+
 #: templates/others/participant_detail.html:191
 msgid "ChatGPTに聞く"
 msgstr "ถาม ChatGPT"
@@ -1628,7 +1662,8 @@ msgstr "ปีที่เกี่ยวข้อง: ตั้งแต่ป�
 
 #: templates/others/translation.html:30
 msgid "なお、翻訳対応言語は、アクセス状況に応じて随時追加予定です。"
-msgstr "なお, ภาษาที่รองรับการแปลจะถูกเพิ่มตามความเหมาะสมตามสถานะการเข้าถึง"
+msgstr ""
+"นอกจากนี้ ภาษาที่รองรับการแปลจะถูกเพิ่มเข้ามาเรื่อยๆ ตามสถานการณ์การเข้าถึง"
 
 #: templates/others/translation.html:32
 msgid "翻訳を提供していないページは、原文である日本語で表示されます。"
@@ -1648,3 +1683,12 @@ msgstr "หน้าที่ที่ไม่มีการแปลจะแ
 
 #~ msgid "10月1日 掲載募集開始予定"
 #~ msgstr "1 ตุลาคม กำหนดเปิดรับสมัคร"
+
+#~ msgid "作成者：ぬる湯さん"
+#~ msgstr "ผู้สร้าง: คุณนุรุยุ"
+
+#~ msgid "バトルを行わない部門"
+#~ msgstr ""
+
+#~ msgid "審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価"
+#~ msgstr ""

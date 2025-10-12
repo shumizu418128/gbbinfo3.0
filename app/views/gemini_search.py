@@ -17,7 +17,7 @@ others_url_list = [
 
 
 # MARK: URL作成
-def create_url(year: int, url: str, parameter: str | None):
+def create_url(year: int, url: str, parameter: str):
     """
     指定された情報に基づいてレスポンスURLを作成します。
 
@@ -92,26 +92,13 @@ def post_gemini_search(year: int, IS_LOCAL: bool, IS_PULL_REQUEST: bool):
         print(f"question: {question}", flush=True)
         prompt = PROMPT.format(year=year, question=question)
 
-        # 最大5回リトライ
-        retry = 5
-        i = 0
-        while True:
-            gemini_response = gemini_service.ask(prompt)
-            # urlを正しく作れた場合
-            if gemini_response.get("url") is not None:
-                url = create_url(
-                    year,
-                    gemini_response["url"],
-                    gemini_response["parameter"],
-                )
-                break
-            # 503エラーは、失敗とはみなさず、リトライする
-            if gemini_response.get("error_code") == 503:
-                continue
-            # 失敗し続けた場合は500エラーを返す
-            i += 1
-            if i >= retry:
-                return jsonify({"url": ""}), 500
+        gemini_response = gemini_service.ask(prompt)
+        if gemini_response.get("url") is None:
+            return jsonify({"url": ""}), 500
+
+        url = create_url(
+            year, gemini_response.get("url"), gemini_response.get("parameter", "")
+        )
 
     # スプシに記録
     if IS_LOCAL is False and IS_PULL_REQUEST is False:
