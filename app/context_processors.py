@@ -322,27 +322,18 @@ def common_variables(
     except Exception:
         year = datetime.now().year
 
-    available_years = get_available_years()
-    change_language_urls = get_change_language_url(LANGUAGES, request.url)
     translated_urls = get_translated_urls()
-    is_latest_year_flag = is_latest_year(year)
-    is_early_access_flag = is_early_access(year)
+    language = session["language"]
 
     return {
         "year": year,
-        "available_years": available_years,
-        "change_language_urls": change_language_urls,
-        "language": session["language"]
-        if "language" in session and session["language"] in BABEL_SUPPORTED_LOCALES
-        else "ja",
-        "is_translated": is_translated(
-            request.path,
-            session["language"],
-            translated_urls,
-        ),
+        "available_years": get_available_years(),
+        "change_language_urls": get_change_language_url(LANGUAGES, request.url),
+        "language": language,
+        "is_translated": is_translated(request.path, language, translated_urls),
         "last_updated": format_datetime(LAST_UPDATED, "full"),
-        "is_latest_year": is_latest_year_flag,
-        "is_early_access": is_early_access_flag,
+        "is_latest_year": is_latest_year(year),
+        "is_early_access": is_early_access(year),
         "is_gbb_ended": is_gbb_ended(year),
         "is_local": IS_LOCAL,
         "is_pull_request": IS_PULL_REQUEST,
