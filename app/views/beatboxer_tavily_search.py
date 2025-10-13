@@ -347,20 +347,26 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language: str):
         return ""  # answerの生成は他エンドポイントの責任
 
     # 翻訳
-    prompt = PROMPT_TRANSLATE.format(text=answer, lang=language)
-    retry = 5
-    for _ in range(retry):
-        response = gemini_service.ask(prompt)
-        if response:
-            break
+    if language != "en":
+        prompt = PROMPT_TRANSLATE.format(text=answer, lang=language)
+        retry = 5
+        response = ""
+        for _ in range(retry):
+            response = gemini_service.ask(prompt)
+            if response:
+                break
 
-    # 翻訳結果を取得
-    if isinstance(response, list):
-        response = response[0]
-    try:
-        translated_answer = response["translated_text"]
-    except Exception:
-        return ""
+        # 翻訳結果を取得
+        if isinstance(response, list):
+            response = response[0]
+        try:
+            translated_answer = response["translated_text"]
+        except Exception:
+            return ""
+
+    # 英語の場合はそのまま返す
+    else:
+        translated_answer = answer
 
     # キャッシュに保存
     # 翻訳結果を保存するためのディクショナリを準備
