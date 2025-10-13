@@ -77,7 +77,11 @@
     <div id="resultOptions" style="display: none;">
       <b>{{_("注目キーワード")}}: {{_("結果")}}</b>
       <div class="button-container">
-        <a href="/{{ year }}/result"><button class="disabled-button">GBB {{ year }}<br>{{_("大会結果")}}</button></a>
+        {% if is_gbb_ended is true %}
+          <a href="/{{ year }}/result"><button>GBB {{ year }}<br>{{_("大会結果")}}</button></a>
+        {% else %}
+          <a href="/{{ year }}/result"><button class="disabled-button">GBB {{ year }}<br>{{_("大会結果")}}</button></a>
+        {% endif %}
         <a href="/{{ year - 1 }}/result"><button>GBB {{ year - 1 }}<br>{{_("大会結果")}}</button></a>
         <a href="/{{ year }}/participants"><button>{{_("ワイルドカード")}}<br>{{_("結果")}}</button></a>
         <a href="/{{ year }}/participants"><button>{{_("全出場者一覧")}}</button></a>
@@ -138,10 +142,17 @@
     <svg class="bg-pic" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0044CC"><path d="m380-340 280-180-280-180v360Zm-60 220v-80H160q-33 0-56.5-23.5T80-280v-480q0-33 23.5-56.5T160-840h640q33 0 56.5 23.5T880-760v480q0 33-23.5 56.5T800-200H640v80H320Z"/></svg>
     <span class="button-text-with-icon">{{_("当日配信")}}</span>
   </button></a>
-  <a href="/{{ year }}/result"><button class="disabled-button">
-    <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0044CC"><path d="M280-120v-80h160v-124q-49-11-87.5-41.5T296-442q-75-9-125.5-65.5T120-640v-40q0-33 23.5-56.5T200-760h80v-80h400v80h80q33 0 56.5 23.5T840-680v40q0 76-50.5 132.5T664-442q-18 46-56.5 76.5T520-324v124h160v80H280Zm0-408v-152h-80v40q0 38 22 68.5t58 43.5Zm400 0q36-13 58-43.5t22-68.5v-40h-80v152Z"/></svg>
-    <span class="button-text-with-icon">{{_("大会結果")}}</span>
-  </button></a>
+  {% if is_gbb_ended is true %}
+    <a href="/{{ year }}/result"><button style="background-image: url('/static/images/button/winner.webp');" class="bg-pic">
+      <svg class="bg-pic" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0044CC"><path d="M280-120v-80h160v-124q-49-11-87.5-41.5T296-442q-75-9-125.5-65.5T120-640v-40q0-33 23.5-56.5T200-760h80v-80h400v80h80q33 0 56.5 23.5T840-680v40q0 76-50.5 132.5T664-442q-18 46-56.5 76.5T520-324v124h160v80H280Zm0-408v-152h-80v40q0 38 22 68.5t58 43.5Zm400 0q36-13 58-43.5t22-68.5v-40h-80v152Z"/></svg>
+      <span class="button-text-with-icon">{{_("大会結果")}}</span>
+    </button></a>
+  {% else %}
+    <a href="/{{ year }}/result"><button class="disabled-button">
+      <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0044CC"><path d="M280-120v-80h160v-124q-49-11-87.5-41.5T296-442q-75-9-125.5-65.5T120-640v-40q0-33 23.5-56.5T200-760h80v-80h400v80h80q33 0 56.5 23.5T840-680v40q0 76-50.5 132.5T664-442q-18 46-56.5 76.5T520-324v124h160v80H280Zm0-408v-152h-80v40q0 38 22 68.5t58 43.5Zm400 0q36-13 58-43.5t22-68.5v-40h-80v152Z"/></svg>
+      <span class="button-text-with-icon">{{_("大会結果")}}</span>
+    </button></a>
+  {% endif %}
 </div>
 
 <ul>
