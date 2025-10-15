@@ -68,8 +68,8 @@ class Config:
     BABEL_DEFAULT_TIMEZONE = "Asia/Tokyo"
     BABEL_TRANSLATION_DIRECTORIES = str(BASE_DIR / "app" / "translations")
     CACHE_DEFAULT_TIMEOUT = 0  # キャッシュの有効期限を無期限に設定
-    CACHE_TYPE = "filesystem"
-    CACHE_DIR = str(BASE_DIR / "cache")
+    CACHE_TYPE = "RedisCache"
+    CACHE_REDIS_URL = os.getenv("REDIS_URL")
     DEBUG = False
     SECRET_KEY = os.getenv("SECRET_KEY")
     TEMPLATES_AUTO_RELOAD = False
