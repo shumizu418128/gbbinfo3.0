@@ -60,7 +60,6 @@ LANGUAGES = [
 BASE_DIR = Path(__file__).resolve().parent.parent
 BABEL_SUPPORTED_LOCALES = [code for code, _ in LANGUAGES]
 LAST_UPDATED = datetime.now(timezone(timedelta(hours=9)))
-print(os.getenv("REDIS_URL"), flush=True)
 
 
 class Config:
@@ -74,6 +73,10 @@ class Config:
     DEBUG = False
     SECRET_KEY = os.getenv("SECRET_KEY")
     TEMPLATES_AUTO_RELOAD = False
+
+
+class PRConfig(Config):
+    CACHE_REDIS_URL = os.getenv("REDIS_EXTERNAL_URL")
 
 
 class TestConfig(Config):
@@ -96,10 +99,14 @@ if os.getenv("ENVIRONMENT_CHECK") == "qawsedrftgyhujikolp":
     app.config.from_object(TestConfig)
     IS_LOCAL = True
     IS_PULL_REQUEST = False
+elif os.getenv("IS_PULL_REQUEST") == "true":
+    app.config.from_object(PRConfig)
+    IS_PULL_REQUEST = True
+    IS_LOCAL = False
 else:
     app.config.from_object(Config)
+    IS_PULL_REQUEST = False
     IS_LOCAL = False
-    IS_PULL_REQUEST = os.getenv("IS_PULL_REQUEST") == "true"
 
 flask_cache = Cache(app)
 babel = Babel(app)
