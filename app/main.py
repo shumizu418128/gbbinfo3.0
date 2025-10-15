@@ -60,6 +60,7 @@ LANGUAGES = [
 BASE_DIR = Path(__file__).resolve().parent.parent
 BABEL_SUPPORTED_LOCALES = [code for code, _ in LANGUAGES]
 LAST_UPDATED = datetime.now(timezone(timedelta(hours=9)))
+print(os.getenv("REDIS_URL"), flush=True)
 
 
 class Config:
