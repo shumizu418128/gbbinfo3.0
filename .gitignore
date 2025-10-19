@@ -123,3 +123,6 @@ Thumbs.db
 
 /app/templates/*/world_map/*.html
 cache/
+
+app/models/googletrans_client.py
+tools/
