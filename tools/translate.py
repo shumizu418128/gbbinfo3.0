@@ -311,32 +311,24 @@ def main():
     """メイン関数：翻訳メッセージの生成、更新、翻訳、コンパイルを実行する。"""
     # Generate translation messages
     os.system(
-        f"cd {BASE_DIR} && python -m babel.messages.frontend extract --no-wrap --sort-by-file -F babel.cfg -o {POT_FILE} ."
+        f"cd {BASE_DIR} && python -m babel.messages.frontend extract --omit-header --no-wrap --sort-by-file -F babel.cfg -o {POT_FILE} ."
     )
     os.system(
-        f"cd {BASE_DIR} && python -m babel.messages.frontend update --no-wrap -i {POT_FILE} -d {LOCALE_DIR}"
+        f"cd {BASE_DIR} && python -m babel.messages.frontend update --omit-header --no-wrap -i {POT_FILE} -d {LOCALE_DIR}"
     )
 
     for lang in BABEL_SUPPORTED_LOCALES:
         path = os.path.join(LOCALE_DIR, lang, "LC_MESSAGES", "messages.po")
         lang_dir = os.path.join(LOCALE_DIR, lang)
 
-        # 言語ディレクトリが存在しない場合は新規作成
-        if not os.path.exists(lang_dir):
-            print(f"Creating new locale directory for {lang}")
+        # 言語ディレクトリまたはpoファイルが存在しない場合は新規作成
+        if not os.path.exists(lang_dir) or not os.path.exists(path):
+            print(f"Creating new locale directory and/or po file for {lang}")
             result = os.system(
-                f"cd {BASE_DIR} && python -m babel.messages.frontend init --no-wrap -i {POT_FILE} -d {LOCALE_DIR} -l {lang}"
+                f"cd {BASE_DIR} && python -m babel.messages.frontend init --omit-header --no-wrap -i {POT_FILE} -d {LOCALE_DIR} -l {lang}"
             )
             if result != 0:
-                raise Exception(f"Failed to create locale directory for {lang}")
-        # ファイルが存在しない場合も新規作成
-        elif not os.path.exists(path):
-            print(f"Creating new po file for {lang}")
-            result = os.system(
-                f"cd {BASE_DIR} && python -m babel.messages.frontend init --no-wrap -i {POT_FILE} -d {LOCALE_DIR} -l {lang}"
-            )
-            if result != 0:
-                raise Exception(f"Failed to create po file for {lang}")
+                raise Exception(f"Failed to create locale directory or po file for {lang}")
 
         translate(path, lang)
 
