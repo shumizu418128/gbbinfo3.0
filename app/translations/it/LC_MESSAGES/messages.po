@@ -1423,7 +1423,7 @@ msgstr "Per cercare le ultime informazioni su GBB, clicca qui."
 #: templates/base.html:241 templates/includes/bottom_navigation.html:49
 #, python-brace-format
 msgid "GBB {year} について検索してみよう"
-msgstr "Let's search for GBB {year}"
+msgstr "Prova a cercare qualcosa su GBB {year}"
 
 #: templates/2024/top.html:30 templates/2024/top_7tosmoke.html:18
 #: templates/2025/top.html:37 templates/2025/top_7tosmoke.html:18
