@@ -3,6 +3,8 @@ import re
 import sys
 from time import sleep
 
+import httpcore
+import httpx
 import polib
 from google import genai
 from pydantic import BaseModel
@@ -68,6 +70,22 @@ Text to translate: {text}"""
             )
             break
         except Exception as e:
+            # httpx/httpcore関連のエラーの場合はリトライ
+            if isinstance(
+                e,
+                (
+                    httpx.RemoteProtocolError,
+                    httpcore.RemoteProtocolError,
+                    httpx.ConnectError,
+                    httpx.ReadTimeout,
+                ),
+            ):
+                print(
+                    f"Network error occurred: {type(e).__name__}. Retrying...",
+                    flush=True,
+                )
+                continue
+
             # エラー内に 'retryDelay': '44s' のような表記がある場合、数字を取り出してスリープ
             error_str = str(e)
             match = re.search(r"'retryDelay':\s*'(\d+)s'", error_str)
@@ -75,14 +93,21 @@ Text to translate: {text}"""
                 delay_sec = int(match.group(1))
                 if delay_sec == 0:
                     delay_sec = GEMINI_SLEEP_TIME
-                print(
-                    f"429 Rate limit exceeded. Retrying after {delay_sec} seconds"
-                )
+                print(f"429 Rate limit exceeded. Retrying after {delay_sec} seconds")
                 sleep(delay_sec)
                 continue
-            if e.error.code == 503:
-                sleep(GEMINI_SLEEP_TIME)
-                continue
+
+            try:
+                error = e.get("error")
+                if error and error.get("code") == 503:
+                    print(
+                        f"503 Service Unavailable. Retrying after {GEMINI_SLEEP_TIME} seconds",
+                        flush=True,
+                    )
+                    sleep(GEMINI_SLEEP_TIME)
+                    continue
+            except Exception:
+                pass
             raise
 
     try:
@@ -275,10 +300,11 @@ def translate(path, lang):
             ):
                 break
 
-            print(entry.msgid, entry.msgstr)
-            print("翻訳失敗")
+            print(entry.msgid, entry.msgstr, flush=True)
+            print("翻訳失敗", flush=True)
 
-    po.save(path)
+        # 翻訳が1つ終わるたびに保存
+        po.save(path)
 
 
 def main():
