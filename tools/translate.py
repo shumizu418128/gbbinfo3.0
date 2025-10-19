@@ -1,5 +1,6 @@
 import os
 import re
+import sys
 from time import sleep
 
 import polib
@@ -7,38 +8,44 @@ from google import genai
 from pydantic import BaseModel
 from tqdm import tqdm
 
-BASE_DIR = os.path.abspath("app")
+# main.pyからBABEL_SUPPORTED_LOCALESを取得するためのパス設定
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
+from app.main import BABEL_SUPPORTED_LOCALES as _ALL_LOCALES
+
+# 翻訳対象言語（日本語を除外）
+BABEL_SUPPORTED_LOCALES = [locale for locale in _ALL_LOCALES if locale != "ja"]
+
+# tools/ディレクトリから app/ディレクトリを参照するようにパスを修正
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "app"))
 LOCALE_DIR = os.path.join(BASE_DIR, "translations")
 POT_FILE = os.path.join(BASE_DIR, "messages.pot")
 CONFIG_FILE = os.path.join(BASE_DIR, "babel.cfg")
-BABEL_SUPPORTED_LOCALES = [
-    "ko",
-    "en",
-    "de",
-    "es",
-    "fr",
-    "hi",
-    "hu",
-    "it",
-    "ms",
-    "no",
-    "pt",
-    "ta",
-    "th",
-    "zh_Hans_CN",
-    "zh_Hant_TW",
-]
 
 
-GEMINI_MODEL = "gemini-2.5-flash"
+GEMINI_MODEL = "gemini-2.5-flash-lite"
 GEMINI_SLEEP_TIME = 4
 
 
 class Translation(BaseModel):
+    """翻訳結果を格納するためのPydanticモデル。
+
+    Attributes:
+        translation (str): 翻訳されたテキスト
+    """
+
     translation: str
 
 
 def gemini_translate(text, lang):
+    """Gemini APIを使用してテキストを翻訳する。
+
+    Args:
+        text (str): 翻訳対象のテキスト
+        lang (str): 翻訳先の言語コード
+
+    Returns:
+        str: 翻訳されたテキスト。翻訳に失敗した場合は元のテキストを返す
+    """
     client = genai.Client()
     prompt = f"""Translate the following text to language code:'{lang}'.
 Important instructions:
@@ -61,6 +68,18 @@ Text to translate: {text}"""
             )
             break
         except Exception as e:
+            # エラー内に 'retryDelay': '44s' のような表記がある場合、数字を取り出してスリープ
+            error_str = str(e)
+            match = re.search(r"'retryDelay':\s*'(\d+)s'", error_str)
+            if match:
+                delay_sec = int(match.group(1))
+                if delay_sec == 0:
+                    delay_sec = GEMINI_SLEEP_TIME
+                print(
+                    f"429 Rate limit exceeded. Retrying after {delay_sec} seconds"
+                )
+                sleep(delay_sec)
+                continue
             if e.error.code == 503:
                 sleep(GEMINI_SLEEP_TIME)
                 continue
@@ -73,8 +92,7 @@ Text to translate: {text}"""
 
 
 def reuse_obsolete_translations(po):
-    """
-    コメントアウトされた翻訳（obsolete entries）を再利用する。
+    """コメントアウトされた翻訳（obsolete entries）を再利用する。
 
     Args:
         po: polib.POFile オブジェクト
@@ -119,8 +137,8 @@ def reuse_obsolete_translations(po):
 
 
 def prioritize_existing_translations(po, untranslated_entries):
-    """
-    既存の翻訳を優先的に使用する。
+    """既存の翻訳を優先的に使用する。
+
     同じmsgidの翻訳が既に存在する場合、それを優先的に使用する。
 
     Args:
@@ -163,6 +181,12 @@ ZH = ["zh_Hans_CN", "zh_Hant_TW"]
 
 
 def translation_check(entry, lang):
+    """翻訳結果の品質をチェックし、必要に応じてfuzzyフラグを付与する。
+
+    Args:
+        entry: polib.POEntry オブジェクト
+        lang (str): 言語コード
+    """
     if entry.msgid == entry.msgstr:  # 同じ言葉で
         # 中国語ではない場合はフラグを付与
         if lang not in ZH:
@@ -180,12 +204,25 @@ def translation_check(entry, lang):
 
 
 def translate(path, lang):
+    """指定された言語のPOファイルを翻訳する。
+
+    Args:
+        path (str): POファイルのパス
+        lang (str): 言語コード
+    """
     try:
         print(f"Processing {lang}: {path}")
+
+        # ファイルが存在しない場合はスキップ
+        if not os.path.exists(path):
+            print(f"Skipping {lang}: file does not exist at {path}")
+            return
+
         po = polib.pofile(path)
     except Exception as e:
         print(f"Error reading {path}: {e}")
-        raise
+        print(f"Skipping {lang} due to error")
+        return
 
     # コメントアウトされた翻訳を再利用
     reuse_obsolete_translations(po)
@@ -245,22 +282,35 @@ def translate(path, lang):
 
 
 def main():
+    """メイン関数：翻訳メッセージの生成、更新、翻訳、コンパイルを実行する。"""
     # Generate translation messages
     os.system(
-        f"cd {BASE_DIR} && python -m babel.messages.frontend extract --omit-header --no-wrap --sort-by-file -F babel.cfg -o {POT_FILE} ."
+        f"cd {BASE_DIR} && python -m babel.messages.frontend extract --no-wrap --sort-by-file -F babel.cfg -o {POT_FILE} ."
     )
     os.system(
-        f"cd {BASE_DIR} && python -m babel.messages.frontend update --omit-header --no-wrap -i {POT_FILE} -d {LOCALE_DIR}"
+        f"cd {BASE_DIR} && python -m babel.messages.frontend update --no-wrap -i {POT_FILE} -d {LOCALE_DIR}"
     )
 
     for lang in BABEL_SUPPORTED_LOCALES:
         path = os.path.join(LOCALE_DIR, lang, "LC_MESSAGES", "messages.po")
+        lang_dir = os.path.join(LOCALE_DIR, lang)
 
-        # ファイルが存在しない場合は新規作成
-        if not os.path.exists(path):
-            os.system(
-                f"cd {BASE_DIR} && python -m babel.messages.frontend init --omit-header --no-wrap -i {POT_FILE} -d {LOCALE_DIR} -l {lang}"
+        # 言語ディレクトリが存在しない場合は新規作成
+        if not os.path.exists(lang_dir):
+            print(f"Creating new locale directory for {lang}")
+            result = os.system(
+                f"cd {BASE_DIR} && python -m babel.messages.frontend init --no-wrap -i {POT_FILE} -d {LOCALE_DIR} -l {lang}"
             )
+            if result != 0:
+                raise Exception(f"Failed to create locale directory for {lang}")
+        # ファイルが存在しない場合も新規作成
+        elif not os.path.exists(path):
+            print(f"Creating new po file for {lang}")
+            result = os.system(
+                f"cd {BASE_DIR} && python -m babel.messages.frontend init --no-wrap -i {POT_FILE} -d {LOCALE_DIR} -l {lang}"
+            )
+            if result != 0:
+                raise Exception(f"Failed to create po file for {lang}")
 
         translate(path, lang)
 

@@ -1,14 +1,29 @@
+# Norwegian translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
 #
+#, fuzzy
 msgid ""
 msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-10-19 12:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: no\n"
+"Language-Team: no <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
 
 #: templates/2024/rule.html:11 templates/2025/rule.html:11
 #: templates/2025/wildcard_regulation.html:12
 #, python-brace-format
 msgid "Swissbeatbox公式サイトにて、GBB {year} で実施される部門・Wildcardのルールについて発表がありました。"
-msgstr ""
-"På Swissbeatbox sin offisielle nettside ble det annonsert regler for "
-"Wildcard-kategorien som skal avholdes under GBB {year}."
+msgstr "På Swissbeatbox sin offisielle nettside ble det annonsert regler for Wildcard-kategorien som skal avholdes under GBB {year}."
 
 #: templates/2024/rule.html:12 templates/2025/rule.html:12
 #: templates/2025/wildcard_regulation.html:13
@@ -59,9 +74,7 @@ msgstr "Wildcard-juryen"
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:56
 msgid "以下に示す内容は、あくまでもBeatboxファンが知っておくとよりGBBを楽しめる知識として紹介するものです。"
-msgstr ""
-"Følgende er kun ment som kunnskap for Beatbox-fans for å hjelpe dem med å "
-"nyte GBB enda mer."
+msgstr "Følgende er kun ment som kunnskap for Beatbox-fans for å hjelpe dem med å nyte GBB enda mer."
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:57
 msgid "一部内容において、わかりやすさを優先します。"
@@ -74,9 +87,7 @@ msgstr "Dette kan føre til unøyaktige uttrykk."
 #: templates/2024/rule.html:62 templates/2025/rule.html:60
 #: templates/2025/wildcard_regulation.html:65
 msgid "当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねます。"
-msgstr ""
-"Vi er ikke ansvarlige for eventuelle skader som følge av innholdet på denne "
-"nettsiden."
+msgstr "Vi er ikke ansvarlige for eventuelle skader som følge av innholdet på denne nettsiden."
 
 #: templates/2024/rule.html:62 templates/2025/rule.html:61
 #: templates/2025/wildcard_regulation.html:66
@@ -116,23 +127,15 @@ msgstr "Totalt"
 #: templates/2024/rule.html:118 templates/2025/rule.html:115
 #: templates/2025/wildcard_regulation.html:113
 msgid "上記のデータは、ルール発表時現在の情報です。実際は、辞退などにより、出場者数が変動します。"
-msgstr ""
-"Ovennevnte data er informasjon på tidspunktet for kunngjøringen av reglene. "
-"Faktisk vil antall deltakere variere på grunn av for eksempel "
-"tilbaketrekninger."
+msgstr "Ovennevnte data er informasjon på tidspunktet for kunngjøringen av reglene. Faktisk vil antall deltakere variere på grunn av for eksempel tilbaketrekninger."
 
 #: templates/2024/rule.html:122 templates/2025/rule.html:119
 msgid "Producerとは"
 msgstr "Produsent er"
 
 #: templates/2024/rule.html:123 templates/2025/rule.html:121
-msgid ""
-"Loopstationのセカンドデバイス（Loopstationに接続する端末）ありの部門で、GBB23で「Producer "
-"showcase」として新設されました。その代わり、Loopstation部門においてセカンドデバイスの使用が禁止されます。"
-msgstr ""
-"I avdelingen med Loopstation-enheter (enheter som kobles til Loopstation) "
-"ble det satt opp en ny \"Produsentpresentasjon\" i GBB23. I stedet er bruk "
-"av andre enheter for Loopstation-avdelingen forbudt."
+msgid "Loopstationのセカンドデバイス（Loopstationに接続する端末）ありの部門で、GBB23で「Producer showcase」として新設されました。その代わり、Loopstation部門においてセカンドデバイスの使用が禁止されます。"
+msgstr "I avdelingen med Loopstation-enheter (enheter som kobles til Loopstation) ble det satt opp en ny \"Produsentpresentasjon\" i GBB23. I stedet er bruk av andre enheter for Loopstation-avdelingen forbudt."
 
 #: templates/2024/rule.html:126 templates/2025/rule.html:117
 msgid "忘れられたTag Team Loopstation..."
@@ -140,9 +143,7 @@ msgstr "Den glemte Tag Team Loopstation..."
 
 #: templates/2024/rule.html:135 templates/2025/rule.html:130
 msgid "Wildcardを勝ち上がる以外の方法でGBB出場権を得る方法（シード権）と、その該当者は以下の通りです。"
-msgstr ""
-"Andre måter å kvalifisere seg til GBB (seedede) enn å vinne Wildcard, og "
-"hvem det gjelder, er som følger."
+msgstr "Andre måter å kvalifisere seg til GBB (seedede) enn å vinne Wildcard, og hvem det gjelder, er som følger."
 
 #: templates/2024/rule.html:137 templates/2025/rule.html:133
 msgid "シード権 - GBB"
@@ -151,11 +152,10 @@ msgstr "Seedrettighet - GBB"
 #: templates/2024/rule.html:142 templates/2024/rule.html:168
 #: templates/2024/rule.html:194 templates/2025/rule.html:138
 #: templates/2025/rule.html:164 templates/2025/rule.html:194
-#: templates/2025/wildcard_regulation.html:142
-#: templates/common/cancels.html:22 templates/common/japan.html:21
-#: templates/common/korea.html:21 templates/common/participants.html:44
-#: templates/common/participants.html:127 templates/common/result.html:57
-#: templates/others/participant_detail.html:63
+#: templates/2025/wildcard_regulation.html:142 templates/common/cancels.html:22
+#: templates/common/japan.html:21 templates/common/korea.html:21
+#: templates/common/participants.html:44 templates/common/participants.html:127
+#: templates/common/result.html:57 templates/others/participant_detail.html:63
 #: templates/others/participant_detail.html:135
 #: templates/others/participant_detail.html:198
 msgid "名前"
@@ -219,10 +219,7 @@ msgstr "Liste over deltakere"
 
 #: templates/2024/rule.html:224
 msgid "シード権を持つ人が辞退した場合、原則として、該当シード権は消滅し、Wildcard下位からの繰り上げが行われます。"
-msgstr ""
-"Hvis en person med seedingsrettigheter trekker seg, vil den aktuelle "
-"seedingen i utgangspunktet forsvinne, og en opprykk vil bli gjort fra "
-"Wildcard-gruppen."
+msgstr "Hvis en person med seedingsrettigheter trekker seg, vil den aktuelle seedingen i utgangspunktet forsvinne, og en opprykk vil bli gjort fra Wildcard-gruppen."
 
 #: templates/2024/rule.html:240 templates/2025/rule.html:256
 #: templates/2025/wildcard_regulation.html:207
@@ -232,9 +229,7 @@ msgstr "Felles for alle kategorier"
 #: templates/2024/rule.html:241 templates/2025/rule.html:257
 #: templates/2025/wildcard_regulation.html:208
 msgid "制限時間を超過した場合、1秒につき最終順位を1つ下げる"
-msgstr ""
-"Hvis tiden overskrides, flyttes den endelige rangeringen ned én posisjon per"
-" sekund."
+msgstr "Hvis tiden overskrides, flyttes den endelige rangeringen ned én posisjon per sekund."
 
 #: templates/2024/rule.html:241 templates/2025/rule.html:257
 #: templates/2025/wildcard_regulation.html:208
@@ -331,8 +326,8 @@ msgstr "Sjekk ut siste nytt fra GBB {year}"
 
 #: templates/2024/stream.html:40 templates/common/participants.html:3
 #: templates/common/participants.html:4 templates/common/participants.html:5
-#: templates/common/participants.html:10
-#: templates/common/participants.html:146 templates/others/translation.html:18
+#: templates/common/participants.html:10 templates/common/participants.html:146
+#: templates/others/translation.html:18
 msgid "Wildcard結果 & 出場者"
 msgstr "Wildcard-resultat & Deltakere"
 
@@ -369,10 +364,7 @@ msgstr "GBB21 ble forsinket med omtrent 2 timer fra planen."
 
 #: templates/2024/time_schedule.html:13 templates/2025/time_schedule.html:14
 msgid "GBB23では、本番7日前に日本語版・英語版のタイムスケジュールが公開されましたが、日本語版のみ正しく、英語版には誤記が多くみられました。"
-msgstr ""
-"I GBB23 ble den japanske og engelske tidsplanen publisert 7 dager før "
-"arrangementet, men bare den japanske versjonen var riktig, og det var mange "
-"feil i den engelske versjonen."
+msgstr "I GBB23 ble den japanske og engelske tidsplanen publisert 7 dager før arrangementet, men bare den japanske versjonen var riktig, og det var mange feil i den engelske versjonen."
 
 #: templates/2024/time_schedule.html:36 templates/2024/time_schedule.html:290
 msgid "出演者一覧"
@@ -478,8 +470,7 @@ msgstr "Kilde: ABEMA-strømmeside"
 
 #: templates/2024/time_schedule.html:256
 msgid "予選開始より遅い理由は不明"
-msgstr ""
-"Årsaken til at det er senere enn starten av kvalifiseringen er ukjent."
+msgstr "Årsaken til at det er senere enn starten av kvalifiseringen er ukjent."
 
 #: templates/2024/time_schedule.html:260
 msgid "本戦出場者アナウンス"
@@ -560,8 +551,7 @@ msgstr "I tillegg til denne informasjonen,"
 #: templates/2024/top.html:111 templates/2025/top.html:197
 #: templates/2026/top.html:179
 msgid "未発表の情報(決まっているが、なぜか公式が発表を渋っている)"
-msgstr ""
-"Uutgitt informasjon (bestemt, men offisielt motvillig til å kunngjøre)"
+msgstr "Uutgitt informasjon (bestemt, men offisielt motvillig til å kunngjøre)"
 
 #: templates/2024/top.html:112 templates/2025/top.html:198
 #: templates/2026/top.html:180
@@ -576,15 +566,11 @@ msgstr "Det finnes mye informasjon som dette."
 #: templates/2024/top.html:115 templates/2025/top.html:201
 #: templates/2026/top.html:183
 msgid "GBBの各種情報は、発表が非常に遅いことで有名です。気長に待ちましょう。"
-msgstr ""
-"Informasjonen om GBB er kjent for å bli publisert veldig sent. La oss være "
-"tålmodige."
+msgstr "Informasjonen om GBB er kjent for å bli publisert veldig sent. La oss være tålmodige."
 
 #: templates/2024/top.html:119 templates/2025/top.html:210
 msgid "過去のGBBにおいて、下記番号に電話したらGBB詳細情報を教えてくれた、という報告が相次ぎました。"
-msgstr ""
-"Det var mange rapporter om at man fikk detaljert GBB-informasjon ved å ringe"
-" følgende nummer i tidligere GBB-er."
+msgstr "Det var mange rapporter om at man fikk detaljert GBB-informasjon ved å ringe følgende nummer i tidligere GBB-er."
 
 #: templates/2024/top.html:123 templates/2025/top.html:214
 msgid "場所"
@@ -600,9 +586,7 @@ msgstr "Billettsalgside"
 
 #: templates/2024/top.html:140 templates/2025/top.html:235
 msgid "なお上記電話番号は、当サイトとは無関係です。"
-msgstr ""
-"Vær oppmerksom på at telefonnummeret ovenfor ikke er relatert til denne "
-"nettsiden."
+msgstr "Vær oppmerksom på at telefonnummeret ovenfor ikke er relatert til denne nettsiden."
 
 #: templates/2024/top_7tosmoke.html:33 templates/2025/top_7tosmoke.html:33
 #: templates/2026/top_7tosmoke.html:33
@@ -616,12 +600,8 @@ msgstr "7toSmoke-regler & Slik deltar du"
 
 #: templates/2024/top_7tosmoke.html:41 templates/2025/top_7tosmoke.html:43
 #: templates/2026/top_7tosmoke.html:43
-msgid ""
-"7toSmokeは、GBB本戦に比べて最新情報の公開が非常に遅い傾向にあり、そもそも情報が発表されないまま本番を迎えてしまったケースもあります。"
-msgstr ""
-"7toSmoke har en tendens til å publisere oppdatert informasjon mye senere enn"
-" GBB-hovedarrangementet, og det har vært tilfeller der selve arrangementet "
-"startet uten at det ble publisert informasjon i det hele tatt."
+msgid "7toSmokeは、GBB本戦に比べて最新情報の公開が非常に遅い傾向にあり、そもそも情報が発表されないまま本番を迎えてしまったケースもあります。"
+msgstr "7toSmoke har en tendens til å publisere oppdatert informasjon mye senere enn GBB-hovedarrangementet, og det har vært tilfeller der selve arrangementet startet uten at det ble publisert informasjon i det hele tatt."
 
 #: templates/2024/top_7tosmoke.html:42 templates/2025/top_7tosmoke.html:44
 #: templates/2026/top_7tosmoke.html:44
@@ -640,21 +620,15 @@ msgstr "Frist"
 
 #: templates/2024/wildcards.html:73 templates/2025/wildcards.html:89
 msgid "今回公開するWildcard一覧は、有志が作成した、非公式のものです。"
-msgstr ""
-"Wildcard-listen som blir utgitt denne gangen er uoffisiell og laget av "
-"frivillige."
+msgstr "Wildcard-listen som blir utgitt denne gangen er uoffisiell og laget av frivillige."
 
 #: templates/2024/wildcards.html:78 templates/2025/wildcards.html:94
 msgid "すべて手作業で制作されたものであるため、重複や欠落がある可能性があります。"
 msgstr "Fordi alt er laget for hånd, kan det være duplikater eller mangler."
 
 #: templates/2024/wildcards.html:81 templates/2025/wildcards.html:97
-msgid ""
-"また、この再生リストにある動画が必ずしもWildcardとして申請された動画であるとは限りません（毎年必ず出場者の手続きミスで失格者が出ます）。"
-msgstr ""
-"Dessuten er det ikke sikkert at videoene i denne spillelisten er videoer som"
-" er søkt om som Wildcard (det er alltid noen hvert år som blir "
-"diskvalifisert på grunn av feil i søknaden)."
+msgid "また、この再生リストにある動画が必ずしもWildcardとして申請された動画であるとは限りません（毎年必ず出場者の手続きミスで失格者が出ます）。"
+msgstr "Dessuten er det ikke sikkert at videoene i denne spillelisten er videoer som er søkt om som Wildcard (det er alltid noen hvert år som blir diskvalifisert på grunn av feil i søknaden)."
 
 #: templates/2025/rule.html:22 templates/2025/rule.html:125
 #: templates/2025/wildcard_regulation.html:3
@@ -665,34 +639,23 @@ msgstr "For beatboxere: Forklaring av Wildcard-forskriften"
 
 #: templates/2025/rule.html:225
 msgid "GBB出場辞退が発生した場合、Wildcard下位からの繰り上げが行われます。"
-msgstr ""
-"Hvis det skulle oppstå et GBB-forfall, vil wildcard-lagene bli rykket opp."
+msgstr "Hvis det skulle oppstå et GBB-forfall, vil wildcard-lagene bli rykket opp."
 
 #: templates/2025/rule.html:229
 msgid "いかなる理由があっても、シード権大会2位以下の人に、出場権は与えられません。"
-msgstr ""
-"Uansett årsak vil ikke andre enn andreplassen eller dårligere i "
-"seedingskonkurransen få delta."
+msgstr "Uansett årsak vil ikke andre enn andreplassen eller dårligere i seedingskonkurransen få delta."
 
 #: templates/2025/rule.html:230
 msgid "「シード権大会においてGBB出場権が与えられるのは、例外なく、常に優勝者のみである」とルールに明記されています。"
-msgstr ""
-"I seed-turneringer er det tydelig angitt i reglene at GBB-deltakelse kun gis"
-" til vinneren, uten unntak."
+msgstr "I seed-turneringer er det tydelig angitt i reglene at GBB-deltakelse kun gis til vinneren, uten unntak."
 
 #: templates/2025/rule.html:233
-msgid ""
-"例：シード権大会優勝者が、すでにWildcardで出場権を獲得していた場合、シード権大会2位ではなく、Wildcard下位からの繰り上げが行われます。"
-msgstr ""
-"Eksempel: Hvis vinneren av seed-turneringen allerede har kvalifisert seg via"
-" Wildcard, vil plassen gå til den neste spilleren på Wildcard-listen, ikke "
-"nummer to i seed-turneringen."
+msgid "例：シード権大会優勝者が、すでにWildcardで出場権を獲得していた場合、シード権大会2位ではなく、Wildcard下位からの繰り上げが行われます。"
+msgstr "Eksempel: Hvis vinneren av seed-turneringen allerede har kvalifisert seg via Wildcard, vil plassen gå til den neste spilleren på Wildcard-listen, ikke nummer to i seed-turneringen."
 
 #: templates/2025/rule.html:257 templates/2025/wildcard_regulation.html:208
 msgid "制限時間を使い切らず余らせた場合、3秒につき最終順位を1つ下げる"
-msgstr ""
-"Hvis tiden ikke brukes opp, vil sluttresultatet bli senket med én plass for "
-"hver 3. sekund som er igjen."
+msgstr "Hvis tiden ikke brukes opp, vil sluttresultatet bli senket med én plass for hver 3. sekund som er igjen."
 
 #: templates/2025/rule.html:284 templates/2025/wildcard_regulation.html:234
 msgid "※中央ヨーロッパ時間には、サマータイムがあります。2025年のサマータイムは3/30からです。"
@@ -700,9 +663,7 @@ msgstr "Sentral-europeisk tid har sommertid. Sommeren 2025 starter 30. mars."
 
 #: templates/2025/rule.html:285 templates/2025/wildcard_regulation.html:235
 msgid "Tag Team部門・Crew部門参加希望の方はご注意ください。"
-msgstr ""
-"Vennligst merk: De som ønsker å delta i Tag Team-kategorien og Crew-"
-"kategorien."
+msgstr "Vennligst merk: De som ønsker å delta i Tag Team-kategorien og Crew-kategorien."
 
 #: templates/2025/rule.html:343
 msgid "レフェリー"
@@ -713,12 +674,8 @@ msgid "レフェリーについて"
 msgstr "Om dommeren"
 
 #: templates/2025/rule.html:352
-msgid ""
-"レフェリーは、GBB23から導入された、審査員とは別のメンバーです。審査員は各出場者の評価を行うのに対し、レフェリーは「ルールを守っているか」を確認する役割を担います。"
-msgstr ""
-"Dommeren, introdusert fra GBB23, er et eget medlem av juryen. Mens juryen "
-"evaluerer hver deltaker, har dommeren rollen som å bekrefte at \"reglene "
-"følges\"."
+msgid "レフェリーは、GBB23から導入された、審査員とは別のメンバーです。審査員は各出場者の評価を行うのに対し、レフェリーは「ルールを守っているか」を確認する役割を担います。"
+msgstr "Dommeren, introdusert fra GBB23, er et eget medlem av juryen. Mens juryen evaluerer hver deltaker, har dommeren rollen som å bekrefte at \"reglene følges\"."
 
 #: templates/2025/stream.html:14
 msgid "GBB24では本番8日前公開"
@@ -732,9 +689,7 @@ msgstr "Regler & Dommere"
 
 #: templates/2025/time_schedule.html:15
 msgid "GBB24では、本番約1ヶ月前に公開されましたが、誤記が多くみられました。"
-msgstr ""
-"GBB24 ble publisert omtrent en måned før selve arrangementet, men det var "
-"mange feil."
+msgstr "GBB24 ble publisert omtrent en måned før selve arrangementet, men det var mange feil."
 
 #: templates/2025/top.html:22 templates/2026/top.html:22
 msgid "ページ 先行公開中！"
@@ -810,14 +765,6 @@ msgstr "Antall plasser"
 msgid "全出場者一覧"
 msgstr "Liste over alle deltakere"
 
-#: templates/2025/top.html:90 templates/2025/top.html:118
-#: templates/2026/top.html:85 templates/2026/top.html:110
-#: templates/common/cancels.html:3 templates/common/cancels.html:4
-#: templates/common/cancels.html:5 templates/common/cancels.html:10
-#: templates/common/participants.html:143
-msgid "辞退者一覧"
-msgstr "Liste over personer som har trukket seg"
-
 #: templates/2025/top.html:99 templates/2026/top.html:90
 #: templates/includes/popup_early_access.html:8
 #: templates/includes/popup_ended.html:14
@@ -827,9 +774,7 @@ msgstr "Lukk"
 
 #: templates/2025/top.html:207
 msgid "お探しの情報は、当サイトにありません。下記お問い合わせより、GBB運営に直接お尋ねください。"
-msgstr ""
-"Informasjonen du leter etter er ikke på dette nettstedet. Ta kontakt med "
-"GBB-administrasjonen direkte via kontaktinformasjonen nedenfor."
+msgstr "Informasjonen du leter etter er ikke på dette nettstedet. Ta kontakt med GBB-administrasjonen direkte via kontaktinformasjonen nedenfor."
 
 #: templates/2025/top.html:219
 msgid "チケット販売ページ"
@@ -881,9 +826,7 @@ msgstr "Informasjonen nedenfor er for Beatboxers som lager Wildcards."
 
 #: templates/2025/wildcard_regulation.html:62
 msgid "当サイト管理人はBeatboxerではありません。また、当サイト管理人はGBB運営と一切無関係です。"
-msgstr ""
-"Nettsideadministratoren er ikke en beatboxer. Nettstedsadministratoren er "
-"heller ikke tilknyttet GBB-drift."
+msgstr "Nettsideadministratoren er ikke en beatboxer. Nettstedsadministratoren er heller ikke tilknyttet GBB-drift."
 
 #: templates/2025/wildcard_regulation.html:70
 msgid ""
@@ -891,12 +834,7 @@ msgid ""
 "    Please note that this article was originally written in Japanese and subsequently translated using AI.\n"
 "    As a result, there may be instances of inaccurate translation.\n"
 "    For any questions or concerns, please refer to the official website or social media channels."
-msgstr ""
-"For ikke-japanske brukere:Vennligst merk at denne artikkelen opprinnelig ble"
-" skrevet på japansk og deretter oversatt ved hjelp av AI.Som et resultat kan"
-" det forekomme tilfeller av unøyaktig oversettelse.For spørsmål eller "
-"bekymringer, vennligst se den offisielle nettsiden eller sosiale "
-"mediekanaler."
+msgstr "For ikke-japanske brukere:Vennligst merk at denne artikkelen opprinnelig ble skrevet på japansk og deretter oversatt ved hjelp av AI.Som et resultat kan det forekomme tilfeller av unøyaktig oversettelse.For spørsmål eller bekymringer, vennligst se den offisielle nettsiden eller sosiale mediekanaler."
 
 #: templates/2025/wildcard_regulation.html:123
 msgid "年齢制限: 本番当日、16歳以上であること"
@@ -912,15 +850,11 @@ msgstr "Foreldre eller foresattes følge er påkrevd"
 
 #: templates/2025/wildcard_regulation.html:127
 msgid "主催者は、保護者の同伴にかかる費用(ビザ、フライト、ホテル、食事など)を負担しない"
-msgstr ""
-"Arrangøren dekker ikke kostnadene for ledsagere (visum, fly, hotell, "
-"måltider, etc.)"
+msgstr "Arrangøren dekker ikke kostnadene for ledsagere (visum, fly, hotell, måltider, etc.)"
 
 #: templates/2025/wildcard_regulation.html:128
 msgid "上記要件を満たさない、同意できない場合は失格となり、Wildcard下位からの繰り上げが行われる"
-msgstr ""
-"Manglende oppfyllelse av kravene ovenfor eller manglende samtykke fører til "
-"diskvalifikasjon, og neste på Wildcard-listen rykker opp."
+msgstr "Manglende oppfyllelse av kravene ovenfor eller manglende samtykke fører til diskvalifikasjon, og neste på Wildcard-listen rykker opp."
 
 #: templates/2025/wildcard_regulation.html:138
 msgid "Wildcard作成・提出について"
@@ -936,15 +870,11 @@ msgstr "Presenter deg selv på følgende måte i begynnelsen av videoen"
 
 #: templates/2025/wildcard_regulation.html:145
 msgid "このルールに関する表記は、原文では非常に強い表現で示されています。"
-msgstr ""
-"Beskrivelsen av denne regelen er uttrykt med veldig sterke ord i "
-"originalteksten."
+msgstr "Beskrivelsen av denne regelen er uttrykt med veldig sterke ord i originalteksten."
 
 #: templates/2025/wildcard_regulation.html:146
 msgid "また、過去にこのルールに違反したことで失格処分になった事例があります。"
-msgstr ""
-"Det er også eksempler på diskvalifikasjoner på grunn av tidligere brudd på "
-"denne regelen."
+msgstr "Det er også eksempler på diskvalifikasjoner på grunn av tidligere brudd på denne regelen."
 
 #: templates/2025/wildcard_regulation.html:150
 msgid "録音方法"
@@ -952,9 +882,7 @@ msgstr "Opptaksmetode"
 
 #: templates/2025/wildcard_regulation.html:152
 msgid "カメラにはっきり映っていること (マスクや視覚効果で顔や口を覆わないこと)"
-msgstr ""
-"Sørg for at du er tydelig synlig i kameraet (ikke dekk ansiktet eller munnen"
-" med masker eller visuelle effekter)."
+msgstr "Sørg for at du er tydelig synlig i kameraet (ikke dekk ansiktet eller munnen med masker eller visuelle effekter)."
 
 #: templates/2025/wildcard_regulation.html:153
 msgid "リップシンクやその他のビデオ技術は禁止"
@@ -966,16 +894,11 @@ msgstr "Fotografering og lydopptak skal gjøres samtidig"
 
 #: templates/2025/wildcard_regulation.html:155
 msgid "基本的なダイナミック (コンプレッション)、EQ プラグイン、リバーブは使用可能。ただし、録音自体は生の状態で行い、後で編集すること"
-msgstr ""
-"Grunnleggende dynamikk (komprimering), EQ-plugger og romklang er "
-"tilgjengelig. Men selve innspillingen gjøres i rå tilstand og redigeres "
-"senere."
+msgstr "Grunnleggende dynamikk (komprimering), EQ-plugger og romklang er tilgjengelig. Men selve innspillingen gjøres i rå tilstand og redigeres senere."
 
 #: templates/2025/wildcard_regulation.html:156
 msgid "キックとスネアに異なる EQ やコンプレッションを施すなどの自動処理は禁止"
-msgstr ""
-"Automatisk behandling, som f.eks. å bruke forskjellige EQ og komprimering på"
-" kick og snare, er forbudt."
+msgstr "Automatisk behandling, som f.eks. å bruke forskjellige EQ og komprimering på kick og snare, er forbudt."
 
 #: templates/2025/wildcard_regulation.html:157
 msgid "録音全体を同じように処理すること"
@@ -983,15 +906,11 @@ msgstr "Behandle hele opptaket likt."
 
 #: templates/2025/wildcard_regulation.html:158
 msgid "歪み、遅延、その他の動的処理、周波数歪み効果は禁止"
-msgstr ""
-"Forvrengning, forsinkelse, andre dynamiske prosesser og "
-"frekvensforvrengningseffekter er forbudt."
+msgstr "Forvrengning, forsinkelse, andre dynamiske prosesser og frekvensforvrengningseffekter er forbudt."
 
 #: templates/2025/wildcard_regulation.html:159
 msgid "上記ルールについて、不正行為の疑いがある場合、Wildcard作成に使ったファイルの追加提出を求められる場合あり"
-msgstr ""
-"Hvis det er mistanke om misbruk av reglene ovenfor, kan du bli bedt om å "
-"sende inn de ekstra filene som ble brukt til å lage Wildcard."
+msgstr "Hvis det er mistanke om misbruk av reglene ovenfor, kan du bli bedt om å sende inn de ekstra filene som ble brukt til å lage Wildcard."
 
 #: templates/2025/wildcard_regulation.html:162
 msgid "提出方法"
@@ -1016,15 +935,11 @@ msgstr "Hvis begge de ovennevnte ikke er oppfylt, diskvalifiseres du."
 #: templates/2025/wildcard_regulation.html:174
 #: templates/2025/wildcard_regulation.html:175
 msgid "毎年必ず、申請フォーム入力忘れによる失格者が発生します！！！"
-msgstr ""
-"Hvert år er det alltid folk som diskvalifiseres på grunn av at de glemmer å "
-"fylle ut søknadsskjemaet!!!"
+msgstr "Hvert år er det alltid folk som diskvalifiseres på grunn av at de glemmer å fylle ut søknadsskjemaet!!!"
 
 #: templates/2025/wildcard_regulation.html:177
 msgid "ぜひここのスクリーンショットをとってSNSで拡散してください。推しが失格にならないために..."
-msgstr ""
-"Vennligst ta et skjermbilde av dette og spre det på sosiale medier. For å "
-"forhindre at favoritten din blir diskvalifisert..."
+msgstr "Vennligst ta et skjermbilde av dette og spre det på sosiale medier. For å forhindre at favoritten din blir diskvalifisert..."
 
 #: templates/2025/wildcard_regulation.html:179
 msgid "生のオーディオと生のビデオ (カメラのオーディオを含む) の提出が必要"
@@ -1032,26 +947,20 @@ msgstr "Innlevering av rå lyd og rå video (inkludert kameraets lyd) kreves"
 
 #: templates/2025/wildcard_regulation.html:180
 msgid "Solo以外の全部門は、録画中のスクリーンキャプチャの提出も必要"
-msgstr ""
-"Alle avdelinger unntatt Solo må også sende inn skjermbilder av opptaket."
+msgstr "Alle avdelinger unntatt Solo må også sende inn skjermbilder av opptaket."
 
 #: templates/2025/wildcard_regulation.html:181
 msgid "上記2つが無い場合は、失格"
-msgstr ""
-"Hvis du ikke har de to ovennevnte elementene, vil du bli diskvalifisert."
+msgstr "Hvis du ikke har de to ovennevnte elementene, vil du bli diskvalifisert."
 
 #: templates/2025/wildcard_regulation.html:184
 #: templates/2025/wildcard_regulation.html:263
 msgid "Wildcard提出は一度のみ。一度提出したら、後から別のWildcardを提出することはできない"
-msgstr ""
-"Wildcard-forslag kan bare fremsettes én gang. Etter at det er fremmet, kan "
-"du ikke sende inn en annen wildcard."
+msgstr "Wildcard-forslag kan bare fremsettes én gang. Etter at det er fremmet, kan du ikke sende inn en annen wildcard."
 
 #: templates/2025/wildcard_regulation.html:185
 msgid "誤って一度提出したWildcardを削除した場合、失格"
-msgstr ""
-"Hvis du ved et uhell sletter et Wildcard du har sendt inn, blir du "
-"diskvalifisert."
+msgstr "Hvis du ved et uhell sletter et Wildcard du har sendt inn, blir du diskvalifisert."
 
 #: templates/2025/wildcard_regulation.html:187
 msgid "このルールは、GBB 2019で発生したトラブルの対策として設けられている"
@@ -1068,9 +977,7 @@ msgstr "Bruk av MIDI-kontroller er forbudt."
 
 #: templates/2025/wildcard_regulation.html:242
 msgid "マシン内の追加ケーブルは使用可能 ケーブルはデバイスではないとみなされる"
-msgstr ""
-"Ytterligere kabler i maskinen er tilgjengelige. Kabelen anses ikke å være en"
-" enhet."
+msgstr "Ytterligere kabler i maskinen er tilgjengelige. Kabelen anses ikke å være en enhet."
 
 #: templates/2025/wildcard_regulation.html:247
 msgid "Loopstation単体での出場は禁止"
@@ -1078,9 +985,7 @@ msgstr "Det er forbudt å delta alene med Loopstation."
 
 #: templates/2025/wildcard_regulation.html:248
 msgid "事前にデバイス構成をSUPPORT@swissbeatbox.comへ申請すること"
-msgstr ""
-"Du må søke om enhetenes konfigurasjon på forhånd til "
-"SUPPORT@swissbeatbox.com"
+msgstr "Du må søke om enhetenes konfigurasjon på forhånd til SUPPORT@swissbeatbox.com"
 
 #: templates/2025/wildcard_regulation.html:249
 msgid "ボイスソース、ボイストリガーのみ"
@@ -1092,15 +997,11 @@ msgstr "Forhåndsinnspilte eksempler er forbudt."
 
 #: templates/2025/wildcard_regulation.html:251
 msgid "FOH (ミキシング デスク) または録音への出力はステレオ信号である必要があり、マルチチャンネル出力は禁止"
-msgstr ""
-"Utgangen til FOH (miksebord) eller opptak må være et stereosignal, "
-"flerkanals utgang er forbudt."
+msgstr "Utgangen til FOH (miksebord) eller opptak må være et stereosignal, flerkanals utgang er forbudt."
 
 #: templates/2025/wildcard_regulation.html:262
 msgid "Wildcard動画の作成にあたり使用したすべてのファイルを、バックアップ含め保存しておき、いつでも提出できるようにしておく"
-msgstr ""
-"Sørg for å lagre alle filer som ble brukt til å lage Wildcard-videoen, "
-"inkludert sikkerhetskopier, slik at de kan sendes inn når som helst."
+msgstr "Sørg for å lagre alle filer som ble brukt til å lage Wildcard-videoen, inkludert sikkerhetskopier, slik at de kan sendes inn når som helst."
 
 #: templates/2025/wildcard_regulation.html:265
 msgid "皆さんのWildcardを楽しみにしています！"
@@ -1108,9 +1009,7 @@ msgstr "Jeg ser frem til alles Wildcard!"
 
 #: templates/2026/rule.html:16
 msgid "現時点で、以下の断片的な情報のみ発表されています。"
-msgstr ""
-"På dette tidspunktet er bare følgende fragmentariske informasjon "
-"offentliggjort."
+msgstr "På dette tidspunktet er bare følgende fragmentariske informasjon offentliggjort."
 
 #: templates/2026/rule.html:37
 msgid "Producer部門は廃止"
@@ -1126,17 +1025,11 @@ msgstr "I denne avdelingen er det ingen kamper."
 
 #: templates/2026/rule.html:47
 msgid "Wildcardの審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価"
-msgstr ""
-"Wildcard-vurderingen utføres med andre kriterier enn andre kategorier, og "
-"evalueres ut fra historie, kunstnerisk kvalitet, originalitet og mer."
+msgstr "Wildcard-vurderingen utføres med andre kriterier enn andre kategorier, og evalueres ut fra historie, kunstnerisk kvalitet, originalitet og mer."
 
 #: templates/2026/rule.html:66
-msgid ""
-"また、Solo部門・Loopstation部門のWildcardルールが変更されることが予告されています。最新情報が公開され次第、このページを更新します。"
-msgstr ""
-"Det er også kunngjort at Wildcard-reglene for Solo- og Loopstation-"
-"kategoriene vil bli endret. Denne siden vil bli oppdatert så snart den "
-"nyeste informasjonen er offentliggjort."
+msgid "また、Solo部門・Loopstation部門のWildcardルールが変更されることが予告されています。最新情報が公開され次第、このページを更新します。"
+msgstr "Det er også kunngjort at Wildcard-reglene for Solo- og Loopstation-kategoriene vil bli endret. Denne siden vil bli oppdatert så snart den nyeste informasjonen er offentliggjort."
 
 #: templates/2026/ticket.html:11
 msgid "ポーランド・ワルシャワ"
@@ -1144,9 +1037,7 @@ msgstr "Polen, Warszawa"
 
 #: templates/2026/time_schedule.html:16
 msgid "GBBが最後にポーランド・ワルシャワで開催された年は2021年ですが、GBB 2021は予定から約2時間遅延しました。"
-msgstr ""
-"GBB ble sist holdt i Warszawa, Polen i 2021, men GBB 2021 ble forsinket med "
-"omtrent 2 timer fra den planlagte tiden."
+msgstr "GBB ble sist holdt i Warszawa, Polen i 2021, men GBB 2021 ble forsinket med omtrent 2 timer fra den planlagte tiden."
 
 #: templates/2026/time_schedule.html:17
 msgid "なお、GBB 2022は中止され、GBB 2023~2025は、東京で開催されました。"
@@ -1157,12 +1048,8 @@ msgid "開催日未定"
 msgstr "Dato ikke fastsatt"
 
 #: templates/base.html:34 templates/base.html:44 templates/base.html:48
-msgid ""
-"Swissbeatboxが主催するHuman Beatboxの世界大会「Grand Beatbox "
-"Battle」の各種情報を、見やすくまとめたサイトです。"
-msgstr ""
-"Dette er en side som samler informasjon om «Grand Beatbox Battle», en "
-"verdensomspennende konkurranse i Human Beatbox, arrangert av Swissbeatbox."
+msgid "Swissbeatboxが主催するHuman Beatboxの世界大会「Grand Beatbox Battle」の各種情報を、見やすくまとめたサイトです。"
+msgstr "Dette er en side som samler informasjon om «Grand Beatbox Battle», en verdensomspennende konkurranse i Human Beatbox, arrangert av Swissbeatbox."
 
 #: templates/base.html:112 templates/base.html:115
 msgid "メニュー"
@@ -1198,7 +1085,7 @@ msgstr "Meny"
 #: templates/2026/top.html:4 templates/2026/top.html:5
 #: templates/2026/top.html:25 templates/2026/top.html:97
 #: templates/2026/top.html:173 templates/2026/top_7tosmoke.html:24
-#: templates/base.html:117 templates/base.html:150 templates/base.html:262
+#: templates/base.html:117 templates/base.html:151 templates/base.html:263
 #: templates/includes/next_year.html:5
 #: templates/others/participant_detail.html:126
 msgid "これだけガイド"
@@ -1211,7 +1098,7 @@ msgstr "Bare guiden"
 #: templates/2025/time_schedule.html:92 templates/2025/top.html:110
 #: templates/2025/wildcards.html:14 templates/2025/wildcards.html:83
 #: templates/2026/time_schedule.html:87 templates/2026/top.html:102
-#: templates/base.html:118 templates/base.html:268
+#: templates/base.html:118 templates/base.html:269
 #: templates/common/participants.html:25 templates/common/result.html:98
 #: templates/includes/participants_form.html:13
 msgid "Wildcard結果"
@@ -1222,10 +1109,18 @@ msgstr "Wildcard-resultater"
 #: templates/2025/time_schedule.html:92 templates/2025/top.html:110
 #: templates/2025/wildcards.html:14 templates/2025/wildcards.html:83
 #: templates/2026/time_schedule.html:87 templates/2026/top.html:102
-#: templates/base.html:118 templates/base.html:268
+#: templates/base.html:118 templates/base.html:269
 #: templates/common/result.html:98
 msgid "出場者"
 msgstr "Deltakere"
+
+#: templates/2025/top.html:90 templates/2025/top.html:118
+#: templates/2026/top.html:85 templates/2026/top.html:110
+#: templates/base.html:119 templates/common/cancels.html:3
+#: templates/common/cancels.html:4 templates/common/cancels.html:5
+#: templates/common/cancels.html:10 templates/common/participants.html:143
+msgid "辞退者一覧"
+msgstr "Liste over personer som har trukket seg"
 
 #: templates/2024/rule.html:3 templates/2024/rule.html:4
 #: templates/2024/rule.html:5 templates/2024/rule.html:9
@@ -1235,13 +1130,12 @@ msgstr "Deltakere"
 #: templates/2025/rule.html:251 templates/2025/time_schedule.html:62
 #: templates/2025/top.html:62 templates/2025/top.html:114
 #: templates/2025/wildcard_regulation.html:22
-#: templates/2025/wildcard_regulation.html:202
-#: templates/2025/wildcards.html:15 templates/2025/wildcards.html:84
-#: templates/2026/rule.html:3 templates/2026/rule.html:4
-#: templates/2026/rule.html:5 templates/2026/rule.html:10
-#: templates/2026/time_schedule.html:59 templates/2026/top.html:63
-#: templates/2026/top.html:106 templates/base.html:119
-#: templates/common/participants.html:142
+#: templates/2025/wildcard_regulation.html:202 templates/2025/wildcards.html:15
+#: templates/2025/wildcards.html:84 templates/2026/rule.html:3
+#: templates/2026/rule.html:4 templates/2026/rule.html:5
+#: templates/2026/rule.html:10 templates/2026/time_schedule.html:59
+#: templates/2026/top.html:63 templates/2026/top.html:106
+#: templates/base.html:120 templates/common/participants.html:142
 msgid "ルール"
 msgstr "Regler"
 
@@ -1251,27 +1145,9 @@ msgstr "Regler"
 #: templates/2025/top.html:67 templates/2025/top.html:114
 #: templates/2025/wildcards.html:15 templates/2025/wildcards.html:84
 #: templates/2026/time_schedule.html:59 templates/2026/top.html:68
-#: templates/2026/top.html:106 templates/base.html:119
+#: templates/2026/top.html:106 templates/base.html:120
 msgid "審査員"
 msgstr "Dommere"
-
-#: templates/2024/rule.html:21 templates/2024/rule.html:70
-#: templates/2024/rule.html:129 templates/2024/rule.html:227
-#: templates/2024/rule.html:268 templates/2024/rule.html:313
-#: templates/2024/stream.html:42 templates/2024/time_schedule.html:42
-#: templates/2024/time_schedule.html:156 templates/2024/time_schedule.html:286
-#: templates/2024/top.html:55 templates/2024/top_7tosmoke.html:36
-#: templates/2025/rule.html:18 templates/2025/rule.html:66
-#: templates/2025/rule.html:238 templates/2025/rule.html:301
-#: templates/2025/rule.html:357 templates/2025/rule.html:399
-#: templates/2025/time_schedule.html:61 templates/2025/time_schedule.html:121
-#: templates/2025/time_schedule.html:155 templates/2025/top.html:177
-#: templates/2025/top_7tosmoke.html:36 templates/2025/wildcards.html:112
-#: templates/2026/time_schedule.html:58 templates/2026/time_schedule.html:114
-#: templates/2026/top.html:169 templates/2026/top_7tosmoke.html:36
-#: templates/base.html:120
-msgid "現地観戦計画のたてかた"
-msgstr "Hvordan planlegge en live-kamp"
 
 #: templates/2024/stream.html:41 templates/2024/time_schedule.html:3
 #: templates/2024/time_schedule.html:4 templates/2024/time_schedule.html:5
@@ -1340,66 +1216,81 @@ msgstr "Billett"
 msgid "当日配信"
 msgstr "Direktesending"
 
+#: templates/2024/rule.html:21 templates/2024/rule.html:70
+#: templates/2024/rule.html:129 templates/2024/rule.html:227
+#: templates/2024/rule.html:268 templates/2024/rule.html:313
+#: templates/2024/stream.html:42 templates/2024/time_schedule.html:42
+#: templates/2024/time_schedule.html:156 templates/2024/time_schedule.html:286
+#: templates/2024/top.html:55 templates/2024/top_7tosmoke.html:36
+#: templates/2025/rule.html:18 templates/2025/rule.html:66
+#: templates/2025/rule.html:238 templates/2025/rule.html:301
+#: templates/2025/rule.html:357 templates/2025/rule.html:399
+#: templates/2025/time_schedule.html:61 templates/2025/time_schedule.html:121
+#: templates/2025/time_schedule.html:155 templates/2025/top.html:177
+#: templates/2025/top_7tosmoke.html:36 templates/2025/wildcards.html:112
+#: templates/2026/time_schedule.html:58 templates/2026/time_schedule.html:114
+#: templates/2026/top.html:169 templates/2026/top_7tosmoke.html:36
+#: templates/base.html:133
+msgid "現地観戦計画のたてかた"
+msgstr "Hvordan planlegge en live-kamp"
+
 #: templates/2024/top.html:84 templates/2025/top.html:81
 #: templates/2025/top.html:83 templates/2025/top.html:85
 #: templates/2025/top.html:148 templates/2025/top.html:153
 #: templates/2026/top.html:76 templates/2026/top.html:78
 #: templates/2026/top.html:80 templates/2026/top.html:140
-#: templates/2026/top.html:145 templates/base.html:133
+#: templates/2026/top.html:145 templates/base.html:134
 #: templates/common/result.html:3 templates/common/result.html:4
 #: templates/common/result.html:5 templates/common/result.html:9
-#: templates/common/result.html:95
-#: templates/others/participant_detail.html:161
+#: templates/common/result.html:95 templates/others/participant_detail.html:161
 #: templates/others/participant_detail.html:168
 #: templates/others/participant_detail.html:244
 #: templates/others/translation.html:24
 msgid "大会結果"
 msgstr "Konkurranseresultater"
 
-#: templates/base.html:153
+#: templates/base.html:154
 msgid "年度選択"
 msgstr "Årsvalg"
 
-#: templates/base.html:201
+#: templates/base.html:202
 msgid "翻訳未提供"
 msgstr "Oversettelse ikke tilgjengelig"
 
-#: templates/base.html:202
+#: templates/base.html:203
 msgid "このページは翻訳が提供されていません。現在は原文の日本語を表示しています。"
-msgstr ""
-"Denne siden har ingen oversettelse. Den viser for øyeblikket den originale "
-"japanske teksten."
+msgstr "Denne siden har ingen oversettelse. Den viser for øyeblikket den originale japanske teksten."
 
-#: templates/base.html:218
+#: templates/base.html:219
 msgid "GBBまでの残り時間"
 msgstr "Gjenstående tid til GBB"
 
-#: templates/base.html:223 templates/base.html:239
+#: templates/base.html:224 templates/base.html:240
 #: templates/includes/bottom_navigation.html:30
 #: templates/includes/bottom_navigation.html:48
 msgid "なんでも検索"
 msgstr "Søk etter hva som helst"
 
-#: templates/base.html:225 templates/includes/bottom_navigation.html:32
+#: templates/base.html:226 templates/includes/bottom_navigation.html:32
 #, python-brace-format
 msgid "GBB {year} の検索のみ可能です"
 msgstr "Kun søk etter GBB {year} er mulig"
 
-#: templates/base.html:226 templates/includes/bottom_navigation.html:33
+#: templates/base.html:227 templates/includes/bottom_navigation.html:33
 #, python-brace-format
 msgid "GBB {year} は終了しました"
 msgstr "GBB {year} er avsluttet"
 
-#: templates/base.html:230 templates/includes/bottom_navigation.html:37
+#: templates/base.html:231 templates/includes/bottom_navigation.html:37
 #, python-brace-format
 msgid "例：GBB {year} の最終結果は？"
 msgstr "Eksempel: Hva er de endelige resultatene for GBB {year}?"
 
-#: templates/base.html:235 templates/includes/bottom_navigation.html:42
+#: templates/base.html:236 templates/includes/bottom_navigation.html:42
 msgid "GBB最新情報の検索はこちら"
 msgstr "Klikk her for å søke etter den siste GBB-informasjonen"
 
-#: templates/base.html:240 templates/includes/bottom_navigation.html:49
+#: templates/base.html:241 templates/includes/bottom_navigation.html:49
 #, python-brace-format
 msgid "GBB {year} について検索してみよう"
 msgstr "Søk etter GBB {year}"
@@ -1407,43 +1298,41 @@ msgstr "Søk etter GBB {year}"
 #: templates/2024/top.html:30 templates/2024/top_7tosmoke.html:18
 #: templates/2025/top.html:37 templates/2025/top_7tosmoke.html:18
 #: templates/2026/top.html:37 templates/2026/top_7tosmoke.html:18
-#: templates/base.html:243 templates/includes/bottom_navigation.html:52
+#: templates/base.html:244 templates/includes/bottom_navigation.html:52
 msgid "例：現地観戦計画のたてかた"
 msgstr "Eksempel: Hvordan planlegge å se arrangementet live"
 
-#: templates/base.html:253
+#: templates/base.html:254
 msgid "ホーム画面に追加"
 msgstr "Legg til på startskjermen"
 
-#: templates/base.html:256
+#: templates/base.html:257
 msgid "GBBINFO-JPNはPWAに対応しています。"
 msgstr "GBBINFO-JPN støtter PWA."
 
-#: templates/base.html:256
+#: templates/base.html:257
 msgid "ブラウザメニューを開き、「ホーム画面に追加」をタップすると、アプリとしてインストールできます。"
-msgstr ""
-"Åpne nettlesermenyen og trykk på \"Legg til på startskjerm\", så kan du "
-"installere det som en app."
+msgstr "Åpne nettlesermenyen og trykk på \"Legg til på startskjerm\", så kan du installere det som en app."
 
-#: templates/base.html:262
+#: templates/base.html:263
 msgid "ホームへもどる"
 msgstr "Gå tilbake til startsiden"
 
-#: templates/base.html:287
+#: templates/base.html:288
 msgid "GBBINFO-JPN開発者 Twitter"
 msgstr "GBBINFO-JPN utvikler Twitter"
 
-#: templates/base.html:289
+#: templates/base.html:290
 msgid "GBBINFO-JPNについて"
 msgstr "Om GBBINFO-JPN"
 
-#: templates/base.html:291 templates/others/translation.html:3
+#: templates/base.html:292 templates/others/translation.html:3
 #: templates/others/translation.html:4 templates/others/translation.html:5
 #: templates/others/translation.html:10
 msgid "各ページの翻訳提供について"
 msgstr "Om oversettelser av hver side"
 
-#: templates/base.html:317
+#: templates/base.html:318
 msgid "いい景色だろ？"
 msgstr "Flott utsikt, ikke sant?"
 
@@ -1614,9 +1503,7 @@ msgstr "Ingen informasjon"
 
 #: templates/includes/popup_no_info.html:9
 msgid "お探しの情報は、公式発表がまだ無いため、当サイトのどこにも存在しません。"
-msgstr ""
-"Informasjonen du leter etter finnes ikke noe sted på dette nettstedet, siden"
-" det ikke er noen offisiell kunngjøring ennå."
+msgstr "Informasjonen du leter etter finnes ikke noe sted på dette nettstedet, siden det ikke er noen offisiell kunngjøring ennå."
 
 #: templates/includes/popup_no_info.html:9
 msgid "公式発表をお待ちください。"
@@ -1632,9 +1519,7 @@ msgstr "Relaterte nettsteder"
 
 #: templates/others/participant_detail.html:182
 msgid "表示されている関連サイトやSNS情報・紹介文は、自動検索によって取得されたものです。"
-msgstr ""
-"De relaterte nettstedene, SNS-informasjonen og introduksjonen som vises, er "
-"hentet via automatisk søk."
+msgstr "De relaterte nettstedene, SNS-informasjonen og introduksjonen som vises, er hentet via automatisk søk."
 
 #: templates/others/participant_detail.html:183
 msgid "内容に誤りが含まれている可能性があります。"
@@ -1660,9 +1545,7 @@ msgstr "Andre deltakere"
 
 #: templates/others/translation.html:11
 msgid "GBBINFO-JPNは、一部を除き、各ページの翻訳をAI Geminiを用いて提供しています。"
-msgstr ""
-"GBBINFO-JPN tilbyr, med unntak av noen deler, oversettelser av hver side ved"
-" hjelp av AI Gemini."
+msgstr "GBBINFO-JPN tilbyr, med unntak av noen deler, oversettelser av hver side ved hjelp av AI Gemini."
 
 #: templates/others/translation.html:12
 msgid "AIによる翻訳のため、誤りがある可能性があります。"
@@ -1678,13 +1561,11 @@ msgstr "År som dekkes: 2024 og utover"
 
 #: templates/others/translation.html:30
 msgid "なお、翻訳対応言語は、アクセス状況に応じて随時追加予定です。"
-msgstr ""
-"Merk at vi vil legge til flere språk for oversettelse basert på tilgang."
+msgstr "Merk at vi vil legge til flere språk for oversettelse basert på tilgang."
 
 #: templates/others/translation.html:32
 msgid "翻訳を提供していないページは、原文である日本語で表示されます。"
-msgstr ""
-"Sider som ikke tilbyr oversettelse, vil vises på originalspråket, japansk."
+msgstr "Sider som ikke tilbyr oversettelse, vil vises på originalspråket, japansk."
 
 #~ msgid "GBB {year} なんでも検索"
 #~ msgstr ""
@@ -1714,20 +1595,14 @@ msgstr ""
 #~ msgstr "**Overføringsønsket tweet**"
 
 #~ msgid "譲渡に関するトラブルについて、当サイトは一切の責任を負いません。また、連絡の仲介も一切行いません。"
-#~ msgstr ""
-#~ "Angående problemer knyttet til overføring, påtar ikke denne nettsiden seg "
-#~ "noe ansvar. Vi vil heller ikke fungere som mellomledd i kontakten."
+#~ msgstr "Angående problemer knyttet til overføring, påtar ikke denne nettsiden seg noe ansvar. Vi vil heller ikke fungere som mellomledd i kontakten."
 
 #~ msgid "購入を希望する場合、ご本人様へ直接DM or リプライにてご連絡ください。"
-#~ msgstr ""
-#~ "Hvis du ønsker å kjøpe, vennligst kontakt vedkommende direkte via DM eller "
-#~ "svar."
+#~ msgstr "Hvis du ønsker å kjøpe, vennligst kontakt vedkommende direkte via DM eller svar."
 
 #~ msgid "掲載申込があり次第、掲載開始予定 (現在掲載申込を募集中)"
-#~ msgstr ""
-#~ "Publisering starter så snart søknaden er sendt inn (søknader aksepteres nå)"
+#~ msgstr "Publisering starter så snart søknaden er sendt inn (søknader aksepteres nå)"
 
 #~ msgid "譲渡希望ツイートの掲載をご希望の場合、GBBINFO-JPN開発者 TwitterへDMにてご連絡ください。"
-#~ msgstr ""
-#~ "Hvis du ønsker å publisere en tweet om overføring, vennligst kontakt "
-#~ "GBBINFO-JPN-utvikleren på Twitter via DM."
+#~ msgstr "Hvis du ønsker å publisere en tweet om overføring, vennligst kontakt GBBINFO-JPN-utvikleren på Twitter via DM."
+
