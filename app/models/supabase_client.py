@@ -14,7 +14,6 @@ from dotenv import load_dotenv
 from postgrest.exceptions import APIError
 from supabase import Client, create_client
 
-from app.models.googletrans_client import googletrans_service
 from app.util.filter_eq import Operator
 
 ALL_DATA = "*"
@@ -465,6 +464,8 @@ class SupabaseService:
             add_langs (list[str]): 追加する言語コードのリスト
             remove_langs (list[str]): 削除する言語コードのリスト
         """
+        from app.models.googletrans_client import googletrans_service
+
         # まず各国のnamesカラムを取得
         countries = self.get_data("Country", columns=["iso_code", "names"], pandas=True)
 
