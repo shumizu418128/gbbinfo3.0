@@ -1404,12 +1404,12 @@ msgstr "Cerca qualsiasi cosa"
 #: templates/base.html:226 templates/includes/bottom_navigation.html:32
 #, python-brace-format
 msgid "GBB {year} の検索のみ可能です"
-msgstr "Only GBB {year} can be searched"
+msgstr "È possibile cercare solo GBB {year}"
 
 #: templates/base.html:227 templates/includes/bottom_navigation.html:33
 #, python-brace-format
 msgid "GBB {year} は終了しました"
-msgstr "GBB {year} has ended."
+msgstr "GBB {year} è terminato."
 
 #: templates/base.html:231 templates/includes/bottom_navigation.html:37
 #, python-brace-format

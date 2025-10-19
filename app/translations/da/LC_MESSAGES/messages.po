@@ -708,14 +708,7 @@ msgstr ""
 
 #: templates/2025/rule.html:285 templates/2025/wildcard_regulation.html:235
 msgid "Tag Team部門・Crew部門参加希望の方はご注意ください。"
-msgstr ""
-"Vigtige instruktioner:\n"
-"1. Returner KUN den oversatte tekst\n"
-"2. Tilføj IKKE pladsholdere eller variabler, der ikke var i den originale tekst\n"
-"3. Oversæt IKKE tekst, der ligner {variable_name} - behold den præcis som den er\n"
-"4. Tilføj IKKE forklarende tekst eller noter\n"
-"\n"
-"Tekst der skal oversættes: Tag Team-afdeling og Crew-afdeling ansøgere bedes bemærke."
+msgstr "Bemærk venligst, hvis du ønsker at deltage i Tag Team- eller Crew-kategorien."
 
 #: templates/2025/rule.html:343
 msgid "レフェリー"

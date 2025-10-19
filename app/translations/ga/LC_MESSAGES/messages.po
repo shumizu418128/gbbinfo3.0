@@ -112,7 +112,7 @@ msgstr "Síol"
 
 #: templates/2024/rule.html:81 templates/2025/rule.html:77
 msgid "計"
-msgstr "an"
+msgstr "Iomlán"
 
 #: templates/2024/rule.html:118 templates/2025/rule.html:115
 #: templates/2025/wildcard_regulation.html:113
@@ -1294,7 +1294,7 @@ msgstr "Am Sceideal"
 #: templates/common/korea.html:5 templates/common/korea.html:9
 #: templates/others/participant_detail.html:240
 msgid "韓国代表"
-msgstr "Ionadaí na Cóiré Thuaidh"
+msgstr "Ionadaí na Cóiré Theas"
 
 #: templates/2024/top.html:71 templates/2025/rule.html:242
 #: templates/2025/ticket.html:21 templates/2025/time_schedule.html:125
@@ -1315,7 +1315,7 @@ msgstr "foireann náisiúnta na Seapáine"
 #: templates/2026/ticket.html:12 templates/2026/top.html:131
 #: templates/base.html:129
 msgid "会場"
-msgstr "hionn"
+msgstr "Ionad"
 
 #: templates/2024/ticket.html:19 templates/2024/top.html:76
 #: templates/2025/ticket.html:13 templates/2025/top.html:139
@@ -1535,7 +1535,7 @@ msgstr "Taispeáin rannpháirtithe & tarraingthe siar"
 #: templates/others/participant_detail.html:103
 #: templates/others/participant_detail.html:199
 msgid "国"
-msgstr "Tábhachtach"
+msgstr "Tír"
 
 #: templates/common/participants.html:114
 #: templates/common/participants.html:117
