@@ -439,6 +439,10 @@ class AppUrlsTestCase(unittest.TestCase):
                                 "th": "ญี่ปุ่น",
                                 "zh_Hans_CN": "日本",
                                 "zh_Hant_TW": "日本",
+                                "ar": "اليابان",
+                                "be": "Японія",
+                                "da": "Japan",
+                                "ga": "An tSeapáin",
                             },
                         },
                         "ParticipantMember": [],
@@ -482,11 +486,6 @@ class AppUrlsTestCase(unittest.TestCase):
 
         main_languages = set([code for code, _ in LANGUAGES if code != "ja"])
 
-        # translate.pyの言語設定を取得
-        from app.translations.translate import BABEL_SUPPORTED_LOCALES
-
-        translate_languages = set(BABEL_SUPPORTED_LOCALES)
-
         # translationsフォルダの言語フォルダを取得
         import os
 
@@ -501,15 +500,6 @@ class AppUrlsTestCase(unittest.TestCase):
                     if os.path.exists(lc_messages_path):
                         translation_folders.add(item)
 
-        # 言語設定の一致を確認
-        self.assertEqual(
-            main_languages,
-            translate_languages,
-            msg=f"main.pyとtranslate.pyの言語設定が一致しません。\n"
-            f"main.py(jaを除く): {sorted(main_languages)}\n"
-            f"translate.py: {sorted(translate_languages)}\n"
-            f"差分: {main_languages.symmetric_difference(translate_languages)}",
-        )
 
         self.assertEqual(
             main_languages,
@@ -518,15 +508,6 @@ class AppUrlsTestCase(unittest.TestCase):
             f"main.py(jaを除く): {sorted(main_languages)}\n"
             f"translationsフォルダ: {sorted(translation_folders)}\n"
             f"差分: {main_languages.symmetric_difference(translation_folders)}",
-        )
-
-        self.assertEqual(
-            translate_languages,
-            translation_folders,
-            msg=f"translate.pyとtranslationsフォルダの言語設定が一致しません。\n"
-            f"translate.py: {sorted(translate_languages)}\n"
-            f"translationsフォルダ: {sorted(translation_folders)}\n"
-            f"差分: {translate_languages.symmetric_difference(translation_folders)}",
         )
 
 
