@@ -170,7 +170,7 @@ def participant_detail_view():
     for data in past_participation_data:
         if data["name"].upper() == beatboxer_detail["name"]:
             past_participation_mode = (
-                "single" if data["Category"]["is_team"] else "team"
+                "team" if data["Category"]["is_team"] else "single"
             )
             past_data.append(
                 {
