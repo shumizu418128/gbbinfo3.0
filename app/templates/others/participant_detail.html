@@ -14,6 +14,8 @@
     </div>
 </div>
 
+<div class="answer"></div>
+
 {% if mode == "single" or mode == "team" %}
     <table>
         <thead>
@@ -37,10 +39,11 @@
             </tr>
             <tr>
                 <td>{{_("国")}}</td>
+                {% set participant = beatboxer_detail %}
                 {% if beatboxer_detail.is_cancelled %}
-                    <td><s>{{ beatboxer_detail.country }}</s></td>
+                    <td>{% include "includes/country_flag.html" %}<s>{{ beatboxer_detail.country }}</s></td>
                 {% else %}
-                    <td>{{ beatboxer_detail.country }}</td>
+                    <td>{% include "includes/country_flag.html" %}{{ beatboxer_detail.country }}</td>
                 {% endif %}
             </tr>
             <tr>
@@ -56,23 +59,24 @@
 {% endif %}
 
 {% if mode == "team" %}
-    <h2>TEAM MEMBERS</h2>
+    <div style="margin: 40px;"></div>
     <table>
         <thead>
             <tr>
-                <th>{{_("名前")}}</th>
+                <th>TEAM MEMBERS</th>
                 <th>{{_("国")}}</th>
             </tr>
         </thead>
         <tbody>
             {% for member in beatboxer_detail.ParticipantMember %}
             <tr>
+                {% set participant = member %}
                 {% if beatboxer_detail.is_cancelled %}
                     <td>【{{_("辞退")}}】<br><a href="/others/participant_detail?id={{ member.id }}&mode=team_member">{{ member.name }}</a></td>
-                    <td><s>{{ member.country }}</s></td>
+                    <td>{% include "includes/country_flag.html" %}<s>{{ member.country }}</s></td>
                 {% else %}
                     <td><a href="/others/participant_detail?id={{ member.id }}&mode=team_member">{{ member.name }}</a></td>
-                    <td>{{ member.country }}</td>
+                    <td>{% include "includes/country_flag.html" %}{{ member.country }}</td>
                 {% endif %}
             </tr>
             {% endfor %}
@@ -101,10 +105,11 @@
         <tbody>
             <tr>
                 <td>{{_("国")}}</td>
+                {% set participant = beatboxer_detail %}
                 {% if beatboxer_detail.is_cancelled %}
-                    <td><s>{{ beatboxer_detail.country }}</s></td>
+                    <td>{% include "includes/country_flag.html" %}<s>{{ beatboxer_detail.country }}</s></td>
                 {% else %}
-                    <td>{{ beatboxer_detail.country }}</td>
+                    <td>{% include "includes/country_flag.html" %}{{ beatboxer_detail.country }}</td>
                 {% endif %}
             </tr>
             <tr>
@@ -118,8 +123,6 @@
         </tbody>
     </table>
 {% endif %}
-
-<div class="answer"></div>
 
 <div class="button-container">
     <a href="/{{beatboxer_detail.year}}/participants"><button>GBB {{ beatboxer_detail.year }} {{_("全出場者一覧")}}<br></button></a>
@@ -209,7 +212,7 @@
                     <a href="/others/participant_detail?id={{ participant.id }}&mode={{ same_year_category_mode }}">{{ participant.name }}</a>
                 </td>
                     <td {% if participant.country|length > 5 %} style="font-size: 12px;" {% endif %}>
-                    <s>{{ participant.country }}</s>
+                    {% include "includes/country_flag.html" %}<s>{{ participant.country }}</s>
                 </td>
                     <td {% if participant.ticket_class|length > 11 %} style="font-size: 12px;" {% endif %}>
                     <s>{{ participant.ticket_class }}</s>
@@ -223,7 +226,7 @@
                     {% endif %}
                 </td>
                 <td {% if participant.country|length > 5 %} style="font-size: 12px;" {% endif %}>
-                    {{ participant.country }}
+                    {% include "includes/country_flag.html" %}{{ participant.country }}
                 </td>
                 <td {% if participant.ticket_class|length > 11 %} style="font-size: 12px;" {% endif %}>
                     {{ participant.ticket_class }}
