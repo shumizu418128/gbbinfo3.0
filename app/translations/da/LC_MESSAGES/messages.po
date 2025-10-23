@@ -41,7 +41,7 @@ msgstr "Liste over afholdte afdelinger"
 #: templates/2025/rule.html:37 templates/2025/rule.html:128
 #: templates/2026/rule.html:69
 msgid "出場シード権 獲得条件"
-msgstr "Udstedelsesfrøs kvalifikationskriterier"
+msgstr "Betingelser for seed‑rettigheder"
 
 #: templates/2024/rule.html:42 templates/2024/rule.html:230
 #: templates/2025/rule.html:41 templates/2025/rule.html:246
@@ -1358,7 +1358,7 @@ msgstr "Billetter"
 #: templates/2026/top_7tosmoke.html:40 templates/base.html:130
 #: templates/others/translation.html:23
 msgid "当日配信"
-msgstr "Dagslevering"
+msgstr "Livestream"
 
 #: templates/2024/rule.html:21 templates/2024/rule.html:70
 #: templates/2024/rule.html:129 templates/2024/rule.html:227
