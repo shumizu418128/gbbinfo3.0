@@ -183,20 +183,17 @@
       {% elif is_gbb_ended is true %}
         {% include 'includes/next_year.html' %}
       {% endif %}
-
       {% if is_local is true %}
         <div class="post-it" style="font-size: 30px;">
           <strong>【 TEST PAGE - LOCAL 】</strong>
         </div>
       {% endif %}
-
       {% if is_pull_request is true %}
         <div class="post-it" style="font-size: 30px;">
           <strong>【 TEST PAGE - PULL REQUEST 】</strong><br>
           <a href="https://github.com/shumizu418128/gbbinfo3.0/pulls" target="_blank" rel="noopener noreferrer">gbbinfo3.0/pulls</a>
         </div>
       {% endif %}
-
       {% if is_translated is false %}
         <div class="post-it">
           <p><strong>【{{_("翻訳未提供")}}】</strong></p>

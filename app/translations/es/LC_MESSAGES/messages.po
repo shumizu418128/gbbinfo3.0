@@ -1243,7 +1243,7 @@ msgstr "Menú"
 #: templates/2026/top.html:4 templates/2026/top.html:5
 #: templates/2026/top.html:25 templates/2026/top.html:97
 #: templates/2026/top.html:173 templates/2026/top_7tosmoke.html:24
-#: templates/base.html:117 templates/base.html:151 templates/base.html:263
+#: templates/base.html:117 templates/base.html:151 templates/base.html:260
 #: templates/includes/next_year.html:5
 #: templates/others/participant_detail.html:126
 msgid "これだけガイド"
@@ -1256,7 +1256,7 @@ msgstr "Guía"
 #: templates/2025/time_schedule.html:156 templates/2025/top.html:110
 #: templates/2025/wildcards.html:14 templates/2025/wildcards.html:83
 #: templates/2026/rule.html:161 templates/2026/time_schedule.html:118
-#: templates/2026/top.html:102 templates/base.html:118 templates/base.html:269
+#: templates/2026/top.html:102 templates/base.html:118 templates/base.html:266
 #: templates/common/participants.html:25 templates/common/result.html:98
 #: templates/includes/participants_form.html:13
 msgid "Wildcard結果"
@@ -1267,7 +1267,7 @@ msgstr "Resultados de Wildcard"
 #: templates/2025/time_schedule.html:156 templates/2025/top.html:110
 #: templates/2025/wildcards.html:14 templates/2025/wildcards.html:83
 #: templates/2026/time_schedule.html:118 templates/2026/top.html:102
-#: templates/base.html:118 templates/base.html:269
+#: templates/base.html:118 templates/base.html:266
 #: templates/common/result.html:98
 msgid "出場者"
 msgstr "Participantes"
@@ -1414,46 +1414,46 @@ msgstr "Resultados del evento."
 msgid "年度選択"
 msgstr "Selección de año"
 
-#: templates/base.html:202
+#: templates/base.html:199
 msgid "翻訳未提供"
 msgstr "Traducción no disponible"
 
-#: templates/base.html:203
+#: templates/base.html:200
 msgid "このページは翻訳が提供されていません。現在は原文の日本語を表示しています。"
 msgstr ""
 "Esta página no tiene traducción disponible. Actualmente se muestra el "
 "japonés original."
 
-#: templates/base.html:219
+#: templates/base.html:216
 msgid "GBBまでの残り時間"
 msgstr "Tiempo restante hasta GBB"
 
-#: templates/base.html:224 templates/base.html:240
+#: templates/base.html:221 templates/base.html:237
 #: templates/includes/bottom_navigation.html:30
 #: templates/includes/bottom_navigation.html:48
 msgid "なんでも検索"
 msgstr "Buscar cualquier cosa"
 
-#: templates/base.html:226 templates/includes/bottom_navigation.html:32
+#: templates/base.html:223 templates/includes/bottom_navigation.html:32
 #, python-brace-format
 msgid "GBB {year} の検索のみ可能です"
 msgstr "Solo se puede buscar GBB {year}"
 
-#: templates/base.html:227 templates/includes/bottom_navigation.html:33
+#: templates/base.html:224 templates/includes/bottom_navigation.html:33
 #, python-brace-format
 msgid "GBB {year} は終了しました"
 msgstr "GBB {year} ha terminado"
 
-#: templates/base.html:231 templates/includes/bottom_navigation.html:37
+#: templates/base.html:228 templates/includes/bottom_navigation.html:37
 #, python-brace-format
 msgid "例：GBB {year} の最終結果は？"
 msgstr "Ejemplo: ¿Cuáles son los resultados finales de GBB {year}?"
 
-#: templates/base.html:236 templates/includes/bottom_navigation.html:42
+#: templates/base.html:233 templates/includes/bottom_navigation.html:42
 msgid "GBB最新情報の検索はこちら"
 msgstr "Busca la información más reciente sobre GBB aquí."
 
-#: templates/base.html:241 templates/includes/bottom_navigation.html:49
+#: templates/base.html:238 templates/includes/bottom_navigation.html:49
 #, python-brace-format
 msgid "GBB {year} について検索してみよう"
 msgstr "Busquemos sobre GBB {year}"
@@ -1461,43 +1461,43 @@ msgstr "Busquemos sobre GBB {year}"
 #: templates/2024/top.html:30 templates/2024/top_7tosmoke.html:18
 #: templates/2025/top.html:37 templates/2025/top_7tosmoke.html:18
 #: templates/2026/top.html:37 templates/2026/top_7tosmoke.html:18
-#: templates/base.html:244 templates/includes/bottom_navigation.html:52
+#: templates/base.html:241 templates/includes/bottom_navigation.html:52
 msgid "例：現地観戦計画のたてかた"
 msgstr "Ejemplo: Cómo planificar tu visita al evento"
 
-#: templates/base.html:254
+#: templates/base.html:251
 msgid "ホーム画面に追加"
 msgstr "Añadir a la pantalla de inicio"
 
-#: templates/base.html:257
+#: templates/base.html:254
 msgid "GBBINFO-JPNはPWAに対応しています。"
 msgstr "GBBINFO-JPN es compatible con PWA."
 
-#: templates/base.html:257
+#: templates/base.html:254
 msgid "ブラウザメニューを開き、「ホーム画面に追加」をタップすると、アプリとしてインストールできます。"
 msgstr ""
 "Abre el menú del navegador y toca \"Añadir a la pantalla de inicio\" para "
 "instalar como una aplicación."
 
-#: templates/base.html:263
+#: templates/base.html:260
 msgid "ホームへもどる"
 msgstr "Volver a la página principal"
 
-#: templates/base.html:288
+#: templates/base.html:285
 msgid "GBBINFO-JPN開発者 Twitter"
 msgstr "GBBINFO-JPN desarrolladores Twitter"
 
-#: templates/base.html:290
+#: templates/base.html:287
 msgid "GBBINFO-JPNについて"
 msgstr "Acerca de GBBINFO-JPN"
 
-#: templates/base.html:292 templates/others/translation.html:3
+#: templates/base.html:289 templates/others/translation.html:3
 #: templates/others/translation.html:4 templates/others/translation.html:5
 #: templates/others/translation.html:10
 msgid "各ページの翻訳提供について"
 msgstr "Sobre la provisión de traducción de cada página."
 
-#: templates/base.html:318
+#: templates/base.html:315
 msgid "いい景色だろ？"
 msgstr "¿Bonitas vistas, verdad?"
 
