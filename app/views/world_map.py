@@ -4,10 +4,8 @@ from collections import defaultdict
 import folium
 from flask import abort, render_template, session
 
-from app.config.config import FOLIUM_CUSTOM_CSS
+from app.config.config import FOLIUM_CUSTOM_CSS, MULTI_COUNTRY_TEAM_ISO_CODE
 from app.models.supabase_client import supabase_service
-
-MULTI_COUNTRY_TEAM_ISO_CODE = 9999
 
 
 # MARK: 世界地図

@@ -4,11 +4,10 @@ from urllib.parse import quote
 
 from flask import redirect, render_template, request, session
 
+from app.config.config import MULTI_COUNTRY_TEAM_ISO_CODE
 from app.models.supabase_client import supabase_service
 from app.util.filter_eq import Operator
 from app.util.participant_edit import team_multi_country, wildcard_rank_sort
-
-MULTI_COUNTRY_TEAM_ISO_CODE = 9999
 
 
 # MARK: 出場者詳細
