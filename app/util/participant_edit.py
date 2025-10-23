@@ -46,7 +46,7 @@ def team_multi_country(team_data: dict, language: str):
             )
 
     combined_data["country"] = " / ".join(sorted(country_list))
-    combined_data["iso_alpha2"] = list(iso_alpha2_list)
+    combined_data["iso_alpha2"] = sorted(list(iso_alpha2_list))
     combined_data.pop("Country")
 
     return combined_data

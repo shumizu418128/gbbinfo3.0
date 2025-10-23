@@ -132,7 +132,7 @@ def participants_view(year: int):
             ],
             join_tables={
                 "Category": ["id", "name", "is_team"],
-                "ParticipantMember": ["name", "Country(names)"],
+                "ParticipantMember": ["name", "Country(names, iso_alpha2)"],
                 "Country": ["iso_code", "names", "iso_alpha2"],
             },
             filters=filters,
