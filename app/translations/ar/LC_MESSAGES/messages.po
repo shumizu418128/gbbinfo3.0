@@ -101,9 +101,9 @@ msgstr "يرجى التأكد من أنك قد راجعت القواعد بنف�
 #: templates/2026/rule.html:105 templates/2026/rule.html:135
 #: templates/2026/top.html:53 templates/common/cancels.html:23
 #: templates/common/japan.html:22 templates/common/korea.html:22
-#: templates/common/participants.html:128
-#: templates/others/participant_detail.html:31
-#: templates/others/participant_detail.html:136
+#: templates/common/participants.html:130
+#: templates/others/participant_detail.html:33
+#: templates/others/participant_detail.html:139
 msgid "部門"
 msgstr "قسم"
 
@@ -158,10 +158,9 @@ msgstr "حقوق البذر - GBB"
 #: templates/2026/rule.html:104 templates/2026/rule.html:134
 #: templates/common/cancels.html:22 templates/common/japan.html:21
 #: templates/common/korea.html:21 templates/common/participants.html:44
-#: templates/common/participants.html:127 templates/common/result.html:57
-#: templates/others/participant_detail.html:63
-#: templates/others/participant_detail.html:135
-#: templates/others/participant_detail.html:198
+#: templates/common/participants.html:129 templates/common/result.html:63
+#: templates/others/participant_detail.html:138
+#: templates/others/participant_detail.html:201
 msgid "名前"
 msgstr "اسم"
 
@@ -172,9 +171,9 @@ msgstr "اسم"
 #: templates/2026/rule.html:136 templates/common/cancels.html:24
 #: templates/common/japan.html:23 templates/common/korea.html:23
 #: templates/common/participants.html:46
-#: templates/common/participants.html:129
-#: templates/others/participant_detail.html:47
-#: templates/others/participant_detail.html:200
+#: templates/common/participants.html:131
+#: templates/others/participant_detail.html:50
+#: templates/others/participant_detail.html:203
 msgid "出場権"
 msgstr "حق التأهل"
 
@@ -191,7 +190,7 @@ msgstr "حق التأهل"
 #: templates/2026/time_schedule.html:111 templates/2026/time_schedule.html:131
 #: templates/2026/time_schedule.html:135 templates/2026/time_schedule.html:139
 #: templates/common/cancels.html:38 templates/common/participants.html:19
-#: templates/common/participants.html:83 templates/common/result.html:71
+#: templates/common/participants.html:85 templates/common/result.html:79
 msgid "～発表次第更新～"
 msgstr "سيتم التحديث عند الإعلان"
 
@@ -207,23 +206,23 @@ msgstr "قائمة المتنازلين عن حقوق البذور"
 
 #: templates/2024/rule.html:203 templates/2025/rule.html:203
 #: templates/2026/rule.html:143 templates/common/cancels.html:30
-#: templates/common/japan.html:30 templates/common/korea.html:31
+#: templates/common/japan.html:30 templates/common/korea.html:30
 #: templates/common/participants.html:54
-#: templates/others/participant_detail.html:21
-#: templates/others/participant_detail.html:71
-#: templates/others/participant_detail.html:84
-#: templates/others/participant_detail.html:93
-#: templates/others/participant_detail.html:113
-#: templates/others/participant_detail.html:144
-#: templates/others/participant_detail.html:208
+#: templates/others/participant_detail.html:23
+#: templates/others/participant_detail.html:75
+#: templates/others/participant_detail.html:88
+#: templates/others/participant_detail.html:97
+#: templates/others/participant_detail.html:118
+#: templates/others/participant_detail.html:147
+#: templates/others/participant_detail.html:211
 msgid "辞退"
 msgstr "تراجع"
 
 #: templates/2024/rule.html:221 templates/2024/time_schedule.html:100
 #: templates/2024/time_schedule.html:230 templates/2025/rule.html:221
 #: templates/2026/rule.html:161 templates/common/cancels.html:52
-#: templates/others/participant_detail.html:160
-#: templates/others/participant_detail.html:167
+#: templates/others/participant_detail.html:163
+#: templates/others/participant_detail.html:170
 msgid "出場者一覧"
 msgstr "قائمة المشاركين"
 
@@ -341,7 +340,7 @@ msgstr "تحقق من آخر تحديثات GBB {year}"
 #: templates/2024/stream.html:40 templates/common/participants.html:3
 #: templates/common/participants.html:4 templates/common/participants.html:5
 #: templates/common/participants.html:10
-#: templates/common/participants.html:146 templates/others/translation.html:18
+#: templates/common/participants.html:148 templates/others/translation.html:18
 msgid "Wildcard結果 & 出場者"
 msgstr "نتائج البطاقة الجامحة والمتنافسون"
 
@@ -556,7 +555,7 @@ msgstr "إعلان نتائج وايلد كارد"
 #: templates/2025/wildcards.html:3 templates/2025/wildcards.html:4
 #: templates/2025/wildcards.html:5 templates/2025/wildcards.html:9
 #: templates/2026/top.html:153 templates/common/cancels.html:55
-#: templates/common/participants.html:101 templates/others/translation.html:25
+#: templates/common/participants.html:103 templates/others/translation.html:25
 msgid "Wildcard一覧"
 msgstr "قائمة الأحرف البديلة"
 
@@ -735,7 +734,7 @@ msgid "GBB24では本番8日前公開"
 msgstr "GBB24 سيتم إصداره قبل 8 أيام من الإطلاق الرسمي"
 
 #: templates/2025/ticket.html:16 templates/common/japan.html:50
-#: templates/common/korea.html:62 templates/common/result.html:97
+#: templates/common/korea.html:50 templates/common/result.html:105
 #: templates/others/translation.html:19
 msgid "ルール & 審査員"
 msgstr "القواعد & الحكام"
@@ -823,10 +822,10 @@ msgid "出場枠の数"
 msgstr "عدد أماكن المشاركة"
 
 #: templates/2025/top.html:87 templates/2026/top.html:82
-#: templates/common/japan.html:48 templates/common/korea.html:60
+#: templates/common/japan.html:48 templates/common/korea.html:48
 #: templates/common/participants.html:29
-#: templates/others/participant_detail.html:125
-#: templates/others/participant_detail.html:238
+#: templates/others/participant_detail.html:128
+#: templates/others/participant_detail.html:241
 msgid "全出場者一覧"
 msgstr "قائمة بجميع المشاركين"
 
@@ -1189,7 +1188,7 @@ msgstr "قائمة"
 #: templates/2026/top.html:173 templates/2026/top_7tosmoke.html:24
 #: templates/base.html:117 templates/base.html:151 templates/base.html:263
 #: templates/includes/next_year.html:5
-#: templates/others/participant_detail.html:126
+#: templates/others/participant_detail.html:129
 msgid "これだけガイド"
 msgstr "الدليل فقط"
 
@@ -1201,7 +1200,7 @@ msgstr "الدليل فقط"
 #: templates/2025/wildcards.html:14 templates/2025/wildcards.html:83
 #: templates/2026/rule.html:160 templates/2026/time_schedule.html:118
 #: templates/2026/top.html:102 templates/base.html:118 templates/base.html:269
-#: templates/common/participants.html:25 templates/common/result.html:98
+#: templates/common/participants.html:25 templates/common/result.html:106
 #: templates/includes/participants_form.html:13
 msgid "Wildcard結果"
 msgstr "نتائج الأحرف البديلة"
@@ -1212,7 +1211,7 @@ msgstr "نتائج الأحرف البديلة"
 #: templates/2025/wildcards.html:14 templates/2025/wildcards.html:83
 #: templates/2026/time_schedule.html:118 templates/2026/top.html:102
 #: templates/base.html:118 templates/base.html:269
-#: templates/common/result.html:98
+#: templates/common/result.html:106
 msgid "出場者"
 msgstr "المشاركون"
 
@@ -1220,7 +1219,7 @@ msgstr "المشاركون"
 #: templates/2026/top.html:85 templates/2026/top.html:110
 #: templates/base.html:119 templates/common/cancels.html:3
 #: templates/common/cancels.html:4 templates/common/cancels.html:5
-#: templates/common/cancels.html:10 templates/common/participants.html:143
+#: templates/common/cancels.html:10 templates/common/participants.html:145
 msgid "辞退者一覧"
 msgstr "قائمة المتنازلين"
 
@@ -1238,7 +1237,7 @@ msgstr "قائمة المتنازلين"
 #: templates/2026/rule.html:5 templates/2026/rule.html:10
 #: templates/2026/time_schedule.html:62 templates/2026/top.html:63
 #: templates/2026/top.html:106 templates/base.html:120
-#: templates/common/participants.html:142
+#: templates/common/participants.html:144
 msgid "ルール"
 msgstr "قواعد"
 
@@ -1274,7 +1273,7 @@ msgstr "الجدول الزمني"
 #: templates/2026/top.html:121 templates/base.html:125
 #: templates/common/korea.html:3 templates/common/korea.html:4
 #: templates/common/korea.html:5 templates/common/korea.html:9
-#: templates/others/participant_detail.html:240
+#: templates/others/participant_detail.html:243
 msgid "韓国代表"
 msgstr "كوريا الجنوبية"
 
@@ -1284,7 +1283,7 @@ msgstr "كوريا الجنوبية"
 #: templates/2026/top.html:126 templates/base.html:127
 #: templates/common/japan.html:3 templates/common/japan.html:4
 #: templates/common/japan.html:5 templates/common/japan.html:9
-#: templates/others/participant_detail.html:242
+#: templates/others/participant_detail.html:245
 #: templates/others/translation.html:21
 msgid "日本代表"
 msgstr "اليابان"
@@ -1346,10 +1345,10 @@ msgstr "كيفية وضع خطة لمشاهدة المباراة على أرض �
 #: templates/2026/top.html:145 templates/base.html:134
 #: templates/common/result.html:3 templates/common/result.html:4
 #: templates/common/result.html:5 templates/common/result.html:9
-#: templates/common/result.html:95
-#: templates/others/participant_detail.html:161
-#: templates/others/participant_detail.html:168
-#: templates/others/participant_detail.html:244
+#: templates/common/result.html:103
+#: templates/others/participant_detail.html:164
+#: templates/others/participant_detail.html:171
+#: templates/others/participant_detail.html:247
 #: templates/others/translation.html:24
 msgid "大会結果"
 msgstr "نتائج المسابقة"
@@ -1456,19 +1455,19 @@ msgid "トップページ"
 msgstr "الصفحة الرئيسية"
 
 #: templates/common/cancels.html:43 templates/common/japan.html:59
-#: templates/common/korea.html:71 templates/common/participants.html:105
-#: templates/common/result.html:86
+#: templates/common/korea.html:59 templates/common/participants.html:107
+#: templates/common/result.html:94
 msgid "その他の年度を確認："
 msgstr "تحقق من السنوات الأخرى:"
 
 #: templates/common/cancels.html:53 templates/common/japan.html:49
-#: templates/common/korea.html:61 templates/common/participants.html:99
-#: templates/common/result.html:96
+#: templates/common/korea.html:49 templates/common/participants.html:101
+#: templates/common/result.html:104
 msgid "出場権詳細"
 msgstr "تفاصيل التأهل"
 
 #: templates/common/cancels.html:54 templates/common/japan.html:51
-#: templates/common/korea.html:63 templates/common/participants.html:100
+#: templates/common/korea.html:51 templates/common/participants.html:102
 msgid "Wildcard結果発表日"
 msgstr "إعلان نتائج البطاقة الجامحة"
 
@@ -1476,17 +1475,17 @@ msgstr "إعلان نتائج البطاقة الجامحة"
 msgid "日本代表なし"
 msgstr "لا يوجد ممثل ياباني"
 
-#: templates/common/japan.html:54 templates/common/korea.html:66
-#: templates/common/participants.html:136
+#: templates/common/japan.html:54 templates/common/korea.html:54
+#: templates/common/participants.html:138
 msgid "出場者世界地図"
 msgstr "خريطة العالم للمشاركين"
 
-#: templates/common/japan.html:55 templates/common/korea.html:67
-#: templates/common/participants.html:137
+#: templates/common/japan.html:55 templates/common/korea.html:55
+#: templates/common/participants.html:139
 msgid "国旗をタップorクリックすると、詳細を確認できます。"
 msgstr "يمكنك النقر أو النقر على العلم الوطني لعرض التفاصيل."
 
-#: templates/common/korea.html:55
+#: templates/common/korea.html:43
 msgid "韓国代表なし"
 msgstr "لا يوجد ممثل كوري"
 
@@ -1509,35 +1508,35 @@ msgid "出場者 & 辞退者を表示"
 msgstr "عرض المشاركين والمتخلفين"
 
 #: templates/common/participants.html:45
-#: templates/others/participant_detail.html:39
-#: templates/others/participant_detail.html:64
-#: templates/others/participant_detail.html:103
-#: templates/others/participant_detail.html:199
+#: templates/others/participant_detail.html:41
+#: templates/others/participant_detail.html:67
+#: templates/others/participant_detail.html:107
+#: templates/others/participant_detail.html:202
 msgid "国"
 msgstr "البلد"
 
-#: templates/common/participants.html:114
-#: templates/common/participants.html:117
+#: templates/common/participants.html:116
+#: templates/common/participants.html:119
 msgid "出場者検索"
 msgstr "البحث عن المشاركين"
 
-#: templates/common/participants.html:115
+#: templates/common/participants.html:117
 msgid "出場者名を検索できます"
 msgstr "يمكنك البحث عن أسماء المتسابقين"
 
-#: templates/common/participants.html:115
+#: templates/common/participants.html:117
 msgid "半角英数字推奨"
 msgstr "يفضل استخدام الأحرف والأرقام الإنجليزية بنصف عرض"
 
-#: templates/common/participants.html:122
+#: templates/common/participants.html:124
 msgid "検索結果"
 msgstr "نتائج البحث"
 
-#: templates/common/participants.html:137
+#: templates/common/participants.html:139
 msgid "全出場者を地図にマッピングしました。"
 msgstr "تم رسم جميع المشاركين على الخريطة."
 
-#: templates/common/result.html:19 templates/common/result.html:76
+#: templates/common/result.html:19 templates/common/result.html:84
 #: templates/includes/participants_form.html:3
 msgid "部門選択"
 msgstr "اختيار القسم"
@@ -1550,7 +1549,7 @@ msgstr "فوز"
 msgid "負け"
 msgstr "خسارة"
 
-#: templates/common/result.html:56
+#: templates/common/result.html:62
 msgid "順位"
 msgstr "ترتيب"
 
@@ -1618,39 +1617,39 @@ msgstr ""
 msgid "公式発表をお待ちください。"
 msgstr "يرجى الانتظار للإعلان الرسمي."
 
-#: templates/others/participant_detail.html:129
+#: templates/others/participant_detail.html:132
 msgid "過去の出場履歴"
 msgstr "سجل المشاركات السابقة"
 
-#: templates/others/participant_detail.html:174
+#: templates/others/participant_detail.html:177
 msgid "関連サイト"
 msgstr "مواقع ذات صلة"
 
-#: templates/others/participant_detail.html:182
+#: templates/others/participant_detail.html:185
 msgid "表示されている関連サイトやSNS情報・紹介文は、自動検索によって取得されたものです。"
 msgstr ""
 "المواقع ذات الصلة ومعلومات وسائل التواصل الاجتماعي والأوصاف المعروضة تم "
 "الحصول عليها عن طريق البحث التلقائي."
 
-#: templates/others/participant_detail.html:183
+#: templates/others/participant_detail.html:186
 msgid "内容に誤りが含まれている可能性があります。"
 msgstr "قد يحتوي المحتوى على أخطاء."
 
-#: templates/others/participant_detail.html:188
+#: templates/others/participant_detail.html:191
 msgid "もっと調べる"
 msgstr "مزيد من البحث"
 
-#: templates/others/participant_detail.html:188
 #: templates/others/participant_detail.html:191
+#: templates/others/participant_detail.html:194
 #, python-brace-format
 msgid "{name}について、詳しく調べてください"
 msgstr "ابحث عن {name} بالتفصيل"
 
-#: templates/others/participant_detail.html:191
+#: templates/others/participant_detail.html:194
 msgid "ChatGPTに聞く"
 msgstr "اسأل شات جي بي تي"
 
-#: templates/others/participant_detail.html:194
+#: templates/others/participant_detail.html:197
 msgid "他の出場者"
 msgstr "المتسابقون الآخرون"
 
