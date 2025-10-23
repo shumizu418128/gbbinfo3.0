@@ -1,0 +1,18 @@
+{% for iso_alpha2 in iso_alpha2_list %}
+    <picture>
+    <source
+        type="image/webp"
+        srcset="https://flagcdn.com/24x18/{{ iso_alpha2 }}.webp,
+        https://flagcdn.com/48x36/{{ iso_alpha2 }}.webp 2x,
+        https://flagcdn.com/72x54/{{ iso_alpha2 }}.webp 3x">
+    <source
+        type="image/png"
+        srcset="https://flagcdn.com/24x18/{{ iso_alpha2 }}.png,
+        https://flagcdn.com/48x36/{{ iso_alpha2 }}.png 2x,
+        https://flagcdn.com/72x54/{{ iso_alpha2 }}.png 3x">
+    <img
+        src="https://flagcdn.com/24x18/{{ iso_alpha2 }}.png"
+        width="24"
+        height="18">
+    </picture>
+{% endfor %}
