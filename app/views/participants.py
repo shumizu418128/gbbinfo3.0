@@ -131,9 +131,9 @@ def participants_view(year: int):
                 "iso_code",
             ],
             join_tables={
-                "Category": ["id", "name"],
+                "Category": ["id", "name", "is_team"],
                 "ParticipantMember": ["name", "Country(names)"],
-                "Country": ["iso_code", "names"],
+                "Country": ["iso_code", "names", "iso_alpha2"],
             },
             filters=filters,
             raise_error=True,
@@ -159,8 +159,12 @@ def participants_view(year: int):
         # 全員の名前を大文字に変換
         participant["name"] = participant["name"].upper()
 
-        # カテゴリ名を取り出す
+        # カテゴリ名とチームかどうかを取り出す
         participant["category"] = participant["Category"]["name"]
+        if participant["Category"]["is_team"]:
+            participant["mode"] = "team"
+        else:
+            participant["mode"] = "single"
         participant.pop("Category")
 
         # 国名を取り出す
@@ -168,9 +172,8 @@ def participants_view(year: int):
             participant = team_multi_country(participant, language)
         else:
             participant["country"] = participant["Country"]["names"][language]
+            participant["iso_alpha2"] = [participant["Country"]["iso_alpha2"]]
             participant.pop("Country")
-
-        participant["is_team"] = len(participant["ParticipantMember"]) > 0
 
         participants_data_edited.append(participant)
 
