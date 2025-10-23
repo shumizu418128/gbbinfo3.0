@@ -316,8 +316,9 @@ def cancels_view(year: int):
             table="Participant",
             columns=["id", "name", "category", "ticket_class"],
             join_tables={
-                "Category": ["name"],
-                "ParticipantMember": ["name"],
+                "Category": ["name", "is_team"],
+                "ParticipantMember": ["name", "Country(iso_alpha2)"],
+                "Country": ["iso_code", "iso_alpha2"],
             },
             raise_error=True,
             filters={f"is_cancelled__{Operator.EQUAL}": True, "year": year},
@@ -341,10 +342,22 @@ def cancels_view(year: int):
 
         # カテゴリ名を取り出す
         cancel["category"] = cancel["Category"]["name"]
+        if cancel["Category"]["is_team"]:
+            cancel["mode"] = "team"
+        else:
+            cancel["mode"] = "single"
         cancel.pop("Category")
 
-        # メンバーがいればチームと判定
-        cancel["is_team"] = len(cancel["ParticipantMember"]) > 0
+        # 国コードを取り出す
+        if cancel["Country"]["iso_code"] == MULTI_COUNTRY_TEAM_ISO_CODE:
+            iso_alpha2_list = []
+            for member in cancel["ParticipantMember"]:
+                iso_alpha2_list.append(member["Country"]["iso_alpha2"])
+            cancel["iso_alpha2"] = sorted(list(set(iso_alpha2_list)))
+        else:
+            cancel["iso_alpha2"] = [cancel["Country"]["iso_alpha2"]]
+
+        cancel.pop("Country")
 
     context = {
         "cancels": cancels_data,
