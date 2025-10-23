@@ -65,4 +65,100 @@
 </ul>
 <p>{{_("また、Solo部門・Loopstation部門のWildcardルールが変更されることが予告されています。最新情報が公開され次第、このページを更新します。")}}</p>
 
+<h2 id="p03" name="seeds">{{_("出場シード権 獲得条件")}}</h2>
+<p>
+    {{_("Wildcardを勝ち上がる以外の方法でGBB出場権を得る方法（シード権）と、その該当者は以下の通りです。")}}
+</p>
+
+<h3>{{_("シード権 - GBB")}}</h3>
+{% if gbb_seed|length > 0 %}
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 33%;">{{_("名前")}}</th>
+                <th style="width: 34%;">{{_("部門")}}</th>
+                <th style="width: 33%;">{{_("出場権")}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for participant in gbb_seed %}
+                <tr>
+                    <td><a href="/others/participant_detail?id={{ participant.id }}&mode={% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a></td>
+                    <td>{{ participant.category }}</td>
+                    <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
+                    {{ participant.ticket_class }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>{{_("～発表次第更新～")}}</p>
+{% endif %}
+
+<h3>{{_("シード権 - その他")}}</h3>
+{% if other_seed|length > 0 %}
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 33%;">{{_("名前")}}</th>
+                <th style="width: 34%;">{{_("部門")}}</th>
+                <th style="width: 33%;">{{_("出場権")}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for participant in other_seed %}
+                <tr>
+                    {% if participant.name == "???" %}
+                        <td>{{ participant.name }}</td>
+                    {% else %}
+                        <td><a href="/others/participant_detail?id={{ participant.id }}&mode={% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a></td>
+                    {% endif %}
+                    <td>{{ participant.category }}</td>
+                    <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
+                        {{ participant.ticket_class }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>{{_("～発表次第更新～")}}</p>
+{% endif %}
+
+<h3>{{_("シード権辞退者一覧")}}</h3>
+{% if cancelled|length > 0 %}
+    <table>
+        <thead>
+            <tr>
+            <th style="width: 33%;">{{_("名前")}}</th>
+            <th style="width: 34%;">{{_("部門")}}</th>
+            <th style="width: 33%;">{{_("出場権")}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for participant in cancelled %}
+                <tr>
+                    <td>
+                        【{{_("辞退")}}】<br><a href="/others/participant_detail?id={{ participant.id }}&mode={% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a>
+                    </td>
+                    <td>
+                        <s>{{ participant.category }}</s>
+                    </td>
+                    <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
+                        <s>{{ participant.ticket_class }}</s>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>{{_("～発表次第更新～")}}</p>
+{% endif %}
+
+<div class="button-container">
+    <a href="/{{ year }}/participants"><button>{{_("Wildcard結果")}}</button></a>
+    <a href="/{{ year }}/participants"><button>{{_("出場者一覧")}}</button></a>
+</div>
+
 {% endblock %}

@@ -7,6 +7,7 @@ create table public."Category" (
   name character varying not null,
   created_at timestamp with time zone not null default now(),
   updated_at timestamp with time zone not null default now(),
+  is_team boolean not null default false,
   constraint Category_pkey primary key (id),
   constraint Category_name_key unique (name)
 ) TABLESPACE pg_default;
@@ -18,16 +19,19 @@ create table public."Category" (
   カテゴリの名前です。例：「Loopstation」「Solo」など。重複する名前は登録できません。
 
 - **created_at**
-  このカテゴリが作成された日時です。自動的に記録されます。
+  このカテゴリが作成された日時です。自動的に記録されます。タイムゾーンはUTCで保存されます。
 
 - **updated_at**
-  このカテゴリが最後に更新された日時です。自動的に記録されます。
+  このカテゴリが最後に更新された日時です。自動的に記録されます。タイムゾーンはUTCで保存されます。
+
+- **is_team**
+  チーム部門かどうかを示すブール値です。trueの場合はチーム部門、falseの場合は個人部門を表します。デフォルトはfalseです。
 
 - **Category_pkey**
   「id」カラムがこのテーブルの主キー（重複しない一意の値）であることを示します。
 
 - **Category_name_key**
-  「name」カラムが重複しないこと（ユニークであること）を保証します。
+  「name」カラムが重複しないこと（ユニークであること）を保証します。これにより、同じ名前のカテゴリが複数存在することを防ぎます。
 
 
 ## Country
@@ -39,28 +43,41 @@ create table public."Country" (
   names jsonb not null,
   created_at timestamp with time zone not null default now(),
   updated_at timestamp with time zone not null default now(),
+  en_name text null,
+  ja_name text null,
+  iso_alpha2 text null,
   constraint Country_pkey primary key (iso_code),
   constraint Country_iso_code_key unique (iso_code),
-  constraint Country_names_key unique (names)
+  constraint Country_names_key unique (names),
+  constraint Country_iso_alpha2_check check ((length(iso_alpha2) <= 2))
 ) TABLESPACE pg_default;
 ```
 - **iso_code**
   各国を一意に識別するための番号（ISOコード）です。この値が主キーとなり、重複しません。
 
 - **latitude**
-  国の緯度を表す数値です。地図上で国の位置を示すために使います。
+  国の緯度を表す数値です。地図上で国の位置を示すために使います。初期値は0です。
 
 - **longitude**
-  国の経度を表す数値です。地図上で国の位置を示すために使います。
+  国の経度を表す数値です。地図上で国の位置を示すために使います。初期値は0です。
 
 - **names**
-  各言語ごとの国名を格納したデータです。たとえば日本語や英語など、複数の言語で国名を保存できます。
+  各言語ごとの国名を格納したデータです。たとえば日本語や英語など、複数の言語で国名を保存できます。JSONB形式で保存されます。
 
 - **created_at**
   この国データが作成された日時です。自動的に記録されます。
 
 - **updated_at**
   この国データが最後に更新された日時です。自動的に記録されます。
+
+- **en_name**
+  国名の英語表記です。NULL値が許可されています。
+
+- **ja_name**
+  国名の日本語表記です。NULL値が許可されています。
+
+- **iso_alpha2**
+  国を表すISO 3166-1 alpha-2コードです。2文字以下の文字列である必要があります。NULL値が許可されています。
 
 - **Country_pkey**
   「iso_code」カラムがこのテーブルの主キー（重複しない一意の値）であることを示します。
@@ -70,6 +87,9 @@ create table public."Country" (
 
 - **Country_names_key**
   「names」カラムが重複しないこと（ユニークであること）を保証します。
+
+- **Country_iso_alpha2_check**
+  「iso_alpha2」カラムの文字列長が2文字以下であることを保証します。
 
 
 ## Participant
