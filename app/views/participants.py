@@ -244,7 +244,7 @@ def participants_country_specific_view(year: int):
             join_tables={
                 "Category": ["id", "name", "is_team"],
                 "ParticipantMember": ["name", "iso_code", "Country(iso_alpha2)"],
-                "Country": ["iso_code", "iso_alpha2"],
+                "Country": ["iso_code"],
             },
             filters={
                 "year": year,
