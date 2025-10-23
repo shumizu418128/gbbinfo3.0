@@ -39,7 +39,7 @@ msgstr "قائمة الأقسام المنعقدة"
 
 #: templates/2024/rule.html:38 templates/2024/rule.html:133
 #: templates/2025/rule.html:37 templates/2025/rule.html:128
-#: templates/2026/rule.html:69
+#: templates/2026/rule.html:68
 msgid "出場シード権 獲得条件"
 msgstr "شروط التأهل للحصول على حقوق البذور"
 
@@ -97,8 +97,8 @@ msgstr "يرجى التأكد من أنك قد راجعت القواعد بنف�
 #: templates/2025/rule.html:313 templates/2025/rule.html:366
 #: templates/2025/wildcard_regulation.html:85
 #: templates/2025/wildcard_regulation.html:142
-#: templates/2025/wildcard_regulation.html:201 templates/2026/rule.html:80
-#: templates/2026/rule.html:106 templates/2026/rule.html:136
+#: templates/2025/wildcard_regulation.html:201 templates/2026/rule.html:79
+#: templates/2026/rule.html:105 templates/2026/rule.html:135
 #: templates/2026/top.html:53 templates/common/cancels.html:23
 #: templates/common/japan.html:22 templates/common/korea.html:22
 #: templates/common/participants.html:128
@@ -140,22 +140,22 @@ msgid "忘れられたTag Team Loopstation..."
 msgstr "حلقة Tag Team المنسية..."
 
 #: templates/2024/rule.html:135 templates/2025/rule.html:130
-#: templates/2026/rule.html:71
+#: templates/2026/rule.html:70
 msgid "Wildcardを勝ち上がる以外の方法でGBB出場権を得る方法（シード権）と、その該当者は以下の通りです。"
 msgstr ""
 "تُمنح حقوق المشاركة في GBB (حقوق البذور) بطرق أخرى غير الفوز في المباريات "
 "الإقصائية، وهي كالتالي:"
 
 #: templates/2024/rule.html:137 templates/2025/rule.html:133
-#: templates/2026/rule.html:74
+#: templates/2026/rule.html:73
 msgid "シード権 - GBB"
 msgstr "حقوق البذر - GBB"
 
 #: templates/2024/rule.html:142 templates/2024/rule.html:168
 #: templates/2024/rule.html:194 templates/2025/rule.html:138
 #: templates/2025/rule.html:164 templates/2025/rule.html:194
-#: templates/2025/wildcard_regulation.html:142 templates/2026/rule.html:79
-#: templates/2026/rule.html:105 templates/2026/rule.html:135
+#: templates/2025/wildcard_regulation.html:142 templates/2026/rule.html:78
+#: templates/2026/rule.html:104 templates/2026/rule.html:134
 #: templates/common/cancels.html:22 templates/common/japan.html:21
 #: templates/common/korea.html:21 templates/common/participants.html:44
 #: templates/common/participants.html:127 templates/common/result.html:57
@@ -168,8 +168,8 @@ msgstr "اسم"
 #: templates/2024/rule.html:144 templates/2024/rule.html:170
 #: templates/2024/rule.html:196 templates/2025/rule.html:140
 #: templates/2025/rule.html:166 templates/2025/rule.html:196
-#: templates/2026/rule.html:81 templates/2026/rule.html:107
-#: templates/2026/rule.html:137 templates/common/cancels.html:24
+#: templates/2026/rule.html:80 templates/2026/rule.html:106
+#: templates/2026/rule.html:136 templates/common/cancels.html:24
 #: templates/common/japan.html:23 templates/common/korea.html:23
 #: templates/common/participants.html:46
 #: templates/common/participants.html:129
@@ -182,8 +182,8 @@ msgstr "حق التأهل"
 #: templates/2024/rule.html:216 templates/2025/rule.html:156
 #: templates/2025/rule.html:186 templates/2025/rule.html:216
 #: templates/2025/stream.html:15 templates/2025/time_schedule.html:261
-#: templates/2026/rule.html:97 templates/2026/rule.html:127
-#: templates/2026/rule.html:157 templates/2026/ticket.html:13
+#: templates/2026/rule.html:96 templates/2026/rule.html:126
+#: templates/2026/rule.html:156 templates/2026/ticket.html:13
 #: templates/2026/time_schedule.html:47 templates/2026/time_schedule.html:51
 #: templates/2026/time_schedule.html:55 templates/2026/time_schedule.html:75
 #: templates/2026/time_schedule.html:79 templates/2026/time_schedule.html:83
@@ -196,17 +196,17 @@ msgid "～発表次第更新～"
 msgstr "سيتم التحديث عند الإعلان"
 
 #: templates/2024/rule.html:163 templates/2025/rule.html:159
-#: templates/2026/rule.html:100
+#: templates/2026/rule.html:99
 msgid "シード権 - その他"
 msgstr "بذور - آخرون"
 
 #: templates/2024/rule.html:189 templates/2025/rule.html:189
-#: templates/2026/rule.html:130
+#: templates/2026/rule.html:129
 msgid "シード権辞退者一覧"
 msgstr "قائمة المتنازلين عن حقوق البذور"
 
 #: templates/2024/rule.html:203 templates/2025/rule.html:203
-#: templates/2026/rule.html:144 templates/common/cancels.html:30
+#: templates/2026/rule.html:143 templates/common/cancels.html:30
 #: templates/common/japan.html:30 templates/common/korea.html:31
 #: templates/common/participants.html:54
 #: templates/others/participant_detail.html:21
@@ -221,7 +221,7 @@ msgstr "تراجع"
 
 #: templates/2024/rule.html:221 templates/2024/time_schedule.html:100
 #: templates/2024/time_schedule.html:230 templates/2025/rule.html:221
-#: templates/2026/rule.html:162 templates/common/cancels.html:52
+#: templates/2026/rule.html:161 templates/common/cancels.html:52
 #: templates/others/participant_detail.html:160
 #: templates/others/participant_detail.html:167
 msgid "出場者一覧"
@@ -1199,7 +1199,7 @@ msgstr "الدليل فقط"
 #: templates/2025/rule.html:358 templates/2025/ticket.html:17
 #: templates/2025/time_schedule.html:156 templates/2025/top.html:110
 #: templates/2025/wildcards.html:14 templates/2025/wildcards.html:83
-#: templates/2026/rule.html:161 templates/2026/time_schedule.html:118
+#: templates/2026/rule.html:160 templates/2026/time_schedule.html:118
 #: templates/2026/top.html:102 templates/base.html:118 templates/base.html:269
 #: templates/common/participants.html:25 templates/common/result.html:98
 #: templates/includes/participants_form.html:13
