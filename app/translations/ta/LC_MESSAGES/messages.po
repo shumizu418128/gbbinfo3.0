@@ -1131,7 +1131,8 @@ msgstr ""
 #: templates/2025/wildcard_regulation.html:251
 msgid "FOH (ミキシング デスク) または録音への出力はステレオ信号である必要があり、マルチチャンネル出力は禁止"
 msgstr ""
-"FOH（மிக்சிங் டெஸ்க்） அல்லது பதிவுக்கு செல்லும் அவுட்புட் ஸ்டீரியோ சிக்னலாகவே இருக்க வேண்டும்; மல்டி-சானல் அவுட்புட் தடை."
+"FOH（மிக்சிங் டெஸ்க்） அல்லது பதிவுக்கு செல்லும் அவுட்புட் ஸ்டீரியோ சிக்னலாகவே"
+" இருக்க வேண்டும்; மல்டி-சானல் அவுட்புட் தடை."
 
 #: templates/2025/wildcard_regulation.html:262
 msgid "Wildcard動画の作成にあたり使用したすべてのファイルを、バックアップ含め保存しておき、いつでも提出できるようにしておく"
@@ -1233,7 +1234,7 @@ msgstr "பட்டியல்"
 #: templates/2026/top.html:4 templates/2026/top.html:5
 #: templates/2026/top.html:25 templates/2026/top.html:97
 #: templates/2026/top.html:173 templates/2026/top_7tosmoke.html:24
-#: templates/base.html:117 templates/base.html:151 templates/base.html:263
+#: templates/base.html:117 templates/base.html:151 templates/base.html:260
 #: templates/includes/next_year.html:5
 #: templates/others/participant_detail.html:126
 msgid "これだけガイド"
@@ -1246,7 +1247,7 @@ msgstr "இந்த கையேடு"
 #: templates/2025/time_schedule.html:156 templates/2025/top.html:110
 #: templates/2025/wildcards.html:14 templates/2025/wildcards.html:83
 #: templates/2026/rule.html:160 templates/2026/time_schedule.html:118
-#: templates/2026/top.html:102 templates/base.html:118 templates/base.html:269
+#: templates/2026/top.html:102 templates/base.html:118 templates/base.html:266
 #: templates/common/participants.html:25 templates/common/result.html:98
 #: templates/includes/participants_form.html:13
 msgid "Wildcard結果"
@@ -1257,7 +1258,7 @@ msgstr "வைல்டு கார்டு முடிவு"
 #: templates/2025/time_schedule.html:156 templates/2025/top.html:110
 #: templates/2025/wildcards.html:14 templates/2025/wildcards.html:83
 #: templates/2026/time_schedule.html:118 templates/2026/top.html:102
-#: templates/base.html:118 templates/base.html:269
+#: templates/base.html:118 templates/base.html:266
 #: templates/common/result.html:98
 msgid "出場者"
 msgstr "பங்கேற்பாளர்கள்"
@@ -1404,46 +1405,46 @@ msgstr "போட்டி முடிவுகள்"
 msgid "年度選択"
 msgstr "ஆண்டு"
 
-#: templates/base.html:202
+#: templates/base.html:199
 msgid "翻訳未提供"
 msgstr "மொழிபெயர்ப்பு வழங்கப்படவில்லை"
 
-#: templates/base.html:203
+#: templates/base.html:200
 msgid "このページは翻訳が提供されていません。現在は原文の日本語を表示しています。"
 msgstr ""
 "இந்த பக்கத்தில் மொழிபெயர்ப்பு கிடைக்கவில்லை. தற்போது மூல ஜப்பானிய மொழி "
 "காட்டப்படுகிறது."
 
-#: templates/base.html:219
+#: templates/base.html:216
 msgid "GBBまでの残り時間"
 msgstr "ஜிபிபி வரை மீதமுள்ள நேரம்"
 
-#: templates/base.html:224 templates/base.html:240
+#: templates/base.html:221 templates/base.html:237
 #: templates/includes/bottom_navigation.html:30
 #: templates/includes/bottom_navigation.html:48
 msgid "なんでも検索"
 msgstr "எதையும் தேடு"
 
-#: templates/base.html:226 templates/includes/bottom_navigation.html:32
+#: templates/base.html:223 templates/includes/bottom_navigation.html:32
 #, python-brace-format
 msgid "GBB {year} の検索のみ可能です"
 msgstr "GBB {year} ஐ மட்டுமே தேட முடியும்"
 
-#: templates/base.html:227 templates/includes/bottom_navigation.html:33
+#: templates/base.html:224 templates/includes/bottom_navigation.html:33
 #, python-brace-format
 msgid "GBB {year} は終了しました"
 msgstr "GBB {year} முடிவடைந்தது"
 
-#: templates/base.html:231 templates/includes/bottom_navigation.html:37
+#: templates/base.html:228 templates/includes/bottom_navigation.html:37
 #, python-brace-format
 msgid "例：GBB {year} の最終結果は？"
 msgstr "உதாரணம்: GBB {year} இன் இறுதி முடிவு என்ன?"
 
-#: templates/base.html:236 templates/includes/bottom_navigation.html:42
+#: templates/base.html:233 templates/includes/bottom_navigation.html:42
 msgid "GBB最新情報の検索はこちら"
 msgstr "ஜிபிபி சமீபத்திய தகவல்களை இங்கே தேடலாம்"
 
-#: templates/base.html:241 templates/includes/bottom_navigation.html:49
+#: templates/base.html:238 templates/includes/bottom_navigation.html:49
 #, python-brace-format
 msgid "GBB {year} について検索してみよう"
 msgstr "GBB {year} பற்றி தேடலாம்"
@@ -1451,45 +1452,45 @@ msgstr "GBB {year} பற்றி தேடலாம்"
 #: templates/2024/top.html:30 templates/2024/top_7tosmoke.html:18
 #: templates/2025/top.html:37 templates/2025/top_7tosmoke.html:18
 #: templates/2026/top.html:37 templates/2026/top_7tosmoke.html:18
-#: templates/base.html:244 templates/includes/bottom_navigation.html:52
+#: templates/base.html:241 templates/includes/bottom_navigation.html:52
 msgid "例：現地観戦計画のたてかた"
 msgstr ""
 "உதாரணம்: நேரில் பார்க்கும் திட்டத்தை எவ்வாறு அமைப்பதுஉதாரணமாக: நேரடி "
 "போட்டியைப் பார்ப்பதற்கான திட்டத்தை உருவாக்குவது எப்படி"
 
-#: templates/base.html:254
+#: templates/base.html:251
 msgid "ホーム画面に追加"
 msgstr "முகப்புத் திரையில் சேர்"
 
-#: templates/base.html:257
+#: templates/base.html:254
 msgid "GBBINFO-JPNはPWAに対応しています。"
 msgstr "ஜிபிபிஐஎன்எஃப்ஒ - ஜேபிஎன் PWA ஐ ஆதரிக்கிறது."
 
-#: templates/base.html:257
+#: templates/base.html:254
 msgid "ブラウザメニューを開き、「ホーム画面に追加」をタップすると、アプリとしてインストールできます。"
 msgstr ""
 "பிரவுசர் மெனுவைத் திறந்து, \"முகப்புத் திரையில் சேர்\" என்பதைத் தட்டவும், "
 "இதன் மூலம் பயன்பாடாக நிறுவலாம்."
 
-#: templates/base.html:263
+#: templates/base.html:260
 msgid "ホームへもどる"
 msgstr "வீட்டிற்கு திரும்பவும்"
 
-#: templates/base.html:288
+#: templates/base.html:285
 msgid "GBBINFO-JPN開発者 Twitter"
 msgstr "GBBINFO-JPN டெவலப்பர் ட்விட்டர்"
 
-#: templates/base.html:290
+#: templates/base.html:287
 msgid "GBBINFO-JPNについて"
 msgstr "GBBINFO-JPN பற்றி"
 
-#: templates/base.html:292 templates/others/translation.html:3
+#: templates/base.html:289 templates/others/translation.html:3
 #: templates/others/translation.html:4 templates/others/translation.html:5
 #: templates/others/translation.html:10
 msgid "各ページの翻訳提供について"
 msgstr "ஒவ்வொரு பக்கத்திலும் மொழிபெயர்ப்பு வழங்குவது பற்றி"
 
-#: templates/base.html:318
+#: templates/base.html:315
 msgid "いい景色だろ？"
 msgstr "நல்ல காட்சி இல்லையா?"
 
