@@ -55,7 +55,7 @@
                 <a href="/others/participant_detail?id={{ participant.id }}&mode={{ participant.mode }}">{{ participant.name }}</a>
               </td>
               <td {% if participant.country|length > 5 %} style="font-size: 12px;" {% endif %}>
-                {% include "includes/country_flag.html" with iso_alpha2_list=participant.iso_alpha2 %}
+                {% include "includes/country_flag.html" %}
                 <s>{{ participant.country }}</s>
               </td>
               <td {% if participant.ticket_class|length > 11 %} style="font-size: 12px;" {% endif %}>
@@ -70,7 +70,7 @@
                 </td>
               {% endif %}
               <td {% if participant.country|length > 5 %} style="font-size: 12px;" {% endif %}>
-                {% include "includes/country_flag.html" with iso_alpha2_list=participant.iso_alpha2 %}
+                {% include "includes/country_flag.html" %}
                 {{ participant.country }}
               </td>
               <td {% if participant.ticket_class|length > 11 %} style="font-size: 12px;" {% endif %}>
