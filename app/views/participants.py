@@ -207,6 +207,8 @@ def participants_country_specific_view(year: int):
     # URLから国名を取得
     url = request.path
     country_name = url.split("/")[-1]  # 最後の要素が国名
+
+    # 対象国を増やす予定はないので、ハードコーディング
     if country_name == "japan":
         iso_code = 392
     if country_name == "korea":
@@ -227,6 +229,7 @@ def participants_country_specific_view(year: int):
             join_tables={
                 "Category": ["id", "name", "is_team"],
                 "ParticipantMember": ["name"],
+                "Country": ["iso_code", "iso_alpha2"],
             },
             filters={
                 "year": year,
@@ -240,7 +243,8 @@ def participants_country_specific_view(year: int):
             columns=["id", "name", "category", "ticket_class", "is_cancelled"],
             join_tables={
                 "Category": ["id", "name", "is_team"],
-                "ParticipantMember": ["name", "iso_code"],
+                "ParticipantMember": ["name", "iso_code", "Country(iso_alpha2)"],
+                "Country": ["iso_code", "iso_alpha2"],
             },
             filters={
                 "year": year,
@@ -265,10 +269,23 @@ def participants_country_specific_view(year: int):
         # カテゴリ名を取り出す
         participant["category"] = participant["Category"]["name"]
 
+        # チームかどうかを取り出す
         if participant["Category"]["is_team"]:
             participant["mode"] = "team"
         else:
             participant["mode"] = "single"
+
+        # 国コードを取り出す
+        if participant["Country"]["iso_code"] == MULTI_COUNTRY_TEAM_ISO_CODE:
+            # 国名表記は使わないので、jaでも問題ない
+            iso_alpha2_list = []
+            for member in participant["ParticipantMember"]:
+                iso_alpha2_list.append(member["Country"]["iso_alpha2"])
+            participant["iso_alpha2"] = sorted(list(set(iso_alpha2_list)))
+        else:
+            participant["iso_alpha2"] = [participant["Country"]["iso_alpha2"]]
+
+        participant.pop("Country")
 
     participants_data.sort(
         key=lambda x: (
