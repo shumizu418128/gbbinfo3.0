@@ -415,7 +415,7 @@ msgstr "Indhold"
 #: templates/2026/time_schedule.html:48 templates/2026/time_schedule.html:76
 #: templates/2026/time_schedule.html:104 templates/2026/time_schedule.html:132
 msgid "入場開始"
-msgstr "Indgang starter"
+msgstr "Dørene åbner"
 
 #: templates/2024/time_schedule.html:61 templates/2024/time_schedule.html:118
 #: templates/2024/time_schedule.html:175 templates/2024/time_schedule.html:256
@@ -457,7 +457,7 @@ msgstr "semifinalen"
 #: templates/2026/time_schedule.html:56 templates/2026/time_schedule.html:84
 #: templates/2026/time_schedule.html:112 templates/2026/time_schedule.html:140
 msgid "終了"
-msgstr "Afslut"
+msgstr "Slut"
 
 #: templates/2024/time_schedule.html:134 templates/2024/time_schedule.html:195
 #: templates/2025/time_schedule.html:130 templates/2025/time_schedule.html:192
