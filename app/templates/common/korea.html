@@ -28,7 +28,7 @@
       <tr>
         {% if participant.is_cancelled %}
           <td>
-            【{{_("辞退")}}】<br><a href="/others/participant_detail?id={{ participant.id }}&mode={% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a>
+            【{{_("辞退")}}】<br><a href="/others/participant_detail?id={{ participant.id }}&mode={{ participant.mode }}">{{ participant.name }}</a>
           </td>
           <td>
             <s>{{ participant.category }}</s>
@@ -38,7 +38,7 @@
           </td>
         {% else %}
           <td>
-            <a href="/others/participant_detail?id={{ participant.id }}&mode={% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a>
+            <a href="/others/participant_detail?id={{ participant.id }}&mode={{ participant.mode }}">{{ participant.name }}</a>
           </td>
           <td>
             {{ participant.category }}

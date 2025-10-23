@@ -225,7 +225,7 @@ def participants_country_specific_view(year: int):
                 "iso_code",
             ],
             join_tables={
-                "Category": ["id", "name"],
+                "Category": ["id", "name", "is_team"],
                 "ParticipantMember": ["name"],
             },
             filters={
@@ -239,7 +239,7 @@ def participants_country_specific_view(year: int):
             table="Participant",
             columns=["id", "name", "category", "ticket_class", "is_cancelled"],
             join_tables={
-                "Category": ["id", "name"],
+                "Category": ["id", "name", "is_team"],
                 "ParticipantMember": ["name", "iso_code"],
             },
             filters={
@@ -265,7 +265,10 @@ def participants_country_specific_view(year: int):
         # カテゴリ名を取り出す
         participant["category"] = participant["Category"]["name"]
 
-        participant["is_team"] = len(participant["ParticipantMember"]) > 0
+        if participant["Category"]["is_team"]:
+            participant["mode"] = "team"
+        else:
+            participant["mode"] = "single"
 
     participants_data.sort(
         key=lambda x: (
