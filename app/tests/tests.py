@@ -145,6 +145,7 @@ class AppUrlsTestCase(unittest.TestCase):
                                 "latitude": 35.0,
                                 "longitude": 139.0,
                                 "names": {"ja": "日本", "en": "Japan"},
+                                "iso_alpha2": "JP",
                             }
                         ]
                     )
@@ -154,6 +155,7 @@ class AppUrlsTestCase(unittest.TestCase):
                         "latitude": 35.0,
                         "longitude": 139.0,
                         "names": {"ja": "日本", "en": "Japan"},
+                        "iso_alpha2": "JP",
                     }
                 ]
             return []
@@ -192,8 +194,8 @@ class AppUrlsTestCase(unittest.TestCase):
 
                 return pd.DataFrame(
                     [
-                        {"id": 1, "name": "Loopstation"},
-                        {"id": 2, "name": "Solo"},
+                        {"id": 1, "name": "Loopstation", "is_team": False},
+                        {"id": 2, "name": "Solo", "is_team": False},
                     ]
                 )
             if table == "Participant":
@@ -205,10 +207,11 @@ class AppUrlsTestCase(unittest.TestCase):
                         "ticket_class": "GBB Seed",
                         "is_cancelled": False,
                         "iso_code": 392,
-                        "Category": {"id": 1, "name": "Loopstation"},
+                        "Category": {"id": 1, "name": "Loopstation", "is_team": False},
                         "Country": {
                             "iso_code": 392,
                             "names": {"ja": "日本", "en": "Japan"},
+                            "iso_alpha2": "JP",
                         },
                         "ParticipantMember": [],
                     }
@@ -406,8 +409,8 @@ class AppUrlsTestCase(unittest.TestCase):
 
                 return pd.DataFrame(
                     [
-                        {"id": 1, "name": "Loopstation"},
-                        {"id": 2, "name": "Solo"},
+                        {"id": 1, "name": "Loopstation", "is_team": False},
+                        {"id": 2, "name": "Solo", "is_team": False},
                     ]
                 )
             if table == "Participant":
@@ -419,7 +422,7 @@ class AppUrlsTestCase(unittest.TestCase):
                         "ticket_class": "GBB Seed",
                         "is_cancelled": False,
                         "iso_code": 392,
-                        "Category": {"id": 1, "name": "Loopstation"},
+                        "Category": {"id": 1, "name": "Loopstation", "is_team": False},
                         "Country": {
                             "iso_code": 392,
                             "names": {
@@ -444,6 +447,7 @@ class AppUrlsTestCase(unittest.TestCase):
                                 "da": "Japan",
                                 "ga": "An tSeapáin",
                             },
+                            "iso_alpha2": "JP",
                         },
                         "ParticipantMember": [],
                     }
@@ -499,7 +503,6 @@ class AppUrlsTestCase(unittest.TestCase):
                     lc_messages_path = os.path.join(item_path, "LC_MESSAGES")
                     if os.path.exists(lc_messages_path):
                         translation_folders.add(item)
-
 
         self.assertEqual(
             main_languages,
@@ -916,7 +919,11 @@ class GeminiServiceTestCase(unittest.TestCase):
             "iso_code": 392,
             "ticket_class": "GBB Seed",
             "is_cancelled": False,
-            "Country": {"iso_code": 392, "names": {"ja": "日本", "en": "Japan"}},
+            "Country": {
+                "iso_code": 392,
+                "names": {"ja": "日本", "en": "Japan"},
+                "iso_alpha2": "JP",
+            },
             "Category": {"id": 1, "name": "Solo"},
             "ParticipantMember": [],
         }
@@ -929,7 +936,7 @@ class GeminiServiceTestCase(unittest.TestCase):
                 "year": 2024,
                 "is_cancelled": False,
                 "category": 1,
-                "Category": {"name": "Solo"},
+                "Category": {"name": "Solo", "is_team": False},
                 "ParticipantMember": [],
             }
         ]
@@ -945,7 +952,7 @@ class GeminiServiceTestCase(unittest.TestCase):
                 "is_cancelled": False,
                 "ticket_class": "Wildcard 2 (2023)",
                 "iso_code": 392,
-                "Country": {"names": {"ja": "日本", "en": "Japan"}},
+                "Country": {"names": {"ja": "日本", "en": "Japan"}, "iso_alpha2": "JP"},
                 "ParticipantMember": [],
             },
             {
@@ -954,7 +961,10 @@ class GeminiServiceTestCase(unittest.TestCase):
                 "is_cancelled": False,
                 "ticket_class": "GBB Seed",
                 "iso_code": 826,
-                "Country": {"names": {"ja": "イギリス", "en": "UK"}},
+                "Country": {
+                    "names": {"ja": "イギリス", "en": "UK"},
+                    "iso_alpha2": "GB",
+                },
                 "ParticipantMember": [],
             },
         ]
@@ -994,7 +1004,11 @@ class GeminiServiceTestCase(unittest.TestCase):
             "id": 9001,
             "participant": 5001,
             "name": "TeamHero",
-            "Country": {"iso_code": 392, "names": {"ja": "日本", "en": "Japan"}},
+            "Country": {
+                "iso_code": 392,
+                "names": {"ja": "日本", "en": "Japan"},
+                "iso_alpha2": "JP",
+            },
             "Participant": {
                 "id": 5001,
                 "name": "Team A",
@@ -1030,10 +1044,18 @@ class GeminiServiceTestCase(unittest.TestCase):
                 "is_cancelled": False,
                 "ticket_class": "Wildcard 1 (2024)",
                 "iso_code": 9999,
-                "Country": {"names": {"ja": "—", "en": "—"}},
+                "Country": {"names": {"ja": "—", "en": "—"}, "iso_alpha2": "XX"},
                 "ParticipantMember": [
-                    {"id": 1, "name": "P1", "Country": {"names": {"ja": "日本"}}},
-                    {"id": 2, "name": "P2", "Country": {"names": {"ja": "韓国"}}},
+                    {
+                        "id": 1,
+                        "name": "P1",
+                        "Country": {"names": {"ja": "日本"}, "iso_alpha2": "JP"},
+                    },
+                    {
+                        "id": 2,
+                        "name": "P2",
+                        "Country": {"names": {"ja": "韓国"}, "iso_alpha2": "KR"},
+                    },
                 ],
             }
         ]
@@ -2759,8 +2781,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
 
                 return pd.DataFrame(
                     [
-                        {"id": 1, "name": "Loopstation"},
-                        {"id": 2, "name": "Tag Team"},
+                        {"id": 1, "name": "Loopstation", "is_team": False},
+                        {"id": 2, "name": "Tag Team", "is_team": True},
                     ]
                 )
 
@@ -2776,7 +2798,13 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                                 "category": 1,
                                 "ticket_class": "GBB Seed",
                                 "is_cancelled": False,
-                                "Category": {"id": 1, "name": "Loopstation"},
+                                "iso_code": 392,
+                                "Category": {
+                                    "id": 1,
+                                    "name": "Loopstation",
+                                    "is_team": False,
+                                },
+                                "Country": {"iso_code": 392, "iso_alpha2": "JP"},
                                 "ParticipantMember": [],
                             },
                             {
@@ -2785,7 +2813,13 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                                 "category": 2,
                                 "ticket_class": "GBB Seed",
                                 "is_cancelled": False,
-                                "Category": {"id": 2, "name": "Tag Team"},
+                                "iso_code": 392,
+                                "Category": {
+                                    "id": 2,
+                                    "name": "Tag Team",
+                                    "is_team": True,
+                                },
+                                "Country": {"iso_code": 392, "iso_alpha2": "JP"},
                                 "ParticipantMember": [{"name": "M1", "iso_code": 392}],
                             },
                         ]
@@ -2797,7 +2831,13 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                                 "category": 1,
                                 "ticket_class": "Wildcard 1 (2024)",
                                 "is_cancelled": False,
-                                "Category": {"id": 1, "name": "Loopstation"},
+                                "iso_code": 410,
+                                "Category": {
+                                    "id": 1,
+                                    "name": "Loopstation",
+                                    "is_team": False,
+                                },
+                                "Country": {"iso_code": 410, "iso_alpha2": "KR"},
                                 "ParticipantMember": [],
                             },
                             {
@@ -2806,7 +2846,13 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                                 "category": 2,
                                 "ticket_class": "GBB Seed",
                                 "is_cancelled": False,
-                                "Category": {"id": 2, "name": "Tag Team"},
+                                "iso_code": 410,
+                                "Category": {
+                                    "id": 2,
+                                    "name": "Tag Team",
+                                    "is_team": True,
+                                },
+                                "Country": {"iso_code": 410, "iso_alpha2": "KR"},
                                 "ParticipantMember": [{"name": "K1", "iso_code": 410}],
                             },
                         ]
@@ -2818,10 +2864,24 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                                 "category": 2,
                                 "ticket_class": "Wildcard 2 (2023)",
                                 "is_cancelled": False,
-                                "Category": {"id": 2, "name": "Tag Team"},
+                                "iso_code": 9999,
+                                "Category": {
+                                    "id": 2,
+                                    "name": "Tag Team",
+                                    "is_team": True,
+                                },
+                                "Country": {"iso_code": 9999, "iso_alpha2": "XX"},
                                 "ParticipantMember": [
-                                    {"name": "JP", "iso_code": 392},
-                                    {"name": "KR", "iso_code": 410},
+                                    {
+                                        "name": "JP",
+                                        "iso_code": 392,
+                                        "Country": {"iso_alpha2": "JP"},
+                                    },
+                                    {
+                                        "name": "KR",
+                                        "iso_code": 410,
+                                        "Country": {"iso_alpha2": "KR"},
+                                    },
                                 ],
                             }
                         ]
@@ -2836,10 +2896,15 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                             "ticket_class": "GBB Seed",
                             "is_cancelled": False,
                             "iso_code": 392,
-                            "Category": {"id": 1, "name": "Loopstation"},
+                            "Category": {
+                                "id": 1,
+                                "name": "Loopstation",
+                                "is_team": False,
+                            },
                             "Country": {
                                 "iso_code": 392,
                                 "names": {"ja": "日本", "en": "Japan"},
+                                "iso_alpha2": "JP",
                             },
                             "ParticipantMember": [],
                         },
@@ -2850,13 +2915,20 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                             "ticket_class": "GBB Seed",
                             "is_cancelled": False,
                             "iso_code": 826,
-                            "Category": {"id": 2, "name": "Tag Team"},
+                            "Category": {"id": 2, "name": "Tag Team", "is_team": True},
                             "Country": {
                                 "iso_code": 826,
                                 "names": {"ja": "イギリス", "en": "UK"},
+                                "iso_alpha2": "GB",
                             },
                             "ParticipantMember": [
-                                {"name": "M1", "Country": {"names": {"ja": "日本"}}}
+                                {
+                                    "name": "M1",
+                                    "Country": {
+                                        "names": {"ja": "日本"},
+                                        "iso_alpha2": "JP",
+                                    },
+                                }
                             ],
                         },
                     ]
@@ -2900,7 +2972,11 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                             "round": None,
                             "participant": 1,
                             "rank": 1,
-                            "Participant": {"id": 301, "name": "RSolo"},
+                            "Participant": {
+                                "id": 301,
+                                "name": "RSolo",
+                                "Country": {"iso_code": 392, "iso_alpha2": "JP"},
+                            },
                         }
                     ]
                 if category_id == 2:
@@ -2909,7 +2985,11 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                             "round": None,
                             "participant": 2,
                             "rank": 1,
-                            "Participant": {"id": 302, "name": "RTeam"},
+                            "Participant": {
+                                "id": 302,
+                                "name": "RTeam",
+                                "Country": {"iso_code": 840, "iso_alpha2": "US"},
+                            },
                         }
                     ]
 
@@ -2928,7 +3008,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                         "category": 1,
                         "is_cancelled": False,
                         "ticket_class": "GBB Seed",
-                        "Category": {"id": 1, "name": "Loopstation"},
+                        "Category": {"id": 1, "name": "Loopstation", "is_team": False},
                         "ParticipantMember": [],
                     },
                     {
@@ -2937,7 +3017,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                         "category": 2,
                         "is_cancelled": False,
                         "ticket_class": "GBB Seed",
-                        "Category": {"id": 2, "name": "Tag Team"},
+                        "Category": {"id": 2, "name": "Tag Team", "is_team": True},
                         "ParticipantMember": [{"id": 1}],
                     },
                 ]
@@ -2967,6 +3047,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                             "Country": {
                                 "iso_code": 392,
                                 "names": {"ja": "日本", "en": "Japan"},
+                                "iso_alpha2": "JP",
                             },
                             "Participant": {
                                 "id": 1923,
@@ -2998,6 +3079,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                             "Country": {
                                 "iso_code": 392,
                                 "names": {"ja": "日本", "en": "Japan"},
+                                "iso_alpha2": "JP",
                             },
                             "Category": {"id": 1, "name": "Solo"},
                             "ParticipantMember": [],
@@ -3016,13 +3098,17 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                             "Country": {
                                 "iso_code": 826,
                                 "names": {"ja": "イギリス", "en": "UK"},
+                                "iso_alpha2": "GB",
                             },
                             "Category": {"id": 2, "name": "Tag Team"},
                             "ParticipantMember": [
                                 {
                                     "id": 255,
                                     "name": "TAKO",
-                                    "Country": {"names": {"ja": "日本"}},
+                                    "Country": {
+                                        "names": {"ja": "日本"},
+                                        "iso_alpha2": "JP",
+                                    },
                                 },
                             ],
                         }
@@ -3050,7 +3136,10 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                         "is_cancelled": False,
                         "ticket_class": "Wildcard 1 (2024)",
                         "iso_code": 392,
-                        "Country": {"names": {"ja": "日本", "en": "Japan"}},
+                        "Country": {
+                            "names": {"ja": "日本", "en": "Japan"},
+                            "iso_alpha2": "JP",
+                        },
                         "ParticipantMember": [],
                     }
                 ]
@@ -3141,7 +3230,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                 "name": "test_participant_1",
                 "category": "Loopstation",
                 "ticket_class": "GBB Seed",
-                "Category": {"name": "Loopstation"},
+                "Category": {"name": "Loopstation", "is_team": False},
+                "Country": {"iso_code": 392, "iso_alpha2": "JP"},
                 "ParticipantMember": [],  # シングル参加者
             },
             {
@@ -3149,10 +3239,11 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                 "name": "test_team_1",
                 "category": "Tag Team",
                 "ticket_class": "Wildcard 1st",
-                "Category": {"name": "Tag Team"},
+                "Category": {"name": "Tag Team", "is_team": True},
+                "Country": {"iso_code": 840, "iso_alpha2": "US"},
                 "ParticipantMember": [
-                    {"name": "Member1"},
-                    {"name": "Member2"},
+                    {"name": "Member1", "Country": {"iso_alpha2": "JP"}},
+                    {"name": "Member2", "Country": {"iso_alpha2": "KR"}},
                 ],  # チーム参加者
             },
         ]
@@ -3306,7 +3397,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                         "name": "test_participant_1",
                         "category": "Loopstation",
                         "ticket_class": "GBB Seed",
-                        "Category": {"name": "Loopstation"},
+                        "Category": {"name": "Loopstation", "is_team": False},
+                        "Country": {"iso_code": 392, "iso_alpha2": "JP"},
                         "ParticipantMember": [],
                     },
                 ]
@@ -3370,7 +3462,13 @@ class YearRequirementsTestCase(unittest.TestCase):
         Returns:
             None
         """
-        required_files = ["top.html", "rule.html", "ticket.html", "time_schedule.html", "top_7tosmoke.html"]
+        required_files = [
+            "top.html",
+            "rule.html",
+            "ticket.html",
+            "time_schedule.html",
+            "top_7tosmoke.html",
+        ]
 
         for year in self.available_years:
             if year <= 2022:

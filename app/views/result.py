@@ -2,6 +2,7 @@ from collections import defaultdict
 
 from flask import abort, redirect, render_template, request
 
+from app.config.config import MULTI_COUNTRY_TEAM_ISO_CODE
 from app.models.supabase_client import supabase_service
 from app.util.filter_eq import Operator
 
@@ -94,8 +95,18 @@ def result_view(year: int):
             table="TournamentResult",
             columns=["round", "winner", "loser"],
             join_tables={
-                "winner:Participant!TournamentResult_winner_fkey": ["id", "name"],
-                "loser:Participant!TournamentResult_loser_fkey": ["id", "name"],
+                "winner:Participant!TournamentResult_winner_fkey": [
+                    "id",
+                    "name",
+                    "Country(iso_alpha2, iso_code)",
+                    "ParticipantMember(Country(iso_alpha2))",
+                ],
+                "loser:Participant!TournamentResult_loser_fkey": [
+                    "id",
+                    "name",
+                    "Country(iso_alpha2, iso_code)",
+                    "ParticipantMember(Country(iso_alpha2))",
+                ],
             },
             filters={
                 "year": year,
@@ -111,7 +122,12 @@ def result_view(year: int):
                 table="RankingResult",
                 columns=["round", "participant", "rank"],
                 join_tables={
-                    "Participant": ["id", "name"],
+                    "Participant": [
+                        "id",
+                        "name",
+                        "Country(iso_alpha2, iso_code)",
+                        "ParticipantMember(Country(iso_alpha2))",
+                    ],
                 },
                 filters={
                     "year": year,
@@ -138,27 +154,58 @@ def result_view(year: int):
     # 順位制かトーナメント制かを判定
     if result_type == "ranking":
         for result in result_data:
+            iso_alpha2_list = []
             if result["round"] is None:
                 result["round"] = "Overall"
+            iso_code = result["Participant"]["Country"]["iso_code"]
+
+            if iso_code == MULTI_COUNTRY_TEAM_ISO_CODE:
+                for member in result["Participant"]["ParticipantMember"]:
+                    iso_alpha2_list.append(member["Country"]["iso_alpha2"])
+                iso_alpha2_list = sorted(list(set(iso_alpha2_list)))
+            else:
+                iso_alpha2_list = [result["Participant"]["Country"]["iso_alpha2"]]
+
             result_defaultdict[result["round"]].append(
                 {
                     "rank": result["rank"],
                     "id": result["Participant"]["id"],
                     "name": result["Participant"]["name"].upper(),
+                    "iso_alpha2": iso_alpha2_list,
                 }
             )
 
     elif result_type == "tournament":
         for result in result_data:
+            # 勝者の国コードを取得
+            winner_iso_alpha2_list = []
+            if result["winner"]["Country"]["iso_code"] == MULTI_COUNTRY_TEAM_ISO_CODE:
+                for member in result["winner"]["ParticipantMember"]:
+                    winner_iso_alpha2_list.append(member["Country"]["iso_alpha2"])
+                winner_iso_alpha2_list = sorted(list(set(winner_iso_alpha2_list)))
+            else:
+                winner_iso_alpha2_list = [result["winner"]["Country"]["iso_alpha2"]]
+
+            # 敗者の国コードを取得
+            loser_iso_alpha2_list = []
+            if result["loser"]["Country"]["iso_code"] == MULTI_COUNTRY_TEAM_ISO_CODE:
+                for member in result["loser"]["ParticipantMember"]:
+                    loser_iso_alpha2_list.append(member["Country"]["iso_alpha2"])
+                loser_iso_alpha2_list = sorted(list(set(loser_iso_alpha2_list)))
+            else:
+                loser_iso_alpha2_list = [result["loser"]["Country"]["iso_alpha2"]]
+
             result_defaultdict[result["round"]].append(
                 {
                     "winner": {
                         "id": result["winner"]["id"],
                         "name": result["winner"]["name"].upper(),
+                        "iso_alpha2": winner_iso_alpha2_list,
                     },
                     "loser": {
                         "id": result["loser"]["id"],
                         "name": result["loser"]["name"].upper(),
+                        "iso_alpha2": loser_iso_alpha2_list,
                     },
                 }
             )

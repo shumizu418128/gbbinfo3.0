@@ -93,6 +93,9 @@ function showDebugInfo() {
     {% if cancelled is defined %}
     cancelled: {{ cancelled|default([])|tojson }},
     {% endif %}
+    {% if cancels is defined %}
+    cancels: {{ cancels|default([])|tojson }},
+    {% endif %}
     {% if search_results is defined %}
     search_results: {{ search_results|default([])|tojson }},
     {% endif %}

@@ -205,3 +205,5 @@ FOLIUM_CUSTOM_CSS = """
     }
 </style>
 """
+
+MULTI_COUNTRY_TEAM_ISO_CODE = 9999

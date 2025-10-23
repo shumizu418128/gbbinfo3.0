@@ -25,11 +25,11 @@
         </tr>
         </thead>
         <tbody>
-        {% for cancel in cancels %}
+        {% for participant in cancels %}
             <tr>
-                <td>【{{_("辞退")}}】<br><a href="/others/participant_detail?id={{ cancel.id }}&mode={% if cancel.is_team %}team{% else %}single{% endif %}">{{ cancel.name }}</a></td>
-                <td><s>{{ cancel.category }}</s></td>
-                <td><s>{{ cancel.ticket_class }}</s></td>
+                <td>【{{_("辞退")}}】<br><a href="/others/participant_detail?id={{ participant.id }}&mode={{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a></td>
+                <td><s>{{ participant.category }}</s></td>
+                <td><s>{{ participant.ticket_class }}</s></td>
             </tr>
         {% endfor %}
         </tbody>

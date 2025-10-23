@@ -33,17 +33,20 @@ def team_multi_country(team_data: dict, language: str):
 
     # 全メンバーの国名を取得
     country_list = set()
+    iso_alpha2_list = set()
     members = team_data["ParticipantMember"]
 
     for member in members:
         try:
             country_list.add(member["Country"]["names"][language])
+            iso_alpha2_list.add(member["Country"]["iso_alpha2"])
         except KeyError:
             raise ValueError(
-                "ParticipantMemberにCountryが存在しません Participantテーブルを取得する際に、Country(names)をjoinさせてください"
+                "ParticipantMemberにCountry(names, iso_alpha2)が存在しません Participantテーブルを取得する際に、Country(names, iso_alpha2)をjoinさせてください"
             )
 
     combined_data["country"] = " / ".join(sorted(country_list))
+    combined_data["iso_alpha2"] = sorted(list(iso_alpha2_list))
     combined_data.pop("Country")
 
     return combined_data
