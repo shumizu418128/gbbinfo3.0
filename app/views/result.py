@@ -99,11 +99,13 @@ def result_view(year: int):
                     "id",
                     "name",
                     "Country(iso_alpha2, iso_code)",
+                    "ParticipantMember(Country(iso_alpha2))",
                 ],
                 "loser:Participant!TournamentResult_loser_fkey": [
                     "id",
                     "name",
                     "Country(iso_alpha2, iso_code)",
+                    "ParticipantMember(Country(iso_alpha2))",
                 ],
             },
             filters={
@@ -120,7 +122,12 @@ def result_view(year: int):
                 table="RankingResult",
                 columns=["round", "participant", "rank"],
                 join_tables={
-                    "Participant": ["id", "name", "Country(iso_alpha2, iso_code)"],
+                    "Participant": [
+                        "id",
+                        "name",
+                        "Country(iso_alpha2, iso_code)",
+                        "ParticipantMember(Country(iso_alpha2))",
+                    ],
                 },
                 filters={
                     "year": year,

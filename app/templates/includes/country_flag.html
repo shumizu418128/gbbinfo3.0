@@ -1,18 +1,20 @@
 {% for iso_alpha2 in participant.iso_alpha2 %}
-    <picture>
-        <source
-            type="image/webp"
-            srcset="https://flagcdn.com/20x15/{{ iso_alpha2 }}.webp,
-            https://flagcdn.com/40x30/{{ iso_alpha2 }}.webp 2x,
-            https://flagcdn.com/60x45/{{ iso_alpha2 }}.webp 3x">
-        <source
-            type="image/png"
-            srcset="https://flagcdn.com/20x15/{{ iso_alpha2 }}.png,
-            https://flagcdn.com/40x30/{{ iso_alpha2 }}.png 2x,
-            https://flagcdn.com/60x45/{{ iso_alpha2 }}.png 3x">
-        <img
-            src="https://flagcdn.com/20x15/{{ iso_alpha2 }}.png"
-            width="20"
-            height="15">
-    </picture>
+    {% if iso_alpha2 is not none %}
+        <picture>
+            <source
+                type="image/webp"
+                srcset="https://flagcdn.com/20x15/{{ iso_alpha2 }}.webp,
+                https://flagcdn.com/40x30/{{ iso_alpha2 }}.webp 2x,
+                https://flagcdn.com/60x45/{{ iso_alpha2 }}.webp 3x">
+            <source
+                type="image/png"
+                srcset="https://flagcdn.com/20x15/{{ iso_alpha2 }}.png,
+                https://flagcdn.com/40x30/{{ iso_alpha2 }}.png 2x,
+                https://flagcdn.com/60x45/{{ iso_alpha2 }}.png 3x">
+            <img
+                src="https://flagcdn.com/20x15/{{ iso_alpha2 }}.png"
+                width="20"
+                height="15">
+        </picture>
+    {% endif %}
 {% endfor %}

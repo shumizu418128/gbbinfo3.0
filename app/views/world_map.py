@@ -125,7 +125,7 @@ def world_map_view(year: int):
     }
 
     for iso_code, participants in participants_per_country.items():
-        # 国の緯度経度・名称を辞書から取得（存在しない場合はスキップ）
+        # 国の緯度経度・名称・国コードを辞書から取得（存在しない場合はスキップ）
         if iso_code not in country_rows:
             continue
         latitude, longitude, country_names_dict, iso_alpha2 = country_rows[iso_code]
