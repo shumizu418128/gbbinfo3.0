@@ -39,6 +39,7 @@ msgstr "قائمة الأقسام المنعقدة"
 
 #: templates/2024/rule.html:38 templates/2024/rule.html:133
 #: templates/2025/rule.html:37 templates/2025/rule.html:128
+#: templates/2026/rule.html:68
 msgid "出場シード権 獲得条件"
 msgstr "شروط التأهل للحصول على حقوق البذور"
 
@@ -96,9 +97,11 @@ msgstr "يرجى التأكد من أنك قد راجعت القواعد بنف�
 #: templates/2025/rule.html:313 templates/2025/rule.html:366
 #: templates/2025/wildcard_regulation.html:85
 #: templates/2025/wildcard_regulation.html:142
-#: templates/2025/wildcard_regulation.html:201 templates/2026/top.html:53
-#: templates/common/cancels.html:23 templates/common/japan.html:22
-#: templates/common/korea.html:22 templates/common/participants.html:128
+#: templates/2025/wildcard_regulation.html:201 templates/2026/rule.html:79
+#: templates/2026/rule.html:105 templates/2026/rule.html:135
+#: templates/2026/top.html:53 templates/common/cancels.html:23
+#: templates/common/japan.html:22 templates/common/korea.html:22
+#: templates/common/participants.html:128
 #: templates/others/participant_detail.html:31
 #: templates/others/participant_detail.html:136
 msgid "部門"
@@ -137,19 +140,22 @@ msgid "忘れられたTag Team Loopstation..."
 msgstr "حلقة Tag Team المنسية..."
 
 #: templates/2024/rule.html:135 templates/2025/rule.html:130
+#: templates/2026/rule.html:70
 msgid "Wildcardを勝ち上がる以外の方法でGBB出場権を得る方法（シード権）と、その該当者は以下の通りです。"
 msgstr ""
 "تُمنح حقوق المشاركة في GBB (حقوق البذور) بطرق أخرى غير الفوز في المباريات "
 "الإقصائية، وهي كالتالي:"
 
 #: templates/2024/rule.html:137 templates/2025/rule.html:133
+#: templates/2026/rule.html:73
 msgid "シード権 - GBB"
 msgstr "حقوق البذر - GBB"
 
 #: templates/2024/rule.html:142 templates/2024/rule.html:168
 #: templates/2024/rule.html:194 templates/2025/rule.html:138
 #: templates/2025/rule.html:164 templates/2025/rule.html:194
-#: templates/2025/wildcard_regulation.html:142
+#: templates/2025/wildcard_regulation.html:142 templates/2026/rule.html:78
+#: templates/2026/rule.html:104 templates/2026/rule.html:134
 #: templates/common/cancels.html:22 templates/common/japan.html:21
 #: templates/common/korea.html:21 templates/common/participants.html:44
 #: templates/common/participants.html:127 templates/common/result.html:57
@@ -162,8 +168,10 @@ msgstr "اسم"
 #: templates/2024/rule.html:144 templates/2024/rule.html:170
 #: templates/2024/rule.html:196 templates/2025/rule.html:140
 #: templates/2025/rule.html:166 templates/2025/rule.html:196
-#: templates/common/cancels.html:24 templates/common/japan.html:23
-#: templates/common/korea.html:23 templates/common/participants.html:46
+#: templates/2026/rule.html:80 templates/2026/rule.html:106
+#: templates/2026/rule.html:136 templates/common/cancels.html:24
+#: templates/common/japan.html:23 templates/common/korea.html:23
+#: templates/common/participants.html:46
 #: templates/common/participants.html:129
 #: templates/others/participant_detail.html:47
 #: templates/others/participant_detail.html:200
@@ -174,27 +182,33 @@ msgstr "حق التأهل"
 #: templates/2024/rule.html:216 templates/2025/rule.html:156
 #: templates/2025/rule.html:186 templates/2025/rule.html:216
 #: templates/2025/stream.html:15 templates/2025/time_schedule.html:261
-#: templates/2026/ticket.html:13 templates/2026/time_schedule.html:44
-#: templates/2026/time_schedule.html:48 templates/2026/time_schedule.html:52
-#: templates/2026/time_schedule.html:72 templates/2026/time_schedule.html:76
-#: templates/2026/time_schedule.html:80 templates/2026/time_schedule.html:100
-#: templates/2026/time_schedule.html:104 templates/2026/time_schedule.html:108
+#: templates/2026/rule.html:96 templates/2026/rule.html:126
+#: templates/2026/rule.html:156 templates/2026/ticket.html:13
+#: templates/2026/time_schedule.html:47 templates/2026/time_schedule.html:51
+#: templates/2026/time_schedule.html:55 templates/2026/time_schedule.html:75
+#: templates/2026/time_schedule.html:79 templates/2026/time_schedule.html:83
+#: templates/2026/time_schedule.html:103 templates/2026/time_schedule.html:107
+#: templates/2026/time_schedule.html:111 templates/2026/time_schedule.html:131
+#: templates/2026/time_schedule.html:135 templates/2026/time_schedule.html:139
 #: templates/common/cancels.html:38 templates/common/participants.html:19
 #: templates/common/participants.html:83 templates/common/result.html:71
 msgid "～発表次第更新～"
 msgstr "سيتم التحديث عند الإعلان"
 
 #: templates/2024/rule.html:163 templates/2025/rule.html:159
+#: templates/2026/rule.html:99
 msgid "シード権 - その他"
 msgstr "بذور - آخرون"
 
 #: templates/2024/rule.html:189 templates/2025/rule.html:189
+#: templates/2026/rule.html:129
 msgid "シード権辞退者一覧"
 msgstr "قائمة المتنازلين عن حقوق البذور"
 
 #: templates/2024/rule.html:203 templates/2025/rule.html:203
-#: templates/common/cancels.html:30 templates/common/japan.html:30
-#: templates/common/korea.html:31 templates/common/participants.html:54
+#: templates/2026/rule.html:143 templates/common/cancels.html:30
+#: templates/common/japan.html:30 templates/common/korea.html:31
+#: templates/common/participants.html:54
 #: templates/others/participant_detail.html:21
 #: templates/others/participant_detail.html:71
 #: templates/others/participant_detail.html:84
@@ -207,7 +221,7 @@ msgstr "تراجع"
 
 #: templates/2024/rule.html:221 templates/2024/time_schedule.html:100
 #: templates/2024/time_schedule.html:230 templates/2025/rule.html:221
-#: templates/common/cancels.html:52
+#: templates/2026/rule.html:161 templates/common/cancels.html:52
 #: templates/others/participant_detail.html:160
 #: templates/others/participant_detail.html:167
 msgid "出場者一覧"
@@ -377,8 +391,8 @@ msgstr "قائمة الممثلين"
 #: templates/2024/time_schedule.html:164 templates/2024/time_schedule.html:237
 #: templates/2025/time_schedule.html:41 templates/2025/time_schedule.html:107
 #: templates/2025/time_schedule.html:165 templates/2025/time_schedule.html:247
-#: templates/2026/time_schedule.html:38 templates/2026/time_schedule.html:66
-#: templates/2026/time_schedule.html:94
+#: templates/2026/time_schedule.html:41 templates/2026/time_schedule.html:69
+#: templates/2026/time_schedule.html:97 templates/2026/time_schedule.html:125
 msgid "時刻"
 msgstr "وقت"
 
@@ -386,8 +400,8 @@ msgstr "وقت"
 #: templates/2024/time_schedule.html:165 templates/2024/time_schedule.html:238
 #: templates/2025/time_schedule.html:42 templates/2025/time_schedule.html:108
 #: templates/2025/time_schedule.html:166 templates/2025/time_schedule.html:248
-#: templates/2026/time_schedule.html:39 templates/2026/time_schedule.html:67
-#: templates/2026/time_schedule.html:95
+#: templates/2026/time_schedule.html:42 templates/2026/time_schedule.html:70
+#: templates/2026/time_schedule.html:98 templates/2026/time_schedule.html:126
 msgid "内容"
 msgstr "محتوى"
 
@@ -395,8 +409,8 @@ msgstr "محتوى"
 #: templates/2024/time_schedule.html:171 templates/2024/time_schedule.html:244
 #: templates/2025/time_schedule.html:48 templates/2025/time_schedule.html:114
 #: templates/2025/time_schedule.html:172 templates/2025/time_schedule.html:254
-#: templates/2026/time_schedule.html:45 templates/2026/time_schedule.html:73
-#: templates/2026/time_schedule.html:101
+#: templates/2026/time_schedule.html:48 templates/2026/time_schedule.html:76
+#: templates/2026/time_schedule.html:104 templates/2026/time_schedule.html:132
 msgid "入場開始"
 msgstr "بدء الدخول"
 
@@ -413,8 +427,9 @@ msgstr "ضيف مفاجأة"
 
 #: templates/2024/time_schedule.html:69 templates/2024/time_schedule.html:126
 #: templates/2024/time_schedule.html:183 templates/2024/time_schedule.html:248
-#: templates/2025/time_schedule.html:258 templates/2026/time_schedule.html:49
-#: templates/2026/time_schedule.html:77 templates/2026/time_schedule.html:105
+#: templates/2025/time_schedule.html:258 templates/2026/time_schedule.html:52
+#: templates/2026/time_schedule.html:80 templates/2026/time_schedule.html:108
+#: templates/2026/time_schedule.html:136
 msgid "スタート"
 msgstr "ابدأ"
 
@@ -436,8 +451,8 @@ msgstr "نصف النهائي"
 #: templates/2024/time_schedule.html:219 templates/2024/time_schedule.html:280
 #: templates/2025/time_schedule.html:92 templates/2025/time_schedule.html:150
 #: templates/2025/time_schedule.html:228 templates/2025/time_schedule.html:262
-#: templates/2026/time_schedule.html:53 templates/2026/time_schedule.html:81
-#: templates/2026/time_schedule.html:109
+#: templates/2026/time_schedule.html:56 templates/2026/time_schedule.html:84
+#: templates/2026/time_schedule.html:112 templates/2026/time_schedule.html:140
 msgid "終了"
 msgstr "انتهاء"
 
@@ -1130,10 +1145,6 @@ msgstr ""
 msgid "なお、GBB 2022は中止され、GBB 2023~2025は、東京で開催されました。"
 msgstr "تم إلغاء GBB 2022، وتم عقد GBB 2023-2025 في طوكيو."
 
-#: templates/2026/top_7tosmoke.html:11
-msgid "開催日未定"
-msgstr "تاريخ غير محدد"
-
 #: templates/base.html:34 templates/base.html:44 templates/base.html:48
 msgid ""
 "Swissbeatboxが主催するHuman Beatboxの世界大会「Grand Beatbox "
@@ -1172,7 +1183,7 @@ msgstr "قائمة"
 #: templates/2025/wildcard_regulation.html:194
 #: templates/2025/wildcard_regulation.html:255
 #: templates/2025/wildcard_regulation.html:256
-#: templates/2026/time_schedule.html:115 templates/2026/top.html:3
+#: templates/2026/time_schedule.html:146 templates/2026/top.html:3
 #: templates/2026/top.html:4 templates/2026/top.html:5
 #: templates/2026/top.html:25 templates/2026/top.html:97
 #: templates/2026/top.html:173 templates/2026/top_7tosmoke.html:24
@@ -1188,8 +1199,8 @@ msgstr "الدليل فقط"
 #: templates/2025/rule.html:358 templates/2025/ticket.html:17
 #: templates/2025/time_schedule.html:156 templates/2025/top.html:110
 #: templates/2025/wildcards.html:14 templates/2025/wildcards.html:83
-#: templates/2026/time_schedule.html:87 templates/2026/top.html:102
-#: templates/base.html:118 templates/base.html:269
+#: templates/2026/rule.html:160 templates/2026/time_schedule.html:118
+#: templates/2026/top.html:102 templates/base.html:118 templates/base.html:269
 #: templates/common/participants.html:25 templates/common/result.html:98
 #: templates/includes/participants_form.html:13
 msgid "Wildcard結果"
@@ -1199,7 +1210,7 @@ msgstr "نتائج الأحرف البديلة"
 #: templates/2025/rule.html:358 templates/2025/ticket.html:17
 #: templates/2025/time_schedule.html:156 templates/2025/top.html:110
 #: templates/2025/wildcards.html:14 templates/2025/wildcards.html:83
-#: templates/2026/time_schedule.html:87 templates/2026/top.html:102
+#: templates/2026/time_schedule.html:118 templates/2026/top.html:102
 #: templates/base.html:118 templates/base.html:269
 #: templates/common/result.html:98
 msgid "出場者"
@@ -1225,7 +1236,7 @@ msgstr "قائمة المتنازلين"
 #: templates/2025/wildcards.html:15 templates/2025/wildcards.html:84
 #: templates/2026/rule.html:3 templates/2026/rule.html:4
 #: templates/2026/rule.html:5 templates/2026/rule.html:10
-#: templates/2026/time_schedule.html:59 templates/2026/top.html:63
+#: templates/2026/time_schedule.html:62 templates/2026/top.html:63
 #: templates/2026/top.html:106 templates/base.html:120
 #: templates/common/participants.html:142
 msgid "ルール"
@@ -1236,7 +1247,7 @@ msgstr "قواعد"
 #: templates/2025/rule.html:367 templates/2025/time_schedule.html:98
 #: templates/2025/top.html:67 templates/2025/top.html:114
 #: templates/2025/wildcards.html:15 templates/2025/wildcards.html:84
-#: templates/2026/time_schedule.html:59 templates/2026/top.html:68
+#: templates/2026/time_schedule.html:62 templates/2026/top.html:68
 #: templates/2026/top.html:106 templates/base.html:120
 msgid "審査員"
 msgstr "حكم"
@@ -1302,9 +1313,10 @@ msgstr "تذكرة"
 #: templates/2025/stream.html:3 templates/2025/stream.html:4
 #: templates/2025/stream.html:5 templates/2025/stream.html:9
 #: templates/2025/time_schedule.html:155 templates/2025/top.html:143
-#: templates/2025/top_7tosmoke.html:40 templates/2026/time_schedule.html:86
-#: templates/2026/top.html:135 templates/2026/top_7tosmoke.html:40
-#: templates/base.html:130 templates/others/translation.html:23
+#: templates/2025/top_7tosmoke.html:40 templates/2026/time_schedule.html:90
+#: templates/2026/time_schedule.html:117 templates/2026/top.html:135
+#: templates/2026/top_7tosmoke.html:40 templates/base.html:130
+#: templates/others/translation.html:23
 msgid "当日配信"
 msgstr "البث في نفس اليوم"
 
@@ -1320,9 +1332,9 @@ msgstr "البث في نفس اليوم"
 #: templates/2025/time_schedule.html:97 templates/2025/time_schedule.html:233
 #: templates/2025/time_schedule.html:267 templates/2025/top.html:177
 #: templates/2025/top_7tosmoke.html:36 templates/2025/wildcards.html:112
-#: templates/2026/time_schedule.html:58 templates/2026/time_schedule.html:114
-#: templates/2026/top.html:169 templates/2026/top_7tosmoke.html:36
-#: templates/base.html:133
+#: templates/2026/time_schedule.html:61 templates/2026/time_schedule.html:89
+#: templates/2026/time_schedule.html:145 templates/2026/top.html:169
+#: templates/2026/top_7tosmoke.html:36 templates/base.html:133
 msgid "現地観戦計画のたてかた"
 msgstr "كيفية وضع خطة لمشاهدة المباراة على أرض الملعب"
 
@@ -1669,3 +1681,6 @@ msgstr ""
 #: templates/others/translation.html:32
 msgid "翻訳を提供していないページは、原文である日本語で表示されます。"
 msgstr "الصفحات التي لا يوجد لها ترجمة ستعرض باللغة اليابانية الأصلية."
+
+#~ msgid "開催日未定"
+#~ msgstr "تاريخ غير محدد"
