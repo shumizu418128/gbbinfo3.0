@@ -726,8 +726,8 @@ msgstr ""
 #: templates/2025/rule.html:285 templates/2025/wildcard_regulation.html:235
 msgid "Tag Team部門・Crew部門参加希望の方はご注意ください。"
 msgstr ""
-"Tag Team விடு૩்டுமடம் கீட்டிககி பறற்றுகொண்டும், Crew விடு૩்டுமடம் "
-"கொண்டுகள்கு இணையாகிறோது விடுக்குக செய்யுங்க."
+"Tag Team பிரிவு மற்றும் Crew பிரிவில் பங்கேற்க விரும்புபவர்கள் கவனத்தில் "
+"கொள்ளவும்."
 
 #: templates/2025/rule.html:343
 msgid "レフェリー"
@@ -817,7 +817,7 @@ msgstr "முடிவுகள்"
 #: templates/2025/top.html:60 templates/2025/top.html:91
 #: templates/2026/top.html:61 templates/2026/top.html:86
 msgid "結果発表日"
-msgstr "(இங்கு மொழிபெயர்க்கப்பட்டது)"
+msgstr "முடிவு அறிவிப்பு நாள்"
 
 #: templates/2025/top.html:61 templates/2026/top.html:62
 msgid "動画一覧"
@@ -1131,8 +1131,7 @@ msgstr ""
 #: templates/2025/wildcard_regulation.html:251
 msgid "FOH (ミキシング デスク) または録音への出力はステレオ信号である必要があり、マルチチャンネル出力は禁止"
 msgstr ""
-"FOH (mikisingu desuku) allatu rekōdingkiḷḷum uḷḷa veḷiyīṭu oru stereo "
-"chīṅkaḷāka irukka vēṇṭum, palvēru cāṇal veḷiyīṭu taṭukkappaṭṭuḷḷatu."
+"FOH（மிக்சிங் டெஸ்க்） அல்லது பதிவுக்கு செல்லும் அவுட்புட் ஸ்டீரியோ சிக்னலாகவே இருக்க வேண்டும்; மல்டி-சானல் அவுட்புட் தடை."
 
 #: templates/2025/wildcard_regulation.html:262
 msgid "Wildcard動画の作成にあたり使用したすべてのファイルを、バックアップ含め保存しておき、いつでも提出できるようにしておく"
@@ -1365,7 +1364,7 @@ msgstr "டிக்கெட்"
 #: templates/2026/top_7tosmoke.html:40 templates/base.html:130
 #: templates/others/translation.html:23
 msgid "当日配信"
-msgstr "அன்று டெலிவரி"
+msgstr "அன்றைய நேரடி ஒளிபரப்பு"
 
 #: templates/2024/rule.html:21 templates/2024/rule.html:70
 #: templates/2024/rule.html:129 templates/2024/rule.html:227

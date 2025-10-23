@@ -520,7 +520,7 @@ msgstr "Tarikh"
 #: templates/2025/top.html:32 templates/2025/top_7tosmoke.html:12
 #: templates/2026/top.html:32 templates/2026/top_7tosmoke.html:12
 msgid "公式よりもわかりやすい！"
-msgstr "Lebih mudah difahami daripada formula!"
+msgstr "Lebih mudah difahami berbanding laman rasmi!"
 
 #: templates/2024/top.html:24 templates/2024/top_7tosmoke.html:12
 #: templates/2025/top.html:32 templates/2025/top_7tosmoke.html:12
@@ -615,7 +615,7 @@ msgstr "Nombor telefon"
 
 #: templates/2024/top.html:128
 msgid "チケット販売ページ記載の番号"
-msgstr "Halaman jualan tiket"
+msgstr "Nombor yang disenaraikan pada halaman jualan tiket"
 
 #: templates/2024/top.html:140 templates/2025/top.html:235
 msgid "なお上記電話番号は、当サイトとは無関係です。"
@@ -1355,7 +1355,7 @@ msgstr "Tiket"
 #: templates/2026/top_7tosmoke.html:40 templates/base.html:130
 #: templates/others/translation.html:23
 msgid "当日配信"
-msgstr "Penghantaran hari ini"
+msgstr "Siaran pada hari acara"
 
 #: templates/2024/rule.html:21 templates/2024/rule.html:70
 #: templates/2024/rule.html:129 templates/2024/rule.html:227

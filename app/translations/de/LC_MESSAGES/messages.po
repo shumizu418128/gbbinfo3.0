@@ -46,7 +46,7 @@ msgstr "Bedingungen für die Erlangung eines Startplatzes"
 #: templates/2024/rule.html:42 templates/2024/rule.html:230
 #: templates/2025/rule.html:41 templates/2025/rule.html:246
 msgid "Wildcard ルール"
-msgstr "Platzhalter-Regel"
+msgstr "Wildcard‑Regeln"
 
 #: templates/2024/rule.html:46 templates/2024/rule.html:272
 #: templates/2025/rule.html:45 templates/2025/rule.html:305
@@ -1555,7 +1555,7 @@ msgstr "Keine koreanische Vertretung"
 
 #: templates/common/participants.html:27
 msgid "シード権獲得者"
-msgstr "Setzlisten-Inhaber"
+msgstr "Setzrechtsinhaber"
 
 #: templates/common/participants.html:33
 #: templates/includes/participants_form.html:20
@@ -1658,7 +1658,7 @@ msgstr "Alle Teilnehmer"
 
 #: templates/includes/participants_form.html:14
 msgid "シード権"
-msgstr "Setzliste"
+msgstr "Setzrecht"
 
 #: templates/includes/participants_form.html:17
 msgid "表示選択"
