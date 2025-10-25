@@ -207,3 +207,11 @@ FOLIUM_CUSTOM_CSS = """
 """
 
 MULTI_COUNTRY_TEAM_ISO_CODE = 9999
+
+ISO_CODE_NOT_FOUND = "beatboxer_dataにiso_codeが存在しません Participantテーブルを取得する際に、iso_codeを取得してください"
+ISO_CODE_COUNTRY_NAMES_OR_ALPHA2_NOT_FOUND = (
+    "ParticipantMemberにCountry(names, iso_alpha2)が存在しません Participantテーブルを取得する際に、Country(names, iso_alpha2)をjoinさせてください"
+)
+ISO_CODE_COUNTRY_ISO_ALPHA2_NOT_FOUND = (
+    "ParticipantMemberにCountry(iso_alpha2)が存在しません Participantテーブルを取得する際に、Country(iso_alpha2)をjoinさせてください"
+)

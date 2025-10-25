@@ -3,6 +3,7 @@ from jinja2 import TemplateNotFound
 
 from app.models.supabase_client import supabase_service
 from app.util.filter_eq import Operator
+from app.util.participant_edit import edit_country_data
 
 
 # MARK: ルール
@@ -28,11 +29,11 @@ def rules_view(year: int):
     # シード権獲得者を取得
     participants_data = supabase_service.get_data(
         table="Participant",
-        columns=["id", "name", "category", "is_cancelled", "ticket_class"],
+        columns=["id", "name", "category", "is_cancelled", "ticket_class", "iso_code"],
         order_by="category",  # カテゴリでソート
         join_tables={
-            "Category": ["id", "name"],
-            "ParticipantMember": ["id"],
+            "Category": ["id", "name", "is_team"],
+            "Country": ["iso_code", "names", "iso_alpha2"],
         },
         filters={
             # Wildcardという文字列が含まれていない
@@ -60,10 +61,15 @@ def rules_view(year: int):
 
         # カテゴリ名を取り出す
         participant["category"] = participant["Category"]["name"]
-        participant.pop("Category")
 
         # メンバーがいればチームと判定
-        participant["is_team"] = len(participant["ParticipantMember"]) > 0
+        is_team = participant["Category"]["is_team"]
+        if is_team:
+            participant["mode"] = "team"
+        else:
+            participant["mode"] = "single"
+
+        participant.pop("Category")
 
         # シード権辞退者、GBBでのシード権、その他でのシード権に分類
         if participant["is_cancelled"]:
@@ -72,6 +78,8 @@ def rules_view(year: int):
             gbb_seed.append(participant)
         else:
             other_seed.append(participant)
+
+        participant = edit_country_data(participant)
 
     # シード権獲得者を表示
     context = {

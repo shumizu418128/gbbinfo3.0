@@ -35,7 +35,7 @@ def post_search_participants(year: int):
         filters={"year": year, f"name__{Operator.MATCH_IGNORE_CASE}": f"%{keyword}%"},
     )
 
-    # 検索結果が無い場合、キーワードの最初1文字のみで検索
+    # 検索結果が無い場合、キーワードの最初の2文字のみで検索
     if not participants_data:
         try:
             participants_data = supabase_service.get_data(
@@ -48,7 +48,7 @@ def post_search_participants(year: int):
                 },
                 filters={
                     "year": year,
-                    f"name__{Operator.MATCH_IGNORE_CASE}": f"%{keyword[0]}%",
+                    f"name__{Operator.MATCH_IGNORE_CASE}": f"%{keyword[:1]}%",
                 },
                 raise_error=True,
             )
