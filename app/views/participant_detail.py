@@ -4,11 +4,10 @@ from urllib.parse import quote
 
 from flask import redirect, render_template, request, session
 
+from app.config.config import MULTI_COUNTRY_TEAM_ISO_CODE
 from app.models.supabase_client import supabase_service
 from app.util.filter_eq import Operator
 from app.util.participant_edit import team_multi_country, wildcard_rank_sort
-
-MULTI_COUNTRY_TEAM_ISO_CODE = 9999
 
 
 # MARK: 出場者詳細
@@ -40,7 +39,7 @@ def participant_detail_view():
             table="ParticipantMember",
             columns=["id", "participant", "name"],
             join_tables={
-                "Country": ["iso_code", "names"],
+                "Country": ["iso_code", "names", "iso_alpha2"],
                 "Participant": [
                     "id",
                     "name",
@@ -69,6 +68,7 @@ def participant_detail_view():
         # 設定言語に合わせて国名を取得
         language = session["language"]
         beatboxer_detail["country"] = beatboxer_detail["Country"]["names"][language]
+        beatboxer_detail["iso_alpha2"] = [beatboxer_detail["Country"]["iso_alpha2"]]
         beatboxer_detail.pop("Country")
 
         # メンバーの情報に無い情報を追加
@@ -91,9 +91,9 @@ def participant_detail_view():
                 "is_cancelled",
             ],
             join_tables={
-                "Country": ["iso_code", "names"],
+                "Country": ["iso_code", "names", "iso_alpha2"],
                 "Category": ["id", "name"],
-                "ParticipantMember": ["id", "name", "Country(names)"],
+                "ParticipantMember": ["id", "name", "Country(names, iso_alpha2)"],
             },
             filters={
                 "id": id,
@@ -120,6 +120,7 @@ def participant_detail_view():
         # 1国籍のチームの場合、国名を取得
         else:
             beatboxer_detail["country"] = beatboxer_detail["Country"]["names"][language]
+            beatboxer_detail["iso_alpha2"] = [beatboxer_detail["Country"]["iso_alpha2"]]
             beatboxer_detail.pop("Country")
 
         # 部門名を取得
@@ -129,6 +130,7 @@ def participant_detail_view():
         if len(beatboxer_detail["ParticipantMember"]) > 0:
             for member in beatboxer_detail["ParticipantMember"]:
                 member["country"] = member["Country"]["names"][language]
+                member["iso_alpha2"] = [member["Country"]["iso_alpha2"]]
                 member["name"] = member["name"].upper()
 
     # 過去の出場履歴を取得
@@ -137,7 +139,7 @@ def participant_detail_view():
         columns=["id", "name", "year", "is_cancelled", "category"],
         order_by="year",
         join_tables={
-            "Category": ["name"],
+            "Category": ["name", "is_team"],
             "ParticipantMember": ["id"],
         },
         filters={
@@ -168,7 +170,7 @@ def participant_detail_view():
     for data in past_participation_data:
         if data["name"].upper() == beatboxer_detail["name"]:
             past_participation_mode = (
-                "single" if len(data["ParticipantMember"]) == 0 else "team"
+                "team" if data["Category"]["is_team"] else "single"
             )
             past_data.append(
                 {
@@ -232,8 +234,8 @@ def participant_detail_view():
         table="Participant",
         columns=["id", "name", "is_cancelled", "ticket_class", "iso_code"],
         join_tables={
-            "Country": ["names"],
-            "ParticipantMember": ["id", "name", "Country(names)"],
+            "Country": ["names", "iso_alpha2"],
+            "ParticipantMember": ["id", "name", "Country(names, iso_alpha2)"],
         },
         filters={
             "year": beatboxer_detail["year"],
@@ -248,6 +250,7 @@ def participant_detail_view():
             participant = team_multi_country(participant, language)
         else:
             participant["country"] = participant["Country"]["names"][language]
+            participant["iso_alpha2"] = [participant["Country"]["iso_alpha2"]]
             participant.pop("Country")
         same_year_category_edited.append(participant)
 
