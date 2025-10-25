@@ -540,6 +540,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         mock_supabase.get_tavily_data.side_effect = [
             [],  # answer_translation (cache miss)
             {"answer": "This is an answer"},  # search_results
+            [],  # existing_cache for saving translation
         ]
 
         mock_gemini.ask.return_value = {"translated_text": "これは回答です"}
