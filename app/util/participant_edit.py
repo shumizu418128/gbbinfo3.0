@@ -31,13 +31,13 @@ def edit_country_data(beatboxer_data: dict, language: str = ""):
         raise ValueError("beatboxer_dataはdictである必要があります")
 
     # iso_codeを取得
-    if "iso_code" in beatboxer_data:
-        iso_code = beatboxer_data["iso_code"]
-    else:
-        try:
-            iso_code = beatboxer_data["Participant"]["iso_code"]
-        except KeyError:
-            raise ValueError(ISO_CODE_NOT_FOUND)
+    iso_code = (
+        beatboxer_data.get("iso_code")
+        or beatboxer_data.get("Participant", {}).get("iso_code")
+        or beatboxer_data.get("Country", {}).get("iso_code")
+    )
+    if iso_code is None:
+        raise ValueError(ISO_CODE_NOT_FOUND)
 
     # 1国籍のチームの場合、国名を取得して終了
     if iso_code != MULTI_COUNTRY_TEAM_ISO_CODE:

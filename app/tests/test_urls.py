@@ -183,6 +183,8 @@ class AppUrlsTestCase(unittest.TestCase):
         def participants_get_data_side_effect(*args, **kwargs):
             table = kwargs.get("table")
             pandas_flag = kwargs.get("pandas", False)
+            filters = kwargs.get("filters", {})
+
             if table == "Year" and pandas_flag:
                 import pandas as pd
 
@@ -197,6 +199,78 @@ class AppUrlsTestCase(unittest.TestCase):
                     ]
                 )
             if table == "Participant":
+                # 日本の出場者データ（iso_code=392）
+                if filters.get("iso_code") == 392:
+                    return [
+                        {
+                            "id": 1,
+                            "name": "ALPHA",
+                            "category": 1,
+                            "ticket_class": "GBB Seed",
+                            "is_cancelled": False,
+                            "iso_code": 392,
+                            "Category": {
+                                "id": 1,
+                                "name": "Loopstation",
+                                "is_team": False,
+                            },
+                            "Country": {
+                                "iso_code": 392,
+                                "iso_alpha2": "JP",
+                            },
+                            "ParticipantMember": [],
+                        }
+                    ]
+                # 韓国の出場者データ（iso_code=410）
+                elif filters.get("iso_code") == 410:
+                    return [
+                        {
+                            "id": 2,
+                            "name": "BIGMAN",
+                            "category": 2,
+                            "ticket_class": "GBB Seed",
+                            "is_cancelled": False,
+                            "iso_code": 410,
+                            "Category": {"id": 2, "name": "Solo", "is_team": False},
+                            "Country": {
+                                "iso_code": 410,
+                                "iso_alpha2": "KR",
+                            },
+                            "ParticipantMember": [],
+                        }
+                    ]
+                # 多国籍チームデータ（iso_code=9999）
+                elif filters.get("iso_code") == 9999:
+                    return [
+                        {
+                            "id": 100,
+                            "name": "MULTINATIONAL TEAM",
+                            "category": 1,
+                            "ticket_class": "GBB Seed",
+                            "is_cancelled": False,
+                            "Category": {
+                                "id": 1,
+                                "name": "Loopstation",
+                                "is_team": True,
+                            },
+                            "ParticipantMember": [
+                                {
+                                    "name": "Member from Japan",
+                                    "iso_code": 392,
+                                    "Country": {"iso_alpha2": "JP"},
+                                },
+                                {
+                                    "name": "Member from Korea",
+                                    "iso_code": 410,
+                                    "Country": {"iso_alpha2": "KR"},
+                                },
+                            ],
+                            "Country": {
+                                "iso_code": 9999,
+                            },
+                        }
+                    ]
+                # デフォルトの出場者データ
                 return [
                     {
                         "id": 1,
