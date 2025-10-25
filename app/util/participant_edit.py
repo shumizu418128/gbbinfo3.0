@@ -46,10 +46,10 @@ def edit_country_data(beatboxer_data: dict, language: str = ""):
                 beatboxer_data["country"] = beatboxer_data["Country"]["names"][language]
             beatboxer_data["iso_alpha2"] = [beatboxer_data["Country"]["iso_alpha2"]]
             beatboxer_data.pop("Country")
-        except KeyError:
+        except KeyError as err:
             if language:
-                raise ValueError(ISO_CODE_COUNTRY_NAMES_OR_ALPHA2_NOT_FOUND)
-            raise ValueError(ISO_CODE_COUNTRY_ISO_ALPHA2_NOT_FOUND)
+                raise ValueError(ISO_CODE_COUNTRY_NAMES_OR_ALPHA2_NOT_FOUND) from err
+            raise ValueError(ISO_CODE_COUNTRY_ISO_ALPHA2_NOT_FOUND) from err
         return beatboxer_data
 
     # 複数国籍のチームの場合、全メンバーの国名を取得
