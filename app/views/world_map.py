@@ -42,7 +42,7 @@ def world_map_view(year: int):
             columns=["id", "name", "iso_code"],
             order_by="category",
             join_tables={
-                "Category": ["id", "name"],
+                "Category": ["id", "name", "is_team"],
                 "ParticipantMember": ["Country(iso_code)"],
             },
             filters={"year": year, "is_cancelled": False},
@@ -61,14 +61,15 @@ def world_map_view(year: int):
 
         # カテゴリ名を取り出す
         participant["category"] = participant["Category"]["name"]
-        participant.pop("Category")
 
         # チームかどうかを判断
-        is_team = len(participant["ParticipantMember"]) > 0
+        is_team = participant["Category"]["is_team"]
         if is_team is True:
             participant["mode"] = "team"
         elif is_team is False:
             participant["mode"] = "single"
+
+        participant.pop("Category")
 
         # 複数国籍のチームの場合、該当国ごとにデータを追加
         if participant["iso_code"] == MULTI_COUNTRY_TEAM_ISO_CODE:

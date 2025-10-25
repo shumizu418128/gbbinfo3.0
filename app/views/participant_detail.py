@@ -4,10 +4,9 @@ from urllib.parse import quote
 
 from flask import redirect, render_template, request, session
 
-from app.config.config import MULTI_COUNTRY_TEAM_ISO_CODE
 from app.models.supabase_client import supabase_service
 from app.util.filter_eq import Operator
-from app.util.participant_edit import team_multi_country, wildcard_rank_sort
+from app.util.participant_edit import edit_country_data, wildcard_rank_sort
 
 
 # MARK: 出場者詳細
@@ -37,7 +36,7 @@ def participant_detail_view():
     if mode == "team_member":
         beatboxer_data = supabase_service.get_data(
             table="ParticipantMember",
-            columns=["id", "participant", "name"],
+            columns=["id", "participant", "name", "iso_code"],
             join_tables={
                 "Country": ["iso_code", "names", "iso_alpha2"],
                 "Participant": [
@@ -67,9 +66,10 @@ def participant_detail_view():
 
         # 設定言語に合わせて国名を取得
         language = session["language"]
-        beatboxer_detail["country"] = beatboxer_detail["Country"]["names"][language]
-        beatboxer_detail["iso_alpha2"] = [beatboxer_detail["Country"]["iso_alpha2"]]
-        beatboxer_detail.pop("Country")
+        beatboxer_detail = edit_country_data(
+            beatboxer_detail,
+            language,
+        )
 
         # メンバーの情報に無い情報を追加
         beatboxer_detail["year"] = beatboxer_detail["Participant"]["year"]
@@ -112,16 +112,7 @@ def participant_detail_view():
 
         # 設定言語に合わせて国名を取得
         language = session["language"]
-
-        # 複数国籍のチームの場合、国名をまとめる
-        if beatboxer_detail["iso_code"] == MULTI_COUNTRY_TEAM_ISO_CODE:
-            beatboxer_detail = team_multi_country(beatboxer_detail, language)
-
-        # 1国籍のチームの場合、国名を取得
-        else:
-            beatboxer_detail["country"] = beatboxer_detail["Country"]["names"][language]
-            beatboxer_detail["iso_alpha2"] = [beatboxer_detail["Country"]["iso_alpha2"]]
-            beatboxer_detail.pop("Country")
+        beatboxer_detail = edit_country_data(beatboxer_detail, language)
 
         # 部門名を取得
         beatboxer_detail["category"] = beatboxer_detail["Category"]["name"]
@@ -244,14 +235,14 @@ def participant_detail_view():
     )
 
     same_year_category_edited = []
+
     for participant in same_year_category_participants:
+        # 名前は大文字に変換
         participant["name"] = participant["name"].upper()
-        if participant["iso_code"] == MULTI_COUNTRY_TEAM_ISO_CODE:
-            participant = team_multi_country(participant, language)
-        else:
-            participant["country"] = participant["Country"]["names"][language]
-            participant["iso_alpha2"] = [participant["Country"]["iso_alpha2"]]
-            participant.pop("Country")
+
+        # 設定言語に合わせて国名を設定
+        participant = edit_country_data(participant, language)
+
         same_year_category_edited.append(participant)
 
     # ランダムで最大5人を選ぶ

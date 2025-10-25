@@ -102,7 +102,7 @@ jobs:
         TESTING: true
         IS_PULL_REQUEST: ${{ github.event_name == 'pull_request' }}
       run: |
-        python -m pytest app/tests/tests.py -v --tb=short
+        python -m pytest app/tests/ -v
         echo "test_result=success" >> $GITHUB_OUTPUT
 
     - name: Notify test results to webhook

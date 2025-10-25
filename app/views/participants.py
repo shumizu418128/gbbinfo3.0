@@ -3,7 +3,7 @@ from flask import abort, redirect, render_template, request, session
 from app.config.config import MULTI_COUNTRY_TEAM_ISO_CODE
 from app.models.supabase_client import supabase_service
 from app.util.filter_eq import Operator
-from app.util.participant_edit import team_multi_country, wildcard_rank_sort
+from app.util.participant_edit import edit_country_data, wildcard_rank_sort
 
 VALID_TICKET_CLASSES = ["all", "wildcard", "seed_right"]
 VALID_CANCEL = ["show", "hide", "only_cancelled"]
@@ -168,12 +168,7 @@ def participants_view(year: int):
         participant.pop("Category")
 
         # 国名を取り出す
-        if participant["iso_code"] == MULTI_COUNTRY_TEAM_ISO_CODE:
-            participant = team_multi_country(participant, language)
-        else:
-            participant["country"] = participant["Country"]["names"][language]
-            participant["iso_alpha2"] = [participant["Country"]["iso_alpha2"]]
-            participant.pop("Country")
+        participant = edit_country_data(participant, language)
 
         participants_data_edited.append(participant)
 
@@ -276,16 +271,7 @@ def participants_country_specific_view(year: int):
             participant["mode"] = "single"
 
         # 国コードを取り出す
-        if participant["Country"]["iso_code"] == MULTI_COUNTRY_TEAM_ISO_CODE:
-            # 国名表記は使わないので、jaでも問題ない
-            iso_alpha2_list = []
-            for member in participant["ParticipantMember"]:
-                iso_alpha2_list.append(member["Country"]["iso_alpha2"])
-            participant["iso_alpha2"] = sorted(list(set(iso_alpha2_list)))
-        else:
-            participant["iso_alpha2"] = [participant["Country"]["iso_alpha2"]]
-
-        participant.pop("Country")
+        participant = edit_country_data(participant)
 
     participants_data.sort(
         key=lambda x: (
@@ -314,11 +300,11 @@ def cancels_view(year: int):
     try:
         cancels_data = supabase_service.get_data(
             table="Participant",
-            columns=["id", "name", "category", "ticket_class"],
+            columns=["id", "name", "category", "ticket_class", "iso_code"],
             join_tables={
+                "Country": ["iso_alpha2"],
                 "Category": ["name", "is_team"],
-                "ParticipantMember": ["name", "Country(iso_alpha2)"],
-                "Country": ["iso_code", "iso_alpha2"],
+                "ParticipantMember": ["Country(iso_alpha2)"],
             },
             raise_error=True,
             filters={f"is_cancelled__{Operator.EQUAL}": True, "year": year},
@@ -349,15 +335,7 @@ def cancels_view(year: int):
         cancel.pop("Category")
 
         # 国コードを取り出す
-        if cancel["Country"]["iso_code"] == MULTI_COUNTRY_TEAM_ISO_CODE:
-            iso_alpha2_list = []
-            for member in cancel["ParticipantMember"]:
-                iso_alpha2_list.append(member["Country"]["iso_alpha2"])
-            cancel["iso_alpha2"] = sorted(list(set(iso_alpha2_list)))
-        else:
-            cancel["iso_alpha2"] = [cancel["Country"]["iso_alpha2"]]
-
-        cancel.pop("Country")
+        cancel = edit_country_data(cancel)
 
     context = {
         "cancels": cancels_data,

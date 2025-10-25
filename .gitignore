@@ -126,3 +126,4 @@ cache/
 
 app/models/googletrans_client.py
 tools/
+/.cursor
