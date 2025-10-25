@@ -327,8 +327,7 @@ class AppUrlsTestCase(unittest.TestCase):
 
                 # 200-399の範囲のステータスコードまたは、レスポンスが存在することを確認
                 self.assertTrue(
-                    response.status_code in range(200, 400)
-                    or response.status_code is not None,
+                    response.status_code in range(200, 400),
                     f"{description} ({url}) が適切なレスポンスを返しませんでした。ステータスコード: {response.status_code}",
                 )
 

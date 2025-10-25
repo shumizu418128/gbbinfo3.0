@@ -48,7 +48,7 @@ def post_search_participants(year: int):
                 },
                 filters={
                     "year": year,
-                    f"name__{Operator.MATCH_IGNORE_CASE}": f"%{keyword[:1]}%",
+                    f"name__{Operator.MATCH_IGNORE_CASE}": f"%{keyword[:2]}%",
                 },
                 raise_error=True,
             )

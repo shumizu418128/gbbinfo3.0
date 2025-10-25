@@ -12,8 +12,6 @@ from unittest.mock import Mock, patch
 
 from app.main import app
 
-COMMON_URLS = ["/japan", "/korea", "/participants", "/rule"]
-
 
 class GeminiServiceTestCase(unittest.TestCase):
     """

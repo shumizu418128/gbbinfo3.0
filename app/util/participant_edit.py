@@ -27,7 +27,7 @@ def edit_country_data(beatboxer_data: dict, language: str = ""):
         複数国籍のチーム（iso_code == MULTI_COUNTRY_TEAM_ISO_CODE）の場合、メンバーの国名とISO alpha2を集約します。
         'Country' は 'names' 辞書と 'iso_alpha2' キーを持つと仮定します。
     """
-    if type(beatboxer_data) is not dict:
+    if not isinstance(beatboxer_data, dict):
         raise ValueError("beatboxer_dataはdictである必要があります")
 
     # iso_codeを取得
