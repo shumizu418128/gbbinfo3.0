@@ -24,6 +24,9 @@ def participant_detail_view():
     Raises:
         なし（id, modeが無い場合やデータが存在しない場合は参加者ページにリダイレクトする）
     """
+    # ========================================
+    # 1. リクエストパラメータの取得
+    # ========================================
     try:
         id = request.args["id"]  # 出場者ID
         mode = request.args["mode"]  # single, team, team_member
@@ -32,7 +35,11 @@ def participant_detail_view():
         year = datetime.now().year
         return redirect(f"/{year}/participants")
 
-    # チームメンバーの場合、情報を取得
+    language = session["language"]
+
+    # ========================================
+    # 2. 出場者データの取得
+    # ========================================
     if mode == "team_member":
         beatboxer_data = supabase_service.get_data(
             table="ParticipantMember",
@@ -43,42 +50,13 @@ def participant_detail_view():
                     "id",
                     "name",
                     "year",
-                    "category",
                     "is_cancelled",
+                    "ticket_class",
+                    "Category(id, name)",
                 ],
             },
-            filters={
-                "id": id,
-            },
+            filters={"id": id},
         )
-        # データがない場合、出場者ページへリダイレクト
-        if not beatboxer_data:
-            year = datetime.now().year
-            return redirect(f"/{year}/participants")
-
-        beatboxer_detail = beatboxer_data[0]
-
-        # 名前は大文字に変換
-        beatboxer_detail["name"] = beatboxer_detail["name"].upper()
-        beatboxer_detail["Participant"]["name"] = beatboxer_detail["Participant"][
-            "name"
-        ].upper()
-
-        # 設定言語に合わせて国名を取得
-        language = session["language"]
-        beatboxer_detail = edit_country_data(
-            beatboxer_detail,
-            language,
-        )
-
-        # メンバーの情報に無い情報を追加
-        beatboxer_detail["year"] = beatboxer_detail["Participant"]["year"]
-        beatboxer_detail["is_cancelled"] = beatboxer_detail["Participant"][
-            "is_cancelled"
-        ]
-        beatboxer_detail["category"] = beatboxer_detail["Participant"]["category"]
-
-    # 1人部門 or チーム部門のチームについての情報を取得
     else:
         beatboxer_data = supabase_service.get_data(
             table="Participant",
@@ -86,7 +64,6 @@ def participant_detail_view():
                 "id",
                 "name",
                 "year",
-                "category",
                 "iso_code",
                 "ticket_class",
                 "is_cancelled",
@@ -96,36 +73,50 @@ def participant_detail_view():
                 "Category": ["id", "name"],
                 "ParticipantMember": ["id", "name", "Country(names, iso_alpha2)"],
             },
-            filters={
-                "id": id,
-            },
+            filters={"id": id},
         )
 
-        # データがない場合、出場者ページへリダイレクト
-        if not beatboxer_data:
-            year = datetime.now().year
-            return redirect(f"/{year}/participants")
+    # データがない場合、出場者ページへリダイレクト
+    if not beatboxer_data:
+        year = datetime.now().year
+        return redirect(f"/{year}/participants")
 
-        beatboxer_detail = beatboxer_data[0]
+    # ========================================
+    # 3. 出場者データの正規化
+    # ========================================
+    beatboxer_detail = beatboxer_data[0]
 
-        # 名前は大文字に変換
-        beatboxer_detail["name"] = beatboxer_detail["name"].upper()
+    # 名前を大文字に変換
+    beatboxer_detail["name"] = beatboxer_detail["name"].upper()
 
-        # 設定言語に合わせて国名を取得
-        language = session["language"]
-        beatboxer_detail = edit_country_data(beatboxer_detail, language)
+    # 設定言語に合わせて国名を取得
+    beatboxer_detail = edit_country_data(beatboxer_detail, language)
 
-        # 部門名を取得
-        beatboxer_detail["category"] = beatboxer_detail["Category"]["name"]
+    # team_memberモードの場合、Participantからフィールドを展開
+    if mode == "team_member":
+        participant = beatboxer_detail["Participant"]
+        participant["name"] = participant["name"].upper()
+        beatboxer_detail["year"] = participant["year"]
+        beatboxer_detail["is_cancelled"] = participant["is_cancelled"]
+        beatboxer_detail["ticket_class"] = participant["ticket_class"]
+        beatboxer_detail["category"] = participant["Category"]["name"]
+        beatboxer_detail["category_id"] = participant["Category"]["id"]
+    else:
+        # single/teamモードの場合、Categoryからフィールドを取得
+        category = beatboxer_detail["Category"]
+        beatboxer_detail["category"] = category["name"]
+        beatboxer_detail["category_id"] = category["id"]
 
-        # チームメンバーの国名を取得
-        if len(beatboxer_detail["ParticipantMember"]) > 0:
-            for member in beatboxer_detail["ParticipantMember"]:
-                member["country"] = member["Country"]["names"][language]
-                member["iso_alpha2"] = [member["Country"]["iso_alpha2"]]
-                member["name"] = member["name"].upper()
+    # ParticipantMemberの名前と国名を処理
+    for member in beatboxer_detail.get("ParticipantMember", []):
+        member["name"] = member["name"].upper()
+        member["country"] = member["Country"]["names"][language]
+        member["iso_alpha2"] = [member["Country"]["iso_alpha2"]]
 
-    # 過去の出場履歴を取得
+    # ========================================
+    # 4. 過去の出場履歴の取得
+    # ========================================
+    # Participantテーブルから過去の出場履歴を取得
     past_participation_data = supabase_service.get_data(
         table="Participant",
         columns=["id", "name", "year", "is_cancelled", "category"],
@@ -138,6 +129,8 @@ def participant_detail_view():
             f"name__{Operator.MATCH_IGNORE_CASE}": beatboxer_detail["name"],
         },
     )
+
+    # ParticipantMemberテーブルから過去の出場履歴を取得
     past_participation_member_data = supabase_service.get_data(
         table="ParticipantMember",
         columns=["name"],
@@ -147,8 +140,7 @@ def participant_detail_view():
                 "name",
                 "year",
                 "is_cancelled",
-                "Category(name)",
-                "category",
+                "Category(name, id)",
             ],
         },
         filters={
@@ -156,6 +148,9 @@ def participant_detail_view():
         },
     )
 
+    # ========================================
+    # 5. 過去の出場履歴の正規化
+    # ========================================
     past_data = []
 
     # MATCH_IGNORE_CASE演算子は大文字小文字を区別しない部分一致であるため、完全一致の確認を行う
@@ -175,6 +170,7 @@ def participant_detail_view():
                     "mode": past_participation_mode,
                 }
             )
+
     for past_participation_member in past_participation_member_data:
         if past_participation_member["name"].upper() == beatboxer_detail["name"]:
             past_data.append(
@@ -185,16 +181,21 @@ def participant_detail_view():
                     "category": past_participation_member["Participant"]["Category"][
                         "name"
                     ],
-                    "category_id": past_participation_member["Participant"]["category"],
+                    "category_id": past_participation_member["Participant"]["Category"][
+                        "id"
+                    ],
                     "is_cancelled": past_participation_member["Participant"][
                         "is_cancelled"
                     ],
                     "mode": "team",
                 }
             )
+
     past_data.sort(key=lambda x: (x["year"], x["category_id"]))
 
-    # 過去の出場履歴（年度）を取得
+    # ========================================
+    # 6. 過去の出場年度の抽出（最大4年分）
+    # ========================================
     past_year_participation = set()
     for data in past_data:
         past_year_participation.add(data["year"])
@@ -215,12 +216,10 @@ def participant_detail_view():
     if len(past_year_participation) > 4:
         past_year_participation = past_year_participation[:4]
 
-    # 対象Beatboxerと同じ年・部門の出場者一覧を取得
-    # 部門を調べる
-    if mode == "team_member":
-        category_id = beatboxer_detail["Participant"]["category"]
-    else:
-        category_id = beatboxer_detail["Category"]["id"]
+    # ========================================
+    # 7. 同年・同部門の出場者一覧の取得
+    # ========================================
+    category_id = beatboxer_detail["category_id"]
 
     same_year_category_participants = supabase_service.get_data(
         table="Participant",
@@ -235,6 +234,9 @@ def participant_detail_view():
         },
     )
 
+    # ========================================
+    # 8. 同年・同部門の出場者一覧の加工
+    # ========================================
     same_year_category_edited = []
 
     for participant in same_year_category_participants:
@@ -250,6 +252,8 @@ def participant_detail_view():
     same_year_category_edited = random.sample(
         same_year_category_edited, min(5, len(same_year_category_edited))
     )
+
+    # ソート: キャンセル→未定→Wildcard→ランキング→GBBシード
     same_year_category_edited.sort(
         key=lambda x: (
             x["is_cancelled"],  # キャンセルした人は下
@@ -260,6 +264,9 @@ def participant_detail_view():
         )
     )
 
+    # ========================================
+    # 9. テンプレートコンテキストの作成
+    # ========================================
     same_year_category_mode = "single" if mode == "single" else "team"
     ai_search_query = quote(beatboxer_detail["name"] + " beatbox")
 

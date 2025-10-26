@@ -224,6 +224,8 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
                         "year": 2025,
                         "category": 2,
                         "is_cancelled": False,
+                        "ticket_class": "GBB Seed",
+                        "Category": {"id": 2, "name": "Crew"},
                     },
                 }
             ],
