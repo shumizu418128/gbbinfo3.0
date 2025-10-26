@@ -7,6 +7,8 @@ python -m pytest app/tests/test_participant_detail.py -v
 import unittest
 from unittest.mock import patch
 
+import pandas as pd
+
 from app.main import app
 
 
@@ -27,13 +29,33 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
         """テスト後のクリーンアップ"""
         self.app_context.pop()
 
+    @patch("app.context_processors.supabase_service")
     @patch("app.views.participant_detail.supabase_service")
-    def test_single_participant_with_iso_code_zero(self, mock_supabase):
+    def test_single_participant_with_iso_code_zero(
+        self, mock_view_supabase, mock_context_supabase
+    ):
         """
         iso_codeが0の単一出場者の詳細ページが正しく表示されることを確認
         """
+
+        # context_processors用のモック設定
+        def mock_get_data(**kwargs):
+            # pandas=Trueが指定されている場合はpandas DataFrameを返す
+            if kwargs.get("pandas", False):
+                return pd.DataFrame(
+                    [{"year": 2025, "ends_at": "2025-12-31T23:59:59+00:00"}]
+                )
+            # filtersが指定されている場合はYearテーブルからのデータとして扱う
+            elif "filters" in kwargs:
+                return [{"year": 2025, "ends_at": "2025-12-31T23:59:59+00:00"}]
+            # それ以外の場合はget_available_years()用のリストを返す
+            else:
+                return [{"year": 2025}]
+
+        mock_context_supabase.get_data.side_effect = mock_get_data
+
         # モックデータの設定
-        mock_supabase.get_data.side_effect = [
+        mock_view_supabase.get_data.side_effect = [
             # 1回目: 出場者詳細データ
             [
                 {
@@ -91,13 +113,31 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
         response_data = response.data.decode("utf-8")
         self.assertIn("TBD PLAYER", response_data)
 
+    @patch("app.context_processors.supabase_service")
     @patch("app.views.participant_detail.supabase_service")
-    def test_team_with_iso_code_zero(self, mock_supabase):
+    def test_team_with_iso_code_zero(self, mock_view_supabase, mock_context_supabase):
         """
         iso_codeが0のチームの詳細ページが正しく表示されることを確認
         """
+
+        # context_processors用のモック設定
+        def mock_get_data(**kwargs):
+            # pandas=Trueが指定されている場合はpandas DataFrameを返す
+            if kwargs.get("pandas", False):
+                return pd.DataFrame(
+                    [{"year": 2025, "ends_at": "2025-12-31T23:59:59+00:00"}]
+                )
+            # filtersが指定されている場合はYearテーブルからのデータとして扱う
+            elif "filters" in kwargs:
+                return [{"year": 2025, "ends_at": "2025-12-31T23:59:59+00:00"}]
+            # それ以外の場合はget_available_years()用のリストを返す
+            else:
+                return [{"year": 2025}]
+
+        mock_context_supabase.get_data.side_effect = mock_get_data
+
         # モックデータの設定
-        mock_supabase.get_data.side_effect = [
+        mock_view_supabase.get_data.side_effect = [
             # 1回目: 出場者詳細データ
             [
                 {
@@ -143,13 +183,33 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
         response_data = response.data.decode("utf-8")
         self.assertIn("TBD TEAM", response_data)
 
+    @patch("app.context_processors.supabase_service")
     @patch("app.views.participant_detail.supabase_service")
-    def test_team_member_with_iso_code_zero(self, mock_supabase):
+    def test_team_member_with_iso_code_zero(
+        self, mock_view_supabase, mock_context_supabase
+    ):
         """
         iso_codeが0のチームメンバーの詳細ページが正しく表示されることを確認
         """
+
+        # context_processors用のモック設定
+        def mock_get_data(**kwargs):
+            # pandas=Trueが指定されている場合はpandas DataFrameを返す
+            if kwargs.get("pandas", False):
+                return pd.DataFrame(
+                    [{"year": 2025, "ends_at": "2025-12-31T23:59:59+00:00"}]
+                )
+            # filtersが指定されている場合はYearテーブルからのデータとして扱う
+            elif "filters" in kwargs:
+                return [{"year": 2025, "ends_at": "2025-12-31T23:59:59+00:00"}]
+            # それ以外の場合はget_available_years()用のリストを返す
+            else:
+                return [{"year": 2025}]
+
+        mock_context_supabase.get_data.side_effect = mock_get_data
+
         # モックデータの設定
-        mock_supabase.get_data.side_effect = [
+        mock_view_supabase.get_data.side_effect = [
             # 1回目: チームメンバー詳細データ
             [
                 {
@@ -200,14 +260,34 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
         response_data = response.data.decode("utf-8")
         self.assertIn("TBD MEMBER", response_data)
 
+    @patch("app.context_processors.supabase_service")
     @patch("app.views.participant_detail.supabase_service")
-    def test_same_category_participants_sorting_with_iso_code_zero(self, mock_supabase):
+    def test_same_category_participants_sorting_with_iso_code_zero(
+        self, mock_view_supabase, mock_context_supabase
+    ):
         """
         同じ部門の出場者一覧で、iso_codeが0の出場者が正しくソートされることを確認
         iso_codeが0の出場者は下位に表示される
         """
+
+        # context_processors用のモック設定
+        def mock_get_data(**kwargs):
+            # pandas=Trueが指定されている場合はpandas DataFrameを返す
+            if kwargs.get("pandas", False):
+                return pd.DataFrame(
+                    [{"year": 2025, "ends_at": "2025-12-31T23:59:59+00:00"}]
+                )
+            # filtersが指定されている場合はYearテーブルからのデータとして扱う
+            elif "filters" in kwargs:
+                return [{"year": 2025, "ends_at": "2025-12-31T23:59:59+00:00"}]
+            # それ以外の場合はget_available_years()用のリストを返す
+            else:
+                return [{"year": 2025}]
+
+        mock_context_supabase.get_data.side_effect = mock_get_data
+
         # モックデータの設定
-        mock_supabase.get_data.side_effect = [
+        mock_view_supabase.get_data.side_effect = [
             # 1回目: 出場者詳細データ
             [
                 {
@@ -302,13 +382,33 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
         response_data = response.data.decode("utf-8")
         self.assertIn("MAIN PLAYER", response_data)
 
+    @patch("app.context_processors.supabase_service")
     @patch("app.views.participant_detail.supabase_service")
-    def test_mixed_iso_code_zero_and_normal_participants(self, mock_supabase):
+    def test_mixed_iso_code_zero_and_normal_participants(
+        self, mock_view_supabase, mock_context_supabase
+    ):
         """
         iso_codeが0の出場者と通常の出場者が混在している場合の表示を確認
         """
+
+        # context_processors用のモック設定
+        def mock_get_data(**kwargs):
+            # pandas=Trueが指定されている場合はpandas DataFrameを返す
+            if kwargs.get("pandas", False):
+                return pd.DataFrame(
+                    [{"year": 2025, "ends_at": "2025-12-31T23:59:59+00:00"}]
+                )
+            # filtersが指定されている場合はYearテーブルからのデータとして扱う
+            elif "filters" in kwargs:
+                return [{"year": 2025, "ends_at": "2025-12-31T23:59:59+00:00"}]
+            # それ以外の場合はget_available_years()用のリストを返す
+            else:
+                return [{"year": 2025}]
+
+        mock_context_supabase.get_data.side_effect = mock_get_data
+
         # モックデータの設定
-        mock_supabase.get_data.side_effect = [
+        mock_view_supabase.get_data.side_effect = [
             # 1回目: 出場者詳細データ
             [
                 {
@@ -370,8 +470,7 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
         response_data = response.data.decode("utf-8")
         self.assertIn("NORMAL PLAYER", response_data)
 
-    @patch("app.views.participant_detail.supabase_service")
-    def test_participant_detail_without_params(self, mock_supabase):
+    def test_participant_detail_without_params(self):
         """
         idとmodeパラメータがない場合、participantsページにリダイレクトされることを確認
         """
@@ -381,13 +480,33 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertIn("/participants", response.location)
 
+    @patch("app.context_processors.supabase_service")
     @patch("app.views.participant_detail.supabase_service")
-    def test_participant_detail_not_found(self, mock_supabase):
+    def test_participant_detail_not_found(
+        self, mock_view_supabase, mock_context_supabase
+    ):
         """
         存在しないidの場合、participantsページにリダイレクトされることを確認
         """
+
+        # context_processors用のモック設定
+        def mock_get_data(**kwargs):
+            # pandas=Trueが指定されている場合はpandas DataFrameを返す
+            if kwargs.get("pandas", False):
+                return pd.DataFrame(
+                    [{"year": 2025, "ends_at": "2025-12-31T23:59:59+00:00"}]
+                )
+            # filtersが指定されている場合はYearテーブルからのデータとして扱う
+            elif "filters" in kwargs:
+                return [{"year": 2025, "ends_at": "2025-12-31T23:59:59+00:00"}]
+            # それ以外の場合はget_available_years()用のリストを返す
+            else:
+                return [{"year": 2025}]
+
+        mock_context_supabase.get_data.side_effect = mock_get_data
+
         # モックデータの設定（空のリストを返す）
-        mock_supabase.get_data.return_value = []
+        mock_view_supabase.get_data.return_value = []
 
         response = self.client.get("/others/participant_detail?id=99999&mode=single")
 
