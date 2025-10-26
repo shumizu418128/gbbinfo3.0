@@ -61,23 +61,26 @@ def edit_country_data(beatboxer_data: dict, language: str = ""):
         return beatboxer_data
 
     # 複数国籍のチームの場合、全メンバーの国名を取得
-    country_list = set()
-    iso_alpha2_list = set()
+    # 辞書を使用してISO alpha2をキーとし、国名とのペアを維持(重複も自動除去)
+    country_dict = {}
     members = beatboxer_data["ParticipantMember"]
 
     for member in members:
         try:
+            iso_alpha2 = member["Country"]["iso_alpha2"]
             if language:
-                country_list.add(member["Country"]["names"][language])
-            iso_alpha2_list.add(member["Country"]["iso_alpha2"])
+                country_name = member["Country"]["names"][language]
+                country_dict[iso_alpha2] = country_name
+            else:
+                country_dict[iso_alpha2] = None
         except KeyError:
             if language:
                 raise ValueError(ISO_CODE_COUNTRY_NAMES_OR_ALPHA2_NOT_FOUND)
             raise ValueError(ISO_CODE_COUNTRY_ISO_ALPHA2_NOT_FOUND)
 
     if language:
-        beatboxer_data["country"] = " / ".join(sorted(country_list))
-    beatboxer_data["iso_alpha2"] = sorted(list(iso_alpha2_list))
+        beatboxer_data["country"] = " / ".join(country_dict.values())
+    beatboxer_data["iso_alpha2"] = list(country_dict.keys())
     beatboxer_data.pop("Country")
 
     return beatboxer_data
