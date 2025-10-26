@@ -30,12 +30,20 @@ def edit_country_data(beatboxer_data: dict, language: str = ""):
     if not isinstance(beatboxer_data, dict):
         raise ValueError("beatboxer_dataはdictである必要があります")
 
-    # iso_codeを取得
-    iso_code = (
-        beatboxer_data.get("iso_code")
-        or beatboxer_data.get("Participant", {}).get("iso_code")
-        or beatboxer_data.get("Country", {}).get("iso_code")
-    )
+    # iso_codeを取得（0とNoneを区別するため、明示的にis Noneでチェック）
+    iso_code = beatboxer_data.get("iso_code")
+    if iso_code is None:
+        iso_code = beatboxer_data.get("Participant", {}).get("iso_code")
+    if iso_code is None:
+        iso_code = beatboxer_data.get("Country", {}).get("iso_code")
+
+    # 出場者未定
+    if iso_code == 0:
+        beatboxer_data["iso_alpha2"] = []
+        beatboxer_data["country"] = "-"
+        return beatboxer_data
+
+    # iso_code取得失敗
     if iso_code is None:
         raise ValueError(ISO_CODE_NOT_FOUND)
 
