@@ -4,7 +4,7 @@ from collections import defaultdict
 import folium
 from flask import abort, render_template, session
 
-from app.config.config import FOLIUM_CUSTOM_CSS, MULTI_COUNTRY_TEAM_ISO_CODE
+from app.config.config import FLAG_CODE, FOLIUM_CUSTOM_CSS, MULTI_COUNTRY_TEAM_ISO_CODE
 from app.models.supabase_client import supabase_service
 
 
@@ -140,24 +140,7 @@ def world_map_view(year: int):
         if len(participants) > 7:
             popup_content = "<div style=\"font-family: 'Noto sans JP'; font-size: 14px; max-height: 200px; overflow-y: scroll;\">"
 
-        flag_code = f"""
-<picture>
-    <source
-        type="image/webp"
-        srcset="https://flagcdn.com/28x21/{iso_alpha2}.webp,
-        https://flagcdn.com/56x42/{iso_alpha2}.webp 2x,
-        https://flagcdn.com/84x63/{iso_alpha2}.webp 3x">
-    <source
-        type="image/png"
-        srcset="https://flagcdn.com/28x21/{iso_alpha2}.png,
-        https://flagcdn.com/56x42/{iso_alpha2}.png 2x,
-        https://flagcdn.com/84x63/{iso_alpha2}.png 3x">
-    <img
-        src="https://flagcdn.com/28x21/{iso_alpha2}.png"
-        width="28"
-        height="21">
-</picture>
-        """
+        flag_code = FLAG_CODE.format(iso_alpha2=iso_alpha2)
 
         country_header = f'<h3 style="margin: 0; color: #ff6417; font-weight: bold;">{flag_code}{country_name}</h3>'
         team_info = f'<h4 style="margin: 0; color: #ff6417; font-weight: bold;">{len(participants)} team(s)</h4>'
