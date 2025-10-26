@@ -76,6 +76,7 @@ def participant_detail_view():
         beatboxer_detail["is_cancelled"] = beatboxer_detail["Participant"][
             "is_cancelled"
         ]
+        beatboxer_detail["category"] = beatboxer_detail["Participant"]["category"]
 
     # 1人部門 or チーム部門のチームについての情報を取得
     else:
