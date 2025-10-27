@@ -218,7 +218,7 @@ msgstr "قائمة المتنازلين عن حقوق البذور"
 #: templates/others/participant_detail.html:163
 #: templates/others/participant_detail.html:227
 msgid "辞退"
-msgstr "تراجع"
+msgstr "انسحاب"
 
 #: templates/2024/rule.html:221 templates/2024/time_schedule.html:100
 #: templates/2024/time_schedule.html:230 templates/2025/rule.html:221
@@ -332,7 +332,7 @@ msgstr "قائمة لجنة التحكيم في الجولة النهائية ه
 
 #: templates/2024/stream.html:37 templates/2025/stream.html:44
 msgid "観戦のお供に"
-msgstr "للترفيه"
+msgstr "للمشاهدة"
 
 #: templates/2024/stream.html:38 templates/2025/stream.html:45
 #: templates/includes/next_year.html:3
@@ -1217,7 +1217,7 @@ msgstr "الدليل فقط"
 #: templates/common/participants.html:25 templates/common/result.html:106
 #: templates/includes/participants_form.html:13
 msgid "Wildcard結果"
-msgstr "نتائج الأحرف البديلة"
+msgstr "نتائج الوايلد كارد"
 
 #: templates/2024/top.html:47 templates/2025/rule.html:67
 #: templates/2025/rule.html:358 templates/2025/stream.html:49
@@ -1290,7 +1290,7 @@ msgstr "الجدول الزمني"
 #: templates/common/korea.html:5 templates/common/korea.html:9
 #: templates/others/participant_detail.html:259
 msgid "韓国代表"
-msgstr "كوريا الجنوبية"
+msgstr "ممثلو كوريا الجنوبية"
 
 #: templates/2024/top.html:71 templates/2025/rule.html:242
 #: templates/2025/ticket.html:21 templates/2025/time_schedule.html:237

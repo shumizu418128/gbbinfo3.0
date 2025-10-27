@@ -179,7 +179,7 @@ msgstr "ainm"
 #: templates/others/participant_detail.html:132
 #: templates/others/participant_detail.html:219
 msgid "出場権"
-msgstr "Cóir a bheith san iomaíocht"
+msgstr "Ceart páirt a ghlacadh"
 
 #: templates/2024/rule.html:160 templates/2024/rule.html:186
 #: templates/2024/rule.html:216 templates/2025/rule.html:156
@@ -196,17 +196,17 @@ msgstr "Cóir a bheith san iomaíocht"
 #: templates/common/participants.html:19 templates/common/participants.html:85
 #: templates/common/result.html:79
 msgid "～発表次第更新～"
-msgstr "Nuashonrófar é nuair a bheidh fógraithe"
+msgstr "Nuashonrófar é a luaithe a fhógrófar."
 
 #: templates/2024/rule.html:163 templates/2025/rule.html:159
 #: templates/2026/rule.html:99
 msgid "シード権 - その他"
-msgstr "Síolchur - Eile"
+msgstr "Seed – eile"
 
 #: templates/2024/rule.html:189 templates/2025/rule.html:189
 #: templates/2026/rule.html:129
 msgid "シード権辞退者一覧"
-msgstr "Liosta de na himreoirí a dhiúltaigh síolta"
+msgstr "Liosta na ndaoine a d’éirigh as an ‘seed’"
 
 #: templates/2024/rule.html:203 templates/2025/rule.html:203
 #: templates/2026/rule.html:143 templates/common/cancels.html:30
@@ -335,7 +335,7 @@ msgstr "Liosta na mbreithiúnais phríomha anseo"
 
 #: templates/2024/stream.html:37 templates/2025/stream.html:44
 msgid "観戦のお供に"
-msgstr "In éineacht le faire"
+msgstr "Le haghaidh féachana"
 
 #: templates/2024/stream.html:38 templates/2025/stream.html:45
 #: templates/includes/next_year.html:3
@@ -1246,7 +1246,7 @@ msgstr "biachlár"
 #: templates/includes/next_year.html:5
 #: templates/others/participant_detail.html:145
 msgid "これだけガイド"
-msgstr "Treoir seo amháin"
+msgstr "Treoir ghonta"
 
 #: templates/2024/rule.html:220 templates/2024/time_schedule.html:99
 #: templates/2024/time_schedule.html:229 templates/2024/top.html:47
@@ -1374,7 +1374,7 @@ msgstr "Ticéad"
 #: templates/2026/top_7tosmoke.html:40 templates/base.html:130
 #: templates/others/translation.html:23
 msgid "当日配信"
-msgstr "Seachadadh an lae sin"
+msgstr "Craoladh an lae sin"
 
 #: templates/2024/rule.html:21 templates/2024/rule.html:70
 #: templates/2024/rule.html:129 templates/2024/rule.html:227

@@ -41,7 +41,7 @@ msgstr "A rendezési osztályok listája"
 #: templates/2025/rule.html:37 templates/2025/rule.html:128
 #: templates/2026/rule.html:68
 msgid "出場シード権 獲得条件"
-msgstr "A részvétel jogának megszerzésének feltételei"
+msgstr "A kiemelt jog megszerzésének feltételei"
 
 #: templates/2024/rule.html:42 templates/2024/rule.html:230
 #: templates/2025/rule.html:41 templates/2025/rule.html:246
@@ -107,7 +107,7 @@ msgstr "Kérjük, mindenképpen ellenőrizze újra a szabályokat."
 #: templates/others/participant_detail.html:115
 #: templates/others/participant_detail.html:155
 msgid "部門"
-msgstr "Osztály"
+msgstr "Kategória"
 
 #: templates/2024/rule.html:80 templates/2025/rule.html:76
 msgid "シード"
@@ -564,7 +564,7 @@ msgstr "Vadonat eredményhirdető adás"
 #: templates/2026/top.html:153 templates/common/cancels.html:55
 #: templates/common/participants.html:103 templates/others/translation.html:25
 msgid "Wildcard一覧"
-msgstr "Helyettesítő karakterek listája"
+msgstr "Wildcard lista"
 
 #: templates/2024/top.html:104 templates/2024/top.html:118
 #: templates/2024/top_7tosmoke.html:46 templates/2025/top.html:190

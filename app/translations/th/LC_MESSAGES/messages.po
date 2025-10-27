@@ -200,7 +200,7 @@ msgstr "～จะมีการอัปเดตเมื่อประกา
 #: templates/2024/rule.html:163 templates/2025/rule.html:159
 #: templates/2026/rule.html:99
 msgid "シード権 - その他"
-msgstr "สิทธิ์ในการเป็นเมล็ดพันธุ์ - อื่นๆ"
+msgstr "สิทธิ์มือวาง - อื่นๆ"
 
 #: templates/2024/rule.html:189 templates/2025/rule.html:189
 #: templates/2026/rule.html:129
@@ -219,7 +219,7 @@ msgstr "รายชื่อผู้สละสิทธิ์การเป
 #: templates/others/participant_detail.html:163
 #: templates/others/participant_detail.html:227
 msgid "辞退"
-msgstr "ปฏิเสธ"
+msgstr "สละสิทธิ์"
 
 #: templates/2024/rule.html:221 templates/2024/time_schedule.html:100
 #: templates/2024/time_schedule.html:230 templates/2025/rule.html:221
@@ -456,7 +456,7 @@ msgstr "รอบรองชนะเลิศ"
 #: templates/2026/time_schedule.html:56 templates/2026/time_schedule.html:84
 #: templates/2026/time_schedule.html:112 templates/2026/time_schedule.html:140
 msgid "終了"
-msgstr "การสิ้นสุด"
+msgstr "สิ้นสุด"
 
 #: templates/2024/time_schedule.html:134 templates/2024/time_schedule.html:195
 #: templates/2025/time_schedule.html:130 templates/2025/time_schedule.html:192

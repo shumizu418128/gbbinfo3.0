@@ -202,7 +202,7 @@ msgstr "Opdateres ved meddelelse"
 #: templates/2024/rule.html:163 templates/2025/rule.html:159
 #: templates/2026/rule.html:99
 msgid "シード権 - その他"
-msgstr "Seedrettighed - Andet"
+msgstr "Seed‑pladser – øvrige"
 
 #: templates/2024/rule.html:189 templates/2025/rule.html:189
 #: templates/2026/rule.html:129
@@ -335,7 +335,7 @@ msgstr "Liste over hoveddommere her"
 
 #: templates/2024/stream.html:37 templates/2025/stream.html:44
 msgid "観戦のお供に"
-msgstr "Tilskuerens akkompagnement"
+msgstr "Til din seeroplevelse"
 
 #: templates/2024/stream.html:38 templates/2025/stream.html:45
 #: templates/includes/next_year.html:3
@@ -451,7 +451,7 @@ msgstr "Kvalifikation"
 #: templates/2024/time_schedule.html:203 templates/2025/time_schedule.html:204
 #: templates/2025/time_schedule.html:208
 msgid "準決勝"
-msgstr "semifinalen"
+msgstr "Semifinale"
 
 #: templates/2024/time_schedule.html:93 templates/2024/time_schedule.html:150
 #: templates/2024/time_schedule.html:219 templates/2024/time_schedule.html:280
@@ -1243,7 +1243,7 @@ msgstr "Menu"
 #: templates/includes/next_year.html:5
 #: templates/others/participant_detail.html:145
 msgid "これだけガイド"
-msgstr "Kun denne guide"
+msgstr "Kvikguide"
 
 #: templates/2024/rule.html:220 templates/2024/time_schedule.html:99
 #: templates/2024/time_schedule.html:229 templates/2024/top.html:47
@@ -1535,7 +1535,7 @@ msgstr "Ingen japansk repræsentation"
 #: templates/common/japan.html:54 templates/common/korea.html:54
 #: templates/common/participants.html:138
 msgid "出場者世界地図"
-msgstr "Deltagerverdens kort"
+msgstr "Verdenskort over deltagere"
 
 #: templates/common/japan.html:55 templates/common/korea.html:55
 #: templates/common/participants.html:139

@@ -202,7 +202,7 @@ msgstr "வெளியிட்டவுடன் புதுப்பிக�
 #: templates/2024/rule.html:163 templates/2025/rule.html:159
 #: templates/2026/rule.html:99
 msgid "シード権 - その他"
-msgstr "வரி சலுகைகள் - பிற"
+msgstr "சீட் உரிமை - பிற"
 
 #: templates/2024/rule.html:189 templates/2025/rule.html:189
 #: templates/2026/rule.html:129
@@ -221,7 +221,7 @@ msgstr "விதை உரிமத்தை கைவிட்டவர்க�
 #: templates/others/participant_detail.html:163
 #: templates/others/participant_detail.html:227
 msgid "辞退"
-msgstr "நிராகரிக்கப்பட்டது"
+msgstr "விலகல்"
 
 #: templates/2024/rule.html:221 templates/2024/time_schedule.html:100
 #: templates/2024/time_schedule.html:230 templates/2025/rule.html:221
@@ -358,7 +358,7 @@ msgstr "வைல்டு கார்டு முடிவு & பங்க�
 #: templates/2026/ticket.html:5 templates/2026/ticket.html:10
 #: templates/2026/top_7tosmoke.html:35 templates/others/translation.html:22
 msgid "会場 & チケット"
-msgstr "கூட்டம் & டிக்கெட்"
+msgstr "இடம் & டிக்கெட்"
 
 #: templates/2024/ticket.html:10
 msgid "【完売】公式販売"
@@ -445,7 +445,7 @@ msgstr "தொடங்கு"
 #: templates/2025/time_schedule.html:68 templates/2025/time_schedule.html:84
 #: templates/2025/time_schedule.html:138 templates/2025/time_schedule.html:142
 msgid "予選"
-msgstr "முதன்மை"
+msgstr "தகுதிச் சுற்று"
 
 #: templates/2024/time_schedule.html:89 templates/2024/time_schedule.html:199
 #: templates/2024/time_schedule.html:203 templates/2025/time_schedule.html:204
@@ -853,7 +853,7 @@ msgstr "போட்டிகளின் எண்ணிக்கை"
 #: templates/others/participant_detail.html:144
 #: templates/others/participant_detail.html:257
 msgid "全出場者一覧"
-msgstr "அனைத்து போட்டியாளர்களும்"
+msgstr "அனைத்து பங்கேற்பாளர்களின் பட்டியல்"
 
 #: templates/2025/top.html:99 templates/2026/top.html:90
 #: templates/includes/popup_early_access.html:8
@@ -1336,7 +1336,7 @@ msgstr "நேர அட்டவணை"
 #: templates/common/korea.html:5 templates/common/korea.html:9
 #: templates/others/participant_detail.html:259
 msgid "韓国代表"
-msgstr "கொரியக் குடியரசு அணி"
+msgstr "கொரியா பிரதிநிதிகள்"
 
 #: templates/2024/top.html:71 templates/2025/rule.html:242
 #: templates/2025/ticket.html:21 templates/2025/time_schedule.html:237
@@ -1347,7 +1347,7 @@ msgstr "கொரியக் குடியரசு அணி"
 #: templates/others/participant_detail.html:261
 #: templates/others/translation.html:21
 msgid "日本代表"
-msgstr "ஜப்பான் அணி"
+msgstr "ஜப்பான் பிரதிநிதிகள்"
 
 #: templates/2024/ticket.html:11 templates/2024/ticket.html:17
 #: templates/2024/top.html:76 templates/2024/top.html:132
@@ -1396,7 +1396,7 @@ msgstr "நிகழ்வு நாளில் ஒளிபரப்பு"
 #: templates/2026/top.html:169 templates/2026/top_7tosmoke.html:36
 #: templates/base.html:133
 msgid "現地観戦計画のたてかた"
-msgstr "ஸ்தலத்திலே பார்க்கும் திட்டத்தை அமைப்பது எப்படி"
+msgstr "நேரில் பார்வைத் திட்டத்தை அமைப்பது எப்படி"
 
 #: templates/2024/top.html:84 templates/2025/top.html:81
 #: templates/2025/top.html:83 templates/2025/top.html:85
@@ -1529,7 +1529,7 @@ msgstr "மற்ற ஆண்டுகளைப் பார்க்கவு�
 #: templates/common/korea.html:49 templates/common/participants.html:101
 #: templates/common/result.html:104
 msgid "出場権詳細"
-msgstr "விளையாடும் உரிமை விவரங்கள்"
+msgstr "பங்கேற்பு உரிமை விவரங்கள்"
 
 #: templates/common/cancels.html:54 templates/common/japan.html:51
 #: templates/common/korea.html:51 templates/common/participants.html:102
@@ -1543,7 +1543,7 @@ msgstr "ஜப்பான் அணி இல்லை"
 #: templates/common/japan.html:54 templates/common/korea.html:54
 #: templates/common/participants.html:138
 msgid "出場者世界地図"
-msgstr "உலக வரைபடம்"
+msgstr "பங்கேற்பாளர்கள் உலக வரைபடம்"
 
 #: templates/common/japan.html:55 templates/common/korea.html:55
 #: templates/common/participants.html:139
@@ -1584,7 +1584,7 @@ msgstr "நாடு"
 #: templates/common/participants.html:116
 #: templates/common/participants.html:119
 msgid "出場者検索"
-msgstr "தேடுபவர்"
+msgstr "பங்கேற்பாளர் தேடல்"
 
 #: templates/common/participants.html:117
 msgid "出場者名を検索できます"

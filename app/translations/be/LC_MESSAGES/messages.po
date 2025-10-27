@@ -41,7 +41,7 @@ msgstr "Спіс аддзелаў, якія праводзяцца"
 #: templates/2025/rule.html:37 templates/2025/rule.html:128
 #: templates/2026/rule.html:68
 msgid "出場シード権 獲得条件"
-msgstr "Атрымайце кваліфікацыю для ўдзелу"
+msgstr "Умовы атрымання пасеўных правоў"
 
 #: templates/2024/rule.html:42 templates/2024/rule.html:230
 #: templates/2025/rule.html:41 templates/2025/rule.html:246
@@ -107,7 +107,7 @@ msgstr "Калі ласка, яшчэ раз праверце правілы с�
 #: templates/others/participant_detail.html:115
 #: templates/others/participant_detail.html:155
 msgid "部門"
-msgstr "Аддзел"
+msgstr "Катэгорыя"
 
 #: templates/2024/rule.html:80 templates/2025/rule.html:76
 msgid "シード"
@@ -1251,7 +1251,7 @@ msgstr "Толькі гэта кіраўніцтва"
 #: templates/common/participants.html:25 templates/common/result.html:106
 #: templates/includes/participants_form.html:13
 msgid "Wildcard結果"
-msgstr "Вынік падстаноўкі"
+msgstr "Вынікі Wildcard"
 
 #: templates/2024/top.html:47 templates/2025/rule.html:67
 #: templates/2025/rule.html:358 templates/2025/stream.html:49
@@ -1324,7 +1324,7 @@ msgstr "Графік"
 #: templates/common/korea.html:5 templates/common/korea.html:9
 #: templates/others/participant_detail.html:259
 msgid "韓国代表"
-msgstr "Паўднёвакарэйская каманда"
+msgstr "Прадстаўнікі Паўднёвай Карэі"
 
 #: templates/2024/top.html:71 templates/2025/rule.html:242
 #: templates/2025/ticket.html:21 templates/2025/time_schedule.html:237
@@ -1577,7 +1577,7 @@ msgstr "Вы можаце шукаць імёны ўдзельнікаў"
 
 #: templates/common/participants.html:117
 msgid "半角英数字推奨"
-msgstr "Рэкамендуецца паўшырынёй англійскія і японскія лічбы"
+msgstr "Рэкамендуецца выкарыстоўваць паўшырынныя лацінскія літары і лічбы"
 
 #: templates/common/participants.html:124
 msgid "検索結果"
