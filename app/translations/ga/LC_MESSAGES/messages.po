@@ -430,7 +430,7 @@ msgstr "Tá craoladh ABEMA tosaithe"
 #: templates/2024/time_schedule.html:179 templates/2025/time_schedule.html:52
 #: templates/2025/time_schedule.html:121 templates/2025/time_schedule.html:179
 msgid "サプライズゲスト"
-msgstr "Aoi gais"
+msgstr "aoi iontais"
 
 #: templates/2024/time_schedule.html:69 templates/2024/time_schedule.html:126
 #: templates/2024/time_schedule.html:183 templates/2024/time_schedule.html:248
@@ -1338,7 +1338,7 @@ msgstr "giúiré"
 #: templates/2026/top_7tosmoke.html:39 templates/base.html:123
 #: templates/others/translation.html:20
 msgid "タイムスケジュール"
-msgstr "Am Sceideal"
+msgstr "Sceideal ama"
 
 #: templates/2024/top.html:66 templates/2025/rule.html:240
 #: templates/2025/ticket.html:19 templates/2025/time_schedule.html:238

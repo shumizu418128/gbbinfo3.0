@@ -705,7 +705,7 @@ msgstr ""
 #: templates/2025/stream.html:12
 #, python-brace-format
 msgid "GBB {year} の配信URLは、お住まいの国によって異なります。"
-msgstr "GBB {year}의 제공 URL은 거주하시는 국가에 따라 다릅니다."
+msgstr "GBB {year}의 스트리밍 URL은 거주 국가에 따라 다릅니다."
 
 #: templates/2025/stream.html:15 templates/2025/stream.html:17
 msgid "日本国外にお住まいの方"
@@ -810,7 +810,7 @@ msgstr "결과 발표 방송"
 
 #: templates/2025/top.html:68 templates/2026/top.html:69
 msgid "出場枠の数"
-msgstr "출전 자리의 수"
+msgstr "출전 정원"
 
 #: templates/2025/top.html:87 templates/2026/top.html:82
 #: templates/common/japan.html:48 templates/common/korea.html:48

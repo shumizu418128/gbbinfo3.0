@@ -420,7 +420,7 @@ msgstr "เริ่มเข้า"
 #: templates/2024/time_schedule.html:175 templates/2024/time_schedule.html:256
 #: templates/2025/time_schedule.html:265
 msgid "ABEMA配信スタート"
-msgstr "ABEMA 配信เริ่มต้น"
+msgstr "เริ่มถ่ายทอดสด ABEMA"
 
 #: templates/2024/time_schedule.html:65 templates/2024/time_schedule.html:122
 #: templates/2024/time_schedule.html:179 templates/2025/time_schedule.html:52
