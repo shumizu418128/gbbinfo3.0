@@ -1554,7 +1554,7 @@ msgstr "Fai tap o clicca sulla bandiera per maggiori dettagli."
 
 #: templates/common/korea.html:43
 msgid "韓国代表なし"
-msgstr "Nessuna rappresentanza di [韓国代表]."
+msgstr "Nessuna rappresentanza coreana"
 
 #: templates/common/participants.html:27
 msgid "シード権獲得者"

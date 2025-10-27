@@ -148,9 +148,8 @@ msgstr "Vergessene Tag Team Loopstation..."
 #: templates/2026/rule.html:70
 msgid "Wildcardを勝ち上がる以外の方法でGBB出場権を得る方法（シード権）と、その該当者は以下の通りです。"
 msgstr ""
-"Es gibt keine andere Möglichkeit, sich für die GBB zu qualifizieren, als "
-"durch das Wildcard-Turnier, die direkte Qualifikation (Seed) und die "
-"entsprechenden Personen sind wie folgt:"
+"Die Möglichkeiten, sich außer über das Wildcard-Turnier für die GBB zu "
+"qualifizieren (Seed-Rechte), und die entsprechenden Personen sind wie folgt:"
 
 #: templates/2024/rule.html:137 templates/2025/rule.html:133
 #: templates/2026/rule.html:73

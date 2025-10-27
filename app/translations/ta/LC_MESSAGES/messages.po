@@ -1310,7 +1310,7 @@ msgstr "விதி"
 #: templates/2026/time_schedule.html:62 templates/2026/top.html:68
 #: templates/2026/top.html:106 templates/base.html:120
 msgid "審査員"
-msgstr "விமர்சகர்"
+msgstr "நீதிபதிகள்"
 
 #: templates/2024/stream.html:41 templates/2024/time_schedule.html:3
 #: templates/2024/time_schedule.html:4 templates/2024/time_schedule.html:5
@@ -1378,7 +1378,7 @@ msgstr "டிக்கெட்"
 #: templates/2026/top_7tosmoke.html:40 templates/base.html:130
 #: templates/others/translation.html:23
 msgid "当日配信"
-msgstr "அன்று டெலிவரி"
+msgstr "நிகழ்வு நாளில் ஒளிபரப்பு"
 
 #: templates/2024/rule.html:21 templates/2024/rule.html:70
 #: templates/2024/rule.html:129 templates/2024/rule.html:227

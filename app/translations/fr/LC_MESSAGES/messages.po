@@ -222,7 +222,7 @@ msgstr "Liste des personnes ayant renoncé à leur statut de tête de série"
 #: templates/others/participant_detail.html:163
 #: templates/others/participant_detail.html:227
 msgid "辞退"
-msgstr "démission"
+msgstr "désistement"
 
 #: templates/2024/rule.html:221 templates/2024/time_schedule.html:100
 #: templates/2024/time_schedule.html:230 templates/2025/rule.html:221
@@ -570,7 +570,7 @@ msgstr "Diffusion des résultats de Wildcard"
 #: templates/2026/top.html:153 templates/common/cancels.html:55
 #: templates/common/participants.html:103 templates/others/translation.html:25
 msgid "Wildcard一覧"
-msgstr "Liste des caractères génériques"
+msgstr "Liste des Wildcards"
 
 #: templates/2024/top.html:104 templates/2024/top.html:118
 #: templates/2024/top_7tosmoke.html:46 templates/2025/top.html:190

@@ -763,12 +763,12 @@ msgstr ""
 #: templates/2025/time_schedule.html:56 templates/2025/time_schedule.html:122
 #: templates/2025/time_schedule.html:180
 msgid "オープニング"
-msgstr "เปิดตัว"
+msgstr "การเปิด"
 
 #: templates/2025/time_schedule.html:72 templates/2025/time_schedule.html:134
 #: templates/2025/time_schedule.html:196
 msgid "休憩"
-msgstr "พักผ่อน"
+msgstr "พัก"
 
 #: templates/2025/top.html:22 templates/2026/top.html:22
 msgid "ページ 先行公開中！"

@@ -344,7 +344,7 @@ msgstr "GBB {year} की नवीनतम जानकारी चेक क
 #: templates/common/participants.html:10
 #: templates/common/participants.html:148 templates/others/translation.html:18
 msgid "Wildcard結果 & 出場者"
-msgstr "वाइल्डकार्ड परिणाम & 出場者"
+msgstr "वाइल्डकार्ड परिणाम और प्रतिभागी"
 
 #: templates/2024/ticket.html:3 templates/2024/ticket.html:4
 #: templates/2024/ticket.html:5 templates/2024/ticket.html:9
@@ -769,7 +769,7 @@ msgstr ""
 #: templates/2025/time_schedule.html:56 templates/2025/time_schedule.html:122
 #: templates/2025/time_schedule.html:180
 msgid "オープニング"
-msgstr "प्रारंभिक"
+msgstr "उद्घाटन"
 
 #: templates/2025/time_schedule.html:72 templates/2025/time_schedule.html:134
 #: templates/2025/time_schedule.html:196
@@ -1529,7 +1529,7 @@ msgstr "ध्वज पर टैप या क्लिक करें, आ�
 
 #: templates/common/korea.html:43
 msgid "韓国代表なし"
-msgstr "韓国 प्रतिनिधि नहीं"
+msgstr "कोरिया प्रतिनिधि नहीं"
 
 #: templates/common/participants.html:27
 msgid "シード権獲得者"

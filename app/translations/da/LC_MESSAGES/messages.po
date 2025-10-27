@@ -1371,7 +1371,7 @@ msgstr "Billetter"
 #: templates/2026/top_7tosmoke.html:40 templates/base.html:130
 #: templates/others/translation.html:23
 msgid "当日配信"
-msgstr "Dagslevering"
+msgstr "Livestream på dagen"
 
 #: templates/2024/rule.html:21 templates/2024/rule.html:70
 #: templates/2024/rule.html:129 templates/2024/rule.html:227
@@ -1515,7 +1515,7 @@ msgstr "Forside"
 #: templates/common/korea.html:59 templates/common/participants.html:107
 #: templates/common/result.html:94
 msgid "その他の年度を確認："
-msgstr "Se andre regnskabsår"
+msgstr "Se andre år"
 
 #: templates/common/cancels.html:53 templates/common/japan.html:49
 #: templates/common/korea.html:49 templates/common/participants.html:101

@@ -343,7 +343,7 @@ msgstr "Wildcard 결과 & 출전자"
 #: templates/2026/ticket.html:5 templates/2026/ticket.html:10
 #: templates/2026/top_7tosmoke.html:35 templates/others/translation.html:22
 msgid "会場 & チケット"
-msgstr "회장 & 티켓"
+msgstr "장소 & 티켓"
 
 #: templates/2024/ticket.html:10
 msgid "【完売】公式販売"
