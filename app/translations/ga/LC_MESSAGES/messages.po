@@ -733,7 +733,7 @@ msgstr ""
 
 #: templates/2025/rule.html:343
 msgid "レフェリー"
-msgstr "Gairm"
+msgstr "Réiteoir"
 
 #: templates/2025/rule.html:351
 msgid "レフェリーについて"
@@ -825,7 +825,7 @@ msgstr "cárta fiáin"
 #: templates/2026/top.html:52 templates/2026/top.html:60
 #: templates/2026/top.html:73 templates/2026/top.html:81
 msgid "結果"
-msgstr "tábhachtach"
+msgstr "Torthaí"
 
 #: templates/2025/top.html:60 templates/2025/top.html:91
 #: templates/2026/top.html:61 templates/2026/top.html:86
@@ -1618,7 +1618,7 @@ msgstr "Rangú"
 #: templates/includes/early_access.html:3
 #: templates/includes/popup_early_access.html:3
 msgid "先行公開中"
-msgstr "ga"
+msgstr "Rochtain luath ar fáil"
 
 #: templates/includes/early_access.html:4
 #: templates/includes/popup_early_access.html:4

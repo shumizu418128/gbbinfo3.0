@@ -1445,9 +1445,7 @@ msgstr "กลับไปหน้าแรก"
 
 #: templates/base.html:288
 msgid "GBBINFO-JPN開発者 Twitter"
-msgstr ""
-"GBBINFO-JPN\n"
-"นักพัฒนา Twitter"
+msgstr "Twitter ของผู้พัฒนา GBBINFO-JPN"
 
 #: templates/base.html:290
 msgid "GBBINFO-JPNについて"

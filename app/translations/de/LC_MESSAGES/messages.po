@@ -46,7 +46,7 @@ msgstr "Bedingungen für die Erlangung eines Startplatzes"
 #: templates/2024/rule.html:42 templates/2024/rule.html:230
 #: templates/2025/rule.html:41 templates/2025/rule.html:246
 msgid "Wildcard ルール"
-msgstr "Platzhalter-Regel"
+msgstr "Wildcard-Regeln"
 
 #: templates/2024/rule.html:46 templates/2024/rule.html:272
 #: templates/2025/rule.html:45 templates/2025/rule.html:305

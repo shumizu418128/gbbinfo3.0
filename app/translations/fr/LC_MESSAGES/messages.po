@@ -915,7 +915,7 @@ msgstr "Restriction d'âge"
 
 #: templates/2025/wildcard_regulation.html:41
 msgid "Wildcard提出について"
-msgstr "Proposition de caractère générique"
+msgstr "À propos de la soumission de Wildcard"
 
 #: templates/2025/wildcard_regulation.html:45
 #: templates/2025/wildcard_regulation.html:197

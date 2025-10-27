@@ -530,7 +530,7 @@ msgstr "Fecha de la celebración"
 #: templates/2025/top.html:32 templates/2025/top_7tosmoke.html:12
 #: templates/2026/top.html:32 templates/2026/top_7tosmoke.html:12
 msgid "公式よりもわかりやすい！"
-msgstr "¡Más fácil que la fórmula!"
+msgstr "¡Más claro que el oficial!"
 
 #: templates/2024/top.html:24 templates/2024/top_7tosmoke.html:12
 #: templates/2025/top.html:32 templates/2025/top_7tosmoke.html:12
@@ -1587,7 +1587,7 @@ msgstr "Mostrar Participantes & Retirados"
 #: templates/others/participant_detail.html:123
 #: templates/others/participant_detail.html:218
 msgid "国"
-msgstr "Nacional."
+msgstr "País"
 
 #: templates/common/participants.html:116
 #: templates/common/participants.html:119

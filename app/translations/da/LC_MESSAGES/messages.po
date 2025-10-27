@@ -111,7 +111,7 @@ msgstr "Afdeling"
 
 #: templates/2024/rule.html:80 templates/2025/rule.html:76
 msgid "シード"
-msgstr "frø"
+msgstr "Seed"
 
 #: templates/2024/rule.html:81 templates/2025/rule.html:77
 msgid "計"
@@ -310,7 +310,7 @@ msgstr "Visse undtagelser gælder"
 #: templates/2024/rule.html:253 templates/2025/rule.html:269
 #: templates/2025/wildcard_regulation.html:220
 msgid "RC505 mki, mkiiのみ"
-msgstr "RC505 mki, kun mkii"
+msgstr "Kun RC‑505 mkI/mkII"
 
 #: templates/2024/rule.html:257 templates/2025/rule.html:273
 #: templates/2025/wildcard_regulation.html:224
@@ -736,7 +736,7 @@ msgstr ""
 
 #: templates/2025/rule.html:343
 msgid "レフェリー"
-msgstr "Dommer"
+msgstr "Referee"
 
 #: templates/2025/rule.html:351
 msgid "レフェリーについて"
@@ -820,7 +820,7 @@ msgstr "Fremhævede nøgleord"
 #: templates/2026/top.html:69 templates/2026/top.html:81
 #: templates/2026/top.html:86 templates/2026/top.html:87
 msgid "ワイルドカード"
-msgstr "jokeren"
+msgstr "Wildcard"
 
 #: templates/2025/top.html:51 templates/2025/top.html:59
 #: templates/2025/top.html:78 templates/2025/top.html:86

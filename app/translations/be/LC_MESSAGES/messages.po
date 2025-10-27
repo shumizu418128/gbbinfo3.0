@@ -319,7 +319,7 @@ msgstr "Неабмежаваны прылада"
 
 #: templates/2024/rule.html:274 templates/2025/rule.html:307
 msgid "Wildcard審査員一覧はこちら"
-msgstr "Спіс казіно-дзікіх суддзяў тут"
+msgstr "Спіс суддзяў Wildcard тут"
 
 #: templates/2024/rule.html:306 templates/2025/rule.html:340
 msgid "審査員不明"
@@ -564,7 +564,7 @@ msgstr "Вынікі Wildcard"
 #: templates/2026/top.html:153 templates/common/cancels.html:55
 #: templates/common/participants.html:103 templates/others/translation.html:25
 msgid "Wildcard一覧"
-msgstr "Спіс шаблонаў"
+msgstr "Спіс Wildcard"
 
 #: templates/2024/top.html:104 templates/2024/top.html:118
 #: templates/2024/top_7tosmoke.html:46 templates/2025/top.html:190
@@ -778,7 +778,7 @@ msgstr "Адкрыццё"
 #: templates/2025/time_schedule.html:72 templates/2025/time_schedule.html:134
 #: templates/2025/time_schedule.html:196
 msgid "休憩"
-msgstr "Адпачынак"
+msgstr "Перапынак"
 
 #: templates/2025/top.html:22 templates/2026/top.html:22
 msgid "ページ 先行公開中！"
@@ -1335,7 +1335,7 @@ msgstr "Паўднёвакарэйская каманда"
 #: templates/others/participant_detail.html:261
 #: templates/others/translation.html:21
 msgid "日本代表"
-msgstr "Японія"
+msgstr "Прадстаўнікі Японіі"
 
 #: templates/2024/ticket.html:11 templates/2024/ticket.html:17
 #: templates/2024/top.html:76 templates/2024/top.html:132
@@ -1400,7 +1400,7 @@ msgstr "Як скласці план наведвання матчу"
 #: templates/others/participant_detail.html:263
 #: templates/others/translation.html:24
 msgid "大会結果"
-msgstr "Вынікі канферэнцыі"
+msgstr "Вынікі турніру"
 
 #: templates/base.html:154
 msgid "年度選択"

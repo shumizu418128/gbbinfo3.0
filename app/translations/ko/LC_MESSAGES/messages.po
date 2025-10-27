@@ -688,11 +688,11 @@ msgstr "태그팀 부문/크루 부문 참가 희망자는 주의하시기 바�
 
 #: templates/2025/rule.html:343
 msgid "レフェリー"
-msgstr "레페리"
+msgstr "레퍼리"
 
 #: templates/2025/rule.html:351
 msgid "レフェリーについて"
-msgstr "레페리"
+msgstr "레퍼리"
 
 #: templates/2025/rule.html:352
 msgid ""
@@ -1060,7 +1060,7 @@ msgstr "현재까지 다음의 단편적인 정보만이 발표되었습니다."
 
 #: templates/2026/rule.html:37
 msgid "Producer部門は廃止"
-msgstr "Producer 부서는 폐지"
+msgstr "Producer 부문은 폐지"
 
 #: templates/2026/rule.html:41
 msgid "新部門として「SHOWCASE」を追加"
@@ -1068,7 +1068,7 @@ msgstr "신규 부서로 'SHOWCASE' 추가"
 
 #: templates/2026/rule.html:44
 msgid "この部門では、バトルを行わない"
-msgstr "이 부서에서는 전투를 수행하지 않습니다"
+msgstr "이 부문에서는 배틀을 하지 않습니다"
 
 #: templates/2026/rule.html:47
 msgid "Wildcardの審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価"
@@ -1454,7 +1454,7 @@ msgstr "사퇴자만"
 
 #: templates/common/participants.html:37
 msgid "出場者 & 辞退者を表示"
-msgstr "출장자 & 사퇴자 표시"
+msgstr "출전자 & 사퇴자 표시"
 
 #: templates/common/participants.html:45
 #: templates/others/participant_detail.html:41

@@ -46,7 +46,7 @@ msgstr "شروط التأهل للحصول على حقوق البذور"
 #: templates/2024/rule.html:42 templates/2024/rule.html:230
 #: templates/2025/rule.html:41 templates/2025/rule.html:246
 msgid "Wildcard ルール"
-msgstr "قاعدة البرية"
+msgstr "قواعد الوايلد كارد"
 
 #: templates/2024/rule.html:46 templates/2024/rule.html:272
 #: templates/2025/rule.html:45 templates/2025/rule.html:305
@@ -114,7 +114,7 @@ msgstr "بذرة"
 
 #: templates/2024/rule.html:81 templates/2025/rule.html:77
 msgid "計"
-msgstr "خطة"
+msgstr "المجموع"
 
 #: templates/2024/rule.html:118 templates/2025/rule.html:115
 #: templates/2025/wildcard_regulation.html:113
@@ -561,7 +561,7 @@ msgstr "إعلان نتائج وايلد كارد"
 #: templates/2026/top.html:153 templates/common/cancels.html:55
 #: templates/common/participants.html:103 templates/others/translation.html:25
 msgid "Wildcard一覧"
-msgstr "قائمة الأحرف البديلة"
+msgstr "قائمة الوايلد كارد"
 
 #: templates/2024/top.html:104 templates/2024/top.html:118
 #: templates/2024/top_7tosmoke.html:46 templates/2025/top.html:190
@@ -803,7 +803,7 @@ msgstr "الكلمات المفتاحية الهامة"
 #: templates/2026/top.html:69 templates/2026/top.html:81
 #: templates/2026/top.html:86 templates/2026/top.html:87
 msgid "ワイルドカード"
-msgstr "حرف بدل"
+msgstr "وايلد كارد"
 
 #: templates/2025/top.html:51 templates/2025/top.html:59
 #: templates/2025/top.html:78 templates/2025/top.html:86
@@ -1124,7 +1124,7 @@ msgstr "تم إلغاء قسم المنتج"
 
 #: templates/2026/rule.html:41
 msgid "新部門として「SHOWCASE」を追加"
-msgstr "تمت إضافة "
+msgstr "إضافة قسم جديد باسم «SHOWCASE»"
 
 #: templates/2026/rule.html:44
 msgid "この部門では、バトルを行わない"

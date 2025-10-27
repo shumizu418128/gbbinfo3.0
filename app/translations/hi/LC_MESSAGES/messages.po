@@ -27,7 +27,7 @@ msgstr "विषयसूची"
 #: templates/2025/rule.html:54 templates/2025/wildcard_regulation.html:29
 #: templates/2025/wildcard_regulation.html:59 templates/2025/wildcards.html:87
 msgid "注意事項"
-msgstr "**ध्यान दें:**"
+msgstr "ध्यान दें"
 
 #: templates/2024/rule.html:34 templates/2024/rule.html:74
 #: templates/2025/rule.html:33 templates/2025/rule.html:70
@@ -56,7 +56,7 @@ msgstr "मुख्य प्रतियोगिता के निर्ण
 #: templates/2024/rule.html:50 templates/2024/rule.html:316
 #: templates/2025/rule.html:49 templates/2025/rule.html:361
 msgid "Wildcard審査員一覧"
-msgstr "*   **Wildcard** निर्णायक मंडल"
+msgstr "वाइल्डकार्ड जजों की सूची"
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:56
 msgid "以下に示す内容は、あくまでもBeatboxファンが知っておくとよりGBBを楽しめる知識として紹介するものです。"
@@ -115,7 +115,7 @@ msgstr "बीज"
 
 #: templates/2024/rule.html:81 templates/2025/rule.html:77
 msgid "計"
-msgstr "**माप**"
+msgstr "कुल"
 
 #: templates/2024/rule.html:118 templates/2025/rule.html:115
 #: templates/2025/wildcard_regulation.html:113
@@ -194,7 +194,7 @@ msgstr "योग्यता"
 #: templates/common/participants.html:19 templates/common/participants.html:85
 #: templates/common/result.html:79
 msgid "～発表次第更新～"
-msgstr "घोषणा होते ही अद्यतन किया जाएगा (～発表次第更新～)।"
+msgstr "घोषणा होते ही अद्यतन किया जाएगा।"
 
 #: templates/2024/rule.html:163 templates/2025/rule.html:159
 #: templates/2026/rule.html:99
@@ -419,7 +419,7 @@ msgstr "प्रवेश प्रारम्भ"
 #: templates/2024/time_schedule.html:61 templates/2024/time_schedule.html:118
 #: templates/2024/time_schedule.html:175 templates/2024/time_schedule.html:256
 msgid "ABEMA配信スタート"
-msgstr "ABEMA 配信 शुरू"
+msgstr "ABEMA प्रसारण शुरू"
 
 #: templates/2024/time_schedule.html:65 templates/2024/time_schedule.html:122
 #: templates/2024/time_schedule.html:179 templates/2025/time_schedule.html:52
@@ -614,7 +614,7 @@ msgstr "फोन नंबर"
 
 #: templates/2024/top.html:128
 msgid "チケット販売ページ記載の番号"
-msgstr "टिकट बिक्री पृष्ठ"
+msgstr "टिकट बिक्री पृष्ठ में दिए गए नंबर"
 
 #: templates/2024/top.html:140 templates/2025/top.html:235
 msgid "なお上記電話番号は、当サイトとは無関係です。"
@@ -878,7 +878,7 @@ msgstr "GBB {year} वेन्यू वेबसाइट पर उल्ल�
 
 #: templates/2025/wildcard_regulation.html:9
 msgid "レギュレーション"
-msgstr "**विनियम**"
+msgstr "विनियम"
 
 #: templates/2025/wildcard_regulation.html:16
 msgid "このページでは、Wildcard提出にあたって重要なルールを解説します。"
@@ -1568,7 +1568,7 @@ msgstr "आप प्रतिभागियों के नामों क�
 
 #: templates/common/participants.html:117
 msgid "半角英数字推奨"
-msgstr "**अर्ध-चौड़ाई अल्फ़ान्यूमेरिक अक्षर की अनुशंसा की जाती है**"
+msgstr "अर्ध-चौड़ाई अल्फ़ान्यूमेरिक अक्षरों की अनुशंसा की जाती है"
 
 #: templates/common/participants.html:124
 msgid "検索結果"
@@ -1614,7 +1614,7 @@ msgstr "GBB {year} की जानकारी यहाँ है"
 
 #: templates/includes/ended.html:3 templates/includes/popup_ended.html:6
 msgid "中止"
-msgstr "रद्द करें"
+msgstr "रद्द"
 
 #: templates/includes/ended.html:6 templates/includes/popup_ended.html:9
 #, python-brace-format
@@ -1736,7 +1736,7 @@ msgstr "翻訳 प्रदान नहीं करने वाले पृ�
 #~ msgstr "आयोजन की तिथि तय नहीं हुई है।"
 
 #~ msgid "10月1日 掲載募集開始予定"
-#~ msgstr "10月1日掲載募集 शुरू होने की उम्मीद"
+#~ msgstr "1 अक्टूबर को प्रकाशन और भर्ती शुरू होने की उम्मीद"
 
 #~ msgid "作成者：ぬる湯さん"
 #~ msgstr "लेखक: नुरुयू जी"

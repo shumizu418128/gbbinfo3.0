@@ -747,7 +747,7 @@ msgstr ""
 #, python-brace-format
 msgid "GBB {year} の配信URLは、お住まいの国によって異なります。"
 msgstr ""
-"A GBB {év} streamelési URL-je az Ön tartózkodási országától függően "
+"A GBB {year} közvetítési URL-je az Ön tartózkodási országától függően "
 "változik."
 
 #: templates/2025/stream.html:15 templates/2025/stream.html:17
@@ -878,7 +878,7 @@ msgstr "A megadott szám"
 #: templates/2025/top.html:223
 #, python-brace-format
 msgid "GBB {year} 会場webサイトに記載のあった番号"
-msgstr "GBB {year} 场地网站上列出的号码"
+msgstr "A GBB {year} helyszínének weboldalán feltüntetett szám"
 
 #: templates/2025/wildcard_regulation.html:9
 msgid "レギュレーション"

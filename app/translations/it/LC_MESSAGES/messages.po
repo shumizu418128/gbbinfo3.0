@@ -111,7 +111,7 @@ msgstr "Categoria"
 
 #: templates/2024/rule.html:80 templates/2025/rule.html:76
 msgid "シード"
-msgstr "Seminativo"
+msgstr "Testa di serie"
 
 #: templates/2024/rule.html:81 templates/2025/rule.html:77
 msgid "計"
@@ -133,7 +133,10 @@ msgstr "Cos'è il Producer"
 msgid ""
 "Loopstationのセカンドデバイス（Loopstationに接続する端末）ありの部門で、GBB23で「Producer "
 "showcase」として新設されました。その代わり、Loopstation部門においてセカンドデバイスの使用が禁止されます。"
-msgstr "Questa categoria è stata creata come "
+msgstr ""
+"Questa categoria, con un secondo dispositivo collegato alla loopstation, è "
+"stata introdotta come \"Producer showcase\" al GBB23. In cambio, l'uso del "
+"secondo dispositivo è vietato nella categoria Loopstation."
 
 #: templates/2024/rule.html:126 templates/2025/rule.html:117
 msgid "忘れられたTag Team Loopstation..."
