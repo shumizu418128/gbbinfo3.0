@@ -39,3 +39,8 @@
 *.woff2 binary
 *.ttf binary
 *.eot binary
+
+# Translation files - always use current branch version on conflict
+*.po merge=ours
+*.pot merge=ours
+*.mo binary merge=ours
