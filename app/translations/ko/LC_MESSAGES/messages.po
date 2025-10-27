@@ -173,7 +173,7 @@ msgstr "출전권"
 #: templates/2024/rule.html:160 templates/2024/rule.html:186
 #: templates/2024/rule.html:216 templates/2025/rule.html:156
 #: templates/2025/rule.html:186 templates/2025/rule.html:216
-#: templates/2025/time_schedule.html:261 templates/2026/rule.html:96
+#: templates/2025/time_schedule.html:268 templates/2026/rule.html:96
 #: templates/2026/rule.html:126 templates/2026/rule.html:156
 #: templates/2026/ticket.html:13 templates/2026/time_schedule.html:47
 #: templates/2026/time_schedule.html:51 templates/2026/time_schedule.html:55
@@ -317,11 +317,11 @@ msgstr "예년 발표 없음"
 msgid "本戦審査員一覧はこちら"
 msgstr "본선 심사위원 목록은 여기에서"
 
-#: templates/2024/stream.html:37 templates/2025/stream.html:44
+#: templates/2024/stream.html:37 templates/2025/stream.html:46
 msgid "観戦のお供に"
 msgstr "관전 가이드"
 
-#: templates/2024/stream.html:38 templates/2025/stream.html:45
+#: templates/2024/stream.html:38 templates/2025/stream.html:47
 #: templates/includes/next_year.html:3
 #, python-brace-format
 msgid "GBB {year} の最新情報をチェックしよう"
@@ -377,8 +377,8 @@ msgstr "출연자 목록"
 
 #: templates/2024/time_schedule.html:50 templates/2024/time_schedule.html:107
 #: templates/2024/time_schedule.html:164 templates/2024/time_schedule.html:237
-#: templates/2025/time_schedule.html:41 templates/2025/time_schedule.html:107
-#: templates/2025/time_schedule.html:165 templates/2025/time_schedule.html:247
+#: templates/2025/time_schedule.html:41 templates/2025/time_schedule.html:110
+#: templates/2025/time_schedule.html:168 templates/2025/time_schedule.html:250
 #: templates/2026/time_schedule.html:41 templates/2026/time_schedule.html:69
 #: templates/2026/time_schedule.html:97 templates/2026/time_schedule.html:125
 msgid "時刻"
@@ -386,8 +386,8 @@ msgstr "시간"
 
 #: templates/2024/time_schedule.html:51 templates/2024/time_schedule.html:108
 #: templates/2024/time_schedule.html:165 templates/2024/time_schedule.html:238
-#: templates/2025/time_schedule.html:42 templates/2025/time_schedule.html:108
-#: templates/2025/time_schedule.html:166 templates/2025/time_schedule.html:248
+#: templates/2025/time_schedule.html:42 templates/2025/time_schedule.html:111
+#: templates/2025/time_schedule.html:169 templates/2025/time_schedule.html:251
 #: templates/2026/time_schedule.html:42 templates/2026/time_schedule.html:70
 #: templates/2026/time_schedule.html:98 templates/2026/time_schedule.html:126
 msgid "内容"
@@ -395,8 +395,8 @@ msgstr "내용"
 
 #: templates/2024/time_schedule.html:57 templates/2024/time_schedule.html:114
 #: templates/2024/time_schedule.html:171 templates/2024/time_schedule.html:244
-#: templates/2025/time_schedule.html:48 templates/2025/time_schedule.html:114
-#: templates/2025/time_schedule.html:172 templates/2025/time_schedule.html:254
+#: templates/2025/time_schedule.html:48 templates/2025/time_schedule.html:117
+#: templates/2025/time_schedule.html:175 templates/2025/time_schedule.html:257
 #: templates/2026/time_schedule.html:48 templates/2026/time_schedule.html:76
 #: templates/2026/time_schedule.html:104 templates/2026/time_schedule.html:132
 msgid "入場開始"
@@ -404,18 +404,19 @@ msgstr "입장 시작"
 
 #: templates/2024/time_schedule.html:61 templates/2024/time_schedule.html:118
 #: templates/2024/time_schedule.html:175 templates/2024/time_schedule.html:256
+#: templates/2025/time_schedule.html:265
 msgid "ABEMA配信スタート"
 msgstr "ABEMA 방송 시작"
 
 #: templates/2024/time_schedule.html:65 templates/2024/time_schedule.html:122
 #: templates/2024/time_schedule.html:179 templates/2025/time_schedule.html:52
-#: templates/2025/time_schedule.html:118 templates/2025/time_schedule.html:176
+#: templates/2025/time_schedule.html:121 templates/2025/time_schedule.html:179
 msgid "サプライズゲスト"
 msgstr "서프라이즈 게스트"
 
 #: templates/2024/time_schedule.html:69 templates/2024/time_schedule.html:126
 #: templates/2024/time_schedule.html:183 templates/2024/time_schedule.html:248
-#: templates/2025/time_schedule.html:258 templates/2026/time_schedule.html:52
+#: templates/2025/time_schedule.html:261 templates/2026/time_schedule.html:52
 #: templates/2026/time_schedule.html:80 templates/2026/time_schedule.html:108
 #: templates/2026/time_schedule.html:136
 msgid "スタート"
@@ -425,46 +426,46 @@ msgstr "시작"
 #: templates/2024/time_schedule.html:85 templates/2024/time_schedule.html:146
 #: templates/2024/time_schedule.html:252 templates/2025/time_schedule.html:64
 #: templates/2025/time_schedule.html:68 templates/2025/time_schedule.html:84
-#: templates/2025/time_schedule.html:138 templates/2025/time_schedule.html:142
+#: templates/2025/time_schedule.html:141 templates/2025/time_schedule.html:145
 msgid "予選"
 msgstr "예선"
 
 #: templates/2024/time_schedule.html:89 templates/2024/time_schedule.html:199
-#: templates/2024/time_schedule.html:203 templates/2025/time_schedule.html:204
-#: templates/2025/time_schedule.html:208
+#: templates/2024/time_schedule.html:203 templates/2025/time_schedule.html:207
+#: templates/2025/time_schedule.html:211
 msgid "準決勝"
 msgstr "준결승"
 
 #: templates/2024/time_schedule.html:93 templates/2024/time_schedule.html:150
 #: templates/2024/time_schedule.html:219 templates/2024/time_schedule.html:280
-#: templates/2025/time_schedule.html:92 templates/2025/time_schedule.html:150
-#: templates/2025/time_schedule.html:228 templates/2025/time_schedule.html:262
+#: templates/2025/time_schedule.html:92 templates/2025/time_schedule.html:153
+#: templates/2025/time_schedule.html:231 templates/2025/time_schedule.html:269
 #: templates/2026/time_schedule.html:56 templates/2026/time_schedule.html:84
 #: templates/2026/time_schedule.html:112 templates/2026/time_schedule.html:140
 msgid "終了"
 msgstr "종료"
 
 #: templates/2024/time_schedule.html:134 templates/2024/time_schedule.html:195
-#: templates/2025/time_schedule.html:130 templates/2025/time_schedule.html:192
+#: templates/2025/time_schedule.html:133 templates/2025/time_schedule.html:195
 msgid "準々決勝"
 msgstr "8강전"
 
 #: templates/2024/time_schedule.html:138 templates/2024/time_schedule.html:142
-#: templates/2025/time_schedule.html:80 templates/2025/time_schedule.html:200
+#: templates/2025/time_schedule.html:80 templates/2025/time_schedule.html:203
 msgid "決勝"
 msgstr "결승"
 
-#: templates/2024/time_schedule.html:191 templates/2025/time_schedule.html:188
+#: templates/2024/time_schedule.html:191 templates/2025/time_schedule.html:191
 msgid "準決勝・3位決定戦・決勝"
 msgstr "준결승・3위 결정전・결승"
 
 #: templates/2024/time_schedule.html:207 templates/2024/time_schedule.html:211
-#: templates/2025/time_schedule.html:212 templates/2025/time_schedule.html:216
+#: templates/2025/time_schedule.html:215 templates/2025/time_schedule.html:219
 msgid "3位決定戦・決勝"
 msgstr "3위 결정전·결승"
 
 #: templates/2024/time_schedule.html:215 templates/2024/time_schedule.html:268
-#: templates/2025/time_schedule.html:224
+#: templates/2025/time_schedule.html:227
 msgid "セレモニー"
 msgstr "세레모니"
 
@@ -704,7 +705,7 @@ msgstr ""
 #: templates/2025/stream.html:12
 #, python-brace-format
 msgid "GBB {year} の配信URLは、お住まいの国によって異なります。"
-msgstr "GBB {year}의 제공 URL은 거주하시는 국가에 따라 다릅니다."
+msgstr "GBB {year}의 스트리밍 URL은 거주 국가에 따라 다릅니다."
 
 #: templates/2025/stream.html:15 templates/2025/stream.html:17
 msgid "日本国外にお住まいの方"
@@ -724,15 +725,26 @@ msgstr "규칙 & 심사위원"
 msgid "GBB24では、本番約1ヶ月前に公開されましたが、誤記が多くみられました。"
 msgstr "GBB24에서는 본선 약 1개월 전에 공개되었으나, 오기가 많았습니다."
 
-#: templates/2025/time_schedule.html:56 templates/2025/time_schedule.html:122
-#: templates/2025/time_schedule.html:180
+#: templates/2025/time_schedule.html:56 templates/2025/time_schedule.html:125
+#: templates/2025/time_schedule.html:183
 msgid "オープニング"
 msgstr "오프닝"
 
-#: templates/2025/time_schedule.html:72 templates/2025/time_schedule.html:134
-#: templates/2025/time_schedule.html:196
+#: templates/2025/time_schedule.html:72 templates/2025/time_schedule.html:137
+#: templates/2025/time_schedule.html:199
 msgid "休憩"
 msgstr "휴식"
+
+#: templates/2025/time_schedule.html:97
+msgid ""
+"タイムスケジュールの終了時刻は19:30になっていますが、なぜか中継配信は21時まで行われるようです。理由は不明です。初日も21時まで行われるのかどうかも不明です。"
+msgstr ""
+"타임 스케줄의 종료 시간은 19:30으로 되어 있지만, 중계 방송은 21시까지 진행될 것 같습니다. 이유는 불명입니다. 첫날도 21시까지"
+" 진행될지 여부도 불명입니다."
+
+#: templates/2025/time_schedule.html:274
+msgid "7toSmoke開始時刻と配信スタート時刻が違う理由は不明です。"
+msgstr "7toSmoke 시작 시간과 방송 시작 시간이 다른 이유는 불명입니다."
 
 #: templates/2025/top.html:22 templates/2026/top.html:22
 msgid "ページ 先行公開中！"
@@ -798,7 +810,7 @@ msgstr "결과 발표 방송"
 
 #: templates/2025/top.html:68 templates/2026/top.html:69
 msgid "出場枠の数"
-msgstr "출전 자리의 수"
+msgstr "출전 정원"
 
 #: templates/2025/top.html:87 templates/2026/top.html:82
 #: templates/common/japan.html:48 templates/common/korea.html:48
@@ -1112,7 +1124,7 @@ msgstr "메뉴"
 #: templates/2024/time_schedule.html:287 templates/2024/top.html:3
 #: templates/2024/top.html:4 templates/2024/top.html:5
 #: templates/2024/top.html:36 templates/2024/top.html:98
-#: templates/2024/top_7tosmoke.html:24 templates/2025/time_schedule.html:268
+#: templates/2024/top_7tosmoke.html:24 templates/2025/time_schedule.html:278
 #: templates/2025/top.html:3 templates/2025/top.html:4
 #: templates/2025/top.html:5 templates/2025/top.html:25
 #: templates/2025/top.html:105 templates/2025/top.html:181
@@ -1144,8 +1156,8 @@ msgstr "가이드"
 #: templates/2024/rule.html:220 templates/2024/time_schedule.html:99
 #: templates/2024/time_schedule.html:229 templates/2024/top.html:47
 #: templates/2025/rule.html:67 templates/2025/rule.html:220
-#: templates/2025/rule.html:358 templates/2025/stream.html:49
-#: templates/2025/ticket.html:17 templates/2025/time_schedule.html:156
+#: templates/2025/rule.html:358 templates/2025/stream.html:51
+#: templates/2025/ticket.html:17 templates/2025/time_schedule.html:159
 #: templates/2025/top.html:110 templates/2025/wildcards.html:14
 #: templates/2025/wildcards.html:83 templates/2026/rule.html:160
 #: templates/2026/time_schedule.html:118 templates/2026/top.html:102
@@ -1156,8 +1168,8 @@ msgid "Wildcard結果"
 msgstr "Wildcard 결과"
 
 #: templates/2024/top.html:47 templates/2025/rule.html:67
-#: templates/2025/rule.html:358 templates/2025/stream.html:49
-#: templates/2025/ticket.html:17 templates/2025/time_schedule.html:156
+#: templates/2025/rule.html:358 templates/2025/stream.html:51
+#: templates/2025/ticket.html:17 templates/2025/time_schedule.html:159
 #: templates/2025/top.html:110 templates/2025/wildcards.html:14
 #: templates/2025/wildcards.html:83 templates/2026/time_schedule.html:118
 #: templates/2026/top.html:102 templates/base.html:118 templates/base.html:269
@@ -1178,7 +1190,7 @@ msgstr "사퇴자 목록"
 #: templates/2024/rule.html:235 templates/2024/top.html:51
 #: templates/2025/rule.html:3 templates/2025/rule.html:4
 #: templates/2025/rule.html:5 templates/2025/rule.html:9
-#: templates/2025/rule.html:251 templates/2025/time_schedule.html:98
+#: templates/2025/rule.html:251 templates/2025/time_schedule.html:101
 #: templates/2025/top.html:62 templates/2025/top.html:114
 #: templates/2025/wildcard_regulation.html:22
 #: templates/2025/wildcard_regulation.html:202
@@ -1193,7 +1205,7 @@ msgstr "규칙"
 
 #: templates/2024/rule.html:280 templates/2024/rule.html:325
 #: templates/2024/top.html:51 templates/2025/rule.html:314
-#: templates/2025/rule.html:367 templates/2025/time_schedule.html:98
+#: templates/2025/rule.html:367 templates/2025/time_schedule.html:101
 #: templates/2025/top.html:67 templates/2025/top.html:114
 #: templates/2025/wildcards.html:15 templates/2025/wildcards.html:84
 #: templates/2026/time_schedule.html:62 templates/2026/top.html:68
@@ -1205,7 +1217,7 @@ msgstr "심사위원"
 #: templates/2024/time_schedule.html:4 templates/2024/time_schedule.html:5
 #: templates/2024/time_schedule.html:9 templates/2024/top.html:17
 #: templates/2024/top.html:59 templates/2024/top_7tosmoke.html:37
-#: templates/2025/stream.html:53 templates/2025/ticket.html:23
+#: templates/2025/stream.html:55 templates/2025/ticket.html:23
 #: templates/2025/time_schedule.html:3 templates/2025/time_schedule.html:4
 #: templates/2025/time_schedule.html:5 templates/2025/time_schedule.html:10
 #: templates/2025/top.html:17 templates/2025/top.html:52
@@ -1219,7 +1231,7 @@ msgid "タイムスケジュール"
 msgstr "타임 스케줄"
 
 #: templates/2024/top.html:66 templates/2025/rule.html:240
-#: templates/2025/ticket.html:19 templates/2025/time_schedule.html:235
+#: templates/2025/ticket.html:19 templates/2025/time_schedule.html:238
 #: templates/2025/top.html:129 templates/2025/wildcards.html:114
 #: templates/2026/top.html:121 templates/base.html:125
 #: templates/common/korea.html:3 templates/common/korea.html:4
@@ -1229,7 +1241,7 @@ msgid "韓国代表"
 msgstr "한국 대표"
 
 #: templates/2024/top.html:71 templates/2025/rule.html:242
-#: templates/2025/ticket.html:21 templates/2025/time_schedule.html:237
+#: templates/2025/ticket.html:21 templates/2025/time_schedule.html:240
 #: templates/2025/top.html:134 templates/2025/wildcards.html:116
 #: templates/2026/top.html:126 templates/base.html:127
 #: templates/common/japan.html:3 templates/common/japan.html:4
@@ -1261,7 +1273,7 @@ msgstr "티켓"
 #: templates/2024/top.html:80 templates/2024/top_7tosmoke.html:38
 #: templates/2025/stream.html:3 templates/2025/stream.html:4
 #: templates/2025/stream.html:5 templates/2025/stream.html:9
-#: templates/2025/time_schedule.html:155 templates/2025/top.html:143
+#: templates/2025/time_schedule.html:158 templates/2025/top.html:143
 #: templates/2025/top_7tosmoke.html:40 templates/2026/time_schedule.html:90
 #: templates/2026/time_schedule.html:117 templates/2026/top.html:135
 #: templates/2026/top_7tosmoke.html:40 templates/base.html:130
@@ -1278,8 +1290,8 @@ msgstr "당일 방송"
 #: templates/2025/rule.html:18 templates/2025/rule.html:66
 #: templates/2025/rule.html:238 templates/2025/rule.html:301
 #: templates/2025/rule.html:357 templates/2025/rule.html:399
-#: templates/2025/stream.html:57 templates/2025/time_schedule.html:97
-#: templates/2025/time_schedule.html:233 templates/2025/time_schedule.html:267
+#: templates/2025/stream.html:59 templates/2025/time_schedule.html:100
+#: templates/2025/time_schedule.html:236 templates/2025/time_schedule.html:277
 #: templates/2025/top.html:177 templates/2025/top_7tosmoke.html:36
 #: templates/2025/wildcards.html:112 templates/2026/time_schedule.html:61
 #: templates/2026/time_schedule.html:89 templates/2026/time_schedule.html:145
@@ -1660,3 +1672,6 @@ msgstr "번역을 제공하지 않는 페이지는 원문인 일본어로 표시
 
 #~ msgid "譲渡希望ツイートの掲載をご希望の場合、GBBINFO-JPN開発者 TwitterへDMにてご連絡ください。"
 #~ msgstr "양도 희망 트윗 게재를 원하시는 경우, GBBINFO-JPN 개발자 Twitter로 DM을 보내 연락해 주십시오."
+
+#~ msgid "配信スタート"
+#~ msgstr "방송 시작"
