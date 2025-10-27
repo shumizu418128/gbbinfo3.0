@@ -207,3 +207,34 @@ FOLIUM_CUSTOM_CSS = """
 """
 
 MULTI_COUNTRY_TEAM_ISO_CODE = 9999
+
+ISO_CODE_NOT_FOUND = "beatboxer_dataにiso_codeが存在しません Participantテーブルを取得する際に、iso_codeを取得してください"
+ISO_CODE_COUNTRY_NAMES_OR_ALPHA2_NOT_FOUND = "ParticipantMemberにCountry(names, iso_alpha2)が存在しません Participantテーブルを取得する際に、Country(names, iso_alpha2)をjoinさせてください"
+ISO_CODE_COUNTRY_ISO_ALPHA2_NOT_FOUND = "ParticipantMemberにCountry(iso_alpha2)が存在しません Participantテーブルを取得する際に、Country(iso_alpha2)をjoinさせてください"
+
+YOUTUBE_CHANNEL_PATTERN = (
+    r"^(https?:\/\/)?(www\.)?youtube\.com\/(c\/|channel\/|user\/|@)[a-zA-Z0-9_-]+\/?$"
+)
+INSTAGRAM_ACCOUNT_PATTERN = r"^(https?:\/\/)?(www\.)?instagram\.com\/[a-zA-Z0-9_.]+\/?$"
+FACEBOOK_ACCOUNT_PATTERN = r"^(https?:\/\/)?(www\.)?facebook\.com\/[a-zA-Z0-9_.]+\/?$"
+
+BAN_WORDS = ["HATEN", "BEATCITY", "JPN CUP", "WIKI", "/PLAYLIST"]
+
+FLAG_CODE = """
+<picture>
+    <source
+        type="image/webp"
+        srcset="https://flagcdn.com/28x21/{iso_alpha2}.webp,
+        https://flagcdn.com/56x42/{iso_alpha2}.webp 2x,
+        https://flagcdn.com/84x63/{iso_alpha2}.webp 3x">
+    <source
+        type="image/png"
+        srcset="https://flagcdn.com/28x21/{iso_alpha2}.png,
+        https://flagcdn.com/56x42/{iso_alpha2}.png 2x,
+        https://flagcdn.com/84x63/{iso_alpha2}.png 3x">
+    <img
+        src="https://flagcdn.com/28x21/{iso_alpha2}.png"
+        width="28"
+        height="21">
+</picture>
+"""
