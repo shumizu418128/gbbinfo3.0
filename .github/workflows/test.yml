@@ -47,7 +47,7 @@ jobs:
                 },
                 {
                   "title": "コミット",
-                  "value": "${{ github.sha }}",
+                  "value": "https://github.com/shumizu418128/gbbinfo3.0/commit/${{ github.sha }}",
                   "short": true
                 },
                 {
@@ -147,7 +147,7 @@ jobs:
                 },
                 {
                   "title": "コミット",
-                  "value": "${{ github.sha }}",
+                  "value": "https://github.com/shumizu418128/gbbinfo3.0/commit/${{ github.sha }}",
                   "short": true
                 },
                 {
@@ -159,7 +159,12 @@ jobs:
                   "title": "イベント",
                   "value": "${{ github.event_name }}",
                   "short": true
-                }
+                }${{ steps.test.outcome == 'success' && ',
+                {
+                  "title": "URL",
+                  "value": "' || '' }}${{ steps.test.outcome == 'success' && (github.event_name == 'pull_request' && format('https://gbbinfo-jpn-pr-{0}.onrender.com?lang=ja', github.event.pull_request.number) || 'https://gbbinfo-jpn.onrender.com?lang=ja') || '' }}${{ steps.test.outcome == 'success' && '",
+                  "short": true
+                }' || '' }}
               ],
               "footer": "GitHub Actions",
               "ts": $(date +%s)
@@ -237,7 +242,7 @@ jobs:
                   },
                   {
                     "title": "コミット",
-                    "value": "${{ github.sha }}",
+                    "value": "https://github.com/shumizu418128/gbbinfo3.0/commit/${{ github.sha }}",
                     "short": true
                   },
                   {
