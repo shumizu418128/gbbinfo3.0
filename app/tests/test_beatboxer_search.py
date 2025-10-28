@@ -1153,7 +1153,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
 
         # X(Twitter)アカウントが含まれているか
         twitter_found = any(
-            "x.com/mahiroloop" in url["url"] or "x.com" in url["url"]
+            "x.com/mahiroloop" in url["url"] or "twitter.com" in url["url"]
             for url in account_urls
         )
         self.assertTrue(twitter_found, "X(Twitter)アカウントが抽出されていません")
@@ -1670,7 +1670,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                     "content": "YouTube channel",
                 },
                 {
-                    "url": "https://x.com/@user1",
+                    "url": "https://twitter.com/@user1",
                     "title": "User1 Twitter",
                     "content": "Twitter account",
                 },
@@ -1774,7 +1774,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                     "content": "Content 1",
                 },
                 {
-                    "url": "https://x.com/@user1",
+                    "url": "https://twitter.com/@user1",
                     "title": "Twitter",
                     "content": "Account",
                 },
@@ -2079,7 +2079,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                     "content": "Video",
                 },
                 {
-                    "url": "https://x.com/@user1",
+                    "url": "https://twitter.com/@user1",
                     "title": "Twitter",
                     "content": "Account",
                 },
