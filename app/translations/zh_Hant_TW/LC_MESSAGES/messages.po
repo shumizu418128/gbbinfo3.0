@@ -1,6 +1,23 @@
+# Chinese (Traditional, Taiwan) translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
 #
+#, fuzzy
 msgid ""
 msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-10-29 11:11+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: zh_Hant_TW <LL@li.org>\n"
+"Language: zh_Hant_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Generated-By: Babel 2.17.0\n"
 
 #: templates/2024/rule.html:11 templates/2025/rule.html:11
 #: templates/2025/wildcard_regulation.html:12
@@ -44,7 +61,7 @@ msgstr "獲得參賽種子權的條件"
 #: templates/2024/rule.html:42 templates/2024/rule.html:230
 #: templates/2025/rule.html:41 templates/2025/rule.html:246
 msgid "Wildcard ルール"
-msgstr "Wildcard 規則"
+msgstr "外卡規則"
 
 #: templates/2024/rule.html:46 templates/2024/rule.html:272
 #: templates/2025/rule.html:45 templates/2025/rule.html:305
@@ -316,11 +333,11 @@ msgstr "例年無發佈"
 msgid "本戦審査員一覧はこちら"
 msgstr "這裡是本戰評審名單"
 
-#: templates/2024/stream.html:37 templates/2025/stream.html:46
+#: templates/2024/stream.html:37 templates/2025/stream.html:38
 msgid "観戦のお供に"
 msgstr "觀賽的好伴侶"
 
-#: templates/2024/stream.html:38 templates/2025/stream.html:47
+#: templates/2024/stream.html:38 templates/2025/stream.html:39
 #: templates/includes/next_year.html:3
 #, python-brace-format
 msgid "GBB {year} の最新情報をチェックしよう"
@@ -331,7 +348,7 @@ msgstr "查看 GBB {year} 的最新資訊"
 #: templates/common/participants.html:10
 #: templates/common/participants.html:148 templates/others/translation.html:18
 msgid "Wildcard結果 & 出場者"
-msgstr "萬用字元結果 & 出場者"
+msgstr "外卡結果 & 出場者"
 
 #: templates/2024/ticket.html:3 templates/2024/ticket.html:4
 #: templates/2024/ticket.html:5 templates/2024/ticket.html:9
@@ -648,7 +665,7 @@ msgstr "此外，這個播放列表中的視頻不一定是作為Wildcard申請�
 #: templates/2025/wildcard_regulation.html:4
 #: templates/2025/wildcard_regulation.html:5
 msgid "【Beatboxer向け】Wildcardレギュレーション解説"
-msgstr "【給Beatboxer】Wildcard規則說明"
+msgstr "【給Beatboxer】外卡規則說明"
 
 #: templates/2025/rule.html:225
 msgid "GBB出場辞退が発生した場合、Wildcard下位からの繰り上げが行われます。"
@@ -691,19 +708,6 @@ msgstr "關於裁判"
 msgid ""
 "レフェリーは、GBB23から導入された、審査員とは別のメンバーです。審査員は各出場者の評価を行うのに対し、レフェリーは「ルールを守っているか」を確認する役割を担います。"
 msgstr "裁判員是從GBB23導入的，與評審是不同的成員。 評審負責對每位參賽者進行評分，而裁判員則負責確認「是否遵守規則」。"
-
-#: templates/2025/stream.html:12
-#, python-brace-format
-msgid "GBB {year} の配信URLは、お住まいの国によって異なります。"
-msgstr "GBB {year} 的發布網址會因您所在的國家/地區而異。"
-
-#: templates/2025/stream.html:15 templates/2025/stream.html:17
-msgid "日本国外にお住まいの方"
-msgstr "居住在日本國外的人"
-
-#: templates/2025/stream.html:26
-msgid "日本にお住まいの方"
-msgstr "居住在日本的顧客"
 
 #: templates/2025/ticket.html:16 templates/common/japan.html:50
 #: templates/common/korea.html:50 templates/common/result.html:105
@@ -1138,7 +1142,7 @@ msgstr "指南"
 #: templates/2024/rule.html:220 templates/2024/time_schedule.html:99
 #: templates/2024/time_schedule.html:229 templates/2024/top.html:47
 #: templates/2025/rule.html:67 templates/2025/rule.html:220
-#: templates/2025/rule.html:358 templates/2025/stream.html:51
+#: templates/2025/rule.html:358 templates/2025/stream.html:43
 #: templates/2025/ticket.html:17 templates/2025/time_schedule.html:159
 #: templates/2025/top.html:110 templates/2025/wildcards.html:14
 #: templates/2025/wildcards.html:83 templates/2026/rule.html:160
@@ -1150,7 +1154,7 @@ msgid "Wildcard結果"
 msgstr "Wildcard結果"
 
 #: templates/2024/top.html:47 templates/2025/rule.html:67
-#: templates/2025/rule.html:358 templates/2025/stream.html:51
+#: templates/2025/rule.html:358 templates/2025/stream.html:43
 #: templates/2025/ticket.html:17 templates/2025/time_schedule.html:159
 #: templates/2025/top.html:110 templates/2025/wildcards.html:14
 #: templates/2025/wildcards.html:83 templates/2026/time_schedule.html:118
@@ -1199,7 +1203,7 @@ msgstr "評審"
 #: templates/2024/time_schedule.html:4 templates/2024/time_schedule.html:5
 #: templates/2024/time_schedule.html:9 templates/2024/top.html:17
 #: templates/2024/top.html:59 templates/2024/top_7tosmoke.html:37
-#: templates/2025/stream.html:55 templates/2025/ticket.html:23
+#: templates/2025/stream.html:47 templates/2025/ticket.html:23
 #: templates/2025/time_schedule.html:3 templates/2025/time_schedule.html:4
 #: templates/2025/time_schedule.html:5 templates/2025/time_schedule.html:10
 #: templates/2025/top.html:17 templates/2025/top.html:52
@@ -1272,7 +1276,7 @@ msgstr "當日直播"
 #: templates/2025/rule.html:18 templates/2025/rule.html:66
 #: templates/2025/rule.html:238 templates/2025/rule.html:301
 #: templates/2025/rule.html:357 templates/2025/rule.html:399
-#: templates/2025/stream.html:59 templates/2025/time_schedule.html:100
+#: templates/2025/stream.html:51 templates/2025/time_schedule.html:100
 #: templates/2025/time_schedule.html:236 templates/2025/time_schedule.html:277
 #: templates/2025/top.html:177 templates/2025/top_7tosmoke.html:36
 #: templates/2025/wildcards.html:112 templates/2026/time_schedule.html:61
@@ -1660,3 +1664,12 @@ msgstr "未提供翻譯的頁面將以原文日語顯示。"
 
 #~ msgid "配信スタート"
 #~ msgstr "開始"
+
+#~ msgid "GBB {year} の配信URLは、お住まいの国によって異なります。"
+#~ msgstr "GBB {year} 的發布網址會因您所在的國家/地區而異。"
+
+#~ msgid "日本国外にお住まいの方"
+#~ msgstr "居住在日本國外的人"
+
+#~ msgid "日本にお住まいの方"
+#~ msgstr "居住在日本的顧客"
