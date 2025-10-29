@@ -47,6 +47,7 @@ LANGUAGES = [
     ("da", "Dansk"),
     ("de", "Deutsch"),
     ("es", "Español"),
+    ("et", "Eesti"),
     ("fr", "Français"),
     ("ga", "Gaeilge"),
     ("hi", "हिन्दी"),
@@ -57,7 +58,6 @@ LANGUAGES = [
     ("pl", "Polski"),
     ("pt", "Português"),
     ("ta", "தமிழ்"),
-    ("th", "ไทย"),
     ("zh_Hans_CN", "简体中文"),
     ("zh_Hant_TW", "繁體中文"),
 ]
