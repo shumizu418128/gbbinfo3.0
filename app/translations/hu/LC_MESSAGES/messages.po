@@ -1,6 +1,18 @@
 #
 msgid ""
 msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-10-29 11:11+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: hu <LL@li.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Generated-By: Babel 2.17.0\n"
 
 #: templates/2024/rule.html:11 templates/2025/rule.html:11
 #: templates/2025/wildcard_regulation.html:12
@@ -333,11 +345,11 @@ msgstr "Évente nincs bejelentés"
 msgid "本戦審査員一覧はこちら"
 msgstr "Az alábbiakban a nagydöntő zsűrijének listája:"
 
-#: templates/2024/stream.html:37 templates/2025/stream.html:46
+#: templates/2024/stream.html:37 templates/2025/stream.html:38
 msgid "観戦のお供に"
 msgstr "A meccs mellé"
 
-#: templates/2024/stream.html:38 templates/2025/stream.html:47
+#: templates/2024/stream.html:38 templates/2025/stream.html:39
 #: templates/includes/next_year.html:3
 #, python-brace-format
 msgid "GBB {year} の最新情報をチェックしよう"
@@ -743,21 +755,6 @@ msgstr ""
 "A bíró a GBB23-tól bevezetett, a zsűritől eltérő tag. A zsűri az egyes "
 "versenyzőket értékeli, míg a bíró feladata annak ellenőrzése, hogy "
 "\"betartják-e a szabályokat\"."
-
-#: templates/2025/stream.html:12
-#, python-brace-format
-msgid "GBB {year} の配信URLは、お住まいの国によって異なります。"
-msgstr ""
-"A GBB {year} közvetítési URL-je az Ön tartózkodási országától függően "
-"változik."
-
-#: templates/2025/stream.html:15 templates/2025/stream.html:17
-msgid "日本国外にお住まいの方"
-msgstr "Japánon kívül élők"
-
-#: templates/2025/stream.html:26
-msgid "日本にお住まいの方"
-msgstr "Akik Japánban élnek"
 
 #: templates/2025/ticket.html:16 templates/common/japan.html:50
 #: templates/common/korea.html:50 templates/common/result.html:105
@@ -1263,7 +1260,7 @@ msgstr "Útmutató"
 #: templates/2024/rule.html:220 templates/2024/time_schedule.html:99
 #: templates/2024/time_schedule.html:229 templates/2024/top.html:47
 #: templates/2025/rule.html:67 templates/2025/rule.html:220
-#: templates/2025/rule.html:358 templates/2025/stream.html:51
+#: templates/2025/rule.html:358 templates/2025/stream.html:43
 #: templates/2025/ticket.html:17 templates/2025/time_schedule.html:159
 #: templates/2025/top.html:110 templates/2025/wildcards.html:14
 #: templates/2025/wildcards.html:83 templates/2026/rule.html:160
@@ -1275,7 +1272,7 @@ msgid "Wildcard結果"
 msgstr "Wildcard eredmények"
 
 #: templates/2024/top.html:47 templates/2025/rule.html:67
-#: templates/2025/rule.html:358 templates/2025/stream.html:51
+#: templates/2025/rule.html:358 templates/2025/stream.html:43
 #: templates/2025/ticket.html:17 templates/2025/time_schedule.html:159
 #: templates/2025/top.html:110 templates/2025/wildcards.html:14
 #: templates/2025/wildcards.html:83 templates/2026/time_schedule.html:118
@@ -1324,7 +1321,7 @@ msgstr "zsűri"
 #: templates/2024/time_schedule.html:4 templates/2024/time_schedule.html:5
 #: templates/2024/time_schedule.html:9 templates/2024/top.html:17
 #: templates/2024/top.html:59 templates/2024/top_7tosmoke.html:37
-#: templates/2025/stream.html:55 templates/2025/ticket.html:23
+#: templates/2025/stream.html:47 templates/2025/ticket.html:23
 #: templates/2025/time_schedule.html:3 templates/2025/time_schedule.html:4
 #: templates/2025/time_schedule.html:5 templates/2025/time_schedule.html:10
 #: templates/2025/top.html:17 templates/2025/top.html:52
@@ -1397,7 +1394,7 @@ msgstr "Élő közvetítés"
 #: templates/2025/rule.html:18 templates/2025/rule.html:66
 #: templates/2025/rule.html:238 templates/2025/rule.html:301
 #: templates/2025/rule.html:357 templates/2025/rule.html:399
-#: templates/2025/stream.html:59 templates/2025/time_schedule.html:100
+#: templates/2025/stream.html:51 templates/2025/time_schedule.html:100
 #: templates/2025/time_schedule.html:236 templates/2025/time_schedule.html:277
 #: templates/2025/top.html:177 templates/2025/top_7tosmoke.html:36
 #: templates/2025/wildcards.html:112 templates/2026/time_schedule.html:61
@@ -1806,3 +1803,14 @@ msgstr ""
 
 #~ msgid "配信スタート"
 #~ msgstr "Adás indul"
+
+#~ msgid "GBB {year} の配信URLは、お住まいの国によって異なります。"
+#~ msgstr ""
+#~ "A GBB {year} közvetítési URL-je az Ön tartózkodási országától függően "
+#~ "változik."
+
+#~ msgid "日本国外にお住まいの方"
+#~ msgstr "Japánon kívül élők"
+
+#~ msgid "日本にお住まいの方"
+#~ msgstr "Akik Japánban élnek"
