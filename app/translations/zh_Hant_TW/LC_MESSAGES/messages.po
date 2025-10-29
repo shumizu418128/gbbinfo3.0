@@ -61,7 +61,7 @@ msgstr "獲得參賽種子權的條件"
 #: templates/2024/rule.html:42 templates/2024/rule.html:230
 #: templates/2025/rule.html:41 templates/2025/rule.html:246
 msgid "Wildcard ルール"
-msgstr "Wildcard 規則"
+msgstr "外卡規則"
 
 #: templates/2024/rule.html:46 templates/2024/rule.html:272
 #: templates/2025/rule.html:45 templates/2025/rule.html:305
@@ -348,7 +348,7 @@ msgstr "查看 GBB {year} 的最新資訊"
 #: templates/common/participants.html:10
 #: templates/common/participants.html:148 templates/others/translation.html:18
 msgid "Wildcard結果 & 出場者"
-msgstr "萬用字元結果 & 出場者"
+msgstr "外卡結果 & 出場者"
 
 #: templates/2024/ticket.html:3 templates/2024/ticket.html:4
 #: templates/2024/ticket.html:5 templates/2024/ticket.html:9
@@ -665,7 +665,7 @@ msgstr "此外，這個播放列表中的視頻不一定是作為Wildcard申請�
 #: templates/2025/wildcard_regulation.html:4
 #: templates/2025/wildcard_regulation.html:5
 msgid "【Beatboxer向け】Wildcardレギュレーション解説"
-msgstr "【給Beatboxer】Wildcard規則說明"
+msgstr "【給Beatboxer】外卡規則說明"
 
 #: templates/2025/rule.html:225
 msgid "GBB出場辞退が発生した場合、Wildcard下位からの繰り上げが行われます。"

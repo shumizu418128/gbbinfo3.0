@@ -572,6 +572,11 @@ msgstr "Informacja o zmianie adresu URL strony"
 msgid "Wildcard結果発表配信"
 msgstr "Wildcard Wyniki dostawy"
 
+#: templates/2024/top.html:90 templates/2025/rule.html:302
+#: templates/2025/top.html:160 templates/2026/top.html:152
+msgid "Wildcard結果発表配信"
+msgstr "Transmisja ogłoszenia wyników Wildcard"
+
 #: templates/2024/top.html:91 templates/2024/wildcards.html:3
 #: templates/2024/wildcards.html:4 templates/2024/wildcards.html:5
 #: templates/2024/wildcards.html:9 templates/2025/rule.html:19
@@ -831,7 +836,7 @@ msgstr "Kluczowe słowa"
 #: templates/2026/top.html:69 templates/2026/top.html:81
 #: templates/2026/top.html:86 templates/2026/top.html:87
 msgid "ワイルドカード"
-msgstr "Symbol wieloznaczny"
+msgstr "Wildcard"
 
 #: templates/2025/top.html:51 templates/2025/top.html:59
 #: templates/2025/top.html:78 templates/2025/top.html:86
@@ -1277,7 +1282,7 @@ msgstr "Tylko ten przewodnik"
 #: templates/common/participants.html:25 templates/common/result.html:106
 #: templates/includes/participants_form.html:13
 msgid "Wildcard結果"
-msgstr "Wyniki symboli wieloznacznych"
+msgstr "Wyniki Wildcard"
 
 #: templates/2024/top.html:47 templates/2025/rule.html:67
 #: templates/2025/rule.html:358 templates/2025/stream.html:43
