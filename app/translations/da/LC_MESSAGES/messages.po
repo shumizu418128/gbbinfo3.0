@@ -327,7 +327,7 @@ msgstr "Kun RC‑505 mkI/mkII"
 #: templates/2024/rule.html:257 templates/2025/rule.html:273
 #: templates/2025/wildcard_regulation.html:224
 msgid "デバイス制限なし"
-msgstr "Enhedsbegrænsninger"
+msgstr "Ingen enhedsbegrænsninger"
 
 #: templates/2024/rule.html:274 templates/2025/rule.html:307
 msgid "Wildcard審査員一覧はこちら"
