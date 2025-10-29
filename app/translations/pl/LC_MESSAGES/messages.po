@@ -57,7 +57,7 @@ msgstr "Lista kategorii zawodów"
 #: templates/2025/rule.html:37 templates/2025/rule.html:128
 #: templates/2026/rule.html:68
 msgid "出場シード権 獲得条件"
-msgstr "Warunki uzyskania prawa startu (sezon)"
+msgstr "Warunki uzyskania rozstawienia (seed)"
 
 #: templates/2024/rule.html:42 templates/2024/rule.html:230
 #: templates/2025/rule.html:41 templates/2025/rule.html:246

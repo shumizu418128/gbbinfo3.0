@@ -508,6 +508,7 @@ class AppUrlsTestCase(unittest.TestCase):
                                 "ko": "일본",
                                 "ms": "Jepun",
                                 "no": "Japan",
+                                "pl": "Japonia",
                                 "pt": "Japão",
                                 "ta": "ஜப்பான்",
                                 "th": "ญี่ปุ่น",
