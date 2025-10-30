@@ -8,12 +8,21 @@
 {% block content %}
 <h1>GBB {{ year }} {{_("当日配信")}}</h1>
 
-<div class="button-container">
-    <a href="https://www.youtube.com/watch?v=kCJvevrV4aA"><button>Day1 10/31</button></a>
-    <a href="https://www.youtube.com/watch?v=IXLgPzCCXUQ"><button>Day2 11/1</button></a>
-    <a href="https://www.youtube.com/watch?v=zeAZyT5y7do"><button>Day3 11/2</button></a>
-    <a href="https://abema.tv/live-event/1d1538de-2d88-4c50-99ac-bd58bec96e0a"><button>7toSmoke 11/3</button></a>
-</div>
+{% if language != "ja" %}
+    <div class="button-container">
+        <a href="https://live.bilibili.com/23752440"><button>Day1 10/31</button></a>
+        <a href="https://live.bilibili.com/23752440"><button>Day2 11/1</button></a>
+        <a href="https://live.bilibili.com/23752440"><button>Day3 11/2</button></a>
+        <a href="https://abema.tv/live-event/1d1538de-2d88-4c50-99ac-bd58bec96e0a"><button>7toSmoke 11/3</button></a>
+    </div>
+{% else %}
+    <div class="button-container">
+        <a href="https://www.youtube.com/watch?v=kCJvevrV4aA"><button>Day1 10/31</button></a>
+        <a href="https://www.youtube.com/watch?v=IXLgPzCCXUQ"><button>Day2 11/1</button></a>
+        <a href="https://www.youtube.com/watch?v=zeAZyT5y7do"><button>Day3 11/2</button></a>
+        <a href="https://abema.tv/live-event/1d1538de-2d88-4c50-99ac-bd58bec96e0a"><button>7toSmoke 11/3</button></a>
+    </div>
+{% endif %}
 
 <div style="text-align: center;">
     <p>みんなでGBBを見る会<br>ビト森にて開催します！ぜひ来てね！</p>
