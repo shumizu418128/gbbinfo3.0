@@ -113,7 +113,12 @@ else:
     IS_PULL_REQUEST = False
     IS_LOCAL = False
 
-flask_cache = Cache(app)
+try:
+    flask_cache = Cache(app)
+except Exception:
+    print("************ WARNING: Redis connection failed, switching to SimpleCache. ************", flush=True)
+    app.config["CACHE_TYPE"] = "SimpleCache"
+    flask_cache = Cache(app)
 babel = Babel(app)
 test = _("test")  # テスト翻訳
 
