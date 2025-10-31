@@ -100,7 +100,7 @@ jobs:
         GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         FLASK_ENV: testing
         TESTING: true
-        IS_PULL_REQUEST: ${{ github.event_name == 'pull_request' }}
+        ENVIRONMENT_CHECK: qawsedrftgyhujikolp
       run: |
         python -m pytest app/tests/ -v
         echo "test_result=success" >> $GITHUB_OUTPUT

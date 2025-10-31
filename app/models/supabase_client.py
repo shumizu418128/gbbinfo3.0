@@ -389,7 +389,7 @@ class SupabaseService:
             data = response_results if response_results is not None else []
 
         # キャッシュに保存（内部キャッシュのみkeyはカラム名を含める）
-        flask_cache.set(cache_key + "_" + column, data, timeout=0)
+        flask_cache.set(cache_key + "_" + column, data)
         return data
 
     # MARK: insert
@@ -410,7 +410,7 @@ class SupabaseService:
         from app.main import flask_cache
 
         # 即時にアプリキャッシュへ保存（DB 失敗でもレスポンスは可能）
-        flask_cache.set(cache_key + "_search_results", search_result, timeout=0)
+        flask_cache.set(cache_key + "_search_results", search_result)
 
         data = {
             "cache_key": cache_key,
@@ -452,7 +452,7 @@ class SupabaseService:
         finally:
             # アプリ内キャッシュを最新化
             flask_cache.set(
-                cache_key + "_answer_translation", translated_answer, timeout=0
+                cache_key + "_answer_translation", translated_answer
             )
 
     # MARK: update country

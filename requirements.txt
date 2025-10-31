@@ -5,6 +5,7 @@ flask-sitemapper==1.8.1
 cachetools==5.5.1
 Jinja2==3.1.6
 waitress==3.0.2
+redis[hiredis]==6.4.0
 
 # Database
 supabase==2.16.0
