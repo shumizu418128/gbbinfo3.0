@@ -64,6 +64,7 @@ LANGUAGES = [
 BASE_DIR = Path(__file__).resolve().parent.parent
 BABEL_SUPPORTED_LOCALES = [code for code, _ in LANGUAGES]
 LAST_UPDATED = datetime.now(timezone(timedelta(hours=9)))
+MINUTE = 60
 
 
 class Config:
@@ -71,7 +72,7 @@ class Config:
     BABEL_SUPPORTED_LOCALES = [code for code, _ in LANGUAGES]
     BABEL_DEFAULT_TIMEZONE = "Asia/Tokyo"
     BABEL_TRANSLATION_DIRECTORIES = str(BASE_DIR / "app" / "translations")
-    CACHE_DEFAULT_TIMEOUT = 0  # キャッシュの有効期限を無期限に設定
+    CACHE_DEFAULT_TIMEOUT = 60 * MINUTE  # キャッシュの有効期限を60分に設定
     CACHE_TYPE = "RedisCache"
     CACHE_REDIS_URL = os.getenv("REDIS_URL")
     DEBUG = False

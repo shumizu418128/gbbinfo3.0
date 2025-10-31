@@ -38,7 +38,6 @@ def result_view(year: int):
             filters={
                 "year": year,
             },
-            timeout=0,
             pandas=True,
             raise_error=True,
         )
