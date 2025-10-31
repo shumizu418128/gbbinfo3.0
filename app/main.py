@@ -81,7 +81,7 @@ class Config:
 
 
 class PRConfig(Config):
-    CACHE_REDIS_URL = os.getenv("REDIS_EXTERNAL_URL")
+    CACHE_REDIS_URL = os.getenv("REDIS_PR_URL")
 
 
 class TestConfig(Config):
