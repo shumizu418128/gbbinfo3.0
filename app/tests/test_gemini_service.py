@@ -163,36 +163,45 @@ class GeminiServiceTestCase(unittest.TestCase):
         )
 
         with patch.dict(os.environ, {"GEMINI_API_KEY": "test_key"}):
-            service = GeminiService()
+            # キャッシュをモック化して無効化
+            with patch("app.models.gemini_client.flask_cache") as mock_cache:
+                mock_cache.get.return_value = None  # キャッシュヒットなし
+                mock_cache.set.return_value = None
 
-            # gemini_search.pyのリトライロジックをテスト
-            with patch("app.views.gemini_search.gemini_service", service):
-                start_time = time.time()
+                service = GeminiService()
 
-                # 5回リトライするロジックをシミュレート
-                result = None
-                for _ in range(5):
-                    try:
-                        result = service.ask("retry test")
-                        if result:
-                            break
-                    except Exception:
-                        continue
+                # gemini_search.pyのリトライロジックをテスト
+                with patch("app.views.gemini_search.gemini_service", service):
+                    start_time = time.time()
 
-                total_time = time.time() - start_time
+                    # 5回リトライするロジックをシミュレート
+                    result = None
+                    for _ in range(5):
+                        try:
+                            result = service.ask("retry test")
+                            # 空の辞書でない場合は成功とみなす
+                            if result:
+                                break
+                        except Exception:
+                            continue
 
-                # リトライ間でもレートリミットが守られることを確認（時間は短縮）
-                self.assertGreaterEqual(
-                    total_time, 2.0, f"リトライ時の総時間が短すぎます: {total_time}秒"
-                )
-                # 最初の2回は失敗、3回目で成功するので、3回呼び出されることを確認
-                # ただし、リトライロジックによっては5回まで試行される可能性がある
-                self.assertLessEqual(
-                    len(call_times), 5, "呼び出し回数が上限を超えています"
-                )
-                self.assertGreaterEqual(
-                    len(call_times), 3, "期待される最小呼び出し回数に達していません"
-                )
+                    total_time = time.time() - start_time
+
+                    # リトライ間でもレートリミットが守られることを確認
+                    # 3回呼び出し、それぞれ2秒間隔なので最低4秒（2秒 + 2秒）かかる
+                    self.assertGreaterEqual(
+                        total_time,
+                        4.0,
+                        f"リトライ時の総時間が短すぎます: {total_time}秒",
+                    )
+                    # 最初の2回は失敗、3回目で成功するので、3回呼び出されることを確認
+                    # ただし、リトライロジックによっては5回まで試行される可能性がある
+                    self.assertLessEqual(
+                        len(call_times), 5, "呼び出し回数が上限を超えています"
+                    )
+                    self.assertGreaterEqual(
+                        len(call_times), 3, "期待される最小呼び出し回数に達していません"
+                    )
 
     @patch("app.models.gemini_client.genai.Client")
     def test_rate_limit_stress_test(self, mock_genai_client):
