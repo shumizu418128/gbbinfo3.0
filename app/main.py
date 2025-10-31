@@ -117,7 +117,7 @@ try:
     flask_cache = Cache(app)
 except Exception:
     print("************ WARNING: Redis connection failed, switching to SimpleCache. ************", flush=True)
-    app.config["CACHE_TYPE"] = "SimpleCache"
+    app.config["CACHE_TYPE"] = "null"
     flask_cache = Cache(app)
 babel = Babel(app)
 test = _("test")  # テスト翻訳
