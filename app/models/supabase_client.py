@@ -14,8 +14,6 @@ from dotenv import load_dotenv
 from postgrest.exceptions import APIError
 from supabase import Client, create_client
 
-from app.config.config import PROMPT_TRANSLATE
-from app.models.gemini_client import gemini_service
 from app.util.filter_eq import Operator
 
 ALL_DATA = "*"
@@ -466,6 +464,8 @@ class SupabaseService:
             add_langs (list[str]): 追加する言語コードのリスト
             remove_langs (list[str]): 削除する言語コードのリスト
         """
+        from app.models.googletrans_client import googletrans_service
+
         # まず各国のnamesカラムを取得
         countries = self.get_data("Country", columns=["iso_code", "names"], pandas=True)
 
@@ -504,31 +504,11 @@ class SupabaseService:
             # 追加
             if 0 < iso_code < 9999:
                 for add_language in add_langs:
-                    if add_language not in names and "en" in names:
-                        # Geminiを使って翻訳
-                        prompt = PROMPT_TRANSLATE.format(
-                            lang=add_language, text=names["en"]
-                        )
-
-                        try:
-                            translation_result = gemini_service.ask(prompt)
-                            if (
-                                translation_result
-                                and "translated_text" in translation_result
-                            ):
-                                names[add_language] = translation_result[
-                                    "translated_text"
-                                ]
-                                updated = True
-                            else:
-                                print(
-                                    f"国コード {iso_code} の {add_language} 翻訳に失敗しました",
-                                    flush=True,
-                                )
-                        except Exception as e:
-                            print(
-                                f"国コード {iso_code} の翻訳中にエラー: {e}", flush=True
-                            )
+                    translation_result = googletrans_service.translate(
+                        text=names["en"], src="en", dest=add_language
+                    )
+                    names[add_language] = translation_result
+                    updated = True
 
             # 更新されたデータを保存
             if updated:
@@ -545,6 +525,3 @@ class SupabaseService:
 
 # グローバルインスタンス
 supabase_service = SupabaseService()
-
-# 国名を更新するときに使用
-# supabase_service.update_country_names(add_langs=["pt"], remove_langs=["zh_Hant_HK"])

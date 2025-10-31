@@ -27,25 +27,13 @@
     {% for participant in participants %}
       <tr>
         {% if participant.is_cancelled %}
-          <td>
-            【{{_("辞退")}}】<br><a href="/others/participant_detail?id={{ participant.id }}&mode={% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a>
-          </td>
-          <td>
-            <s>{{ participant.category }}</s>
-          </td>
-          <td {% if participant.ticket_class|length > 11 %} style="font-size: 12px;" {% endif %}>
-            <s>{{ participant.ticket_class }}</s>
-          </td>
+          <td>【{{_("辞退")}}】<br>{% include "includes/country_flag.html" %}<a href="/others/participant_detail?id={{ participant.id }}&mode={{ participant.mode }}">{{ participant.name }}</a></td>
+          <td><s>{{ participant.category }}</s></td>
+          <td {% if participant.ticket_class|length > 11 %} style="font-size: 12px;" {% endif %}><s>{{ participant.ticket_class }}</s></td>
         {% else %}
-          <td>
-            <a href="/others/participant_detail?id={{ participant.id }}&mode={% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a>
-          </td>
-          <td>
-            {{ participant.category }}
-          </td>
-          <td {% if participant.ticket_class|length > 11 %} style="font-size: 12px;" {% endif %}>
-            {{ participant.ticket_class }}
-          </td>
+          <td>{% include "includes/country_flag.html" %}<a href="/others/participant_detail?id={{ participant.id }}&mode={{ participant.mode }}">{{ participant.name }}</a></td>
+          <td>{{ participant.category }}</td>
+          <td {% if participant.ticket_class|length > 11 %} style="font-size: 12px;" {% endif %}>{{ participant.ticket_class }}</td>
         {% endif %}
       </tr>
       {% endfor %}

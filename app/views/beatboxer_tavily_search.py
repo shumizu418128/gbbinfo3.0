@@ -4,7 +4,13 @@ from urllib.parse import parse_qs, urlparse
 
 from flask import jsonify, request, session
 
-from app.config.config import PROMPT_TRANSLATE
+from app.config.config import (
+    BAN_WORDS,
+    FACEBOOK_ACCOUNT_PATTERN,
+    INSTAGRAM_ACCOUNT_PATTERN,
+    PROMPT_TRANSLATE,
+    YOUTUBE_CHANNEL_PATTERN,
+)
 from app.models.gemini_client import gemini_service
 from app.models.supabase_client import supabase_service
 from app.models.tavily_client import tavily_service
@@ -114,6 +120,9 @@ def beatboxer_tavily_search(
 
     Returns:
         dict: 検索結果やフィルタリング後の情報を含む辞書。
+            - account_urls (list): SNSアカウント等のURL一覧 (無制限)
+            - final_urls (list): 一般的なウェブサイトURL一覧 (3 <= final_urls <= 5)
+            - youtube_embed_url (str): YouTube埋め込み用URL (1つ)
 
     Raises:
         ValueError: beatboxer_idとbeatboxer_nameの両方がNoneの場合に発生。
@@ -151,7 +160,6 @@ def beatboxer_tavily_search(
     search_results = []
 
     # 禁止ワードが一切含まれないもののみsearch_resultsに追加
-    BAN_WORDS = ["HATEN", "BEATCITY", "JPN CUP", "WIKI", "/PLAYLIST"]
     for item in search_results_unfiltered:
         title_upper = item["title"].upper()
         url_upper = item["url"].upper()
@@ -191,19 +199,12 @@ def beatboxer_tavily_search(
                 original_youtube_embed_url = item["url"]
 
         # ステップ1: アカウントURLの収集（@を含むURLまたはタイトル）
-        youtube_channel_pattern = r"^(https?:\/\/)?(www\.)?youtube\.com\/(c\/|channel\/|user\/|@)[a-zA-Z0-9_-]+\/?$"
-        instagram_account_pattern = (
-            r"^(https?:\/\/)?(www\.)?instagram\.com\/[a-zA-Z0-9_.]+\/?$"
-        )
-        facebook_account_pattern = (
-            r"^(https?:\/\/)?(www\.)?facebook\.com\/[a-zA-Z0-9_.]+\/?$"
-        )
         is_account_url = (
             ("@" in item["url"])
             or ("@" in item["title"])
-            or bool(re.match(youtube_channel_pattern, item["url"]))
-            or bool(re.match(instagram_account_pattern, item["url"]))
-            or bool(re.match(facebook_account_pattern, item["url"]))
+            or bool(re.match(YOUTUBE_CHANNEL_PATTERN, item["url"]))
+            or bool(re.match(INSTAGRAM_ACCOUNT_PATTERN, item["url"]))
+            or bool(re.match(FACEBOOK_ACCOUNT_PATTERN, item["url"]))
         )
         is_new_domain = primary_domain not in account_domains_seen
 
