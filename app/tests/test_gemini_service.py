@@ -164,7 +164,7 @@ class GeminiServiceTestCase(unittest.TestCase):
 
         with patch.dict(os.environ, {"GEMINI_API_KEY": "test_key"}):
             # キャッシュをモック化して無効化
-            with patch("app.models.gemini_client.flask_cache") as mock_cache:
+            with patch("app.main.flask_cache") as mock_cache:
                 mock_cache.get.return_value = None  # キャッシュヒットなし
                 mock_cache.set.return_value = None
 
