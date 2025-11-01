@@ -32,13 +32,12 @@ def get_available_years():
     year_data = supabase_service.get_data(
         table="Year",
         columns=["year"],
-        timeout=0,
     )
     available_years = [item["year"] for item in year_data]
     available_years.sort(reverse=True)
 
     # キャッシュに保存（タイムアウトなし）
-    flask_cache.set(cache_key, available_years, timeout=0)
+    flask_cache.set(cache_key, available_years)
 
     return available_years
 
@@ -91,7 +90,6 @@ def get_translated_urls():
         columns=["year"],
         filters={f"categories__{Operator.IS_NOT}": None},
         pandas=True,
-        timeout=0,
     )
     available_years = year_data["year"].tolist()
 
@@ -127,7 +125,7 @@ def get_translated_urls():
                     translated_urls.add(url_path)
 
     # キャッシュに保存（タイムアウトなし）
-    flask_cache.set(cache_key, translated_urls, timeout=0)
+    flask_cache.set(cache_key, translated_urls)
 
     return translated_urls
 
@@ -217,7 +215,7 @@ def is_gbb_ended(year):
 
     # 過去年度は常にTrue
     if year < now.year:
-        flask_cache.set(cache_key, True, timeout=0)
+        flask_cache.set(cache_key, True)
         return True
 
     # 年度データを取得
@@ -225,24 +223,23 @@ def is_gbb_ended(year):
         table="Year",
         columns=["year", "ends_at"],
         filters={"year": year},
-        timeout=0,
     )
 
     # データが存在しない場合 (おそらくありえない)
     if not year_data:
-        flask_cache.set(cache_key, False, timeout=0)
+        flask_cache.set(cache_key, False)
         return False
 
     # 終了日時が設定されていない場合 (未定 = まだ始まっていない とみなす)
     ends_at = year_data[0]["ends_at"]
     if not ends_at:
-        flask_cache.set(cache_key, False, timeout=0)
+        flask_cache.set(cache_key, False)
         return False
 
     # 終了日時と現在時刻を比較
     datetime_ends_at = parser.parse(ends_at)
     result = datetime_ends_at < now
-    flask_cache.set(cache_key, result, timeout=0)
+    flask_cache.set(cache_key, result)
     return result
 
 
