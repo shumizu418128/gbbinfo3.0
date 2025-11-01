@@ -86,6 +86,19 @@ def other_content_view(content: str):
         return render_template("/common/404.html"), 404
 
 
+# MARK: travel
+def travel_content_view(content: str):
+    """
+    旅行関連のコンテンツを表示する。
+    """
+    content_basename = os.path.basename(content)
+
+    try:
+        return render_template(f"travel/{content_basename}.html")
+    except TemplateNotFound:
+        return redirect("/travel/top")
+
+
 # MARK: 404
 def not_found_page_view():
     """

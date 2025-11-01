@@ -218,6 +218,7 @@ app.add_url_rule(
 
 # その他通常ページ
 app.add_url_rule("/others/<string:content>", "others", common.other_content_view)
+app.add_url_rule("/travel/<string:content>", "travel", common.travel_content_view)
 app.add_url_rule("/<int:year>/<string:content>", "common", common.content_view)
 
 
