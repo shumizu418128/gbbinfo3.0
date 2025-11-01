@@ -72,7 +72,7 @@ class Config:
     BABEL_SUPPORTED_LOCALES = [code for code, _ in LANGUAGES]
     BABEL_DEFAULT_TIMEZONE = "Asia/Tokyo"
     BABEL_TRANSLATION_DIRECTORIES = str(BASE_DIR / "app" / "translations")
-    CACHE_DEFAULT_TIMEOUT = 120 * MINUTE  # キャッシュの有効期限を120分に設定
+    CACHE_DEFAULT_TIMEOUT = 15 * MINUTE  # キャッシュの有効期限を15分に設定
     CACHE_TYPE = "RedisCache"
     CACHE_REDIS_URL = os.getenv("REDIS_URL")
     DEBUG = False

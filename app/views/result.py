@@ -6,8 +6,6 @@ from app.config.config import MULTI_COUNTRY_TEAM_ISO_CODE
 from app.models.supabase_client import supabase_service
 from app.util.filter_eq import Operator
 
-MINUTE = 60
-
 
 # MARK: 大会結果
 def result_view(year: int):
@@ -113,7 +111,6 @@ def result_view(year: int):
                 "year": year,
                 "category": category_id,
             },
-            timeout=15 * MINUTE,
             raise_error=True,
         )
 
@@ -135,7 +132,6 @@ def result_view(year: int):
                     "year": year,
                     "category": category_id,
                 },
-                timeout=15 * MINUTE,
                 raise_error=True,
             )
     except Exception:
