@@ -25,5 +25,5 @@ function updateTimerDisplay(endTime, elementId, message) {
 }
 
 // カウントダウンの終了日時 (GBB開催日時)
-const countdownEndTime = new Date("Oct 31, 2025 14:00:00 GMT+09:00").getTime();
+const countdownEndTime = new Date("Sep 24, 2026 19:00:00 GMT+02:00").getTime();
 updateTimerDisplay(countdownEndTime, "countdown", "and that's TIME!");

@@ -328,6 +328,18 @@
     <loc>https://gbbinfo-jpn.onrender.com/others/participant_detail?id=2081&mode=single</loc>
   </url>
   <url>
+    <loc>https://gbbinfo-jpn.onrender.com/travel/top</loc>
+  </url>
+  <url>
+    <loc>https://gbbinfo-jpn.onrender.com/travel/v1_reservation</loc>
+  </url>
+  <url>
+    <loc>https://gbbinfo-jpn.onrender.com/travel/v1_journey</loc>
+  </url>
+  <url>
+    <loc>https://gbbinfo-jpn.onrender.com/travel/v1_flight</loc>
+  </url>
+  <url>
     <loc>https://gbbinfo-jpn.onrender.com/2026/japan</loc>
   </url>
   <url>
