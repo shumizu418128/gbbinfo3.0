@@ -174,6 +174,10 @@ def result_view(year: int):
                 }
             )
 
+        # 各ラウンドの結果をrankで昇順ソート（1位から順に）
+        for round_key in result_defaultdict:
+            result_defaultdict[round_key].sort(key=lambda x: x['rank'])
+
     elif result_type == "tournament":
         for result in result_data:
             # 勝者の国コードを取得
