@@ -48,6 +48,10 @@ def create_url(year: int, url: str, parameter: str):
     if url == "/others/7tosmoke" and parameter in ["latest_info", ""]:
         response_url = f"/{year}/top_7tosmoke"
 
+    # 現地観戦計画のたてかたは、ワルシャワへ行こうに変更
+    if url == "/others/how_to_plan":
+        response_url = "/travel/top"
+
     # パラメータがある場合は追加
     if parameter != "":
         response_url += f"?scroll={parameter}"
