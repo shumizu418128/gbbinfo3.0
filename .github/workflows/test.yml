@@ -3,8 +3,14 @@ name: Run Tests
 on:
   push:
     branches: [ "main" ]
+    paths-ignore:
+      - 'app/static/**'
+      - 'app/templates/**'
   pull_request:
     branches: [ "*" ]
+    paths-ignore:
+      - 'app/static/**'
+      - 'app/templates/**'
 
 jobs:
   test:
