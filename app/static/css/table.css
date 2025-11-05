@@ -40,12 +40,13 @@ table tr:nth-child(even) {
 }
 
 .post-it-notice {
-    padding: 0.5em 1em;
     margin: 20px 0;
     font-size: 16px;
+    text-align: center;
     color: rgb(34, 34, 34);
     background: rgba(255, 255, 255, 0.5);
-    border-left: solid 35px rgb(0, 255, 255);
+    border-left: solid 15px rgb(0, 255, 255);
+    border-right: solid 15px rgb(0, 255, 255);
 }
 
 .chart {
