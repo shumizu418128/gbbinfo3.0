@@ -203,7 +203,11 @@
         </div>
       {% endif %}
 
+      <div class="notice"></div>
+
       {% block content %}{% endblock %}
+
+      <div class="notice"></div>
 
       <div style="margin: 40px 0;"></div>
       <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-show-count="false">Tweet</a>
@@ -329,5 +333,6 @@
     <script src="/static/scripts/navigation.js"></script>
     <script src="/static/scripts/ui.js"></script>
     <script src="/static/scripts/search_function.js"></script>
+    <script>loadNotice();</script>
   </body>
 </html>

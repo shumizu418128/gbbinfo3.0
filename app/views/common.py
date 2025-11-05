@@ -1,10 +1,12 @@
 import os
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 
-from flask import redirect, render_template
+from flask import jsonify, redirect, render_template
+from flask_babel import format_datetime
 from jinja2 import TemplateNotFound
 
 from app.context_processors import get_available_years
+from app.models.spreadsheet_client import spreadsheet_service
 
 
 # MARK: トップ遷移
@@ -97,6 +99,25 @@ def travel_content_view(content: str):
         return render_template(f"travel/{content_basename}.html")
     except TemplateNotFound:
         return redirect("/travel/top")
+
+
+# MARK: notice
+def notice_view():
+    """
+    お知らせコンテンツを表示する。
+    """
+    notice, timestamp_str = spreadsheet_service.get_notice()
+    if notice == "" or timestamp_str == "":
+        return jsonify({"notice": "", "timestamp": ""})
+
+    timestamp_datetime = datetime.strptime(timestamp_str, "%m/%d/%Y %H:%M:%S")
+
+    # 日本時間（JST）として扱う
+    jst = timezone(timedelta(hours=9))
+    timestamp_datetime = timestamp_datetime.replace(tzinfo=jst)
+    formatted_timestamp = format_datetime(timestamp_datetime, "full")
+
+    return jsonify({"notice": notice, "timestamp": formatted_timestamp})
 
 
 # MARK: 404

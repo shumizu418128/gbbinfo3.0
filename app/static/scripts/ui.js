@@ -53,6 +53,30 @@ function handleAppInstalled() {
     installButton.style.visibility = "hidden";
 }
 
+// 通知の取得と表示
+async function loadNotice() {
+    try {
+        const response = await fetch('/notice');
+        const data = await response.json();
+
+        if (data.notice && data.notice.trim() !== '' && data.timestamp) {
+            const noticeDivs = document.querySelectorAll('.notice');
+            noticeDivs.forEach((noticeDiv) => {
+                const postIt = document.createElement('div');
+                postIt.className = 'post-it-notice';
+
+                const paragraph = document.createElement('p');
+                paragraph.innerHTML = "<strong>【お知らせ】</strong><br>" + data.notice + "<br><br>最終更新: " + data.timestamp;
+
+                postIt.appendChild(paragraph);
+                noticeDiv.appendChild(postIt);
+            });
+        }
+    } catch (error) {
+        console.error('お知らせの取得に失敗しました:', error);
+    }
+}
+
 // イベントリスナーの登録
 window.onload = () => {
     showPopup();

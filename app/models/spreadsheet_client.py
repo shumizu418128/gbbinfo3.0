@@ -4,12 +4,15 @@ from datetime import datetime
 
 import gspread
 import ratelimit
+from cachetools import TTLCache, cached
 from google.oauth2.service_account import Credentials
 
 SCOPE = [
     "https://spreadsheets.google.com/feeds",
     "https://www.googleapis.com/auth/drive",
 ]
+
+cache = TTLCache(maxsize=1, ttl=3)
 
 
 class SpreadsheetService:
@@ -78,6 +81,22 @@ class SpreadsheetService:
 
         # 質問と年を記録
         sheet.insert_row([dt_now, year_str, question, answer], 2)
+
+    @cached(cache=cache)
+    def get_notice(self) -> str:
+        """
+        Googleスプレッドシートからお知らせを取得します。
+
+        Returns:
+            str: お知らせの内容
+        """
+        # スプレッドシートを開く
+        sheet = self.client.open("gbbinfo-jpn").worksheet("notice")
+
+        # お知らせを取得
+        notice = sheet.acell("A1").value or ""
+        timestamp = sheet.acell("B1").value or ""
+        return notice, timestamp
 
 
 # グローバルインスタンス

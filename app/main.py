@@ -215,6 +215,7 @@ app.add_url_rule(
     "participant_detail",
     participant_detail.participant_detail_view,
 )
+app.add_url_rule("/notice", "notice", common.notice_view)
 
 # その他通常ページ
 app.add_url_rule("/others/<string:content>", "others", common.other_content_view)
