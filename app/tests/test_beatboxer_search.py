@@ -903,7 +903,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
     @patch("app.views.beatboxer_tavily_search.supabase_service")
     @patch("app.views.beatboxer_tavily_search.gemini_service")
     def test_translate_tavily_answer_retry_mechanism(self, mock_gemini, mock_supabase):
-        """translate_tavily_answer関数でGemini APIのリトライメカニズムをテストする"""
+        """translate_tavily_answer関数でGemini APIが成功する場合をテストする"""
         from app.views.beatboxer_tavily_search import translate_tavily_answer
 
         # MAHIROのモックデータ
@@ -924,12 +924,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             [],  # existing_cache for saving translation
         ]
 
-        # Gemini APIのモック（最初2回は失敗、3回目で成功）
-        mock_gemini.ask.side_effect = [
-            "",  # 1回目失敗
-            None,  # 2回目失敗
-            {"translated_text": "成功した翻訳結果"},  # 3回目成功
-        ]
+        # Gemini APIのモック（成功）
+        mock_gemini.ask.return_value = {"translated_text": "成功した翻訳結果"}
 
         with patch("app.main.flask_cache") as mock_cache:
             mock_cache.get.return_value = None
@@ -939,15 +935,15 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                 beatboxer_id=999, mode="single", language="ja"
             )
 
-            # 検証：リトライして成功した結果が返される
+            # 検証：成功した結果が返される
             self.assertEqual(result, "成功した翻訳結果")
-            # Gemini APIが3回呼ばれたことを確認
-            self.assertEqual(mock_gemini.ask.call_count, 3)
+            # Gemini APIが1回呼ばれたことを確認
+            self.assertEqual(mock_gemini.ask.call_count, 1)
 
     @patch("app.views.beatboxer_tavily_search.supabase_service")
     @patch("app.views.beatboxer_tavily_search.gemini_service")
     def test_translate_tavily_answer_retry_all_failed(self, mock_gemini, mock_supabase):
-        """translate_tavily_answer関数でGemini APIのリトライが全て失敗した場合をテストする"""
+        """translate_tavily_answer関数でGemini APIが失敗した場合をテストする"""
         from app.views.beatboxer_tavily_search import translate_tavily_answer
 
         # MAHIROのモックデータ
@@ -968,7 +964,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             [],  # existing_cache for saving translation
         ]
 
-        # Gemini APIのモック（全て失敗）
+        # Gemini APIのモック（失敗）
         mock_gemini.ask.return_value = ""
 
         with patch("app.main.flask_cache") as mock_cache:
@@ -979,10 +975,10 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                 beatboxer_id=999, mode="single", language="ja"
             )
 
-            # 検証：全て失敗した場合は空文字列を返す
+            # 検証：失敗した場合は空文字列を返す
             self.assertEqual(result, "")
-            # Gemini APIが5回呼ばれたことを確認（リトライ回数）
-            self.assertEqual(mock_gemini.ask.call_count, 5)
+            # Gemini APIが1回呼ばれたことを確認
+            self.assertEqual(mock_gemini.ask.call_count, 1)
 
     @patch("app.views.beatboxer_tavily_search.supabase_service")
     @patch("app.views.beatboxer_tavily_search.gemini_service")
