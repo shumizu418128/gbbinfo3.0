@@ -5,17 +5,9 @@ python -m pytest app/tests/test_views.py -v
 """
 
 import json
-import os
-import time
 import unittest
-from unittest.mock import Mock, patch
+from unittest.mock import patch
 
-from app.context_processors import (
-    get_available_years,
-    is_early_access,
-    is_latest_year,
-    is_translated,
-)
 from app.main import app
 
 COMMON_URLS = ["/japan", "/korea", "/participants", "/rule"]
@@ -164,7 +156,13 @@ class ViewsTestCase(unittest.TestCase):
     @patch("app.context_processors.get_translated_urls")
     @patch("app.context_processors.is_gbb_ended")
     @patch("app.context_processors.get_available_years")
-    def test_change_language(self, mock_get_available_years, mock_is_gbb_ended, mock_get_translated_urls, mock_supabase):
+    def test_change_language(
+        self,
+        mock_get_available_years,
+        mock_is_gbb_ended,
+        mock_get_translated_urls,
+        mock_supabase,
+    ):
         """言語変更のテスト"""
         # 有効な言語コード
         response = self.client.get("/lang?lang=en", headers={"Referer": "/"})

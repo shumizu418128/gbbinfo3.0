@@ -4,18 +4,10 @@ Flask アプリケーションのSupabaseサービスのテストモジュール
 python -m pytest app/tests/test_supabase_service.py -v
 """
 
-import json
 import os
-import time
 import unittest
 from unittest.mock import Mock, patch
 
-from app.context_processors import (
-    get_available_years,
-    is_early_access,
-    is_latest_year,
-    is_translated,
-)
 from app.main import app
 
 COMMON_URLS = ["/japan", "/korea", "/participants", "/rule"]

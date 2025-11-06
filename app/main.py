@@ -1,5 +1,6 @@
 import logging
 import os
+import traceback
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -285,11 +286,13 @@ def health_check():
 ####################################################################
 @app.errorhandler(404)
 def not_found(error):
+    traceback.print_exc()
     return common.not_found_page_view()
 
 
 @app.errorhandler(500)
 def internal_server_error(error):
+    traceback.print_exc()
     return common.internal_server_error_view()
 
 
