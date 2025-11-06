@@ -350,12 +350,9 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language: str):
     # 翻訳
     if language != "en":
         prompt = PROMPT_TRANSLATE.format(text=answer, lang=language)
-        retry = 5
-        response = ""
-        for _ in range(retry):
-            response = gemini_service.ask(prompt)
-            if response:
-                break
+
+        # 1回だけ試す syntax errorはもうあきらめる
+        response = gemini_service.ask(prompt)
 
         # 翻訳結果を取得
         if isinstance(response, list):
