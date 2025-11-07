@@ -1,11 +1,11 @@
 import logging
 import os
-import traceback
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from flask import (
     Flask,
+    request,
     send_file,
 )
 from flask_babel import Babel, _
@@ -286,13 +286,13 @@ def health_check():
 ####################################################################
 @app.errorhandler(404)
 def not_found(error):
-    traceback.print_exc()
+    print(f"404 Not Found: {request.path}")
     return common.not_found_page_view()
 
 
 @app.errorhandler(500)
 def internal_server_error(error):
-    traceback.print_exc()
+    print(f"500 Internal Server Error: {request.path}")
     return common.internal_server_error_view()
 
 
