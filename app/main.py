@@ -286,13 +286,13 @@ def health_check():
 ####################################################################
 @app.errorhandler(404)
 def not_found(error):
-    print(f"404 Not Found: {request.path}")
+    print(f"404 Not Found: {request.path}", flush=True)
     return common.not_found_page_view()
 
 
 @app.errorhandler(500)
 def internal_server_error(error):
-    print(f"500 Internal Server Error: {request.path}")
+    print(f"500 Internal Server Error: {request.path}", flush=True)
     return common.internal_server_error_view()
 
 
