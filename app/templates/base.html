@@ -51,7 +51,6 @@
     <meta property="og:image" content="https://gbbinfo-jpn.onrender.com/static/images/background.webp" />
     <meta property="og:image:secure_url" content="https://gbbinfo-jpn.onrender.com/static/images/background.webp" />
     <meta property="og:site_name" content="GBBINFO-JPN" />
-    <meta property="og:locale" content="ja_JP" />
     <meta name="theme-color" content="#ff6417" />
     <link
       rel="icon"
@@ -64,6 +63,14 @@
       type="image/x-icon"
     />
     <link rel="manifest" href="/manifest.json" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "GBBINFO-JPN",
+        "url": "https://gbbinfo-jpn.onrender.com/",
+      }
+    </script>
     <script>
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", function () {
