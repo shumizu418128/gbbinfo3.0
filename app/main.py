@@ -1,15 +1,16 @@
 import logging
 import os
 from datetime import datetime, timedelta, timezone
-from pathlib import Path
 
 from flask import (
     Flask,
+    request,
     send_file,
 )
 from flask_babel import Babel, _
 from flask_caching import Cache
 
+from app.config.config import BASE_DIR, LANGUAGE_CHOICES, SUPPORTED_LOCALES
 from app.context_processors import (
     common_variables,
     get_locale,
@@ -19,7 +20,6 @@ from app.views import (
     beatboxer_tavily_search,
     common,
     gemini_search,
-    language,
     participant_detail,
     participants,
     result,
@@ -39,37 +39,13 @@ app = Flask(__name__)
 ####################################################################
 # MARK: 設定
 ####################################################################
-LANGUAGES = [
-    ("ja", "日本語"),
-    ("ko", "한국어"),
-    ("en", "English"),
-    ("be", "Беларуская"),
-    ("da", "Dansk"),
-    ("de", "Deutsch"),
-    ("es", "Español"),
-    ("et", "Eesti"),
-    ("fr", "Français"),
-    ("ga", "Gaeilge"),
-    ("hi", "हिन्दी"),
-    ("hu", "Magyar"),
-    ("it", "Italiano"),
-    ("ms", "Bahasa MY"),
-    ("no", "Norsk"),
-    ("pl", "Polski"),
-    ("pt", "Português"),
-    ("ta", "தமிழ்"),
-    ("zh_Hans_CN", "简体中文"),
-    ("zh_Hant_TW", "繁體中文"),
-]
-BASE_DIR = Path(__file__).resolve().parent.parent
-BABEL_SUPPORTED_LOCALES = [code for code, _ in LANGUAGES]
 LAST_UPDATED = datetime.now(timezone(timedelta(hours=9)))
 MINUTE = 60
 
 
 class Config:
     BABEL_DEFAULT_LOCALE = "ja"
-    BABEL_SUPPORTED_LOCALES = [code for code, _ in LANGUAGES]
+    BABEL_SUPPORTED_LOCALES = [code for code, _ in LANGUAGE_CHOICES]
     BABEL_DEFAULT_TIMEZONE = "Asia/Tokyo"
     BABEL_TRANSLATION_DIRECTORIES = str(BASE_DIR / "app" / "translations")
     CACHE_DEFAULT_TIMEOUT = 15 * MINUTE  # キャッシュの有効期限を15分に設定
@@ -131,14 +107,13 @@ initialize_background_tasks(IS_LOCAL)
 ####################################################################
 @app.before_request
 def before_request():
-    get_locale(BABEL_SUPPORTED_LOCALES)
+    get_locale(SUPPORTED_LOCALES)
 
 
 @app.context_processor
 def set_common_variables():
     return common_variables(
-        BABEL_SUPPORTED_LOCALES=BABEL_SUPPORTED_LOCALES,
-        LANGUAGES=LANGUAGES,
+        LANGUAGE_CHOICES=LANGUAGE_CHOICES,
         IS_LOCAL=IS_LOCAL,
         IS_PULL_REQUEST=IS_PULL_REQUEST,
         LAST_UPDATED=LAST_UPDATED,
@@ -147,7 +122,7 @@ def set_common_variables():
 
 @babel.localeselector
 def locale_selector():
-    return get_locale(BABEL_SUPPORTED_LOCALES)
+    return get_locale(SUPPORTED_LOCALES)
 
 
 #####################################################################
@@ -155,12 +130,6 @@ def locale_selector():
 #####################################################################
 # リダイレクト
 app.add_url_rule("/", "redirect_to_latest_top", common.top_redirect_view)
-app.add_url_rule(
-    "/lang",
-    "change_language",
-    language.change_language,
-    defaults={"BABEL_SUPPORTED_LOCALES": BABEL_SUPPORTED_LOCALES},
-)
 app.add_url_rule("/2022/<string:content>", "2022_content", common.content_2022_view)
 
 # POSTリクエスト
@@ -286,11 +255,13 @@ def health_check():
 ####################################################################
 @app.errorhandler(404)
 def not_found(error):
+    print(f"404 Not Found: {request.path}", flush=True)
     return common.not_found_page_view()
 
 
 @app.errorhandler(500)
 def internal_server_error(error):
+    print(f"500 Internal Server Error: {request.path}", flush=True)
     return common.internal_server_error_view()
 
 

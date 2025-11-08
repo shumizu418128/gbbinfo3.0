@@ -327,8 +327,6 @@ class AppUrlsTestCase(unittest.TestCase):
         test_cases = [
             # 基本ページ
             ("/", "ルートページ"),
-            ("/lang?lang=en", "言語変更 英語"),
-            ("/lang?lang=ja", "言語変更 日本語"),
             # 静的ファイルエンドポイント
             ("/health", "ヘルスチェック"),
             ("/robots.txt", "robots.txt"),
@@ -423,10 +421,10 @@ class AppUrlsTestCase(unittest.TestCase):
         参加者ページが正常に表示されることを検証します。
         """
         # main.pyからサポートされている言語コードのリストを取得
-        from app.main import LANGUAGES
+        from app.main import LANGUAGE_CHOICES
 
         # 日本語以外の言語のみを対象とする（日本語はデフォルト言語なので翻訳ファイルが不要）
-        supported_languages = [code for code, _ in LANGUAGES if code != "ja"]
+        supported_languages = [code for code, _ in LANGUAGE_CHOICES if code != "ja"]
 
         # モックデータの設定
         mock_get_years.return_value = [2025, 2024, 2023]
@@ -557,9 +555,9 @@ class AppUrlsTestCase(unittest.TestCase):
         日本語を除くすべての言語で一致していることを検証します。
         """
         # main.pyの言語設定を取得
-        from app.main import LANGUAGES
+        from app.main import LANGUAGE_CHOICES
 
-        main_languages = set([code for code, _ in LANGUAGES if code != "ja"])
+        main_languages = set([code for code, _ in LANGUAGE_CHOICES if code != "ja"])
 
         # translationsフォルダの言語フォルダを取得
         import os

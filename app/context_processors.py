@@ -7,8 +7,8 @@ from dateutil import parser
 from flask import request, session
 from flask_babel import format_datetime
 
+from app.config.config import BASE_DIR
 from app.models.supabase_client import supabase_service
-from app.settings import BASE_DIR, delete_world_map
 from app.util.filter_eq import Operator
 
 
@@ -244,12 +244,12 @@ def is_gbb_ended(year):
 
 
 # MARK: 言語URL
-def get_change_language_url(LANGUAGES, current_url):
+def get_change_language_url(LANGUAGE_CHOICES, current_url):
     """
     現在のURLに対して、各言語ごとにlangクエリパラメータを付与したURLリストを生成します。
 
     Args:
-        LANGUAGES (list): 言語コードと表示名のタプルリスト。
+        LANGUAGE_CHOICES (list): 言語コードと表示名のタプルリスト。
         current_url (str): 現在のURL。
 
     Returns:
@@ -260,7 +260,7 @@ def get_change_language_url(LANGUAGES, current_url):
     parsed_url = urlparse(current_url)
     query_params = parse_qs(parsed_url.query)
 
-    for lang_code, lang_name in LANGUAGES:
+    for lang_code, lang_name in LANGUAGE_CHOICES:
         query_params["lang"] = [lang_code]
         new_query = urlencode(query_params, doseq=True)
         new_url = urlunparse(
@@ -280,8 +280,7 @@ def get_change_language_url(LANGUAGES, current_url):
 
 # MARK: 共通変数
 def common_variables(
-    BABEL_SUPPORTED_LOCALES,
-    LANGUAGES,
+    LANGUAGE_CHOICES,
     IS_LOCAL,
     IS_PULL_REQUEST,
     LAST_UPDATED,
@@ -290,8 +289,7 @@ def common_variables(
     Flaskのテンプレート共通変数を提供するコンテキストプロセッサ。
 
     Args:
-        BABEL_SUPPORTED_LOCALES (list): サポートされている言語ロケールのリスト。
-        LANGUAGES (list): 言語コードと表示名のタプルリスト。
+        LANGUAGE_CHOICES (list): 言語コードと表示名のタプルリスト。
         IS_LOCAL (bool): ローカル環境かどうかのフラグ。
         IS_PULL_REQUEST (bool): プルリクエスト環境かどうかのフラグ。
         LAST_UPDATED (datetime): 最終更新日時
@@ -325,7 +323,7 @@ def common_variables(
     return {
         "year": year,
         "available_years": get_available_years(),
-        "change_language_urls": get_change_language_url(LANGUAGES, request.url),
+        "change_language_urls": get_change_language_url(LANGUAGE_CHOICES, request.url),
         "language": language,
         "is_translated": is_translated(request.path, language, translated_urls),
         "last_updated": format_datetime(LAST_UPDATED, "full"),
@@ -339,12 +337,12 @@ def common_variables(
 
 
 # MARK: 言語設定
-def get_locale(BABEL_SUPPORTED_LOCALES):
+def get_locale(SUPPORTED_LOCALES):
     """
     セッションまたはリクエストから最適な言語ロケールを取得します。
 
     Args:
-        BABEL_SUPPORTED_LOCALES (list): サポートされているロケールのリスト
+        SUPPORTED_LOCALES (list): サポートされているロケールのリスト
 
     Returns:
         str: 選択された言語ロケール（例: "ja", "en" など）
@@ -355,15 +353,33 @@ def get_locale(BABEL_SUPPORTED_LOCALES):
     """
     # クエリパラメータで言語指定されている場合、それを優先
     preferred_language = request.args.get("lang")
-    if preferred_language and preferred_language in BABEL_SUPPORTED_LOCALES:
+    if preferred_language and preferred_language in SUPPORTED_LOCALES:
         session["language"] = preferred_language
         return session["language"]
 
     # セッションに言語が設定されているか確認
     if "language" not in session:
-        best_match = request.accept_languages.best_match(BABEL_SUPPORTED_LOCALES)
+        best_match = request.accept_languages.best_match(SUPPORTED_LOCALES)
         session["language"] = best_match if best_match else "ja"
     return session["language"]
+
+
+# MARK: 世界地図初期化
+def delete_world_map():
+    """
+    world_mapディレクトリ内の全てのHTMLファイルを削除します。
+
+    app/templates配下の各年度ディレクトリ内に存在するworld_mapディレクトリを探索し、
+    その中に含まれる全ての.htmlファイルを削除します。
+    ディレクトリやファイルが存在しない場合は何も行いません。
+
+    Raises:
+        OSError: ファイルの削除に失敗した場合
+    """
+    templates_dir = BASE_DIR / "app" / "templates"
+    if templates_dir.is_dir():
+        for html_file in templates_dir.glob("*/world_map/*.html"):
+            html_file.unlink()
 
 
 # MARK: 初期化タスク
@@ -372,7 +388,7 @@ def initialize_background_tasks(IS_LOCAL):
     バックグラウンドタスクの初期化を行います。
 
     Args:
-        BABEL_SUPPORTED_LOCALES (list): サポートされているロケールのリスト
+        IS_LOCAL (bool): ローカル環境かどうかのフラグ
 
     Returns:
         None
@@ -380,7 +396,6 @@ def initialize_background_tasks(IS_LOCAL):
     Note:
         - delete_world_map、check_locale_paths_and_languages、get_available_years、get_translated_urls
           の各関数をバックグラウンドスレッドで非同期に実行します。
-        - check_locale_paths_and_languagesにはBABEL_SUPPORTED_LOCALESが引数として渡されます。
         - 各タスクはアプリケーションの初期化時に一度だけ実行されます。
     """
     if IS_LOCAL:

@@ -7,8 +7,8 @@ python -m pytest app/tests/test_participant_edit.py -v
 import unittest
 
 from app.config.config import (
-    ISO_CODE_COUNTRY_ISO_ALPHA2_NOT_FOUND,
-    ISO_CODE_COUNTRY_NAMES_OR_ALPHA2_NOT_FOUND,
+    COUNTRY_ISO_ALPHA2_NOT_FOUND,
+    COUNTRY_NAMES_OR_ALPHA2_NOT_FOUND,
     ISO_CODE_NOT_FOUND,
     MULTI_COUNTRY_TEAM_ISO_CODE,
 )
@@ -88,14 +88,12 @@ class TestEditCountryData(unittest.TestCase):
         """
         beatboxer_data = {
             "iso_code": 0,
-            "Participant": {
-                "iso_code": 123
-            },
+            "Participant": {"iso_code": 123},
             "Country": {
                 "iso_code": 456,
                 "names": {"ja": "テスト国"},
-                "iso_alpha2": "TS"
-            }
+                "iso_alpha2": "TS",
+            },
         }
         result = edit_country_data(beatboxer_data)
 
@@ -111,8 +109,8 @@ class TestEditCountryData(unittest.TestCase):
             "Country": {
                 "iso_code": 456,
                 "names": {"ja": "テスト国"},
-                "iso_alpha2": "TS"
-            }
+                "iso_alpha2": "TS",
+            },
         }
         result = edit_country_data(beatboxer_data)
 
@@ -125,10 +123,7 @@ class TestEditCountryData(unittest.TestCase):
         """
         beatboxer_data = {
             "iso_code": 392,
-            "Country": {
-                "names": {"ja": "日本", "en": "Japan"},
-                "iso_alpha2": "JP"
-            }
+            "Country": {"names": {"ja": "日本", "en": "Japan"}, "iso_alpha2": "JP"},
         }
         result = edit_country_data(beatboxer_data, language="ja")
 
@@ -142,10 +137,7 @@ class TestEditCountryData(unittest.TestCase):
         """
         beatboxer_data = {
             "iso_code": 392,
-            "Country": {
-                "names": {"ja": "日本", "en": "Japan"},
-                "iso_alpha2": "JP"
-            }
+            "Country": {"names": {"ja": "日本", "en": "Japan"}, "iso_alpha2": "JP"},
         }
         result = edit_country_data(beatboxer_data)
 
@@ -164,16 +156,16 @@ class TestEditCountryData(unittest.TestCase):
                 {
                     "Country": {
                         "names": {"ja": "日本", "en": "Japan"},
-                        "iso_alpha2": "JP"
+                        "iso_alpha2": "JP",
                     }
                 },
                 {
                     "Country": {
                         "names": {"ja": "韓国", "en": "South Korea"},
-                        "iso_alpha2": "KR"
+                        "iso_alpha2": "KR",
                     }
-                }
-            ]
+                },
+            ],
         }
         result = edit_country_data(beatboxer_data, language="ja")
 
@@ -192,16 +184,16 @@ class TestEditCountryData(unittest.TestCase):
                 {
                     "Country": {
                         "names": {"ja": "日本", "en": "Japan"},
-                        "iso_alpha2": "JP"
+                        "iso_alpha2": "JP",
                     }
                 },
                 {
                     "Country": {
                         "names": {"ja": "韓国", "en": "South Korea"},
-                        "iso_alpha2": "KR"
+                        "iso_alpha2": "KR",
                     }
-                }
-            ]
+                },
+            ],
         }
         result = edit_country_data(beatboxer_data)
 
@@ -216,35 +208,31 @@ class TestEditCountryData(unittest.TestCase):
         with self.assertRaises(ValueError) as context:
             edit_country_data("invalid")
 
-        self.assertEqual(str(context.exception), "beatboxer_dataはdictである必要があります")
+        self.assertEqual(
+            str(context.exception), "beatboxer_dataはdictである必要があります"
+        )
 
     def test_single_country_missing_country_data_with_language(self):
         """
         単一国籍でCountryデータが不足している場合、ValueErrorが発生することを確認（言語指定あり）
         """
-        beatboxer_data = {
-            "iso_code": 392,
-            "Country": {}
-        }
+        beatboxer_data = {"iso_code": 392, "Country": {}}
 
         with self.assertRaises(ValueError) as context:
             edit_country_data(beatboxer_data, language="ja")
 
-        self.assertEqual(str(context.exception), ISO_CODE_COUNTRY_NAMES_OR_ALPHA2_NOT_FOUND)
+        self.assertEqual(str(context.exception), COUNTRY_NAMES_OR_ALPHA2_NOT_FOUND)
 
     def test_single_country_missing_country_data_without_language(self):
         """
         単一国籍でCountryデータが不足している場合、ValueErrorが発生することを確認（言語指定なし）
         """
-        beatboxer_data = {
-            "iso_code": 392,
-            "Country": {}
-        }
+        beatboxer_data = {"iso_code": 392, "Country": {}}
 
         with self.assertRaises(ValueError) as context:
             edit_country_data(beatboxer_data)
 
-        self.assertEqual(str(context.exception), ISO_CODE_COUNTRY_ISO_ALPHA2_NOT_FOUND)
+        self.assertEqual(str(context.exception), COUNTRY_ISO_ALPHA2_NOT_FOUND)
 
     def test_multi_country_team_missing_member_data_with_language(self):
         """
@@ -253,15 +241,13 @@ class TestEditCountryData(unittest.TestCase):
         beatboxer_data = {
             "iso_code": MULTI_COUNTRY_TEAM_ISO_CODE,
             "Country": {"iso_code": MULTI_COUNTRY_TEAM_ISO_CODE},
-            "ParticipantMember": [
-                {"Country": {}}
-            ]
+            "ParticipantMember": [{"Country": {}}],
         }
 
         with self.assertRaises(ValueError) as context:
             edit_country_data(beatboxer_data, language="ja")
 
-        self.assertEqual(str(context.exception), ISO_CODE_COUNTRY_NAMES_OR_ALPHA2_NOT_FOUND)
+        self.assertEqual(str(context.exception), COUNTRY_NAMES_OR_ALPHA2_NOT_FOUND)
 
     def test_multi_country_team_missing_member_data_without_language(self):
         """
@@ -270,15 +256,13 @@ class TestEditCountryData(unittest.TestCase):
         beatboxer_data = {
             "iso_code": MULTI_COUNTRY_TEAM_ISO_CODE,
             "Country": {"iso_code": MULTI_COUNTRY_TEAM_ISO_CODE},
-            "ParticipantMember": [
-                {"Country": {}}
-            ]
+            "ParticipantMember": [{"Country": {}}],
         }
 
         with self.assertRaises(ValueError) as context:
             edit_country_data(beatboxer_data)
 
-        self.assertEqual(str(context.exception), ISO_CODE_COUNTRY_ISO_ALPHA2_NOT_FOUND)
+        self.assertEqual(str(context.exception), COUNTRY_ISO_ALPHA2_NOT_FOUND)
 
 
 class TestWildcardRankSort(unittest.TestCase):
@@ -339,4 +323,3 @@ class TestWildcardRankSort(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

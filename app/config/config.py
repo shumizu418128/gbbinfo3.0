@@ -1,50 +1,33 @@
+from pathlib import Path
+
 from google.genai import types
 
-SAFETY_SETTINGS_BLOCK_ONLY_HIGH = [
-    types.SafetySetting(
-        category=types.HarmCategory.HARM_CATEGORY_HATE_SPEECH,
-        threshold=types.HarmBlockThreshold.BLOCK_ONLY_HIGH,
-    ),
-    types.SafetySetting(
-        category=types.HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
-        threshold=types.HarmBlockThreshold.BLOCK_ONLY_HIGH,
-    ),
-    types.SafetySetting(
-        category=types.HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
-        threshold=types.HarmBlockThreshold.BLOCK_ONLY_HIGH,
-    ),
-    types.SafetySetting(
-        category=types.HarmCategory.HARM_CATEGORY_HARASSMENT,
-        threshold=types.HarmBlockThreshold.BLOCK_ONLY_HIGH,
-    ),
-    types.SafetySetting(
-        category=types.HarmCategory.HARM_CATEGORY_CIVIC_INTEGRITY,
-        threshold=types.HarmBlockThreshold.BLOCK_ONLY_HIGH,
-    ),
+LANGUAGE_CHOICES = [
+    ("ja", "日本語"),
+    ("ko", "한국어"),
+    ("en", "English"),
+    ("be", "Беларуская"),
+    ("da", "Dansk"),
+    ("de", "Deutsch"),
+    ("es", "Español"),
+    ("et", "Eesti"),
+    ("fr", "Français"),
+    ("ga", "Gaeilge"),
+    ("hi", "हिन्दी"),
+    ("hu", "Magyar"),
+    ("it", "Italiano"),
+    ("ms", "Bahasa MY"),
+    ("no", "Norsk"),
+    ("pl", "Polski"),
+    ("pt", "Português"),
+    ("ta", "தமிழ்"),
+    ("zh_Hans_CN", "简体中文"),
+    ("zh_Hant_TW", "繁體中文"),
 ]
 
-SAFETY_SETTINGS_BLOCK_NONE = [
-    types.SafetySetting(
-        category=types.HarmCategory.HARM_CATEGORY_HATE_SPEECH,
-        threshold=types.HarmBlockThreshold.BLOCK_NONE,
-    ),
-    types.SafetySetting(
-        category=types.HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
-        threshold=types.HarmBlockThreshold.BLOCK_NONE,
-    ),
-    types.SafetySetting(
-        category=types.HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
-        threshold=types.HarmBlockThreshold.BLOCK_NONE,
-    ),
-    types.SafetySetting(
-        category=types.HarmCategory.HARM_CATEGORY_HARASSMENT,
-        threshold=types.HarmBlockThreshold.BLOCK_NONE,
-    ),
-    types.SafetySetting(
-        category=types.HarmCategory.HARM_CATEGORY_CIVIC_INTEGRITY,
-        threshold=types.HarmBlockThreshold.BLOCK_NONE,
-    ),
-]
+LANGUAGE_NAMES = {code: name for code, name in LANGUAGE_CHOICES}
+
+SUPPORTED_LOCALES = [code for code, _ in LANGUAGE_CHOICES]
 
 SEARCH_CACHE = {
     "7TO": "/__year__/top_7tosmoke",
@@ -172,7 +155,9 @@ https://gbbinfo-jpn.onrender.com/{year}/
 {{"url": "https://gbbinfo-jpn.onrender.com/{year}/participants", "parameter": "search_participants"}}"""
 
 PROMPT_TRANSLATE = """Translate this text to {lang}.
-Keep names in English. Return JSON only. Strictly follow the JSON format for output:
+Keep names in English. Return JSON only. Strictly follow the JSON format for output.
+Escape internal double quotes (\") by prefixing them with a backslash (\\\") so the returned JSON stays valid.
+Return exactly this schema:
 {{
     "translated_text": "translation here"
 }}
@@ -207,10 +192,9 @@ FOLIUM_CUSTOM_CSS = """
 """
 
 MULTI_COUNTRY_TEAM_ISO_CODE = 9999
-
 ISO_CODE_NOT_FOUND = "beatboxer_dataにiso_codeが存在しません Participantテーブルを取得する際に、iso_codeを取得してください"
-ISO_CODE_COUNTRY_NAMES_OR_ALPHA2_NOT_FOUND = "ParticipantMemberにCountry(names, iso_alpha2)が存在しません Participantテーブルを取得する際に、Country(names, iso_alpha2)をjoinさせてください"
-ISO_CODE_COUNTRY_ISO_ALPHA2_NOT_FOUND = "ParticipantMemberにCountry(iso_alpha2)が存在しません Participantテーブルを取得する際に、Country(iso_alpha2)をjoinさせてください"
+COUNTRY_NAMES_OR_ALPHA2_NOT_FOUND = "ParticipantMemberにCountry(names, iso_alpha2)が存在しません Participantテーブルを取得する際に、Country(names, iso_alpha2)をjoinさせてください"
+COUNTRY_ISO_ALPHA2_NOT_FOUND = "ParticipantMemberにCountry(iso_alpha2)が存在しません Participantテーブルを取得する際に、Country(iso_alpha2)をjoinさせてください"
 
 YOUTUBE_CHANNEL_PATTERN = (
     r"^(https?:\/\/)?(www\.)?youtube\.com\/(c\/|channel\/|user\/|@)[a-zA-Z0-9_-]+\/?$"
@@ -238,3 +222,51 @@ FLAG_CODE = """
         height="21">
 </picture>
 """
+
+SAFETY_SETTINGS_BLOCK_ONLY_HIGH = [
+    types.SafetySetting(
+        category=types.HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+        threshold=types.HarmBlockThreshold.BLOCK_ONLY_HIGH,
+    ),
+    types.SafetySetting(
+        category=types.HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
+        threshold=types.HarmBlockThreshold.BLOCK_ONLY_HIGH,
+    ),
+    types.SafetySetting(
+        category=types.HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+        threshold=types.HarmBlockThreshold.BLOCK_ONLY_HIGH,
+    ),
+    types.SafetySetting(
+        category=types.HarmCategory.HARM_CATEGORY_HARASSMENT,
+        threshold=types.HarmBlockThreshold.BLOCK_ONLY_HIGH,
+    ),
+    types.SafetySetting(
+        category=types.HarmCategory.HARM_CATEGORY_CIVIC_INTEGRITY,
+        threshold=types.HarmBlockThreshold.BLOCK_ONLY_HIGH,
+    ),
+]
+
+SAFETY_SETTINGS_BLOCK_NONE = [
+    types.SafetySetting(
+        category=types.HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+        threshold=types.HarmBlockThreshold.BLOCK_NONE,
+    ),
+    types.SafetySetting(
+        category=types.HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
+        threshold=types.HarmBlockThreshold.BLOCK_NONE,
+    ),
+    types.SafetySetting(
+        category=types.HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+        threshold=types.HarmBlockThreshold.BLOCK_NONE,
+    ),
+    types.SafetySetting(
+        category=types.HarmCategory.HARM_CATEGORY_HARASSMENT,
+        threshold=types.HarmBlockThreshold.BLOCK_NONE,
+    ),
+    types.SafetySetting(
+        category=types.HarmCategory.HARM_CATEGORY_CIVIC_INTEGRITY,
+        threshold=types.HarmBlockThreshold.BLOCK_NONE,
+    ),
+]
+
+BASE_DIR = Path(__file__).resolve().parent.parent.parent

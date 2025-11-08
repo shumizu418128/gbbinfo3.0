@@ -5,17 +5,9 @@ python -m pytest app/tests/test_supabase_error_handling.py -v
 """
 
 import json
-import os
-import time
 import unittest
-from unittest.mock import Mock, patch
+from unittest.mock import patch
 
-from app.context_processors import (
-    get_available_years,
-    is_early_access,
-    is_latest_year,
-    is_translated,
-)
 from app.main import app
 
 COMMON_URLS = ["/japan", "/korea", "/participants", "/rule"]

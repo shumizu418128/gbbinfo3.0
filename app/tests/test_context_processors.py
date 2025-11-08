@@ -4,11 +4,8 @@ Flask アプリケーションのコンテキストプロセッサのテスト�
 python -m pytest app/tests/test_context_processors.py -v
 """
 
-import json
-import os
-import time
 import unittest
-from unittest.mock import Mock, patch
+from unittest.mock import patch
 
 from app.context_processors import (
     get_available_years,
