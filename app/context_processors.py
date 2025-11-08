@@ -1,4 +1,3 @@
-import os
 import re
 from datetime import datetime, timezone
 from threading import Thread
@@ -377,17 +376,10 @@ def delete_world_map():
     Raises:
         OSError: ファイルの削除に失敗した場合
     """
-    templates_dir = os.path.join(BASE_DIR, "app", "templates")
-    if os.path.exists(templates_dir):
-        for year_dir in os.listdir(templates_dir):
-            year_path = os.path.join(templates_dir, year_dir)
-            if os.path.isdir(year_path):
-                world_map_path = os.path.join(year_path, "world_map")
-                if os.path.exists(world_map_path):
-                    for file in os.listdir(world_map_path):
-                        if file.endswith(".html"):
-                            file_path = os.path.join(world_map_path, file)
-                            os.remove(file_path)
+    templates_dir = BASE_DIR / "app" / "templates"
+    if templates_dir.is_dir():
+        for html_file in templates_dir.glob("*/world_map/*.html"):
+            html_file.unlink()
 
 
 # MARK: 初期化タスク
