@@ -60,16 +60,15 @@ async function loadNotice() {
         const data = await response.json();
 
         if (data.notice && data.notice.trim() !== '' && data.timestamp) {
-            const noticeDivs = document.querySelectorAll('.notice');
+            const noticeDivs = document.querySelectorAll('.post-it-notice');
             noticeDivs.forEach((noticeDiv) => {
-                const postItNotice = noticeDiv.querySelector('.post-it-notice');
                 const noticeContent = noticeDiv.querySelector('.notice-content');
                 const noticeTimestamp = noticeDiv.querySelector('.notice-timestamp');
 
-                if (postItNotice && noticeContent && noticeTimestamp) {
+                if (noticeContent && noticeTimestamp) {
                     noticeContent.textContent = data.notice;
                     noticeTimestamp.textContent = data.timestamp;
-                    postItNotice.style.display = 'block';
+                    noticeDiv.style.display = 'block';
                 }
             });
         }
