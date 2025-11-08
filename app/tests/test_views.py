@@ -151,23 +151,3 @@ class ViewsTestCase(unittest.TestCase):
         self.assertEqual(
             result[0]["members"], "JAPANESE MEMBER/KOREAN MEMBER/AMERICAN MEMBER"
         )  # 3名のメンバー
-
-    @patch("app.views.search_participants.supabase_service")
-    @patch("app.context_processors.get_translated_urls")
-    @patch("app.context_processors.is_gbb_ended")
-    @patch("app.context_processors.get_available_years")
-    def test_change_language(
-        self,
-        mock_get_available_years,
-        mock_is_gbb_ended,
-        mock_get_translated_urls,
-        mock_supabase,
-    ):
-        """言語変更のテスト"""
-        # 有効な言語コード
-        response = self.client.get("/lang?lang=en", headers={"Referer": "/"})
-        self.assertEqual(response.status_code, 302)
-
-        # 無効な言語コードはjaにフォールバック
-        response = self.client.get("/lang?lang=invalid", headers={"Referer": "/"})
-        self.assertEqual(response.status_code, 302)

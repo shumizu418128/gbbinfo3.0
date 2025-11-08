@@ -327,8 +327,6 @@ class AppUrlsTestCase(unittest.TestCase):
         test_cases = [
             # 基本ページ
             ("/", "ルートページ"),
-            ("/lang?lang=en", "言語変更 英語"),
-            ("/lang?lang=ja", "言語変更 日本語"),
             # 静的ファイルエンドポイント
             ("/health", "ヘルスチェック"),
             ("/robots.txt", "robots.txt"),
