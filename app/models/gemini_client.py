@@ -1,6 +1,7 @@
 import hashlib
 import json
 import os
+import re
 
 from google import genai
 from ratelimit import limits, sleep_and_retry
@@ -76,27 +77,87 @@ class GeminiService:
                 },
             )
 
-            # レスポンスをダブルクォーテーションに置き換え
-            response_text = response.text.replace("'", '"').replace(
-                "https://gbbinfo-jpn.onrender.com", ""
-            )
+            # まずクライアントがパース済みのオブジェクトを提供しているか確認
+            response_dict = None
+            parsed = getattr(response, "parsed", None)
+            if parsed is not None:
+                try:
+                    # pydanticモデルやdictの場合に対応
+                    if isinstance(parsed, dict):
+                        response_dict = parsed
+                    elif hasattr(parsed, "dict"):
+                        response_dict = parsed.dict()
+                    else:
+                        response_dict = parsed
+                except Exception:
+                    response_dict = None
 
-            # レスポンスをJSONに変換
-            response_dict = json.loads(response_text)
+            # parsedが使えない場合はtextを解析する
+            if response_dict is None:
+                response_text = getattr(response, "text", "") or ""
+                # 不要な外部URLや前後空白を削除
+                response_text = response_text.replace(
+                    "https://gbbinfo-jpn.onrender.com", ""
+                ).strip()
+
+                # 直接JSONを試す
+                try:
+                    response_dict = json.loads(response_text)
+                except json.JSONDecodeError:
+                    # 中括弧または角括弧で包まれた最初のJSON部分を抽出して試す
+                    m = re.search(r"(\{[\s\S]*\}|\[[\s\S]*\])", response_text)
+                    if m:
+                        candidate = m.group(1)
+                        try:
+                            response_dict = json.loads(candidate)
+                        except json.JSONDecodeError as e:
+                            # JSONパースに失敗した場合はログを出力してNoneを返す
+                            print(
+                                f"GeminiService: JSONパースに失敗しました。候補文字列: {candidate[:500]}",
+                                flush=True,
+                            )
+                            print(f"JSONDecodeError: {e}", flush=True)
+                            response_dict = None
+                    else:
+                        # キー:値ペアのみが返るケースを想定して、中括弧でラップして試す
+                        if re.search(r"\"?\w+\"?\s*:\s*\"?[^,}]+\"?", response_text):
+                            candidate = "{" + response_text + "}"
+                            try:
+                                response_dict = json.loads(candidate)
+                            except json.JSONDecodeError as e:
+                                # JSONパースに失敗した場合はログを出力してNoneを返す
+                                print(
+                                    f"GeminiService: JSONパースに失敗しました。候補文字列: {candidate[:500]}",
+                                    flush=True,
+                                )
+                                print(f"JSONDecodeError: {e}", flush=True)
+                                response_dict = None
 
             # リスト形式の場合は最初の要素を取得
             if isinstance(response_dict, list) and len(response_dict) > 0:
                 response_dict = response_dict[0]
+
+            if response_dict is None:
+                raise ValueError("Could not parse Gemini response as JSON")
 
             flask_cache.set(cache_key, response_dict)
             return response_dict
 
         except Exception as e:
             print(f"GeminiService ask API呼び出し失敗: {e}", flush=True)
-            # response_textとresponseが定義されている場合のみ出力
+            # response_textとresponseが定義されている場合のみ出力（先頭を制限してログ出力）
             try:
-                print(f"処理済みレスポンス: {response_text}", flush=True)
-                print(f"元のレスポンス: {response.text}", flush=True)
+                rt = locals().get("response_text", None)
+                if rt is not None:
+                    print(
+                        f"処理済みレスポンス（先頭2000文字）: {rt[:2000]}", flush=True
+                    )
+                original_text = getattr(response, "text", None)
+                if original_text is not None:
+                    print(
+                        f"元のレスポンス（先頭2000文字）: {original_text[:2000]}",
+                        flush=True,
+                    )
                 return {}
             except NameError:
                 print("レスポンスの処理前にエラーが発生しました", flush=True)

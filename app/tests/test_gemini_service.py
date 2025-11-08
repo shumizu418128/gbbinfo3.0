@@ -49,7 +49,9 @@ class GeminiServiceTestCase(unittest.TestCase):
             nonlocal call_count
             call_count += 1
             if call_count == 1:
-                return Mock(text='{"url": "/2025/top", "parameter": "None"}')
+                mock_response = Mock()
+                mock_response.parsed = {"url": "/2025/top", "parameter": "None"}
+                return mock_response
             else:
                 # レートリミットエラーをシミュレート
                 raise Exception("Rate limit exceeded")
