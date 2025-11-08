@@ -210,11 +210,11 @@
         </div>
       {% endif %}
 
-      <div class="notice"></div>
+      {% include 'includes/notice.html' %}
 
       {% block content %}{% endblock %}
 
-      <div class="notice"></div>
+      {% include 'includes/notice.html' %}
 
       <div style="margin: 40px 0;"></div>
       <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-show-count="false">Tweet</a>
