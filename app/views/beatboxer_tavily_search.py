@@ -8,6 +8,7 @@ from app.config.config import (
     BAN_WORDS,
     FACEBOOK_ACCOUNT_PATTERN,
     INSTAGRAM_ACCOUNT_PATTERN,
+    LANGUAGE_NAMES,
     PROMPT_TRANSLATE,
     YOUTUBE_CHANNEL_PATTERN,
 )
@@ -273,7 +274,7 @@ def post_beatboxer_tavily_search():
 
 
 # MARK: answer翻訳
-def translate_tavily_answer(beatboxer_id: int, mode: str, language: str):
+def translate_tavily_answer(beatboxer_id: int, mode: str, language_code: str):
     """
     指定されたビートボクサーID・モード・言語に基づき、Tavily検索結果のanswerを翻訳して返します。
 
@@ -310,7 +311,7 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language: str):
     internal_cache_answer = flask_cache.get(cache_key + "_answer_translation")
     if internal_cache_answer:
         try:
-            return internal_cache_answer[language]
+            return internal_cache_answer[language_code]
         except KeyError:
             pass
 
@@ -327,7 +328,7 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language: str):
                 cached_answer = cached_answer[0]
             if isinstance(cached_answer, str):
                 cached_answer = json.loads(cached_answer)
-            translated_answer = cached_answer[language]
+            translated_answer = cached_answer[language_code]
             return translated_answer
         except KeyError:
             pass
@@ -348,8 +349,10 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language: str):
         return ""  # answerの生成は他エンドポイントの責任
 
     # 翻訳
-    if language != "en":
-        prompt = PROMPT_TRANSLATE.format(text=answer, lang=language)
+    if language_code != "en":
+        prompt = PROMPT_TRANSLATE.format(
+            text=answer, lang=LANGUAGE_NAMES[language_code]
+        )
 
         # 1回だけ試す syntax errorはもうあきらめる
         response = gemini_service.ask(prompt)
@@ -385,7 +388,7 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language: str):
         except (json.JSONDecodeError, TypeError):
             translation_cache = {}
 
-    translation_cache[language] = translated_answer
+    translation_cache[language_code] = translated_answer
 
     supabase_service.update_translated_answer(
         cache_key=cache_key,

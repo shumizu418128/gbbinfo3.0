@@ -1,8 +1,8 @@
 import re
 
 from app.config.config import (
-    ISO_CODE_COUNTRY_ISO_ALPHA2_NOT_FOUND,
-    ISO_CODE_COUNTRY_NAMES_OR_ALPHA2_NOT_FOUND,
+    COUNTRY_ISO_ALPHA2_NOT_FOUND,
+    COUNTRY_NAMES_OR_ALPHA2_NOT_FOUND,
     ISO_CODE_NOT_FOUND,
     MULTI_COUNTRY_TEAM_ISO_CODE,
 )
@@ -56,8 +56,8 @@ def edit_country_data(beatboxer_data: dict, language: str = ""):
             beatboxer_data.pop("Country")
         except KeyError as err:
             if language:
-                raise ValueError(ISO_CODE_COUNTRY_NAMES_OR_ALPHA2_NOT_FOUND) from err
-            raise ValueError(ISO_CODE_COUNTRY_ISO_ALPHA2_NOT_FOUND) from err
+                raise ValueError(COUNTRY_NAMES_OR_ALPHA2_NOT_FOUND) from err
+            raise ValueError(COUNTRY_ISO_ALPHA2_NOT_FOUND) from err
         return beatboxer_data
 
     # 複数国籍のチームの場合、全メンバーの国名を取得
@@ -75,8 +75,8 @@ def edit_country_data(beatboxer_data: dict, language: str = ""):
                 country_dict[iso_alpha2] = None
         except KeyError:
             if language:
-                raise ValueError(ISO_CODE_COUNTRY_NAMES_OR_ALPHA2_NOT_FOUND)
-            raise ValueError(ISO_CODE_COUNTRY_ISO_ALPHA2_NOT_FOUND)
+                raise ValueError(COUNTRY_NAMES_OR_ALPHA2_NOT_FOUND)
+            raise ValueError(COUNTRY_ISO_ALPHA2_NOT_FOUND)
 
     if language:
         beatboxer_data["country"] = " / ".join(country_dict.values())

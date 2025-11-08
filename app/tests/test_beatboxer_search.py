@@ -516,7 +516,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
 
             # テスト実行
             result = translate_tavily_answer(
-                beatboxer_id=123, mode="single", language="ja"
+                beatboxer_id=123, mode="single", language_code="ja"
             )
 
             # 検証
@@ -550,7 +550,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
 
             # テスト実行
             result = translate_tavily_answer(
-                beatboxer_id=123, mode="single", language="ja"
+                beatboxer_id=123, mode="single", language_code="ja"
             )
 
             # 検証
@@ -578,7 +578,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             ]
 
             result = translate_tavily_answer(
-                beatboxer_id=123, mode="single", language="ja"
+                beatboxer_id=123, mode="single", language_code="ja"
             )
 
             # 検証
@@ -608,7 +608,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
 
             # テスト実行
             result = translate_tavily_answer(
-                beatboxer_id=123, mode="single", language="ja"
+                beatboxer_id=123, mode="single", language_code="ja"
             )
 
             # 検証（Geminiエラーの場合は空文字列を返す）
@@ -638,7 +638,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
 
             # テスト実行
             result = translate_tavily_answer(
-                beatboxer_id=123, mode="single", language="ja"
+                beatboxer_id=123, mode="single", language_code="ja"
             )
 
             # 検証
@@ -700,7 +700,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
 
             # テスト実行（日本語翻訳）
             result = translate_tavily_answer(
-                beatboxer_id=999, mode="single", language="ja"
+                beatboxer_id=999, mode="single", language_code="ja"
             )
 
             # 検証
@@ -741,7 +741,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
 
             # テスト実行（英語の場合）
             result = translate_tavily_answer(
-                beatboxer_id=999, mode="single", language="en"
+                beatboxer_id=999, mode="single", language_code="en"
             )
 
             # 検証：英語の場合はGemini APIを呼ばずに元のanswerをそのまま返す
@@ -788,7 +788,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
 
             # テスト実行（韓国語翻訳）
             result = translate_tavily_answer(
-                beatboxer_id=999, mode="single", language="ko"
+                beatboxer_id=999, mode="single", language_code="ko"
             )
 
             # 検証
@@ -823,7 +823,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
 
             # テスト実行（日本語）
             result_ja = translate_tavily_answer(
-                beatboxer_id=999, mode="single", language="ja"
+                beatboxer_id=999, mode="single", language_code="ja"
             )
 
             # 検証
@@ -836,7 +836,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             # テスト実行（韓国語）
             mock_supabase.get_tavily_data.return_value = [cached_translation]
             result_ko = translate_tavily_answer(
-                beatboxer_id=999, mode="single", language="ko"
+                beatboxer_id=999, mode="single", language_code="ko"
             )
 
             # 検証
@@ -865,7 +865,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
 
             # テスト実行
             result = translate_tavily_answer(
-                beatboxer_id=999, mode="single", language="ja"
+                beatboxer_id=999, mode="single", language_code="ja"
             )
 
             # 検証
@@ -892,7 +892,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
 
             # テスト実行
             result = translate_tavily_answer(
-                beatboxer_id=999, mode="single", language="ja"
+                beatboxer_id=999, mode="single", language_code="ja"
             )
 
             # 検証：ビートボクサーが見つからない場合は空文字列を返す
@@ -932,7 +932,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
 
             # テスト実行
             result = translate_tavily_answer(
-                beatboxer_id=999, mode="single", language="ja"
+                beatboxer_id=999, mode="single", language_code="ja"
             )
 
             # 検証：成功した結果が返される
@@ -972,7 +972,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
 
             # テスト実行
             result = translate_tavily_answer(
-                beatboxer_id=999, mode="single", language="ja"
+                beatboxer_id=999, mode="single", language_code="ja"
             )
 
             # 検証：失敗した場合は空文字列を返す
@@ -1012,7 +1012,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
 
             # テスト実行
             result = translate_tavily_answer(
-                beatboxer_id=999, mode="single", language="ja"
+                beatboxer_id=999, mode="single", language_code="ja"
             )
 
             # 検証
