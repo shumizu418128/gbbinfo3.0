@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from google.genai import types
 
 LANGUAGE_CHOICES = [
@@ -266,3 +268,5 @@ SAFETY_SETTINGS_BLOCK_NONE = [
         threshold=types.HarmBlockThreshold.BLOCK_NONE,
     ),
 ]
+
+BASE_DIR = Path(__file__).resolve().parent.parent.parent

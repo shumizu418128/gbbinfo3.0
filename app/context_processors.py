@@ -1,3 +1,4 @@
+import os
 import re
 from datetime import datetime, timezone
 from threading import Thread
@@ -7,8 +8,8 @@ from dateutil import parser
 from flask import request, session
 from flask_babel import format_datetime
 
+from app.config.config import BASE_DIR
 from app.models.supabase_client import supabase_service
-from app.settings import BASE_DIR, delete_world_map
 from app.util.filter_eq import Operator
 
 
@@ -362,6 +363,31 @@ def get_locale(SUPPORTED_LOCALES):
         best_match = request.accept_languages.best_match(SUPPORTED_LOCALES)
         session["language"] = best_match if best_match else "ja"
     return session["language"]
+
+
+# MARK: 世界地図初期化
+def delete_world_map():
+    """
+    world_mapディレクトリ内の全てのHTMLファイルを削除します。
+
+    app/templates配下の各年度ディレクトリ内に存在するworld_mapディレクトリを探索し、
+    その中に含まれる全ての.htmlファイルを削除します。
+    ディレクトリやファイルが存在しない場合は何も行いません。
+
+    Raises:
+        OSError: ファイルの削除に失敗した場合
+    """
+    templates_dir = os.path.join(BASE_DIR, "app", "templates")
+    if os.path.exists(templates_dir):
+        for year_dir in os.listdir(templates_dir):
+            year_path = os.path.join(templates_dir, year_dir)
+            if os.path.isdir(year_path):
+                world_map_path = os.path.join(year_path, "world_map")
+                if os.path.exists(world_map_path):
+                    for file in os.listdir(world_map_path):
+                        if file.endswith(".html"):
+                            file_path = os.path.join(world_map_path, file)
+                            os.remove(file_path)
 
 
 # MARK: 初期化タスク

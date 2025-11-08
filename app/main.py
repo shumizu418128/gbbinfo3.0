@@ -1,7 +1,6 @@
 import logging
 import os
 from datetime import datetime, timedelta, timezone
-from pathlib import Path
 
 from flask import (
     Flask,
@@ -11,7 +10,7 @@ from flask import (
 from flask_babel import Babel, _
 from flask_caching import Cache
 
-from app.config.config import LANGUAGE_CHOICES, SUPPORTED_LOCALES
+from app.config.config import BASE_DIR, LANGUAGE_CHOICES, SUPPORTED_LOCALES
 from app.context_processors import (
     common_variables,
     get_locale,
@@ -40,7 +39,6 @@ app = Flask(__name__)
 ####################################################################
 # MARK: 設定
 ####################################################################
-BASE_DIR = Path(__file__).resolve().parent.parent
 LAST_UPDATED = datetime.now(timezone(timedelta(hours=9)))
 MINUTE = 60
 
