@@ -11,8 +11,8 @@ from flask_caching import Cache
 
 from app.config.config import (
     BASE_DIR,
-    LANGUAGE_CHOICES,
     MINUTE,
+    SUPPORTED_LOCALES,
 )
 from app.context_processors import (
     common_variables,
@@ -45,7 +45,7 @@ app = Flask(__name__)
 ####################################################################
 class ProductionConfig:
     BABEL_DEFAULT_LOCALE = "ja"
-    BABEL_SUPPORTED_LOCALES = [code for code, _ in LANGUAGE_CHOICES]
+    BABEL_SUPPORTED_LOCALES = SUPPORTED_LOCALES
     BABEL_DEFAULT_TIMEZONE = "Asia/Tokyo"
     BABEL_TRANSLATION_DIRECTORIES = str(BASE_DIR / "app" / "translations")
     CACHE_DEFAULT_TIMEOUT = 15 * MINUTE  # キャッシュの有効期限を15分に設定
@@ -93,7 +93,7 @@ try:
     flask_cache = Cache(app)
 except Exception:
     print("************ WARNING: Redis connection failed ************", flush=True)
-    app.config["CACHE_TYPE"] = "null"
+    app.config["CACHE_TYPE"] = "FileSystemCache"
     flask_cache = Cache(app)
 babel = Babel(app)
 test = _("test")  # テスト翻訳
