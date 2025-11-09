@@ -1210,7 +1210,7 @@ msgstr "Críochnaithe"
 
 #: templates/2026/top.html:25 templates/includes/next_year.html:5
 msgid "先行公開"
-msgstr "fochraiceann"
+msgstr "Rochtain luath"
 
 #: templates/base.html:34 templates/base.html:44 templates/base.html:48
 msgid ""

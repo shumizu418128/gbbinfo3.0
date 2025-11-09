@@ -83,7 +83,7 @@ class SpreadsheetService:
         sheet.insert_row([dt_now, year_str, question, answer], 2)
 
     @cached(cache=cache)
-    def get_notice(self) -> str:
+    def get_notice(self):
         """
         Googleスプレッドシートからお知らせを取得します。
 

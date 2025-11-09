@@ -537,7 +537,7 @@ msgstr "Tarikh"
 #: templates/2025/top.html:24 templates/2025/top_7tosmoke.html:12
 #: templates/2026/top.html:32 templates/2026/top_7tosmoke.html:12
 msgid "公式よりもわかりやすい！"
-msgstr "Lebih mudah difahami daripada formula!"
+msgstr "Lebih mudah difahami daripada yang rasmi!"
 
 #: templates/2024/top.html:24 templates/2024/top_7tosmoke.html:12
 #: templates/2025/top.html:24 templates/2025/top_7tosmoke.html:12

@@ -80,6 +80,7 @@ async function loadNotice() {
 // イベントリスナーの登録
 window.onload = () => {
     showPopup();
+    loadNotice();
 };
 
 // ドロップダウンのクリックイベント
