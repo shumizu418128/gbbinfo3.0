@@ -8,9 +8,29 @@ import os
 import unittest
 from unittest.mock import patch
 
+from app.config.config import LANGUAGE_CHOICES
 from app.main import app
 
 COMMON_URLS = ["/japan", "/korea", "/participants", "/rule"]
+
+
+def create_country_names_mock(country_name_en="Japan"):
+    """
+    configから取得した言語キーを使用してcountry.namesのモックデータを生成する。
+
+    Args:
+        country_name_en (str): 'en'キーに対応する値（デフォルト: "Japan"）。
+                               world_map_viewでファイル名として使用されるため、
+                               実際のファイル名と一致させる必要がある。
+
+    Returns:
+        dict: すべてのサポート言語をキーとして持つ辞書。
+              'en'キーには指定されたcountry_name_enが設定され、
+              その他のキーには適当な文字列（"Country_{lang_code}"形式）が設定される。
+    """
+    names = {code: f"Country_{code}" for code, _ in LANGUAGE_CHOICES}
+    names["en"] = country_name_en  # world_map_viewでファイル名として使用される
+    return names
 
 
 class AppUrlsTestCase(unittest.TestCase):
@@ -136,7 +156,7 @@ class AppUrlsTestCase(unittest.TestCase):
                                 "iso_code": 392,
                                 "latitude": 35.0,
                                 "longitude": 139.0,
-                                "names": {"ja": "日本", "en": "Japan"},
+                                "names": create_country_names_mock(),
                                 "iso_alpha2": "JP",
                             }
                         ]
@@ -146,7 +166,7 @@ class AppUrlsTestCase(unittest.TestCase):
                         "iso_code": 392,
                         "latitude": 35.0,
                         "longitude": 139.0,
-                        "names": {"ja": "日本", "en": "Japan"},
+                        "names": create_country_names_mock(),
                         "iso_alpha2": "JP",
                     }
                 ]
@@ -169,7 +189,7 @@ class AppUrlsTestCase(unittest.TestCase):
                         "Category": {"id": 1, "name": "Solo", "is_team": False},
                         "Country": {
                             "iso_code": 392,
-                            "names": {"ja": "日本", "en": "Japan"},
+                            "names": create_country_names_mock(),
                             "iso_alpha2": "JP",
                         },
                         "ParticipantMember": [],
@@ -282,7 +302,7 @@ class AppUrlsTestCase(unittest.TestCase):
                         "Category": {"id": 1, "name": "Loopstation", "is_team": False},
                         "Country": {
                             "iso_code": 392,
-                            "names": {"ja": "日本", "en": "Japan"},
+                            "names": create_country_names_mock(),
                             "iso_alpha2": "JP",
                         },
                         "ParticipantMember": [],
@@ -420,8 +440,8 @@ class AppUrlsTestCase(unittest.TestCase):
         翻訳の問題がないかを確認するため、サポートされているすべての言語で
         参加者ページが正常に表示されることを検証します。
         """
-        # main.pyからサポートされている言語コードのリストを取得
-        from app.main import LANGUAGE_CHOICES
+        # config.pyからサポートされている言語コードのリストを取得
+        from app.config.config import LANGUAGE_CHOICES
 
         # 日本語以外の言語のみを対象とする（日本語はデフォルト言語なので翻訳ファイルが不要）
         supported_languages = [code for code, _ in LANGUAGE_CHOICES if code != "ja"]
@@ -494,28 +514,7 @@ class AppUrlsTestCase(unittest.TestCase):
                         "Category": {"id": 1, "name": "Loopstation", "is_team": False},
                         "Country": {
                             "iso_code": 392,
-                            "names": {
-                                "ja": "日本",
-                                "en": "Japan",
-                                "de": "Japan",
-                                "es": "Japón",
-                                "fr": "Japon",
-                                "hi": "जापान",
-                                "hu": "Japán",
-                                "it": "Giappone",
-                                "ko": "일본",
-                                "ms": "Jepun",
-                                "no": "Japan",
-                                "pl": "Japonia",
-                                "pt": "Japão",
-                                "ta": "ஜப்பான்",
-                                "zh_Hans_CN": "日本",
-                                "zh_Hant_TW": "日本",
-                                "be": "Японія",
-                                "da": "Japan",
-                                "ga": "An tSeapáin",
-                                "et": "Jaapan",
-                            },
+                            "names": create_country_names_mock(),
                             "iso_alpha2": "JP",
                         },
                         "ParticipantMember": [],
@@ -554,8 +553,8 @@ class AppUrlsTestCase(unittest.TestCase):
 
         日本語を除くすべての言語で一致していることを検証します。
         """
-        # main.pyの言語設定を取得
-        from app.main import LANGUAGE_CHOICES
+        # config.pyの言語設定を取得
+        from app.config.config import LANGUAGE_CHOICES
 
         main_languages = set([code for code, _ in LANGUAGE_CHOICES if code != "ja"])
 
