@@ -10,12 +10,9 @@ from flask_babel import Babel, _
 from flask_caching import Cache
 
 from app.config.config import (
+    BASE_DIR,
     LANGUAGE_CHOICES,
-    LAST_UPDATED,
-    SUPPORTED_LOCALES,
-    PRConfig,
-    ProductionConfig,
-    TestConfig,
+    MINUTE,
 )
 from app.context_processors import (
     common_variables,
@@ -46,6 +43,30 @@ app = Flask(__name__)
 ####################################################################
 # MARK: 設定
 ####################################################################
+class ProductionConfig:
+    BABEL_DEFAULT_LOCALE = "ja"
+    BABEL_SUPPORTED_LOCALES = [code for code, _ in LANGUAGE_CHOICES]
+    BABEL_DEFAULT_TIMEZONE = "Asia/Tokyo"
+    BABEL_TRANSLATION_DIRECTORIES = str(BASE_DIR / "app" / "translations")
+    CACHE_DEFAULT_TIMEOUT = 15 * MINUTE  # キャッシュの有効期限を15分に設定
+    CACHE_TYPE = "RedisCache"
+    CACHE_REDIS_URL = os.getenv("REDIS_URL")
+    DEBUG = False
+    SECRET_KEY = os.getenv("SECRET_KEY")
+    TEMPLATES_AUTO_RELOAD = False
+
+
+class PRConfig(ProductionConfig):
+    CACHE_REDIS_URL = os.getenv("REDIS_PR_URL")
+
+
+class TestConfig(ProductionConfig):
+    CACHE_TYPE = "null"
+    DEBUG = True
+    SECRET_KEY = "test"
+    TEMPLATES_AUTO_RELOAD = True
+
+
 # テスト環境ではキャッシュを無効化
 # ローカル環境にはこの環境変数を設定してある
 if os.getenv("ENVIRONMENT_CHECK") == "qawsedrftgyhujikolp":
@@ -86,22 +107,20 @@ initialize_background_tasks(IS_LOCAL)
 ####################################################################
 @app.before_request
 def before_request():
-    get_locale(SUPPORTED_LOCALES)
+    get_locale()
 
 
 @app.context_processor
 def set_common_variables():
     return common_variables(
-        LANGUAGE_CHOICES=LANGUAGE_CHOICES,
         IS_LOCAL=IS_LOCAL,
         IS_PULL_REQUEST=IS_PULL_REQUEST,
-        LAST_UPDATED=LAST_UPDATED,
     )
 
 
 @babel.localeselector
 def locale_selector():
-    return get_locale(SUPPORTED_LOCALES)
+    return get_locale()
 
 
 #####################################################################
@@ -175,7 +194,6 @@ app.add_url_rule(
     "/lang",
     "change_language",
     language.change_language,
-    defaults={"SUPPORTED_LOCALES": SUPPORTED_LOCALES},
 )
 
 

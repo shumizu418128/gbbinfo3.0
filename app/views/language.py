@@ -2,6 +2,8 @@ from urllib.parse import urlparse
 
 from flask import redirect, request, session
 
+from app.config.config import SUPPORTED_LOCALES
+
 
 # MARK: URL結合
 def build_path_with_query_and_fragment(parsed):
@@ -26,11 +28,8 @@ def is_same_origin(parsed):
 
 
 # MARK: 言語変更
-def change_language(SUPPORTED_LOCALES: list[str]):
+def change_language():
     """言語を変更し、安全に元のページへリダイレクトする。
-
-    Args:
-        SUPPORTED_LOCALES (list[str]): サポートする言語コードの一覧。
 
     Returns:
         Response: 安全と判断したリファラー（またはルート）へのリダイレクト。
