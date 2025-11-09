@@ -42,7 +42,7 @@ def get_available_years():
     available_years.sort(reverse=True)
 
     # キャッシュに保存（タイムアウトなし）
-    flask_cache.set(cache_key, available_years)
+    flask_cache.set(cache_key, available_years, timeout=None)
 
     return available_years
 
@@ -130,7 +130,7 @@ def get_translated_urls():
                     translated_urls.add(url_path)
 
     # キャッシュに保存（タイムアウトなし）
-    flask_cache.set(cache_key, translated_urls)
+    flask_cache.set(cache_key, translated_urls, timeout=None)
 
     return translated_urls
 
