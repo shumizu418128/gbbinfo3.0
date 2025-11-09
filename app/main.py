@@ -20,6 +20,7 @@ from app.views import (
     beatboxer_tavily_search,
     common,
     gemini_search,
+    language,
     participant_detail,
     participants,
     result,
@@ -190,6 +191,14 @@ app.add_url_rule("/notice", "notice", common.notice_view)
 app.add_url_rule("/others/<string:content>", "others", common.other_content_view)
 app.add_url_rule("/travel/<string:content>", "travel", common.travel_content_view)
 app.add_url_rule("/<int:year>/<string:content>", "common", common.content_view)
+
+# deprecated
+app.add_url_rule(
+    "/lang",
+    "change_language",
+    language.change_language,
+    defaults={"SUPPORTED_LOCALES": SUPPORTED_LOCALES},
+)
 
 
 ####################################################################
