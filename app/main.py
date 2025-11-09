@@ -1,6 +1,5 @@
 import logging
 import os
-from datetime import datetime, timedelta, timezone
 
 from flask import (
     Flask,
@@ -10,7 +9,14 @@ from flask import (
 from flask_babel import Babel, _
 from flask_caching import Cache
 
-from app.config.config import BASE_DIR, LANGUAGE_CHOICES, SUPPORTED_LOCALES
+from app.config.config import (
+    LANGUAGE_CHOICES,
+    LAST_UPDATED,
+    SUPPORTED_LOCALES,
+    PRConfig,
+    ProductionConfig,
+    TestConfig,
+)
 from app.context_processors import (
     common_variables,
     get_locale,
@@ -40,34 +46,6 @@ app = Flask(__name__)
 ####################################################################
 # MARK: 設定
 ####################################################################
-LAST_UPDATED = datetime.now(timezone(timedelta(hours=9)))
-MINUTE = 60
-
-
-class Config:
-    BABEL_DEFAULT_LOCALE = "ja"
-    BABEL_SUPPORTED_LOCALES = [code for code, _ in LANGUAGE_CHOICES]
-    BABEL_DEFAULT_TIMEZONE = "Asia/Tokyo"
-    BABEL_TRANSLATION_DIRECTORIES = str(BASE_DIR / "app" / "translations")
-    CACHE_DEFAULT_TIMEOUT = 15 * MINUTE  # キャッシュの有効期限を15分に設定
-    CACHE_TYPE = "RedisCache"
-    CACHE_REDIS_URL = os.getenv("REDIS_URL")
-    DEBUG = False
-    SECRET_KEY = os.getenv("SECRET_KEY")
-    TEMPLATES_AUTO_RELOAD = False
-
-
-class PRConfig(Config):
-    CACHE_REDIS_URL = os.getenv("REDIS_PR_URL")
-
-
-class TestConfig(Config):
-    CACHE_TYPE = "null"
-    DEBUG = True
-    SECRET_KEY = "test"
-    TEMPLATES_AUTO_RELOAD = True
-
-
 # テスト環境ではキャッシュを無効化
 # ローカル環境にはこの環境変数を設定してある
 if os.getenv("ENVIRONMENT_CHECK") == "qawsedrftgyhujikolp":
@@ -86,7 +64,7 @@ elif os.getenv("IS_PULL_REQUEST") == "true":
     IS_PULL_REQUEST = True
     IS_LOCAL = False
 else:
-    app.config.from_object(Config)
+    app.config.from_object(ProductionConfig)
     IS_PULL_REQUEST = False
     IS_LOCAL = False
 

@@ -1,3 +1,5 @@
+import os
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from google.genai import types
@@ -223,6 +225,39 @@ FLAG_CODE = """
 </picture>
 """
 
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
+MINUTE = 60
+
+LAST_UPDATED = datetime.now(timezone(timedelta(hours=9)))
+
+ALL_DATA = "*"
+
+
+class ProductionConfig:
+    BABEL_DEFAULT_LOCALE = "ja"
+    BABEL_SUPPORTED_LOCALES = [code for code, _ in LANGUAGE_CHOICES]
+    BABEL_DEFAULT_TIMEZONE = "Asia/Tokyo"
+    BABEL_TRANSLATION_DIRECTORIES = str(BASE_DIR / "app" / "translations")
+    CACHE_DEFAULT_TIMEOUT = 15 * MINUTE  # キャッシュの有効期限を15分に設定
+    CACHE_TYPE = "RedisCache"
+    CACHE_REDIS_URL = os.getenv("REDIS_URL")
+    DEBUG = False
+    SECRET_KEY = os.getenv("SECRET_KEY")
+    TEMPLATES_AUTO_RELOAD = False
+
+
+class PRConfig(ProductionConfig):
+    CACHE_REDIS_URL = os.getenv("REDIS_PR_URL")
+
+
+class TestConfig(ProductionConfig):
+    CACHE_TYPE = "null"
+    DEBUG = True
+    SECRET_KEY = "test"
+    TEMPLATES_AUTO_RELOAD = True
+
+
 SAFETY_SETTINGS_BLOCK_ONLY_HIGH = [
     types.SafetySetting(
         category=types.HarmCategory.HARM_CATEGORY_HATE_SPEECH,
@@ -268,5 +303,3 @@ SAFETY_SETTINGS_BLOCK_NONE = [
         threshold=types.HarmBlockThreshold.BLOCK_NONE,
     ),
 ]
-
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
