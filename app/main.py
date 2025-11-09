@@ -1,6 +1,5 @@
 import logging
 import os
-from datetime import datetime, timedelta, timezone
 
 from flask import (
     Flask,
@@ -10,7 +9,11 @@ from flask import (
 from flask_babel import Babel, _
 from flask_caching import Cache
 
-from app.config.config import BASE_DIR, LANGUAGE_CHOICES, SUPPORTED_LOCALES
+from app.config.config import (
+    BASE_DIR,
+    LANGUAGE_CHOICES,
+    MINUTE,
+)
 from app.context_processors import (
     common_variables,
     get_locale,
@@ -40,11 +43,7 @@ app = Flask(__name__)
 ####################################################################
 # MARK: 設定
 ####################################################################
-LAST_UPDATED = datetime.now(timezone(timedelta(hours=9)))
-MINUTE = 60
-
-
-class Config:
+class ProductionConfig:
     BABEL_DEFAULT_LOCALE = "ja"
     BABEL_SUPPORTED_LOCALES = [code for code, _ in LANGUAGE_CHOICES]
     BABEL_DEFAULT_TIMEZONE = "Asia/Tokyo"
@@ -57,11 +56,11 @@ class Config:
     TEMPLATES_AUTO_RELOAD = False
 
 
-class PRConfig(Config):
+class PRConfig(ProductionConfig):
     CACHE_REDIS_URL = os.getenv("REDIS_PR_URL")
 
 
-class TestConfig(Config):
+class TestConfig(ProductionConfig):
     CACHE_TYPE = "null"
     DEBUG = True
     SECRET_KEY = "test"
@@ -86,7 +85,7 @@ elif os.getenv("IS_PULL_REQUEST") == "true":
     IS_PULL_REQUEST = True
     IS_LOCAL = False
 else:
-    app.config.from_object(Config)
+    app.config.from_object(ProductionConfig)
     IS_PULL_REQUEST = False
     IS_LOCAL = False
 
@@ -108,22 +107,20 @@ initialize_background_tasks(IS_LOCAL)
 ####################################################################
 @app.before_request
 def before_request():
-    get_locale(SUPPORTED_LOCALES)
+    get_locale()
 
 
 @app.context_processor
 def set_common_variables():
     return common_variables(
-        LANGUAGE_CHOICES=LANGUAGE_CHOICES,
         IS_LOCAL=IS_LOCAL,
         IS_PULL_REQUEST=IS_PULL_REQUEST,
-        LAST_UPDATED=LAST_UPDATED,
     )
 
 
 @babel.localeselector
 def locale_selector():
-    return get_locale(SUPPORTED_LOCALES)
+    return get_locale()
 
 
 #####################################################################
@@ -185,6 +182,7 @@ app.add_url_rule(
     "participant_detail",
     participant_detail.participant_detail_view,
 )
+app.add_url_rule("/notice", "notice", common.notice_view)
 
 # その他通常ページ
 app.add_url_rule("/others/<string:content>", "others", common.other_content_view)
@@ -196,7 +194,6 @@ app.add_url_rule(
     "/lang",
     "change_language",
     language.change_language,
-    defaults={"SUPPORTED_LOCALES": SUPPORTED_LOCALES},
 )
 
 

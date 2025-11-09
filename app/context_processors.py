@@ -7,7 +7,12 @@ from dateutil import parser
 from flask import request, session
 from flask_babel import format_datetime
 
-from app.config.config import BASE_DIR
+from app.config.config import (
+    BASE_DIR,
+    LANGUAGE_CHOICES,
+    LAST_UPDATED,
+    SUPPORTED_LOCALES,
+)
 from app.models.supabase_client import supabase_service
 from app.util.filter_eq import Operator
 
@@ -244,12 +249,11 @@ def is_gbb_ended(year):
 
 
 # MARK: 言語URL
-def get_change_language_url(LANGUAGE_CHOICES, current_url):
+def get_change_language_url(current_url):
     """
     現在のURLに対して、各言語ごとにlangクエリパラメータを付与したURLリストを生成します。
 
     Args:
-        LANGUAGE_CHOICES (list): 言語コードと表示名のタプルリスト。
         current_url (str): 現在のURL。
 
     Returns:
@@ -280,19 +284,15 @@ def get_change_language_url(LANGUAGE_CHOICES, current_url):
 
 # MARK: 共通変数
 def common_variables(
-    LANGUAGE_CHOICES,
     IS_LOCAL,
     IS_PULL_REQUEST,
-    LAST_UPDATED,
 ):
     """
     Flaskのテンプレート共通変数を提供するコンテキストプロセッサ。
 
     Args:
-        LANGUAGE_CHOICES (list): 言語コードと表示名のタプルリスト。
         IS_LOCAL (bool): ローカル環境かどうかのフラグ。
         IS_PULL_REQUEST (bool): プルリクエスト環境かどうかのフラグ。
-        LAST_UPDATED (datetime): 最終更新日時
 
     Returns:
         dict: テンプレートで利用可能な共通変数の辞書。
@@ -323,7 +323,7 @@ def common_variables(
     return {
         "year": year,
         "available_years": get_available_years(),
-        "change_language_urls": get_change_language_url(LANGUAGE_CHOICES, request.url),
+        "change_language_urls": get_change_language_url(request.url),
         "language": language,
         "is_translated": is_translated(request.path, language, translated_urls),
         "last_updated": format_datetime(LAST_UPDATED, "full"),
@@ -337,12 +337,9 @@ def common_variables(
 
 
 # MARK: 言語設定
-def get_locale(SUPPORTED_LOCALES):
+def get_locale():
     """
     セッションまたはリクエストから最適な言語ロケールを取得します。
-
-    Args:
-        SUPPORTED_LOCALES (list): サポートされているロケールのリスト
 
     Returns:
         str: 選択された言語ロケール（例: "ja", "en" など）

@@ -1,3 +1,4 @@
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from google.genai import types
@@ -156,7 +157,7 @@ https://gbbinfo-jpn.onrender.com/{year}/
 
 PROMPT_TRANSLATE = """Translate this text to {lang}.
 Keep names in English. Return JSON only. Strictly follow the JSON format for output.
-Escape internal double quotes and single quotes (\" and \') by prefixing them with a backslash (\\\" and \\\') so the returned JSON stays valid.
+Escape internal double quotes ("), backslashes (\\), and single quotes (') by prefixing them with a backslash to keep the returned JSON valid.
 Return exactly this schema:
 {{
     "translated_text": "translation here"
@@ -223,6 +224,15 @@ FLAG_CODE = """
 </picture>
 """
 
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
+MINUTE = 60
+
+LAST_UPDATED = datetime.now(timezone(timedelta(hours=9)))
+
+ALL_DATA = "*"
+
+
 SAFETY_SETTINGS_BLOCK_ONLY_HIGH = [
     types.SafetySetting(
         category=types.HarmCategory.HARM_CATEGORY_HATE_SPEECH,
@@ -268,5 +278,3 @@ SAFETY_SETTINGS_BLOCK_NONE = [
         threshold=types.HarmBlockThreshold.BLOCK_NONE,
     ),
 ]
-
-BASE_DIR = Path(__file__).resolve().parent.parent.parent

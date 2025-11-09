@@ -53,9 +53,34 @@ function handleAppInstalled() {
     installButton.style.visibility = "hidden";
 }
 
+// 通知の取得と表示
+async function loadNotice() {
+    try {
+        const response = await fetch('/notice');
+        const data = await response.json();
+
+        if (data.notice && data.notice.trim() !== '' && data.timestamp) {
+            const noticeDivs = document.querySelectorAll('.post-it-notice');
+            noticeDivs.forEach((noticeDiv) => {
+                const noticeContent = noticeDiv.querySelector('.notice-content');
+                const noticeTimestamp = noticeDiv.querySelector('.notice-timestamp');
+
+                if (noticeContent && noticeTimestamp) {
+                    noticeContent.textContent = data.notice;
+                    noticeTimestamp.textContent = data.timestamp;
+                    noticeDiv.style.display = 'block';
+                }
+            });
+        }
+    } catch (error) {
+        console.error('お知らせの取得に失敗しました:', error);
+    }
+}
+
 // イベントリスナーの登録
 window.onload = () => {
     showPopup();
+    loadNotice();
 };
 
 // ドロップダウンのクリックイベント

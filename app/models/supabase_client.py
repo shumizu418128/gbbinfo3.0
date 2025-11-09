@@ -14,10 +14,8 @@ from dotenv import load_dotenv
 from postgrest.exceptions import APIError
 from supabase import Client, create_client
 
+from app.config.config import ALL_DATA, MINUTE
 from app.util.filter_eq import Operator
-
-ALL_DATA = "*"
-MINUTE = 60
 
 # ここに書かないと読み込みタイミングが遅くなってエラーになる
 load_dotenv()
@@ -200,7 +198,7 @@ class SupabaseService:
         join_tables: Optional[dict] = None,
         filters: Optional[dict] = None,
         pandas: bool = False,
-        timeout: int = 30 * MINUTE,
+        timeout: int = 15 * MINUTE,
         raise_error: bool = False,
         **filters_eq,
     ):
@@ -451,9 +449,7 @@ class SupabaseService:
             pass
         finally:
             # アプリ内キャッシュを最新化
-            flask_cache.set(
-                cache_key + "_answer_translation", translated_answer
-            )
+            flask_cache.set(cache_key + "_answer_translation", translated_answer)
 
     # MARK: update country
     def update_country_names(self, add_langs: list[str], remove_langs: list[str]):
