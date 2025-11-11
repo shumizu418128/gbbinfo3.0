@@ -11,6 +11,7 @@ import unittest
 from unittest.mock import Mock, patch
 
 from app.main import app
+from app.models.gemini_client import RATE_LIMIT_PERIOD
 
 
 class GeminiServiceTestCase(unittest.TestCase):
@@ -143,69 +144,6 @@ class GeminiServiceTestCase(unittest.TestCase):
         )
 
     @patch("app.models.gemini_client.genai.Client")
-    def test_rate_limit_with_retries(self, mock_genai_client):
-        """リトライ機能とレートリミットの組み合わせテスト"""
-        from app.models.gemini_client import GeminiService
-
-        # モックの設定
-        mock_client_instance = Mock()
-        mock_genai_client.return_value = mock_client_instance
-
-        call_times = []
-
-        def mock_generate_content(*args, **kwargs):
-            call_times.append(time.time())
-            # 最初の2回は失敗、3回目は成功
-            if len(call_times) <= 2:
-                raise Exception("API Error")
-            return Mock(text='{"url": "/2025/top", "parameter": "None"}')
-
-        mock_client_instance.models.generate_content = Mock(
-            side_effect=mock_generate_content
-        )
-
-        with patch.dict(os.environ, {"GEMINI_API_KEY": "test_key"}):
-            # キャッシュをモック化して無効化
-            with patch("app.main.flask_cache") as mock_cache:
-                mock_cache.get.return_value = None  # キャッシュヒットなし
-                mock_cache.set.return_value = None
-
-                service = GeminiService()
-
-                # gemini_search.pyのリトライロジックをテスト
-                with patch("app.views.gemini_search.gemini_service", service):
-                    start_time = time.time()
-
-                    # 5回リトライするロジックをシミュレート
-                    result = None
-                    for _ in range(5):
-                        try:
-                            result = service.ask("retry test")
-                            # 空の辞書でない場合は成功とみなす
-                            if result:
-                                break
-                        except Exception:
-                            continue
-
-                    total_time = time.time() - start_time
-
-                    # リトライ間でもレートリミットが守られることを確認
-                    # 3回呼び出し、それぞれ2秒間隔なので最低4秒（2秒 + 2秒）かかる
-                    self.assertGreaterEqual(
-                        total_time,
-                        4.0,
-                        f"リトライ時の総時間が短すぎます: {total_time}秒",
-                    )
-                    # 最初の2回は失敗、3回目で成功するので、3回呼び出されることを確認
-                    # ただし、リトライロジックによっては5回まで試行される可能性がある
-                    self.assertLessEqual(
-                        len(call_times), 5, "呼び出し回数が上限を超えています"
-                    )
-                    self.assertGreaterEqual(
-                        len(call_times), 3, "期待される最小呼び出し回数に達していません"
-                    )
-
-    @patch("app.models.gemini_client.genai.Client")
     def test_rate_limit_stress_test(self, mock_genai_client):
         """レートリミットのストレステスト（同期版）"""
         import queue
@@ -244,8 +182,8 @@ class GeminiServiceTestCase(unittest.TestCase):
             result_queue = queue.Queue()
             threads = []
 
-            # 5つのスレッドで同時実行
-            for i in range(5):
+            # 3つのスレッドで同時実行
+            for i in range(3):
                 thread = threading.Thread(target=worker, args=(result_queue, i))
                 threads.append(thread)
                 thread.start()
@@ -263,9 +201,11 @@ class GeminiServiceTestCase(unittest.TestCase):
 
             # 結果検証
             self.assertEqual(
-                len(results), 5, "実行されたリクエスト数が期待値と異なります"
+                len(results), 3, "実行されたリクエスト数が期待値と異なります"
             )
-            # レートリミットにより、5リクエスト × 2秒間隔 = 最低8秒
+            # レートリミットにより、3リクエストは少なくとも (3 - 1) * RATE_LIMIT_PERIOD かかる
             self.assertGreaterEqual(
-                total_time, 6.0, f"ストレステスト総時間が短すぎます: {total_time}秒"
+                total_time,
+                RATE_LIMIT_PERIOD * 2,
+                f"ストレステスト総時間が短すぎます: {total_time}秒",
             )

@@ -10,6 +10,9 @@ from app.config.config import (
     SAFETY_SETTINGS_BLOCK_ONLY_HIGH,
 )
 
+MODEL_NAME = "gemini-2.5-flash-lite"
+RATE_LIMIT_PERIOD = 4
+
 
 class GeminiService:
     """
@@ -36,7 +39,7 @@ class GeminiService:
 
     # MARK: ask
     @sleep_and_retry
-    @limits(calls=1, period=2)  # 2秒間に1回のコール制限
+    @limits(calls=1, period=RATE_LIMIT_PERIOD)  # 4秒間に1回のコール制限
     def ask(self, prompt: str):
         """
         Gemini APIに同期で質問を送信し、レスポンスを取得する。
@@ -66,7 +69,7 @@ class GeminiService:
         try:
             # メッセージを送信（同期版を使用）
             response = self.client.models.generate_content(
-                model="gemini-2.0-flash-lite",
+                model=MODEL_NAME,
                 contents=prompt,
                 config={
                     "response_mime_type": "application/json",
