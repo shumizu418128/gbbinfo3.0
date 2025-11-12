@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-09 15:06+0900\n"
+"POT-Creation-Date: 2025-11-12 23:17+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh_Hant_TW <LL@li.org>\n"
@@ -1495,6 +1495,14 @@ msgstr "負"
 #: templates/common/result.html:62
 msgid "順位"
 msgstr "排名"
+
+#: templates/includes/bottom_navigation.html:24
+msgid "さがす"
+msgstr "尋找"
+
+#: templates/includes/bottom_navigation.html:24
+msgid "とじる"
+msgstr "關閉"
 
 #: templates/includes/early_access.html:3
 #: templates/includes/popup_early_access.html:3

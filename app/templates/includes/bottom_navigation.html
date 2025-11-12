@@ -21,7 +21,7 @@
   <button class="bottom-navigation-button" id="bottom-navigation-search">
     <img id="search-icon" src="/static/images/icon/icon-search.webp" alt="Search Icon" height="40px" width="40px">
     <img id="close-icon" src="/static/images/icon/icon-close.webp" alt="close Icon" height="40px" width="40px" style="display: none;">
-    <span id="search-msg">さがす</span>
+    <span id="search-msg" data-open-text="{{_("さがす")}}" data-close-text="{{_("とじる")}}">{{_("さがす")}}</span>
   </button>
 
   {% if is_latest_year is false %}

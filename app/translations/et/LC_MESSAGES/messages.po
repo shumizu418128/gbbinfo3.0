@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-09 15:06+0900\n"
+"POT-Creation-Date: 2025-11-12 23:17+0900\n"
 "PO-Revision-Date: 2025-10-29 23:04+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: et <LL@li.org>\n"
@@ -1602,6 +1602,14 @@ msgstr "Kaotus"
 #: templates/common/result.html:62
 msgid "順位"
 msgstr "Koht"
+
+#: templates/includes/bottom_navigation.html:24
+msgid "さがす"
+msgstr "otsima"
+
+#: templates/includes/bottom_navigation.html:24
+msgid "とじる"
+msgstr "Sulge"
 
 #: templates/includes/early_access.html:3
 #: templates/includes/popup_early_access.html:3

@@ -74,12 +74,15 @@ function toggleSearchMenu() {
     const closeIcon = document.getElementById('close-icon');
     const searchMsg = document.getElementById('search-msg');
 
+    const openLabel = searchMsg?.dataset?.openText || searchMsg.textContent;
+    const closeLabel = searchMsg?.dataset?.closeText || searchMsg.textContent;
+
     if (searchMenu.style.display === 'block') {
-        searchMsg.textContent = 'とじる';
+        searchMsg.textContent = closeLabel;
         searchIcon.style.display = 'none';
         closeIcon.style.display = 'block';
     } else {
-        searchMsg.textContent = 'さがす';
+        searchMsg.textContent = openLabel;
         searchIcon.style.display = 'block';
         closeIcon.style.display = 'none';
     }
