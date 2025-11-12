@@ -15,7 +15,7 @@
 <p><span style="color: #ff0000;"><strong><span style="font-size: 24px;">後悔しますよ、マジで</span></strong></span></p>
 
 <div class="button-container">
-    <a href="/{{ year }}/rule"><button type="button">GBB {{ year }} ルール & 審査員</button></a>
+    <a href="/{{ year }}/participants"><button>Wildcard結果 & 出場者</button></a>
     <a href="/{{ year }}/rule?scroll=result_date"><button type="button">Wildcard結果発表日</button></a>
 </div>
 
@@ -24,20 +24,13 @@
 <p>Wildcard結果発表を見る際は、YouTubeコメント欄を絶対に見ないでください。</p>
 <p>つまり、自己防衛。</p>
 
-<h3>ビト森 GBB鑑賞会</h3>
-<div style="text-align: center;">
-    <p>Wildcardを見る会<br>Wildcard結果発表を見る会<br>ビト森にて随時開催中！</p>
-</div>
 <div class="button-container">
-    <a href="/{{ year }}/bitomori"><button style="background-image: url('/static/images/button/bitomori.webp');" class="bg-pic">
-        <svg class="bg-pic" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0044CC"><path d="m380-340 280-180-280-180v360Zm-60 220v-80H160q-33 0-56.5-23.5T80-280v-480q0-33 23.5-56.5T160-840h640q33 0 56.5 23.5T880-760v480q0 33-23.5 56.5T800-200H640v80H320Z"/></svg>
-        <span class="button-text-with-icon">ビト森 GBB鑑賞会</span>
-    </button></a>
+    <a href="/{{ year }}/rule"><button type="button">GBB {{ year }} ルール & 審査員</button></a>
+    <a href="/{{ year }}/wildcards"><button>Wildcard一覧</button></a>
 </div>
-
 <div class="button-container">
     <a href="/{{ year }}/participants"><button>Wildcard結果 & 出場者</button></a>
-    <a href="/{{ year }}/wildcards"><button>Wildcard一覧</button></a>
+    <a href="/{{ year }}/rule?scroll=result_date"><button type="button">Wildcard結果発表日</button></a>
 </div>
 
 {% endblock %}
