@@ -29,6 +29,7 @@ function toggleDropdown() {
 // PWA インストールボタンの処理
 let deferredPrompt;
 const installButton = document.getElementById("installButton");
+const scrollTopButton = document.getElementById("scrollTopButton");
 
 function handleInstallButtonClick() {
     deferredPrompt.prompt();
@@ -101,6 +102,27 @@ window.addEventListener("appinstalled", handleAppInstalled);
 
 if (installButton) {
     installButton.addEventListener("click", handleInstallButtonClick);
+}
+
+function handleScrollTopButtonVisibility() {
+    if (!scrollTopButton) {
+        return;
+    }
+    if (window.scrollY > 200) {
+        scrollTopButton.classList.add("is-visible");
+    } else {
+        scrollTopButton.classList.remove("is-visible");
+    }
+}
+
+function handleScrollTopButtonClick() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+if (scrollTopButton) {
+    scrollTopButton.addEventListener("click", handleScrollTopButtonClick);
+    handleScrollTopButtonVisibility();
+    window.addEventListener("scroll", handleScrollTopButtonVisibility, { passive: true });
 }
 
 // 注目キーワードの表示

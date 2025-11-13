@@ -1,0 +1,35 @@
+<div class="hamburger-menu" onclick="toggleMenu(this)">
+  <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#FFFFFF"><path d="M377-198v-60h463v60H377Zm0-252v-60h463v60H377Zm0-253v-60h463v60H377ZM189-161q-28.05 0-48.02-19Q121-199 121-227.5t19.5-48q19.5-19.5 48-19.5t47.5 19.98q19 19.97 19 48.02 0 27.23-19.39 46.61Q216.23-161 189-161Zm0-252q-28.05 0-48.02-19.68Q121-452.36 121-480t19.98-47.32Q160.95-547 189-547q27.23 0 46.61 19.68Q255-507.64 255-480t-19.39 47.32Q216.23-413 189-413Zm-1-253q-27.64 0-47.32-19.68T121-733q0-27.64 19.68-47.32T188-800q27.64 0 47.32 19.68T255-733q0 27.64-19.68 47.32T188-666Z"/></svg>
+  <p>{{_("メニュー")}}</p>
+</div>
+<div class="menu">
+  <p>{{_("メニュー")}}</p>
+  <div class="button-container" style="margin-top: 10px;">
+    <a href="/"><button>Home & {{_("これだけガイド")}}</button></a>
+    <a href="/{{ year }}/participants"><button>{{_("Wildcard結果")}} & {{_("出場者")}}</button></a>
+    <a href="/{{ year }}/cancels"><button>{{_("辞退者一覧")}}</button></a>
+    <a href="/{{ year }}/rule"><button>{{_("ルール")}} & {{_("審査員")}}</button></a>
+  </div>
+  <div class="button-container">
+    <a href="/{{ year }}/time_schedule"><button>{{_("タイムスケジュール")}}</button></a>
+    {% if language == "ko" %}
+      <a href="/{{ year }}/korea"><button>{{_("韓国代表")}}</button></a>
+    {% else %}
+      <a href="/{{ year }}/japan"><button>{{_("日本代表")}}</button></a>
+    {% endif %}
+    <a href="/{{ year }}/ticket"><button>{{_("会場")}} & {{_("チケット")}}</button></a>
+    <a href="/{{ year }}/stream"><button>{{_("当日配信")}}</button></a>
+  </div>
+  <div class="button-container">
+    <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+    <a href="/{{ year }}/result"><button>{{_("大会結果")}}</button></a>
+  </div>
+  <p>LANGUAGE</p>
+  <div class="button-container" style="margin-top: 10px;">
+    {% for url, lang_name in change_language_urls %}
+      <a href="{{ url }}">
+        <button>{{ lang_name }}</button>
+      </a>
+    {% endfor %}
+  </div>
+</div>
