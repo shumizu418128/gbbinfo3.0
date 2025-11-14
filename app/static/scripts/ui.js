@@ -149,43 +149,59 @@ function closeKeywordOptions() {
     document.getElementById('resultOptions').style.display = 'none';
 }
 
-// スクロール時にオレンジ色のオーバーレイをスワイプアップ
-function handleBackgroundColorChange() {
+// スクロール時にオレンジ色のオーバーレイをスワイプアップ（パフォーマンス最適化版）
+(function() {
     const overlay = document.getElementById("orange-overlay");
+    const bottomSection = document.getElementById("bottom-section");
+
     if (!overlay) {
         return;
     }
 
-    const scrollY = window.scrollY;
+    let ticking = false;
+    let lastScrollY = window.scrollY;
     const threshold = 200;
-    const bottomSection = document.getElementById("bottom-section");
 
-    // 最下部の位置を計算
-    let bottomThreshold = Infinity;
-    if (bottomSection) {
-        const rect = bottomSection.getBoundingClientRect();
-        const bottomSectionTop = rect.top + scrollY;
-        bottomThreshold = bottomSectionTop - window.innerHeight;
+    function updateOverlay() {
+        const scrollY = window.scrollY;
+
+        // 最下部の位置を計算
+        let bottomThreshold = Infinity;
+        if (bottomSection) {
+            const rect = bottomSection.getBoundingClientRect();
+            const bottomSectionTop = rect.top + scrollY;
+            bottomThreshold = bottomSectionTop - window.innerHeight;
+        }
+
+        // 最下部に近づいている場合（最下部から200px手前から開始）
+        if (bottomSection && scrollY >= bottomThreshold - 200) {
+            // 最下部に到達するまでの進捗を計算
+            const bottomProgress = Math.min((scrollY - (bottomThreshold - 200)) / 200, 1);
+            // 最下部に到達したら完全に下に隠す
+            const translateY = bottomProgress * 100;
+            overlay.style.transform = `translateY(${translateY}%)`;
+        } else if (scrollY > threshold) {
+            // 中間部分：完全に画面を覆う
+            overlay.style.transform = "translateY(0%)";
+        } else {
+            // 上部：スクロール位置に応じて徐々に上にスワイプ
+            const progress = Math.min(scrollY / threshold, 1);
+            const translateY = (1 - progress) * 100;
+            overlay.style.transform = `translateY(${translateY}%)`;
+        }
+
+        lastScrollY = scrollY;
+        ticking = false;
     }
 
-    // 最下部に近づいている場合（最下部から200px手前から開始）
-    if (bottomSection && scrollY >= bottomThreshold - 200) {
-        // 最下部に到達するまでの進捗を計算
-        const bottomProgress = Math.min((scrollY - (bottomThreshold - 200)) / 200, 1);
-        // 最下部に到達したら完全に下に隠す
-        const translateY = bottomProgress * 100;
-        overlay.style.transform = `translateY(${translateY}%)`;
-    } else if (scrollY > threshold) {
-        // 中間部分：完全に画面を覆う
-        overlay.style.transform = "translateY(0%)";
-    } else {
-        // 上部：スクロール位置に応じて徐々に上にスワイプ
-        const progress = Math.min(scrollY / threshold, 1);
-        const translateY = (1 - progress) * 100;
-        overlay.style.transform = `translateY(${translateY}%)`;
+    function handleBackgroundColorChange() {
+        if (!ticking) {
+            window.requestAnimationFrame(updateOverlay);
+            ticking = true;
+        }
     }
-}
 
-window.addEventListener("scroll", handleBackgroundColorChange, { passive: true });
-// 初期状態を設定
-handleBackgroundColorChange();
+    window.addEventListener("scroll", handleBackgroundColorChange, { passive: true });
+    // 初期状態を設定
+    updateOverlay();
+})();
