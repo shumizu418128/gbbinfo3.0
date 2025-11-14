@@ -19,6 +19,7 @@ body {
 header {
     position: relative;
     height: auto;
+    z-index: 1;
 }
 
 .menu-link {
@@ -90,6 +91,8 @@ main {
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
+    z-index: 1;
 }
 
 h1 {
@@ -180,4 +183,18 @@ label {
 
 s {
     text-decoration: line-through;
+}
+
+.orange-overlay {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 100, 23);
+    z-index: 0;
+    transform: translateY(100%);
+    transition: transform 0.1s ease-out;
+    pointer-events: none;
 }
