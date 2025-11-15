@@ -129,7 +129,7 @@ button {
     position: absolute;
     background-color: rgb(249, 249, 249);
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.4);
-    z-index: 10;
+    z-index: 31;
     width: 100%;
     left: 0;
     top: 100%;
@@ -424,11 +424,10 @@ button {
 .dropdown-content {
     position: absolute;
     background-color: white;
-    z-index: 3;
     bottom: 100%;
     left: 0%;
     width: 33.3%;
-    z-index: 20;
+    z-index: 21;
 }
 
 .dropdown-content a {
