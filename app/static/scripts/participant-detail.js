@@ -1,5 +1,3 @@
-// FlaskではCSRFトークンは不要のため、取得処理を削除
-
 // YouTube動画を埋め込む関数
 function embedYouTubeVideo(videoUrl) {
     const youtubeContainer = document.querySelector('.youtube-embed-video');

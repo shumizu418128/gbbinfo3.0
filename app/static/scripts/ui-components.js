@@ -125,30 +125,6 @@ if (scrollTopButton) {
     window.addEventListener("scroll", handleScrollTopButtonVisibility, { passive: true });
 }
 
-// 注目キーワードの表示
-// biome-ignore lint/correctness/noUnusedVariables: top.htmlで使用
-function showKeywordOptions(keyword) {
-    document.querySelector(".background-popup-keyword").style.display = "block";
-    document.querySelector(".popup").style.display = "block";
-
-    if (keyword === 'wildcard') {
-        document.getElementById('wildcardOptions').style.display = 'block';
-        document.getElementById('resultOptions').style.display = 'none';
-    } else if (keyword === 'result') {
-        document.getElementById('resultOptions').style.display = 'block';
-        document.getElementById('wildcardOptions').style.display = 'none';
-    }
-}
-
-// 注目キーワードの非表示
-// biome-ignore lint/correctness/noUnusedVariables: top.htmlで使用
-function closeKeywordOptions() {
-    document.querySelector(".background-popup-keyword").style.display = "none";
-    document.querySelector(".popup").style.display = "none";
-    document.getElementById('wildcardOptions').style.display = 'none';
-    document.getElementById('resultOptions').style.display = 'none';
-}
-
 // スクロール時にオーバーレイをスワイプアップ（パフォーマンス最適化版）
 (function() {
     const overlay = document.getElementById("white-overlay");
