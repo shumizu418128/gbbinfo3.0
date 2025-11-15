@@ -151,7 +151,7 @@ function closeKeywordOptions() {
 
 // スクロール時にオレンジ色のオーバーレイをスワイプアップ（パフォーマンス最適化版）
 (function() {
-    const overlay = document.getElementById("orange-overlay");
+    const overlay = document.getElementById("white-overlay");
     const bottomSection = document.getElementById("bottom-section");
 
     if (!overlay) {
@@ -159,7 +159,6 @@ function closeKeywordOptions() {
     }
 
     let ticking = false;
-    let lastScrollY = window.scrollY;
     const threshold = 200;
 
     function updateOverlay() {
@@ -174,9 +173,9 @@ function closeKeywordOptions() {
         }
 
         // 最下部に近づいている場合（最下部から200px手前から開始）
-        if (bottomSection && scrollY >= bottomThreshold - 200) {
+        if (bottomSection && scrollY >= bottomThreshold - threshold) {
             // 最下部に到達するまでの進捗を計算
-            const bottomProgress = Math.min((scrollY - (bottomThreshold - 200)) / 200, 1);
+            const bottomProgress = Math.min((scrollY - (bottomThreshold - threshold)) / threshold, 1);
             // 最下部に到達したら完全に下に隠す
             const translateY = bottomProgress * 100;
             overlay.style.transform = `translateY(${translateY}%)`;
@@ -190,18 +189,17 @@ function closeKeywordOptions() {
             overlay.style.transform = `translateY(${translateY}%)`;
         }
 
-        lastScrollY = scrollY;
         ticking = false;
     }
 
-    function handleBackgroundColorChange() {
+    function onScroll() {
         if (!ticking) {
             window.requestAnimationFrame(updateOverlay);
             ticking = true;
         }
     }
 
-    window.addEventListener("scroll", handleBackgroundColorChange, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
     // 初期状態を設定
     updateOverlay();
 })();
