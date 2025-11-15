@@ -148,3 +148,58 @@ function closeKeywordOptions() {
     document.getElementById('wildcardOptions').style.display = 'none';
     document.getElementById('resultOptions').style.display = 'none';
 }
+
+// スクロール時にオーバーレイをスワイプアップ（パフォーマンス最適化版）
+(function() {
+    const overlay = document.getElementById("white-overlay");
+    const bottomSection = document.getElementById("bottom-section");
+
+    if (!overlay) {
+        return;
+    }
+
+    let ticking = false;
+    const threshold = 200;
+
+    function updateOverlay() {
+        const scrollY = window.scrollY;
+
+        // 最下部の位置を計算
+        let bottomThreshold = Infinity;
+        if (bottomSection) {
+            const rect = bottomSection.getBoundingClientRect();
+            const bottomSectionTop = rect.top + scrollY;
+            bottomThreshold = bottomSectionTop - window.innerHeight;
+        }
+
+        // 最下部に近づいている場合（最下部から200px手前から開始）
+        if (bottomSection && scrollY >= bottomThreshold - threshold) {
+            // 最下部に到達するまでの進捗を計算
+            const bottomProgress = Math.min((scrollY - (bottomThreshold - threshold)) / threshold, 1);
+            // 最下部に到達したら完全に下に隠す
+            const translateY = bottomProgress * 100;
+            overlay.style.transform = `translateY(${translateY}%)`;
+        } else if (scrollY > threshold) {
+            // 中間部分：完全に画面を覆う
+            overlay.style.transform = "translateY(0%)";
+        } else {
+            // 上部：スクロール位置に応じて徐々に上にスワイプ
+            const progress = Math.min(scrollY / threshold, 1);
+            const translateY = (1 - progress) * 100;
+            overlay.style.transform = `translateY(${translateY}%)`;
+        }
+
+        ticking = false;
+    }
+
+    function onScroll() {
+        if (!ticking) {
+            window.requestAnimationFrame(updateOverlay);
+            ticking = true;
+        }
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    // 初期状態を設定
+    updateOverlay();
+})();
