@@ -2,6 +2,10 @@ button {
     font-family: 'Noto sans JP';
 }
 
+.menu-link {
+    text-decoration: none;
+}
+
 .button-container a .button-icon {
     transition: all 0.3s ease;
     cursor: pointer;

@@ -22,10 +22,6 @@ header {
     z-index: 30;
 }
 
-.menu-link {
-    text-decoration: none;
-}
-
 header nav {
     top: 0;
     left: 0;
