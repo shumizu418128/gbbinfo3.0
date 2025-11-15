@@ -2,7 +2,7 @@ button {
     font-family: 'Noto sans JP';
 }
 
-.button-container a .icon {
+.button-container a .button-icon {
     transition: all 0.3s ease;
     cursor: pointer;
     width: 24px;
@@ -16,34 +16,39 @@ button {
     max-width: calc(100% - 24px);
 }
 
-.button-container a .icon {
+.button-container a .button-icon {
     fill: rgb(34, 34, 34);
 }
 
-.button-container a button.disabled-button .icon {
+.button-container a button.disabled-button .button-icon-disabled {
     display: none;
 }
 
-.bg-pic {
+.button-with-background-image {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    fill: white;
     background-color: rgba(0, 0, 0, 0.6);
 }
 
-.bg-pic .button-text-with-icon {
+.button-with-background-image .button-background-icon {
+    fill: white;
+    width: 24px;
+    height: 24px;
+}
+
+.button-with-background-image .button-text-with-icon {
     color: white;
     background-color: rgba(0, 0, 0, 0.6);
 }
 
-.button-container a:hover .icon {
+.button-container a:hover .button-icon {
     fill: white;
     transition: all 0.3s ease;
     cursor: pointer;
 }
 
-.button-container a:hover button.disabled-button .icon {
+.button-container a:hover button.disabled-button .button-icon-disabled {
     display: none;
 }
 
@@ -113,13 +118,13 @@ button {
     }
 }
 
-.nav_dropdown_container {
+.nav-dropdown-container {
     position: relative;
     width: auto;
     display: inline-block;
 }
 
-.nav_dropdown {
+.nav-dropdown {
     display: none;
     position: absolute;
     background-color: rgb(249, 249, 249);
@@ -130,7 +135,7 @@ button {
     top: 100%;
 }
 
-.nav_dropdown li {
+.nav-dropdown li {
     color: rgb(34, 34, 34);
     padding: 2px 0px;
     text-decoration: none;
@@ -141,11 +146,11 @@ button {
     margin: auto;
 }
 
-.nav_dropdown_container:hover .nav_dropdown {
+.nav-dropdown-container:hover .nav-dropdown {
     display: block;
 }
 
-.participants_form {
+.participants-form {
     margin: 0 auto;
     text-align: center;
     font-family: 'Noto sans JP';
@@ -179,7 +184,7 @@ button {
     font-family: 'Noto sans JP';
 }
 
-.headerDropdown {
+.header-dropdown {
     position: fixed;
     top: 0px;
     left: 50%;
@@ -198,7 +203,7 @@ button {
     appearance: none;
 }
 
-.headerDropdown option {
+.header-dropdown option {
     background-color: white;
     color: rgb(34, 34, 34);
 }
@@ -306,7 +311,7 @@ button {
     padding: 4px;
 }
 
-.past_gbb_menu li {
+.past-gbb-menu li {
     padding: 0px;
 }
 .popup {

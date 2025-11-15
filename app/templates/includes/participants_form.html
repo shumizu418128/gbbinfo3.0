@@ -1,5 +1,5 @@
 
-<form method="GET" action="/{{ year }}/participants" class="participants_form">
+<form method="GET" action="/{{ year }}/participants" class="participants-form">
     <label for="category">{{_("部門選択")}}</label>
     <select name="category" id="category" class="filter-select" onchange="this.form.submit()">
         {% for c in all_category %}

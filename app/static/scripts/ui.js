@@ -28,8 +28,8 @@ function toggleDropdown() {
 
 // PWA インストールボタンの処理
 let deferredPrompt;
-const installButton = document.getElementById("installButton");
-const scrollTopButton = document.getElementById("scrollTopButton");
+const installButton = document.getElementById("install-button");
+const scrollTopButton = document.getElementById("scroll-top-button");
 
 function handleInstallButtonClick() {
     deferredPrompt.prompt();

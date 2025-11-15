@@ -72,7 +72,7 @@ function toggleSearchMenu() {
 
     const searchIcon = document.getElementById('search-icon');
     const closeIcon = document.getElementById('close-icon');
-    const searchMsg = document.getElementById('search-msg');
+    const searchMsg = document.getElementById('search-message');
 
     const openLabel = searchMsg?.dataset?.openText || searchMsg.textContent;
     const closeLabel = searchMsg?.dataset?.closeText || searchMsg.textContent;
