@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const headers = document.querySelectorAll('h1, h2');
     const lastHeader = headers[headers.length - 1];
     const headerArray = lastHeader && lastHeader.id === "bottom-search-menu" ? Array.from(headers).slice(0, -1) : Array.from(headers);
-    const dropdown = document.querySelector('.headerDropdown');
+    const dropdown = document.querySelector('.header-dropdown');
 
     // すべてのコンテンツがロードされた後に位置情報を計算
     window.addEventListener('load', () => {
