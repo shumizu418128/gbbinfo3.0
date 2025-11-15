@@ -149,7 +149,7 @@ function closeKeywordOptions() {
     document.getElementById('resultOptions').style.display = 'none';
 }
 
-// スクロール時にオレンジ色のオーバーレイをスワイプアップ（パフォーマンス最適化版）
+// スクロール時にオーバーレイをスワイプアップ（パフォーマンス最適化版）
 (function() {
     const overlay = document.getElementById("white-overlay");
     const bottomSection = document.getElementById("bottom-section");
