@@ -51,7 +51,7 @@ class GeminiServiceTestCase(unittest.TestCase):
             call_count += 1
             if call_count == 1:
                 mock_response = Mock()
-                mock_response.parsed = {"url": "/2025/top", "parameter": "None"}
+                mock_response.text = '{"url": "/2025/top", "parameter": "None"}'
                 return mock_response
             else:
                 # レートリミットエラーをシミュレート
@@ -209,3 +209,59 @@ class GeminiServiceTestCase(unittest.TestCase):
                 RATE_LIMIT_PERIOD * 2,
                 f"ストレステスト総時間が短すぎます: {total_time}秒",
             )
+
+    @patch("app.models.gemini_client.genai.Client")
+    @patch("app.main.flask_cache")
+    def test_gemini_service_repair_broken_json(self, mock_cache, mock_genai_client):
+        """壊れたJSON文字列の修復テスト"""
+        from app.models.gemini_client import GeminiService
+
+        test_cases = [
+            ("閉じ括弧が1つ多い", '{"key": "value"}}', {"key": "value"}),
+            ("末尾にカンマがある", '{"key": "value",}', {"key": "value"}),
+            ("シングルクォート", "{'key': 'value'}", {"key": "value"}),
+            ("キーがクォートなし", '{key: "value"}', {"key": "value"}),
+            ("閉じ括弧が足りない", '{"key": "value"', {"key": "value"}),
+            (
+                "JSONの前後にテキスト",
+                'Here is the JSON: {"key": "value"}',
+                {"key": "value"},
+            ),
+            (
+                "Markdownコードブロック",
+                '```json\n{"key": "value"}\n```',
+                {"key": "value"},
+            ),
+        ]
+
+        for description, broken_json, expected_json in test_cases:
+            with self.subTest(description=description):
+                # サブテストごとにモックをリセット
+                mock_cache.reset_mock()
+                mock_genai_client.reset_mock()
+
+                # キャッシュのモック設定（キャッシュなしでテスト）
+                mock_cache.get.return_value = None
+
+                # モックの設定
+                mock_client_instance = Mock()
+                mock_genai_client.return_value = mock_client_instance
+
+                # 壊れたJSON文字列を返すモック
+                mock_response = Mock()
+                mock_response.text = broken_json
+                mock_client_instance.models.generate_content.return_value = (
+                    mock_response
+                )
+
+                with patch.dict(os.environ, {"GEMINI_API_KEY": "test_key"}):
+                    service = GeminiService()
+
+                    # リクエストを送信
+                    result = service.ask("test question")
+
+                    # json-repairで修復されて正しいJSONが返されることを確認
+                    self.assertIsInstance(result, dict)
+                    self.assertEqual(result, expected_json)
+                    # キャッシュに保存されたことを確認
+                    mock_cache.set.assert_called_once()

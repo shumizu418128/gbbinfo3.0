@@ -1,8 +1,8 @@
 import hashlib
 import json
 import os
-import re
 
+import json_repair
 from google import genai
 from ratelimit import limits, sleep_and_retry
 
@@ -12,51 +12,6 @@ from app.config.config import (
 
 MODEL_NAME = "gemini-2.5-flash-lite"
 RATE_LIMIT_PERIOD = 4
-
-
-def _fix_json_brace_balance(text: str) -> str:
-    """
-    JSON文字列の括弧バランスを修正する。
-    末尾の余分な閉じ括弧を削除する。
-
-    Args:
-        text (str): 修正対象のJSON文字列。
-
-    Returns:
-        str: 括弧バランスが修正されたJSON文字列。
-    """
-    # 中括弧のバランスをチェック
-    open_braces = text.count("{")
-    close_braces = text.count("}")
-    if close_braces > open_braces:
-        # 余分な閉じ括弧の数を計算
-        excess = close_braces - open_braces
-        # 末尾の連続する閉じ括弧から余分な分を削除
-        # 末尾から走査して、連続する`}`のうち余分な分を削除
-        stripped = text.rstrip()
-        trailing_braces = len(stripped) - len(stripped.rstrip("}"))
-        if trailing_braces > 0:
-            # 末尾の連続する`}`のうち、余分な分だけ削除
-            remove_count = min(excess, trailing_braces)
-            if remove_count > 0:
-                text = text[:-remove_count]
-
-    # 角括弧のバランスをチェック
-    open_brackets = text.count("[")
-    close_brackets = text.count("]")
-    if close_brackets > open_brackets:
-        # 余分な閉じ角括弧の数を計算
-        excess = close_brackets - open_brackets
-        # 末尾の連続する閉じ角括弧から余分な分を削除
-        stripped = text.rstrip()
-        trailing_brackets = len(stripped) - len(stripped.rstrip("]"))
-        if trailing_brackets > 0:
-            # 末尾の連続する`]`のうち、余分な分だけ削除
-            remove_count = min(excess, trailing_brackets)
-            if remove_count > 0:
-                text = text[:-remove_count]
-
-    return text
 
 
 class GeminiService:
@@ -122,68 +77,27 @@ class GeminiService:
                 },
             )
 
-            # まずクライアントがパース済みのオブジェクトを提供しているか確認
-            response_dict = None
-            parsed = getattr(response, "parsed", None)
-            if parsed is not None:
+            response_text = getattr(response, "text", "") or ""
+            # 不要な外部URLや前後空白を削除
+            response_text = response_text.replace(
+                "https://gbbinfo-jpn.onrender.com", ""
+            ).strip()
+
+            # 直接JSONを試す
+            try:
+                response_dict = json.loads(response_text)
+            except json.JSONDecodeError:
+                # json-repairライブラリで修復を試みる
                 try:
-                    # pydanticモデルやdictの場合に対応
-                    if isinstance(parsed, dict):
-                        response_dict = parsed
-                    elif hasattr(parsed, "dict"):
-                        response_dict = parsed.dict()
-                    else:
-                        response_dict = parsed
-                except Exception:
+                    repaired_json = json_repair.repair_json(response_text)
+                    response_dict = json.loads(repaired_json)
+                except Exception as repair_error:
+                    # json-repairでの修復に失敗した場合は諦める
+                    print(
+                        f"GeminiService: json-repairでの修復に失敗しました: {repair_error}",
+                        flush=True,
+                    )
                     response_dict = None
-
-            # parsedが使えない場合はtextを解析する
-            if response_dict is None:
-                response_text = getattr(response, "text", "") or ""
-                # 不要な外部URLや前後空白を削除
-                response_text = response_text.replace(
-                    "https://gbbinfo-jpn.onrender.com", ""
-                ).strip()
-
-                # 括弧バランスを修正
-                response_text = _fix_json_brace_balance(response_text)
-
-                # 直接JSONを試す
-                try:
-                    response_dict = json.loads(response_text)
-                except json.JSONDecodeError:
-                    # 中括弧または角括弧で包まれた最初のJSON部分を抽出して試す
-                    m = re.search(r"(\{[\s\S]*\}|\[[\s\S]*\])", response_text)
-                    if m:
-                        candidate = m.group(1)
-                        # 括弧バランスを修正
-                        candidate = _fix_json_brace_balance(candidate)
-                        try:
-                            response_dict = json.loads(candidate)
-                        except json.JSONDecodeError as e:
-                            # JSONパースに失敗した場合はログを出力してNoneを返す
-                            print(
-                                f"GeminiService: JSONパースに失敗しました。候補文字列: {candidate[:500]}",
-                                flush=True,
-                            )
-                            print(f"JSONDecodeError: {e}", flush=True)
-                            response_dict = None
-                    else:
-                        # キー:値ペアのみが返るケースを想定して、中括弧でラップして試す
-                        if re.search(r"\"?\w+\"?\s*:\s*\"?[^,}]+\"?", response_text):
-                            candidate = "{" + response_text + "}"
-                            # 括弧バランスを修正
-                            candidate = _fix_json_brace_balance(candidate)
-                            try:
-                                response_dict = json.loads(candidate)
-                            except json.JSONDecodeError as e:
-                                # JSONパースに失敗した場合はログを出力してNoneを返す
-                                print(
-                                    f"GeminiService: JSONパースに失敗しました。候補文字列: {candidate[:500]}",
-                                    flush=True,
-                                )
-                                print(f"JSONDecodeError: {e}", flush=True)
-                                response_dict = None
 
             # リスト形式の場合は最初の要素を取得
             if isinstance(response_dict, list) and len(response_dict) > 0:
