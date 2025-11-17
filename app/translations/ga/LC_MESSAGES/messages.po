@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-17 19:46+0900\n"
+"POT-Creation-Date: 2025-11-17 20:44+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ga <LL@li.org>\n"
@@ -708,7 +708,7 @@ msgstr "Fógra torthaí Wildcard"
 #: templates/2026/top.html:153 templates/common/cancels.html:55
 #: templates/common/participants.html:103 templates/others/translation.html:25
 msgid "Wildcard一覧"
-msgstr "Liosta fiáin"
+msgstr "Liosta Wildcard"
 
 #: templates/2024/top.html:104 templates/2024/top.html:118
 #: templates/2024/top_7tosmoke.html:46 templates/2025/top.html:171
@@ -806,8 +806,8 @@ msgstr "spriocdháta"
 #: templates/2024/wildcards.html:73 templates/2025/wildcards.html:89
 msgid "今回公開するWildcard一覧は、有志が作成した、非公式のものです。"
 msgstr ""
-"Is liosta neamhfhoirmiúil, a rinneadh ag saorálaithe, an liosta Cártaí "
-"Fiáine a bhfuilimid chun a fhoilsiú anois."
+"Is liosta neamhfhoirmiúil, a rinneadh ag saorálaithe, an liosta Wildcard a "
+"bhfuilimid chun a fhoilsiú anois."
 
 #: templates/2024/wildcards.html:78 templates/2025/wildcards.html:94
 msgid "すべて手作業で制作されたものであるため、重複や欠落がある可能性があります。"
@@ -948,7 +948,7 @@ msgstr "Eochairfhocail faoi thrácht"
 #: templates/2026/top.html:69 templates/2026/top.html:81
 #: templates/2026/top.html:86 templates/2026/top.html:87
 msgid "ワイルドカード"
-msgstr "cárta fiáin"
+msgstr "Wildcard"
 
 #: templates/2025/top.html:43 templates/2025/top.html:51
 #: templates/2025/top.html:70 templates/2025/top.html:74
@@ -1351,15 +1351,15 @@ msgstr "Críochnaithe"
 msgid "先行公開"
 msgstr "Rochtain luath"
 
-#: templates/2026/top.html:200
+#: templates/2026/top.html:201
 msgid "イベントに関する問い合わせ先"
 msgstr "Teagmháil maidir le himeachtaí"
 
-#: templates/2026/top.html:204
+#: templates/2026/top.html:205
 msgid "チケットに関する問い合わせ先"
 msgstr "Iarratais maidir le ticéid"
 
-#: templates/2026/top.html:208
+#: templates/2026/top.html:210
 msgid "なお上記問い合わせ先は、当サイトとは無関係です。"
 msgstr "Níl baint ag an teagmháil thuas leis an suíomh seo."
 
@@ -1495,7 +1495,7 @@ msgstr "Filleadh abhaile"
 #: templates/includes/hamburger_menu.html:9
 #: templates/includes/participants_form.html:13
 msgid "Wildcard結果"
-msgstr "Torthaí fiáine"
+msgstr "Torthaí Wildcard"
 
 #: templates/2024/top.html:47 templates/2025/rule.html:67
 #: templates/2025/rule.html:358 templates/2025/stream.html:34

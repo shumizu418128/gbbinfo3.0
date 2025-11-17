@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-17 19:46+0900\n"
+"POT-Creation-Date: 2025-11-17 20:44+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh_Hant_TW <LL@li.org>\n"
@@ -40,7 +40,7 @@ msgstr "規則"
 #: templates/2025/wildcard_regulation.html:12
 #, python-brace-format
 msgid "Swissbeatbox公式サイトにて、GBB {year} で実施される部門・Wildcardのルールについて発表がありました。"
-msgstr "Swissbeatbox官方網站上發布了關於GBB {year}中將舉辦的部門和外卡賽的規則。"
+msgstr "Swissbeatbox官方網站上發布了關於GBB {year}中將舉辦的部門和Wildcard賽的規則。"
 
 #: templates/2024/rule.html:12 templates/2025/rule.html:12
 #: templates/2025/wildcard_regulation.html:13
@@ -94,7 +94,7 @@ msgstr "獲得參賽種子權的條件"
 #: templates/2024/rule.html:42 templates/2024/rule.html:230
 #: templates/2025/rule.html:41 templates/2025/rule.html:246
 msgid "Wildcard ルール"
-msgstr "外卡規則"
+msgstr "Wildcard規則"
 
 #: templates/2024/rule.html:46 templates/2024/rule.html:272
 #: templates/2025/rule.html:45 templates/2025/rule.html:305
@@ -408,7 +408,7 @@ msgstr "查看 GBB {year} 的最新資訊"
 #: templates/common/participants.html:10
 #: templates/common/participants.html:148 templates/others/translation.html:18
 msgid "Wildcard結果 & 出場者"
-msgstr "外卡結果 & 出場者"
+msgstr "Wildcard 結果與參賽者"
 
 #: templates/2024/stream.html:41 templates/2024/time_schedule.html:3
 #: templates/2024/time_schedule.html:4 templates/2024/time_schedule.html:5
@@ -795,11 +795,11 @@ msgstr "此外，這個播放列表中的視頻不一定是作為Wildcard申請�
 #: templates/2025/wildcard_regulation.html:4
 #: templates/2025/wildcard_regulation.html:5
 msgid "【Beatboxer向け】Wildcardレギュレーション解説"
-msgstr "【給Beatboxer】外卡規則說明"
+msgstr "【給Beatboxer】Wildcard規則說明"
 
 #: templates/2025/rule.html:225
 msgid "GBB出場辞退が発生した場合、Wildcard下位からの繰り上げが行われます。"
-msgstr "若GBB發生退賽，將由外卡較低排名隊伍遞補。"
+msgstr "若GBB發生退賽，將由Wildcard較低排名隊伍遞補。"
 
 #: templates/2025/rule.html:229
 msgid "いかなる理由があっても、シード権大会2位以下の人に、出場権は与えられません。"
@@ -812,7 +812,7 @@ msgstr "規則中明確指出：「在種子權大會中，GBB的出場權，毫
 #: templates/2025/rule.html:233
 msgid ""
 "例：シード権大会優勝者が、すでにWildcardで出場権を獲得していた場合、シード権大会2位ではなく、Wildcard下位からの繰り上げが行われます。"
-msgstr "例：若種子權賽事優勝者，已透過外卡取得出場資格，將由外卡較低順位者遞補，而非種子權賽事亞軍。"
+msgstr "例：若種子權賽事優勝者，已透過Wildcard取得出場資格，將由Wildcard較低順位者遞補，而非種子權賽事亞軍。"
 
 #: templates/2025/rule.html:257 templates/2025/wildcard_regulation.html:208
 msgid "制限時間を使い切らず余らせた場合、3秒につき最終順位を1つ下げる"
@@ -1229,15 +1229,15 @@ msgstr "已結束"
 msgid "先行公開"
 msgstr "提前公開"
 
-#: templates/2026/top.html:200
+#: templates/2026/top.html:201
 msgid "イベントに関する問い合わせ先"
 msgstr "關於活動的聯絡方式"
 
-#: templates/2026/top.html:204
+#: templates/2026/top.html:205
 msgid "チケットに関する問い合わせ先"
 msgstr "關於票務的諮詢"
 
-#: templates/2026/top.html:208
+#: templates/2026/top.html:210
 msgid "なお上記問い合わせ先は、当サイトとは無関係です。"
 msgstr "此外，上述的諮詢處與本網站無關。"
 
@@ -1424,7 +1424,7 @@ msgstr "參賽權詳細"
 #: templates/common/cancels.html:54 templates/common/japan.html:51
 #: templates/common/korea.html:51 templates/common/participants.html:102
 msgid "Wildcard結果発表日"
-msgstr "外卡結果發表日"
+msgstr "Wildcard結果發表日"
 
 #: templates/common/japan.html:43
 msgid "日本代表なし"

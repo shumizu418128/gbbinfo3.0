@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-17 19:46+0900\n"
+"POT-Creation-Date: 2025-11-17 20:44+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh_Hans_CN <LL@li.org>\n"
@@ -40,7 +40,7 @@ msgstr "规则"
 #: templates/2025/wildcard_regulation.html:12
 #, python-brace-format
 msgid "Swissbeatbox公式サイトにて、GBB {year} で実施される部門・Wildcardのルールについて発表がありました。"
-msgstr "Swissbeatbox官方网站上发布了关于GBB {year} 举办的部门和外卡赛规则。"
+msgstr "Swissbeatbox官方网站上发布了关于GBB {year} 举办的部门和Wildcard赛规则。"
 
 #: templates/2024/rule.html:12 templates/2025/rule.html:12
 #: templates/2025/wildcard_regulation.html:13
@@ -94,7 +94,7 @@ msgstr "参赛种子资格获取条件"
 #: templates/2024/rule.html:42 templates/2024/rule.html:230
 #: templates/2025/rule.html:41 templates/2025/rule.html:246
 msgid "Wildcard ルール"
-msgstr "通配符规则"
+msgstr "Wildcard规则"
 
 #: templates/2024/rule.html:46 templates/2024/rule.html:272
 #: templates/2025/rule.html:45 templates/2025/rule.html:305
@@ -104,7 +104,7 @@ msgstr "本赛评委名单"
 #: templates/2024/rule.html:50 templates/2024/rule.html:316
 #: templates/2025/rule.html:49 templates/2025/rule.html:361
 msgid "Wildcard審査員一覧"
-msgstr "通配符评审员列表"
+msgstr "Wildcard评审员列表"
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:56
 msgid "以下に示す内容は、あくまでもBeatboxファンが知っておくとよりGBBを楽しめる知識として紹介するものです。"
@@ -126,7 +126,7 @@ msgstr "对于本网站刊载的内容所造成的任何损失，我们概不负
 #: templates/2024/rule.html:62 templates/2025/rule.html:61
 #: templates/2025/wildcard_regulation.html:66
 msgid "Wildcardを提出する方は、"
-msgstr "提交通配符的人"
+msgstr "提交Wildcard的人"
 
 #: templates/2024/rule.html:64 templates/2025/rule.html:62
 #: templates/2025/wildcard_regulation.html:67
@@ -185,7 +185,7 @@ msgstr "被遗忘的Tag Team Loopstation..."
 #: templates/2024/rule.html:135 templates/2025/rule.html:130
 #: templates/2026/rule.html:70
 msgid "Wildcardを勝ち上がる以外の方法でGBB出場権を得る方法（シード権）と、その該当者は以下の通りです。"
-msgstr "通过非外卡晋级GBB的方法（种子权），以及符合资格的人员如下所示。"
+msgstr "通过非Wildcard晋级GBB的方法（种子权），以及符合资格的人员如下所示。"
 
 #: templates/2024/rule.html:137 templates/2025/rule.html:133
 #: templates/2026/rule.html:73
@@ -270,7 +270,7 @@ msgstr "参赛者名单"
 
 #: templates/2024/rule.html:224
 msgid "シード権を持つ人が辞退した場合、原則として、該当シード権は消滅し、Wildcard下位からの繰り上げが行われます。"
-msgstr "如果种子选手放弃参赛资格，原则上该种子选手资格将被取消，并将从外卡排名靠后的选手开始递补。"
+msgstr "如果种子选手放弃参赛资格，原则上该种子选手资格将被取消，并将从Wildcard排名靠后的选手开始递补。"
 
 #: templates/2024/rule.html:240 templates/2025/rule.html:256
 #: templates/2025/wildcard_regulation.html:207
@@ -352,7 +352,7 @@ msgstr "无设备限制"
 
 #: templates/2024/rule.html:274 templates/2025/rule.html:307
 msgid "Wildcard審査員一覧はこちら"
-msgstr "通配符评审员列表在这里"
+msgstr "Wildcard评审员列表在这里"
 
 #: templates/2024/rule.html:280 templates/2024/rule.html:325
 #: templates/2024/top.html:51 templates/2025/rule.html:314
@@ -408,7 +408,7 @@ msgstr "查看 GBB {year} 的最新信息"
 #: templates/common/participants.html:10
 #: templates/common/participants.html:148 templates/others/translation.html:18
 msgid "Wildcard結果 & 出場者"
-msgstr "通配符结果 & 出场者"
+msgstr "Wildcard结果 & 出场者"
 
 #: templates/2024/stream.html:41 templates/2024/time_schedule.html:3
 #: templates/2024/time_schedule.html:4 templates/2024/time_schedule.html:5
@@ -681,7 +681,7 @@ msgstr "网站网址变更通知"
 #: templates/2024/top.html:90 templates/2025/rule.html:302
 #: templates/2025/top.html:141 templates/2026/top.html:152
 msgid "Wildcard結果発表配信"
-msgstr "通配符结果发表直播"
+msgstr "Wildcard结果发表直播"
 
 #: templates/2024/top.html:91 templates/2024/wildcards.html:3
 #: templates/2024/wildcards.html:4 templates/2024/wildcards.html:5
@@ -692,7 +692,7 @@ msgstr "通配符结果发表直播"
 #: templates/2026/top.html:153 templates/common/cancels.html:55
 #: templates/common/participants.html:103 templates/others/translation.html:25
 msgid "Wildcard一覧"
-msgstr "通配符列表"
+msgstr "Wildcard列表"
 
 #: templates/2024/top.html:104 templates/2024/top.html:118
 #: templates/2024/top_7tosmoke.html:46 templates/2025/top.html:171
@@ -788,18 +788,18 @@ msgstr "由于全部是手工制作，可能存在重复或遗漏。"
 #: templates/2024/wildcards.html:81 templates/2025/wildcards.html:97
 msgid ""
 "また、この再生リストにある動画が必ずしもWildcardとして申請された動画であるとは限りません（毎年必ず出場者の手続きミスで失格者が出ます）。"
-msgstr "此外，此播放列表中的视频不一定都是作为通配符申请的视频（每年都会有参赛者因手续错误而被取消资格）。"
+msgstr "此外，此播放列表中的视频不一定都是作为Wildcard申请的视频（每年都会有参赛者因手续错误而被取消资格）。"
 
 #: templates/2025/rule.html:22 templates/2025/rule.html:125
 #: templates/2025/wildcard_regulation.html:3
 #: templates/2025/wildcard_regulation.html:4
 #: templates/2025/wildcard_regulation.html:5
 msgid "【Beatboxer向け】Wildcardレギュレーション解説"
-msgstr "【为Beatboxer准备】通配符规则说明"
+msgstr "【为Beatboxer准备】Wildcard规则说明"
 
 #: templates/2025/rule.html:225
 msgid "GBB出場辞退が発生した場合、Wildcard下位からの繰り上げが行われます。"
-msgstr "如果GBB缺席比赛，将从外卡赛的较低排名队伍中递补。"
+msgstr "如果GBB缺席比赛，将从Wildcard赛的较低排名队伍中递补。"
 
 #: templates/2025/rule.html:229
 msgid "いかなる理由があっても、シード権大会2位以下の人に、出場権は与えられません。"
@@ -812,7 +812,7 @@ msgstr "规则明确规定，在种子权大赛中，只有冠军才能获得GBB
 #: templates/2025/rule.html:233
 msgid ""
 "例：シード権大会優勝者が、すでにWildcardで出場権を獲得していた場合、シード権大会2位ではなく、Wildcard下位からの繰り上げが行われます。"
-msgstr "例：如果种子资格赛的冠军已经获得了外卡资格，那么将从外卡资格的较下位进行替补，而不是种子资格赛的亚军。"
+msgstr "例：如果种子资格赛的冠军已经获得了Wildcard资格，那么将从Wildcard资格的较下位进行替补，而不是种子资格赛的亚军。"
 
 #: templates/2025/rule.html:257 templates/2025/wildcard_regulation.html:208
 msgid "制限時間を使い切らず余らせた場合、3秒につき最終順位を1つ下げる"
@@ -966,7 +966,7 @@ msgstr "规定"
 
 #: templates/2025/wildcard_regulation.html:16
 msgid "このページでは、Wildcard提出にあたって重要なルールを解説します。"
-msgstr "本页面将解释提交通配符时的重要规则。"
+msgstr "本页面将解释提交Wildcard时的重要规则。"
 
 #: templates/2025/wildcard_regulation.html:22
 msgid "【Beatboxファン向け】"
@@ -979,7 +979,7 @@ msgstr "年龄限制"
 
 #: templates/2025/wildcard_regulation.html:41
 msgid "Wildcard提出について"
-msgstr "关于通配符的提议"
+msgstr "关于Wildcard的提议"
 
 #: templates/2025/wildcard_regulation.html:45
 #: templates/2025/wildcard_regulation.html:197
@@ -1026,15 +1026,15 @@ msgstr "主办方不承担家长陪同产生的费用(签证、机票、酒店�
 
 #: templates/2025/wildcard_regulation.html:128
 msgid "上記要件を満たさない、同意できない場合は失格となり、Wildcard下位からの繰り上げが行われる"
-msgstr "如未能满足上述要求或不同意，将被取消资格，并从外卡排名靠后的队伍中递补。"
+msgstr "如未能满足上述要求或不同意，将被取消资格，并从Wildcard排名靠后的队伍中递补。"
 
 #: templates/2025/wildcard_regulation.html:138
 msgid "Wildcard作成・提出について"
-msgstr "关于通配符的创建和提交"
+msgstr "关于Wildcard的创建和提交"
 
 #: templates/2025/wildcard_regulation.html:140
 msgid "Wildcard動画の内容"
-msgstr "通配符视频内容"
+msgstr "Wildcard视频内容"
 
 #: templates/2025/wildcard_regulation.html:141
 msgid "動画の冒頭で、以下のように自己紹介する"
@@ -1082,7 +1082,7 @@ msgstr "禁止失真、延迟和其他动态处理、频率失真效应"
 
 #: templates/2025/wildcard_regulation.html:159
 msgid "上記ルールについて、不正行為の疑いがある場合、Wildcard作成に使ったファイルの追加提出を求められる場合あり"
-msgstr "关于上述规则，如有涉嫌违规行为，可能会被要求补充提交用于生成通配符的文件。"
+msgstr "关于上述规则，如有涉嫌违规行为，可能会被要求补充提交用于生成Wildcard的文件。"
 
 #: templates/2025/wildcard_regulation.html:162
 msgid "提出方法"
@@ -1128,11 +1128,11 @@ msgstr "如果没有上述两项，将被取消资格。"
 #: templates/2025/wildcard_regulation.html:184
 #: templates/2025/wildcard_regulation.html:263
 msgid "Wildcard提出は一度のみ。一度提出したら、後から別のWildcardを提出することはできない"
-msgstr "通配符提交仅限一次。一旦提交，就不能再提交其他通配符。"
+msgstr "Wildcard提交仅限一次。一旦提交，就不能再提交其他Wildcard。"
 
 #: templates/2025/wildcard_regulation.html:185
 msgid "誤って一度提出したWildcardを削除した場合、失格"
-msgstr "如果误删了一次提交的通配符，将被取消资格。"
+msgstr "如果误删了一次提交的Wildcard，将被取消资格。"
 
 #: templates/2025/wildcard_regulation.html:187
 msgid "このルールは、GBB 2019で発生したトラブルの対策として設けられている"
@@ -1177,7 +1177,7 @@ msgstr "在制作Wildcard视频时使用的所有文件，包括备份，都应�
 
 #: templates/2025/wildcard_regulation.html:265
 msgid "皆さんのWildcardを楽しみにしています！"
-msgstr "我期待着大家的通配符比赛！"
+msgstr "我期待着大家的Wildcard比赛！"
 
 #: templates/2026/rule.html:16
 msgid "現時点で、以下の断片的な情報のみ発表されています。"
@@ -1229,15 +1229,15 @@ msgstr "已完成"
 msgid "先行公開"
 msgstr "抢先发布"
 
-#: templates/2026/top.html:200
+#: templates/2026/top.html:201
 msgid "イベントに関する問い合わせ先"
-msgstr "关于活动的咨询"
+msgstr "活动相关联系方式"
 
-#: templates/2026/top.html:204
+#: templates/2026/top.html:205
 msgid "チケットに関する問い合わせ先"
-msgstr "关于票务的咨询"
+msgstr "票务相关联系方式"
 
-#: templates/2026/top.html:208
+#: templates/2026/top.html:210
 msgid "なお上記問い合わせ先は、当サイトとは無関係です。"
 msgstr "请注意，以上联系方式与本网站无关。"
 
@@ -1365,7 +1365,7 @@ msgstr "返回主页"
 #: templates/includes/hamburger_menu.html:9
 #: templates/includes/participants_form.html:13
 msgid "Wildcard結果"
-msgstr "通配符结果"
+msgstr "Wildcard结果"
 
 #: templates/2024/top.html:47 templates/2025/rule.html:67
 #: templates/2025/rule.html:358 templates/2025/stream.html:34
@@ -1423,7 +1423,7 @@ msgstr "出场权详情"
 #: templates/common/cancels.html:54 templates/common/japan.html:51
 #: templates/common/korea.html:51 templates/common/participants.html:102
 msgid "Wildcard結果発表日"
-msgstr "通配符结果公布日"
+msgstr "Wildcard结果公布日"
 
 #: templates/common/japan.html:43
 msgid "日本代表なし"

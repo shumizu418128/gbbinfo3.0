@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-17 19:46+0900\n"
+"POT-Creation-Date: 2025-11-17 20:44+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -801,7 +801,7 @@ msgstr "【Beatboxer용】Wildcard 규정 해설"
 
 #: templates/2025/rule.html:225
 msgid "GBB出場辞退が発生した場合、Wildcard下位からの繰り上げが行われます。"
-msgstr "GBB 출전 포기자가 발생할 경우, 와일드카드 하위권부터 순차적으로 승격됩니다."
+msgstr "GBB 출전 포기자가 발생할 경우, Wildcard 하위권부터 순차적으로 승격됩니다."
 
 #: templates/2025/rule.html:229
 msgid "いかなる理由があっても、シード権大会2位以下の人に、出場権は与えられません。"
@@ -815,8 +815,8 @@ msgstr "시드권 대회에서 GBB 출전권이 주어지는 것은, 예외 없�
 msgid ""
 "例：シード権大会優勝者が、すでにWildcardで出場権を獲得していた場合、シード権大会2位ではなく、Wildcard下位からの繰り上げが行われます。"
 msgstr ""
-"예시: 시드권 대회 우승자가 이미 와일드카드로 출전권을 획득한 경우, 시드권 대회 2위가 아니라 와일드카드 하위권에서 순위가 상향 "
-"조정됩니다."
+"예시: 시드권 대회 우승자가 이미 Wildcard로 출전권을 획득한 경우, 시드권 대회 2위가 아니라 Wildcard 하위권에서 순위가 "
+"상향 조정됩니다."
 
 #: templates/2025/rule.html:257 templates/2025/wildcard_regulation.html:208
 msgid "制限時間を使い切らず余らせた場合、3秒につき最終順位を1つ下げる"
@@ -1242,15 +1242,15 @@ msgstr "종료되었습니다"
 msgid "先行公開"
 msgstr "선행 공개"
 
-#: templates/2026/top.html:200
+#: templates/2026/top.html:201
 msgid "イベントに関する問い合わせ先"
 msgstr "이벤트 관련 문의처"
 
-#: templates/2026/top.html:204
+#: templates/2026/top.html:205
 msgid "チケットに関する問い合わせ先"
 msgstr "티켓 관련 문의처"
 
-#: templates/2026/top.html:208
+#: templates/2026/top.html:210
 msgid "なお上記問い合わせ先は、当サイトとは無関係です。"
 msgstr "상기 문의처는 당 사이트와 무관합니다."
 

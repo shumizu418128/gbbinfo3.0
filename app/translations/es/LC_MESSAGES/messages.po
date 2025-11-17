@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-17 19:46+0900\n"
+"POT-Creation-Date: 2025-11-17 20:44+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: es <LL@li.org>\n"
@@ -104,7 +104,7 @@ msgstr "Lista de jueces de la ronda principal"
 #: templates/2024/rule.html:50 templates/2024/rule.html:316
 #: templates/2025/rule.html:49 templates/2025/rule.html:361
 msgid "Wildcard審査員一覧"
-msgstr "Lista de jueces de comodín"
+msgstr "Lista de jueces de Wildcard"
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:56
 msgid "以下に示す内容は、あくまでもBeatboxファンが知っておくとよりGBBを楽しめる知識として紹介するものです。"
@@ -424,7 +424,7 @@ msgstr "Consulta las últimas noticias de GBB {year}"
 #: templates/common/participants.html:10
 #: templates/common/participants.html:148 templates/others/translation.html:18
 msgid "Wildcard結果 & 出場者"
-msgstr "Resultados de comodín & Participantes"
+msgstr "Resultados de Wildcard & Participantes"
 
 #: templates/2024/stream.html:41 templates/2024/time_schedule.html:3
 #: templates/2024/time_schedule.html:4 templates/2024/time_schedule.html:5
@@ -715,7 +715,7 @@ msgstr "Transmisión de la presentación de resultados de Wildcard"
 #: templates/2026/top.html:153 templates/common/cancels.html:55
 #: templates/common/participants.html:103 templates/others/translation.html:25
 msgid "Wildcard一覧"
-msgstr "Lista de comodines"
+msgstr "Lista de Wildcard"
 
 #: templates/2024/top.html:104 templates/2024/top.html:118
 #: templates/2024/top_7tosmoke.html:46 templates/2025/top.html:171
@@ -957,7 +957,7 @@ msgstr "Palabras clave destacadas"
 #: templates/2026/top.html:69 templates/2026/top.html:81
 #: templates/2026/top.html:86 templates/2026/top.html:87
 msgid "ワイルドカード"
-msgstr "Comodín"
+msgstr "Wildcard"
 
 #: templates/2025/top.html:43 templates/2025/top.html:51
 #: templates/2025/top.html:70 templates/2025/top.html:74
@@ -1333,8 +1333,8 @@ msgstr ""
 msgid ""
 "また、Solo部門・Loopstation部門のWildcardルールが変更されることが予告されています。最新情報が公開され次第、このページを更新します。"
 msgstr ""
-"Además, se ha anunciado que las reglas de comodín para las divisiones Solo y"
-" Loopstation se modificarán. Actualizaremos esta página tan pronto como se "
+"Además, se ha anunciado que las reglas de Wildcard para las divisiones Solo "
+"y Loopstation se modificarán. Actualizaremos esta página tan pronto como se "
 "publique la información más reciente."
 
 #: templates/2026/ticket.html:11
@@ -1364,15 +1364,15 @@ msgstr "Finalizado"
 msgid "先行公開"
 msgstr "Avance"
 
-#: templates/2026/top.html:200
+#: templates/2026/top.html:201
 msgid "イベントに関する問い合わせ先"
 msgstr "Contacto para eventos"
 
-#: templates/2026/top.html:204
+#: templates/2026/top.html:205
 msgid "チケットに関する問い合わせ先"
 msgstr "Consultas sobre boletos"
 
-#: templates/2026/top.html:208
+#: templates/2026/top.html:210
 msgid "なお上記問い合わせ先は、当サイトとは無関係です。"
 msgstr ""
 "Tenga en cuenta que el contacto anterior no está relacionado con este sitio "

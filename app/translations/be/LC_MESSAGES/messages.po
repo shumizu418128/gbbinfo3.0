@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-17 19:46+0900\n"
+"POT-Creation-Date: 2025-11-17 20:44+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: be <LL@li.org>\n"
@@ -92,7 +92,7 @@ msgstr "Умовы атрымання пасеўных правоў"
 #: templates/2024/rule.html:42 templates/2024/rule.html:230
 #: templates/2025/rule.html:41 templates/2025/rule.html:246
 msgid "Wildcard ルール"
-msgstr "Дзікія правілы"
+msgstr "Правілы Wildcard"
 
 #: templates/2024/rule.html:46 templates/2024/rule.html:272
 #: templates/2025/rule.html:45 templates/2025/rule.html:305
@@ -1037,7 +1037,7 @@ msgstr "узроставыя абмежаванні"
 
 #: templates/2025/wildcard_regulation.html:41
 msgid "Wildcard提出について"
-msgstr "Пра дзікія карты"
+msgstr "Пра Wildcard"
 
 #: templates/2025/wildcard_regulation.html:45
 #: templates/2025/wildcard_regulation.html:197
@@ -1100,11 +1100,11 @@ msgstr ""
 
 #: templates/2025/wildcard_regulation.html:138
 msgid "Wildcard作成・提出について"
-msgstr "Аб стварэнні і падачы рэйкавых знакаў"
+msgstr "Аб стварэнні і падачы Wildcard"
 
 #: templates/2025/wildcard_regulation.html:140
 msgid "Wildcard動画の内容"
-msgstr "Змест відэа з дзікімі картамі"
+msgstr "Змест відэа з Wildcard"
 
 #: templates/2025/wildcard_regulation.html:141
 msgid "動画の冒頭で、以下のように自己紹介する"
@@ -1221,8 +1221,8 @@ msgstr "Калі вышэйзгаданыя два адсутнічаюць, ё�
 #: templates/2025/wildcard_regulation.html:263
 msgid "Wildcard提出は一度のみ。一度提出したら、後から別のWildcardを提出することはできない"
 msgstr ""
-"Бясплатная заяўка толькі адзін раз. Пасля падачы вы не зможаце падаць іншую "
-"бясплатную заяўку"
+"Заяўку на Wildcard можна падаць толькі адзін раз. Пасля падачы вы не зможаце"
+" падаць іншы Wildcard"
 
 #: templates/2025/wildcard_regulation.html:185
 msgid "誤って一度提出したWildcardを削除した場合、失格"
@@ -1276,8 +1276,8 @@ msgstr ""
 #: templates/2025/wildcard_regulation.html:262
 msgid "Wildcard動画の作成にあたり使用したすべてのファイルを、バックアップ含め保存しておき、いつでも提出できるようにしておく"
 msgstr ""
-"Захавайце ўсе файлы, выкарыстаныя для стварэння відэа з дзікімі картамі, "
-"уключаючы рэзервовыя копіі, так каб яны былі гатовыя да падачы ў любы час"
+"Захавайце ўсе файлы, выкарыстаныя для стварэння відэа з Wildcard, уключаючы "
+"рэзервовыя копіі, каб іх можна было падаць у любы час"
 
 #: templates/2025/wildcard_regulation.html:265
 msgid "皆さんのWildcardを楽しみにしています！"
@@ -1341,15 +1341,15 @@ msgstr "Завершана"
 msgid "先行公開"
 msgstr "папярэдні прагляд"
 
-#: templates/2026/top.html:200
+#: templates/2026/top.html:201
 msgid "イベントに関する問い合わせ先"
 msgstr "Кантактная інфармацыя для мерапрыемства"
 
-#: templates/2026/top.html:204
+#: templates/2026/top.html:205
 msgid "チケットに関する問い合わせ先"
 msgstr "Кантакт для запытаў аб квітках"
 
-#: templates/2026/top.html:208
+#: templates/2026/top.html:210
 msgid "なお上記問い合わせ先は、当サイトとは無関係です。"
 msgstr "Прыведзены вышэй кантакт не звязаны з гэтым сайтам."
 
@@ -1542,7 +1542,7 @@ msgstr "Падрабязнi кваліфікацыі"
 #: templates/common/cancels.html:54 templates/common/japan.html:51
 #: templates/common/korea.html:51 templates/common/participants.html:102
 msgid "Wildcard結果発表日"
-msgstr "Вынікі розыгрышу"
+msgstr "Дата абвяшчэння вынікаў Wildcard"
 
 #: templates/common/japan.html:43
 msgid "日本代表なし"

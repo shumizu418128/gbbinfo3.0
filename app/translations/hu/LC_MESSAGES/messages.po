@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-17 19:46+0900\n"
+"POT-Creation-Date: 2025-11-17 20:44+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: hu <LL@li.org>\n"
@@ -1346,17 +1346,17 @@ msgstr "Befejeztem"
 msgid "先行公開"
 msgstr "Előzetes bemutató"
 
-#: templates/2026/top.html:200
+#: templates/2026/top.html:201
 msgid "イベントに関する問い合わせ先"
-msgstr "Eseménnyel kapcsolatos kérdések"
+msgstr "Eseménnyel kapcsolatos elérhetőségek"
 
-#: templates/2026/top.html:204
+#: templates/2026/top.html:205
 msgid "チケットに関する問い合わせ先"
-msgstr "Jegyekkel kapcsolatos kérdések"
+msgstr "Jegyekkel kapcsolatos elérhetőségek"
 
-#: templates/2026/top.html:208
+#: templates/2026/top.html:210
 msgid "なお上記問い合わせ先は、当サイトとは無関係です。"
-msgstr "A fenti kapcsolattartók nem kapcsolódnak a webhelyünkhöz."
+msgstr "A fenti elérhetőségek nem állnak kapcsolatban a weboldalunkkal."
 
 #: templates/base.html:34 templates/base.html:44 templates/base.html:48
 msgid ""

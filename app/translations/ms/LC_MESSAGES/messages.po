@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-17 19:46+0900\n"
+"POT-Creation-Date: 2025-11-17 20:44+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ms <LL@li.org>\n"
@@ -92,7 +92,7 @@ msgstr "Syarat memperoleh hak keistimewaan untuk menyertai pertandingan"
 #: templates/2024/rule.html:42 templates/2024/rule.html:230
 #: templates/2025/rule.html:41 templates/2025/rule.html:246
 msgid "Wildcard ルール"
-msgstr "Peraturan kad bebas"
+msgstr "Peraturan Wildcard"
 
 #: templates/2024/rule.html:46 templates/2024/rule.html:272
 #: templates/2025/rule.html:45 templates/2025/rule.html:305
@@ -403,7 +403,7 @@ msgstr "Senarai juri perlawanan utama adalah di sini"
 #: templates/includes/hamburger_menu.html:21
 #: templates/others/translation.html:23
 msgid "当日配信"
-msgstr "Penghantaran hari ini"
+msgstr "Siaran pada hari acara"
 
 #: templates/2024/stream.html:37 templates/2025/stream.html:29
 #: templates/2026/stream.html:13
@@ -657,7 +657,7 @@ msgstr "Kemas kini terakhir"
 #: templates/common/korea.html:9 templates/includes/hamburger_menu.html:16
 #: templates/others/participant_detail.html:259
 msgid "韓国代表"
-msgstr "Wakil Rakyat Korea"
+msgstr "Wakil Korea Selatan"
 
 #: templates/2024/top.html:71 templates/2025/rule.html:242
 #: templates/2025/ticket.html:21 templates/2025/time_schedule.html:240
@@ -687,7 +687,7 @@ msgstr "Sesi tontonan bersama"
 #: templates/others/participant_detail.html:263
 #: templates/others/translation.html:24
 msgid "大会結果"
-msgstr "Keputusan persidangan"
+msgstr "Keputusan pertandingan"
 
 #: templates/2024/top.html:89 templates/2025/top.html:140
 #: templates/2026/top.html:151
@@ -994,7 +994,7 @@ msgstr "Senarai semua peserta"
 #: templates/common/participants.html:145
 #: templates/includes/hamburger_menu.html:10
 msgid "辞退者一覧"
-msgstr "Senarai Penolakan"
+msgstr "Senarai penarik diri"
 
 #: templates/2025/top.html:87 templates/2026/top.html:90
 #: templates/includes/popup_early_access.html:8
@@ -1345,15 +1345,15 @@ msgstr "Selesai"
 msgid "先行公開"
 msgstr "Diterbitkan lebih awal"
 
-#: templates/2026/top.html:200
+#: templates/2026/top.html:201
 msgid "イベントに関する問い合わせ先"
 msgstr "Pertanyaan mengenai acara"
 
-#: templates/2026/top.html:204
+#: templates/2026/top.html:205
 msgid "チケットに関する問い合わせ先"
 msgstr "Pertanyaan mengenai tiket"
 
-#: templates/2026/top.html:208
+#: templates/2026/top.html:210
 msgid "なお上記問い合わせ先は、当サイトとは無関係です。"
 msgstr ""
 "Sila ambil perhatian bahawa maklumat hubungan di atas tidak berkaitan dengan"
