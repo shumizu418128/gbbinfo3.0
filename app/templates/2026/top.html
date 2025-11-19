@@ -182,4 +182,32 @@
 <p>{{_("このような情報が多く存在します。")}}</p>
 <p>{{_("GBBの各種情報は、発表が非常に遅いことで有名です。気長に待ちましょう。")}}</p>
 
+{% if is_latest_year is true %}
+  <h2 id="contact" name="contact">{{_("お問い合わせ")}}</h2>
+  {% if scroll == "contact" %}
+    <div class="post-it">
+      <p>{{_("お探しの情報は、当サイトにありません。下記お問い合わせより、GBB運営に直接お尋ねください。")}}</p>
+    </div>
+  {% endif %}
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 30%"></th>
+        <th style="width: 30%">email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{_("イベントに関する問い合わせ先")}}</td>
+        <td><a href="mailto:gbb@swissbeatbox.com">gbb@swissbeatbox.com</a></td>
+      </tr>
+      <tr>
+        <td>{{_("チケットに関する問い合わせ先")}}</td>
+        <td><a href="mailto:tickets@weeztix.com">tickets@weeztix.com</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>{{_("なお上記問い合わせ先は、当サイトとは無関係です。")}}</p>
+{% endif %}
+
 {% endblock %}

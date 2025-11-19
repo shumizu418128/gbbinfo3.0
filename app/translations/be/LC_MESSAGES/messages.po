@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-12 23:42+0900\n"
+"POT-Creation-Date: 2025-11-19 14:43+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: be <LL@li.org>\n"
@@ -13,6 +13,24 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "Generated-By: Babel 2.17.0\n"
+
+#: templates/2024/rule.html:3 templates/2024/rule.html:4
+#: templates/2024/rule.html:5 templates/2024/rule.html:9
+#: templates/2024/rule.html:235 templates/2024/top.html:51
+#: templates/2025/rule.html:3 templates/2025/rule.html:4
+#: templates/2025/rule.html:5 templates/2025/rule.html:9
+#: templates/2025/rule.html:251 templates/2025/time_schedule.html:101
+#: templates/2025/top.html:54 templates/2025/top.html:102
+#: templates/2025/wildcard_regulation.html:22
+#: templates/2025/wildcard_regulation.html:202
+#: templates/2025/wildcards.html:15 templates/2025/wildcards.html:84
+#: templates/2026/rule.html:3 templates/2026/rule.html:4
+#: templates/2026/rule.html:5 templates/2026/rule.html:10
+#: templates/2026/time_schedule.html:62 templates/2026/top.html:63
+#: templates/2026/top.html:106 templates/common/participants.html:144
+#: templates/includes/hamburger_menu.html:11
+msgid "ルール"
+msgstr "Правілы"
 
 #: templates/2024/rule.html:11 templates/2025/rule.html:11
 #: templates/2025/wildcard_regulation.html:12
@@ -26,6 +44,22 @@ msgstr ""
 #: templates/2025/wildcard_regulation.html:13
 msgid "ソースサイト："
 msgstr "крыніца сайт:"
+
+#: templates/2024/rule.html:21 templates/2024/rule.html:70
+#: templates/2024/rule.html:129 templates/2024/rule.html:227
+#: templates/2024/rule.html:268 templates/2024/rule.html:313
+#: templates/2024/stream.html:42 templates/2024/time_schedule.html:42
+#: templates/2024/time_schedule.html:156 templates/2024/time_schedule.html:286
+#: templates/2024/top.html:55 templates/2024/top_7tosmoke.html:36
+#: templates/2025/rule.html:18 templates/2025/rule.html:66
+#: templates/2025/rule.html:238 templates/2025/rule.html:301
+#: templates/2025/rule.html:357 templates/2025/rule.html:399
+#: templates/2025/stream.html:42 templates/2025/time_schedule.html:100
+#: templates/2025/time_schedule.html:236 templates/2025/time_schedule.html:277
+#: templates/2025/top.html:158 templates/2025/top_7tosmoke.html:36
+#: templates/2025/wildcards.html:112 templates/includes/hamburger_menu.html:24
+msgid "現地観戦計画のたてかた"
+msgstr "Як спланаваць наведванне мерапрыемства на месцы"
 
 #: templates/2024/rule.html:26 templates/2024/time_schedule.html:16
 #: templates/2025/rule.html:26 templates/2025/time_schedule.html:18
@@ -58,7 +92,7 @@ msgstr "Умовы атрымання пасеўных правоў"
 #: templates/2024/rule.html:42 templates/2024/rule.html:230
 #: templates/2025/rule.html:41 templates/2025/rule.html:246
 msgid "Wildcard ルール"
-msgstr "Дзікія правілы"
+msgstr "Правілы Wildcard"
 
 #: templates/2024/rule.html:46 templates/2024/rule.html:272
 #: templates/2025/rule.html:45 templates/2025/rule.html:305
@@ -127,7 +161,7 @@ msgstr "насенне"
 
 #: templates/2024/rule.html:81 templates/2025/rule.html:77
 msgid "計"
-msgstr "Лічыльнік"
+msgstr "Агулам"
 
 #: templates/2024/rule.html:118 templates/2025/rule.html:115
 #: templates/2025/wildcard_regulation.html:113
@@ -333,6 +367,16 @@ msgstr "Неабмежаваны прылада"
 msgid "Wildcard審査員一覧はこちら"
 msgstr "Спіс суддзяў Wildcard тут"
 
+#: templates/2024/rule.html:280 templates/2024/rule.html:325
+#: templates/2024/top.html:51 templates/2025/rule.html:314
+#: templates/2025/rule.html:367 templates/2025/time_schedule.html:101
+#: templates/2025/top.html:59 templates/2025/top.html:102
+#: templates/2025/wildcards.html:15 templates/2025/wildcards.html:84
+#: templates/2026/time_schedule.html:62 templates/2026/top.html:68
+#: templates/2026/top.html:106 templates/includes/hamburger_menu.html:11
+msgid "審査員"
+msgstr "суддзя"
+
 #: templates/2024/rule.html:306 templates/2025/rule.html:340
 msgid "審査員不明"
 msgstr "Невядомы суддзя"
@@ -344,6 +388,22 @@ msgstr "Штогод няма аб'яваў"
 #: templates/2024/rule.html:318 templates/2025/rule.html:395
 msgid "本戦審査員一覧はこちら"
 msgstr "Спіс суддзяў асноўнага раунда тут"
+
+#: templates/2024/stream.html:3 templates/2024/stream.html:4
+#: templates/2024/stream.html:5 templates/2024/stream.html:9
+#: templates/2024/top.html:80 templates/2024/top_7tosmoke.html:38
+#: templates/2025/stream.html:3 templates/2025/stream.html:4
+#: templates/2025/stream.html:5 templates/2025/stream.html:9
+#: templates/2025/time_schedule.html:158 templates/2025/top.html:131
+#: templates/2025/top_7tosmoke.html:40 templates/2026/stream.html:3
+#: templates/2026/stream.html:4 templates/2026/stream.html:5
+#: templates/2026/stream.html:9 templates/2026/time_schedule.html:90
+#: templates/2026/time_schedule.html:117 templates/2026/top.html:135
+#: templates/2026/top_7tosmoke.html:40
+#: templates/includes/hamburger_menu.html:21
+#: templates/others/translation.html:23
+msgid "当日配信"
+msgstr "Стрымінг у той жа дзень"
 
 #: templates/2024/stream.html:37 templates/2025/stream.html:29
 #: templates/2026/stream.html:13
@@ -363,6 +423,24 @@ msgstr "Праверце апошнюю інфармацыю GBB {year}"
 msgid "Wildcard結果 & 出場者"
 msgstr "Wildcard вынікі & Удзельнікі"
 
+#: templates/2024/stream.html:41 templates/2024/time_schedule.html:3
+#: templates/2024/time_schedule.html:4 templates/2024/time_schedule.html:5
+#: templates/2024/time_schedule.html:9 templates/2024/top.html:17
+#: templates/2024/top.html:59 templates/2024/top_7tosmoke.html:37
+#: templates/2025/stream.html:38 templates/2025/ticket.html:23
+#: templates/2025/time_schedule.html:3 templates/2025/time_schedule.html:4
+#: templates/2025/time_schedule.html:5 templates/2025/time_schedule.html:10
+#: templates/2025/top.html:17 templates/2025/top.html:44
+#: templates/2025/top.html:110 templates/2025/top_7tosmoke.html:39
+#: templates/2026/stream.html:22 templates/2026/time_schedule.html:3
+#: templates/2026/time_schedule.html:4 templates/2026/time_schedule.html:5
+#: templates/2026/time_schedule.html:10 templates/2026/top.html:17
+#: templates/2026/top.html:114 templates/2026/top_7tosmoke.html:39
+#: templates/includes/hamburger_menu.html:14
+#: templates/others/translation.html:20
+msgid "タイムスケジュール"
+msgstr "Графік"
+
 #: templates/2024/ticket.html:3 templates/2024/ticket.html:4
 #: templates/2024/ticket.html:5 templates/2024/ticket.html:9
 #: templates/2024/top_7tosmoke.html:35 templates/2025/ticket.html:3
@@ -378,6 +456,16 @@ msgstr "Месца правядзення і білеты"
 msgid "【完売】公式販売"
 msgstr "【распродадзена】Афіцыйны продаж"
 
+#: templates/2024/ticket.html:11 templates/2024/ticket.html:17
+#: templates/2024/top.html:76 templates/2024/top.html:132
+#: templates/2024/top.html:136 templates/2025/ticket.html:11
+#: templates/2025/ticket.html:12 templates/2025/top.html:127
+#: templates/2025/top.html:208 templates/2025/top.html:212
+#: templates/2026/ticket.html:12 templates/2026/top.html:131
+#: templates/includes/hamburger_menu.html:20
+msgid "会場"
+msgstr "Месца правядзення"
+
 #: templates/2024/ticket.html:13
 msgid "チケットぴあ"
 msgstr "Ticket Pia"
@@ -385,6 +473,12 @@ msgstr "Ticket Pia"
 #: templates/2024/ticket.html:15
 msgid "楽天チケット"
 msgstr "Ракетэн білеты"
+
+#: templates/2024/ticket.html:19 templates/2024/top.html:76
+#: templates/2025/ticket.html:13 templates/2025/top.html:127
+#: templates/2026/top.html:131 templates/includes/hamburger_menu.html:20
+msgid "チケット"
+msgstr "Квіток"
 
 #: templates/2024/time_schedule.html:11 templates/2025/time_schedule.html:12
 #: templates/2026/time_schedule.html:15
@@ -555,9 +649,45 @@ msgstr "Неафіцыйны інфармацыйны сайт"
 msgid "最終更新"
 msgstr "Апошняе абнаўленне"
 
+#: templates/2024/top.html:66 templates/2025/rule.html:240
+#: templates/2025/ticket.html:19 templates/2025/time_schedule.html:238
+#: templates/2025/top.html:117 templates/2025/wildcards.html:114
+#: templates/2026/top.html:121 templates/common/korea.html:3
+#: templates/common/korea.html:4 templates/common/korea.html:5
+#: templates/common/korea.html:9 templates/includes/hamburger_menu.html:16
+#: templates/others/participant_detail.html:259
+msgid "韓国代表"
+msgstr "Прадстаўнікі Паўднёвай Карэі"
+
+#: templates/2024/top.html:71 templates/2025/rule.html:242
+#: templates/2025/ticket.html:21 templates/2025/time_schedule.html:240
+#: templates/2025/top.html:122 templates/2025/wildcards.html:116
+#: templates/2026/top.html:126 templates/common/japan.html:3
+#: templates/common/japan.html:4 templates/common/japan.html:5
+#: templates/common/japan.html:9 templates/includes/hamburger_menu.html:18
+#: templates/others/participant_detail.html:261
+#: templates/others/translation.html:21
+msgid "日本代表"
+msgstr "Прадстаўнікі Японіі"
+
 #: templates/2024/top.html:80
 msgid "みんなで鑑賞会"
 msgstr "Усе разам глядзім"
+
+#: templates/2024/top.html:84 templates/2025/top.html:72
+#: templates/2025/top.html:73 templates/2025/top.html:135
+#: templates/2026/top.html:76 templates/2026/top.html:78
+#: templates/2026/top.html:80 templates/2026/top.html:140
+#: templates/2026/top.html:145 templates/common/result.html:3
+#: templates/common/result.html:4 templates/common/result.html:5
+#: templates/common/result.html:9 templates/common/result.html:103
+#: templates/includes/hamburger_menu.html:25
+#: templates/others/participant_detail.html:180
+#: templates/others/participant_detail.html:187
+#: templates/others/participant_detail.html:263
+#: templates/others/translation.html:24
+msgid "大会結果"
+msgstr "Вынікі турніру"
 
 #: templates/2024/top.html:89 templates/2025/top.html:140
 #: templates/2026/top.html:151
@@ -583,9 +713,9 @@ msgstr "Спіс Wildcard"
 #: templates/2024/top.html:104 templates/2024/top.html:118
 #: templates/2024/top_7tosmoke.html:46 templates/2025/top.html:171
 #: templates/2025/top.html:185 templates/2025/top_7tosmoke.html:48
-#: templates/2026/top_7tosmoke.html:48
+#: templates/2026/top.html:186 templates/2026/top_7tosmoke.html:48
 msgid "お問い合わせ"
-msgstr "запыт"
+msgstr "Кантакты"
 
 #: templates/2024/top.html:109 templates/2025/top.html:176
 #: templates/2026/top.html:177
@@ -624,7 +754,7 @@ msgstr ""
 
 #: templates/2024/top.html:123 templates/2025/top.html:195
 msgid "場所"
-msgstr "Мес"
+msgstr "Месца"
 
 #: templates/2024/top.html:124 templates/2025/top.html:196
 msgid "電話番号"
@@ -814,7 +944,7 @@ msgstr "Ключавыя словы"
 #: templates/2026/top.html:69 templates/2026/top.html:81
 #: templates/2026/top.html:86 templates/2026/top.html:87
 msgid "ワイルドカード"
-msgstr "джокер"
+msgstr "Wildcard"
 
 #: templates/2025/top.html:43 templates/2025/top.html:51
 #: templates/2025/top.html:70 templates/2025/top.html:74
@@ -853,6 +983,15 @@ msgstr "Колькасць месцаў удзелу"
 msgid "全出場者一覧"
 msgstr "Спіс усіх удзельнікаў"
 
+#: templates/2025/top.html:78 templates/2025/top.html:106
+#: templates/2026/top.html:85 templates/2026/top.html:110
+#: templates/common/cancels.html:3 templates/common/cancels.html:4
+#: templates/common/cancels.html:5 templates/common/cancels.html:10
+#: templates/common/participants.html:145
+#: templates/includes/hamburger_menu.html:10
+msgid "辞退者一覧"
+msgstr "Спіс адмоўцаў"
+
 #: templates/2025/top.html:87 templates/2026/top.html:90
 #: templates/includes/popup_early_access.html:8
 #: templates/includes/popup_ended.html:14
@@ -860,7 +999,7 @@ msgstr "Спіс усіх удзельнікаў"
 msgid "閉じる"
 msgstr "Закрыць"
 
-#: templates/2025/top.html:188
+#: templates/2025/top.html:188 templates/2026/top.html:189
 msgid "お探しの情報は、当サイトにありません。下記お問い合わせより、GBB運営に直接お尋ねください。"
 msgstr ""
 "Інфармацыя, якую вы шукаеце, недаступная на гэтым сайце. Калі ласка, "
@@ -898,7 +1037,7 @@ msgstr "узроставыя абмежаванні"
 
 #: templates/2025/wildcard_regulation.html:41
 msgid "Wildcard提出について"
-msgstr "Пра дзікія карты"
+msgstr "Аб падачы Wildcard"
 
 #: templates/2025/wildcard_regulation.html:45
 #: templates/2025/wildcard_regulation.html:197
@@ -961,11 +1100,11 @@ msgstr ""
 
 #: templates/2025/wildcard_regulation.html:138
 msgid "Wildcard作成・提出について"
-msgstr "Аб стварэнні і падачы рэйкавых знакаў"
+msgstr "Аб стварэнні і падачы Wildcard"
 
 #: templates/2025/wildcard_regulation.html:140
 msgid "Wildcard動画の内容"
-msgstr "Змест відэа з дзікімі картамі"
+msgstr "Змест відэа Wildcard"
 
 #: templates/2025/wildcard_regulation.html:141
 msgid "動画の冒頭で、以下のように自己紹介する"
@@ -1082,8 +1221,8 @@ msgstr "Калі вышэйзгаданыя два адсутнічаюць, ё�
 #: templates/2025/wildcard_regulation.html:263
 msgid "Wildcard提出は一度のみ。一度提出したら、後から別のWildcardを提出することはできない"
 msgstr ""
-"Бясплатная заяўка толькі адзін раз. Пасля падачы вы не зможаце падаць іншую "
-"бясплатную заяўку"
+"Заяўку на Wildcard можна падаць толькі адзін раз. Пасля падачы вы не зможаце"
+" падаць іншы Wildcard"
 
 #: templates/2025/wildcard_regulation.html:185
 msgid "誤って一度提出したWildcardを削除した場合、失格"
@@ -1137,8 +1276,8 @@ msgstr ""
 #: templates/2025/wildcard_regulation.html:262
 msgid "Wildcard動画の作成にあたり使用したすべてのファイルを、バックアップ含め保存しておき、いつでも提出できるようにしておく"
 msgstr ""
-"Захавайце ўсе файлы, выкарыстаныя для стварэння відэа з дзікімі картамі, "
-"уключаючы рэзервовыя копіі, так каб яны былі гатовыя да падачы ў любы час"
+"Захавайце ўсе файлы, выкарыстаныя для стварэння відэа з Wildcard, уключаючы "
+"рэзервовыя копіі, каб іх можна было падаць у любы час"
 
 #: templates/2025/wildcard_regulation.html:265
 msgid "皆さんのWildcardを楽しみにしています！"
@@ -1202,6 +1341,18 @@ msgstr "Завершана"
 msgid "先行公開"
 msgstr "папярэдні прагляд"
 
+#: templates/2026/top.html:201
+msgid "イベントに関する問い合わせ先"
+msgstr "Кантактная інфармацыя для мерапрыемства"
+
+#: templates/2026/top.html:205
+msgid "チケットに関する問い合わせ先"
+msgstr "Кантакт для запытаў аб квітках"
+
+#: templates/2026/top.html:210
+msgid "なお上記問い合わせ先は、当サイトとは無関係です。"
+msgstr "Прыведзены вышэй кантакт не звязаны з гэтым сайтам."
+
 #: templates/base.html:34 templates/base.html:44 templates/base.html:48
 msgid ""
 "Swissbeatboxが主催するHuman Beatboxの世界大会「Grand Beatbox "
@@ -1210,10 +1361,6 @@ msgstr ""
 "Сайт, які збірае розную інфармацыю пра найбуйнейшы ў свеце конкурс Human "
 "Beatbox \"Grand Beatbox Battle\", арганізаваны Swissbeatbox, у зручным для "
 "прагляду выглядзе."
-
-#: templates/base.html:119 templates/base.html:122
-msgid "メニュー"
-msgstr "Меню"
 
 #: templates/2024/rule.html:22 templates/2024/rule.html:71
 #: templates/2024/rule.html:130 templates/2024/rule.html:228
@@ -1244,11 +1391,85 @@ msgstr "Меню"
 #: templates/2026/top.html:4 templates/2026/top.html:5
 #: templates/2026/top.html:25 templates/2026/top.html:97
 #: templates/2026/top.html:173 templates/2026/top_7tosmoke.html:24
-#: templates/base.html:124 templates/base.html:158 templates/base.html:273
+#: templates/base.html:122 templates/base.html:237
+#: templates/includes/hamburger_menu.html:8
 #: templates/includes/next_year.html:5
 #: templates/others/participant_detail.html:145
 msgid "これだけガイド"
 msgstr "Толькі гэта кіраўніцтва"
+
+#: templates/base.html:125
+msgid "年度選択"
+msgstr "Выбар года"
+
+#: templates/base.html:172 templates/includes/notice.html:5
+msgid "翻訳未提供"
+msgstr "Пераклад не прадастаўлены"
+
+#: templates/base.html:173
+msgid "このページは翻訳が提供されていません。現在は原文の日本語を表示しています。"
+msgstr ""
+"Гэтая старонка недаступная для перакладу. У цяперашні час адлюстроўваецца "
+"арыгінальны японскі тэкст."
+
+#: templates/base.html:193
+msgid "GBBまでの残り時間"
+msgstr "Час, які застаўся да GBB"
+
+#: templates/base.html:198 templates/base.html:214
+#: templates/includes/bottom_navigation.html:30
+#: templates/includes/bottom_navigation.html:48
+msgid "なんでも検索"
+msgstr "Пошук чаго заўгодна"
+
+#: templates/base.html:200 templates/includes/bottom_navigation.html:32
+#, python-brace-format
+msgid "GBB {year} の検索のみ可能です"
+msgstr "Пошук GBB {year} даступны"
+
+#: templates/base.html:201 templates/includes/bottom_navigation.html:33
+#, python-brace-format
+msgid "GBB {year} は終了しました"
+msgstr "GBB {year} завершаны"
+
+#: templates/base.html:205 templates/includes/bottom_navigation.html:37
+#, python-brace-format
+msgid "例：GBB {year} の最終結果は？"
+msgstr "Прыклад: Якія вынікі GBB {year}?"
+
+#: templates/base.html:210 templates/includes/bottom_navigation.html:42
+msgid "GBB最新情報の検索はこちら"
+msgstr "GBB апошняя інфармацыя пошук тут"
+
+#: templates/base.html:215 templates/includes/bottom_navigation.html:49
+#, python-brace-format
+msgid "GBB {year} について検索してみよう"
+msgstr "Давайце пашукаем GBB {year}"
+
+#: templates/2024/top.html:30 templates/2024/top_7tosmoke.html:18
+#: templates/2025/top.html:29 templates/2025/top_7tosmoke.html:18
+#: templates/2026/top.html:37 templates/2026/top_7tosmoke.html:18
+#: templates/base.html:218 templates/includes/bottom_navigation.html:52
+msgid "例：現地観戦計画のたてかた"
+msgstr "Прыклад: Як спланаваць наведванне мерапрыемства на месцы"
+
+#: templates/base.html:228
+msgid "ホーム画面に追加"
+msgstr "Дадаць на галоўны экран"
+
+#: templates/base.html:231
+msgid "GBBINFO-JPNはPWAに対応しています。"
+msgstr "GBBINFO-JPN падтрымлівае PWA."
+
+#: templates/base.html:231
+msgid "ブラウザメニューを開き、「ホーム画面に追加」をタップすると、アプリとしてインストールできます。"
+msgstr ""
+"Адкрыйце меню браўзера і націсніце «Дадаць на галоўны экран», каб усталяваць"
+" яго як праграму."
+
+#: templates/base.html:237
+msgid "ホームへもどる"
+msgstr "Вяртанне дадому"
 
 #: templates/2024/rule.html:220 templates/2024/time_schedule.html:99
 #: templates/2024/time_schedule.html:229 templates/2024/top.html:47
@@ -1258,8 +1479,9 @@ msgstr "Толькі гэта кіраўніцтва"
 #: templates/2025/top.html:98 templates/2025/wildcards.html:14
 #: templates/2025/wildcards.html:83 templates/2026/rule.html:160
 #: templates/2026/stream.html:18 templates/2026/time_schedule.html:118
-#: templates/2026/top.html:102 templates/base.html:125 templates/base.html:279
+#: templates/2026/top.html:102 templates/base.html:243
 #: templates/common/participants.html:25 templates/common/result.html:106
+#: templates/includes/hamburger_menu.html:9
 #: templates/includes/participants_form.html:13
 msgid "Wildcard結果"
 msgstr "Вынікі Wildcard"
@@ -1270,235 +1492,26 @@ msgstr "Вынікі Wildcard"
 #: templates/2025/top.html:98 templates/2025/wildcards.html:14
 #: templates/2025/wildcards.html:83 templates/2026/stream.html:18
 #: templates/2026/time_schedule.html:118 templates/2026/top.html:102
-#: templates/base.html:125 templates/base.html:279
-#: templates/common/result.html:106
+#: templates/base.html:243 templates/common/result.html:106
+#: templates/includes/hamburger_menu.html:9
 msgid "出場者"
-msgstr "удзельнік"
+msgstr "Удзельнік"
 
-#: templates/2025/top.html:78 templates/2025/top.html:106
-#: templates/2026/top.html:85 templates/2026/top.html:110
-#: templates/base.html:126 templates/common/cancels.html:3
-#: templates/common/cancels.html:4 templates/common/cancels.html:5
-#: templates/common/cancels.html:10 templates/common/participants.html:145
-msgid "辞退者一覧"
-msgstr "Спіс адмоўцаў"
-
-#: templates/2024/rule.html:3 templates/2024/rule.html:4
-#: templates/2024/rule.html:5 templates/2024/rule.html:9
-#: templates/2024/rule.html:235 templates/2024/top.html:51
-#: templates/2025/rule.html:3 templates/2025/rule.html:4
-#: templates/2025/rule.html:5 templates/2025/rule.html:9
-#: templates/2025/rule.html:251 templates/2025/time_schedule.html:101
-#: templates/2025/top.html:54 templates/2025/top.html:102
-#: templates/2025/wildcard_regulation.html:22
-#: templates/2025/wildcard_regulation.html:202
-#: templates/2025/wildcards.html:15 templates/2025/wildcards.html:84
-#: templates/2026/rule.html:3 templates/2026/rule.html:4
-#: templates/2026/rule.html:5 templates/2026/rule.html:10
-#: templates/2026/time_schedule.html:62 templates/2026/top.html:63
-#: templates/2026/top.html:106 templates/base.html:127
-#: templates/common/participants.html:144
-msgid "ルール"
-msgstr "Правілы"
-
-#: templates/2024/rule.html:280 templates/2024/rule.html:325
-#: templates/2024/top.html:51 templates/2025/rule.html:314
-#: templates/2025/rule.html:367 templates/2025/time_schedule.html:101
-#: templates/2025/top.html:59 templates/2025/top.html:102
-#: templates/2025/wildcards.html:15 templates/2025/wildcards.html:84
-#: templates/2026/time_schedule.html:62 templates/2026/top.html:68
-#: templates/2026/top.html:106 templates/base.html:127
-msgid "審査員"
-msgstr "суддзя"
-
-#: templates/2024/stream.html:41 templates/2024/time_schedule.html:3
-#: templates/2024/time_schedule.html:4 templates/2024/time_schedule.html:5
-#: templates/2024/time_schedule.html:9 templates/2024/top.html:17
-#: templates/2024/top.html:59 templates/2024/top_7tosmoke.html:37
-#: templates/2025/stream.html:38 templates/2025/ticket.html:23
-#: templates/2025/time_schedule.html:3 templates/2025/time_schedule.html:4
-#: templates/2025/time_schedule.html:5 templates/2025/time_schedule.html:10
-#: templates/2025/top.html:17 templates/2025/top.html:44
-#: templates/2025/top.html:110 templates/2025/top_7tosmoke.html:39
-#: templates/2026/stream.html:22 templates/2026/time_schedule.html:3
-#: templates/2026/time_schedule.html:4 templates/2026/time_schedule.html:5
-#: templates/2026/time_schedule.html:10 templates/2026/top.html:17
-#: templates/2026/top.html:114 templates/2026/top_7tosmoke.html:39
-#: templates/base.html:130 templates/others/translation.html:20
-msgid "タイムスケジュール"
-msgstr "Графік"
-
-#: templates/2024/top.html:66 templates/2025/rule.html:240
-#: templates/2025/ticket.html:19 templates/2025/time_schedule.html:238
-#: templates/2025/top.html:117 templates/2025/wildcards.html:114
-#: templates/2026/top.html:121 templates/base.html:132
-#: templates/common/korea.html:3 templates/common/korea.html:4
-#: templates/common/korea.html:5 templates/common/korea.html:9
-#: templates/others/participant_detail.html:259
-msgid "韓国代表"
-msgstr "Прадстаўнікі Паўднёвай Карэі"
-
-#: templates/2024/top.html:71 templates/2025/rule.html:242
-#: templates/2025/ticket.html:21 templates/2025/time_schedule.html:240
-#: templates/2025/top.html:122 templates/2025/wildcards.html:116
-#: templates/2026/top.html:126 templates/base.html:134
-#: templates/common/japan.html:3 templates/common/japan.html:4
-#: templates/common/japan.html:5 templates/common/japan.html:9
-#: templates/others/participant_detail.html:261
-#: templates/others/translation.html:21
-msgid "日本代表"
-msgstr "Прадстаўнікі Японіі"
-
-#: templates/2024/ticket.html:11 templates/2024/ticket.html:17
-#: templates/2024/top.html:76 templates/2024/top.html:132
-#: templates/2024/top.html:136 templates/2025/ticket.html:11
-#: templates/2025/ticket.html:12 templates/2025/top.html:127
-#: templates/2025/top.html:208 templates/2025/top.html:212
-#: templates/2026/ticket.html:12 templates/2026/top.html:131
-#: templates/base.html:136
-msgid "会場"
-msgstr "Месца правядзення"
-
-#: templates/2024/ticket.html:19 templates/2024/top.html:76
-#: templates/2025/ticket.html:13 templates/2025/top.html:127
-#: templates/2026/top.html:131 templates/base.html:136
-msgid "チケット"
-msgstr "Квіток"
-
-#: templates/2024/stream.html:3 templates/2024/stream.html:4
-#: templates/2024/stream.html:5 templates/2024/stream.html:9
-#: templates/2024/top.html:80 templates/2024/top_7tosmoke.html:38
-#: templates/2025/stream.html:3 templates/2025/stream.html:4
-#: templates/2025/stream.html:5 templates/2025/stream.html:9
-#: templates/2025/time_schedule.html:158 templates/2025/top.html:131
-#: templates/2025/top_7tosmoke.html:40 templates/2026/stream.html:3
-#: templates/2026/stream.html:4 templates/2026/stream.html:5
-#: templates/2026/stream.html:9 templates/2026/time_schedule.html:90
-#: templates/2026/time_schedule.html:117 templates/2026/top.html:135
-#: templates/2026/top_7tosmoke.html:40 templates/base.html:137
-#: templates/others/translation.html:23
-msgid "当日配信"
-msgstr "Стрымінг у той жа дзень"
-
-#: templates/2024/rule.html:21 templates/2024/rule.html:70
-#: templates/2024/rule.html:129 templates/2024/rule.html:227
-#: templates/2024/rule.html:268 templates/2024/rule.html:313
-#: templates/2024/stream.html:42 templates/2024/time_schedule.html:42
-#: templates/2024/time_schedule.html:156 templates/2024/time_schedule.html:286
-#: templates/2024/top.html:55 templates/2024/top_7tosmoke.html:36
-#: templates/2025/rule.html:18 templates/2025/rule.html:66
-#: templates/2025/rule.html:238 templates/2025/rule.html:301
-#: templates/2025/rule.html:357 templates/2025/rule.html:399
-#: templates/2025/stream.html:42 templates/2025/time_schedule.html:100
-#: templates/2025/time_schedule.html:236 templates/2025/time_schedule.html:277
-#: templates/2025/top.html:158 templates/2025/top_7tosmoke.html:36
-#: templates/2025/wildcards.html:112 templates/base.html:140
-msgid "現地観戦計画のたてかた"
-msgstr "Як скласці план наведвання матчу"
-
-#: templates/2024/top.html:84 templates/2025/top.html:72
-#: templates/2025/top.html:73 templates/2025/top.html:135
-#: templates/2026/top.html:76 templates/2026/top.html:78
-#: templates/2026/top.html:80 templates/2026/top.html:140
-#: templates/2026/top.html:145 templates/base.html:141
-#: templates/common/result.html:3 templates/common/result.html:4
-#: templates/common/result.html:5 templates/common/result.html:9
-#: templates/common/result.html:103
-#: templates/others/participant_detail.html:180
-#: templates/others/participant_detail.html:187
-#: templates/others/participant_detail.html:263
-#: templates/others/translation.html:24
-msgid "大会結果"
-msgstr "Вынікі турніру"
-
-#: templates/base.html:161
-msgid "年度選択"
-msgstr "Выбар года"
-
-#: templates/base.html:208 templates/includes/notice.html:5
-msgid "翻訳未提供"
-msgstr "Пераклад не прадастаўлены"
-
-#: templates/base.html:209
-msgid "このページは翻訳が提供されていません。現在は原文の日本語を表示しています。"
-msgstr ""
-"Гэтая старонка недаступная для перакладу. У цяперашні час адлюстроўваецца "
-"арыгінальны японскі тэкст."
-
-#: templates/base.html:229
-msgid "GBBまでの残り時間"
-msgstr "Час, які застаўся да GBB"
-
-#: templates/base.html:234 templates/base.html:250
-#: templates/includes/bottom_navigation.html:30
-#: templates/includes/bottom_navigation.html:48
-msgid "なんでも検索"
-msgstr "Пошук чаго заўгодна"
-
-#: templates/base.html:236 templates/includes/bottom_navigation.html:32
-#, python-brace-format
-msgid "GBB {year} の検索のみ可能です"
-msgstr "Пошук GBB {year} даступны"
-
-#: templates/base.html:237 templates/includes/bottom_navigation.html:33
-#, python-brace-format
-msgid "GBB {year} は終了しました"
-msgstr "GBB {year} завершаны"
-
-#: templates/base.html:241 templates/includes/bottom_navigation.html:37
-#, python-brace-format
-msgid "例：GBB {year} の最終結果は？"
-msgstr "Прыклад: Якія вынікі GBB {year}?"
-
-#: templates/base.html:246 templates/includes/bottom_navigation.html:42
-msgid "GBB最新情報の検索はこちら"
-msgstr "GBB апошняя інфармацыя пошук тут"
-
-#: templates/base.html:251 templates/includes/bottom_navigation.html:49
-#, python-brace-format
-msgid "GBB {year} について検索してみよう"
-msgstr "Давайце пашукаем GBB {year}"
-
-#: templates/2024/top.html:30 templates/2024/top_7tosmoke.html:18
-#: templates/2025/top.html:29 templates/2025/top_7tosmoke.html:18
-#: templates/2026/top.html:37 templates/2026/top_7tosmoke.html:18
-#: templates/base.html:254 templates/includes/bottom_navigation.html:52
-msgid "例：現地観戦計画のたてかた"
-msgstr "Прыклад: Як спланаваць наведванне мерапрыемства на месцы"
-
-#: templates/base.html:264
-msgid "ホーム画面に追加"
-msgstr "Дадаць на галоўны экран"
-
-#: templates/base.html:267
-msgid "GBBINFO-JPNはPWAに対応しています。"
-msgstr "GBBINFO-JPN падтрымлівае PWA."
-
-#: templates/base.html:267
-msgid "ブラウザメニューを開き、「ホーム画面に追加」をタップすると、アプリとしてインストールできます。"
-msgstr ""
-"Адкрыйце меню браўзера і націсніце «Дадаць на галоўны экран», каб усталяваць"
-" яго як праграму."
-
-#: templates/base.html:273
-msgid "ホームへもどる"
-msgstr "Вяртанне дадому"
-
-#: templates/base.html:298
+#: templates/base.html:262
 msgid "GBBINFO-JPN開発者 Twitter"
 msgstr "GBBINFO-JPN распрацоўшчык Twitter"
 
-#: templates/base.html:300
+#: templates/base.html:264
 msgid "GBBINFO-JPNについて"
 msgstr "GBBINFO-JPN пра"
 
-#: templates/base.html:302 templates/others/translation.html:3
+#: templates/base.html:266 templates/others/translation.html:3
 #: templates/others/translation.html:4 templates/others/translation.html:5
 #: templates/others/translation.html:10
 msgid "各ページの翻訳提供について"
 msgstr "Аб наданні перакладаў для кожнай старонкі"
 
-#: templates/base.html:328
+#: templates/base.html:290
 msgid "いい景色だろ？"
 msgstr "Прыгожыя краявіды, праўда?"
 
@@ -1529,7 +1542,7 @@ msgstr "Падрабязнi кваліфікацыі"
 #: templates/common/cancels.html:54 templates/common/japan.html:51
 #: templates/common/korea.html:51 templates/common/participants.html:102
 msgid "Wildcard結果発表日"
-msgstr "Вынікі розыгрышу"
+msgstr "Дата абвяшчэння вынікаў Wildcard"
 
 #: templates/common/japan.html:43
 msgid "日本代表なし"
@@ -1650,6 +1663,11 @@ msgstr "Гэта старонка GB GBB {year}, якая ўжо скончыл�
 #: templates/includes/ended.html:9 templates/includes/popup_ended.html:12
 msgid "GBB最新情報はこちら"
 msgstr "Апошнія навіны GBB тут"
+
+#: templates/includes/hamburger_menu.html:3
+#: templates/includes/hamburger_menu.html:6
+msgid "メニュー"
+msgstr "Меню"
 
 #: templates/includes/notice.html:4
 msgid "管理人からのお知らせ"
