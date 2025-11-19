@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-17 20:44+0900\n"
+"POT-Creation-Date: 2025-11-19 14:30+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh_Hant_TW <LL@li.org>\n"
@@ -1235,11 +1235,11 @@ msgstr "關於活動的聯絡方式"
 
 #: templates/2026/top.html:205
 msgid "チケットに関する問い合わせ先"
-msgstr "關於票務的諮詢"
+msgstr "關於票務的聯絡方式"
 
 #: templates/2026/top.html:210
 msgid "なお上記問い合わせ先は、当サイトとは無関係です。"
-msgstr "此外，上述的諮詢處與本網站無關。"
+msgstr "請注意，上述聯絡方式與本網站無關。"
 
 #: templates/base.html:34 templates/base.html:44 templates/base.html:48
 msgid ""

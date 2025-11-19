@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-17 20:44+0900\n"
+"POT-Creation-Date: 2025-11-19 14:30+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ga <LL@li.org>\n"
@@ -1357,7 +1357,7 @@ msgstr "Teagmháil maidir le himeachtaí"
 
 #: templates/2026/top.html:205
 msgid "チケットに関する問い合わせ先"
-msgstr "Iarratais maidir le ticéid"
+msgstr "Teagmháil maidir le ticéid"
 
 #: templates/2026/top.html:210
 msgid "なお上記問い合わせ先は、当サイトとは無関係です。"
