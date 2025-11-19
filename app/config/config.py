@@ -157,7 +157,6 @@ https://gbbinfo-jpn.onrender.com/{year}/
 
 PROMPT_TRANSLATE = """Translate this text to {lang}.
 Keep names in English. Return JSON only. Strictly follow the JSON format for output.
-Escape internal double quotes (") by prefixing them with a backslash to keep the returned JSON valid.
 Return exactly this schema:
 {{
     "translated_text": "translation here"
