@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-19 14:30+0900\n"
+"POT-Creation-Date: 2025-11-19 14:34+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: no <LL@li.org>\n"
@@ -1623,7 +1623,7 @@ msgstr "Rangering"
 
 #: templates/includes/bottom_navigation.html:24
 msgid "さがす"
-msgstr "Søke"
+msgstr "Søk"
 
 #: templates/includes/bottom_navigation.html:24
 msgid "とじる"
@@ -1648,7 +1648,7 @@ msgstr "Informasjon om GBB {year} finner du her"
 
 #: templates/includes/ended.html:3 templates/includes/popup_ended.html:6
 msgid "中止"
-msgstr "Avbryte"
+msgstr "Avlyst"
 
 #: templates/includes/ended.html:6 templates/includes/popup_ended.html:9
 #, python-brace-format

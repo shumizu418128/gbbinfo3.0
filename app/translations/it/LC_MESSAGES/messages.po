@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-19 14:30+0900\n"
+"POT-Creation-Date: 2025-11-19 14:34+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: it <LL@li.org>\n"
@@ -1090,7 +1090,7 @@ msgstr "Limitazione di età: Avere almeno 16 anni il giorno dell'evento."
 
 #: templates/2025/wildcard_regulation.html:124
 msgid "未成年者(18歳未満)の参加:"
-msgstr "Partecipazione di: **未成年者(18歳未満)**"
+msgstr "Partecipazione dei minorenni (sotto i 18 anni):"
 
 #: templates/2025/wildcard_regulation.html:126
 msgid "保護者の同伴が必須"

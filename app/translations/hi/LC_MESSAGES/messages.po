@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-19 14:30+0900\n"
+"POT-Creation-Date: 2025-11-19 14:34+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: hi <LL@li.org>\n"
@@ -889,7 +889,7 @@ msgstr ""
 #: templates/common/korea.html:50 templates/common/result.html:105
 #: templates/others/translation.html:19
 msgid "ルール & 審査員"
-msgstr "नियम & जज"
+msgstr "नियम & परीक्षक"
 
 #: templates/2025/time_schedule.html:15
 msgid "GBB24では、本番約1ヶ月前に公開されましたが、誤記が多くみられました。"
@@ -1034,7 +1034,7 @@ msgstr "आयु सीमा"
 
 #: templates/2025/wildcard_regulation.html:41
 msgid "Wildcard提出について"
-msgstr "**Wildcard प्रस्तुति के बारे में**"
+msgstr "Wildcard प्रस्तुति के बारे में"
 
 #: templates/2025/wildcard_regulation.html:45
 #: templates/2025/wildcard_regulation.html:197
@@ -1615,7 +1615,7 @@ msgstr "हार"
 
 #: templates/common/result.html:62
 msgid "順位"
-msgstr "**अनुक्रम**"
+msgstr "रैंक"
 
 #: templates/includes/bottom_navigation.html:24
 msgid "さがす"

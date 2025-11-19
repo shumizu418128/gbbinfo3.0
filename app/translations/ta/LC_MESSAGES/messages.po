@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-19 14:30+0900\n"
+"POT-Creation-Date: 2025-11-19 14:34+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ta <LL@li.org>\n"
@@ -101,7 +101,7 @@ msgstr "Wildcard விதி"
 #: templates/2024/rule.html:46 templates/2024/rule.html:272
 #: templates/2025/rule.html:45 templates/2025/rule.html:305
 msgid "本戦審査員一覧"
-msgstr "ஸ்ட்ரீமிங் நடுவர்கள் பட்டியல்"
+msgstr "முதன்மை போட்டி நடுவர்கள் பட்டியல்"
 
 #: templates/2024/rule.html:50 templates/2024/rule.html:316
 #: templates/2025/rule.html:49 templates/2025/rule.html:361
@@ -475,7 +475,7 @@ msgstr "டிக்கெட் பியா"
 
 #: templates/2024/ticket.html:15
 msgid "楽天チケット"
-msgstr "ரகுபதேக் கட்டளை"
+msgstr "ராகுடென் டிக்கெட்"
 
 #: templates/2024/ticket.html:19 templates/2024/top.html:76
 #: templates/2025/ticket.html:13 templates/2025/top.html:127
@@ -891,8 +891,10 @@ msgstr "ரெஃபரி பற்றி"
 msgid ""
 "レフェリーは、GBB23から導入された、審査員とは別のメンバーです。審査員は各出場者の評価を行うのに対し、レフェリーは「ルールを守っているか」を確認する役割を担います。"
 msgstr ""
-"ரெஃபெரி, GBB23 இலிருந்து அறிமுகப்படுத்தப்பட்ட ஒரு நடுவர் குழு உறுப்பினர் "
-"ஆவார். நடுவர்கள் ஒவ்வொரு போட்டியாளரையும் மதிப்பிடும் அதே வேளையில், ரெஃபெரி "
+"ரெஃபெரி என்பது GBB23 முதல் அறிமுகப்படுத்தப்பட்ட, நடுவர்களிலிருந்து வேறு "
+"உறுப்பினர். நடுவர்கள் ஒவ்வொரு போட்டியாளரையும் மதிப்பிடுகின்றனர்; அதற்கு "
+"மாறாக, ரெஃபெரி 「விதிகள் பின்பற்றப்படுகிறதா」 என்பதைச் சரிபார்க்கும் பங்கு "
+"வகிக்கிறார்."
 
 #: templates/2025/ticket.html:16 templates/common/japan.html:50
 #: templates/common/korea.html:50 templates/common/result.html:105
@@ -1285,14 +1287,15 @@ msgstr ""
 #: templates/2025/wildcard_regulation.html:251
 msgid "FOH (ミキシング デスク) または録音への出力はステレオ信号である必要があり、マルチチャンネル出力は禁止"
 msgstr ""
-"FOH (mikisingu desuku) allatu rekōdingkiḷḷum uḷḷa veḷiyīṭu oru stereo "
-"chīṅkaḷāka irukka vēṇṭum, palvēru cāṇal veḷiyīṭu taṭukkappaṭṭuḷḷatu."
+"FOH（மிக்சிங் டெஸ்க்） அல்லது பதிவிற்கான வெளியீடு ஸ்டீரியோ சிக்னலாக இருக்க "
+"வேண்டும்; மல்டி‑சானல் வெளியீடு தடை."
 
 #: templates/2025/wildcard_regulation.html:262
 msgid "Wildcard動画の作成にあたり使用したすべてのファイルを、バックアップ含め保存しておき、いつでも提出できるようにしておく"
 msgstr ""
-"Wildcard விடியேஸு அனைக்கு செய்து உயரக்கிற அரியுக்கி உயருகளிலையை, பாக்கவடும் "
-"நடுக்க வீஸுகியுள்ளுமு அலுவேளு எச்சக்கி அனைத்துக் கெயுருக்கிறுகு."
+"Wildcard வீடியோ உருவாக்கத்தில் பயன்படுத்திய அனைத்து கோப்புகளையும் "
+"(காப்புப்பிரதிகள் உட்பட) சேமித்து வைத்து, எப்போது வேண்டுமானாலும் "
+"சமர்ப்பிக்கத் தயாராக வைத்திருங்கள்."
 
 #: templates/2025/wildcard_regulation.html:265
 msgid "皆さんのWildcardを楽しみにしています！"

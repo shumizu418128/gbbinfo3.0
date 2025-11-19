@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-19 14:30+0900\n"
+"POT-Creation-Date: 2025-11-19 14:34+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: es <LL@li.org>\n"
@@ -1015,8 +1015,9 @@ msgstr "Cerrar"
 #: templates/2025/top.html:188 templates/2026/top.html:189
 msgid "お探しの情報は、当サイトにありません。下記お問い合わせより、GBB運営に直接お尋ねください。"
 msgstr ""
-"La información que busca no está en este sitio. Por favor, pregunte "
-"directamente a la administración de GBB a través de la siguiente consulta."
+"La información que busca no está en este sitio. Por favor, consulte "
+"directamente con la organización de GBB a través de los siguientes datos de "
+"contacto."
 
 #: templates/2025/top.html:200
 msgid "記載の番号"
@@ -1370,7 +1371,7 @@ msgstr "Contacto para eventos"
 
 #: templates/2026/top.html:205
 msgid "チケットに関する問い合わせ先"
-msgstr "Consultas sobre boletos"
+msgstr "Consultas sobre entradas"
 
 #: templates/2026/top.html:210
 msgid "なお上記問い合わせ先は、当サイトとは無関係です。"

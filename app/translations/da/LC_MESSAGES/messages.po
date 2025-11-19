@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-19 14:30+0900\n"
+"POT-Creation-Date: 2025-11-19 14:34+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: da <LL@li.org>\n"
@@ -87,7 +87,7 @@ msgstr "Liste over afholdte afdelinger"
 #: templates/2025/rule.html:37 templates/2025/rule.html:128
 #: templates/2026/rule.html:68
 msgid "出場シード権 獲得条件"
-msgstr "Udstedelsesfrøs kvalifikationskriterier"
+msgstr "Kriterier for at opnå seed-pladser"
 
 #: templates/2024/rule.html:42 templates/2024/rule.html:230
 #: templates/2025/rule.html:41 templates/2025/rule.html:246

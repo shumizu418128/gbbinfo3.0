@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-19 14:30+0900\n"
+"POT-Creation-Date: 2025-11-19 14:34+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ms <LL@li.org>\n"
@@ -762,7 +762,7 @@ msgstr "Nombor telefon"
 
 #: templates/2024/top.html:128
 msgid "チケット販売ページ記載の番号"
-msgstr "Halaman jualan tiket"
+msgstr "Nombor yang tertera pada halaman jualan tiket"
 
 #: templates/2024/top.html:140 templates/2025/top.html:216
 msgid "なお上記電話番号は、当サイトとは無関係です。"
@@ -1569,7 +1569,7 @@ msgstr "Tiada wakil Korea"
 
 #: templates/common/participants.html:27
 msgid "シード権獲得者"
-msgstr "Pemenang tempat"
+msgstr "Penerima hak seed"
 
 #: templates/common/participants.html:33
 #: templates/includes/participants_form.html:20
