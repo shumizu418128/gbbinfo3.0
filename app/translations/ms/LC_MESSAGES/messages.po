@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-19 14:34+0900\n"
+"POT-Creation-Date: 2025-11-19 14:43+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ms <LL@li.org>\n"
@@ -1347,11 +1347,11 @@ msgstr "Diterbitkan lebih awal"
 
 #: templates/2026/top.html:201
 msgid "イベントに関する問い合わせ先"
-msgstr "Pertanyaan mengenai acara"
+msgstr "Maklumat hubungan untuk pertanyaan mengenai acara"
 
 #: templates/2026/top.html:205
 msgid "チケットに関する問い合わせ先"
-msgstr "Pertanyaan mengenai tiket"
+msgstr "Maklumat hubungan untuk pertanyaan mengenai tiket"
 
 #: templates/2026/top.html:210
 msgid "なお上記問い合わせ先は、当サイトとは無関係です。"

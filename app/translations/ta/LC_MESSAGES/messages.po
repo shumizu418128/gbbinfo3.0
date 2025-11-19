@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-19 14:34+0900\n"
+"POT-Creation-Date: 2025-11-19 14:43+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ta <LL@li.org>\n"
@@ -1364,11 +1364,11 @@ msgstr "முன்னுரிமை வெளியீடு"
 
 #: templates/2026/top.html:201
 msgid "イベントに関する問い合わせ先"
-msgstr "நிகழ்வு தொடர்பான விசாரணை தொடர்பு"
+msgstr "நிகழ்வு தொடர்பு"
 
 #: templates/2026/top.html:205
 msgid "チケットに関する問い合わせ先"
-msgstr "டிக்கெட் பற்றிய விசாரணை"
+msgstr "டிக்கெட் தொடர்பு"
 
 #: templates/2026/top.html:210
 msgid "なお上記問い合わせ先は、当サイトとは無関係です。"

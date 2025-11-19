@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-19 14:34+0900\n"
+"POT-Creation-Date: 2025-11-19 14:43+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: hi <LL@li.org>\n"
@@ -179,8 +179,9 @@ msgid ""
 "Loopstationのセカンドデバイス（Loopstationに接続する端末）ありの部門で、GBB23で「Producer "
 "showcase」として新設されました。その代わり、Loopstation部門においてセカンドデバイスの使用が禁止されます。"
 msgstr ""
-"Loopstation के सेकंड डिवाइस (Loopstation से कनेक्ट होने वाला टर्मिनल) वाले "
-"विभाग में, GBB23 में इसे "
+"Loopstation के सेकंड डिवाइस (Loopstation से कनेक्ट होने वाला डिवाइस) वाला यह"
+" विभाग GBB23 में \"Producer showcase\" के रूप में नया शुरू किया गया था। इसके"
+" बदले Loopstation विभाग में सेकंड डिवाइस का उपयोग निषिद्ध कर दिया गया है।"
 
 #: templates/2024/rule.html:126 templates/2025/rule.html:117
 msgid "忘れられたTag Team Loopstation..."
@@ -1048,7 +1049,7 @@ msgstr "अयोग्य न होने के लिए"
 
 #: templates/2025/wildcard_regulation.html:61
 msgid "以下に示す内容は、Wildcardを作るBeatboxer向けの情報です。"
-msgstr "नीचे दी गई जानकारी **Wildcard** बनाने वाले बीटबॉक्सर के लिए है।"
+msgstr "नीचे दी गई जानकारी Wildcard बनाने वाले बीटबॉक्सर के लिए है।"
 
 #: templates/2025/wildcard_regulation.html:62
 msgid "当サイト管理人はBeatboxerではありません。また、当サイト管理人はGBB運営と一切無関係です。"
@@ -1598,7 +1599,7 @@ msgstr "खोज परिणाम"
 
 #: templates/common/participants.html:139
 msgid "全出場者を地図にマッピングしました。"
-msgstr "मैंने सभी प्रतिभागियों को मानचित्र पर अंकित किया है।"
+msgstr "सभी प्रतिभागियों को मानचित्र पर अंकित किया गया है।"
 
 #: templates/common/result.html:19 templates/common/result.html:84
 #: templates/includes/participants_form.html:3

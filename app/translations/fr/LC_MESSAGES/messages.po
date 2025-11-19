@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-19 14:34+0900\n"
+"POT-Creation-Date: 2025-11-19 14:43+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -480,7 +480,7 @@ msgstr "Rakuten Ticket"
 #: templates/2025/ticket.html:13 templates/2025/top.html:127
 #: templates/2026/top.html:131 templates/includes/hamburger_menu.html:20
 msgid "チケット"
-msgstr "billet"
+msgstr "Billets"
 
 #: templates/2024/time_schedule.html:11 templates/2025/time_schedule.html:12
 #: templates/2026/time_schedule.html:15

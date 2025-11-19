@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-19 14:34+0900\n"
+"POT-Creation-Date: 2025-11-19 14:43+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: de <LL@li.org>\n"
@@ -59,7 +59,7 @@ msgstr "Quell-Website:"
 #: templates/2025/top.html:158 templates/2025/top_7tosmoke.html:36
 #: templates/2025/wildcards.html:112 templates/includes/hamburger_menu.html:24
 msgid "現地観戦計画のたてかた"
-msgstr "So planen Sie eine Live-Veranstaltung"
+msgstr "So planen Sie Ihren Besuch vor Ort"
 
 #: templates/2024/rule.html:26 templates/2024/time_schedule.html:16
 #: templates/2025/rule.html:26 templates/2025/time_schedule.html:18
@@ -659,7 +659,7 @@ msgstr "Zuletzt aktualisiert"
 #: templates/common/korea.html:9 templates/includes/hamburger_menu.html:16
 #: templates/others/participant_detail.html:259
 msgid "韓国代表"
-msgstr "Südkorea-Nationalmannschaft"
+msgstr "Vertreter Südkoreas"
 
 #: templates/2024/top.html:71 templates/2025/rule.html:242
 #: templates/2025/ticket.html:21 templates/2025/time_schedule.html:240
@@ -670,7 +670,7 @@ msgstr "Südkorea-Nationalmannschaft"
 #: templates/others/participant_detail.html:261
 #: templates/others/translation.html:21
 msgid "日本代表"
-msgstr "Die japanische Nationalmannschaft"
+msgstr "Vertreter Japans"
 
 #: templates/2024/top.html:80
 msgid "みんなで鑑賞会"
@@ -1476,7 +1476,7 @@ msgstr "Lass uns nach GBB {year} suchen"
 #: templates/2026/top.html:37 templates/2026/top_7tosmoke.html:18
 #: templates/base.html:218 templates/includes/bottom_navigation.html:52
 msgid "例：現地観戦計画のたてかた"
-msgstr "Wie man einen Plan für die Live-Veranstaltung erstellt"
+msgstr "Wie man den Besuch vor Ort plant"
 
 #: templates/base.html:228
 msgid "ホーム画面に追加"

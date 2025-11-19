@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-19 14:34+0900\n"
+"POT-Creation-Date: 2025-11-19 14:43+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh_Hant_TW <LL@li.org>\n"
@@ -945,7 +945,7 @@ msgstr "關閉"
 
 #: templates/2025/top.html:188 templates/2026/top.html:189
 msgid "お探しの情報は、当サイトにありません。下記お問い合わせより、GBB運営に直接お尋ねください。"
-msgstr "您所尋找的資訊在本網站上沒有。請透過以下諮詢方式直接洽詢GBB營運單位。"
+msgstr "您所尋找的資訊在本網站上沒有。請透過下方的聯絡方式直接洽詢GBB營運單位。"
 
 #: templates/2025/top.html:200
 msgid "記載の番号"

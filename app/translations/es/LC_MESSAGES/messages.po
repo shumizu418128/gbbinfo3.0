@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-19 14:34+0900\n"
+"POT-Creation-Date: 2025-11-19 14:43+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: es <LL@li.org>\n"
@@ -1525,7 +1525,7 @@ msgstr "Participantes"
 
 #: templates/base.html:262
 msgid "GBBINFO-JPN開発者 Twitter"
-msgstr "GBBINFO-JPN desarrolladores Twitter"
+msgstr "Twitter del desarrollador de GBBINFO-JPN"
 
 #: templates/base.html:264
 msgid "GBBINFO-JPNについて"
@@ -1679,7 +1679,7 @@ msgstr "Información de GBB {year} aquí"
 
 #: templates/includes/ended.html:3 templates/includes/popup_ended.html:6
 msgid "中止"
-msgstr "Abortar"
+msgstr "Cancelado"
 
 #: templates/includes/ended.html:6 templates/includes/popup_ended.html:9
 #, python-brace-format

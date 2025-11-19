@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-19 14:34+0900\n"
+"POT-Creation-Date: 2025-11-19 14:43+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: pt <LL@li.org>\n"
@@ -664,7 +664,7 @@ msgstr "Última atualização"
 #: templates/common/korea.html:9 templates/includes/hamburger_menu.html:16
 #: templates/others/participant_detail.html:259
 msgid "韓国代表"
-msgstr "Representantes Coreanos"
+msgstr "Representantes da Coreia do Sul"
 
 #: templates/2024/top.html:71 templates/2025/rule.html:242
 #: templates/2025/ticket.html:21 templates/2025/time_schedule.html:240
@@ -675,7 +675,7 @@ msgstr "Representantes Coreanos"
 #: templates/others/participant_detail.html:261
 #: templates/others/translation.html:21
 msgid "日本代表"
-msgstr "Representantes Japoneses"
+msgstr "Representantes do Japão"
 
 #: templates/2024/top.html:80
 msgid "みんなで鑑賞会"
@@ -1358,7 +1358,7 @@ msgstr "Pré-visualização"
 
 #: templates/2026/top.html:201
 msgid "イベントに関する問い合わせ先"
-msgstr "Contato para eventos"
+msgstr "Contato para dúvidas sobre o evento"
 
 #: templates/2026/top.html:205
 msgid "チケットに関する問い合わせ先"

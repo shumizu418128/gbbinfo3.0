@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-19 14:34+0900\n"
+"POT-Creation-Date: 2025-11-19 14:43+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: be <LL@li.org>\n"
@@ -59,7 +59,7 @@ msgstr "крыніца сайт:"
 #: templates/2025/top.html:158 templates/2025/top_7tosmoke.html:36
 #: templates/2025/wildcards.html:112 templates/includes/hamburger_menu.html:24
 msgid "現地観戦計画のたてかた"
-msgstr "Як скласці план наведвання матчу"
+msgstr "Як спланаваць наведванне мерапрыемства на месцы"
 
 #: templates/2024/rule.html:26 templates/2024/time_schedule.html:16
 #: templates/2025/rule.html:26 templates/2025/time_schedule.html:18
@@ -161,7 +161,7 @@ msgstr "насенне"
 
 #: templates/2024/rule.html:81 templates/2025/rule.html:77
 msgid "計"
-msgstr "Лічыльнік"
+msgstr "Агулам"
 
 #: templates/2024/rule.html:118 templates/2025/rule.html:115
 #: templates/2025/wildcard_regulation.html:113
@@ -715,7 +715,7 @@ msgstr "Спіс Wildcard"
 #: templates/2025/top.html:185 templates/2025/top_7tosmoke.html:48
 #: templates/2026/top.html:186 templates/2026/top_7tosmoke.html:48
 msgid "お問い合わせ"
-msgstr "запыт"
+msgstr "Кантакты"
 
 #: templates/2024/top.html:109 templates/2025/top.html:176
 #: templates/2026/top.html:177
@@ -944,7 +944,7 @@ msgstr "Ключавыя словы"
 #: templates/2026/top.html:69 templates/2026/top.html:81
 #: templates/2026/top.html:86 templates/2026/top.html:87
 msgid "ワイルドカード"
-msgstr "джокер"
+msgstr "Wildcard"
 
 #: templates/2025/top.html:43 templates/2025/top.html:51
 #: templates/2025/top.html:70 templates/2025/top.html:74
@@ -1037,7 +1037,7 @@ msgstr "узроставыя абмежаванні"
 
 #: templates/2025/wildcard_regulation.html:41
 msgid "Wildcard提出について"
-msgstr "Пра Wildcard"
+msgstr "Аб падачы Wildcard"
 
 #: templates/2025/wildcard_regulation.html:45
 #: templates/2025/wildcard_regulation.html:197
@@ -1104,7 +1104,7 @@ msgstr "Аб стварэнні і падачы Wildcard"
 
 #: templates/2025/wildcard_regulation.html:140
 msgid "Wildcard動画の内容"
-msgstr "Змест відэа з Wildcard"
+msgstr "Змест відэа Wildcard"
 
 #: templates/2025/wildcard_regulation.html:141
 msgid "動画の冒頭で、以下のように自己紹介する"
@@ -1495,7 +1495,7 @@ msgstr "Вынікі Wildcard"
 #: templates/base.html:243 templates/common/result.html:106
 #: templates/includes/hamburger_menu.html:9
 msgid "出場者"
-msgstr "удзельнік"
+msgstr "Удзельнік"
 
 #: templates/base.html:262
 msgid "GBBINFO-JPN開発者 Twitter"
