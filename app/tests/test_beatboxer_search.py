@@ -154,6 +154,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         ]
 
         mock_search_result = {
+            "answer": "mock answer",
             "results": [
                 {
                     "title": "Test Beatboxer Official Site",
@@ -167,7 +168,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                     "content": "Instagram profile",
                     "primary_domain": "instagram.com",
                 },
-            ]
+            ],
         }
         mock_tavily.search.return_value = mock_search_result
 
@@ -202,6 +203,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         mock_supabase.get_data.return_value = []  # キャッシュなし
 
         mock_search_result = {
+            "answer": "mock answer",
             "results": [
                 {
                     "title": "Direct Name Search Result",
@@ -209,7 +211,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                     "content": "Direct search result",
                     "primary_domain": "example.com",
                 }
-            ]
+            ],
         }
 
         with patch("app.views.beatboxer_tavily_search.tavily_service") as mock_tavily:
@@ -251,6 +253,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         ]
 
         mock_search_result = {
+            "answer": "mock answer",
             "results": [
                 {
                     "title": "YouTube Beatbox Video",
@@ -264,7 +267,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                     "content": "Other content",
                     "primary_domain": "example.com",
                 },
-            ]
+            ],
         }
         mock_tavily.search.return_value = mock_search_result
 
@@ -298,6 +301,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         ]
 
         mock_search_result = {
+            "answer": "mock answer",
             "results": [
                 {
                     "title": "Clean Result",
@@ -317,7 +321,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                     "content": "This is JPN CUP related",
                     "primary_domain": "example.com",
                 },
-            ]
+            ],
         }
         mock_tavily.search.return_value = mock_search_result
 
@@ -332,6 +336,71 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
 
     @patch("app.views.beatboxer_tavily_search.supabase_service")
     @patch("app.views.beatboxer_tavily_search.tavily_service")
+    def test_insert_tavily_data_called_when_answer_exists(
+        self, mock_tavily, mock_supabase
+    ):
+        """answerありの検索結果が保存されることを検証する。
+
+        Args:
+            mock_tavily (MagicMock): Tavilyサービスのモック。
+            mock_supabase (MagicMock): Supabaseサービスのモック。
+        """
+        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+
+        mock_supabase.get_tavily_data.return_value = []
+        response = {
+            "answer": "sample answer",
+            "results": [
+                {
+                    "title": "Result",
+                    "url": "https://example.com/clean",
+                    "content": "This is clean content",
+                    "primary_domain": "example.com",
+                }
+            ],
+        }
+        mock_tavily.search.return_value = response
+
+        beatboxer_tavily_search(beatboxer_name="Test Name")
+
+        mock_supabase.insert_tavily_data.assert_called_once_with(
+            cache_key="tavily_search_Test_Name",
+            search_result=response,
+        )
+
+    @patch("app.views.beatboxer_tavily_search.supabase_service")
+    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    def test_insert_tavily_data_skipped_when_answer_missing(
+        self, mock_tavily, mock_supabase
+    ):
+        """answerがNoneの場合に保存をスキップすることを検証する。
+
+        Args:
+            mock_tavily (MagicMock): Tavilyサービスのモック。
+            mock_supabase (MagicMock): Supabaseサービスのモック。
+        """
+        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+
+        mock_supabase.get_tavily_data.return_value = []
+        response = {
+            "answer": None,
+            "results": [
+                {
+                    "title": "Result",
+                    "url": "https://example.com/clean",
+                    "content": "This is clean content",
+                    "primary_domain": "example.com",
+                }
+            ],
+        }
+        mock_tavily.search.return_value = response
+
+        beatboxer_tavily_search(beatboxer_name="Test Name")
+
+        mock_supabase.insert_tavily_data.assert_not_called()
+
+    @patch("app.views.beatboxer_tavily_search.supabase_service")
+    @patch("app.views.beatboxer_tavily_search.tavily_service")
     def test_beatboxer_tavily_search_minimum_results(self, mock_tavily, mock_supabase):
         """beatboxer_tavily_search関数で最低3件の結果を確保するロジックをテストする"""
         from app.views.beatboxer_tavily_search import beatboxer_tavily_search
@@ -343,6 +412,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         ]
 
         mock_search_result = {
+            "answer": "mock answer",
             "results": [
                 {
                     "title": "Result 1",
@@ -368,7 +438,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                     "content": "Content 4",
                     "primary_domain": "example4.com",
                 },
-            ]
+            ],
         }
         mock_tavily.search.return_value = mock_search_result
 
@@ -408,7 +478,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                 }
             )
 
-        mock_search_result = {"results": mock_results}
+        mock_search_result = {"answer": "mock answer", "results": mock_results}
         mock_tavily.search.return_value = mock_search_result
 
         # テスト実行
@@ -473,6 +543,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         ]
 
         mock_search_result = {
+            "answer": "mock answer",
             "results": [
                 {
                     "title": "Short YouTube URL",
@@ -480,7 +551,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                     "content": "Short URL beatbox video",
                     "primary_domain": "youtu.be",
                 }
-            ]
+            ],
         }
         mock_tavily.search.return_value = mock_search_result
 
