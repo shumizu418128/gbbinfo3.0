@@ -227,7 +227,7 @@ msgstr ""
 #: templates/2026/time_schedule.html:139 templates/common/cancels.html:38
 #: templates/common/participants.html:19 templates/common/participants.html:85
 #: templates/common/result.html:79
-msgid "～発表次第更新～"
+msgid "発表次第更新"
 msgstr ""
 
 #: templates/2024/rule.html:163 templates/2025/rule.html:159
@@ -1627,4 +1627,3 @@ msgstr ""
 #: templates/others/translation.html:32
 msgid "翻訳を提供していないページは、原文である日本語で表示されます。"
 msgstr ""
-

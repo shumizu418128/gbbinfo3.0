@@ -246,7 +246,7 @@ msgstr "Qualificação"
 #: templates/2026/time_schedule.html:139 templates/common/cancels.html:38
 #: templates/common/participants.html:19 templates/common/participants.html:85
 #: templates/common/result.html:79
-msgid "～発表次第更新～"
+msgid "発表次第更新"
 msgstr "Atualizado assim que anunciado"
 
 #: templates/2024/rule.html:163 templates/2025/rule.html:159
