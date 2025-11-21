@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-21 15:41+0900\n"
+"POT-Creation-Date: 2025-11-21 17:09+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ms <LL@li.org>\n"
@@ -165,7 +165,7 @@ msgstr "Sila semak semula peraturan sendiri."
 #: templates/others/participant_detail.html:115
 #: templates/others/participant_detail.html:155
 msgid "部門"
-msgstr "Bahagian"
+msgstr "Kategori"
 
 #: templates/2024/rule.html:80 templates/2025/rule.html:76
 msgid "シード"
@@ -1329,7 +1329,7 @@ msgstr "Dibatalkan"
 
 #: templates/2026/rule.html:141
 msgid "SHOWCASEとは"
-msgstr "SHOWCASE itu apa"
+msgstr "Apakah SHOWCASE?"
 
 #: templates/2026/rule.html:143
 msgid "2026年から新部門として「SHOWCASE」が追加されました。"
