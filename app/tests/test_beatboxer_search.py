@@ -543,7 +543,9 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             [],  # existing_cache for saving translation
         ]
 
-        mock_gemini.ask.return_value = {"translated_text": "これは回答です"}
+        mock_gemini.ask.return_value = {
+            "translated_text": "長い翻訳済みの回答テキストです"
+        }
 
         with patch("app.main.flask_cache") as mock_cache:
             mock_cache.get.return_value = None  # 内部キャッシュなし
@@ -554,7 +556,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             )
 
             # 検証
-            self.assertEqual(result, "これは回答です")
+            self.assertEqual(result, "長い翻訳済みの回答テキストです")
             # Gemini APIが呼ばれたことを確認
             mock_gemini.ask.assert_called_once()
 
@@ -631,7 +633,9 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         ]
 
         # Gemini APIがリストを返す
-        mock_gemini.ask.return_value = [{"translated_text": "これは回答です"}]
+        mock_gemini.ask.return_value = [
+            {"translated_text": "長い翻訳済みの回答テキストです"}
+        ]
 
         with patch("app.main.flask_cache") as mock_cache:
             mock_cache.get.return_value = None
@@ -642,7 +646,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             )
 
             # 検証
-            self.assertEqual(result, "これは回答です")
+            self.assertEqual(result, "長い翻訳済みの回答テキストです")
 
     @patch("app.views.beatboxer_tavily_search.supabase_service")
     @patch("app.views.beatboxer_tavily_search.gemini_service")
@@ -925,7 +929,9 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         ]
 
         # Gemini APIのモック（成功）
-        mock_gemini.ask.return_value = {"translated_text": "成功した翻訳結果"}
+        mock_gemini.ask.return_value = {
+            "translated_text": "リトライ後の詳細な翻訳テキストです"
+        }
 
         with patch("app.main.flask_cache") as mock_cache:
             mock_cache.get.return_value = None
@@ -936,7 +942,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             )
 
             # 検証：成功した結果が返される
-            self.assertEqual(result, "成功した翻訳結果")
+            self.assertEqual(result, "リトライ後の詳細な翻訳テキストです")
             # Gemini APIが1回呼ばれたことを確認
             self.assertEqual(mock_gemini.ask.call_count, 1)
 
@@ -1005,7 +1011,9 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         ]
 
         # Gemini APIのモック
-        mock_gemini.ask.return_value = {"translated_text": "新しい翻訳結果"}
+        mock_gemini.ask.return_value = {
+            "translated_text": "キャッシュ更新用の翻訳テキストです"
+        }
 
         with patch("app.main.flask_cache") as mock_cache:
             mock_cache.get.return_value = None
@@ -1016,7 +1024,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             )
 
             # 検証
-            self.assertEqual(result, "新しい翻訳結果")
+            self.assertEqual(result, "キャッシュ更新用の翻訳テキストです")
             # update_translated_answerが呼ばれたことを確認
             mock_supabase.update_translated_answer.assert_called_once()
             # 呼び出し時の引数を確認
@@ -1026,7 +1034,9 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             # 既存のキャッシュ（en）と新しい翻訳（ja）が両方含まれることを確認
             translated_answer = call_args.kwargs["translated_answer"]
             self.assertIn("ja", translated_answer)
-            self.assertEqual(translated_answer["ja"], "新しい翻訳結果")
+            self.assertEqual(
+                translated_answer["ja"], "キャッシュ更新用の翻訳テキストです"
+            )
             self.assertIn("en", translated_answer)
             self.assertEqual(translated_answer["en"], "existing translation")
 

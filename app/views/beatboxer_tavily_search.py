@@ -369,6 +369,14 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language_code: str):
     else:
         translated_answer = answer
 
+    # まれに翻訳結果が「なし」などの場合があるので、10文字未満の場合は空文字列を返す
+    if len(translated_answer) < 10:
+        print(
+            f"ERROR: translated_answerが短すぎます beatboxer_id: {beatboxer_id} mode: {mode}",
+            flush=True,
+        )
+        return ""
+
     # キャッシュに保存
     # 翻訳結果を保存するためのディクショナリを準備
     translation_cache = {}
