@@ -1,6 +1,7 @@
 from flask import abort, redirect, render_template, request, session
 
 from app.config.config import MULTI_COUNTRY_TEAM_ISO_CODE
+from app.context_processors import get_available_years
 from app.models.supabase_client import supabase_service
 from app.util.filter_eq import Operator
 from app.util.participant_edit import edit_country_data, wildcard_rank_sort
@@ -24,6 +25,11 @@ def participants_view(year: int):
         クエリパラメータとしてcategory, ticket_class, cancel, scroll, valueを受け取る。
         パラメータの正当性を検証し、不正な場合はデフォルト値でリダイレクトする。
     """
+    # 年度の正当性チェック
+    available_years = get_available_years()
+    if year not in available_years:
+        abort(404)
+
     # クエリパラメータ
     category = request.args.get("category")
     ticket_class = request.args.get("ticket_class")
