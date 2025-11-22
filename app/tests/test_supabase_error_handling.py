@@ -86,7 +86,7 @@ class SupabaseErrorHandlingTestCase(unittest.TestCase):
     @patch("app.views.participants.supabase_service")
     @patch("app.context_processors.get_translated_urls")
     @patch("app.context_processors.is_gbb_ended")
-    @patch("app.context_processors.get_available_years")
+    @patch("app.views.participants.get_available_years")
     def test_participants_view_supabase_no_response(
         self,
         mock_get_available_years,
@@ -169,7 +169,7 @@ class SupabaseErrorHandlingTestCase(unittest.TestCase):
     @patch("app.views.participants.supabase_service")
     @patch("app.context_processors.get_translated_urls")
     @patch("app.context_processors.is_gbb_ended")
-    @patch("app.context_processors.get_available_years")
+    @patch("app.views.participants.get_available_years")
     def test_participants_view_empty_dataframe(
         self,
         mock_get_available_years,
