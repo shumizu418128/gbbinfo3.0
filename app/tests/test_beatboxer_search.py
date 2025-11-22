@@ -1469,10 +1469,12 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
     @patch("app.views.rule.supabase_service")
     @patch("app.context_processors.get_translated_urls")
     @patch("app.context_processors.is_gbb_ended")
+    @patch("app.context_processors.get_available_years")
     @patch("app.views.participants.get_available_years")
     def test_links_to_participant_detail_have_required_params(
         self,
-        mock_get_available_years,
+        mock_participants_get_available_years,
+        mock_context_get_available_years,
         mock_is_gbb_ended,
         mock_get_translated_urls,
         mock_rule_supabase,
@@ -1499,7 +1501,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         from urllib.parse import parse_qs, urlparse
 
         # コンテキスト依存の関数をモック
-        mock_get_available_years.return_value = [2025]
+        mock_participants_get_available_years.return_value = [2025]
+        mock_context_get_available_years.return_value = [2025]
         mock_is_gbb_ended.return_value = False
         mock_get_translated_urls.return_value = set()
 
