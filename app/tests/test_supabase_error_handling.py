@@ -86,16 +86,19 @@ class SupabaseErrorHandlingTestCase(unittest.TestCase):
     @patch("app.views.participants.supabase_service")
     @patch("app.context_processors.get_translated_urls")
     @patch("app.context_processors.is_gbb_ended")
+    @patch("app.context_processors.get_available_years")
     @patch("app.views.participants.get_available_years")
     def test_participants_view_supabase_no_response(
         self,
-        mock_get_available_years,
+        mock_participants_get_available_years,
+        mock_context_get_available_years,
         mock_is_gbb_ended,
         mock_get_translated_urls,
         mock_supabase,
     ):
         """participants_viewでSupabaseからの応答がない場合に500エラーが返されることをテスト"""
-        mock_get_available_years.return_value = [2025]
+        mock_participants_get_available_years.return_value = [2025]
+        mock_context_get_available_years.return_value = [2025]
         mock_is_gbb_ended.return_value = False
         mock_get_translated_urls.return_value = set()
 
@@ -169,10 +172,12 @@ class SupabaseErrorHandlingTestCase(unittest.TestCase):
     @patch("app.views.participants.supabase_service")
     @patch("app.context_processors.get_translated_urls")
     @patch("app.context_processors.is_gbb_ended")
+    @patch("app.context_processors.get_available_years")
     @patch("app.views.participants.get_available_years")
     def test_participants_view_empty_dataframe(
         self,
-        mock_get_available_years,
+        mock_participants_get_available_years,
+        mock_context_get_available_years,
         mock_is_gbb_ended,
         mock_get_translated_urls,
         mock_supabase,
@@ -180,7 +185,8 @@ class SupabaseErrorHandlingTestCase(unittest.TestCase):
         """participants_viewで空のDataFrameが返される場合に500エラーが返されることをテスト"""
         import pandas as pd
 
-        mock_get_available_years.return_value = [2025]
+        mock_participants_get_available_years.return_value = [2025]
+        mock_context_get_available_years.return_value = [2025]
         mock_is_gbb_ended.return_value = False
         mock_get_translated_urls.return_value = set()
 
