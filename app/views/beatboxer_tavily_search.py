@@ -151,10 +151,12 @@ def beatboxer_tavily_search(
     # キャッシュがない場合はTavilyで検索して保存
     if len(tavily_response) == 0:
         tavily_response = tavily_service.search(beatboxer_name)
-        supabase_service.insert_tavily_data(
-            cache_key=cache_key,
-            search_result=tavily_response,
-        )
+        # まれにanswerがnullの場合があるので、その場合は保存しない
+        if tavily_response["answer"] is not None:
+            supabase_service.insert_tavily_data(
+                cache_key=cache_key,
+                search_result=tavily_response,
+            )
 
     search_results_unfiltered = tavily_response["results"]
 
@@ -368,6 +370,14 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language_code: str):
     # 英語の場合はそのまま返す
     else:
         translated_answer = answer
+
+    # まれに翻訳結果が「なし」などの場合があるので、10文字未満の場合は空文字列を返す
+    if len(translated_answer) < 10:
+        print(
+            f"ERROR: translated_answerが短すぎます beatboxer_id: {beatboxer_id} mode: {mode}",
+            flush=True,
+        )
+        return ""
 
     # キャッシュに保存
     # 翻訳結果を保存するためのディクショナリを準備
