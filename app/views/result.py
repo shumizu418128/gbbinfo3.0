@@ -139,12 +139,16 @@ def result_view(year: int):
 
     # 両方ない場合、データなしとして扱う
     if len(result_data) == 0:
+        # SHOWCASE部門はバトルをしない
+        is_showcase = "SHOWCASE" in category
+
         context = {
             "year": year,
             "category": category,
             "result_data": [],
             "result_type": "",
             "all_category": all_category_names,
+            "is_showcase": is_showcase,
         }
         return render_template("common/result.html", **context)
 
@@ -176,7 +180,7 @@ def result_view(year: int):
 
         # 各ラウンドの結果をrankで昇順ソート（1位から順に）
         for round_key in result_defaultdict:
-            result_defaultdict[round_key].sort(key=lambda x: x['rank'])
+            result_defaultdict[round_key].sort(key=lambda x: x["rank"])
 
     elif result_type == "tournament":
         for result in result_data:
@@ -223,6 +227,7 @@ def result_view(year: int):
         "result_data": result_dict,
         "result_type": result_type,
         "all_category": all_category_names,
+        "is_showcase": False,
     }
 
     return render_template("common/result.html", **context)
