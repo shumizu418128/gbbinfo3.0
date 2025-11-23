@@ -140,7 +140,7 @@ def result_view(year: int):
     # 両方ない場合、データなしとして扱う
     if len(result_data) == 0:
         # SHOWCASE部門はバトルをしない
-        is_showcase = True if "SHOWCASE" in category else False
+        is_showcase = "SHOWCASE" in category
 
         context = {
             "year": year,
