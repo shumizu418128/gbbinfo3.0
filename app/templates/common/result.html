@@ -25,7 +25,9 @@
   </form>
 {% endif %}
 
-{% if result_type == "tournament" %}
+{% if is_showcase is true %}
+  <p style="text-align: center;">{{_("SHOWCASE部門は、バトルを行わないため、結果はありません。")}}</p>
+{% elif result_type == "tournament" %}
   {% for round, data in result_data.items() %}
     <h2>{{ category }} - {{ round }}</h2>
     <table>
