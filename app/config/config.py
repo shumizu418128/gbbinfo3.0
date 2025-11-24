@@ -34,7 +34,6 @@ SEARCH_CACHE = {
     "7TO": "/__year__/top_7tosmoke",
     "7TOSMOKE": "/__year__/top_7tosmoke",
     "日程": "/__year__/top?scroll=date",
-    "SHOWCASE": "/__year__/timetable?scroll=showcase",
     "スケジュール": "/__year__/timetable",
     "タイムテーブル": "/__year__/timetable",
     "時間": "/__year__/timetable",
