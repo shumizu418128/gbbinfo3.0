@@ -34,12 +34,11 @@ SEARCH_CACHE = {
     "7TO": "/__year__/top_7tosmoke",
     "7TOSMOKE": "/__year__/top_7tosmoke",
     "日程": "/__year__/top?scroll=date",
-    "SHOWCASE": "/__year__/time_schedule?scroll=showcase",
-    "スケジュール": "/__year__/time_schedule",
-    "タイムスケジュール": "/__year__/time_schedule",
-    "タイムテーブル": "/__year__/time_schedule",
-    "時間": "/__year__/time_schedule",
-    "일정": "/__year__/time_schedule",
+    "SHOWCASE": "/__year__/timetable?scroll=showcase",
+    "スケジュール": "/__year__/timetable",
+    "タイムテーブル": "/__year__/timetable",
+    "時間": "/__year__/timetable",
+    "일정": "/__year__/timetable",
     "チケット": "/__year__/ticket",
     "会場": "/__year__/ticket",
     "場所": "/__year__/ticket",
@@ -113,7 +112,7 @@ https://gbbinfo-jpn.onrender.com/{year}/
 - ticket: GBB{year}のチケット、会場、7toSmokeのチケット、会場
     クエリパラメータ
     - None
-- time_schedule: GBB{year}のタイムスケジュール、7toSmokeのタイムスケジュール、スペシャルSHOWCASEについて
+- timetable: GBB{year}のタイムテーブル、7toSmokeのタイムテーブル、スペシャルSHOWCASEについて
     クエリパラメータ
     - None
     - 7tosmoke

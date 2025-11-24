@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 
-{% block title %}GBB {{ year }} {{_("タイムスケジュール")}} - GBBINFO-JPN{% endblock %}
-{% block twitter_title %}GBB {{ year }} {{_("タイムスケジュール")}} - GBBINFO-JPN{% endblock %}
-{% block og_title %}GBB {{ year }} {{_("タイムスケジュール")}} - GBBINFO-JPN{% endblock %}
-{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/time_schedule{% endblock %}
-{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/time_schedule{% endblock %}
+{% block title %}GBB {{ year }} {{_("タイムテーブル")}} - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBB {{ year }} {{_("タイムテーブル")}} - GBBINFO-JPN{% endblock %}
+{% block og_title %}GBB {{ year }} {{_("タイムテーブル")}} - GBBINFO-JPN{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/timetable{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/timetable{% endblock %}
 {% block content %}
 
-<h1>GBB {{ year }} {{_("タイムスケジュール")}}</h1>
+<h1>GBB {{ year }} {{_("タイムテーブル")}}</h1>
 
 <p>{{_("時刻はあくまでも予定です。")}}</p>
 <p>{{_("GBB21では、予定から約2時間遅延しました。")}}</p>
-<p>{{_("GBB23では、本番7日前に日本語版・英語版のタイムスケジュールが公開されましたが、日本語版のみ正しく、英語版には誤記が多くみられました。")}}</p>
+<p>{{_("GBB23では、本番7日前に日本語版・英語版のタイムテーブルが公開されましたが、日本語版のみ正しく、英語版には誤記が多くみられました。")}}</p>
 <p>{{_("GBB24では、本番約1ヶ月前に公開されましたが、誤記が多くみられました。")}}</p>
 
 <div>
@@ -94,7 +94,7 @@
   </tbody>
 </table>
 
-<p>{{_("タイムスケジュールの終了時刻は19:30になっていますが、なぜか中継配信は21時まで行われるようです。理由は不明です。初日も21時まで行われるのかどうかも不明です。")}}</p>
+<p>{{_("タイムテーブルの終了時刻は19:30になっていますが、なぜか中継配信は21時まで行われるようです。理由は不明です。初日も21時まで行われるのかどうかも不明です。")}}</p>
 
 <div class="button-container">
   <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>

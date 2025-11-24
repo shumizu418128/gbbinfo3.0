@@ -28,6 +28,14 @@ def top_redirect_view():
     return redirect(f"/{latest_year}/top")
 
 
+# MARK: timetable
+def time_schedule_view(year: int):
+    """
+    タイムテーブルを表示するビュー。
+    """
+    return redirect(f"/{year}/timetable")
+
+
 # MARK: 共通ビュー
 def content_view(year: int, content: str):
     """
