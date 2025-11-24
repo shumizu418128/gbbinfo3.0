@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-24 16:43+0900\n"
+"POT-Creation-Date: 2025-11-24 17:23+0900\n"
 "PO-Revision-Date: 2025-10-29 23:04+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: et <LL@li.org>\n"
@@ -259,7 +259,7 @@ msgstr "Osalemisõigus"
 #: templates/common/cancels.html:38 templates/common/participants.html:19
 #: templates/common/participants.html:85 templates/common/result.html:83
 msgid "発表次第更新"
-msgstr "~Avaldamisel uuendatakse~"
+msgstr "Avaldamisel uuendatakse"
 
 #: templates/2024/rule.html:163 templates/2025/rule.html:159
 msgid "シード権 - その他"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-24 16:43+0900\n"
+"POT-Creation-Date: 2025-11-24 17:23+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: it <LL@li.org>\n"
@@ -38,8 +38,8 @@ msgstr "Regole"
 #, python-brace-format
 msgid "Swissbeatbox公式サイトにて、GBB {year} で実施される部門・Wildcardのルールについて発表がありました。"
 msgstr ""
-"Rules for the GBB {year} categories and Wildcard have been announced on the "
-"official Swissbeatbox website."
+"Sul sito ufficiale di Swissbeatbox sono state annunciate le regole per le "
+"categorie e le Wildcard che si terranno al GBB {year}."
 
 #: templates/2024/rule.html:12 templates/2025/rule.html:12
 #: templates/2025/wildcard_regulation.html:13 templates/2026/rule.html:12
@@ -440,7 +440,7 @@ msgstr "Per accompagnare la visione"
 #: templates/2026/stream.html:14 templates/includes/next_year.html:3
 #, python-brace-format
 msgid "GBB {year} の最新情報をチェックしよう"
-msgstr "Check out the latest information on GBB {year}"
+msgstr "Scopri le ultime novità su GBB {year}"
 
 #: templates/2024/stream.html:40 templates/common/participants.html:3
 #: templates/common/participants.html:4 templates/common/participants.html:5
@@ -1513,12 +1513,12 @@ msgstr "Cerca qualsiasi cosa"
 #: templates/base.html:200 templates/includes/bottom_navigation.html:32
 #, python-brace-format
 msgid "GBB {year} の検索のみ可能です"
-msgstr "Only GBB {year} can be searched"
+msgstr "È possibile cercare solo GBB {year}"
 
 #: templates/base.html:201 templates/includes/bottom_navigation.html:33
 #, python-brace-format
 msgid "GBB {year} は終了しました"
-msgstr "GBB {year} has ended."
+msgstr "GBB {year} è terminato."
 
 #: templates/base.html:205 templates/includes/bottom_navigation.html:37
 #, python-brace-format
@@ -1532,7 +1532,7 @@ msgstr "Per cercare le ultime informazioni su GBB, clicca qui."
 #: templates/base.html:215 templates/includes/bottom_navigation.html:49
 #, python-brace-format
 msgid "GBB {year} について検索してみよう"
-msgstr "Let's search for GBB {year}"
+msgstr "Proviamo a cercare informazioni su GBB {year}"
 
 #: templates/2024/top.html:30 templates/2024/top_7tosmoke.html:18
 #: templates/2025/top.html:29 templates/2025/top_7tosmoke.html:18
@@ -1737,7 +1737,9 @@ msgstr "Anteprima disponibile"
 #: templates/includes/popup_early_access.html:4
 #, python-brace-format
 msgid "ここは、まだ情報が少ないGBB {year} のページです"
-msgstr "This is the GBB {year} page, which still has little information."
+msgstr ""
+"Questa è la pagina di GBB {year}, che al momento contiene poche "
+"informazioni."
 
 #: templates/includes/early_access.html:6
 #: templates/includes/popup_early_access.html:6
@@ -1752,7 +1754,7 @@ msgstr "Interruzione"
 #: templates/includes/ended.html:6 templates/includes/popup_ended.html:9
 #, python-brace-format
 msgid "ここは、すでに終了したGBB {year} のページです"
-msgstr "This is the page for the already concluded GBB {year}."
+msgstr "Questa è la pagina del GBB {year} già concluso."
 
 #: templates/includes/ended.html:9 templates/includes/popup_ended.html:12
 msgid "GBB最新情報はこちら"

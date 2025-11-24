@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-24 16:43+0900\n"
+"POT-Creation-Date: 2025-11-24 17:23+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: de <LL@li.org>\n"
@@ -910,7 +910,8 @@ msgstr ""
 #: templates/2025/rule.html:285 templates/2025/wildcard_regulation.html:235
 msgid "Tag Team部門・Crew部門参加希望の方はご注意ください。"
 msgstr ""
-"Bitte beachten Sie für die Teilnahme an den Kategorien Tag Team und Crew."
+"Bitte beachten Sie dies, wenn Sie an den Kategorien Tag Team oder Crew "
+"teilnehmen möchten."
 
 #: templates/2025/rule.html:343 templates/2026/rule.html:371
 msgid "レフェリー"
@@ -1114,8 +1115,8 @@ msgid ""
 msgstr ""
 "Für nicht-japanische Benutzer: Bitte beachten Sie, dass dieser Artikel "
 "ursprünglich auf Japanisch verfasst und anschließend mithilfe von KI "
-"übersetzt wurde. Infolgedessen kann es zu Ungenauigkeiten in der Übersetzung "
-"kommen. Bei Fragen oder Bedenken wenden Sie sich bitte an die offizielle "
+"übersetzt wurde. Infolgedessen kann es zu Ungenauigkeiten in der Übersetzung"
+" kommen. Bei Fragen oder Bedenken wenden Sie sich bitte an die offizielle "
 "Website oder die Social-Media-Kanäle."
 
 #: templates/2025/wildcard_regulation.html:123
@@ -1372,11 +1373,11 @@ msgstr "So erhalten Sie die GBB-Qualifikation:"
 
 #: templates/2026/rule.html:156 templates/2026/rule.html:162
 msgid "上位入賞者"
-msgstr "Oben platzierte"
+msgstr "Bestplatzierte"
 
 #: templates/2026/rule.html:157 templates/2026/rule.html:188
 msgid "優勝者のみ"
-msgstr "Nur für den Gewinner"
+msgstr "Nur der Sieger"
 
 #: templates/2026/rule.html:258
 msgid "いかなる理由があっても、チャレンジャーシリーズ2位以下の人に、出場権は与えられません。"

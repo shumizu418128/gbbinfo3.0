@@ -363,4 +363,16 @@
   <url>
     <loc>https://gbbinfo-jpn.onrender.com/2026/cancels</loc>
   </url>
+  <url>
+    <loc>https://gbbinfo-jpn.onrender.com/2026/stream</loc>
+  </url>
+  <url>
+    <loc>https://gbbinfo-jpn.onrender.com/2026/time_schedule</loc>
+  </url>
+  <url>
+    <loc>https://gbbinfo-jpn.onrender.com/2026/wildcard_regulation</loc>
+  </url>
+  <url>
+    <loc>https://gbbinfo-jpn.onrender.com/2026/wildcards</loc>
+  </url>
 </urlset>
