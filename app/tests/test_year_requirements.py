@@ -57,7 +57,7 @@ class YearRequirementsTestCase(unittest.TestCase):
             "top.html",
             "rule.html",
             "ticket.html",
-            "time_schedule.html",
+            "timetable.html",
             "top_7tosmoke.html",
         ]
 

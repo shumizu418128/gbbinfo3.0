@@ -129,6 +129,9 @@ def locale_selector():
 # リダイレクト
 app.add_url_rule("/", "redirect_to_latest_top", common.top_redirect_view)
 app.add_url_rule("/2022/<string:content>", "2022_content", common.content_2022_view)
+app.add_url_rule(
+    "/<int:year>/time_schedule", "time_schedule", common.time_schedule_view
+)
 
 # POSTリクエスト
 app.add_url_rule(

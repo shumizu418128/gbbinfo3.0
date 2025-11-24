@@ -15,7 +15,7 @@
 {% endif %}
 
 {% if all_category %}
-  <form method="get" action="/{{ year }}/result" class="participants_form">
+  <form method="get" action="/{{ year }}/result" class="participants-form">
     <label for="category">{{_("部門選択")}}</label>
     <select name="category" id="category" class="filter-select" onchange="this.form.submit()">
       {% for c in all_category %}
@@ -25,7 +25,11 @@
   </form>
 {% endif %}
 
-{% if result_type == "tournament" %}
+{% if is_showcase is true %}
+  <div style="height: 200px;"></div>
+  <p style="text-align: center;">{{_("SHOWCASE部門は、バトルを行わないため、結果はありません。")}}</p>
+  <div style="height: 200px;"></div>
+{% elif result_type == "tournament" %}
   {% for round, data in result_data.items() %}
     <h2>{{ category }} - {{ round }}</h2>
     <table>
@@ -80,7 +84,7 @@
 {% endif %}
 
 {% if all_category %}
-  <form method="GET" action="/{{ year }}/result" class="participants_form">
+  <form method="GET" action="/{{ year }}/result" class="participants-form">
     <label for="category">{{_("部門選択")}}</label>
     <select name="category" id="category" class="filter-select" onchange="this.form.submit()">
       {% for c in all_category %}
@@ -90,7 +94,7 @@
   </form>
 {% endif %}
 
-<form method="GET" class="participants_form">
+<form method="GET" class="participants-form">
 <label for="year">{{_("その他の年度を確認：")}}</label>
 <select name="year" id="year" class="filter-select" onchange="redirect_year('result')">
   {% for y in available_years %}
