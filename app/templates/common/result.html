@@ -26,7 +26,9 @@
 {% endif %}
 
 {% if is_showcase is true %}
+  <div style="height: 200px;"></div>
   <p style="text-align: center;">{{_("SHOWCASE部門は、バトルを行わないため、結果はありません。")}}</p>
+  <div style="height: 200px;"></div>
 {% elif result_type == "tournament" %}
   {% for round, data in result_data.items() %}
     <h2>{{ category }} - {{ round }}</h2>
