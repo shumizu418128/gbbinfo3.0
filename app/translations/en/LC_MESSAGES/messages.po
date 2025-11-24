@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-24 17:23+0900\n"
+"POT-Creation-Date: 2025-11-24 19:42+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: en <LL@li.org>\n"
@@ -1380,7 +1380,7 @@ msgstr ""
 #: templates/2026/rule.html:356 templates/2026/rule.html:360
 #: templates/2026/rule.html:364
 msgid "審査員なし"
-msgstr "Without judges"
+msgstr "No judges"
 
 #: templates/2026/ticket.html:11
 msgid "ポーランド・ワルシャワ"

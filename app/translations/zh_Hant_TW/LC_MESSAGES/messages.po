@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-24 17:23+0900\n"
+"POT-Creation-Date: 2025-11-24 19:42+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh_Hant_TW <LL@li.org>\n"
@@ -248,7 +248,7 @@ msgstr "參賽權"
 #: templates/common/cancels.html:38 templates/common/participants.html:19
 #: templates/common/participants.html:85 templates/common/result.html:83
 msgid "発表次第更新"
-msgstr "～隨著發佈更新～"
+msgstr "隨著發佈更新"
 
 #: templates/2024/rule.html:163 templates/2025/rule.html:159
 msgid "シード権 - その他"

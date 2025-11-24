@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-24 17:23+0900\n"
+"POT-Creation-Date: 2025-11-24 19:42+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -1715,7 +1715,7 @@ msgstr "Sélection du département"
 #: templates/common/result.html:30
 msgid "SHOWCASE部門は、バトルを行わないため、結果はありません。"
 msgstr ""
-"Le département SHOWCASE n'ayant pas de combat, il n'y a pas de résultats."
+"La catégorie SHOWCASE n'ayant pas de combat, il n'y a pas de résultats."
 
 #: templates/common/result.html:38
 msgid "勝ち"

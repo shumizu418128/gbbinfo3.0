@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-24 17:23+0900\n"
+"POT-Creation-Date: 2025-11-24 19:42+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ga <LL@li.org>\n"
@@ -465,7 +465,7 @@ msgstr "Torthaí na Sárchárta & Rannpháirtithe"
 #: templates/includes/hamburger_menu.html:14
 #: templates/others/translation.html:20
 msgid "タイムテーブル"
-msgstr "Amchláir"
+msgstr "Amchlár"
 
 #: templates/2024/ticket.html:3 templates/2024/ticket.html:4
 #: templates/2024/ticket.html:5 templates/2024/ticket.html:9
@@ -1368,8 +1368,8 @@ msgstr "Don bhuaiteoir amháin"
 #: templates/2026/rule.html:258
 msgid "いかなる理由があっても、チャレンジャーシリーズ2位以下の人に、出場権は与えられません。"
 msgstr ""
-"Ní cheadófar áit don chomórtas d'aon duine atá faoi bhun an dara háit i "
-"Sraith na Dúshlán, beag beann ar chúis."
+"Ní cheadófar áit don chomórtas d'aon duine a chríochnaíonn sa dara háit nó "
+"in áit níos ísle i Sraith na Dúshlán, beag beann ar chúis."
 
 #: templates/2026/rule.html:259
 msgid "「チャレンジャーシリーズにおいてGBB出場権が与えられるのは、例外なく、常に優勝者のみである」とルールに明記されています。"
