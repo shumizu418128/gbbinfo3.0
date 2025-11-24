@@ -467,7 +467,7 @@ msgstr "Résultats Wildcard & Participants"
 #: templates/includes/hamburger_menu.html:14
 #: templates/others/translation.html:20
 msgid "タイムテーブル"
-msgstr "Tableau du temps"
+msgstr "Programme"
 
 #: templates/2024/ticket.html:3 templates/2024/ticket.html:4
 #: templates/2024/ticket.html:5 templates/2024/ticket.html:9
@@ -1401,9 +1401,9 @@ msgstr ""
 msgid ""
 "例：チャレンジャーシリーズ優勝者が、すでにWildcardで出場権を獲得していた場合、チャレンジャーシリーズ2位ではなく、Wildcard下位からの繰り上げが行われます。"
 msgstr ""
-"例：Si le vainqueur des Challenger Series a déjà obtenu sa qualification via "
-"Wildcard, l'attribution de la place ne se fera pas au deuxième des "
-"Challenger Series, mais au suivant des Wildcard."
+"Par exemple, si le vainqueur des Challenger Series a déjà obtenu sa "
+"qualification via Wildcard, la place ne sera pas attribuée au deuxième des "
+"Challenger Series, mais au suivant dans le classement Wildcard."
 
 #: templates/2026/rule.html:356 templates/2026/rule.html:360
 #: templates/2026/rule.html:364

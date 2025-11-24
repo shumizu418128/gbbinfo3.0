@@ -1316,7 +1316,7 @@ msgstr "रद्द"
 
 #: templates/2026/rule.html:141
 msgid "SHOWCASEとは"
-msgstr "SHOWCASE क्या है"
+msgstr "SHOWCASE क्या है?"
 
 #: templates/2026/rule.html:143
 msgid "2026年から新部門として「SHOWCASE」が追加されました。"
@@ -1334,7 +1334,7 @@ msgstr ""
 
 #: templates/2026/rule.html:152
 msgid "GBB出場権獲得条件"
-msgstr "जीबीबी में प्रवेश पाने की शर्तें"
+msgstr "GBB में प्रवेश पाने की शर्तें"
 
 #: templates/2026/rule.html:154
 msgid "GBB出場権を得る方法は、以下の通りです。"
@@ -1357,8 +1357,8 @@ msgstr ""
 #: templates/2026/rule.html:259
 msgid "「チャレンジャーシリーズにおいてGBB出場権が与えられるのは、例外なく、常に優勝者のみである」とルールに明記されています。"
 msgstr ""
-"चैलेंजर सीरीज़ में, जीबीबी में भाग लेने का अधिकार, अपवाद के बिना, हमेशा केवल"
-" विजेता को दिया जाता है"
+"नियमों में स्पष्ट रूप से कहा गया है कि चैलेंजर सीरीज़ में GBB में भाग लेने का "
+"अधिकार बिना किसी अपवाद के हमेशा केवल विजेता को ही दिया जाता है।"
 
 #: templates/2026/rule.html:263
 msgid ""
@@ -1371,7 +1371,7 @@ msgstr ""
 #: templates/2026/rule.html:356 templates/2026/rule.html:360
 #: templates/2026/rule.html:364
 msgid "審査員なし"
-msgstr "जूरी के बिना"
+msgstr "परीक्षक नहीं हैं"
 
 #: templates/2026/ticket.html:11
 msgid "ポーランド・ワルシャワ"

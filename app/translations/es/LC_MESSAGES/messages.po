@@ -1398,9 +1398,9 @@ msgstr ""
 msgid ""
 "例：チャレンジャーシリーズ優勝者が、すでにWildcardで出場権を獲得していた場合、チャレンジャーシリーズ2位ではなく、Wildcard下位からの繰り上げが行われます。"
 msgstr ""
-"例：Si el ganador de la Challenger Series ya se había clasificado para el "
-"evento a través de la Wildcard, la plaza de la Challenger Series no se "
-"asignará al subcampeón, sino al siguiente equipo de la Wildcard."
+"Por ejemplo, si el ganador de la Challenger Series ya se había clasificado "
+"para el evento a través de la Wildcard, la plaza de la Challenger Series no "
+"se asignará al subcampeón, sino al siguiente clasificado de la Wildcard."
 
 #: templates/2026/rule.html:356 templates/2026/rule.html:360
 #: templates/2026/rule.html:364

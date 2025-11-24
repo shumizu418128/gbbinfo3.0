@@ -520,7 +520,7 @@ msgid "GBB23では、本番7日前に日本語版・英語版のタイムテー�
 msgstr ""
 "Dalam GBB23, jadual waktu versi Jepun dan Inggeris telah dikeluarkan 7 hari "
 "sebelum acara utama, tetapi hanya versi Jepun yang betul, manakala versi "
-"Inggeris mempunyai banyak kesilapan.{"
+"Inggeris mempunyai banyak kesilapan."
 
 #: templates/2024/timetable.html:36 templates/2024/timetable.html:290
 msgid "出演者一覧"
@@ -1371,11 +1371,8 @@ msgstr ""
 #: templates/2026/rule.html:259
 msgid "「チャレンジャーシリーズにおいてGBB出場権が与えられるのは、例外なく、常に優勝者のみである」とルールに明記されています。"
 msgstr ""
-"Arahan penting: 1. Kembalikan HANYA teks yang diterjemah 2. JANGAN tambahkan"
-" sebarang tempat letak atau pemboleh ubah yang tidak ada dalam teks asal 3. "
-"JANGAN terjemah sebarang teks yang kelihatan seperti {nama_pemboleh_ubah} - "
-"simpan persis seperti adanya 4. JANGAN tambahkan sebarang teks atau nota "
-"penjelasan"
+"Peraturan menyatakan dengan jelas bahawa dalam Siri Challenger, tanpa "
+"pengecualian, hanya juara sahaja yang diberikan hak untuk menyertai GBB."
 
 #: templates/2026/rule.html:263
 msgid ""

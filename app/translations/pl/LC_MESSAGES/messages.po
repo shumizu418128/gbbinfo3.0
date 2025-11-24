@@ -730,7 +730,7 @@ msgstr "Informacja o zmianie adresu URL strony"
 #: templates/2025/top.html:141 templates/2026/rule.html:322
 #: templates/2026/top.html:152
 msgid "Wildcard結果発表配信"
-msgstr "Wildcard Wyniki dostawy"
+msgstr "Transmisja ogłoszenia wyników Wildcard"
 
 #: templates/2024/top.html:91 templates/2024/wildcards.html:3
 #: templates/2024/wildcards.html:4 templates/2024/wildcards.html:5
@@ -1004,7 +1004,7 @@ msgstr "Termin składania wniosków"
 #: templates/2025/top.html:58 templates/2025/top.html:80
 #: templates/2026/top.html:67 templates/2026/top.html:87
 msgid "結果発表配信"
-msgstr "Wyniki transmisji"
+msgstr "Transmisja ogłoszenia wyników"
 
 #: templates/2025/top.html:60 templates/2026/top.html:69
 msgid "出場枠の数"

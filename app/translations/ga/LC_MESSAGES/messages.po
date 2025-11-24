@@ -1328,7 +1328,7 @@ msgstr "Sraith Dúshlán"
 
 #: templates/2026/rule.html:135
 msgid "廃止"
-msgstr "Scriosta"
+msgstr "Curtha ar ceal"
 
 #: templates/2026/rule.html:141
 msgid "SHOWCASEとは"
@@ -1363,7 +1363,7 @@ msgstr "Rannpháirtithe is fearr"
 
 #: templates/2026/rule.html:157 templates/2026/rule.html:188
 msgid "優勝者のみ"
-msgstr "Do na buaiteoirí amháin"
+msgstr "Don bhuaiteoir amháin"
 
 #: templates/2026/rule.html:258
 msgid "いかなる理由があっても、チャレンジャーシリーズ2位以下の人に、出場権は与えられません。"

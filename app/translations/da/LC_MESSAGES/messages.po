@@ -1379,9 +1379,9 @@ msgstr ""
 msgid ""
 "例：チャレンジャーシリーズ優勝者が、すでにWildcardで出場権を獲得していた場合、チャレンジャーシリーズ2位ではなく、Wildcard下位からの繰り上げが行われます。"
 msgstr ""
-"例：Hvis vinderen af Challenger-serien allerede havde kvalificeret sig via "
-"Wildcard, vil kvalifikationen gå til den næste lavest rangerede Wildcard-"
-"deltager i stedet for andenpladsen i Challenger-serien."
+"F.eks. hvis vinderen af Challenger-serien allerede havde kvalificeret sig "
+"via Wildcard, vil kvalifikationen gå til den næste lavest rangerede "
+"Wildcard-deltager i stedet for andenpladsen i Challenger-serien."
 
 #: templates/2026/rule.html:356 templates/2026/rule.html:360
 #: templates/2026/rule.html:364

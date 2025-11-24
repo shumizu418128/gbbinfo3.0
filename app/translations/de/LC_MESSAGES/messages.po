@@ -1112,10 +1112,10 @@ msgid ""
 "    As a result, there may be instances of inaccurate translation.\n"
 "    For any questions or concerns, please refer to the official website or social media channels."
 msgstr ""
-"Für nicht-japanische Benutzer:Bitte beachten Sie, dass dieser Artikel "
+"Für nicht-japanische Benutzer: Bitte beachten Sie, dass dieser Artikel "
 "ursprünglich auf Japanisch verfasst und anschließend mithilfe von KI "
-"übersetzt wurde.Infolgedessen kann es zu Ungenauigkeiten in der Übersetzung "
-"kommen.Bei Fragen oder Bedenken wenden Sie sich bitte an die offizielle "
+"übersetzt wurde. Infolgedessen kann es zu Ungenauigkeiten in der Übersetzung "
+"kommen. Bei Fragen oder Bedenken wenden Sie sich bitte an die offizielle "
 "Website oder die Social-Media-Kanäle."
 
 #: templates/2025/wildcard_regulation.html:123

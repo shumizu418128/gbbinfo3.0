@@ -1320,7 +1320,7 @@ msgstr "Challenger Series"
 
 #: templates/2026/rule.html:135
 msgid "廃止"
-msgstr "Abolition"
+msgstr "Abolished"
 
 #: templates/2026/rule.html:141
 msgid "SHOWCASEとは"

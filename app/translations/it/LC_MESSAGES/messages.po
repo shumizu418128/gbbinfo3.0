@@ -1379,8 +1379,8 @@ msgstr "Solo il vincitore"
 #: templates/2026/rule.html:258
 msgid "いかなる理由があっても、チャレンジャーシリーズ2位以下の人に、出場権は与えられません。"
 msgstr ""
-"Per nessun motivo, il diritto di partecipazione non sarà concesso a persone "
-"classificate inferiori al secondo posto nella Challenger Series."
+"Per nessun motivo, il diritto di partecipazione sarà concesso a chi si "
+"classifica dal secondo posto in giù nella Challenger Series."
 
 #: templates/2026/rule.html:259
 msgid "「チャレンジャーシリーズにおいてGBB出場権が与えられるのは、例外なく、常に優勝者のみである」とルールに明記されています。"
