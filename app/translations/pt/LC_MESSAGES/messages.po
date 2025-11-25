@@ -1701,7 +1701,7 @@ msgstr "Seleção de Divisão"
 
 #: templates/common/result.html:30
 msgid "SHOWCASE部門は、バトルを行わないため、結果はありません。"
-msgstr "O departamento SHOWCASE não terá resultados por não haver batalhas."
+msgstr "A categoria SHOWCASE não terá resultados por não haver batalhas."
 
 #: templates/common/result.html:38
 msgid "勝ち"
