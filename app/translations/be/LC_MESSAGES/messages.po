@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-25 23:41+0900\n"
+"POT-Creation-Date: 2025-11-26 00:15+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: be <LL@li.org>\n"
@@ -1356,13 +1356,13 @@ msgstr "Прызёры"
 
 #: templates/2026/rule.html:157 templates/2026/rule.html:188
 msgid "優勝者のみ"
-msgstr "Толькі пераможцы"
+msgstr "Толькі пераможца"
 
 #: templates/2026/rule.html:258
 msgid "いかなる理由があっても、チャレンジャーシリーズ2位以下の人に、出場権は与えられません。"
 msgstr ""
-"Незалежна ад прычыны, асобам ніжэй другога месца ў серыі прэтэндэнтаў не "
-"будзе дадзена права на ўдзел."
+"Незалежна ад прычыны, асобам, якія занялі другое месца або ніжэй у серыі "
+"прэтэндэнтаў, права на ўдзел не будзе нададзена."
 
 #: templates/2026/rule.html:259
 msgid "「チャレンジャーシリーズにおいてGBB出場権が与えられるのは、例外なく、常に優勝者のみである」とルールに明記されています。"

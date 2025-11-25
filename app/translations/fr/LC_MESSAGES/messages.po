@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-25 23:41+0900\n"
+"POT-Creation-Date: 2025-11-26 00:15+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -1379,7 +1379,7 @@ msgstr "Voici comment obtenir une place au GBB :"
 
 #: templates/2026/rule.html:156 templates/2026/rule.html:162
 msgid "上位入賞者"
-msgstr "Les gagnants"
+msgstr "Les mieux classés"
 
 #: templates/2026/rule.html:157 templates/2026/rule.html:188
 msgid "優勝者のみ"

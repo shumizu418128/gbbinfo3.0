@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-25 23:41+0900\n"
+"POT-Creation-Date: 2025-11-26 00:15+0900\n"
 "PO-Revision-Date: 2025-10-29 10:38+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: pl <LL@li.org>\n"
@@ -1349,8 +1349,8 @@ msgstr "W tym dziale nie toczymy bitew."
 #: templates/2026/rule.html:145
 msgid "Wildcardの審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価されます。"
 msgstr ""
-"Ocena Wildcard odbywa się według innych kryteriów niż w innych działach i "
-"jest oceniana pod kątem fabuły, artystyczności i oryginalności."
+"Wildcard jest oceniany według innych kryteriów niż pozostałe działy – brana "
+"jest pod uwagę m.in. fabuła, artyzm i oryginalność."
 
 #: templates/2026/rule.html:152
 msgid "GBB出場権獲得条件"
@@ -1362,7 +1362,7 @@ msgstr "Sposób na uzyskanie kwalifikacji do GBB jest następujący."
 
 #: templates/2026/rule.html:156 templates/2026/rule.html:162
 msgid "上位入賞者"
-msgstr "Najlepsi zwycięzcy"
+msgstr "Zawodnicy z czołowych miejsc"
 
 #: templates/2026/rule.html:157 templates/2026/rule.html:188
 msgid "優勝者のみ"
@@ -1392,7 +1392,7 @@ msgstr ""
 #: templates/2026/rule.html:356 templates/2026/rule.html:360
 #: templates/2026/rule.html:364
 msgid "審査員なし"
-msgstr "Bez jury"
+msgstr "Bez sędziów"
 
 #: templates/2026/ticket.html:11
 msgid "ポーランド・ワルシャワ"
