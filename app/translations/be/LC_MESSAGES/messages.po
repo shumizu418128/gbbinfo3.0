@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-24 19:42+0900\n"
+"POT-Creation-Date: 2025-11-25 23:41+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: be <LL@li.org>\n"
@@ -1318,7 +1318,7 @@ msgstr "Я з нецярпеннем чакаю вашага Wildcard!"
 #: templates/2026/rule.html:37 templates/2026/rule.html:71
 #: templates/2026/rule.html:157 templates/2026/rule.html:188
 msgid "チャレンジャーシリーズ"
-msgstr "Чэленджэр серыя"
+msgstr "Серыя Challenger"
 
 #: templates/2026/rule.html:135
 msgid "廃止"
@@ -1348,7 +1348,7 @@ msgstr "Умовы атрымання права на ўдзел у GBB"
 
 #: templates/2026/rule.html:154
 msgid "GBB出場権を得る方法は、以下の通りです。"
-msgstr "Як атрымаць права на ўдзел у GBB, наступным чынам."
+msgstr "Права на ўдзел у GBB можна атрымаць наступнымі спосабамі."
 
 #: templates/2026/rule.html:156 templates/2026/rule.html:162
 msgid "上位入賞者"

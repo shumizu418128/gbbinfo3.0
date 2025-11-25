@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-24 19:42+0900\n"
+"POT-Creation-Date: 2025-11-25 23:41+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: da <LL@li.org>\n"
@@ -174,7 +174,7 @@ msgstr "Seed"
 #: templates/2024/rule.html:81 templates/2025/rule.html:77
 #: templates/2026/rule.html:79
 msgid "計"
-msgstr "måling"
+msgstr "I alt"
 
 #: templates/2024/rule.html:118 templates/2025/rule.html:115
 #: templates/2025/wildcard_regulation.html:113 templates/2026/rule.html:138

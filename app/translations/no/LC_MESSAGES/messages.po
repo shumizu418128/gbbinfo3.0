@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-24 19:42+0900\n"
+"POT-Creation-Date: 2025-11-25 23:41+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: no <LL@li.org>\n"
@@ -1334,8 +1334,9 @@ msgstr "Denne avdelingen driver ikke med kamp."
 #: templates/2026/rule.html:145
 msgid "Wildcardの審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価されます。"
 msgstr ""
-"Villkortets vurdering gjøres etter andre kriterier enn andre avdelinger, og "
-"vurderes etter historie, kunstnerisk kvalitet og originalitet."
+"Vurderingen av Wildcard-bidragene gjøres etter andre kriterier enn i de "
+"andre avdelingene og baseres på historie, kunstnerisk kvalitet og "
+"originalitet."
 
 #: templates/2026/rule.html:152
 msgid "GBB出場権獲得条件"
@@ -1370,8 +1371,8 @@ msgid ""
 "例：チャレンジャーシリーズ優勝者が、すでにWildcardで出場権を獲得していた場合、チャレンジャーシリーズ2位ではなく、Wildcard下位からの繰り上げが行われます。"
 msgstr ""
 "Eksempel: Hvis vinneren av Challenger Series allerede har kvalifisert seg "
-"for Wildcard, vil kvalifiseringen skje fra en lavere rangert posisjon enn "
-"andreplassen i Challenger Series, men fra Wildcard."
+"via Wildcard, går plassen ikke til nummer to i serien, men til neste på "
+"Wildcard-listen."
 
 #: templates/2026/rule.html:356 templates/2026/rule.html:360
 #: templates/2026/rule.html:364
