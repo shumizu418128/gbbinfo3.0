@@ -12,7 +12,7 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive",
 ]
 
-cache = TTLCache(maxsize=1, ttl=3)
+cache = TTLCache(maxsize=1, ttl=10)
 
 
 class SpreadsheetService:
