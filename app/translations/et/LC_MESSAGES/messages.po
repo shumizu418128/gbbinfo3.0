@@ -1368,8 +1368,8 @@ msgid ""
 "例：チャレンジャーシリーズ優勝者が、すでにWildcardで出場権を獲得していた場合、チャレンジャーシリーズ2位ではなく、Wildcard下位からの繰り上げが行われます。"
 msgstr ""
 "Näide: Kui Challengeri seeria võitja on juba Wildcardiga osaluskoha saanud, "
-"siis ei lähe Challengeri seeria teine koht, vaid Wildcardi madalamalt "
-"kohalt."
+"siis ei lähe Challengeri seeria teine koht, vaid tõstetakse Wildcardi "
+"madalamalt kohalt."
 
 #: templates/2026/rule.html:356 templates/2026/rule.html:360
 #: templates/2026/rule.html:364

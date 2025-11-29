@@ -465,7 +465,7 @@ msgstr "Risultati Wildcard & Partecipanti"
 #: templates/includes/hamburger_menu.html:14
 #: templates/others/translation.html:20
 msgid "タイムテーブル"
-msgstr "Tabella dei tempi"
+msgstr "Programma"
 
 #: templates/2024/ticket.html:3 templates/2024/ticket.html:4
 #: templates/2024/ticket.html:5 templates/2024/ticket.html:9
@@ -1370,7 +1370,7 @@ msgstr "Il modo per qualificarsi per il GBB è il seguente."
 
 #: templates/2026/rule.html:156 templates/2026/rule.html:162
 msgid "上位入賞者"
-msgstr "I vincitori"
+msgstr "I migliori classificati"
 
 #: templates/2026/rule.html:157 templates/2026/rule.html:188
 msgid "優勝者のみ"
@@ -1508,7 +1508,7 @@ msgstr "Tempo rimanente fino a GBB"
 #: templates/includes/bottom_navigation.html:30
 #: templates/includes/bottom_navigation.html:48
 msgid "なんでも検索"
-msgstr "Cerca qualsiasi cosa"
+msgstr "Cerca"
 
 #: templates/base.html:200 templates/includes/bottom_navigation.html:32
 #, python-brace-format
@@ -1527,12 +1527,12 @@ msgstr "Esempio: Qual è il risultato finale di GBB {year}?"
 
 #: templates/base.html:210 templates/includes/bottom_navigation.html:42
 msgid "GBB最新情報の検索はこちら"
-msgstr "Per cercare le ultime informazioni su GBB, clicca qui."
+msgstr "Cerca qui le ultime informazioni su GBB."
 
 #: templates/base.html:215 templates/includes/bottom_navigation.html:49
 #, python-brace-format
 msgid "GBB {year} について検索してみよう"
-msgstr "Proviamo a cercare informazioni su GBB {year}"
+msgstr "Prova a cercare informazioni su GBB {year}"
 
 #: templates/2024/top.html:30 templates/2024/top_7tosmoke.html:18
 #: templates/2025/top.html:29 templates/2025/top_7tosmoke.html:18
@@ -1706,7 +1706,7 @@ msgstr "Seleziona Dipartimento"
 
 #: templates/common/result.html:30
 msgid "SHOWCASE部門は、バトルを行わないため、結果はありません。"
-msgstr "Il reparto SHOWCASE non ha battaglie, quindi non ci sono risultati."
+msgstr "La categoria SHOWCASE non prevede battaglie, quindi non ci sono risultati."
 
 #: templates/common/result.html:38
 msgid "勝ち"

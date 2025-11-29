@@ -48,6 +48,10 @@
     <li>
       <a href="#wildcard-judges-section">{{_("Wildcard審査員一覧")}}</a>
     </li>
+
+    <li>
+      <a href="#second-league-section">{{_("セカンドリーグ")}}</a>
+    </li>
   </ol>
 </div>
 
@@ -436,4 +440,28 @@
   <a href="/{{ year }}/wildcards"><button>{{_("Wildcard一覧")}}</button></a>
 </div>
 
+<h2 id="second-league-section" name="second-league">{{_("セカンドリーグ")}}</h2>
+<h3>{{ _("正式名称") }}：Off The Lips Beatbox Battle</h3>
+<p>
+  {{_("今年から新たに「セカンドリーグ」が設けられました。中国で開催され、GBB {year} のSolo部門ランナーズアップが招待されます。").format(year=year)}}<br>
+  {{_("この「セカンドリーグ」で優勝すれば、GBB {year} Solo部門への出場権が得られます。").format(year=year+1)}}
+</p>
+<div class="post-it">
+  <p>
+    {{_("ランナーズアップ：本戦に出場できなかった、Wildcard上位入賞者")}}<br>
+    {{_("例：Wildcard出場枠が8枠の場合、9位～16位を指します。")}}
+  </p>
+</div>
+<p>{{_("当サイトでは、セカンドリーグについての情報は取り扱わない方針です。")}}</p>
+
+<div class="post-it" style="margin-top: 100px;">
+  <p>
+    <b>{{_("昨今の中国情勢について")}}</b><br>
+    {{_("最近、中国公演を予定していた日本のアイドル・アーティストが相次いで公演中止を発表しています。")}}
+    <a href="https://twitter.com/Byron_Wan/status/1994406212860088546" target="_blank" rel="noopener noreferrer">
+      {{_("とある日本人歌手が中国公演にて歌唱中に、突然、当局から退場を命じられたケースも報告されています。")}}
+    </a><br>
+    {{_("仮に「セカンドリーグ」に日本人が出場する場合、運営であるCHINA BEATBOXの対応は不明です。")}}
+  </p>
+</div>
 {% endblock %}
