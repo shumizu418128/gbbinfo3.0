@@ -148,15 +148,9 @@ def is_latest_year(year):
     """
     dt_now = datetime.now()
     now = dt_now.year
-    available_years = get_available_years()
 
-    # 利用可能な年度がない場合は現在年度と比較
-    if not available_years:
-        return year == now
-
-    latest_year = max(available_years)
-    return now <= year <= latest_year
-
+    # 現在年度以上の年度は最新年度とみなす
+    return year >= now
 
 # MARK: 試験公開年度
 def is_early_access(year):
