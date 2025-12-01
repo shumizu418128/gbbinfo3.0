@@ -5,10 +5,10 @@
 <div class="menu">
   <p>{{_("メニュー")}}</p>
   <div class="button-container" style="margin-top: 10px;">
-    <a href="/"><button>Home & {{_("これだけガイド")}}</button></a>
-    <a href="/{{ year }}/participants"><button>{{_("Wildcard結果")}} & {{_("出場者")}}</button></a>
+    <a href="/"><button>Home<br>{{_("これだけガイド")}}</button></a>
+    <a href="/{{ year }}/participants"><button>{{_("Wildcard結果")}}<br>{{_("出場者")}}</button></a>
     <a href="/{{ year }}/cancels"><button>{{_("辞退者一覧")}}</button></a>
-    <a href="/{{ year }}/rule"><button>{{_("ルール")}} & {{_("審査員")}}</button></a>
+    <a href="/{{ year }}/rule"><button>{{_("ルール")}}<br>{{_("審査員")}}</button></a>
   </div>
   <div class="button-container">
     <a href="/{{ year }}/timetable"><button>{{_("タイムテーブル")}}</button></a>
@@ -17,7 +17,7 @@
     {% else %}
       <a href="/{{ year }}/japan"><button>{{_("日本代表")}}</button></a>
     {% endif %}
-    <a href="/{{ year }}/ticket"><button>{{_("会場")}} & {{_("チケット")}}</button></a>
+    <a href="/{{ year }}/ticket"><button>{{_("会場")}}<br>{{_("チケット")}}</button></a>
     <a href="/{{ year }}/stream"><button>{{_("当日配信")}}</button></a>
   </div>
   <div class="button-container">

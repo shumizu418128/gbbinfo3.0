@@ -126,7 +126,9 @@ button {
 .nav-dropdown-container {
     position: relative;
     width: auto;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    height: 24px;
 }
 
 .nav-dropdown {
