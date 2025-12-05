@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-05 17:07+0900\n"
+"POT-Creation-Date: 2025-12-05 17:44+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ga <LL@li.org>\n"
@@ -833,7 +833,7 @@ msgstr ""
 #: templates/2024/top_7tosmoke.html:42 templates/2025/top_7tosmoke.html:44
 #: templates/2026/top_7tosmoke.html:44
 msgid "諦めましょう。"
-msgstr "Abair é."
+msgstr "Ligimis uainn é."
 
 #: templates/2024/wildcards.html:9
 msgid "Wildcard一覧"
@@ -1368,7 +1368,7 @@ msgid "皆さんの{Wildcard}を楽しみにしています！"
 msgstr "Táim ag tnúth le bhur {Wildcard}!"
 
 #: templates/2026/rule.html:37 templates/2026/rule.html:75
-#: templates/2026/rule.html:161 templates/2026/rule.html:192
+#: templates/2026/rule.html:162 templates/2026/rule.html:192
 msgid "チャレンジャーシリーズ"
 msgstr "Sraith Dúshlán"
 
@@ -1410,11 +1410,11 @@ msgstr "Critéir cáilithe don GBB"
 msgid "GBB出場権を得る方法は、以下の通りです。"
 msgstr "Seo a leanas an bealach chun cáiliú do GBB."
 
-#: templates/2026/rule.html:160 templates/2026/rule.html:166
+#: templates/2026/rule.html:161 templates/2026/rule.html:166
 msgid "上位入賞者"
 msgstr "Rannpháirtithe is fearr"
 
-#: templates/2026/rule.html:161 templates/2026/rule.html:192
+#: templates/2026/rule.html:162 templates/2026/rule.html:192
 msgid "優勝者のみ"
 msgstr "Don bhuaiteoir amháin"
 

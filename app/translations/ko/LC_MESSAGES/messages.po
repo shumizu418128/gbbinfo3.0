@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-05 17:07+0900\n"
+"POT-Creation-Date: 2025-12-05 17:44+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -839,9 +839,8 @@ msgstr "모두 수작업으로 제작된 것이므로 중복이나 누락이 있
 msgid ""
 "また、この再生リストにある動画が必ずしも{Wildcard}として申請された動画であるとは限りません（毎年必ず出場者の手続きミスで失格者が出ます）。"
 msgstr ""
-"Also, the videos in this playlist are not necessarily the videos applied for"
-" as {Wildcard} (there are always disqualifications due to procedural errors "
-"by contestants every year)."
+"또한 이 재생 목록의 동영상이 반드시 {Wildcard}로 신청된 동영상이라는 보장은 없습니다(매년 출전자의 절차 오류로 인해 실격자가 "
+"발생합니다)."
 
 #: templates/2025/rule.html:22 templates/2025/rule.html:125
 #: templates/2025/wildcard_regulation.html:3
@@ -1268,7 +1267,7 @@ msgid "皆さんの{Wildcard}を楽しみにしています！"
 msgstr "여러분의 {Wildcard}을 기대하고 있습니다!"
 
 #: templates/2026/rule.html:37 templates/2026/rule.html:75
-#: templates/2026/rule.html:161 templates/2026/rule.html:192
+#: templates/2026/rule.html:162 templates/2026/rule.html:192
 msgid "チャレンジャーシリーズ"
 msgstr "챌린저 시리즈"
 
@@ -1307,11 +1306,11 @@ msgstr "GBB 출전 자격 조건"
 msgid "GBB出場権を得る方法は、以下の通りです。"
 msgstr "GBB 출전권을 얻는 방법은, 다음과 같습니다."
 
-#: templates/2026/rule.html:160 templates/2026/rule.html:166
+#: templates/2026/rule.html:161 templates/2026/rule.html:166
 msgid "上位入賞者"
 msgstr "상위 입상자"
 
-#: templates/2026/rule.html:161 templates/2026/rule.html:192
+#: templates/2026/rule.html:162 templates/2026/rule.html:192
 msgid "優勝者のみ"
 msgstr "우승자만"
 

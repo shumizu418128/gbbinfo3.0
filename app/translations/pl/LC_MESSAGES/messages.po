@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-05 17:07+0900\n"
+"POT-Creation-Date: 2025-12-05 17:44+0900\n"
 "PO-Revision-Date: 2025-10-29 10:38+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: pl <LL@li.org>\n"
@@ -1371,7 +1371,7 @@ msgid "皆さんの{Wildcard}を楽しみにしています！"
 msgstr "Czekamy na Wasze {Wildcard}!"
 
 #: templates/2026/rule.html:37 templates/2026/rule.html:75
-#: templates/2026/rule.html:161 templates/2026/rule.html:192
+#: templates/2026/rule.html:162 templates/2026/rule.html:192
 msgid "チャレンジャーシリーズ"
 msgstr "Seria Challenger"
 
@@ -1412,11 +1412,11 @@ msgstr "Warunki uzyskania kwalifikacji do GBB"
 msgid "GBB出場権を得る方法は、以下の通りです。"
 msgstr "Sposób na uzyskanie kwalifikacji do GBB jest następujący."
 
-#: templates/2026/rule.html:160 templates/2026/rule.html:166
+#: templates/2026/rule.html:161 templates/2026/rule.html:166
 msgid "上位入賞者"
 msgstr "Zawodnicy z czołowych miejsc"
 
-#: templates/2026/rule.html:161 templates/2026/rule.html:192
+#: templates/2026/rule.html:162 templates/2026/rule.html:192
 msgid "優勝者のみ"
 msgstr "Tylko zwycięzca"
 

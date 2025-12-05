@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-05 17:07+0900\n"
+"POT-Creation-Date: 2025-12-05 17:44+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: be <LL@li.org>\n"
@@ -1363,13 +1363,13 @@ msgid "皆さんの{Wildcard}を楽しみにしています！"
 msgstr "Я з нецярпеннем чакаю вашага {Wildcard}!"
 
 #: templates/2026/rule.html:37 templates/2026/rule.html:75
-#: templates/2026/rule.html:161 templates/2026/rule.html:192
+#: templates/2026/rule.html:162 templates/2026/rule.html:192
 msgid "チャレンジャーシリーズ"
 msgstr "Серыя Challenger"
 
 #: templates/2026/rule.html:53 templates/2026/rule.html:443
 msgid "セカンドリーグ"
-msgstr "СекSecond ліга"
+msgstr "Другая ліга"
 
 #: templates/2026/rule.html:139
 msgid "廃止"
@@ -1392,7 +1392,9 @@ msgstr "У гэтым аддзеле баі не вядуцца."
 #: templates/2026/rule.html:149
 #, python-brace-format
 msgid "{Wildcard}の審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価されます。"
-msgstr "{Wildcard}의 심사는 다른 부서와 다른 기준으로 진행되며, 스토리, 예술성, 독창성 등으로 평가됩니다."
+msgstr ""
+"Адбор {Wildcard} праводзіцца па іншых крытэрыях, чым у іншых катэгорыях, і "
+"ацэньваецца па гісторыі, мастацкасці, адметнасці і іншых фактарах."
 
 #: templates/2026/rule.html:156
 msgid "GBB出場権獲得条件"
@@ -1402,11 +1404,11 @@ msgstr "Умовы атрымання права на ўдзел у GBB"
 msgid "GBB出場権を得る方法は、以下の通りです。"
 msgstr "Права на ўдзел у GBB можна атрымаць наступнымі спосабамі."
 
-#: templates/2026/rule.html:160 templates/2026/rule.html:166
+#: templates/2026/rule.html:161 templates/2026/rule.html:166
 msgid "上位入賞者"
 msgstr "Прызёры"
 
-#: templates/2026/rule.html:161 templates/2026/rule.html:192
+#: templates/2026/rule.html:162 templates/2026/rule.html:192
 msgid "優勝者のみ"
 msgstr "Толькі пераможца"
 

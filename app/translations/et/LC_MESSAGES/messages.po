@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-05 17:07+0900\n"
+"POT-Creation-Date: 2025-12-05 17:44+0900\n"
 "PO-Revision-Date: 2025-10-29 23:04+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: et <LL@li.org>\n"
@@ -1357,7 +1357,7 @@ msgid "皆さんの{Wildcard}を楽しみにしています！"
 msgstr "Ootan teie {Wildcard} põnevusega!"
 
 #: templates/2026/rule.html:37 templates/2026/rule.html:75
-#: templates/2026/rule.html:161 templates/2026/rule.html:192
+#: templates/2026/rule.html:162 templates/2026/rule.html:192
 msgid "チャレンジャーシリーズ"
 msgstr "Challengeri sari"
 
@@ -1372,7 +1372,7 @@ msgstr "Lõpetatud"
 #: templates/2026/rule.html:145
 #, python-brace-format
 msgid "{SHOWCASE}とは"
-msgstr "{SHOWCASE} mis on"
+msgstr "Mis on {SHOWCASE}?"
 
 #: templates/2026/rule.html:147
 #, python-brace-format
@@ -1399,11 +1399,11 @@ msgstr "GBB-le pääsemise tingimused"
 msgid "GBB出場権を得る方法は、以下の通りです。"
 msgstr "GBB-le pääsemiseks toimige järgmiselt."
 
-#: templates/2026/rule.html:160 templates/2026/rule.html:166
+#: templates/2026/rule.html:161 templates/2026/rule.html:166
 msgid "上位入賞者"
 msgstr "Paremusjärjestuses kõrgemal kohal"
 
-#: templates/2026/rule.html:161 templates/2026/rule.html:192
+#: templates/2026/rule.html:162 templates/2026/rule.html:192
 msgid "優勝者のみ"
 msgstr "Ainult võitja"
 
