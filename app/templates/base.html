@@ -40,6 +40,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://db.onlinewebfonts.com/c/efc5d27fcf85239bbfee077b689e3ac9?family=Averta+ExtraBold" rel="stylesheet">
     <meta name="twitter:title" content="{% block twitter_title %}{% endblock %}" />
     <meta name="twitter:description" content="{{_("Swissbeatboxが主催するHuman Beatboxの世界大会「Grand Beatbox Battle」の各種情報を、見やすくまとめたサイトです。")}}" />
     <meta name="twitter:card" content="summary_large_image"/>
@@ -120,26 +121,22 @@
         <img src="/static/images/header.webp" alt="ヘッダー"/>
         <ul>
           <a class="menu-link" href="/{{year}}/top"><li>Home / {{_("これだけガイド")}}</li></a>
-          <div class="nav-dropdown-container">
-            <li>
-              {{_("年度選択")}}
-              <ul class="nav-dropdown">
-                {% for y in available_years %}
-                  <a href="/{{ y }}/top"><li class="year-option">{{ y }}</li></a>
-                {% endfor %}
-              </ul>
-            </li>
-          </div>
-          <div class="nav-dropdown-container">
-            <li>
-              LANGUAGE
-              <ul class="nav-dropdown">
-                {% for url, lang_name in change_language_urls %}
-                  <a href="{{ url }}"><li class="language-option">{{ lang_name }}</li></a>
-                {% endfor %}
-              </ul>
-            </li>
-          </div>
+          <li class="nav-dropdown-container">
+            {{_("年度選択")}}
+            <ul class="nav-dropdown">
+              {% for y in available_years %}
+                <a href="/{{ y }}/top"><li class="year-option">{{ y }}</li></a>
+              {% endfor %}
+            </ul>
+          </li>
+          <li class="nav-dropdown-container">
+            LANGUAGE
+            <ul class="nav-dropdown">
+              {% for url, lang_name in change_language_urls %}
+                <a href="{{ url }}"><li class="language-option">{{ lang_name }}</li></a>
+              {% endfor %}
+            </ul>
+          </li>
         </ul>
       </nav>
     </header>
@@ -191,7 +188,7 @@
       {% endif %}
 
       <p style="text-align: center">{{_("GBBまでの残り時間")}}</p>
-      <p id="countdown" style="text-align: center; font-size: 24px"></p>
+      <p id="countdown" style="text-align: center; font-size: 24px; font-family: 'Noto sans JP';"></p>
 
       {% if is_latest_year is false %}
         <hr>

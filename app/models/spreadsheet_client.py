@@ -12,7 +12,7 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive",
 ]
 
-cache = TTLCache(maxsize=1, ttl=3)
+cache = TTLCache(maxsize=1, ttl=10)
 
 
 class SpreadsheetService:
@@ -60,7 +60,7 @@ class SpreadsheetService:
 
         return self._client
 
-    @ratelimit.limits(calls=1, period=3, raise_on_limit=False)
+    @ratelimit.limits(calls=1, period=4, raise_on_limit=False)
     def record_question(self, year: int, question: str, answer: str):
         """
         Googleスプレッドシートに質問と回答を記録します。
