@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-05 19:55+0900\n"
+"POT-Creation-Date: 2025-12-05 20:40+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: de <LL@li.org>\n"
@@ -395,7 +395,7 @@ msgstr "Keine Gerätebeschränkung"
 #: templates/2024/rule.html:274 templates/2026/rule.html:331
 #, python-brace-format
 msgid "{Wildcard}審査員一覧はこちら"
-msgstr "{Wildcard}Hier geht es zur Richterliste"
+msgstr "{Wildcard} Hier geht es zur Richterliste"
 
 #: templates/2024/rule.html:280 templates/2024/rule.html:325
 #: templates/2024/top.html:51 templates/2025/rule.html:314
@@ -1310,8 +1310,8 @@ msgstr "Wenn die obigen beiden nicht vorhanden sind, disqualifiziert."
 #, python-brace-format
 msgid "{Wildcard}提出は一度のみ。一度提出したら、後から別の{Wildcard}を提出することはできない"
 msgstr ""
-"{Wildcard}Die Einreichung ist nur einmal möglich. Nach der Einreichung kann "
-"keine weitere {Wildcard} nachträglich eingereicht werden."
+"{Wildcard} Die Einreichung ist nur einmal möglich. Nach der Einreichung kann"
+" keine weitere {Wildcard} nachträglich eingereicht werden."
 
 #: templates/2025/wildcard_regulation.html:185
 #, python-brace-format

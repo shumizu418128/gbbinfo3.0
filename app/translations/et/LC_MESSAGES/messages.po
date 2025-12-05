@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-05 19:55+0900\n"
+"POT-Creation-Date: 2025-12-05 20:40+0900\n"
 "PO-Revision-Date: 2025-10-29 23:04+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: et <LL@li.org>\n"
@@ -209,7 +209,7 @@ msgstr ""
 #: templates/2026/rule.html:139
 #, python-brace-format
 msgid "忘れられた{TagTeamLoopstation}..."
-msgstr "Unustatud{TagTeamLoopstation}..."
+msgstr "Unustatud {TagTeamLoopstation}..."
 
 #: templates/2024/rule.html:135 templates/2025/rule.html:130
 msgid "Wildcardを勝ち上がる以外の方法でGBB出場権を得る方法（シード権）と、その該当者は以下の通りです。"
@@ -301,8 +301,8 @@ msgstr "Osalejate nimekiri"
 #, python-brace-format
 msgid "シード権を持つ人が辞退した場合、原則として、該当シード権は消滅し、{Wildcard}下位からの繰り上げが行われます。"
 msgstr ""
-"Kui asetatud isik loobub, siis üldjuhul vastav asetusõigus kaob ja "
-"{Wildcard} toimub edasiliikumine madalamatelt kohtadelt."
+"Kui asetatud isik loobub, siis üldjuhul vastav asetusõigus kaob ning toimub "
+"edasiliikumine {Wildcard} madalamatelt kohtadelt."
 
 #: templates/2024/rule.html:240 templates/2025/rule.html:256
 #: templates/2025/wildcard_regulation.html:207 templates/2026/rule.html:290
@@ -888,8 +888,8 @@ msgstr "【{Beatboxer}ile】{Wildcard} reeglite selgitus"
 #, python-brace-format
 msgid "GBB出場辞退が発生した場合、{Wildcard}下位からの繰り上げが行われます。"
 msgstr ""
-"Kui GBB-st osalemisest loobutakse, siis toimub {Wildcard} alustades "
-"madalamatelt kohtadelt edasiliikumine."
+"Kui GBB-st osalemisest loobutakse, toimub edasiliikumine {Wildcard} "
+"madalamatelt kohtadelt."
 
 #: templates/2025/rule.html:229
 msgid "いかなる理由があっても、シード権大会2位以下の人に、出場権は与えられません。"
@@ -1160,8 +1160,8 @@ msgstr ""
 msgid "上記要件を満たさない、同意できない場合は失格となり、{Wildcard}下位からの繰り上げが行われる"
 msgstr ""
 "Kui ülaltoodud nõudeid ei täideta või nendega ei nõustuta, järgneb "
-"diskvalifitseerimine ja {Wildcard} madalamatelt kohtadelt toimub ülespoole "
-"liikumine."
+"diskvalifitseerimine ja toimub ülespoole liikumine {Wildcard} madalamatelt "
+"kohtadelt."
 
 #: templates/2025/wildcard_regulation.html:138
 #, python-brace-format
@@ -1387,7 +1387,7 @@ msgstr "Selles osakonnas lahingut ei peeta."
 #, python-brace-format
 msgid "{Wildcard}の審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価されます。"
 msgstr ""
-"{Wildcard} hindamine viiakse läbi teiste osakondadest erinevate "
+"{Wildcard} hindamine viiakse läbi teistest osakondadest erinevate "
 "kriteeriumide alusel ning seda hinnatakse loo, kunstilisuse, originaalsuse "
 "jms põhjal."
 
@@ -1397,7 +1397,7 @@ msgstr "GBB-le pääsemise tingimused"
 
 #: templates/2026/rule.html:158
 msgid "GBB出場権を得る方法は、以下の通りです。"
-msgstr "GBB-le pääsemiseks toimige järgmiselt."
+msgstr "GBB-le pääsemise viisid on järgmised."
 
 #: templates/2026/rule.html:161 templates/2026/rule.html:166
 msgid "上位入賞者"
@@ -1643,7 +1643,7 @@ msgstr "Tagasi avalehele"
 #: templates/includes/participants_form.html:13
 #, python-brace-format
 msgid "{Wildcard}結果"
-msgstr "{Wildcard}tulemus"
+msgstr "{Wildcard} tulemused"
 
 #: templates/2024/top.html:47 templates/2025/rule.html:67
 #: templates/2025/rule.html:358 templates/2025/stream.html:34
@@ -1703,7 +1703,7 @@ msgstr "Osalemisõiguse üksikasjad"
 #: templates/common/korea.html:51 templates/common/participants.html:93
 #, python-brace-format
 msgid "{Wildcard}結果発表日"
-msgstr "{Wildcard}tulemuste avaldamise kuupäev"
+msgstr "{Wildcard} tulemuste avaldamise kuupäev"
 
 #: templates/common/japan.html:43
 msgid "日本代表なし"
