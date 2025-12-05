@@ -15,6 +15,7 @@ from postgrest.exceptions import APIError
 from supabase import Client, create_client
 
 from app.config.config import ALL_DATA, MINUTE
+from app.models.supabase_fallback import supabase_fallback
 from app.util.filter_eq import Operator
 
 # ここに書かないと読み込みタイミングが遅くなってエラーになる
@@ -314,14 +315,20 @@ class SupabaseService:
         # 用意したqueryを実行し、データを取得
         try:
             response = query.execute()
-        except Exception as e:
+        except Exception:
             print("SupabaseClient get_data error:", flush=True)
             traceback.print_exc()
-            if raise_error:
-                raise e
-            if pandas:
-                return pd.DataFrame([], index=None)
-            return []
+            return supabase_fallback.get_data_fallback(
+                table,
+                columns,
+                order_by,
+                join_tables,
+                filters,
+                pandas,
+                timeout,
+                raise_error,
+                **filters_eq,
+            )
 
         # 取得したデータをキャッシュに保存
         flask_cache.set(cache_key, response.data, timeout=timeout)
@@ -367,9 +374,9 @@ class SupabaseService:
             response = query.execute()
         except Exception as e:
             print("SupabaseClient get_tavily_data error:", e, flush=True)
-            if raise_error:
-                raise e
-            return []
+            return supabase_fallback.get_tavily_data_fallback(
+                cache_key, column, raise_error
+            )
 
         if len(response.data) == 0:
             return []
