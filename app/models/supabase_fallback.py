@@ -1,3 +1,4 @@
+import hashlib
 import json
 import os
 from typing import Dict, List, Optional, Tuple
@@ -11,6 +12,59 @@ from app.util.filter_eq import Operator
 class SupabaseFallback:
     def __init__(self):
         pass
+
+    # MARK: cache key
+    def _generate_cache_key(
+        self,
+        table: str,
+        columns: Optional[list] = None,
+        order_by: str | list[str] = None,
+        join_tables: Optional[dict] = None,
+        filters: Optional[dict] = None,
+        **filters_eq,
+    ) -> str:
+        """
+        キャッシュキーを生成する内部メソッド。
+
+        Supabaseからデータを取得する際のクエリ条件（テーブル名、カラム、並び順、JOIN、フィルタなど）をもとに
+        一意なキャッシュキー（MD5ハッシュ）を生成します。
+
+        Args:
+            table (str): 対象テーブル名。
+            columns (Optional[list], optional): 取得カラム名リスト。デフォルトはNone。
+            order_by (str | list[str], optional): 並び替え条件。デフォルトはNone。
+            join_tables (Optional[dict], optional): JOINするテーブル情報。デフォルトはNone。
+            filters (Optional[dict], optional): フィルタ条件。デフォルトはNone。
+            **filters_eq: その他、等価条件によるフィルタをキーワード引数で指定。
+
+        Returns:
+            str: クエリ条件に基づく一意なキャッシュキー文字列。
+        """
+
+        # パラメータを辞書にまとめる
+        def make_json_serializable(obj):
+            if isinstance(obj, dict):
+                return {k: make_json_serializable(obj[k]) for k in sorted(obj)}
+            elif isinstance(obj, list):
+                return [make_json_serializable(v) for v in obj]
+            elif isinstance(obj, set):
+                return sorted(list(obj))
+            else:
+                return obj
+
+        params = {
+            "table": table,
+            "columns": sorted(columns) if columns else None,
+            "order_by": order_by,
+            "join_tables": make_json_serializable(join_tables),
+            "filters": make_json_serializable(filters),
+            "filters_eq": make_json_serializable(dict(sorted(filters_eq.items()))),
+        }
+
+        # JSON文字列に変換してハッシュ化
+        params_str = json.dumps(params, sort_keys=True, ensure_ascii=False)
+        cache_key = hashlib.md5(params_str.encode("utf-8")).hexdigest()
+        return f"supabase_data_{cache_key}"
 
     # MARK: internal helpers
     def _load_backup_csv(self, table: str, backup_root: str) -> Optional[pd.DataFrame]:
