@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-05 19:51+0900\n"
+"POT-Creation-Date: 2025-12-05 19:55+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -108,7 +108,7 @@ msgstr "본선 심사위원 목록"
 #: templates/2026/rule.html:49 templates/2026/rule.html:393
 #, python-brace-format
 msgid "{Wildcard}審査員一覧"
-msgstr "{Wildcard}심사위원 목록"
+msgstr "{Wildcard} 심사위원 목록"
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:56
 #: templates/2026/rule.html:60
@@ -439,7 +439,7 @@ msgstr "GBB {year}의 최신 정보를 확인해보세요"
 #: templates/common/participants.html:143 templates/others/translation.html:18
 #, python-brace-format
 msgid "{Wildcard}結果 & 出場者"
-msgstr "{Wildcard}결과 & 참가자"
+msgstr "{Wildcard} 결과 & 참가자"
 
 #: templates/2024/stream.html:41 templates/2024/timetable.html:3
 #: templates/2024/timetable.html:4 templates/2024/timetable.html:5
@@ -731,7 +731,7 @@ msgstr "{Wildcard}결과 발표 방송"
 #: templates/others/translation.html:25
 #, python-brace-format
 msgid "{Wildcard}一覧"
-msgstr "{Wildcard}목록"
+msgstr "{Wildcard} 목록"
 
 #: templates/2024/top.html:104 templates/2024/top.html:118
 #: templates/2024/top_7tosmoke.html:46 templates/2025/top.html:170
@@ -1063,7 +1063,7 @@ msgstr "실격되지 않기 위해"
 #: templates/2025/wildcard_regulation.html:61
 #, python-brace-format
 msgid "以下に示す内容は、{Wildcard}を作る{Beatboxer}向けの情報です。"
-msgstr "아래 내용은 {Wildcard}을(를) 만드는 {Beatboxer}을(를) 위한 정보입니다."
+msgstr "아래 내용은 {Wildcard}를 만드는 {Beatboxer}를 위한 정보입니다."
 
 #: templates/2025/wildcard_regulation.html:62
 #, python-brace-format
@@ -1532,7 +1532,7 @@ msgstr "홈으로 돌아가기"
 #: templates/includes/participants_form.html:13
 #, python-brace-format
 msgid "{Wildcard}結果"
-msgstr "{Wildcard}결과"
+msgstr "{Wildcard} 결과"
 
 #: templates/2024/top.html:47 templates/2025/rule.html:67
 #: templates/2025/rule.html:358 templates/2025/stream.html:34
