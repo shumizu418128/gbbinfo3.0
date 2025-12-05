@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-05 17:44+0900\n"
+"POT-Creation-Date: 2025-12-05 19:44+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ga <LL@li.org>\n"
@@ -393,7 +393,7 @@ msgstr "Gach feiste gan teorainn"
 #: templates/2024/rule.html:274 templates/2026/rule.html:331
 #, python-brace-format
 msgid "{Wildcard}審査員一覧はこちら"
-msgstr "{Wildcard}Liosta na mBreithiúna anseo"
+msgstr "{Wildcard} Liosta na mBreithiúna anseo"
 
 #: templates/2024/rule.html:280 templates/2024/rule.html:325
 #: templates/2024/top.html:51 templates/2025/rule.html:314
@@ -1175,7 +1175,7 @@ msgstr "{Wildcard} Maidir le cruthú agus cur isteach"
 #: templates/2025/wildcard_regulation.html:140
 #, python-brace-format
 msgid "{Wildcard}動画の内容"
-msgstr "{Wildcard}ábhar an fhíseáin"
+msgstr "{Wildcard} ábhar an fhíseáin"
 
 #: templates/2025/wildcard_regulation.html:141
 msgid "動画の冒頭で、以下のように自己紹介する"

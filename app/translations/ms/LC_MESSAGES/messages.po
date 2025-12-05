@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-05 17:44+0900\n"
+"POT-Creation-Date: 2025-12-05 19:44+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ms <LL@li.org>\n"
@@ -142,7 +142,7 @@ msgstr ""
 #: templates/2025/wildcard_regulation.html:66 templates/2026/rule.html:65
 #, python-brace-format
 msgid "{Wildcard}を提出する方は、"
-msgstr "{Wildcard} yang mengemukakan,"
+msgstr "Bagi mereka yang menghantar {Wildcard},"
 
 #: templates/2024/rule.html:64 templates/2025/rule.html:62
 #: templates/2025/wildcard_regulation.html:67 templates/2026/rule.html:66
@@ -298,9 +298,9 @@ msgstr "Senarai peserta"
 #, python-brace-format
 msgid "シード権を持つ人が辞退した場合、原則として、該当シード権は消滅し、{Wildcard}下位からの繰り上げが行われます。"
 msgstr ""
-"Jika pemegang hak benih menolak, pada asasnya, hak benih yang berkaitan akan"
-" lupus, dan kenaikan dari kedudukan yang lebih rendah akan berlaku "
-"{Wildcard}."
+"Jika pemegang hak benih menarik diri, secara prinsip hak benih tersebut akan"
+" luput, dan kenaikan akan dibuat daripada peserta {Wildcard} di kedudukan "
+"lebih rendah."
 
 #: templates/2024/rule.html:240 templates/2025/rule.html:256
 #: templates/2025/wildcard_regulation.html:207 templates/2026/rule.html:290
@@ -394,7 +394,7 @@ msgstr "Tiada had peranti"
 #: templates/2024/rule.html:274 templates/2026/rule.html:331
 #, python-brace-format
 msgid "{Wildcard}審査員一覧はこちら"
-msgstr "{Wildcard}Senarai hakim di sini"
+msgstr "Senarai hakim {Wildcard} ada di sini"
 
 #: templates/2024/rule.html:280 templates/2024/rule.html:325
 #: templates/2024/top.html:51 templates/2025/rule.html:314
@@ -1167,8 +1167,8 @@ msgstr ""
 msgid "上記要件を満たさない、同意できない場合は失格となり、{Wildcard}下位からの繰り上げが行われる"
 msgstr ""
 "Jika anda tidak memenuhi syarat-syarat di atas atau tidak bersetuju, anda "
-"akan dibatalkan kelayakan, dan {Wildcard} kenaikan dari kedudukan yang lebih"
-" rendah akan dilakukan."
+"akan dibatalkan kelayakan dan tempat akan dinaikkan daripada peserta "
+"{Wildcard} yang berada di kedudukan lebih rendah."
 
 #: templates/2025/wildcard_regulation.html:138
 #, python-brace-format

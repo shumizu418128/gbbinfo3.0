@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-05 17:44+0900\n"
+"POT-Creation-Date: 2025-12-05 19:44+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: en <LL@li.org>\n"
@@ -110,7 +110,7 @@ msgstr "List of judges for the main tournament"
 #: templates/2026/rule.html:49 templates/2026/rule.html:393
 #, python-brace-format
 msgid "{Wildcard}審査員一覧"
-msgstr "{Wildcard}List of judges"
+msgstr "List of {Wildcard} judges"
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:56
 #: templates/2026/rule.html:60
@@ -141,7 +141,7 @@ msgstr ""
 #: templates/2025/wildcard_regulation.html:66 templates/2026/rule.html:65
 #, python-brace-format
 msgid "{Wildcard}を提出する方は、"
-msgstr "Those submitting {Wildcard}shall"
+msgstr "For those submitting {Wildcard},"
 
 #: templates/2024/rule.html:64 templates/2025/rule.html:62
 #: templates/2025/wildcard_regulation.html:67 templates/2026/rule.html:66
@@ -393,7 +393,7 @@ msgstr "No device restrictions"
 #: templates/2024/rule.html:274 templates/2026/rule.html:331
 #, python-brace-format
 msgid "{Wildcard}審査員一覧はこちら"
-msgstr "{Wildcard}List of judges here"
+msgstr "Click here for the list of {Wildcard} judges"
 
 #: templates/2024/rule.html:280 templates/2024/rule.html:325
 #: templates/2024/top.html:51 templates/2025/rule.html:314
@@ -736,7 +736,7 @@ msgstr "Notice of URL Change for This Site"
 #: templates/2026/top.html:152
 #, python-brace-format
 msgid "{Wildcard}結果発表配信"
-msgstr "{Wildcard}Results Announcement Livestream"
+msgstr "{Wildcard} Results Announcement Livestream"
 
 #: templates/2024/top.html:91 templates/2024/wildcards.html:3
 #: templates/2024/wildcards.html:4 templates/2024/wildcards.html:5
@@ -1165,12 +1165,12 @@ msgstr ""
 #: templates/2025/wildcard_regulation.html:138
 #, python-brace-format
 msgid "{Wildcard}作成・提出について"
-msgstr "{Wildcard}Creation/Submission"
+msgstr "Creating and submitting {Wildcard}"
 
 #: templates/2025/wildcard_regulation.html:140
 #, python-brace-format
 msgid "{Wildcard}動画の内容"
-msgstr "{Wildcard}video content"
+msgstr "{Wildcard} video content"
 
 #: templates/2025/wildcard_regulation.html:141
 msgid "動画の冒頭で、以下のように自己紹介する"
@@ -1648,7 +1648,7 @@ msgstr "Return to Home"
 #: templates/includes/participants_form.html:13
 #, python-brace-format
 msgid "{Wildcard}結果"
-msgstr "{Wildcard}result"
+msgstr "{Wildcard} results"
 
 #: templates/2024/top.html:47 templates/2025/rule.html:67
 #: templates/2025/rule.html:358 templates/2025/stream.html:34

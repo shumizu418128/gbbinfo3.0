@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-05 17:44+0900\n"
+"POT-Creation-Date: 2025-12-05 19:44+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: hu <LL@li.org>\n"
@@ -205,7 +205,7 @@ msgstr ""
 #: templates/2026/rule.html:139
 #, python-brace-format
 msgid "忘れられた{TagTeamLoopstation}..."
-msgstr "Elfeledett{TagTeamLoopstation}..."
+msgstr "Elfeledett {TagTeamLoopstation}..."
 
 #: templates/2024/rule.html:135 templates/2025/rule.html:130
 msgid "Wildcardを勝ち上がる以外の方法でGBB出場権を得る方法（シード権）と、その該当者は以下の通りです。"
@@ -392,7 +392,7 @@ msgstr "Nincs eszközkorlátozás"
 #: templates/2024/rule.html:274 templates/2026/rule.html:331
 #, python-brace-format
 msgid "{Wildcard}審査員一覧はこちら"
-msgstr "{Wildcard}A zsűritagok listája itt található"
+msgstr "Itt található a {Wildcard} bírák listája"
 
 #: templates/2024/rule.html:280 templates/2024/rule.html:325
 #: templates/2024/top.html:51 templates/2025/rule.html:314
@@ -454,7 +454,7 @@ msgstr "Nézd meg a GBB {year} legfrissebb információit."
 #: templates/common/participants.html:143 templates/others/translation.html:18
 #, python-brace-format
 msgid "{Wildcard}結果 & 出場者"
-msgstr "{Wildcard}eredmények és résztvevők"
+msgstr "{Wildcard} eredmények és résztvevők"
 
 #: templates/2024/stream.html:41 templates/2024/timetable.html:3
 #: templates/2024/timetable.html:4 templates/2024/timetable.html:5
@@ -1171,7 +1171,7 @@ msgstr "{Wildcard} létrehozása és benyújtása"
 #: templates/2025/wildcard_regulation.html:140
 #, python-brace-format
 msgid "{Wildcard}動画の内容"
-msgstr "{Wildcard}Videó tartalma"
+msgstr "{Wildcard} videó tartalma"
 
 #: templates/2025/wildcard_regulation.html:141
 msgid "動画の冒頭で、以下のように自己紹介する"
@@ -1651,7 +1651,7 @@ msgstr "Vissza a főoldalra"
 #: templates/includes/participants_form.html:13
 #, python-brace-format
 msgid "{Wildcard}結果"
-msgstr "{Wildcard}eredmény"
+msgstr "{Wildcard} eredmény"
 
 #: templates/2024/top.html:47 templates/2025/rule.html:67
 #: templates/2025/rule.html:358 templates/2025/stream.html:34

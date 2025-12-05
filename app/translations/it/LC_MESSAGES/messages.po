@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-05 17:44+0900\n"
+"POT-Creation-Date: 2025-12-05 19:44+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: it <LL@li.org>\n"
@@ -300,7 +300,7 @@ msgid "シード権を持つ人が辞退した場合、原則として、該当�
 msgstr ""
 "In caso di rinuncia da parte di un detentore del diritto di testa di serie, "
 "in linea di principio, tale diritto di testa di serie decade e viene "
-"effettuato un ripescaggio {Wildcard}dalle posizioni inferiori."
+"effettuato un ripescaggio dalle posizioni inferiori della {Wildcard}."
 
 #: templates/2024/rule.html:240 templates/2025/rule.html:256
 #: templates/2025/wildcard_regulation.html:207 templates/2026/rule.html:290
@@ -1184,7 +1184,7 @@ msgstr "{Wildcard} Sulla creazione e la presentazione"
 #: templates/2025/wildcard_regulation.html:140
 #, python-brace-format
 msgid "{Wildcard}動画の内容"
-msgstr "{Wildcard}contenuto del video"
+msgstr "Contenuto del video {Wildcard}"
 
 #: templates/2025/wildcard_regulation.html:141
 msgid "動画の冒頭で、以下のように自己紹介する"
@@ -1674,7 +1674,7 @@ msgstr "Torna alla pagina principale"
 #: templates/includes/participants_form.html:13
 #, python-brace-format
 msgid "{Wildcard}結果"
-msgstr "{Wildcard}risultato"
+msgstr "Risultato {Wildcard}"
 
 #: templates/2024/top.html:47 templates/2025/rule.html:67
 #: templates/2025/rule.html:358 templates/2025/stream.html:34

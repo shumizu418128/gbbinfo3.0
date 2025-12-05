@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-05 17:44+0900\n"
+"POT-Creation-Date: 2025-12-05 19:44+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: be <LL@li.org>\n"
@@ -110,7 +110,7 @@ msgstr "Спіс суддзяў фінальнага раўнду"
 #: templates/2026/rule.html:49 templates/2026/rule.html:393
 #, python-brace-format
 msgid "{Wildcard}審査員一覧"
-msgstr "{Wildcard}Спіс суддзяў"
+msgstr "Спіс суддзяў {Wildcard}"
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:56
 #: templates/2026/rule.html:60
@@ -141,7 +141,7 @@ msgstr ""
 #: templates/2025/wildcard_regulation.html:66 templates/2026/rule.html:65
 #, python-brace-format
 msgid "{Wildcard}を提出する方は、"
-msgstr "{Wildcard} каб падаць,"
+msgstr "Тыя, хто падае {Wildcard},"
 
 #: templates/2024/rule.html:64 templates/2025/rule.html:62
 #: templates/2025/wildcard_regulation.html:67 templates/2026/rule.html:66
@@ -394,7 +394,7 @@ msgstr "Неабмежаваны прылада"
 #: templates/2024/rule.html:274 templates/2026/rule.html:331
 #, python-brace-format
 msgid "{Wildcard}審査員一覧はこちら"
-msgstr "{Wildcard}Спіс суддзяў тут"
+msgstr "Спіс суддзяў {Wildcard} тут"
 
 #: templates/2024/rule.html:280 templates/2024/rule.html:325
 #: templates/2024/top.html:51 templates/2025/rule.html:314
@@ -1647,7 +1647,7 @@ msgstr "Вяртанне дадому"
 #: templates/includes/participants_form.html:13
 #, python-brace-format
 msgid "{Wildcard}結果"
-msgstr "{Wildcard}вынік"
+msgstr "Вынікі {Wildcard}"
 
 #: templates/2024/top.html:47 templates/2025/rule.html:67
 #: templates/2025/rule.html:358 templates/2025/stream.html:34
@@ -1707,7 +1707,7 @@ msgstr "Падрабязнi кваліфікацыі"
 #: templates/common/korea.html:51 templates/common/participants.html:93
 #, python-brace-format
 msgid "{Wildcard}結果発表日"
-msgstr "{Wildcard}Вынікі аб'яўляюцца"
+msgstr "Дата абвяшчэння вынікаў {Wildcard}"
 
 #: templates/common/japan.html:43
 msgid "日本代表なし"

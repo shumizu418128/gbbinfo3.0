@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-05 17:44+0900\n"
+"POT-Creation-Date: 2025-12-05 19:44+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -111,7 +111,7 @@ msgstr "Liste des juges de la compétition principale"
 #: templates/2026/rule.html:49 templates/2026/rule.html:393
 #, python-brace-format
 msgid "{Wildcard}審査員一覧"
-msgstr "{Wildcard}Liste des jurés"
+msgstr "Liste des jurés {Wildcard}"
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:56
 #: templates/2026/rule.html:60
@@ -1188,7 +1188,7 @@ msgstr "Création et soumission de {Wildcard}"
 #: templates/2025/wildcard_regulation.html:140
 #, python-brace-format
 msgid "{Wildcard}動画の内容"
-msgstr "{Wildcard}Contenu de la vidéo"
+msgstr "Contenu de la vidéo {Wildcard}"
 
 #: templates/2025/wildcard_regulation.html:141
 msgid "動画の冒頭で、以下のように自己紹介する"
@@ -1350,7 +1350,7 @@ msgstr ""
 #: templates/2025/wildcard_regulation.html:247
 #, python-brace-format
 msgid "{Loopstation}単体での出場は禁止"
-msgstr "{Loopstation} La participation en solo est interdite"
+msgstr "La participation uniquement avec le {Loopstation} est interdite"
 
 #: templates/2025/wildcard_regulation.html:248
 msgid "事前にデバイス構成をSUPPORT@swissbeatbox.comへ申請すること"
@@ -1678,7 +1678,7 @@ msgstr "Retour à la page d'accueil"
 #: templates/includes/participants_form.html:13
 #, python-brace-format
 msgid "{Wildcard}結果"
-msgstr "{Wildcard}résultat"
+msgstr "Résultats {Wildcard}"
 
 #: templates/2024/top.html:47 templates/2025/rule.html:67
 #: templates/2025/rule.html:358 templates/2025/stream.html:34
