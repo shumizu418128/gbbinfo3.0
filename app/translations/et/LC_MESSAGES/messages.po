@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-26 00:15+0900\n"
+"POT-Creation-Date: 2025-12-05 17:07+0900\n"
 "PO-Revision-Date: 2025-10-29 23:04+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: et <LL@li.org>\n"
@@ -20,19 +20,23 @@ msgstr ""
 
 #: templates/2024/rule.html:3 templates/2024/rule.html:4
 #: templates/2024/rule.html:5 templates/2024/rule.html:9
+#: templates/2024/rule.html:42 templates/2024/rule.html:230
 #: templates/2024/rule.html:235 templates/2024/top.html:51
 #: templates/2025/rule.html:3 templates/2025/rule.html:4
 #: templates/2025/rule.html:5 templates/2025/rule.html:9
+#: templates/2025/rule.html:41 templates/2025/rule.html:246
 #: templates/2025/rule.html:251 templates/2025/timetable.html:101
-#: templates/2025/top.html:54 templates/2025/top.html:102
+#: templates/2025/top.html:53 templates/2025/top.html:101
 #: templates/2025/wildcard_regulation.html:22
 #: templates/2025/wildcard_regulation.html:202
 #: templates/2025/wildcards.html:15 templates/2025/wildcards.html:84
 #: templates/2026/rule.html:3 templates/2026/rule.html:4
 #: templates/2026/rule.html:5 templates/2026/rule.html:9
-#: templates/2026/rule.html:281 templates/2026/timetable.html:62
+#: templates/2026/rule.html:41 templates/2026/rule.html:280
+#: templates/2026/rule.html:285 templates/2026/timetable.html:62
 #: templates/2026/top.html:63 templates/2026/top.html:106
-#: templates/common/participants.html:144
+#: templates/2026/wildcards.html:13 templates/2026/wildcards.html:60
+#: templates/common/participants.html:139
 #: templates/includes/hamburger_menu.html:11
 msgid "ルール"
 msgstr "Reeglid"
@@ -40,10 +44,10 @@ msgstr "Reeglid"
 #: templates/2024/rule.html:11 templates/2025/rule.html:11
 #: templates/2025/wildcard_regulation.html:12 templates/2026/rule.html:11
 #, python-brace-format
-msgid "Swissbeatbox公式サイトにて、GBB {year} で実施される部門・Wildcardのルールについて発表がありました。"
+msgid "Swissbeatbox公式サイトにて、GBB {year} で実施される部門・{Wildcard}のルールについて発表がありました。"
 msgstr ""
-"Swissbeatboxi ametlikul veebisaidil avalikustati GBB {year} osakondade ja "
-"Wildcardi reeglid."
+"Swissbeatboxi ametlikul kodulehel tehti teadaanne GBB {year} raames "
+"toimuvate kategooriate ja {Wildcard} reeglite kohta."
 
 #: templates/2024/rule.html:12 templates/2025/rule.html:12
 #: templates/2025/wildcard_regulation.html:13 templates/2026/rule.html:12
@@ -61,11 +65,12 @@ msgstr "Allikasait:"
 #: templates/2025/rule.html:357 templates/2025/rule.html:399
 #: templates/2025/stream.html:42 templates/2025/timetable.html:100
 #: templates/2025/timetable.html:236 templates/2025/timetable.html:277
-#: templates/2025/top.html:158 templates/2025/top_7tosmoke.html:36
+#: templates/2025/top.html:157 templates/2025/top_7tosmoke.html:36
 #: templates/2025/wildcards.html:112 templates/2026/rule.html:18
-#: templates/2026/rule.html:66 templates/2026/rule.html:268
-#: templates/2026/rule.html:321 templates/2026/rule.html:385
-#: templates/2026/rule.html:435 templates/includes/hamburger_menu.html:24
+#: templates/2026/rule.html:70 templates/2026/rule.html:272
+#: templates/2026/rule.html:325 templates/2026/rule.html:389
+#: templates/2026/rule.html:439 templates/2026/wildcards.html:76
+#: templates/includes/hamburger_menu.html:24
 msgid "現地観戦計画のたてかた"
 msgstr "Kuidas koostada kohapeal vaatamise plaani"
 
@@ -80,7 +85,8 @@ msgstr "Sisukord"
 #: templates/2024/wildcards.html:71 templates/2025/rule.html:29
 #: templates/2025/rule.html:54 templates/2025/wildcard_regulation.html:29
 #: templates/2025/wildcard_regulation.html:59 templates/2025/wildcards.html:87
-#: templates/2026/rule.html:29 templates/2026/rule.html:54
+#: templates/2026/rule.html:29 templates/2026/rule.html:58
+#: templates/2026/wildcards.html:63
 msgid "注意事項"
 msgstr "Tähelepanekud"
 
@@ -88,7 +94,7 @@ msgstr "Tähelepanekud"
 #: templates/2025/rule.html:33 templates/2025/rule.html:70
 #: templates/2025/wildcard_regulation.html:33
 #: templates/2025/wildcard_regulation.html:81 templates/2026/rule.html:33
-#: templates/2026/rule.html:70
+#: templates/2026/rule.html:74
 msgid "開催部門一覧"
 msgstr "Võistlusosakondade nimekiri"
 
@@ -97,55 +103,52 @@ msgstr "Võistlusosakondade nimekiri"
 msgid "出場シード権 獲得条件"
 msgstr "Osalemisõiguse võitmise tingimused"
 
-#: templates/2024/rule.html:42 templates/2024/rule.html:230
-#: templates/2025/rule.html:41 templates/2025/rule.html:246
-#: templates/2026/rule.html:41 templates/2026/rule.html:276
-msgid "Wildcard ルール"
-msgstr "Wildcard reeglid"
-
 #: templates/2024/rule.html:46 templates/2024/rule.html:272
 #: templates/2025/rule.html:45 templates/2025/rule.html:305
-#: templates/2026/rule.html:45 templates/2026/rule.html:325
+#: templates/2026/rule.html:45 templates/2026/rule.html:329
 msgid "本戦審査員一覧"
 msgstr "Peavõistluse kohtunike nimekiri"
 
 #: templates/2024/rule.html:50 templates/2024/rule.html:316
 #: templates/2025/rule.html:49 templates/2025/rule.html:361
-#: templates/2026/rule.html:49 templates/2026/rule.html:389
-msgid "Wildcard審査員一覧"
-msgstr "Wildcard kohtunike nimekiri"
+#: templates/2026/rule.html:49 templates/2026/rule.html:393
+#, python-brace-format
+msgid "{Wildcard}審査員一覧"
+msgstr "{Wildcard} žürii nimekiri"
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:56
-#: templates/2026/rule.html:56
-msgid "以下に示す内容は、あくまでもBeatboxファンが知っておくとよりGBBを楽しめる知識として紹介するものです。"
+#: templates/2026/rule.html:60
+#, python-brace-format
+msgid "以下に示す内容は、あくまでも{Beatbox}ファンが知っておくとよりGBBを楽しめる知識として紹介するものです。"
 msgstr ""
-"Järgnev sisu on mõeldud ainult Beatboxi fännidele, kes soovivad GBB-st "
-"rohkem rõõmu tunda."
+"Alljärgnev sisu on esitatud üksnes teadmistena, mis aitavad {Beatbox}'i "
+"fännidel GBB-d paremini nautida."
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:57
-#: templates/2026/rule.html:57
+#: templates/2026/rule.html:61
 msgid "一部内容において、わかりやすさを優先します。"
 msgstr "Mõnes osas eelistame arusaadavust."
 
 #: templates/2024/rule.html:58 templates/2025/rule.html:57
-#: templates/2026/rule.html:57
+#: templates/2026/rule.html:61
 msgid "これにより、正確さに欠ける表現を用いることがあります。"
 msgstr "Seetõttu võime kasutada väljendeid, mis ei ole täiesti täpsed."
 
 #: templates/2024/rule.html:62 templates/2025/rule.html:60
-#: templates/2025/wildcard_regulation.html:65 templates/2026/rule.html:60
+#: templates/2025/wildcard_regulation.html:65 templates/2026/rule.html:64
 msgid "当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねます。"
 msgstr ""
 "Me ei võta mingit vastutust kahjude eest, mis on tekkinud sellel saidil "
 "avaldatud teabe tõttu."
 
 #: templates/2024/rule.html:62 templates/2025/rule.html:61
-#: templates/2025/wildcard_regulation.html:66 templates/2026/rule.html:61
-msgid "Wildcardを提出する方は、"
-msgstr "Wildcardi esitajad,"
+#: templates/2025/wildcard_regulation.html:66 templates/2026/rule.html:65
+#, python-brace-format
+msgid "{Wildcard}を提出する方は、"
+msgstr "Need, kes esitavad {Wildcard},"
 
 #: templates/2024/rule.html:64 templates/2025/rule.html:62
-#: templates/2025/wildcard_regulation.html:67 templates/2026/rule.html:62
+#: templates/2025/wildcard_regulation.html:67 templates/2026/rule.html:66
 msgid "必ずご自身でルールを今一度ご確認ください。"
 msgstr "Palun kontrollige ise veelkord reegleid."
 
@@ -158,13 +161,13 @@ msgstr "Palun kontrollige ise veelkord reegleid."
 #: templates/2025/rule.html:313 templates/2025/rule.html:366
 #: templates/2025/wildcard_regulation.html:85
 #: templates/2025/wildcard_regulation.html:142
-#: templates/2025/wildcard_regulation.html:201 templates/2026/rule.html:75
-#: templates/2026/rule.html:168 templates/2026/rule.html:194
-#: templates/2026/rule.html:224 templates/2026/rule.html:280
-#: templates/2026/rule.html:333 templates/2026/rule.html:394
+#: templates/2025/wildcard_regulation.html:201 templates/2026/rule.html:79
+#: templates/2026/rule.html:172 templates/2026/rule.html:198
+#: templates/2026/rule.html:228 templates/2026/rule.html:284
+#: templates/2026/rule.html:337 templates/2026/rule.html:398
 #: templates/2026/top.html:53 templates/common/cancels.html:23
 #: templates/common/japan.html:22 templates/common/korea.html:22
-#: templates/common/participants.html:130
+#: templates/common/participants.html:125
 #: templates/others/participant_detail.html:33
 #: templates/others/participant_detail.html:115
 #: templates/others/participant_detail.html:155
@@ -176,12 +179,12 @@ msgid "シード"
 msgstr "Seeme"
 
 #: templates/2024/rule.html:81 templates/2025/rule.html:77
-#: templates/2026/rule.html:79
+#: templates/2026/rule.html:83
 msgid "計"
 msgstr "Kokku"
 
 #: templates/2024/rule.html:118 templates/2025/rule.html:115
-#: templates/2025/wildcard_regulation.html:113 templates/2026/rule.html:138
+#: templates/2025/wildcard_regulation.html:113 templates/2026/rule.html:142
 msgid "上記のデータは、ルール発表時現在の情報です。実際は、辞退などにより、出場者数が変動します。"
 msgstr ""
 "Ülaltoodud andmed on info reeglite avalikustamise ajal. Tegelikkuses võib "
@@ -192,18 +195,21 @@ msgid "Producerとは"
 msgstr "Mis on Producer?"
 
 #: templates/2024/rule.html:123 templates/2025/rule.html:121
+#, python-brace-format
 msgid ""
-"Loopstationのセカンドデバイス（Loopstationに接続する端末）ありの部門で、GBB23で「Producer "
-"showcase」として新設されました。その代わり、Loopstation部門においてセカンドデバイスの使用が禁止されます。"
+"{Loopstation}のセカンドデバイス（{Loopstation}に接続する端末）ありの部門で、GBB23で「Producer "
+"showcase」として新設されました。その代わり、{Loopstation}部門においてセカンドデバイスの使用が禁止されます。"
 msgstr ""
-"See on osakond, kus on Loopstationi teine seade (seade, mis ühendub "
-"Loopstationiga), mis loodi GBB23-s nimega \"Producer showcase\". Selle "
-"asemel on Loopstationi osakonnas teise seadme kasutamine keelatud."
+"Kategoorias, kus kasutatakse {Loopstation}'i teist seadet (seadet, mis "
+"ühendub {Loopstation}'iga), loodi see GBB23-l uue \"Producer showcase\" nime"
+" all. Selle asemel on {Loopstation}'i kategoorias keelatud teise seadme "
+"kasutamine."
 
 #: templates/2024/rule.html:126 templates/2025/rule.html:117
-#: templates/2026/rule.html:135
-msgid "忘れられたTag Team Loopstation..."
-msgstr "Unustatud Tag Team Loopstation..."
+#: templates/2026/rule.html:139
+#, python-brace-format
+msgid "忘れられた{TagTeamLoopstation}..."
+msgstr "Unustatud{TagTeamLoopstation}..."
 
 #: templates/2024/rule.html:135 templates/2025/rule.html:130
 msgid "Wildcardを勝ち上がる以外の方法でGBB出場権を得る方法（シード権）と、その該当者は以下の通りです。"
@@ -218,11 +224,11 @@ msgstr "Osalemisõigus - GBB"
 #: templates/2024/rule.html:142 templates/2024/rule.html:168
 #: templates/2024/rule.html:194 templates/2025/rule.html:138
 #: templates/2025/rule.html:164 templates/2025/rule.html:194
-#: templates/2025/wildcard_regulation.html:142 templates/2026/rule.html:167
-#: templates/2026/rule.html:193 templates/2026/rule.html:223
+#: templates/2025/wildcard_regulation.html:142 templates/2026/rule.html:171
+#: templates/2026/rule.html:197 templates/2026/rule.html:227
 #: templates/common/cancels.html:22 templates/common/japan.html:21
 #: templates/common/korea.html:21 templates/common/participants.html:44
-#: templates/common/participants.html:129 templates/common/result.html:67
+#: templates/common/participants.html:124 templates/common/result.html:67
 #: templates/others/participant_detail.html:154
 #: templates/others/participant_detail.html:217
 msgid "名前"
@@ -231,11 +237,11 @@ msgstr "Nimi"
 #: templates/2024/rule.html:144 templates/2024/rule.html:170
 #: templates/2024/rule.html:196 templates/2025/rule.html:140
 #: templates/2025/rule.html:166 templates/2025/rule.html:196
-#: templates/2026/rule.html:169 templates/2026/rule.html:195
-#: templates/2026/rule.html:225 templates/common/cancels.html:24
+#: templates/2026/rule.html:173 templates/2026/rule.html:199
+#: templates/2026/rule.html:229 templates/common/cancels.html:24
 #: templates/common/japan.html:23 templates/common/korea.html:23
 #: templates/common/participants.html:46
-#: templates/common/participants.html:131
+#: templates/common/participants.html:126
 #: templates/others/participant_detail.html:50
 #: templates/others/participant_detail.html:132
 #: templates/others/participant_detail.html:219
@@ -245,11 +251,11 @@ msgstr "Osalemisõigus"
 #: templates/2024/rule.html:160 templates/2024/rule.html:186
 #: templates/2024/rule.html:216 templates/2025/rule.html:156
 #: templates/2025/rule.html:186 templates/2025/rule.html:216
-#: templates/2025/timetable.html:268 templates/2026/rule.html:185
-#: templates/2026/rule.html:215 templates/2026/rule.html:245
-#: templates/2026/rule.html:340 templates/2026/rule.html:344
-#: templates/2026/rule.html:348 templates/2026/rule.html:352
-#: templates/2026/rule.html:372 templates/2026/stream.html:11
+#: templates/2025/timetable.html:268 templates/2026/rule.html:189
+#: templates/2026/rule.html:219 templates/2026/rule.html:249
+#: templates/2026/rule.html:344 templates/2026/rule.html:348
+#: templates/2026/rule.html:352 templates/2026/rule.html:356
+#: templates/2026/rule.html:376 templates/2026/stream.html:11
 #: templates/2026/timetable.html:47 templates/2026/timetable.html:51
 #: templates/2026/timetable.html:55 templates/2026/timetable.html:75
 #: templates/2026/timetable.html:79 templates/2026/timetable.html:83
@@ -270,7 +276,7 @@ msgid "シード権辞退者一覧"
 msgstr "Osalemisõigusest loobujate nimekiri"
 
 #: templates/2024/rule.html:203 templates/2025/rule.html:203
-#: templates/2026/rule.html:232 templates/common/cancels.html:30
+#: templates/2026/rule.html:236 templates/common/cancels.html:30
 #: templates/common/japan.html:30 templates/common/korea.html:30
 #: templates/common/participants.html:54
 #: templates/others/participant_detail.html:23
@@ -285,32 +291,33 @@ msgstr "Loobumine"
 
 #: templates/2024/rule.html:221 templates/2024/timetable.html:100
 #: templates/2024/timetable.html:230 templates/2025/rule.html:221
-#: templates/2026/rule.html:250 templates/common/cancels.html:52
+#: templates/2026/rule.html:254 templates/common/cancels.html:52
 #: templates/others/participant_detail.html:179
 #: templates/others/participant_detail.html:186
 msgid "出場者一覧"
 msgstr "Osalejate nimekiri"
 
 #: templates/2024/rule.html:224
-msgid "シード権を持つ人が辞退した場合、原則として、該当シード権は消滅し、Wildcard下位からの繰り上げが行われます。"
+#, python-brace-format
+msgid "シード権を持つ人が辞退した場合、原則として、該当シード権は消滅し、{Wildcard}下位からの繰り上げが行われます。"
 msgstr ""
-"Kui seemnega mängija loobub, siis põhimõtteliselt kaob see seeme ja toimub "
-"Wildcardi madalamalt kohalt ülespoole nihkumine."
+"Kui asetatud isik loobub, siis üldjuhul vastav asetusõigus kaob ja "
+"{Wildcard} toimub edasiliikumine madalamatelt kohtadelt."
 
 #: templates/2024/rule.html:240 templates/2025/rule.html:256
-#: templates/2025/wildcard_regulation.html:207 templates/2026/rule.html:286
+#: templates/2025/wildcard_regulation.html:207 templates/2026/rule.html:290
 msgid "全部門共通"
 msgstr "Kõikide osakondade jaoks ühine"
 
 #: templates/2024/rule.html:241 templates/2025/rule.html:257
-#: templates/2025/wildcard_regulation.html:208 templates/2026/rule.html:287
+#: templates/2025/wildcard_regulation.html:208 templates/2026/rule.html:291
 msgid "制限時間を超過した場合、1秒につき最終順位を1つ下げる"
 msgstr ""
 "Kui ületate tähtaja, siis alaneb teie lõplik koht 1 koha võrra iga sekundi "
 "kohta."
 
 #: templates/2024/rule.html:241 templates/2025/rule.html:257
-#: templates/2025/wildcard_regulation.html:208 templates/2026/rule.html:287
+#: templates/2025/wildcard_regulation.html:208 templates/2026/rule.html:291
 msgid "提出受付開始日時"
 msgstr "Taotluste vastuvõtu alguskuupäev"
 
@@ -323,10 +330,10 @@ msgstr "Taotluste vastuvõtu alguskuupäev"
 #: templates/2025/wildcard_regulation.html:216
 #: templates/2025/wildcard_regulation.html:220
 #: templates/2025/wildcard_regulation.html:224
-#: templates/2025/wildcard_regulation.html:228 templates/2026/rule.html:291
-#: templates/2026/rule.html:295 templates/2026/rule.html:299
-#: templates/2026/rule.html:303 templates/2026/rule.html:307
-#: templates/2026/rule.html:311 templates/2026/rule.html:315
+#: templates/2025/wildcard_regulation.html:228 templates/2026/rule.html:295
+#: templates/2026/rule.html:299 templates/2026/rule.html:303
+#: templates/2026/rule.html:307 templates/2026/rule.html:311
+#: templates/2026/rule.html:315 templates/2026/rule.html:319
 msgid "制限時間"
 msgstr "Ajalimiit"
 
@@ -339,10 +346,10 @@ msgstr "Ajalimiit"
 #: templates/2025/wildcard_regulation.html:216
 #: templates/2025/wildcard_regulation.html:220
 #: templates/2025/wildcard_regulation.html:224
-#: templates/2025/wildcard_regulation.html:228 templates/2026/rule.html:291
-#: templates/2026/rule.html:295 templates/2026/rule.html:299
-#: templates/2026/rule.html:303 templates/2026/rule.html:307
-#: templates/2026/rule.html:311 templates/2026/rule.html:315
+#: templates/2025/wildcard_regulation.html:228 templates/2026/rule.html:295
+#: templates/2026/rule.html:299 templates/2026/rule.html:303
+#: templates/2026/rule.html:307 templates/2026/rule.html:311
+#: templates/2026/rule.html:315 templates/2026/rule.html:319
 msgid "提出期限"
 msgstr "Esitamise tähtaeg"
 
@@ -355,10 +362,10 @@ msgstr "Esitamise tähtaeg"
 #: templates/2025/wildcard_regulation.html:216
 #: templates/2025/wildcard_regulation.html:220
 #: templates/2025/wildcard_regulation.html:224
-#: templates/2025/wildcard_regulation.html:228 templates/2026/rule.html:291
-#: templates/2026/rule.html:295 templates/2026/rule.html:299
-#: templates/2026/rule.html:303 templates/2026/rule.html:307
-#: templates/2026/rule.html:311 templates/2026/rule.html:315
+#: templates/2025/wildcard_regulation.html:228 templates/2026/rule.html:295
+#: templates/2026/rule.html:299 templates/2026/rule.html:303
+#: templates/2026/rule.html:307 templates/2026/rule.html:311
+#: templates/2026/rule.html:315 templates/2026/rule.html:319
 msgid "結果発表"
 msgstr "Tulemuste avalikustamine"
 
@@ -386,34 +393,35 @@ msgstr "Ainult RC505 mki, mkii"
 msgid "デバイス制限なし"
 msgstr "Seadme piirangud puuduvad"
 
-#: templates/2024/rule.html:274 templates/2025/rule.html:307
-#: templates/2026/rule.html:327
-msgid "Wildcard審査員一覧はこちら"
-msgstr "Wildcard kohtunike nimekiri on siin"
+#: templates/2024/rule.html:274 templates/2026/rule.html:331
+#, python-brace-format
+msgid "{Wildcard}審査員一覧はこちら"
+msgstr "{Wildcard} Vaata kohtunike nimekirja siit"
 
 #: templates/2024/rule.html:280 templates/2024/rule.html:325
 #: templates/2024/top.html:51 templates/2025/rule.html:314
 #: templates/2025/rule.html:367 templates/2025/timetable.html:101
-#: templates/2025/top.html:59 templates/2025/top.html:102
+#: templates/2025/top.html:58 templates/2025/top.html:101
 #: templates/2025/wildcards.html:15 templates/2025/wildcards.html:84
-#: templates/2026/rule.html:334 templates/2026/rule.html:395
+#: templates/2026/rule.html:338 templates/2026/rule.html:399
 #: templates/2026/timetable.html:62 templates/2026/top.html:68
-#: templates/2026/top.html:106 templates/includes/hamburger_menu.html:11
+#: templates/2026/top.html:106 templates/2026/wildcards.html:13
+#: templates/2026/wildcards.html:60 templates/includes/hamburger_menu.html:11
 msgid "審査員"
 msgstr "Žürii"
 
 #: templates/2024/rule.html:306 templates/2025/rule.html:340
-#: templates/2026/rule.html:368
+#: templates/2026/rule.html:372
 msgid "審査員不明"
 msgstr "Kohtunikud teadmata"
 
 #: templates/2024/rule.html:306 templates/2025/rule.html:340
-#: templates/2026/rule.html:368
+#: templates/2026/rule.html:372
 msgid "例年発表なし"
 msgstr "Tavaliselt ei avaldata"
 
 #: templates/2024/rule.html:318 templates/2025/rule.html:395
-#: templates/2026/rule.html:431
+#: templates/2026/rule.html:435
 msgid "本戦審査員一覧はこちら"
 msgstr "Peavõistluse kohtunike nimekiri on siin"
 
@@ -422,7 +430,7 @@ msgstr "Peavõistluse kohtunike nimekiri on siin"
 #: templates/2024/top.html:80 templates/2024/top_7tosmoke.html:38
 #: templates/2025/stream.html:3 templates/2025/stream.html:4
 #: templates/2025/stream.html:5 templates/2025/stream.html:9
-#: templates/2025/timetable.html:158 templates/2025/top.html:131
+#: templates/2025/timetable.html:158 templates/2025/top.html:130
 #: templates/2025/top_7tosmoke.html:40 templates/2026/stream.html:3
 #: templates/2026/stream.html:4 templates/2026/stream.html:5
 #: templates/2026/stream.html:9 templates/2026/timetable.html:90
@@ -447,9 +455,10 @@ msgstr "Vaata GBB {year} viimaseid uudiseid"
 #: templates/2024/stream.html:40 templates/common/participants.html:3
 #: templates/common/participants.html:4 templates/common/participants.html:5
 #: templates/common/participants.html:10
-#: templates/common/participants.html:148 templates/others/translation.html:18
-msgid "Wildcard結果 & 出場者"
-msgstr "Wildcard tulemused & Osalejad"
+#: templates/common/participants.html:143 templates/others/translation.html:18
+#, python-brace-format
+msgid "{Wildcard}結果 & 出場者"
+msgstr "{Wildcard} tulemused ja võistlejad"
 
 #: templates/2024/stream.html:41 templates/2024/timetable.html:3
 #: templates/2024/timetable.html:4 templates/2024/timetable.html:5
@@ -458,12 +467,12 @@ msgstr "Wildcard tulemused & Osalejad"
 #: templates/2025/stream.html:38 templates/2025/ticket.html:23
 #: templates/2025/timetable.html:3 templates/2025/timetable.html:4
 #: templates/2025/timetable.html:5 templates/2025/timetable.html:10
-#: templates/2025/top.html:17 templates/2025/top.html:44
-#: templates/2025/top.html:110 templates/2025/top_7tosmoke.html:39
-#: templates/2026/stream.html:22 templates/2026/timetable.html:3
-#: templates/2026/timetable.html:4 templates/2026/timetable.html:5
-#: templates/2026/timetable.html:10 templates/2026/top.html:17
-#: templates/2026/top.html:114 templates/2026/top_7tosmoke.html:39
+#: templates/2025/top.html:17 templates/2025/top.html:109
+#: templates/2025/top_7tosmoke.html:39 templates/2026/stream.html:22
+#: templates/2026/timetable.html:3 templates/2026/timetable.html:4
+#: templates/2026/timetable.html:5 templates/2026/timetable.html:10
+#: templates/2026/top.html:17 templates/2026/top.html:114
+#: templates/2026/top_7tosmoke.html:39
 #: templates/includes/hamburger_menu.html:14
 #: templates/others/translation.html:20
 msgid "タイムテーブル"
@@ -487,8 +496,8 @@ msgstr "[Välja müüdud] Ametlik müük"
 #: templates/2024/ticket.html:11 templates/2024/ticket.html:17
 #: templates/2024/top.html:76 templates/2024/top.html:132
 #: templates/2024/top.html:136 templates/2025/ticket.html:11
-#: templates/2025/ticket.html:12 templates/2025/top.html:127
-#: templates/2025/top.html:208 templates/2025/top.html:212
+#: templates/2025/ticket.html:12 templates/2025/top.html:126
+#: templates/2025/top.html:207 templates/2025/top.html:211
 #: templates/2026/ticket.html:12 templates/2026/top.html:131
 #: templates/includes/hamburger_menu.html:20
 msgid "会場"
@@ -503,7 +512,7 @@ msgid "楽天チケット"
 msgstr "Rakuten Tickets"
 
 #: templates/2024/ticket.html:19 templates/2024/top.html:76
-#: templates/2025/ticket.html:13 templates/2025/top.html:127
+#: templates/2025/ticket.html:13 templates/2025/top.html:126
 #: templates/2026/top.html:131 templates/includes/hamburger_menu.html:20
 msgid "チケット"
 msgstr "Piletid"
@@ -668,7 +677,7 @@ msgid "非公式情報サイト"
 msgstr "Mitteametlik info sait"
 
 #: templates/2024/top.html:40 templates/2024/top_7tosmoke.html:28
-#: templates/2025/top.html:147 templates/2025/top_7tosmoke.html:28
+#: templates/2025/top.html:146 templates/2025/top_7tosmoke.html:28
 #: templates/2026/top.html:158 templates/2026/top_7tosmoke.html:28
 #: templates/common/cancels.html:14 templates/common/japan.html:13
 #: templates/common/korea.html:13 templates/common/participants.html:14
@@ -679,22 +688,22 @@ msgstr "Viimane uuendus"
 
 #: templates/2024/top.html:66 templates/2025/rule.html:240
 #: templates/2025/ticket.html:19 templates/2025/timetable.html:238
-#: templates/2025/top.html:117 templates/2025/wildcards.html:114
-#: templates/2026/rule.html:270 templates/2026/top.html:121
-#: templates/common/korea.html:3 templates/common/korea.html:4
-#: templates/common/korea.html:5 templates/common/korea.html:9
-#: templates/includes/hamburger_menu.html:16
+#: templates/2025/top.html:116 templates/2025/wildcards.html:114
+#: templates/2026/rule.html:274 templates/2026/top.html:121
+#: templates/2026/wildcards.html:78 templates/common/korea.html:3
+#: templates/common/korea.html:4 templates/common/korea.html:5
+#: templates/common/korea.html:9 templates/includes/hamburger_menu.html:16
 #: templates/others/participant_detail.html:259
 msgid "韓国代表"
 msgstr "Korea esindaja"
 
 #: templates/2024/top.html:71 templates/2025/rule.html:242
 #: templates/2025/ticket.html:21 templates/2025/timetable.html:240
-#: templates/2025/top.html:122 templates/2025/wildcards.html:116
-#: templates/2026/rule.html:272 templates/2026/top.html:126
-#: templates/common/japan.html:3 templates/common/japan.html:4
-#: templates/common/japan.html:5 templates/common/japan.html:9
-#: templates/includes/hamburger_menu.html:18
+#: templates/2025/top.html:121 templates/2025/wildcards.html:116
+#: templates/2026/rule.html:276 templates/2026/top.html:126
+#: templates/2026/wildcards.html:80 templates/common/japan.html:3
+#: templates/common/japan.html:4 templates/common/japan.html:5
+#: templates/common/japan.html:9 templates/includes/hamburger_menu.html:18
 #: templates/others/participant_detail.html:261
 #: templates/others/translation.html:21
 msgid "日本代表"
@@ -704,8 +713,8 @@ msgstr "Jaapani esindaja"
 msgid "みんなで鑑賞会"
 msgstr "Vaatajate koosolek"
 
-#: templates/2024/top.html:84 templates/2025/top.html:72
-#: templates/2025/top.html:73 templates/2025/top.html:135
+#: templates/2024/top.html:84 templates/2025/top.html:71
+#: templates/2025/top.html:72 templates/2025/top.html:134
 #: templates/2026/top.html:76 templates/2026/top.html:78
 #: templates/2026/top.html:80 templates/2026/top.html:140
 #: templates/2026/top.html:145 templates/common/result.html:3
@@ -719,76 +728,80 @@ msgstr "Vaatajate koosolek"
 msgid "大会結果"
 msgstr "Võistluse tulemused"
 
-#: templates/2024/top.html:89 templates/2025/top.html:140
+#: templates/2024/top.html:89 templates/2025/top.html:139
 #: templates/2026/top.html:151
 msgid "当サイトURL変更のお知らせ"
 msgstr "Selle saidi URL-i muutmise teadaanne"
 
 #: templates/2024/top.html:90 templates/2025/rule.html:302
-#: templates/2025/top.html:141 templates/2026/rule.html:322
+#: templates/2025/top.html:140 templates/2026/rule.html:326
 #: templates/2026/top.html:152
-msgid "Wildcard結果発表配信"
-msgstr "Wildcard tulemuste avalikustamise edastus"
+#, python-brace-format
+msgid "{Wildcard}結果発表配信"
+msgstr "{Wildcard} tulemuste väljakuulutamise ülekanne"
 
 #: templates/2024/top.html:91 templates/2024/wildcards.html:3
 #: templates/2024/wildcards.html:4 templates/2024/wildcards.html:5
-#: templates/2024/wildcards.html:9 templates/2025/rule.html:19
-#: templates/2025/rule.html:400 templates/2025/top.html:142
-#: templates/2025/wildcards.html:3 templates/2025/wildcards.html:4
-#: templates/2025/wildcards.html:5 templates/2025/wildcards.html:9
-#: templates/2026/rule.html:19 templates/2026/rule.html:436
-#: templates/2026/top.html:153 templates/common/cancels.html:55
-#: templates/common/participants.html:103 templates/others/translation.html:25
-msgid "Wildcard一覧"
-msgstr "Wildcard nimekiri"
+#: templates/2025/rule.html:19 templates/2025/rule.html:400
+#: templates/2025/top.html:141 templates/2025/wildcards.html:3
+#: templates/2025/wildcards.html:4 templates/2025/wildcards.html:5
+#: templates/2025/wildcards.html:9 templates/2026/rule.html:19
+#: templates/2026/rule.html:440 templates/2026/top.html:153
+#: templates/2026/wildcards.html:3 templates/2026/wildcards.html:4
+#: templates/2026/wildcards.html:5 templates/2026/wildcards.html:9
+#: templates/common/cancels.html:55 templates/common/participants.html:94
+#: templates/others/translation.html:25
+#, python-brace-format
+msgid "{Wildcard}一覧"
+msgstr "{Wildcard} loetelu"
 
 #: templates/2024/top.html:104 templates/2024/top.html:118
-#: templates/2024/top_7tosmoke.html:46 templates/2025/top.html:171
-#: templates/2025/top.html:185 templates/2025/top_7tosmoke.html:48
-#: templates/2026/top.html:186 templates/2026/top_7tosmoke.html:48
+#: templates/2024/top_7tosmoke.html:46 templates/2025/top.html:170
+#: templates/2025/top.html:184 templates/2025/top_7tosmoke.html:48
+#: templates/2026/top.html:181 templates/2026/top_7tosmoke.html:48
 msgid "お問い合わせ"
 msgstr "Päringud"
 
-#: templates/2024/top.html:109 templates/2025/top.html:176
-#: templates/2026/top.html:177
+#: templates/2024/top.html:109 templates/2025/top.html:175
+#: templates/2026/top.html:172
 msgid "これらの情報のほかにも、"
 msgstr "Lisaks nendele teabele,"
 
-#: templates/2024/top.html:111 templates/2025/top.html:178
-#: templates/2026/top.html:179
+#: templates/2024/top.html:111 templates/2025/top.html:177
+#: templates/2026/top.html:174
 msgid "未発表の情報(決まっているが、なぜか公式が発表を渋っている)"
 msgstr ""
 "Avaldamata info (on otsustatud, kuid ametlikud allikad ei taha seda "
 "avalikustada)"
 
-#: templates/2024/top.html:112 templates/2025/top.html:179
-#: templates/2026/top.html:180
+#: templates/2024/top.html:112 templates/2025/top.html:178
+#: templates/2026/top.html:175
 msgid "未定事項(そもそも決まってすらいない)"
 msgstr "Määramata asjad (pole üldse otsustatud)"
 
-#: templates/2024/top.html:114 templates/2025/top.html:181
-#: templates/2026/top.html:182
+#: templates/2024/top.html:114 templates/2025/top.html:180
+#: templates/2026/top.html:177
 msgid "このような情報が多く存在します。"
 msgstr "Selliseid teabeid on palju olemas."
 
-#: templates/2024/top.html:115 templates/2025/top.html:182
-#: templates/2026/top.html:183
+#: templates/2024/top.html:115 templates/2025/top.html:181
+#: templates/2026/top.html:178
 msgid "GBBの各種情報は、発表が非常に遅いことで有名です。気長に待ちましょう。"
 msgstr ""
 "GBB erinevad teave on tuntud väga hilise avalikustamise poolest. Ootame "
 "kannatlikult."
 
-#: templates/2024/top.html:119 templates/2025/top.html:191
+#: templates/2024/top.html:119 templates/2025/top.html:190
 msgid "過去のGBBにおいて、下記番号に電話したらGBB詳細情報を教えてくれた、という報告が相次ぎました。"
 msgstr ""
 "Varasematel GBB-del on tulnud järjest teatisi, et alljärgnevale numbrile "
 "helistades anti GBB üksikasjalikku teavet."
 
-#: templates/2024/top.html:123 templates/2025/top.html:195
+#: templates/2024/top.html:123 templates/2025/top.html:194
 msgid "場所"
 msgstr "Koht"
 
-#: templates/2024/top.html:124 templates/2025/top.html:196
+#: templates/2024/top.html:124 templates/2025/top.html:195
 msgid "電話番号"
 msgstr "Telefoninumber"
 
@@ -796,7 +809,7 @@ msgstr "Telefoninumber"
 msgid "チケット販売ページ記載の番号"
 msgstr "Pileti müügi leheküljel olev number"
 
-#: templates/2024/top.html:140 templates/2025/top.html:216
+#: templates/2024/top.html:140 templates/2025/top.html:215
 msgid "なお上記電話番号は、当サイトとは無関係です。"
 msgstr "Ülaltoodud telefoninumbrid ei ole seotud selle saidiga."
 
@@ -824,6 +837,10 @@ msgstr ""
 msgid "諦めましょう。"
 msgstr "Loobugemine."
 
+#: templates/2024/wildcards.html:9
+msgid "Wildcard一覧"
+msgstr "Wildcard nimekiri"
+
 #: templates/2024/wildcards.html:10 templates/2025/wildcards.html:11
 msgid "各部門の締め切り期日は、中央ヨーロッパ時刻を基準に表記しています。"
 msgstr "Iga osakonna tähtajad on märgitud Kesk-Euroopa aja järgi."
@@ -835,37 +852,44 @@ msgid "締め切り"
 msgstr "Tähtaeg"
 
 #: templates/2024/wildcards.html:73 templates/2025/wildcards.html:89
-msgid "今回公開するWildcard一覧は、有志が作成した、非公式のものです。"
+#: templates/2026/wildcards.html:65
+#, python-brace-format
+msgid "今回公開する{Wildcard}一覧は、有志が作成した、非公式のものです。"
 msgstr ""
-"Seekord avalikustatav Wildcard nimekiri on vabatahtlike poolt loodud "
+"Käesolevalt avaldatav {Wildcard} nimekiri on vabatahtlike koostatud ja "
 "mitteametlik."
 
 #: templates/2024/wildcards.html:78 templates/2025/wildcards.html:94
+#: templates/2026/wildcards.html:69
 msgid "すべて手作業で制作されたものであるため、重複や欠落がある可能性があります。"
 msgstr ""
 "Kuna kõik on käsitsi valmistatud, võib esineda duplikaate või puudumisi."
 
 #: templates/2024/wildcards.html:81 templates/2025/wildcards.html:97
+#: templates/2026/wildcards.html:72
+#, python-brace-format
 msgid ""
-"また、この再生リストにある動画が必ずしもWildcardとして申請された動画であるとは限りません（毎年必ず出場者の手続きミスで失格者が出ます）。"
+"また、この再生リストにある動画が必ずしも{Wildcard}として申請された動画であるとは限りません（毎年必ず出場者の手続きミスで失格者が出ます）。"
 msgstr ""
-"Lisaks ei pruugi selles esitusloendis olevad videod tingimata olla "
-"Wildcardina esitatud videod (igal aastal on kindlasti osalejaid, kes "
-"diskvalifitseeritakse menetlusvigade tõttu)."
+"Lisaks ei ole selles esitusloendis olevad videod tingimata {Wildcard}-na "
+"esitatud videod (igal aastal diskvalifitseeritakse osalejaid menetlusvigade "
+"tõttu)."
 
 #: templates/2025/rule.html:22 templates/2025/rule.html:125
 #: templates/2025/wildcard_regulation.html:3
 #: templates/2025/wildcard_regulation.html:4
 #: templates/2025/wildcard_regulation.html:5 templates/2026/rule.html:22
-#: templates/2026/rule.html:149
-msgid "【Beatboxer向け】Wildcardレギュレーション解説"
-msgstr "[Beatboxeritele] Wildcard regulatsiooni selgitus"
+#: templates/2026/rule.html:153
+#, python-brace-format
+msgid "【{Beatboxer}向け】{Wildcard}レギュレーション解説"
+msgstr "【{Beatboxer}ile】{Wildcard} reeglite selgitus"
 
-#: templates/2025/rule.html:225 templates/2026/rule.html:254
-msgid "GBB出場辞退が発生した場合、Wildcard下位からの繰り上げが行われます。"
+#: templates/2025/rule.html:225 templates/2026/rule.html:258
+#, python-brace-format
+msgid "GBB出場辞退が発生した場合、{Wildcard}下位からの繰り上げが行われます。"
 msgstr ""
-"Kui GBB osalemisest loobutakse, toimub Wildcard alumisest järjekorrast üles "
-"liikumine."
+"Kui GBB-st osalemisest loobutakse, siis toimub {Wildcard} alustades "
+"madalamatelt kohtadelt edasiliikumine."
 
 #: templates/2025/rule.html:229
 msgid "いかなる理由があっても、シード権大会2位以下の人に、出場権は与えられません。"
@@ -880,15 +904,16 @@ msgstr ""
 "turniiril eranditult ja alati ainult võitjale."
 
 #: templates/2025/rule.html:233
+#, python-brace-format
 msgid ""
-"例：シード権大会優勝者が、すでにWildcardで出場権を獲得していた場合、シード権大会2位ではなく、Wildcard下位からの繰り上げが行われます。"
+"例：シード権大会優勝者が、すでに{Wildcard}で出場権を獲得していた場合、シード権大会2位ではなく、{Wildcard}下位からの繰り上げが行われます。"
 msgstr ""
-"Näide: Kui seemnekonkursi võitja on juba Wildcardi kaudu kvalifitseerunud, "
-"siis seemnekonkursi teise koha asemel tõstetakse Wildcardi madalamalt "
-"kohalt."
+"Näide: Kui asetusturniiri võitja on juba kvalifitseerunud läbi {Wildcard}, "
+"siis ei edene asetusturniiri 2. koht, vaid koha edasipääs toimub {Wildcard} "
+"madalamalt kohalt."
 
 #: templates/2025/rule.html:257 templates/2025/wildcard_regulation.html:208
-#: templates/2026/rule.html:287
+#: templates/2026/rule.html:291
 msgid "制限時間を使い切らず余らせた場合、3秒につき最終順位を1つ下げる"
 msgstr ""
 "Kui ajapiirangut ei kasutata täielikult ära, langetatakse lõppjärjestust iga"
@@ -905,15 +930,19 @@ msgstr ""
 "Tag Team osakonna ja Crew osakonna osalemissoovijad, palun olge "
 "tähelepanelikud."
 
-#: templates/2025/rule.html:343 templates/2026/rule.html:371
+#: templates/2025/rule.html:307
+msgid "Wildcard審査員一覧はこちら"
+msgstr "Wildcard kohtunike nimekiri on siin"
+
+#: templates/2025/rule.html:343 templates/2026/rule.html:375
 msgid "レフェリー"
 msgstr "Referee"
 
-#: templates/2025/rule.html:351 templates/2026/rule.html:379
+#: templates/2025/rule.html:351 templates/2026/rule.html:383
 msgid "レフェリーについて"
 msgstr "Referee kohta"
 
-#: templates/2025/rule.html:352 templates/2026/rule.html:380
+#: templates/2025/rule.html:352 templates/2026/rule.html:384
 msgid ""
 "レフェリーは、GBB23から導入された、審査員とは別のメンバーです。審査員は各出場者の評価を行うのに対し、レフェリーは「ルールを守っているか」を確認する役割を担います。"
 msgstr ""
@@ -956,19 +985,19 @@ msgid "7toSmoke開始時刻と配信スタート時刻が違う理由は不明�
 msgstr ""
 "Põhjus, miks 7toSmoke algusaeg ja edastuse algusaeg erinevad, ei ole teada."
 
-#: templates/2025/top.html:38 templates/2025/top.html:49
-#: templates/2025/top.html:70 templates/2026/top.html:47
+#: templates/2025/top.html:38 templates/2025/top.html:48
+#: templates/2025/top.html:69 templates/2026/top.html:47
 #: templates/2026/top.html:58 templates/2026/top.html:73
 msgid "注目キーワード"
 msgstr "Tähelepanuväärsed märksõnad"
 
-#: templates/2025/top.html:42 templates/2025/top.html:49
-#: templates/2025/top.html:51 templates/2025/top.html:52
-#: templates/2025/top.html:53 templates/2025/top.html:54
-#: templates/2025/top.html:57 templates/2025/top.html:58
-#: templates/2025/top.html:59 templates/2025/top.html:60
-#: templates/2025/top.html:74 templates/2025/top.html:79
-#: templates/2025/top.html:80 templates/2026/top.html:51
+#: templates/2025/top.html:42 templates/2025/top.html:48
+#: templates/2025/top.html:50 templates/2025/top.html:51
+#: templates/2025/top.html:52 templates/2025/top.html:53
+#: templates/2025/top.html:56 templates/2025/top.html:57
+#: templates/2025/top.html:58 templates/2025/top.html:59
+#: templates/2025/top.html:73 templates/2025/top.html:78
+#: templates/2025/top.html:79 templates/2026/top.html:51
 #: templates/2026/top.html:58 templates/2026/top.html:60
 #: templates/2026/top.html:61 templates/2026/top.html:62
 #: templates/2026/top.html:63 templates/2026/top.html:66
@@ -978,36 +1007,36 @@ msgstr "Tähelepanuväärsed märksõnad"
 msgid "ワイルドカード"
 msgstr "Wildcard"
 
-#: templates/2025/top.html:43 templates/2025/top.html:51
-#: templates/2025/top.html:70 templates/2025/top.html:74
+#: templates/2025/top.html:43 templates/2025/top.html:50
+#: templates/2025/top.html:69 templates/2025/top.html:73
 #: templates/2026/top.html:52 templates/2026/top.html:60
 #: templates/2026/top.html:73 templates/2026/top.html:81
 msgid "結果"
 msgstr "Tulemused"
 
-#: templates/2025/top.html:52 templates/2025/top.html:79
+#: templates/2025/top.html:51 templates/2025/top.html:78
 #: templates/2026/top.html:61 templates/2026/top.html:86
 msgid "結果発表日"
 msgstr "Tulemuste avalikustamise kuupäev"
 
-#: templates/2025/top.html:53 templates/2026/top.html:62
+#: templates/2025/top.html:52 templates/2026/top.html:62
 msgid "動画一覧"
 msgstr "Video nimekiri"
 
-#: templates/2025/top.html:57 templates/2026/top.html:66
+#: templates/2025/top.html:56 templates/2026/top.html:66
 msgid "提出締切"
 msgstr "Esitamise tähtaeg"
 
-#: templates/2025/top.html:58 templates/2025/top.html:80
+#: templates/2025/top.html:57 templates/2025/top.html:79
 #: templates/2026/top.html:67 templates/2026/top.html:87
 msgid "結果発表配信"
 msgstr "Tulemuste avalikustamise edastus"
 
-#: templates/2025/top.html:60 templates/2026/top.html:69
+#: templates/2025/top.html:59 templates/2026/top.html:69
 msgid "出場枠の数"
 msgstr "Osalemiskohtade arv"
 
-#: templates/2025/top.html:75 templates/2026/top.html:82
+#: templates/2025/top.html:74 templates/2026/top.html:82
 #: templates/common/japan.html:48 templates/common/korea.html:48
 #: templates/common/participants.html:29
 #: templates/others/participant_detail.html:144
@@ -1015,37 +1044,37 @@ msgstr "Osalemiskohtade arv"
 msgid "全出場者一覧"
 msgstr "Kõikide osalejate nimekiri"
 
-#: templates/2025/top.html:78 templates/2025/top.html:106
-#: templates/2026/rule.html:218 templates/2026/top.html:85
+#: templates/2025/top.html:77 templates/2025/top.html:105
+#: templates/2026/rule.html:222 templates/2026/top.html:85
 #: templates/2026/top.html:110 templates/common/cancels.html:3
 #: templates/common/cancels.html:4 templates/common/cancels.html:5
-#: templates/common/cancels.html:10 templates/common/participants.html:145
+#: templates/common/cancels.html:10 templates/common/participants.html:140
 #: templates/includes/hamburger_menu.html:10
 msgid "辞退者一覧"
 msgstr "Loobujate nimekiri"
 
-#: templates/2025/top.html:87 templates/2026/top.html:90
+#: templates/2025/top.html:86 templates/2026/top.html:90
 #: templates/includes/popup_early_access.html:8
 #: templates/includes/popup_ended.html:14
 #: templates/includes/popup_no_info.html:10
 msgid "閉じる"
 msgstr "Sulge"
 
-#: templates/2025/top.html:188 templates/2026/top.html:189
+#: templates/2025/top.html:187 templates/2026/top.html:184
 msgid "お探しの情報は、当サイトにありません。下記お問い合わせより、GBB運営に直接お尋ねください。"
 msgstr ""
 "Otsitud teave ei ole sellel saidil saadaval. Palun pöörduge GBB korraldajate"
 " poole alloleva päringu kaudu."
 
-#: templates/2025/top.html:200
+#: templates/2025/top.html:199
 msgid "記載の番号"
 msgstr "leheküljel olev number"
 
-#: templates/2025/top.html:200 templates/2026/ticket.html:13
+#: templates/2025/top.html:199 templates/2026/ticket.html:13
 msgid "チケット販売ページ"
 msgstr "Piletimüügi leht"
 
-#: templates/2025/top.html:204
+#: templates/2025/top.html:203
 #, python-brace-format
 msgid "GBB {year} 会場webサイトに記載のあった番号"
 msgstr "GBB {year} veebisaidil märgitud number"
@@ -1055,12 +1084,15 @@ msgid "レギュレーション"
 msgstr "Regulatsioon"
 
 #: templates/2025/wildcard_regulation.html:16
-msgid "このページでは、Wildcard提出にあたって重要なルールを解説します。"
-msgstr "Sellel leheküljel selgitame Wildcard esitamisel olulisi reegleid."
+#, python-brace-format
+msgid "このページでは、{Wildcard}提出にあたって重要なルールを解説します。"
+msgstr ""
+"Sellel lehel selgitame olulisi reegleid seoses {Wildcard} esitamisega."
 
 #: templates/2025/wildcard_regulation.html:22
-msgid "【Beatboxファン向け】"
-msgstr "[Beatbox fännidele]"
+#, python-brace-format
+msgid "【{Beatbox}ファン向け】"
+msgstr "【{Beatbox} fännidele】"
 
 #: templates/2025/wildcard_regulation.html:37
 #: templates/2025/wildcard_regulation.html:121
@@ -1082,14 +1114,16 @@ msgid "失格にならないために"
 msgstr "Et mitte diskvalifitseeruda"
 
 #: templates/2025/wildcard_regulation.html:61
-msgid "以下に示す内容は、Wildcardを作るBeatboxer向けの情報です。"
-msgstr "Järgnev sisu on mõeldud Beatboxeritele, kes teevad Wildcardi."
+#, python-brace-format
+msgid "以下に示す内容は、{Wildcard}を作る{Beatboxer}向けの情報です。"
+msgstr "Järgnev sisu on mõeldud {Beatboxer}itele, kes loovad {Wildcard}i."
 
 #: templates/2025/wildcard_regulation.html:62
-msgid "当サイト管理人はBeatboxerではありません。また、当サイト管理人はGBB運営と一切無関係です。"
+#, python-brace-format
+msgid "当サイト管理人は{Beatboxer}ではありません。また、当サイト管理人はGBB運営と一切無関係です。"
 msgstr ""
-"Selle saidi administraator ei ole Beatboxer. Lisaks ei ole saidi "
-"administraator GBB korraldusega üldse seotud."
+"Selle saidi haldaja ei ole {Beatboxer}. Samuti ei ole selle saidi haldaja "
+"GBB korraldusega kuidagi seotud."
 
 #: templates/2025/wildcard_regulation.html:70
 msgid ""
@@ -1122,18 +1156,22 @@ msgstr ""
 "jne)."
 
 #: templates/2025/wildcard_regulation.html:128
-msgid "上記要件を満たさない、同意できない場合は失格となり、Wildcard下位からの繰り上げが行われる"
+#, python-brace-format
+msgid "上記要件を満たさない、同意できない場合は失格となり、{Wildcard}下位からの繰り上げが行われる"
 msgstr ""
-"Kui te ei vasta ülaltoodud nõuetele ja ei saa nõustuda, "
-"diskvalifitseeritakse teid ja teid tõstetakse Wildcardi alamast."
+"Kui ülaltoodud nõudeid ei täideta või nendega ei nõustuta, järgneb "
+"diskvalifitseerimine ja {Wildcard} madalamatelt kohtadelt toimub ülespoole "
+"liikumine."
 
 #: templates/2025/wildcard_regulation.html:138
-msgid "Wildcard作成・提出について"
-msgstr "Wildcardi loomine ja esitamine"
+#, python-brace-format
+msgid "{Wildcard}作成・提出について"
+msgstr "{Wildcard} loomise ja esitamise kohta"
 
 #: templates/2025/wildcard_regulation.html:140
-msgid "Wildcard動画の内容"
-msgstr "Wildcard-video sisu"
+#, python-brace-format
+msgid "{Wildcard}動画の内容"
+msgstr "{Wildcard}video sisu"
 
 #: templates/2025/wildcard_regulation.html:141
 msgid "動画の冒頭で、以下のように自己紹介する"
@@ -1190,18 +1228,20 @@ msgstr ""
 "on keelatud"
 
 #: templates/2025/wildcard_regulation.html:159
-msgid "上記ルールについて、不正行為の疑いがある場合、Wildcard作成に使ったファイルの追加提出を求められる場合あり"
+#, python-brace-format
+msgid "上記ルールについて、不正行為の疑いがある場合、{Wildcard}作成に使ったファイルの追加提出を求められる場合あり"
 msgstr ""
-"Kui on kahtlus ülaltoodud reeglite rikkumises, võib nõuda lisaks esitamist "
-"Wildcard loomiseks kasutatud failidest"
+"Ülaltoodud reeglite osas, pettuse kahtluse korral, võidakse nõuda {Wildcard}"
+" loomiseks kasutatud failide täiendavat esitamist."
 
 #: templates/2025/wildcard_regulation.html:162
 msgid "提出方法"
 msgstr "Esitamise meetod"
 
 #: templates/2025/wildcard_regulation.html:164
-msgid "WildcardをYouTubeにアップロード"
-msgstr "Laadi Wildcard üles YouTube'i"
+#, python-brace-format
+msgid "{Wildcard}をYouTubeにアップロード"
+msgstr "{Wildcard} YouTube'i üles laadida"
 
 #: templates/2025/wildcard_regulation.html:165
 #: templates/2025/wildcard_regulation.html:261
@@ -1234,26 +1274,27 @@ msgstr ""
 "Vaja on esitada toores audio ja toores video (kaasa arvatud kaamera audio)"
 
 #: templates/2025/wildcard_regulation.html:180
-msgid "Solo以外の全部門は、録画中のスクリーンキャプチャの提出も必要"
+#, python-brace-format
+msgid "{Solo}以外の全部門は、録画中のスクリーンキャプチャの提出も必要"
 msgstr ""
-"Kõik osakonnad peale Solo vajavad ka salvestamise ajal tehtud ekraanipildi "
-"esitamist"
+"Kõik kategooriad, välja arvatud {Solo}, peavad esitama ka ekraanipildi "
+"salvestamise ajal."
 
 #: templates/2025/wildcard_regulation.html:181
 msgid "上記2つが無い場合は、失格"
 msgstr "Kui ülaltoodud 2 puuduvad, toimub diskvalifitseerimine"
 
 #: templates/2025/wildcard_regulation.html:184
-#: templates/2025/wildcard_regulation.html:263
-msgid "Wildcard提出は一度のみ。一度提出したら、後から別のWildcardを提出することはできない"
+#, python-brace-format
+msgid "{Wildcard}提出は一度のみ。一度提出したら、後から別の{Wildcard}を提出することはできない"
 msgstr ""
-"Wildcard esitamine on ainult üks kord. Kui oled korra esitanud, ei saa "
-"hiljem teist Wildcardi esitada"
+"{Wildcard} esitamine on lubatud vaid korra. Kui olete esitanud, ei saa te "
+"hiljem teist {Wildcard} esitada."
 
 #: templates/2025/wildcard_regulation.html:185
-msgid "誤って一度提出したWildcardを削除した場合、失格"
-msgstr ""
-"Kui kustutate ekslikult korra esitatud Wildcardi, siis diskvalifitseeritakse"
+#, python-brace-format
+msgid "誤って一度提出した{Wildcard}を削除した場合、失格"
+msgstr "Kogemata juba esitatud {Wildcard} kustutamisel diskvalifitseeritakse."
 
 #: templates/2025/wildcard_regulation.html:187
 msgid "このルールは、GBB 2019で発生したトラブルの対策として設けられている"
@@ -1276,8 +1317,9 @@ msgstr ""
 "Masinas olevad lisakaablid on kasutatavad. Kaableid ei peeta seadmeks."
 
 #: templates/2025/wildcard_regulation.html:247
-msgid "Loopstation単体での出場は禁止"
-msgstr "Loopstationiga üksi esinemine on keelatud"
+#, python-brace-format
+msgid "{Loopstation}単体での出場は禁止"
+msgstr "Ainult {Loopstation}iga esinemine on keelatud."
 
 #: templates/2025/wildcard_regulation.html:248
 msgid "事前にデバイス構成をSUPPORT@swissbeatbox.comへ申請すること"
@@ -1303,67 +1345,81 @@ msgstr ""
 "Wildcard-video loomisel kasutatud kõik failid, kaasa arvatud varukoopiad, "
 "tuleks alles hoida ja esitamiseks valmis olla"
 
-#: templates/2025/wildcard_regulation.html:265
-msgid "皆さんのWildcardを楽しみにしています！"
-msgstr "Ootan kõiki Wildcardi!"
+#: templates/2025/wildcard_regulation.html:263
+msgid "Wildcard提出は一度のみ。一度提出したら、後から別のWildcardを提出することはできない"
+msgstr ""
+"Wildcard esitamine on ainult üks kord. Kui oled korra esitanud, ei saa "
+"hiljem teist Wildcardi esitada"
 
-#: templates/2026/rule.html:37 templates/2026/rule.html:71
-#: templates/2026/rule.html:157 templates/2026/rule.html:188
+#: templates/2025/wildcard_regulation.html:265
+#, python-brace-format
+msgid "皆さんの{Wildcard}を楽しみにしています！"
+msgstr "Ootan teie {Wildcard} põnevusega!"
+
+#: templates/2026/rule.html:37 templates/2026/rule.html:75
+#: templates/2026/rule.html:161 templates/2026/rule.html:192
 msgid "チャレンジャーシリーズ"
 msgstr "Challengeri sari"
 
-#: templates/2026/rule.html:135
+#: templates/2026/rule.html:53 templates/2026/rule.html:443
+msgid "セカンドリーグ"
+msgstr "Teine liiga"
+
+#: templates/2026/rule.html:139
 msgid "廃止"
 msgstr "Lõpetatud"
 
-#: templates/2026/rule.html:141
-msgid "SHOWCASEとは"
-msgstr "Mis on SHOWCASE?"
+#: templates/2026/rule.html:145
+#, python-brace-format
+msgid "{SHOWCASE}とは"
+msgstr "{SHOWCASE} mis on"
 
-#: templates/2026/rule.html:143
-msgid "2026年から新部門として「SHOWCASE」が追加されました。"
-msgstr "2026. aastast on uue osakonnana lisatud \"SHOWCASE\"."
+#: templates/2026/rule.html:147
+#, python-brace-format
+msgid "2026年から新部門として「{SHOWCASE}」が追加されました。"
+msgstr "Alates 2026. aastast lisati uus kategooria: \"{SHOWCASE}\"."
 
-#: templates/2026/rule.html:144
+#: templates/2026/rule.html:148
 msgid "この部門では、バトルを行いません。"
 msgstr "Selles osakonnas lahingut ei peeta."
 
-#: templates/2026/rule.html:145
-msgid "Wildcardの審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価されます。"
+#: templates/2026/rule.html:149
+#, python-brace-format
+msgid "{Wildcard}の審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価されます。"
 msgstr ""
-"Wildcard'i hindamine toimub teiste osakondadega võrreldes erinevate "
-"kriteeriumite alusel ning seda hinnatakse loo, kunstilisuse ja unikaalsuse "
-"järgi."
+"{Wildcard} hindamine viiakse läbi teiste osakondadest erinevate "
+"kriteeriumide alusel ning seda hinnatakse loo, kunstilisuse, originaalsuse "
+"jms põhjal."
 
-#: templates/2026/rule.html:152
+#: templates/2026/rule.html:156
 msgid "GBB出場権獲得条件"
 msgstr "GBB-le pääsemise tingimused"
 
-#: templates/2026/rule.html:154
+#: templates/2026/rule.html:158
 msgid "GBB出場権を得る方法は、以下の通りです。"
 msgstr "GBB-le pääsemiseks toimige järgmiselt."
 
-#: templates/2026/rule.html:156 templates/2026/rule.html:162
+#: templates/2026/rule.html:160 templates/2026/rule.html:166
 msgid "上位入賞者"
 msgstr "Paremusjärjestuses kõrgemal kohal"
 
-#: templates/2026/rule.html:157 templates/2026/rule.html:188
+#: templates/2026/rule.html:161 templates/2026/rule.html:192
 msgid "優勝者のみ"
 msgstr "Ainult võitja"
 
-#: templates/2026/rule.html:258
+#: templates/2026/rule.html:262
 msgid "いかなる理由があっても、チャレンジャーシリーズ2位以下の人に、出場権は与えられません。"
 msgstr ""
 "Ükskõik mis põhjusel, ei anta Challengeri seeria teise ja madalamate kohtade"
 " saavutanutele osalemisõigust."
 
-#: templates/2026/rule.html:259
+#: templates/2026/rule.html:263
 msgid "「チャレンジャーシリーズにおいてGBB出場権が与えられるのは、例外なく、常に優勝者のみである」とルールに明記されています。"
 msgstr ""
 "Võistlusseeria Challenger puhul saab GBB-le pääsme eranditult alati ainult "
 "võitja."
 
-#: templates/2026/rule.html:263
+#: templates/2026/rule.html:267
 msgid ""
 "例：チャレンジャーシリーズ優勝者が、すでにWildcardで出場権を獲得していた場合、チャレンジャーシリーズ2位ではなく、Wildcard下位からの繰り上げが行われます。"
 msgstr ""
@@ -1371,10 +1427,48 @@ msgstr ""
 "siis ei lähe Challengeri seeria teine koht, vaid tõstetakse Wildcardi "
 "madalamalt kohalt."
 
-#: templates/2026/rule.html:356 templates/2026/rule.html:360
-#: templates/2026/rule.html:364
+#: templates/2026/rule.html:360 templates/2026/rule.html:364
+#: templates/2026/rule.html:368
 msgid "審査員なし"
 msgstr "Ilma hindajateta"
+
+#: templates/2026/rule.html:444
+msgid "正式名称"
+msgstr "ametlik nimi"
+
+#: templates/2026/rule.html:446
+#, python-brace-format
+msgid ""
+"今年から新たに「セカンドリーグ」が設けられました。セカンドリーグは、中国で開催され、GBB {year} "
+"の{Solo}部門ランナーズアップが招待されます。"
+msgstr ""
+"Alates sellest aastast on loodud uus \"Teine Liiga\". Teine Liiga toimub "
+"Hiinas ja sinna kutsutakse GBB {year} {Solo} kategooria teise koha omanikud."
+
+#: templates/2026/rule.html:447
+#, python-brace-format
+msgid "この「セカンドリーグ」で優勝すれば、GBB {year} {Solo}部門への出場権が得られます。"
+msgstr ""
+"Kui võidad selle 'Teise Liiga', saad õiguse osaleda GBB {year} {Solo} "
+"kategoorias."
+
+#: templates/2026/rule.html:451
+#, python-brace-format
+msgid "ランナーズアップ：本戦に出場できなかった、{Wildcard}上位入賞者"
+msgstr ""
+"Runner-upid: {Wildcard} parima tulemuse saavutanud, kes ei pääsenud "
+"põhivõistlusele."
+
+#: templates/2026/rule.html:452
+#, python-brace-format
+msgid "例：{Wildcard}出場枠が8枠の場合、9位～16位を指します。"
+msgstr ""
+"Nt: kui {Wildcard} kvalifitseerumiskohti on 8, siis viitab see kohtadele "
+"9-16."
+
+#: templates/2026/rule.html:455
+msgid "当サイトでは、セカンドリーグについての情報は取り扱わない方針です。"
+msgstr "Meie veebilehel ei käsitleta Teise liiga kohta käivat informatsiooni."
 
 #: templates/2026/ticket.html:11
 msgid "ポーランド・ワルシャワ"
@@ -1403,25 +1497,26 @@ msgstr "Lõppenud"
 msgid "先行公開"
 msgstr "Eelnev avalikustamine"
 
-#: templates/2026/top.html:201
+#: templates/2026/top.html:196
 msgid "イベントに関する問い合わせ先"
 msgstr "Sündmusega seotud päringute kontakt"
 
-#: templates/2026/top.html:205
+#: templates/2026/top.html:200
 msgid "チケットに関する問い合わせ先"
 msgstr "Pileti kohta küsimuste korral"
 
-#: templates/2026/top.html:210
+#: templates/2026/top.html:205
 msgid "なお上記問い合わせ先は、当サイトとは無関係です。"
 msgstr "Ülaltoodud kontaktandmed ei ole seotud meie saidiga."
 
-#: templates/base.html:34 templates/base.html:44 templates/base.html:48
+#: templates/base.html:34 templates/base.html:45 templates/base.html:49
+#, python-brace-format
 msgid ""
-"Swissbeatboxが主催するHuman Beatboxの世界大会「Grand Beatbox "
-"Battle」の各種情報を、見やすくまとめたサイトです。"
+"Swissbeatboxが主催する{HumanBeatbox}の世界大会「{GrandBeatboxBattle}」の各種情報を、見やすくまとめたサイトです。"
 msgstr ""
-"Swissbeatbox korraldatud inimeste beatbox'i maailmameistrivõistluste \"Grand"
-" Beatbox Battle\" kohta on lihtne leida teavet."
+"See on veebisait, mis koondab hõlpsasti vaadataval kujul kogu teabe "
+"Swissbeatboxi korraldatud {HumanBeatbox}i maailmameistrivõistluste "
+"\"{GrandBeatboxBattle}\" kohta."
 
 #: templates/2024/rule.html:22 templates/2024/rule.html:71
 #: templates/2024/rule.html:130 templates/2024/rule.html:228
@@ -1432,8 +1527,8 @@ msgstr ""
 #: templates/2024/top.html:36 templates/2024/top.html:98
 #: templates/2024/top_7tosmoke.html:24 templates/2025/timetable.html:278
 #: templates/2025/top.html:3 templates/2025/top.html:4
-#: templates/2025/top.html:5 templates/2025/top.html:93
-#: templates/2025/top.html:162 templates/2025/top_7tosmoke.html:24
+#: templates/2025/top.html:5 templates/2025/top.html:92
+#: templates/2025/top.html:161 templates/2025/top_7tosmoke.html:24
 #: templates/2025/wildcard_regulation.html:20
 #: templates/2025/wildcard_regulation.html:21
 #: templates/2025/wildcard_regulation.html:55
@@ -1451,8 +1546,8 @@ msgstr ""
 #: templates/2026/timetable.html:146 templates/2026/top.html:3
 #: templates/2026/top.html:4 templates/2026/top.html:5
 #: templates/2026/top.html:25 templates/2026/top.html:97
-#: templates/2026/top.html:173 templates/2026/top_7tosmoke.html:24
-#: templates/base.html:122 templates/base.html:237
+#: templates/2026/top.html:168 templates/2026/top_7tosmoke.html:24
+#: templates/base.html:123 templates/base.html:234
 #: templates/includes/hamburger_menu.html:8
 #: templates/includes/next_year.html:5
 #: templates/others/participant_detail.html:145
@@ -1463,46 +1558,46 @@ msgstr "Ainult see juhend"
 msgid "年度選択"
 msgstr "Aasta valik"
 
-#: templates/base.html:172 templates/includes/notice.html:5
+#: templates/base.html:169 templates/includes/notice.html:5
 msgid "翻訳未提供"
 msgstr "Tõlge pole saadaval"
 
-#: templates/base.html:173
+#: templates/base.html:170
 msgid "このページは翻訳が提供されていません。現在は原文の日本語を表示しています。"
 msgstr ""
 "Sellele leheküljele tõlget ei pakuta. Praegu kuvatakse originaal jaapani "
 "keeles."
 
-#: templates/base.html:193
+#: templates/base.html:190
 msgid "GBBまでの残り時間"
 msgstr "Aega GBB-ni jäänud"
 
-#: templates/base.html:198 templates/base.html:214
+#: templates/base.html:195 templates/base.html:211
 #: templates/includes/bottom_navigation.html:30
 #: templates/includes/bottom_navigation.html:48
 msgid "なんでも検索"
 msgstr "Otsi kõike"
 
-#: templates/base.html:200 templates/includes/bottom_navigation.html:32
+#: templates/base.html:197 templates/includes/bottom_navigation.html:32
 #, python-brace-format
 msgid "GBB {year} の検索のみ可能です"
 msgstr "Ainult GBB {year} otsing on võimalik"
 
-#: templates/base.html:201 templates/includes/bottom_navigation.html:33
+#: templates/base.html:198 templates/includes/bottom_navigation.html:33
 #, python-brace-format
 msgid "GBB {year} は終了しました"
 msgstr "GBB {year} on lõppenud"
 
-#: templates/base.html:205 templates/includes/bottom_navigation.html:37
+#: templates/base.html:202 templates/includes/bottom_navigation.html:37
 #, python-brace-format
 msgid "例：GBB {year} の最終結果は？"
 msgstr "Näide: Mis oli GBB {year} lõpptulemus?"
 
-#: templates/base.html:210 templates/includes/bottom_navigation.html:42
+#: templates/base.html:207 templates/includes/bottom_navigation.html:42
 msgid "GBB最新情報の検索はこちら"
 msgstr "GBB uusimate uudiste otsing siin"
 
-#: templates/base.html:215 templates/includes/bottom_navigation.html:49
+#: templates/base.html:212 templates/includes/bottom_navigation.html:49
 #, python-brace-format
 msgid "GBB {year} について検索してみよう"
 msgstr "Otsige GBB {year} kohta"
@@ -1510,25 +1605,25 @@ msgstr "Otsige GBB {year} kohta"
 #: templates/2024/top.html:30 templates/2024/top_7tosmoke.html:18
 #: templates/2025/top.html:29 templates/2025/top_7tosmoke.html:18
 #: templates/2026/top.html:37 templates/2026/top_7tosmoke.html:18
-#: templates/base.html:218 templates/includes/bottom_navigation.html:52
+#: templates/base.html:215 templates/includes/bottom_navigation.html:52
 msgid "例：現地観戦計画のたてかた"
 msgstr "Näide: Kuidas koostada kohapeal vaatamise plaani"
 
-#: templates/base.html:228
+#: templates/base.html:225
 msgid "ホーム画面に追加"
 msgstr "Lisa avalehele"
 
-#: templates/base.html:231
+#: templates/base.html:228
 msgid "GBBINFO-JPNはPWAに対応しています。"
 msgstr "GBBINFO-JPN toetab PWA-d."
 
-#: templates/base.html:231
+#: templates/base.html:228
 msgid "ブラウザメニューを開き、「ホーム画面に追加」をタップすると、アプリとしてインストールできます。"
 msgstr ""
 "Avage brauseri menüü ja puudutage \"Lisa avalehele\", et installida see "
 "rakendusena."
 
-#: templates/base.html:237
+#: templates/base.html:234
 msgid "ホームへもどる"
 msgstr "Tagasi avalehele"
 
@@ -1537,44 +1632,47 @@ msgstr "Tagasi avalehele"
 #: templates/2025/rule.html:67 templates/2025/rule.html:220
 #: templates/2025/rule.html:358 templates/2025/stream.html:34
 #: templates/2025/ticket.html:17 templates/2025/timetable.html:159
-#: templates/2025/top.html:98 templates/2025/wildcards.html:14
-#: templates/2025/wildcards.html:83 templates/2026/rule.html:67
-#: templates/2026/rule.html:249 templates/2026/rule.html:386
+#: templates/2025/top.html:97 templates/2025/wildcards.html:14
+#: templates/2025/wildcards.html:83 templates/2026/rule.html:71
+#: templates/2026/rule.html:253 templates/2026/rule.html:390
 #: templates/2026/stream.html:18 templates/2026/timetable.html:118
-#: templates/2026/top.html:102 templates/base.html:243
+#: templates/2026/top.html:102 templates/2026/wildcards.html:12
+#: templates/2026/wildcards.html:59 templates/base.html:240
 #: templates/common/participants.html:25 templates/common/result.html:110
 #: templates/includes/hamburger_menu.html:9
 #: templates/includes/participants_form.html:13
-msgid "Wildcard結果"
-msgstr "Wildcard tulemused"
+#, python-brace-format
+msgid "{Wildcard}結果"
+msgstr "{Wildcard}tulemus"
 
 #: templates/2024/top.html:47 templates/2025/rule.html:67
 #: templates/2025/rule.html:358 templates/2025/stream.html:34
 #: templates/2025/ticket.html:17 templates/2025/timetable.html:159
-#: templates/2025/top.html:98 templates/2025/wildcards.html:14
-#: templates/2025/wildcards.html:83 templates/2026/rule.html:67
-#: templates/2026/rule.html:386 templates/2026/stream.html:18
+#: templates/2025/top.html:97 templates/2025/wildcards.html:14
+#: templates/2025/wildcards.html:83 templates/2026/rule.html:71
+#: templates/2026/rule.html:390 templates/2026/stream.html:18
 #: templates/2026/timetable.html:118 templates/2026/top.html:102
-#: templates/base.html:243 templates/common/result.html:110
+#: templates/2026/wildcards.html:12 templates/2026/wildcards.html:59
+#: templates/base.html:240 templates/common/result.html:110
 #: templates/includes/hamburger_menu.html:9
 msgid "出場者"
 msgstr "Osalejad"
 
-#: templates/base.html:262
+#: templates/base.html:259
 msgid "GBBINFO-JPN開発者 Twitter"
 msgstr "GBBINFO-JPN arendaja Twitter"
 
-#: templates/base.html:264
+#: templates/base.html:261
 msgid "GBBINFO-JPNについて"
 msgstr "GBBINFO-JPN kohta"
 
-#: templates/base.html:266 templates/others/translation.html:3
+#: templates/base.html:263 templates/others/translation.html:3
 #: templates/others/translation.html:4 templates/others/translation.html:5
 #: templates/others/translation.html:10
 msgid "各ページの翻訳提供について"
 msgstr "Lehekülgede tõlke pakkumise kohta"
 
-#: templates/base.html:290
+#: templates/base.html:287
 msgid "いい景色だろ？"
 msgstr "Ilus vaade, eks?"
 
@@ -1591,33 +1689,33 @@ msgid "トップページ"
 msgstr "Avaleht"
 
 #: templates/common/cancels.html:43 templates/common/japan.html:59
-#: templates/common/korea.html:59 templates/common/participants.html:107
+#: templates/common/korea.html:59 templates/common/participants.html:102
 #: templates/common/result.html:98
 msgid "その他の年度を確認："
 msgstr "Vaadake teisi aastaid:"
 
 #: templates/common/cancels.html:53 templates/common/japan.html:49
-#: templates/common/korea.html:49 templates/common/participants.html:101
-#: templates/common/result.html:108
+#: templates/common/korea.html:49 templates/common/result.html:108
 msgid "出場権詳細"
 msgstr "Osalemisõiguse üksikasjad"
 
 #: templates/common/cancels.html:54 templates/common/japan.html:51
-#: templates/common/korea.html:51 templates/common/participants.html:102
-msgid "Wildcard結果発表日"
-msgstr "Wildcard tulemuste avalikustamise kuupäev"
+#: templates/common/korea.html:51 templates/common/participants.html:93
+#, python-brace-format
+msgid "{Wildcard}結果発表日"
+msgstr "{Wildcard}tulemuste avaldamise kuupäev"
 
 #: templates/common/japan.html:43
 msgid "日本代表なし"
 msgstr "Jaapani esindaja puudub"
 
 #: templates/common/japan.html:54 templates/common/korea.html:54
-#: templates/common/participants.html:138
+#: templates/common/participants.html:133
 msgid "出場者世界地図"
 msgstr "Osalejate maailmakaart"
 
 #: templates/common/japan.html:55 templates/common/korea.html:55
-#: templates/common/participants.html:139
+#: templates/common/participants.html:134
 msgid "国旗をタップorクリックすると、詳細を確認できます。"
 msgstr "Lipule koputades või klikates saate üksikasju vaadata."
 
@@ -1651,24 +1749,24 @@ msgstr "Näita osalejaid & loobujaid"
 msgid "国"
 msgstr "Riik"
 
-#: templates/common/participants.html:116
-#: templates/common/participants.html:119
+#: templates/common/participants.html:111
+#: templates/common/participants.html:114
 msgid "出場者検索"
 msgstr "Osalejate otsing"
 
-#: templates/common/participants.html:117
+#: templates/common/participants.html:112
 msgid "出場者名を検索できます"
 msgstr "Saate osalejate nimesid otsida"
 
-#: templates/common/participants.html:117
+#: templates/common/participants.html:112
 msgid "半角英数字推奨"
 msgstr "Soovitatav on pool-laiusega tähed ja numbrid"
 
-#: templates/common/participants.html:124
+#: templates/common/participants.html:119
 msgid "検索結果"
 msgstr "Otsingutulemused"
 
-#: templates/common/participants.html:139
+#: templates/common/participants.html:134
 msgid "全出場者を地図にマッピングしました。"
 msgstr "Kõik osalejad on kaardile märgitud."
 
@@ -1678,8 +1776,9 @@ msgid "部門選択"
 msgstr "Osakonna valik"
 
 #: templates/common/result.html:30
-msgid "SHOWCASE部門は、バトルを行わないため、結果はありません。"
-msgstr "SHOWCASE osakonnal tulemusi ei ole, kuna lahingut ei toimu."
+#, python-brace-format
+msgid "{SHOWCASE}部門は、バトルを行わないため、結果はありません。"
+msgstr "{SHOWCASE} kategoorias lahinguid ei toimu, mistõttu tulemusi pole."
 
 #: templates/common/result.html:38
 msgid "勝ち"
@@ -1850,3 +1949,22 @@ msgstr ""
 #~ msgstr ""
 #~ "Samuti on teatatud Solo- ja Loopstationi kategooria Wildcardi reeglite "
 #~ "muudatustest. Värskendame seda lehte niipea, kui uusim teave avaldatakse."
+
+#~ msgid "ランナーズアップ：本戦に出場できなかった、Wildcard上位入賞者"
+#~ msgstr ""
+
+#~ msgid "例：Wildcard出場枠が8枠の場合、9位～16位を指します。"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "今年から新たに「セカンドリーグ」が設けられました。セカンドリーグは、中国で開催され、GBB {year} のSolo部門ランナーズアップが招待されます。"
+#~ msgstr ""
+
+#~ msgid "この「セカンドリーグ」で優勝すれば、GBB {year} Solo部門への出場権が得られます。"
+#~ msgstr ""
+
+#~ msgid "{Wildcard} ルール"
+#~ msgstr "{Wildcard} reegel"
+
+#~ msgid "Wildcard ルール"
+#~ msgstr "Wildcard reeglid"

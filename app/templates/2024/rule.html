@@ -8,7 +8,7 @@
 {% block content %}
 <h1>GBB {{ year }} {{_("ルール")}}</h1>
 <p>
-  {{ _("Swissbeatbox公式サイトにて、GBB {year} で実施される部門・Wildcardのルールについて発表がありました。").format(year=year) }}<br />
+  {{ _("Swissbeatbox公式サイトにて、GBB {year} で実施される部門・{Wildcard}のルールについて発表がありました。").format(year=year, Wildcard="Wildcard") }}<br />
   {{ _("ソースサイト：") }}<a
     href="https://swissbeatbox.com/newsfeed/gbb-2024-wildcard-competition-rules-and-application/"
     target="_blank"
@@ -39,7 +39,7 @@
     </li>
 
     <li>
-      <a href="#p05">{{_("Wildcard ルール")}}</a>
+      <a href="#p05">Wildcard {{_("ルール")}}</a>
     </li>
 
     <li>
@@ -47,19 +47,19 @@
     </li>
 
     <li>
-      <a href="#p07">{{_("Wildcard審査員一覧")}}</a>
+      <a href="#p07">{{_("{Wildcard}審査員一覧").format(Wildcard="Wildcard")}}</a>
     </li>
   </ol>
 </div>
 
 <h2 id="p01">{{_("注意事項")}}</h2>
 <p>
-  {{_("以下に示す内容は、あくまでもBeatboxファンが知っておくとよりGBBを楽しめる知識として紹介するものです。")}}<br />{{_("一部内容において、わかりやすさを優先します。")}}<strong
+  {{_("以下に示す内容は、あくまでも{Beatbox}ファンが知っておくとよりGBBを楽しめる知識として紹介するものです。").format(Beatbox="Beatbox")}}<br />{{_("一部内容において、わかりやすさを優先します。")}}<strong
     >{{_("これにより、正確さに欠ける表現を用いることがあります。")}}</strong
   >
 </p>
 <p>
-  {{_("当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねます。")}}<br />{{_("Wildcardを提出する方は、")}}<strong
+  {{_("当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねます。")}}<br />{{_("{Wildcard}を提出する方は、").format(Wildcard="Wildcard")}}<strong
     ><span style="color: #ff0000"
       >{{_("必ずご自身でルールを今一度ご確認ください。")}}</span
     ></strong
@@ -120,10 +120,10 @@
 <ul>
   <li>
     <strong>{{_("Producerとは")}}</strong><br />
-    {{_("Loopstationのセカンドデバイス（Loopstationに接続する端末）ありの部門で、GBB23で「Producer showcase」として新設されました。その代わり、Loopstation部門においてセカンドデバイスの使用が禁止されます。")}}
+    {{_("{Loopstation}のセカンドデバイス（{Loopstation}に接続する端末）ありの部門で、GBB23で「Producer showcase」として新設されました。その代わり、{Loopstation}部門においてセカンドデバイスの使用が禁止されます。").format(Loopstation="Loopstation")}}
   </li>
 </ul>
-<p>{{_("忘れられたTag Team Loopstation...")}}😭</p>
+<p>{{_("忘れられた{TagTeamLoopstation}...").format(TagTeamLoopstation="Tag Team Loopstation")}}😭</p>
 
 <div class="button-container">
   <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
@@ -217,17 +217,17 @@
 {% endif %}
 
 <div class="button-container">
-  <a href="/{{ year }}/participants"><button>{{_("Wildcard結果")}}</button></a>
+  <a href="/{{ year }}/participants"><button>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}}</button></a>
   <a href="/{{ year }}/participants"><button>{{_("出場者一覧")}}</button></a>
 </div>
 
-<p>{{_("シード権を持つ人が辞退した場合、原則として、該当シード権は消滅し、Wildcard下位からの繰り上げが行われます。")}}</p>
+<p>{{_("シード権を持つ人が辞退した場合、原則として、該当シード権は消滅し、{Wildcard}下位からの繰り上げが行われます。").format(Wildcard="Wildcard")}}</p>
 
 <div class="button-container">
   <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
   <a href="/{{ year }}/top"><button>GBB {{ year }} {{_("これだけガイド")}}</button></a>
 </div>
-<h2 id="p05" name="result_date">{{_("Wildcard ルール")}}</h2>
+<h2 id="p05" name="result_date">Wildcard {{_("ルール")}}</h2>
 <table>
   <thead>
     <tr>
@@ -271,7 +271,7 @@
 <div id="p06"></div>
 <h2 name="judges">{{_("本戦審査員一覧")}}</h2>
 <div style="text-align: center;">
-  <a href="#p07">{{_("Wildcard審査員一覧はこちら")}}</a>
+  <a href="#p07">{{_("{Wildcard}審査員一覧はこちら").format(Wildcard="Wildcard")}}</a>
 </div>
 <table>
   <thead>
@@ -313,7 +313,7 @@
   <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
   <a href="/{{ year }}/top"><button>GBB {{ year }} {{_("これだけガイド")}}</button></a>
 </div>
-<h2 id="p07">{{_("Wildcard審査員一覧")}}</h2>
+<h2 id="p07">{{_("{Wildcard}審査員一覧").format(Wildcard="Wildcard")}}</h2>
 <div style="text-align: center;">
   <a href="#p06">GBB {{ year }} {{_("本戦審査員一覧はこちら")}}</a>
 </div>

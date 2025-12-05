@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 
-{% block title %}GBB {{ year }} {{_("Wildcard一覧")}} - GBBINFO-JPN{% endblock %}
-{% block twitter_title %}GBB {{ year }} {{_("Wildcard一覧")}} - GBBINFO-JPN{% endblock %}
-{% block og_title %}GBB {{ year }} {{_("Wildcard一覧")}} - GBBINFO-JPN{% endblock %}
+{% block title %}GBB {{ year }} {{_("{Wildcard}一覧").format(Wildcard="Wildcard")}} - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBB {{ year }} {{_("{Wildcard}一覧").format(Wildcard="Wildcard")}} - GBBINFO-JPN{% endblock %}
+{% block og_title %}GBB {{ year }} {{_("{Wildcard}一覧").format(Wildcard="Wildcard")}} - GBBINFO-JPN{% endblock %}
 {% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/wildcards{% endblock %}
 {% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/wildcards{% endblock %}
 {% block content %}
-<h1>GBB {{ year }} {{_("Wildcard一覧")}}</h1>
+<h1>GBB {{ year }} {{_("{Wildcard}一覧").format(Wildcard="Wildcard")}}</h1>
 
 <p>{{_("各部門の締め切り期日は、中央ヨーロッパ時刻を基準に表記しています。")}}</p>
 
 <div class="button-container">
-  <a href="/{{ year }}/participants"><button>{{_("Wildcard結果")}} & {{_("出場者")}}</button></a>
+  <a href="/{{ year }}/participants"><button>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}} & {{_("出場者")}}</button></a>
   <a href="/{{ year }}/rule"><button>{{_("ルール")}} & {{_("審査員")}}</button></a>
 </div>
 
@@ -80,13 +80,13 @@
 </ul>
 
 <div class="button-container">
-  <a href="/{{ year }}/participants"><button>{{_("Wildcard結果")}} & {{_("出場者")}}</button></a>
+  <a href="/{{ year }}/participants"><button>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}} & {{_("出場者")}}</button></a>
   <a href="/{{ year }}/rule"><button>{{_("ルール")}} & {{_("審査員")}}</button></a>
 </div>
 
 <h2>{{_("注意事項")}}</h2>
 <p>
-  {{_("今回公開するWildcard一覧は、有志が作成した、非公式のものです。")}}
+  {{_("今回公開する{Wildcard}一覧は、有志が作成した、非公式のものです。").format(Wildcard="Wildcard")}}
   <a href="https://twitter.com/_NURUYU_" target="_blank" title="https://twitter.com/_NURUYU_" rel="noopener noreferrer">作成者：ぬる湯さん}</a>
 </p>
 
@@ -94,7 +94,7 @@
   {{_("すべて手作業で制作されたものであるため、重複や欠落がある可能性があります。")}}
 </p>
 <p>
-  {{_("また、この再生リストにある動画が必ずしもWildcardとして申請された動画であるとは限りません（毎年必ず出場者の手続きミスで失格者が出ます）。")}}
+  {{_("また、この再生リストにある動画が必ずしも{Wildcard}として申請された動画であるとは限りません（毎年必ず出場者の手続きミスで失格者が出ます）。").format(Wildcard="Wildcard")}}
 </p>
 
 <h3>ビト森 GBB鑑賞会</h3>

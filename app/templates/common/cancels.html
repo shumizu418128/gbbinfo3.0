@@ -51,8 +51,8 @@
 <div class="button-container">
     <a href="/{{ year }}/participants"><button>GBB {{ year }} {{_("出場者一覧")}}</button></a>
     <a href="/{{ year }}/rule"><button>{{_("出場権詳細")}}</button></a>
-    <a href="/{{ year }}/rule?scroll=result_date"><button>{{_("Wildcard結果発表日")}}</button></a>
-    <a href="/{{ year }}/wildcards"><button>{{_("Wildcard一覧")}}</button></a>
+    <a href="/{{ year }}/rule?scroll=result_date"><button>{{_("{Wildcard}結果発表日").format(Wildcard="Wildcard")}}</button></a>
+    <a href="/{{ year }}/wildcards"><button>{{_("{Wildcard}一覧").format(Wildcard="Wildcard")}}</button></a>
 </div>
 
 

@@ -27,7 +27,7 @@
 
 {% if is_showcase is true %}
   <div style="height: 200px;"></div>
-  <p style="text-align: center;">{{_("SHOWCASE部門は、バトルを行わないため、結果はありません。")}}</p>
+  <p style="text-align: center;">{{_("{SHOWCASE}部門は、バトルを行わないため、結果はありません。").format(SHOWCASE="SHOWCASE")}}</p>
   <div style="height: 200px;"></div>
 {% elif result_type == "tournament" %}
   {% for round, data in result_data.items() %}
@@ -107,7 +107,7 @@
   <a href="/{{ year - 1 }}/result"><button type="button">GBB {{ year - 1 }} {{_("大会結果")}}</button></a>
   <a href="/{{ year }}/rule"><button type="button">{{_("出場権詳細")}}</button></a>
   <a href="/{{ year }}/rule"><button type="button">{{_("ルール & 審査員")}}</button></a>
-  <a href="/{{ year }}/participants"><button>{{_("Wildcard結果")}} & {{_("出場者")}}</button></a>
+  <a href="/{{ year }}/participants"><button>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}} & {{_("出場者")}}</button></a>
 </div>
 
 {% endblock %}
