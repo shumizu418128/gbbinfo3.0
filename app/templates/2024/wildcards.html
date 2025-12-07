@@ -6,7 +6,7 @@
 {% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/wildcards{% endblock %}
 {% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/wildcards{% endblock %}
 {% block content %}
-<h1>GBB {{ year }} {{_("Wildcard一覧")}}</h1>
+<h1>GBB {{ year }} {{_("{Wildcard}一覧").format(Wildcard="Wildcard")}}</h1>
 <p>{{_("各部門の締め切り期日は、中央ヨーロッパ時刻を基準に表記しています。")}}</p>
 <ul>
   <li>3/9{{_("締め切り")}}</li>
