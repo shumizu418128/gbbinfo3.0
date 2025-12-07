@@ -1304,7 +1304,7 @@ msgstr ""
 msgid "誤って一度提出した{Wildcard}を削除した場合、失格"
 msgstr ""
 "Má scriosann tú trí dhearmad {Wildcard} a cuireadh isteach uair amháin, "
-"díqualófar thú."
+"dícháileofar thú."
 
 #: templates/2025/wildcard_regulation.html:187
 msgid "このルールは、GBB 2019で発生したトラブルの対策として設けられている"

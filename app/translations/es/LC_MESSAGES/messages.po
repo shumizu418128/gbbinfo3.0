@@ -112,7 +112,7 @@ msgstr "Lista de jueces de la ronda principal"
 #: templates/2026/rule.html:49 templates/2026/rule.html:393
 #, python-brace-format
 msgid "{Wildcard}審査員一覧"
-msgstr "{Wildcard}Lista de jueces"
+msgstr "Lista de jueces de {Wildcard}"
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:56
 #: templates/2026/rule.html:60
@@ -301,8 +301,7 @@ msgstr "Lista de participantes"
 msgid "シード権を持つ人が辞退した場合、原則として、該当シード権は消滅し、{Wildcard}下位からの繰り上げが行われます。"
 msgstr ""
 "Cuando un cabeza de serie renuncia, en principio, su derecho a siembra se "
-"extingue y se produce un ascenso desde las posiciones inferiores, incluyendo"
-" {Wildcard}."
+"extingue y se reasignará la plaza al siguiente clasificado de {Wildcard}."
 
 #: templates/2024/rule.html:240 templates/2025/rule.html:256
 #: templates/2025/wildcard_regulation.html:207 templates/2026/rule.html:290
@@ -396,7 +395,7 @@ msgstr "Sin restricción de dispositivos"
 #: templates/2024/rule.html:274 templates/2026/rule.html:331
 #, python-brace-format
 msgid "{Wildcard}審査員一覧はこちら"
-msgstr "{Wildcard} Lista de jueces aquí"
+msgstr "Haz clic aquí para ver la lista de jueces de {Wildcard}"
 
 #: templates/2024/rule.html:280 templates/2024/rule.html:325
 #: templates/2024/top.html:51 templates/2025/rule.html:314
@@ -458,7 +457,7 @@ msgstr "Consulta las últimas noticias de GBB {year}"
 #: templates/common/participants.html:143 templates/others/translation.html:18
 #, python-brace-format
 msgid "{Wildcard}結果 & 出場者"
-msgstr "{Wildcard}Resultados y Participantes"
+msgstr "Resultados y participantes de {Wildcard}"
 
 #: templates/2024/stream.html:41 templates/2024/timetable.html:3
 #: templates/2024/timetable.html:4 templates/2024/timetable.html:5
@@ -742,7 +741,7 @@ msgstr "Aviso de cambio de URL del sitio"
 #: templates/2026/top.html:152
 #, python-brace-format
 msgid "{Wildcard}結果発表配信"
-msgstr "{Wildcard} Transmisión del anuncio de resultados"
+msgstr "Transmisión del anuncio de resultados de {Wildcard}"
 
 #: templates/2024/top.html:91 templates/2024/wildcards.html:3
 #: templates/2024/wildcards.html:4 templates/2024/wildcards.html:5
@@ -898,7 +897,7 @@ msgstr "[Para {Beatboxer}] Explicación del reglamento {Wildcard}"
 msgid "GBB出場辞退が発生した場合、{Wildcard}下位からの繰り上げが行われます。"
 msgstr ""
 "En caso de que se produzca una retirada de la participación en GBB, se "
-"procederá a la promoción {Wildcard} desde los puestos inferiores."
+"reasignará la plaza al siguiente clasificado de {Wildcard}."
 
 #: templates/2025/rule.html:229
 msgid "いかなる理由があっても、シード権大会2位以下の人に、出場権は与えられません。"
@@ -1175,8 +1174,9 @@ msgstr ""
 #, python-brace-format
 msgid "上記要件を満たさない、同意できない場合は失格となり、{Wildcard}下位からの繰り上げが行われる"
 msgstr ""
-"En caso de no cumplir con los requisitos anteriores o no estar de acuerdo, "
-"será descalificado y {Wildcard} se ascenderá a un candidato de menor rango."
+"En caso de no cumplir los requisitos anteriores o no estar de acuerdo, "
+"será descalificado y se reasignará la plaza al siguiente clasificado de "
+"{Wildcard}."
 
 #: templates/2025/wildcard_regulation.html:138
 #, python-brace-format
@@ -1186,7 +1186,7 @@ msgstr "Creación y presentación de {Wildcard}"
 #: templates/2025/wildcard_regulation.html:140
 #, python-brace-format
 msgid "{Wildcard}動画の内容"
-msgstr "{Wildcard}Contenido del video"
+msgstr "Contenido del video de {Wildcard}"
 
 #: templates/2025/wildcard_regulation.html:141
 msgid "動画の冒頭で、以下のように自己紹介する"
@@ -1672,7 +1672,7 @@ msgstr "Volver a la página principal"
 #: templates/includes/participants_form.html:13
 #, python-brace-format
 msgid "{Wildcard}結果"
-msgstr "{Wildcard}resultado"
+msgstr "Resultados de {Wildcard}"
 
 #: templates/2024/top.html:47 templates/2025/rule.html:67
 #: templates/2025/rule.html:358 templates/2025/stream.html:34
@@ -1732,7 +1732,7 @@ msgstr "Detalles de la clasificación"
 #: templates/common/korea.html:51 templates/common/participants.html:93
 #, python-brace-format
 msgid "{Wildcard}結果発表日"
-msgstr "{Wildcard}fecha de anuncio de resultados"
+msgstr "Fecha de anuncio de resultados de {Wildcard}"
 
 #: templates/common/japan.html:43
 msgid "日本代表なし"

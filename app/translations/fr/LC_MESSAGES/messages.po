@@ -111,7 +111,7 @@ msgstr "Liste des juges de la compétition principale"
 #: templates/2026/rule.html:49 templates/2026/rule.html:393
 #, python-brace-format
 msgid "{Wildcard}審査員一覧"
-msgstr "Liste des jurés {Wildcard}"
+msgstr "Liste des juges de {Wildcard}"
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:56
 #: templates/2026/rule.html:60
@@ -302,7 +302,7 @@ msgid "シード権を持つ人が辞退した場合、原則として、該当�
 msgstr ""
 "Si une personne détenant un statut de tête de série se désiste, en principe,"
 " ledit statut de tête de série est annulé et une promotion est effectuée à "
-"partir des rangs inférieurs {Wildcard}."
+"partir des rangs inférieurs du classement {Wildcard}."
 
 #: templates/2024/rule.html:240 templates/2025/rule.html:256
 #: templates/2025/wildcard_regulation.html:207 templates/2026/rule.html:290
@@ -396,7 +396,7 @@ msgstr "Sans restriction de l'appareil"
 #: templates/2024/rule.html:274 templates/2026/rule.html:331
 #, python-brace-format
 msgid "{Wildcard}審査員一覧はこちら"
-msgstr "{Wildcard} Voir la liste des juges"
+msgstr "Voir la liste des juges de {Wildcard}"
 
 #: templates/2024/rule.html:280 templates/2024/rule.html:325
 #: templates/2024/top.html:51 templates/2025/rule.html:314
@@ -458,7 +458,7 @@ msgstr "Consultez les dernières informations sur GBB {year}"
 #: templates/common/participants.html:143 templates/others/translation.html:18
 #, python-brace-format
 msgid "{Wildcard}結果 & 出場者"
-msgstr "{Wildcard} Résultats et Participants"
+msgstr "Résultats et participants de {Wildcard}"
 
 #: templates/2024/stream.html:41 templates/2024/timetable.html:3
 #: templates/2024/timetable.html:4 templates/2024/timetable.html:5
@@ -742,7 +742,7 @@ msgstr "Notification de modification de l'URL du site"
 #: templates/2026/top.html:152
 #, python-brace-format
 msgid "{Wildcard}結果発表配信"
-msgstr "{Wildcard} Diffusion des résultats"
+msgstr "Diffusion des résultats de {Wildcard}"
 
 #: templates/2024/top.html:91 templates/2024/wildcards.html:3
 #: templates/2024/wildcards.html:4 templates/2024/wildcards.html:5
@@ -757,7 +757,7 @@ msgstr "{Wildcard} Diffusion des résultats"
 #: templates/others/translation.html:25
 #, python-brace-format
 msgid "{Wildcard}一覧"
-msgstr "{Wildcard} liste"
+msgstr "Liste de {Wildcard}"
 
 #: templates/2024/top.html:104 templates/2024/top.html:118
 #: templates/2024/top_7tosmoke.html:46 templates/2025/top.html:170
@@ -920,7 +920,7 @@ msgid ""
 msgstr ""
 "Par exemple : Si le vainqueur du tournoi de têtes de série s'est déjà "
 "qualifié via {Wildcard}, la promotion se fera à partir des rangs inférieurs "
-"de {Wildcard}, et non par le deuxième de ce tournoi."
+"du classement {Wildcard}, et non par le deuxième de ce tournoi."
 
 #: templates/2025/rule.html:257 templates/2025/wildcard_regulation.html:208
 #: templates/2026/rule.html:291
@@ -1177,8 +1177,8 @@ msgstr ""
 msgid "上記要件を満たさない、同意できない場合は失格となり、{Wildcard}下位からの繰り上げが行われる"
 msgstr ""
 "Si les exigences susmentionnées ne sont pas remplies ou si vous n'êtes pas "
-"d'accord, vous serez disqualifié et {Wildcard} les candidats des rangs "
-"inférieurs seront promus."
+"d'accord, vous serez disqualifié et les candidats des rangs inférieurs dans "
+"le classement {Wildcard} seront promus."
 
 #: templates/2025/wildcard_regulation.html:138
 #, python-brace-format
@@ -1188,7 +1188,7 @@ msgstr "Création et soumission de {Wildcard}"
 #: templates/2025/wildcard_regulation.html:140
 #, python-brace-format
 msgid "{Wildcard}動画の内容"
-msgstr "Contenu de la vidéo {Wildcard}"
+msgstr "Contenu de la vidéo de {Wildcard}"
 
 #: templates/2025/wildcard_regulation.html:141
 msgid "動画の冒頭で、以下のように自己紹介する"
@@ -1491,14 +1491,14 @@ msgstr ""
 #, python-brace-format
 msgid "ランナーズアップ：本戦に出場できなかった、{Wildcard}上位入賞者"
 msgstr ""
-"Finalistes : Les participants {Wildcard} les mieux classés qui n'ont pas pu "
+"Finalistes : Les participants les mieux classés de {Wildcard} qui n'ont pas pu "
 "participer à la compétition principale."
 
 #: templates/2026/rule.html:452
 #, python-brace-format
 msgid "例：{Wildcard}出場枠が8枠の場合、9位～16位を指します。"
 msgstr ""
-"Exemple : Lorsque le nombre de places {Wildcard} est de 8, cela désigne les "
+"Exemple : Lorsque le nombre de places de {Wildcard} est de 8, cela désigne les "
 "9e à 16e positions."
 
 #: templates/2026/rule.html:455
@@ -1678,7 +1678,7 @@ msgstr "Retour à la page d'accueil"
 #: templates/includes/participants_form.html:13
 #, python-brace-format
 msgid "{Wildcard}結果"
-msgstr "Résultats {Wildcard}"
+msgstr "Résultats de {Wildcard}"
 
 #: templates/2024/top.html:47 templates/2025/rule.html:67
 #: templates/2025/rule.html:358 templates/2025/stream.html:34
@@ -1738,7 +1738,7 @@ msgstr "Détails de la qualification"
 #: templates/common/korea.html:51 templates/common/participants.html:93
 #, python-brace-format
 msgid "{Wildcard}結果発表日"
-msgstr "{Wildcard}Date de publication des résultats"
+msgstr "Date de publication des résultats de {Wildcard}"
 
 #: templates/common/japan.html:43
 msgid "日本代表なし"

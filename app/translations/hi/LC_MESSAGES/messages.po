@@ -110,7 +110,7 @@ msgstr "मुख्य प्रतियोगिता के निर्ण
 #: templates/2026/rule.html:49 templates/2026/rule.html:393
 #, python-brace-format
 msgid "{Wildcard}審査員一覧"
-msgstr "{Wildcard}न्यायाधीशों की सूची"
+msgstr "{Wildcard} न्यायाधीशों की सूची"
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:56
 #: templates/2026/rule.html:60
@@ -391,7 +391,7 @@ msgstr "बिना डिवाइस प्रतिबंध के"
 #: templates/2024/rule.html:274 templates/2026/rule.html:331
 #, python-brace-format
 msgid "{Wildcard}審査員一覧はこちら"
-msgstr "{Wildcard}न्यायाधीशों की सूची यहाँ देखें"
+msgstr "{Wildcard} न्यायाधीशों की सूची यहाँ देखें"
 
 #: templates/2024/rule.html:280 templates/2024/rule.html:325
 #: templates/2024/top.html:51 templates/2025/rule.html:314
@@ -733,7 +733,7 @@ msgstr "इस साइट के URL में बदलाव की सू�
 #: templates/2026/top.html:152
 #, python-brace-format
 msgid "{Wildcard}結果発表配信"
-msgstr "{Wildcard}परिणाम घोषणा प्रसारण"
+msgstr "{Wildcard} परिणाम घोषणा प्रसारण"
 
 #: templates/2024/top.html:91 templates/2024/wildcards.html:3
 #: templates/2024/wildcards.html:4 templates/2024/wildcards.html:5
@@ -1166,7 +1166,7 @@ msgstr "{Wildcard} बनाने और जमा करने के सं�
 #: templates/2025/wildcard_regulation.html:140
 #, python-brace-format
 msgid "{Wildcard}動画の内容"
-msgstr "{Wildcard}वीडियो का विषय"
+msgstr "{Wildcard} वीडियो का विषय"
 
 #: templates/2025/wildcard_regulation.html:141
 msgid "動画の冒頭で、以下のように自己紹介する"
@@ -1641,7 +1641,7 @@ msgstr "मुख्य पृष्ठ पर वापस जाएँ"
 #: templates/includes/participants_form.html:13
 #, python-brace-format
 msgid "{Wildcard}結果"
-msgstr "{Wildcard}परिणाम"
+msgstr "{Wildcard} परिणाम"
 
 #: templates/2024/top.html:47 templates/2025/rule.html:67
 #: templates/2025/rule.html:358 templates/2025/stream.html:34
@@ -1702,7 +1702,7 @@ msgstr "अधिकार जीतने का विवरण"
 #: templates/common/korea.html:51 templates/common/participants.html:93
 #, python-brace-format
 msgid "{Wildcard}結果発表日"
-msgstr "{Wildcard}परिणाम घोषणा तिथि"
+msgstr "{Wildcard} परिणाम घोषणा तिथि"
 
 #: templates/common/japan.html:43
 msgid "日本代表なし"

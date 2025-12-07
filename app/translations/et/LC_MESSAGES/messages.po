@@ -1171,7 +1171,7 @@ msgstr "{Wildcard} loomise ja esitamise kohta"
 #: templates/2025/wildcard_regulation.html:140
 #, python-brace-format
 msgid "{Wildcard}動画の内容"
-msgstr "{Wildcard}video sisu"
+msgstr "{Wildcard} video sisu"
 
 #: templates/2025/wildcard_regulation.html:141
 msgid "動画の冒頭で、以下のように自己紹介する"
