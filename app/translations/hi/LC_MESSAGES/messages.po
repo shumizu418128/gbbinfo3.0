@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-07 17:24+0900\n"
+"POT-Creation-Date: 2025-12-07 20:12+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: hi <LL@li.org>\n"
@@ -205,7 +205,7 @@ msgstr ""
 #: templates/2026/rule.html:139
 #, python-brace-format
 msgid "忘れられた{TagTeamLoopstation}..."
-msgstr "भुला हुआ{TagTeamLoopstation}..."
+msgstr "भुला हुआ {TagTeamLoopstation}..."
 
 #: templates/2024/rule.html:135 templates/2025/rule.html:130
 msgid "Wildcardを勝ち上がる以外の方法でGBB出場権を得る方法（シード権）と、その該当者は以下の通りです。"

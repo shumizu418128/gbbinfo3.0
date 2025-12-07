@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-07 17:24+0900\n"
+"POT-Creation-Date: 2025-12-07 20:12+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: de <LL@li.org>\n"
@@ -111,7 +111,7 @@ msgstr "Liste der Juroren des Hauptturniers"
 #: templates/2026/rule.html:49 templates/2026/rule.html:393
 #, python-brace-format
 msgid "{Wildcard}審査員一覧"
-msgstr "{Wildcard}Jury-Liste"
+msgstr "{Wildcard} Jury-Liste"
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:56
 #: templates/2026/rule.html:60
@@ -738,7 +738,7 @@ msgstr "Bekanntmachung zur Änderung der Website-URL"
 #: templates/2026/top.html:152
 #, python-brace-format
 msgid "{Wildcard}結果発表配信"
-msgstr "{Wildcard}Ergebnisbekanntgabe-Stream"
+msgstr "{Wildcard} Ergebnisbekanntgabe-Stream"
 
 #: templates/2024/top.html:91 templates/2024/wildcards.html:3
 #: templates/2024/wildcards.html:4 templates/2024/wildcards.html:5
@@ -753,7 +753,7 @@ msgstr "{Wildcard}Ergebnisbekanntgabe-Stream"
 #: templates/others/translation.html:25
 #, python-brace-format
 msgid "{Wildcard}一覧"
-msgstr "{Wildcard}Liste"
+msgstr "{Wildcard} Liste"
 
 #: templates/2024/top.html:104 templates/2024/top.html:118
 #: templates/2024/top_7tosmoke.html:46 templates/2025/top.html:170
@@ -1678,7 +1678,7 @@ msgstr "Zurück zur Startseite"
 #: templates/includes/participants_form.html:13
 #, python-brace-format
 msgid "{Wildcard}結果"
-msgstr "{Wildcard}Ergebnis"
+msgstr "{Wildcard} Ergebnis"
 
 #: templates/2024/top.html:47 templates/2025/rule.html:67
 #: templates/2025/rule.html:358 templates/2025/stream.html:34

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-07 17:24+0900\n"
+"POT-Creation-Date: 2025-12-07 20:12+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -1208,12 +1208,12 @@ msgstr "위 2가지가 없는 경우, 실격"
 #: templates/2025/wildcard_regulation.html:184
 #, python-brace-format
 msgid "{Wildcard}提出は一度のみ。一度提出したら、後から別の{Wildcard}を提出することはできない"
-msgstr "{Wildcard}제출은 한 번만 가능합니다. 일단 제출하면 나중에 다른 {Wildcard}을 제출할 수 없습니다."
+msgstr "{Wildcard} 제출은 한 번만 가능합니다. 일단 제출하면 나중에 다른 {Wildcard}를 제출할 수 없습니다."
 
 #: templates/2025/wildcard_regulation.html:185
 #, python-brace-format
 msgid "誤って一度提出した{Wildcard}を削除した場合、失格"
-msgstr "잘못 제출한 {Wildcard}을 삭제한 경우 실격"
+msgstr "잘못 제출한 {Wildcard}를 삭제한 경우 실격"
 
 #: templates/2025/wildcard_regulation.html:187
 msgid "このルールは、GBB 2019で発生したトラブルの対策として設けられている"
@@ -1264,7 +1264,7 @@ msgstr "Wildcard 제출은 한 번만 가능합니다. 한 번 제출하면 나�
 #: templates/2025/wildcard_regulation.html:265
 #, python-brace-format
 msgid "皆さんの{Wildcard}を楽しみにしています！"
-msgstr "여러분의 {Wildcard}을 기대하고 있습니다!"
+msgstr "여러분의 {Wildcard}를 기대하고 있습니다!"
 
 #: templates/2026/rule.html:37 templates/2026/rule.html:75
 #: templates/2026/rule.html:162 templates/2026/rule.html:192

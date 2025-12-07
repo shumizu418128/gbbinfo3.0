@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-07 17:24+0900\n"
+"POT-Creation-Date: 2025-12-07 20:12+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: en <LL@li.org>\n"
@@ -1160,7 +1160,8 @@ msgstr ""
 msgid "上記要件を満たさない、同意できない場合は失格となり、{Wildcard}下位からの繰り上げが行われる"
 msgstr ""
 "If the above requirements are not met or cannot be agreed to, you will be "
-"disqualified, and a promotion will be made from the {Wildcard} lower rank."
+"disqualified, and a promotion will be made from the lower ranks of the "
+"{Wildcard} ranking."
 
 #: templates/2025/wildcard_regulation.html:138
 #, python-brace-format
@@ -1240,7 +1241,7 @@ msgstr "Submission Method"
 #: templates/2025/wildcard_regulation.html:164
 #, python-brace-format
 msgid "{Wildcard}をYouTubeにアップロード"
-msgstr "{Wildcard} upload to YouTube"
+msgstr "Upload {Wildcard} to YouTube"
 
 #: templates/2025/wildcard_regulation.html:165
 #: templates/2025/wildcard_regulation.html:261
