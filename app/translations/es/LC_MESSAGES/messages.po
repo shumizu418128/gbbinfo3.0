@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-05 20:40+0900\n"
+"POT-Creation-Date: 2025-12-07 17:24+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: es <LL@li.org>\n"
@@ -179,7 +179,7 @@ msgstr "Semilla"
 #: templates/2024/rule.html:81 templates/2025/rule.html:77
 #: templates/2026/rule.html:83
 msgid "計"
-msgstr "Contar"
+msgstr "Total"
 
 #: templates/2024/rule.html:118 templates/2025/rule.html:115
 #: templates/2025/wildcard_regulation.html:113 templates/2026/rule.html:142
@@ -1174,8 +1174,8 @@ msgstr ""
 #, python-brace-format
 msgid "上記要件を満たさない、同意できない場合は失格となり、{Wildcard}下位からの繰り上げが行われる"
 msgstr ""
-"En caso de no cumplir los requisitos anteriores o no estar de acuerdo, "
-"será descalificado y se reasignará la plaza al siguiente clasificado de "
+"En caso de no cumplir los requisitos anteriores o no estar de acuerdo, será "
+"descalificado y se reasignará la plaza al siguiente clasificado de "
 "{Wildcard}."
 
 #: templates/2025/wildcard_regulation.html:138

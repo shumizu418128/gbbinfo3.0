@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-05 20:40+0900\n"
+"POT-Creation-Date: 2025-12-07 17:24+0900\n"
 "PO-Revision-Date: 2025-10-29 23:04+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: et <LL@li.org>\n"
@@ -396,7 +396,7 @@ msgstr "Seadme piirangud puuduvad"
 #: templates/2024/rule.html:274 templates/2026/rule.html:331
 #, python-brace-format
 msgid "{Wildcard}審査員一覧はこちら"
-msgstr "{Wildcard} Vaata kohtunike nimekirja siit"
+msgstr "Vaata {Wildcard} kohtunike nimekirja siit"
 
 #: templates/2024/rule.html:280 templates/2024/rule.html:325
 #: templates/2024/top.html:51 templates/2025/rule.html:314
@@ -1241,7 +1241,7 @@ msgstr "Esitamise meetod"
 #: templates/2025/wildcard_regulation.html:164
 #, python-brace-format
 msgid "{Wildcard}をYouTubeにアップロード"
-msgstr "{Wildcard} YouTube'i üles laadida"
+msgstr "Laadi {Wildcard} YouTube'i üles"
 
 #: templates/2025/wildcard_regulation.html:165
 #: templates/2025/wildcard_regulation.html:261
@@ -1581,7 +1581,7 @@ msgstr "Otsi kõike"
 #: templates/base.html:197 templates/includes/bottom_navigation.html:32
 #, python-brace-format
 msgid "GBB {year} の検索のみ可能です"
-msgstr "Ainult GBB {year} otsing on võimalik"
+msgstr "Otsida saab ainult GBB {year} kohta"
 
 #: templates/base.html:198 templates/includes/bottom_navigation.html:33
 #, python-brace-format
@@ -1595,7 +1595,7 @@ msgstr "Näide: Mis oli GBB {year} lõpptulemus?"
 
 #: templates/base.html:207 templates/includes/bottom_navigation.html:42
 msgid "GBB最新情報の検索はこちら"
-msgstr "GBB uusimate uudiste otsing siin"
+msgstr "Otsi GBB uusimaid uudiseid siit"
 
 #: templates/base.html:212 templates/includes/bottom_navigation.html:49
 #, python-brace-format

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-05 20:40+0900\n"
+"POT-Creation-Date: 2025-12-07 17:24+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -896,8 +896,8 @@ msgstr "【Pour les {Beatboxer}】Explication du règlement {Wildcard}"
 #, python-brace-format
 msgid "GBB出場辞退が発生した場合、{Wildcard}下位からの繰り上げが行われます。"
 msgstr ""
-"En cas de désistement pour le GBB, un repêchage des rangs inférieurs "
-"{Wildcard} aura lieu."
+"En cas de désistement pour le GBB, un repêchage des rangs inférieurs du "
+"classement {Wildcard} aura lieu."
 
 #: templates/2025/rule.html:229
 msgid "いかなる理由があっても、シード権大会2位以下の人に、出場権は与えられません。"
@@ -1491,15 +1491,15 @@ msgstr ""
 #, python-brace-format
 msgid "ランナーズアップ：本戦に出場できなかった、{Wildcard}上位入賞者"
 msgstr ""
-"Finalistes : Les participants les mieux classés de {Wildcard} qui n'ont pas pu "
-"participer à la compétition principale."
+"Finalistes : Les participants les mieux classés de {Wildcard} qui n'ont pas "
+"pu participer à la compétition principale."
 
 #: templates/2026/rule.html:452
 #, python-brace-format
 msgid "例：{Wildcard}出場枠が8枠の場合、9位～16位を指します。"
 msgstr ""
-"Exemple : Lorsque le nombre de places de {Wildcard} est de 8, cela désigne les "
-"9e à 16e positions."
+"Exemple : Lorsque le nombre de places de {Wildcard} est de 8, cela désigne "
+"les 9e à 16e positions."
 
 #: templates/2026/rule.html:455
 msgid "当サイトでは、セカンドリーグについての情報は取り扱わない方針です。"
