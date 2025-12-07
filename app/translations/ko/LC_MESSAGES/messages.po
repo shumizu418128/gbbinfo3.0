@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-07 20:12+0900\n"
+"POT-Creation-Date: 2025-12-07 23:24+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -199,8 +199,9 @@ msgid "忘れられた{TagTeamLoopstation}..."
 msgstr "잊혀진{TagTeamLoopstation}..."
 
 #: templates/2024/rule.html:135 templates/2025/rule.html:130
-msgid "Wildcardを勝ち上がる以外の方法でGBB出場権を得る方法（シード権）と、その該当者は以下の通りです。"
-msgstr "Wildcard를 통과하는 것 외에 GBB 출전권을 얻는 방법(시드권)과 그 해당자는 다음과 같습니다."
+#, python-brace-format
+msgid "{Wildcard}を勝ち上がる以外の方法でGBB出場権を得る方法（シード権）と、その該当者は以下の通りです。"
+msgstr "{Wildcard}를 이기는 것 외에 GBB 출전권을 얻는 방법(시드권)과 그 해당자는 다음과 같습니다."
 
 #: templates/2024/rule.html:137 templates/2025/rule.html:133
 msgid "シード権 - GBB"
@@ -374,7 +375,8 @@ msgstr "RC505 mki, mkii만"
 msgid "デバイス制限なし"
 msgstr "장치 제한 없음"
 
-#: templates/2024/rule.html:274 templates/2026/rule.html:331
+#: templates/2024/rule.html:274 templates/2025/rule.html:307
+#: templates/2026/rule.html:331
 #, python-brace-format
 msgid "{Wildcard}審査員一覧はこちら"
 msgstr "{Wildcard}심사위원 목록은 여기에서 확인하세요"
@@ -720,15 +722,15 @@ msgstr "{Wildcard}결과 발표 방송"
 
 #: templates/2024/top.html:91 templates/2024/wildcards.html:3
 #: templates/2024/wildcards.html:4 templates/2024/wildcards.html:5
-#: templates/2025/rule.html:19 templates/2025/rule.html:400
-#: templates/2025/top.html:141 templates/2025/wildcards.html:3
-#: templates/2025/wildcards.html:4 templates/2025/wildcards.html:5
-#: templates/2025/wildcards.html:9 templates/2026/rule.html:19
-#: templates/2026/rule.html:440 templates/2026/top.html:153
-#: templates/2026/wildcards.html:3 templates/2026/wildcards.html:4
-#: templates/2026/wildcards.html:5 templates/2026/wildcards.html:9
-#: templates/common/cancels.html:55 templates/common/participants.html:94
-#: templates/others/translation.html:25
+#: templates/2024/wildcards.html:9 templates/2025/rule.html:19
+#: templates/2025/rule.html:400 templates/2025/top.html:141
+#: templates/2025/wildcards.html:3 templates/2025/wildcards.html:4
+#: templates/2025/wildcards.html:5 templates/2025/wildcards.html:9
+#: templates/2026/rule.html:19 templates/2026/rule.html:440
+#: templates/2026/top.html:153 templates/2026/wildcards.html:3
+#: templates/2026/wildcards.html:4 templates/2026/wildcards.html:5
+#: templates/2026/wildcards.html:9 templates/common/cancels.html:55
+#: templates/common/participants.html:94 templates/others/translation.html:25
 #, python-brace-format
 msgid "{Wildcard}一覧"
 msgstr "{Wildcard} 목록"
@@ -808,10 +810,6 @@ msgstr ""
 msgid "諦めましょう。"
 msgstr "포기합시다."
 
-#: templates/2024/wildcards.html:9
-msgid "Wildcard一覧"
-msgstr "Wildcard 목록"
-
 #: templates/2024/wildcards.html:10 templates/2025/wildcards.html:11
 msgid "各部門の締め切り期日は、中央ヨーロッパ時刻を基準に表記しています。"
 msgstr "각 부문의 마감 기한은 중앙 유럽 시간을 기준으로 표기하고 있습니다."
@@ -884,10 +882,6 @@ msgstr "※중앙 유럽 시간에는 서머타임이 있습니다. 2025년 서�
 #: templates/2025/rule.html:285 templates/2025/wildcard_regulation.html:235
 msgid "Tag Team部門・Crew部門参加希望の方はご注意ください。"
 msgstr "태그팀 부문/크루 부문 참가 희망자는 주의하시기 바랍니다."
-
-#: templates/2025/rule.html:307
-msgid "Wildcard審査員一覧はこちら"
-msgstr "Wildcard 심사위원 목록은 여기에서"
 
 #: templates/2025/rule.html:343 templates/2026/rule.html:375
 msgid "レフェリー"
@@ -1047,8 +1041,9 @@ msgid "年齢制限"
 msgstr "연령 제한"
 
 #: templates/2025/wildcard_regulation.html:41
-msgid "Wildcard提出について"
-msgstr "Wildcard 제출에 대해"
+#, python-brace-format
+msgid "{Wildcard}提出について"
+msgstr "{Wildcard}제출에 대하여"
 
 #: templates/2025/wildcard_regulation.html:45
 #: templates/2025/wildcard_regulation.html:197
@@ -1206,6 +1201,7 @@ msgid "上記2つが無い場合は、失格"
 msgstr "위 2가지가 없는 경우, 실격"
 
 #: templates/2025/wildcard_regulation.html:184
+#: templates/2025/wildcard_regulation.html:263
 #, python-brace-format
 msgid "{Wildcard}提出は一度のみ。一度提出したら、後から別の{Wildcard}を提出することはできない"
 msgstr "{Wildcard} 제출은 한 번만 가능합니다. 일단 제출하면 나중에 다른 {Wildcard}를 제출할 수 없습니다."
@@ -1254,12 +1250,9 @@ msgid "FOH (ミキシング デスク) または録音への出力はステレ�
 msgstr "FOH(믹싱 데스크) 또는 녹음 출력은 스테레오 신호여야 하며, 멀티 채널 출력은 금지됩니다."
 
 #: templates/2025/wildcard_regulation.html:262
-msgid "Wildcard動画の作成にあたり使用したすべてのファイルを、バックアップ含め保存しておき、いつでも提出できるようにしておく"
-msgstr "Wildcard 비디오 제작에 사용된 모든 파일을 백업을 포함하여 저장하고 언제든지 제출할 수 있도록 준비해 두십시오."
-
-#: templates/2025/wildcard_regulation.html:263
-msgid "Wildcard提出は一度のみ。一度提出したら、後から別のWildcardを提出することはできない"
-msgstr "Wildcard 제출은 한 번만 가능합니다. 한 번 제출하면 나중에 다른 Wildcard를 제출할 수 없습니다."
+#, python-brace-format
+msgid "{Wildcard}動画の作成にあたり使用したすべてのファイルを、バックアップ含め保存しておき、いつでも提出できるようにしておく"
+msgstr "{Wildcard} 비디오 제작에 사용된 모든 파일 (백업 포함)을 저장하여 언제든지 제출할 수 있도록 하십시오."
 
 #: templates/2025/wildcard_regulation.html:265
 #, python-brace-format
@@ -1323,11 +1316,12 @@ msgid "「チャレンジャーシリーズにおいてGBB出場権が与えら�
 msgstr "「챌린저 시리즈에서 GBB 출전권이 주어지는 것은, 예외 없이, 항상 우승자뿐이다」라고 규칙에 명시되어 있습니다."
 
 #: templates/2026/rule.html:267
+#, python-brace-format
 msgid ""
-"例：チャレンジャーシリーズ優勝者が、すでにWildcardで出場権を獲得していた場合、チャレンジャーシリーズ2位ではなく、Wildcard下位からの繰り上げが行われます。"
+"例：チャレンジャーシリーズ優勝者が、すでに{Wildcard}で出場権を獲得していた場合、チャレンジャーシリーズ2位ではなく、{Wildcard}下位からの繰り上げが行われます。"
 msgstr ""
-"예: 챌린저 시리즈 우승자가 이미 Wildcard로 출전권을 획득한 경우, 챌린저 시리즈 2위가 아닌 Wildcard 하위에서 자격이 "
-"부여됩니다."
+"예: 챌린저 시리즈 우승자가 이미 {Wildcard}로 출전권을 획득한 경우, 챌린저 시리즈 2위가 아닌 {Wildcard} 하위 "
+"순위에서 승격됩니다."
 
 #: templates/2026/rule.html:360 templates/2026/rule.html:364
 #: templates/2026/rule.html:368
@@ -1886,3 +1880,12 @@ msgstr "번역을 제공하지 않는 페이지는 원문인 일본어로 표시
 
 #~ msgid "Wildcard ルール"
 #~ msgstr "Wildcard 규칙"
+
+#~ msgid "Wildcard一覧"
+#~ msgstr "Wildcard 목록"
+
+#~ msgid "Wildcard審査員一覧はこちら"
+#~ msgstr "Wildcard 심사위원 목록은 여기에서"
+
+#~ msgid "Wildcard提出は一度のみ。一度提出したら、後から別のWildcardを提出することはできない"
+#~ msgstr "Wildcard 제출은 한 번만 가능합니다. 한 번 제출하면 나중에 다른 Wildcard를 제출할 수 없습니다."

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-07 20:12+0900\n"
+"POT-Creation-Date: 2025-12-07 23:24+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: no <LL@li.org>\n"
@@ -208,10 +208,11 @@ msgid "忘れられた{TagTeamLoopstation}..."
 msgstr "Den glemte {TagTeamLoopstation}..."
 
 #: templates/2024/rule.html:135 templates/2025/rule.html:130
-msgid "Wildcardを勝ち上がる以外の方法でGBB出場権を得る方法（シード権）と、その該当者は以下の通りです。"
+#, python-brace-format
+msgid "{Wildcard}を勝ち上がる以外の方法でGBB出場権を得る方法（シード権）と、その該当者は以下の通りです。"
 msgstr ""
-"Andre måter å kvalifisere seg til GBB (seedede) enn å vinne Wildcard, og "
-"hvem det gjelder, er som følger."
+"Andre måter å få GBB-plass (seed) uten å gå videre via {Wildcard}, og hvem "
+"de gjelder, er som følger."
 
 #: templates/2024/rule.html:137 templates/2025/rule.html:133
 msgid "シード権 - GBB"
@@ -390,7 +391,8 @@ msgstr "Kun RC505 mk i, mk ii"
 msgid "デバイス制限なし"
 msgstr "Ingen enhetsbegrensning"
 
-#: templates/2024/rule.html:274 templates/2026/rule.html:331
+#: templates/2024/rule.html:274 templates/2025/rule.html:307
+#: templates/2026/rule.html:331
 #, python-brace-format
 msgid "{Wildcard}審査員一覧はこちら"
 msgstr "{Wildcard} Se dommerlisten her"
@@ -740,15 +742,15 @@ msgstr "{Wildcard} resultatkunngjøringssending"
 
 #: templates/2024/top.html:91 templates/2024/wildcards.html:3
 #: templates/2024/wildcards.html:4 templates/2024/wildcards.html:5
-#: templates/2025/rule.html:19 templates/2025/rule.html:400
-#: templates/2025/top.html:141 templates/2025/wildcards.html:3
-#: templates/2025/wildcards.html:4 templates/2025/wildcards.html:5
-#: templates/2025/wildcards.html:9 templates/2026/rule.html:19
-#: templates/2026/rule.html:440 templates/2026/top.html:153
-#: templates/2026/wildcards.html:3 templates/2026/wildcards.html:4
-#: templates/2026/wildcards.html:5 templates/2026/wildcards.html:9
-#: templates/common/cancels.html:55 templates/common/participants.html:94
-#: templates/others/translation.html:25
+#: templates/2024/wildcards.html:9 templates/2025/rule.html:19
+#: templates/2025/rule.html:400 templates/2025/top.html:141
+#: templates/2025/wildcards.html:3 templates/2025/wildcards.html:4
+#: templates/2025/wildcards.html:5 templates/2025/wildcards.html:9
+#: templates/2026/rule.html:19 templates/2026/rule.html:440
+#: templates/2026/top.html:153 templates/2026/wildcards.html:3
+#: templates/2026/wildcards.html:4 templates/2026/wildcards.html:5
+#: templates/2026/wildcards.html:9 templates/common/cancels.html:55
+#: templates/common/participants.html:94 templates/others/translation.html:25
 #, python-brace-format
 msgid "{Wildcard}一覧"
 msgstr "{Wildcard}oversikt"
@@ -836,10 +838,6 @@ msgstr ""
 msgid "諦めましょう。"
 msgstr "La oss gi opp."
 
-#: templates/2024/wildcards.html:9
-msgid "Wildcard一覧"
-msgstr "Wildcard-liste"
-
 #: templates/2024/wildcards.html:10 templates/2025/wildcards.html:11
 msgid "各部門の締め切り期日は、中央ヨーロッパ時刻を基準に表記しています。"
 msgstr "Fristen for hver avdeling er angitt i sentraleuropeisk tid."
@@ -926,10 +924,6 @@ msgid "Tag Team部門・Crew部門参加希望の方はご注意ください。"
 msgstr ""
 "Vennligst merk: De som ønsker å delta i Tag Team-kategorien og Crew-"
 "kategorien."
-
-#: templates/2025/rule.html:307
-msgid "Wildcard審査員一覧はこちら"
-msgstr "(Her er listen over Wildcard-dommere)"
 
 #: templates/2025/rule.html:343 templates/2026/rule.html:375
 msgid "レフェリー"
@@ -1097,8 +1091,9 @@ msgid "年齢制限"
 msgstr "Aldersgrense"
 
 #: templates/2025/wildcard_regulation.html:41
-msgid "Wildcard提出について"
-msgstr "Om innsending av Wildcard"
+#, python-brace-format
+msgid "{Wildcard}提出について"
+msgstr "Om innsending av {Wildcard}"
 
 #: templates/2025/wildcard_regulation.html:45
 #: templates/2025/wildcard_regulation.html:197
@@ -1285,6 +1280,7 @@ msgstr ""
 "Hvis du ikke har de to ovennevnte elementene, vil du bli diskvalifisert."
 
 #: templates/2025/wildcard_regulation.html:184
+#: templates/2025/wildcard_regulation.html:263
 #, python-brace-format
 msgid "{Wildcard}提出は一度のみ。一度提出したら、後から別の{Wildcard}を提出することはできない"
 msgstr ""
@@ -1343,16 +1339,11 @@ msgstr ""
 "flerkanals utgang er forbudt."
 
 #: templates/2025/wildcard_regulation.html:262
-msgid "Wildcard動画の作成にあたり使用したすべてのファイルを、バックアップ含め保存しておき、いつでも提出できるようにしておく"
+#, python-brace-format
+msgid "{Wildcard}動画の作成にあたり使用したすべてのファイルを、バックアップ含め保存しておき、いつでも提出できるようにしておく"
 msgstr ""
-"Sørg for å lagre alle filer som ble brukt til å lage Wildcard-videoen, "
-"inkludert sikkerhetskopier, slik at de kan sendes inn når som helst."
-
-#: templates/2025/wildcard_regulation.html:263
-msgid "Wildcard提出は一度のみ。一度提出したら、後から別のWildcardを提出することはできない"
-msgstr ""
-"Wildcard-forslag kan bare fremsettes én gang. Etter at det er fremmet, kan "
-"du ikke sende inn en annen wildcard."
+"Lagre alle filer brukt til å lage {Wildcard}-videoen, inkludert "
+"sikkerhetskopier, slik at de kan sendes inn når som helst."
 
 #: templates/2025/wildcard_regulation.html:265
 #, python-brace-format
@@ -1422,12 +1413,13 @@ msgstr ""
 "vinneren som får GBB-kvalifisering.\""
 
 #: templates/2026/rule.html:267
+#, python-brace-format
 msgid ""
-"例：チャレンジャーシリーズ優勝者が、すでにWildcardで出場権を獲得していた場合、チャレンジャーシリーズ2位ではなく、Wildcard下位からの繰り上げが行われます。"
+"例：チャレンジャーシリーズ優勝者が、すでに{Wildcard}で出場権を獲得していた場合、チャレンジャーシリーズ2位ではなく、{Wildcard}下位からの繰り上げが行われます。"
 msgstr ""
-"Eksempel: Hvis vinneren av Challenger Series allerede har kvalifisert seg "
-"via Wildcard, går plassen ikke til nummer to i serien, men til neste på "
-"Wildcard-listen."
+"Eksempel: Hvis vinneren av Challenger Series allerede er kvalifisert via "
+"{Wildcard}, går plassen ikke til nummer to i serien, men til neste på "
+"{Wildcard}-listen."
 
 #: templates/2026/rule.html:360 templates/2026/rule.html:364
 #: templates/2026/rule.html:368
@@ -2034,3 +2026,14 @@ msgstr ""
 
 #~ msgid "Wildcard ルール"
 #~ msgstr "Wildcard-regel"
+
+#~ msgid "Wildcard一覧"
+#~ msgstr "Wildcard-liste"
+
+#~ msgid "Wildcard審査員一覧はこちら"
+#~ msgstr "(Her er listen over Wildcard-dommere)"
+
+#~ msgid "Wildcard提出は一度のみ。一度提出したら、後から別のWildcardを提出することはできない"
+#~ msgstr ""
+#~ "Wildcard-forslag kan bare fremsettes én gang. Etter at det er fremmet, kan "
+#~ "du ikke sende inn en annen wildcard."
