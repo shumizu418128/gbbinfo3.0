@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-07 23:24+0900\n"
+"POT-Creation-Date: 2025-12-07 23:45+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: hu <LL@li.org>\n"
@@ -141,7 +141,7 @@ msgstr ""
 #: templates/2025/wildcard_regulation.html:66 templates/2026/rule.html:65
 #, python-brace-format
 msgid "{Wildcard}を提出する方は、"
-msgstr "{Wildcard}ot benyújtók,"
+msgstr "{Wildcard} ot benyújtók,"
 
 #: templates/2024/rule.html:64 templates/2025/rule.html:62
 #: templates/2025/wildcard_regulation.html:67 templates/2026/rule.html:66
@@ -1109,7 +1109,8 @@ msgstr "Hogy ne bukjon meg"
 #: templates/2025/wildcard_regulation.html:61
 #, python-brace-format
 msgid "以下に示す内容は、{Wildcard}を作る{Beatboxer}向けの情報です。"
-msgstr "Az alábbiak {Wildcard}ot készítő {Beatboxer}eknek szóló információk."
+msgstr ""
+"Az alábbiak {Wildcard} ot készítő {Beatboxer} eknek szóló információk."
 
 #: templates/2025/wildcard_regulation.html:62
 #, python-brace-format
@@ -1898,7 +1899,7 @@ msgstr "Többet szeretnék megtudni"
 #: templates/others/participant_detail.html:210
 #, python-brace-format
 msgid "{name}について、詳しく調べてください"
-msgstr "{name}ról, kérlek, hogy tudj meg többet."
+msgstr "{name} ról, kérlek, hogy tudj meg többet."
 
 #: templates/others/participant_detail.html:210
 msgid "ChatGPTに聞く"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-07 23:24+0900\n"
+"POT-Creation-Date: 2025-12-07 23:45+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: pt <LL@li.org>\n"
@@ -114,7 +114,7 @@ msgstr "Lista de jurados da fase principal"
 #: templates/2026/rule.html:49 templates/2026/rule.html:393
 #, python-brace-format
 msgid "{Wildcard}審査員一覧"
-msgstr "{Wildcard}Lista de jurados"
+msgstr "{Wildcard} Lista de jurados"
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:56
 #: templates/2026/rule.html:60
@@ -399,7 +399,7 @@ msgstr "Sem restrições de dispositivo"
 #: templates/2026/rule.html:331
 #, python-brace-format
 msgid "{Wildcard}審査員一覧はこちら"
-msgstr "{Wildcard}Lista de jurados aqui"
+msgstr "{Wildcard} Lista de jurados aqui"
 
 #: templates/2024/rule.html:280 templates/2024/rule.html:325
 #: templates/2024/top.html:51 templates/2025/rule.html:314
@@ -461,7 +461,7 @@ msgstr "Confira as últimas informações do GBB {year}"
 #: templates/common/participants.html:143 templates/others/translation.html:18
 #, python-brace-format
 msgid "{Wildcard}結果 & 出場者"
-msgstr "{Wildcard}resultados & participantes"
+msgstr "{Wildcard} resultados & participantes"
 
 #: templates/2024/stream.html:41 templates/2024/timetable.html:3
 #: templates/2024/timetable.html:4 templates/2024/timetable.html:5
@@ -743,7 +743,7 @@ msgstr "Aviso sobre alteração de URL deste site"
 #: templates/2026/top.html:152
 #, python-brace-format
 msgid "{Wildcard}結果発表配信"
-msgstr "{Wildcard}Anúncio dos resultados"
+msgstr "{Wildcard} Anúncio dos resultados"
 
 #: templates/2024/top.html:91 templates/2024/wildcards.html:3
 #: templates/2024/wildcards.html:4 templates/2024/wildcards.html:5
@@ -758,7 +758,7 @@ msgstr "{Wildcard}Anúncio dos resultados"
 #: templates/common/participants.html:94 templates/others/translation.html:25
 #, python-brace-format
 msgid "{Wildcard}一覧"
-msgstr "{Wildcard}lista"
+msgstr "{Wildcard} lista"
 
 #: templates/2024/top.html:104 templates/2024/top.html:118
 #: templates/2024/top_7tosmoke.html:46 templates/2025/top.html:170
@@ -1166,12 +1166,12 @@ msgstr ""
 #: templates/2025/wildcard_regulation.html:138
 #, python-brace-format
 msgid "{Wildcard}作成・提出について"
-msgstr "{Wildcard}Criação e submissão"
+msgstr "{Wildcard} Criação e submissão"
 
 #: templates/2025/wildcard_regulation.html:140
 #, python-brace-format
 msgid "{Wildcard}動画の内容"
-msgstr "{Wildcard}conteúdo do vídeo"
+msgstr "{Wildcard} conteúdo do vídeo"
 
 #: templates/2025/wildcard_regulation.html:141
 msgid "動画の冒頭で、以下のように自己紹介する"
@@ -1296,7 +1296,7 @@ msgstr ""
 #, python-brace-format
 msgid "{Wildcard}提出は一度のみ。一度提出したら、後から別の{Wildcard}を提出することはできない"
 msgstr ""
-"{Wildcard}submissão é apenas uma vez. Uma vez submetido, você não pode "
+"{Wildcard} submissão é apenas uma vez. Uma vez submetido, você não pode "
 "submeter outro {Wildcard} depois."
 
 #: templates/2025/wildcard_regulation.html:185
@@ -1330,7 +1330,7 @@ msgstr ""
 #: templates/2025/wildcard_regulation.html:247
 #, python-brace-format
 msgid "{Loopstation}単体での出場は禁止"
-msgstr "{Loopstation}proibido participar isoladamente"
+msgstr "{Loopstation} proibido participar isoladamente"
 
 #: templates/2025/wildcard_regulation.html:248
 msgid "事前にデバイス構成をSUPPORT@swissbeatbox.comへ申請すること"
@@ -1653,7 +1653,7 @@ msgstr "Voltar para a página inicial"
 #: templates/includes/participants_form.html:13
 #, python-brace-format
 msgid "{Wildcard}結果"
-msgstr "{Wildcard}resultado"
+msgstr "{Wildcard} resultado"
 
 #: templates/2024/top.html:47 templates/2025/rule.html:67
 #: templates/2025/rule.html:358 templates/2025/stream.html:34
@@ -1713,7 +1713,7 @@ msgstr "Detalhes da qualificação"
 #: templates/common/korea.html:51 templates/common/participants.html:93
 #, python-brace-format
 msgid "{Wildcard}結果発表日"
-msgstr "{Wildcard}Data de divulgação dos resultados"
+msgstr "{Wildcard} Data de divulgação dos resultados"
 
 #: templates/common/japan.html:43
 msgid "日本代表なし"
@@ -1789,8 +1789,8 @@ msgstr "Seleção de Divisão"
 #, python-brace-format
 msgid "{SHOWCASE}部門は、バトルを行わないため、結果はありません。"
 msgstr ""
-"{SHOWCASE}O departamento não realizará nenhuma batalha, portanto não haverá "
-"resultados."
+"{SHOWCASE} O departamento não realizará nenhuma batalha, portanto não haverá"
+" resultados."
 
 #: templates/common/result.html:38
 msgid "勝ち"

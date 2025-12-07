@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-07 23:24+0900\n"
+"POT-Creation-Date: 2025-12-07 23:45+0900\n"
 "PO-Revision-Date: 2025-10-29 10:38+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: pl <LL@li.org>\n"
@@ -399,7 +399,7 @@ msgstr "Bez ograniczeń urządzeń"
 #: templates/2026/rule.html:331
 #, python-brace-format
 msgid "{Wildcard}審査員一覧はこちら"
-msgstr "{Wildcard}Lista jurorów tutaj"
+msgstr "{Wildcard} Lista jurorów tutaj"
 
 #: templates/2024/rule.html:280 templates/2024/rule.html:325
 #: templates/2024/top.html:51 templates/2025/rule.html:314
@@ -461,7 +461,7 @@ msgstr "Sprawdź najnowsze informacje o GBB {year}"
 #: templates/common/participants.html:143 templates/others/translation.html:18
 #, python-brace-format
 msgid "{Wildcard}結果 & 出場者"
-msgstr "{Wildcard}wyniki i zawodnicy"
+msgstr "{Wildcard} wyniki i zawodnicy"
 
 #: templates/2024/stream.html:41 templates/2024/timetable.html:3
 #: templates/2024/timetable.html:4 templates/2024/timetable.html:5
@@ -741,7 +741,7 @@ msgstr "Informacja o zmianie adresu URL strony"
 #: templates/2026/top.html:152
 #, python-brace-format
 msgid "{Wildcard}結果発表配信"
-msgstr "{Wildcard}Wyniki ogłoszenia dystrybucji"
+msgstr "{Wildcard} Wyniki ogłoszenia dystrybucji"
 
 #: templates/2024/top.html:91 templates/2024/wildcards.html:3
 #: templates/2024/wildcards.html:4 templates/2024/wildcards.html:5
@@ -756,7 +756,7 @@ msgstr "{Wildcard}Wyniki ogłoszenia dystrybucji"
 #: templates/common/participants.html:94 templates/others/translation.html:25
 #, python-brace-format
 msgid "{Wildcard}一覧"
-msgstr "{Wildcard}lista"
+msgstr "{Wildcard} lista"
 
 #: templates/2024/top.html:104 templates/2024/top.html:118
 #: templates/2024/top_7tosmoke.html:46 templates/2025/top.html:170
@@ -1171,7 +1171,7 @@ msgstr "Utwórz i prześlij {Wildcard}"
 #: templates/2025/wildcard_regulation.html:140
 #, python-brace-format
 msgid "{Wildcard}動画の内容"
-msgstr "{Wildcard}treść wideo"
+msgstr "{Wildcard} treść wideo"
 
 #: templates/2025/wildcard_regulation.html:141
 msgid "動画の冒頭で、以下のように自己紹介する"
@@ -1242,7 +1242,7 @@ msgstr "Metoda zgłaszania"
 #: templates/2025/wildcard_regulation.html:164
 #, python-brace-format
 msgid "{Wildcard}をYouTubeにアップロード"
-msgstr "{Wildcard}do przesłania na YouTube"
+msgstr "{Wildcard} do przesłania na YouTube"
 
 #: templates/2025/wildcard_regulation.html:165
 #: templates/2025/wildcard_regulation.html:261
@@ -1294,7 +1294,7 @@ msgstr "Jeśli nie ma tych dwóch rzeczy, dyskwalifikacja"
 #, python-brace-format
 msgid "{Wildcard}提出は一度のみ。一度提出したら、後から別の{Wildcard}を提出することはできない"
 msgstr ""
-"{Wildcard}Złożenie jest jednorazowe. Po złożeniu nie można złożyć innego "
+"{Wildcard} Złożenie jest jednorazowe. Po złożeniu nie można złożyć innego "
 "{Wildcard}"
 
 #: templates/2025/wildcard_regulation.html:185
@@ -1376,7 +1376,7 @@ msgstr "Zniesiono"
 #: templates/2026/rule.html:145
 #, python-brace-format
 msgid "{SHOWCASE}とは"
-msgstr "{SHOWCASE}czym jest"
+msgstr "{SHOWCASE} czym jest"
 
 #: templates/2026/rule.html:147
 #, python-brace-format
@@ -1650,7 +1650,7 @@ msgstr "Powrót do strony głównej"
 #: templates/includes/participants_form.html:13
 #, python-brace-format
 msgid "{Wildcard}結果"
-msgstr "{Wildcard}wynik"
+msgstr "{Wildcard} wynik"
 
 #: templates/2024/top.html:47 templates/2025/rule.html:67
 #: templates/2025/rule.html:358 templates/2025/stream.html:34
@@ -1710,7 +1710,7 @@ msgstr "Szczegóły praw startu"
 #: templates/common/korea.html:51 templates/common/participants.html:93
 #, python-brace-format
 msgid "{Wildcard}結果発表日"
-msgstr "{Wildcard}Data ogłoszenia wyników"
+msgstr "{Wildcard} Data ogłoszenia wyników"
 
 #: templates/common/japan.html:43
 msgid "日本代表なし"
@@ -1785,7 +1785,7 @@ msgstr "Wybór kategorii"
 #: templates/common/result.html:30
 #, python-brace-format
 msgid "{SHOWCASE}部門は、バトルを行わないため、結果はありません。"
-msgstr "{SHOWCASE}Dział nie wykonuje żadnych bitew, więc nie ma wyników."
+msgstr "{SHOWCASE} Dział nie wykonuje żadnych bitew, więc nie ma wyników."
 
 #: templates/common/result.html:38
 msgid "勝ち"

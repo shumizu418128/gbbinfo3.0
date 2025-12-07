@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-07 23:24+0900\n"
+"POT-Creation-Date: 2025-12-07 23:45+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: de <LL@li.org>\n"
@@ -1110,7 +1110,7 @@ msgstr "Altersbeschränkung"
 #: templates/2025/wildcard_regulation.html:41
 #, python-brace-format
 msgid "{Wildcard}提出について"
-msgstr "{Wildcard}Einreichung"
+msgstr "{Wildcard} Einreichung"
 
 #: templates/2025/wildcard_regulation.html:45
 #: templates/2025/wildcard_regulation.html:197
@@ -1173,7 +1173,7 @@ msgstr ""
 msgid "上記要件を満たさない、同意できない場合は失格となり、{Wildcard}下位からの繰り上げが行われる"
 msgstr ""
 "Wer die oben genannten Anforderungen nicht erfüllt oder nicht zustimmt, wird"
-" disqualifiziert, und ein {Wildcard}Nachrücken von unten findet statt."
+" disqualifiziert, und ein {Wildcard} Nachrücken von unten findet statt."
 
 #: templates/2025/wildcard_regulation.html:138
 #, python-brace-format
@@ -1183,7 +1183,7 @@ msgstr "{Wildcard} Über die Erstellung und Einreichung"
 #: templates/2025/wildcard_regulation.html:140
 #, python-brace-format
 msgid "{Wildcard}動画の内容"
-msgstr "{Wildcard}Videoinhalt"
+msgstr "{Wildcard} Videoinhalt"
 
 #: templates/2025/wildcard_regulation.html:141
 msgid "動画の冒頭で、以下のように自己紹介する"
@@ -1367,7 +1367,7 @@ msgstr ""
 #, python-brace-format
 msgid "{Wildcard}動画の作成にあたり使用したすべてのファイルを、バックアップ含め保存しておき、いつでも提出できるようにしておく"
 msgstr ""
-"{Wildcard}Alle Dateien, die zur Erstellung des Videos verwendet wurden, "
+"{Wildcard} Alle Dateien, die zur Erstellung des Videos verwendet wurden, "
 "einschließlich Backups, müssen gespeichert und jederzeit zur Einreichung "
 "bereitgehalten werden."
 

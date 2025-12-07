@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-07 23:24+0900\n"
+"POT-Creation-Date: 2025-12-07 23:45+0900\n"
 "PO-Revision-Date: 2025-10-29 23:04+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: et <LL@li.org>\n"
@@ -215,7 +215,7 @@ msgstr "Unustatud {TagTeamLoopstation}..."
 #, python-brace-format
 msgid "{Wildcard}を勝ち上がる以外の方法でGBB出場権を得る方法（シード権）と、その該当者は以下の通りです。"
 msgstr ""
-"{Wildcard}GBB-ile kvalifitseerumise muud meetodid (asetus) peale võitjana "
+"{Wildcard} GBB-ile kvalifitseerumise muud meetodid (asetus) peale võitjana "
 "läbimist ja nende vastavad isikud on järgmised."
 
 #: templates/2024/rule.html:137 templates/2025/rule.html:133
@@ -880,7 +880,7 @@ msgstr ""
 #: templates/2026/rule.html:153
 #, python-brace-format
 msgid "【{Beatboxer}向け】{Wildcard}レギュレーション解説"
-msgstr "【{Beatboxer}ile】{Wildcard} reeglite selgitus"
+msgstr "【{Beatboxer} ile】{Wildcard} reeglite selgitus"
 
 #: templates/2025/rule.html:225 templates/2026/rule.html:258
 #, python-brace-format
@@ -1096,7 +1096,7 @@ msgstr "Vanusepiirang"
 #: templates/2025/wildcard_regulation.html:41
 #, python-brace-format
 msgid "{Wildcard}提出について"
-msgstr "{Wildcard}esitamine"
+msgstr "{Wildcard} esitamine"
 
 #: templates/2025/wildcard_regulation.html:45
 #: templates/2025/wildcard_regulation.html:197
@@ -1111,7 +1111,7 @@ msgstr "Et mitte diskvalifitseeruda"
 #: templates/2025/wildcard_regulation.html:61
 #, python-brace-format
 msgid "以下に示す内容は、{Wildcard}を作る{Beatboxer}向けの情報です。"
-msgstr "Järgnev sisu on mõeldud {Beatboxer}itele, kes loovad {Wildcard}i."
+msgstr "Järgnev sisu on mõeldud {Beatboxer} itele, kes loovad {Wildcard} i."
 
 #: templates/2025/wildcard_regulation.html:62
 #, python-brace-format
@@ -1315,7 +1315,7 @@ msgstr ""
 #: templates/2025/wildcard_regulation.html:247
 #, python-brace-format
 msgid "{Loopstation}単体での出場は禁止"
-msgstr "Ainult {Loopstation}iga esinemine on keelatud."
+msgstr "Ainult {Loopstation} iga esinemine on keelatud."
 
 #: templates/2025/wildcard_regulation.html:248
 msgid "事前にデバイス構成をSUPPORT@swissbeatbox.comへ申請すること"
@@ -1339,7 +1339,7 @@ msgstr ""
 #, python-brace-format
 msgid "{Wildcard}動画の作成にあたり使用したすべてのファイルを、バックアップ含め保存しておき、いつでも提出できるようにしておく"
 msgstr ""
-"{Wildcard}Kõik videote loomisel kasutatud failid, sealhulgas varukoopiad, "
+"{Wildcard} Kõik videote loomisel kasutatud failid, sealhulgas varukoopiad, "
 "tuleb alles hoida ja olla valmis neid igal ajal esitama."
 
 #: templates/2025/wildcard_regulation.html:265

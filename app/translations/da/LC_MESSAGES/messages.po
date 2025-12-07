@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-07 23:24+0900\n"
+"POT-Creation-Date: 2025-12-07 23:45+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: da <LL@li.org>\n"
@@ -110,7 +110,7 @@ msgstr "Liste over hovedturneringens dommere"
 #: templates/2026/rule.html:49 templates/2026/rule.html:393
 #, python-brace-format
 msgid "{Wildcard}審査員一覧"
-msgstr "{Wildcard}Dommerliste"
+msgstr "{Wildcard} Dommerliste"
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:56
 #: templates/2026/rule.html:60
@@ -205,7 +205,7 @@ msgstr ""
 #: templates/2026/rule.html:139
 #, python-brace-format
 msgid "忘れられた{TagTeamLoopstation}..."
-msgstr "Glemt{TagTeamLoopstation}..."
+msgstr "Glemt {TagTeamLoopstation}..."
 
 #: templates/2024/rule.html:135 templates/2025/rule.html:130
 #, python-brace-format
@@ -395,7 +395,7 @@ msgstr "Ingen enhedsbegrænsninger"
 #: templates/2026/rule.html:331
 #, python-brace-format
 msgid "{Wildcard}審査員一覧はこちら"
-msgstr "{Wildcard}Se dommerlisten her"
+msgstr "{Wildcard} Se dommerlisten her"
 
 #: templates/2024/rule.html:280 templates/2024/rule.html:325
 #: templates/2024/top.html:51 templates/2025/rule.html:314
@@ -1099,7 +1099,7 @@ msgstr "Aldersgrænse"
 #: templates/2025/wildcard_regulation.html:41
 #, python-brace-format
 msgid "{Wildcard}提出について"
-msgstr "{Wildcard}Indsendelse"
+msgstr "{Wildcard} Indsendelse"
 
 #: templates/2025/wildcard_regulation.html:45
 #: templates/2025/wildcard_regulation.html:197
@@ -1114,7 +1114,7 @@ msgstr "For ikke at blive diskvalificeret"
 #: templates/2025/wildcard_regulation.html:61
 #, python-brace-format
 msgid "以下に示す内容は、{Wildcard}を作る{Beatboxer}向けの情報です。"
-msgstr "Følgende information er til {Beatboxer}e, der laver {Wildcard}."
+msgstr "Følgende information er til {Beatboxer} e, der laver {Wildcard}."
 
 #: templates/2025/wildcard_regulation.html:62
 #, python-brace-format
@@ -1171,7 +1171,7 @@ msgstr "{Wildcard} Om oprettelse og indsendelse"
 #: templates/2025/wildcard_regulation.html:140
 #, python-brace-format
 msgid "{Wildcard}動画の内容"
-msgstr "{Wildcard}Videoindhold"
+msgstr "{Wildcard} Videoindhold"
 
 #: templates/2025/wildcard_regulation.html:141
 msgid "動画の冒頭で、以下のように自己紹介する"
@@ -1291,7 +1291,7 @@ msgstr "Hvis ovenstående to mangler, diskvalificeres du"
 #, python-brace-format
 msgid "{Wildcard}提出は一度のみ。一度提出したら、後から別の{Wildcard}を提出することはできない"
 msgstr ""
-"{Wildcard}indsendelse er kun én gang. Når først indsendt, kan en anden "
+"{Wildcard} indsendelse er kun én gang. Når først indsendt, kan en anden "
 "{Wildcard} ikke indsendes senere."
 
 #: templates/2025/wildcard_regulation.html:185
@@ -1387,8 +1387,8 @@ msgstr "I denne afdeling vil der ikke være kampe."
 #, python-brace-format
 msgid "{Wildcard}の審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価されます。"
 msgstr ""
-"{Wildcard}s bedømmelse udføres efter andre kriterier end andre afdelinger og"
-" vurderes ud fra historie, kunstnerisk værdi, originalitet osv."
+"{Wildcard} s bedømmelse udføres efter andre kriterier end andre afdelinger "
+"og vurderes ud fra historie, kunstnerisk værdi, originalitet osv."
 
 #: templates/2026/rule.html:156
 msgid "GBB出場権獲得条件"
@@ -1646,7 +1646,7 @@ msgstr "Gå tilbage til hjemmesiden"
 #: templates/includes/participants_form.html:13
 #, python-brace-format
 msgid "{Wildcard}結果"
-msgstr "{Wildcard}resultat"
+msgstr "{Wildcard} resultat"
 
 #: templates/2024/top.html:47 templates/2025/rule.html:67
 #: templates/2025/rule.html:358 templates/2025/stream.html:34
@@ -1706,7 +1706,7 @@ msgstr "Kvalifikationsdetaljer"
 #: templates/common/korea.html:51 templates/common/participants.html:93
 #, python-brace-format
 msgid "{Wildcard}結果発表日"
-msgstr "{Wildcard}Resultatdato"
+msgstr "{Wildcard} Resultatdato"
 
 #: templates/common/japan.html:43
 msgid "日本代表なし"

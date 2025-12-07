@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-07 23:24+0900\n"
+"POT-Creation-Date: 2025-12-07 23:45+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: en <LL@li.org>\n"
@@ -1344,7 +1344,7 @@ msgstr ""
 #, python-brace-format
 msgid "{Wildcard}動画の作成にあたり使用したすべてのファイルを、バックアップ含め保存しておき、いつでも提出できるようにしておく"
 msgstr ""
-"{Wildcard}Save all files used in the creation of the video, including "
+"{Wildcard} Save all files used in the creation of the video, including "
 "backups, so that they can be submitted at any time."
 
 #: templates/2025/wildcard_regulation.html:265
@@ -1420,10 +1420,10 @@ msgstr ""
 msgid ""
 "例：チャレンジャーシリーズ優勝者が、すでに{Wildcard}で出場権を獲得していた場合、チャレンジャーシリーズ2位ではなく、{Wildcard}下位からの繰り上げが行われます。"
 msgstr ""
-"For example: If the Challenger Series winner has already earned a spot "
-"through {Wildcard}, the spot will be filled by the next highest-ranked "
-"player from the Challenger Series, not the second-place finisher, and will "
-"be filled from lower ranks in {Wildcard}."
+"Example: If the winner of the Challenger Series has already secured a spot "
+"through {Wildcard}, the replacement will not go to the second-place finisher"
+" of the Challenger Series, but rather to the next eligible person from lower"
+" ranks in {Wildcard}."
 
 #: templates/2026/rule.html:360 templates/2026/rule.html:364
 #: templates/2026/rule.html:368
