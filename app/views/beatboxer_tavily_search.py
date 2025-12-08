@@ -295,6 +295,12 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language_code: str):
     Raises:
         なし（例外は内部でキャッチされ、空文字列を返します）
     """
+    ALLOWED_LANGUAGES = ["ja", "ko"]
+
+    # 対応言語を確認、日韓以外は英語にフォールバック
+    if language_code not in ALLOWED_LANGUAGES:
+        language_code = "en"
+
     # まずキャッシュを取得
     beatboxer_name = get_beatboxer_name(beatboxer_id, mode)
 
@@ -350,8 +356,8 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language_code: str):
     except (KeyError, TypeError, IndexError):
         return ""  # answerの生成は他エンドポイントの責任
 
-    # 翻訳
-    if language_code != "en":
+    # 翻訳 (対象を日韓に限定)
+    if language_code in ALLOWED_LANGUAGES:
         prompt = PROMPT_TRANSLATE.format(
             text=answer, lang=LANGUAGE_NAMES[language_code]
         )
@@ -367,7 +373,7 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language_code: str):
         except Exception:
             return ""
 
-    # 英語の場合はそのまま返す
+    # そのほかは翻訳不要
     else:
         translated_answer = answer
 
