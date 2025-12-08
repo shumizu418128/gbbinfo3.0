@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-08 12:25+0900\n"
+"POT-Creation-Date: 2025-12-08 12:35+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: en <LL@li.org>\n"
@@ -884,8 +884,8 @@ msgstr "[For {Beatboxer}] {Wildcard} Regulation Explanation"
 #, python-brace-format
 msgid "GBB出場辞退が発生した場合、{Wildcard}下位からの繰り上げが行われます。"
 msgstr ""
-"If there is a withdrawal from the GBB, teams will be promoted from the lower"
-" ranks of {Wildcard}."
+"If there is a withdrawal from the GBB, the spot will be filled by "
+"participants from the lower ranks of {Wildcard}."
 
 #: templates/2025/rule.html:229
 msgid "いかなる理由があっても、シード権大会2位以下の人に、出場権は与えられません。"
@@ -1344,7 +1344,7 @@ msgstr ""
 #, python-brace-format
 msgid "{Wildcard}動画の作成にあたり使用したすべてのファイルを、バックアップ含め保存しておき、いつでも提出できるようにしておく"
 msgstr ""
-"{Wildcard} Save all files used in the creation of the video, including "
+"Save all files used in the creation of the {Wildcard} video, including "
 "backups, so that they can be submitted at any time."
 
 #: templates/2025/wildcard_regulation.html:265

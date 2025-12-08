@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-08 12:25+0900\n"
+"POT-Creation-Date: 2025-12-08 12:35+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: da <LL@li.org>\n"
@@ -299,8 +299,8 @@ msgstr "Deltagerliste"
 msgid "シード権を持つ人が辞退した場合、原則として、該当シード権は消滅し、{Wildcard}下位からの繰り上げが行われます。"
 msgstr ""
 "Hvis en person med seedingsret trækker sig, vil den pågældende seedingsret "
-"som hovedregel bortfalde, og der vil ske en oprykning fra lavere placeringer"
-" {Wildcard}."
+"som hovedregel bortfalde, og der vil ske en oprykning fra lavere "
+"{Wildcard}-placeringer."
 
 #: templates/2024/rule.html:240 templates/2025/rule.html:256
 #: templates/2025/wildcard_regulation.html:207 templates/2026/rule.html:290
@@ -1160,8 +1160,8 @@ msgstr ""
 msgid "上記要件を満たさない、同意できない場合は失格となり、{Wildcard}下位からの繰り上げが行われる"
 msgstr ""
 "Hvis kravene ovenfor ikke er opfyldt eller ikke kan accepteres, vil det "
-"resultere i diskvalifikation, og {Wildcard} en oprykning fra lavere rang vil"
-" finde sted."
+"resultere i diskvalifikation, og der vil ske en oprykning fra lavere "
+"{Wildcard}-placeringer."
 
 #: templates/2025/wildcard_regulation.html:138
 #, python-brace-format
@@ -1348,8 +1348,8 @@ msgstr ""
 #, python-brace-format
 msgid "{Wildcard}動画の作成にあたり使用したすべてのファイルを、バックアップ含め保存しておき、いつでも提出できるようにしておく"
 msgstr ""
-"{Wildcard}Gem alle filer, der blev brugt til at oprette videoen, inklusive "
-"sikkerhedskopier, så de kan indsendes når som helst"
+"Gem alle filer, der blev brugt til at oprette {Wildcard}-videoen, inklusive "
+"sikkerhedskopier, så de kan indsendes når som helst."
 
 #: templates/2025/wildcard_regulation.html:265
 #, python-brace-format

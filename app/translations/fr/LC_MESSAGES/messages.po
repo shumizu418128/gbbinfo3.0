@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-08 12:25+0900\n"
+"POT-Creation-Date: 2025-12-08 12:35+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -1372,9 +1372,9 @@ msgstr ""
 #, python-brace-format
 msgid "{Wildcard}動画の作成にあたり使用したすべてのファイルを、バックアップ含め保存しておき、いつでも提出できるようにしておく"
 msgstr ""
-"{Wildcard} Conserver tous les fichiers utilisés pour la création de la "
-"vidéo, y compris les sauvegardes, et s'assurer qu'ils peuvent être soumis à "
-"tout moment."
+"Conserver tous les fichiers utilisés pour la création de la vidéo "
+"{Wildcard}, y compris les sauvegardes, et s'assurer qu'ils peuvent être "
+"soumis à tout moment."
 
 #: templates/2025/wildcard_regulation.html:265
 #, python-brace-format
