@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-07 23:45+0900\n"
+"POT-Creation-Date: 2025-12-08 12:25+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -196,7 +196,7 @@ msgstr ""
 #: templates/2026/rule.html:139
 #, python-brace-format
 msgid "忘れられた{TagTeamLoopstation}..."
-msgstr "잊혀진{TagTeamLoopstation}..."
+msgstr "잊혀진 {TagTeamLoopstation}..."
 
 #: templates/2024/rule.html:135 templates/2025/rule.html:130
 #, python-brace-format
@@ -718,7 +718,7 @@ msgstr "당 사이트 URL 변경 안내"
 #: templates/2026/top.html:152
 #, python-brace-format
 msgid "{Wildcard}結果発表配信"
-msgstr "{Wildcard}결과 발표 방송"
+msgstr "{Wildcard} 결과 발표 방송"
 
 #: templates/2024/top.html:91 templates/2024/wildcards.html:3
 #: templates/2024/wildcards.html:4 templates/2024/wildcards.html:5
@@ -1586,7 +1586,7 @@ msgstr "출전권 상세"
 #: templates/common/korea.html:51 templates/common/participants.html:93
 #, python-brace-format
 msgid "{Wildcard}結果発表日"
-msgstr "{Wildcard}결과 발표일"
+msgstr "{Wildcard} 결과 발표일"
 
 #: templates/common/japan.html:43
 msgid "日本代表なし"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-07 23:45+0900\n"
+"POT-Creation-Date: 2025-12-08 12:25+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: be <LL@li.org>\n"
@@ -206,7 +206,7 @@ msgstr ""
 #: templates/2026/rule.html:139
 #, python-brace-format
 msgid "忘れられた{TagTeamLoopstation}..."
-msgstr "Забыты{TagTeamLoopstation}..."
+msgstr "Забыты {TagTeamLoopstation}..."
 
 #: templates/2024/rule.html:135 templates/2025/rule.html:130
 #, python-brace-format
@@ -753,7 +753,7 @@ msgstr "Трансляцыя абвяшчэння вынікаў {Wildcard}"
 #: templates/common/participants.html:94 templates/others/translation.html:25
 #, python-brace-format
 msgid "{Wildcard}一覧"
-msgstr "{Wildcard}спіс"
+msgstr "{Wildcard} спіс"
 
 #: templates/2024/top.html:104 templates/2024/top.html:118
 #: templates/2024/top_7tosmoke.html:46 templates/2025/top.html:170

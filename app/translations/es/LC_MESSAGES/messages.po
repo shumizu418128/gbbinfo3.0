@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-07 23:45+0900\n"
+"POT-Creation-Date: 2025-12-08 12:25+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: es <LL@li.org>\n"
@@ -1125,7 +1125,7 @@ msgstr "Para no ser descalificado."
 #: templates/2025/wildcard_regulation.html:61
 #, python-brace-format
 msgid "以下に示す内容は、{Wildcard}を作る{Beatboxer}向けの情報です。"
-msgstr "La siguiente información es para {Beatboxer} s que crean {Wildcard}."
+msgstr "La siguiente información es para {Beatboxer} que crean {Wildcard}."
 
 #: templates/2025/wildcard_regulation.html:62
 #, python-brace-format
@@ -1364,7 +1364,7 @@ msgstr ""
 #, python-brace-format
 msgid "{Wildcard}動画の作成にあたり使用したすべてのファイルを、バックアップ含め保存しておき、いつでも提出できるようにしておく"
 msgstr ""
-"{Wildcard} Guarde todos los archivos utilizados para crear el video, "
+"Guarde todos los archivos utilizados para crear el video de {Wildcard}, "
 "incluidos los respaldos, y manténgalos listos para su presentación en "
 "cualquier momento."
 

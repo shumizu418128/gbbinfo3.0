@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-07 23:45+0900\n"
+"POT-Creation-Date: 2025-12-08 12:25+0900\n"
 "PO-Revision-Date: 2025-10-29 23:04+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: et <LL@li.org>\n"
@@ -880,7 +880,7 @@ msgstr ""
 #: templates/2026/rule.html:153
 #, python-brace-format
 msgid "【{Beatboxer}向け】{Wildcard}レギュレーション解説"
-msgstr "【{Beatboxer} ile】{Wildcard} reeglite selgitus"
+msgstr "【{Beatboxer} jaoks】{Wildcard} reeglite selgitus"
 
 #: templates/2025/rule.html:225 templates/2026/rule.html:258
 #, python-brace-format

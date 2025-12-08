@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-07 23:45+0900\n"
+"POT-Creation-Date: 2025-12-08 12:25+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: da <LL@li.org>\n"
@@ -1114,7 +1114,7 @@ msgstr "For ikke at blive diskvalificeret"
 #: templates/2025/wildcard_regulation.html:61
 #, python-brace-format
 msgid "以下に示す内容は、{Wildcard}を作る{Beatboxer}向けの情報です。"
-msgstr "Følgende information er til {Beatboxer} e, der laver {Wildcard}."
+msgstr "Følgende information er til {Beatboxer}, der laver {Wildcard}."
 
 #: templates/2025/wildcard_regulation.html:62
 #, python-brace-format
@@ -1387,8 +1387,8 @@ msgstr "I denne afdeling vil der ikke være kampe."
 #, python-brace-format
 msgid "{Wildcard}の審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価されます。"
 msgstr ""
-"{Wildcard} s bedømmelse udføres efter andre kriterier end andre afdelinger "
-"og vurderes ud fra historie, kunstnerisk værdi, originalitet osv."
+"{Wildcard} bedømmes efter andre kriterier end de øvrige afdelinger og "
+"evalueres for blandt andet historie, kunstnerisk værdi og originalitet."
 
 #: templates/2026/rule.html:156
 msgid "GBB出場権獲得条件"
