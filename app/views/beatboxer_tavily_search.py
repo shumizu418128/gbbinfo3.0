@@ -356,7 +356,7 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language_code: str):
     except (KeyError, TypeError, IndexError):
         return ""  # answerの生成は他エンドポイントの責任
 
-    # 翻訳 (対象を日韓に限定)
+    # 翻訳 (対象を限定)
     if language_code in ALLOWED_LANGUAGES:
         prompt = PROMPT_TRANSLATE.format(
             text=answer, lang=LANGUAGE_NAMES[language_code]
