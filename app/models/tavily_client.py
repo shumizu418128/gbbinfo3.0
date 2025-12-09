@@ -1,3 +1,4 @@
+import hashlib
 import os
 from typing import Optional
 
@@ -36,12 +37,27 @@ class TavilyService:
         return result
 
     def suggest_page_url(self, year: int, question: str) -> dict:
+        # ここに書かないと循環インポートになる
+        from app.main import flask_cache
+
+        question_hash = hashlib.md5(question.encode()).hexdigest()
+        cache_key = f"suggest_url_{year}_{question_hash}"
+
+        # キャッシュから取得を試行 あるなら返す
+        cached_data = flask_cache.get(cache_key)
+        if cached_data is not None:
+            return cached_data
+
         result = self.client.search(
             query=f"{year} {question}",
             max_results=5,
             include_answer="basic",
             include_domain=["gbbinfo-jpn.onrender.com"],
         )
+
+        # キャッシュに保存
+        flask_cache.set(cache_key, result)
+
         return result
 
 
