@@ -113,7 +113,7 @@ class SupabaseErrorHandlingTestCase(unittest.TestCase):
         resp = self.client.get("/2025/participants")
         self.assertEqual(resp.status_code, 500)
 
-    @patch("app.views.search_participants.supabase_service")
+    @patch("app.views.beatboxer_finder.supabase_service")
     @patch("app.context_processors.get_translated_urls")
     @patch("app.context_processors.is_gbb_ended")
     @patch("app.context_processors.get_available_years")
@@ -199,7 +199,7 @@ class SupabaseErrorHandlingTestCase(unittest.TestCase):
         resp = self.client.get("/2025/participants")
         self.assertEqual(resp.status_code, 500)
 
-    @patch("app.views.search_participants.supabase_service")
+    @patch("app.views.beatboxer_finder.supabase_service")
     @patch("app.context_processors.get_translated_urls")
     @patch("app.context_processors.is_gbb_ended")
     @patch("app.context_processors.get_available_years")

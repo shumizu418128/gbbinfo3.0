@@ -27,7 +27,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         """テスト後のクリーンアップ"""
         self.app_context.pop()
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
     def test_get_primary_domain_various_urls(self, mock_supabase):
         """get_primary_domain関数に様々なURLをテストする"""
         from app.views.beatboxer_web_search import get_primary_domain
@@ -84,7 +84,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                 result = extract_youtube_video_id(url)
                 self.assertEqual(result, expected)
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
     def test_get_beatboxer_name_single_mode(self, mock_supabase):
         """get_beatboxer_name関数をsingleモードでテストする"""
         from app.views.beatboxer_web_search import get_beatboxer_name
@@ -101,7 +101,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             table="Participant", columns=["name"], filters={"id": 123}
         )
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
     def test_get_beatboxer_name_team_member_mode(self, mock_supabase):
         """get_beatboxer_name関数をteam_memberモードでテストする"""
         from app.views.beatboxer_web_search import get_beatboxer_name
@@ -128,7 +128,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             table="ParticipantMember", columns=["name"], filters={"id": 456}
         )
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
     def test_get_beatboxer_name_not_found(self, mock_supabase):
         """get_beatboxer_name関数でデータが見つからない場合のテスト"""
         from app.views.beatboxer_web_search import get_beatboxer_name
@@ -139,8 +139,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         # 新仕様: 見つからない場合は空文字列を返す
         self.assertEqual(get_beatboxer_name(beatboxer_id=999, mode="single"), "")
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.tavily_service")
     def test_beatboxer_tavily_search_with_beatboxer_id(
         self, mock_tavily, mock_supabase
     ):
@@ -170,7 +170,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                 },
             ],
         }
-        mock_tavily.search.return_value = mock_search_result
+        mock_tavily.beatboxer_research.return_value = mock_search_result
 
         # テスト実行
         result = beatboxer_tavily_search(beatboxer_id=123)
@@ -194,7 +194,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         # YouTube埋め込みURLは空
         self.assertEqual(youtube_embed_url, "")
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
     def test_beatboxer_tavily_search_with_beatboxer_name(self, mock_supabase):
         """beatboxer_tavily_search関数にbeatboxer_nameを直接指定してテストする"""
         from app.views.beatboxer_web_search import beatboxer_tavily_search
@@ -214,8 +214,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             ],
         }
 
-        with patch("app.views.beatboxer_tavily_search.tavily_service") as mock_tavily:
-            mock_tavily.search.return_value = mock_search_result
+        with patch("app.views.beatboxer_web_search.tavily_service") as mock_tavily:
+            mock_tavily.beatboxer_research.return_value = mock_search_result
 
             # テスト実行
             result = beatboxer_tavily_search(beatboxer_name="Test Beatboxer")
@@ -225,7 +225,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             self.assertEqual(len(final_urls), 1)
             self.assertEqual(final_urls[0]["url"], "https://example.com/direct")
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
     def test_beatboxer_tavily_search_no_parameters_error(self, mock_supabase):
         """beatboxer_tavily_search関数でパラメータが不足する場合のエラーテスト"""
         from app.views.beatboxer_web_search import beatboxer_tavily_search
@@ -238,8 +238,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             "beatboxer_idまたはbeatboxer_nameが必要です", str(context.exception)
         )
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.tavily_service")
     def test_beatboxer_tavily_search_youtube_extraction(
         self, mock_tavily, mock_supabase
     ):
@@ -269,7 +269,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                 },
             ],
         }
-        mock_tavily.search.return_value = mock_search_result
+        mock_tavily.beatboxer_research.return_value = mock_search_result
 
         # テスト実行
         result = beatboxer_tavily_search(beatboxer_id=123)
@@ -286,8 +286,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         self.assertEqual(len(final_urls), 1)
         self.assertEqual(final_urls[0]["url"], "https://example.com")
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.tavily_service")
     def test_beatboxer_tavily_search_ban_words_filtering(
         self, mock_tavily, mock_supabase
     ):
@@ -323,7 +323,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                 },
             ],
         }
-        mock_tavily.search.return_value = mock_search_result
+        mock_tavily.beatboxer_research.return_value = mock_search_result
 
         # テスト実行
         result = beatboxer_tavily_search(beatboxer_id=123)
@@ -334,8 +334,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         self.assertEqual(len(final_urls), 1)
         self.assertEqual(final_urls[0]["title"], "Clean Result")
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.tavily_service")
     def test_insert_tavily_data_called_when_answer_exists(
         self, mock_tavily, mock_supabase
     ):
@@ -359,7 +359,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                 }
             ],
         }
-        mock_tavily.search.return_value = response
+        mock_tavily.beatboxer_research.return_value = response
 
         beatboxer_tavily_search(beatboxer_name="Test Name")
 
@@ -368,8 +368,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             search_result=response,
         )
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.tavily_service")
     def test_insert_tavily_data_skipped_when_answer_missing(
         self, mock_tavily, mock_supabase
     ):
@@ -393,14 +393,14 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                 }
             ],
         }
-        mock_tavily.search.return_value = response
+        mock_tavily.beatboxer_research.return_value = response
 
         beatboxer_tavily_search(beatboxer_name="Test Name")
 
         mock_supabase.insert_tavily_data.assert_not_called()
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.tavily_service")
     def test_beatboxer_tavily_search_minimum_results(self, mock_tavily, mock_supabase):
         """beatboxer_tavily_search関数で最低3件の結果を確保するロジックをテストする"""
         from app.views.beatboxer_web_search import beatboxer_tavily_search
@@ -440,7 +440,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                 },
             ],
         }
-        mock_tavily.search.return_value = mock_search_result
+        mock_tavily.beatboxer_research.return_value = mock_search_result
 
         # テスト実行
         result = beatboxer_tavily_search(beatboxer_id=123)
@@ -454,8 +454,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         self.assertEqual(final_urls[2]["url"], "https://example3.com")
         self.assertEqual(final_urls[3]["url"], "https://example4.com")
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.tavily_service")
     def test_beatboxer_tavily_search_maximum_results(self, mock_tavily, mock_supabase):
         """beatboxer_tavily_search関数で最大5件の結果に制限されることをテストする"""
         from app.views.beatboxer_web_search import beatboxer_tavily_search
@@ -479,7 +479,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             )
 
         mock_search_result = {"answer": "mock answer", "results": mock_results}
-        mock_tavily.search.return_value = mock_search_result
+        mock_tavily.beatboxer_research.return_value = mock_search_result
 
         # テスト実行
         result = beatboxer_tavily_search(beatboxer_id=123)
@@ -489,8 +489,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         # 結果が最大5件に制限されているか
         self.assertEqual(len(final_urls), 5)
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.tavily_service")
     def test_beatboxer_tavily_search_cached_results(self, mock_tavily, mock_supabase):
         """beatboxer_tavily_search関数でキャッシュされた結果を使用する場合をテストする"""
         from app.views.beatboxer_web_search import beatboxer_tavily_search
@@ -522,14 +522,14 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         account_urls, final_urls, youtube_embed_url = result
 
         # Tavily検索が呼ばれていないことを確認
-        mock_tavily.search.assert_not_called()
+        mock_tavily.beatboxer_research.assert_not_called()
 
         # キャッシュされた結果が使用されているか
         self.assertEqual(len(final_urls), 1)
         self.assertEqual(final_urls[0]["url"], "https://cached.com")
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.tavily_service")
     def test_beatboxer_tavily_search_with_youtube_short_url(
         self, mock_tavily, mock_supabase
     ):
@@ -553,7 +553,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                 }
             ],
         }
-        mock_tavily.search.return_value = mock_search_result
+        mock_tavily.beatboxer_research.return_value = mock_search_result
 
         # テスト実行
         result = beatboxer_tavily_search(beatboxer_id=123)
@@ -566,11 +566,11 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         )
         self.assertEqual(youtube_embed_url, expected_embed_url)
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.tavily_service")
-    @patch("app.views.beatboxer_tavily_search.gemini_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.tavily_service")
+    @patch("app.views.beatboxer_web_search.deepl_service")
     def test_translate_tavily_answer_with_cache(
-        self, mock_gemini, mock_tavily, mock_supabase
+        self, mock_deepl, mock_tavily, mock_supabase
     ):
         """translate_tavily_answer関数でキャッシュされた翻訳を使用する場合をテストする"""
         from app.views.beatboxer_web_search import translate_tavily_answer
@@ -592,14 +592,14 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
 
             # 検証
             self.assertEqual(result, "これは回答です")
-            # Gemini APIが呼ばれていないことを確認
-            mock_gemini.ask.assert_not_called()
+            # DeepL APIが呼ばれていないことを確認
+            mock_deepl.translate.assert_not_called()
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.tavily_service")
-    @patch("app.views.beatboxer_tavily_search.gemini_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.tavily_service")
+    @patch("app.views.beatboxer_web_search.deepl_service")
     def test_translate_tavily_answer_without_cache(
-        self, mock_gemini, mock_tavily, mock_supabase
+        self, mock_deepl, mock_tavily, mock_supabase
     ):
         """translate_tavily_answer関数でキャッシュなしの場合の翻訳をテストする"""
         from app.views.beatboxer_web_search import translate_tavily_answer
@@ -614,9 +614,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             [],  # existing_cache for saving translation
         ]
 
-        mock_gemini.ask.return_value = {
-            "translated_text": "長い翻訳済みの回答テキストです"
-        }
+        mock_deepl.translate.return_value = "長い翻訳済みの回答テキストです"
 
         with patch("app.main.flask_cache") as mock_cache:
             mock_cache.get.return_value = None  # 内部キャッシュなし
@@ -628,10 +626,10 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
 
             # 検証
             self.assertEqual(result, "長い翻訳済みの回答テキストです")
-            # Gemini APIが呼ばれたことを確認
-            mock_gemini.ask.assert_called_once()
+            # DeepL APIが呼ばれたことを確認
+            mock_deepl.translate.assert_called_once()
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
     def test_translate_tavily_answer_no_search_result(self, mock_supabase):
         """translate_tavily_answer関数で検索結果がない場合をテストする"""
         from app.views.beatboxer_web_search import translate_tavily_answer
@@ -657,13 +655,13 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             # 検証
             self.assertEqual(result, "")
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.tavily_service")
-    @patch("app.views.beatboxer_tavily_search.gemini_service")
-    def test_translate_tavily_answer_gemini_error(
-        self, mock_gemini, mock_tavily, mock_supabase
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.tavily_service")
+    @patch("app.views.beatboxer_web_search.deepl_service")
+    def test_translate_tavily_answer_deepl_error(
+        self, mock_deepl, mock_tavily, mock_supabase
     ):
-        """translate_tavily_answer関数でGemini APIエラーの場合をテストする"""
+        """translate_tavily_answer関数でDeepL APIエラーの場合をテストする"""
         from app.views.beatboxer_web_search import translate_tavily_answer
 
         # モックデータの設定
@@ -673,8 +671,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             [],  # no cached translation
         ]
 
-        # Gemini APIがエラーを返す
-        mock_gemini.ask.return_value = "Error occurred"
+        # DeepL APIがエラーを返す（例外を発生させる）
+        mock_deepl.translate.side_effect = Exception("Error occurred")
 
         with patch("app.main.flask_cache") as mock_cache:
             mock_cache.get.return_value = None
@@ -684,16 +682,16 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                 beatboxer_id=123, mode="single", language_code="ja"
             )
 
-            # 検証（Geminiエラーの場合は空文字列を返す）
+            # 検証（DeepLエラーの場合は空文字列を返す）
             self.assertEqual(result, "")
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.tavily_service")
-    @patch("app.views.beatboxer_tavily_search.gemini_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.tavily_service")
+    @patch("app.views.beatboxer_web_search.deepl_service")
     def test_translate_tavily_answer_list_response(
-        self, mock_gemini, mock_tavily, mock_supabase
+        self, mock_deepl, mock_tavily, mock_supabase
     ):
-        """translate_tavily_answer関数でGeminiがリストを返す場合をテストする"""
+        """translate_tavily_answer関数でDeepLが翻訳を返す場合をテストする"""
         from app.views.beatboxer_web_search import translate_tavily_answer
 
         # モックデータの設定
@@ -703,10 +701,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             [],  # no cached translation
         ]
 
-        # Gemini APIがリストを返す
-        mock_gemini.ask.return_value = [
-            {"translated_text": "長い翻訳済みの回答テキストです"}
-        ]
+        # DeepL APIが翻訳を返す
+        mock_deepl.translate.return_value = "長い翻訳済みの回答テキストです"
 
         with patch("app.main.flask_cache") as mock_cache:
             mock_cache.get.return_value = None
@@ -719,10 +715,10 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             # 検証
             self.assertEqual(result, "長い翻訳済みの回答テキストです")
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.gemini_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.deepl_service")
     def test_translate_tavily_answer_with_mahiro_mock_data(
-        self, mock_gemini, mock_supabase
+        self, mock_deepl, mock_supabase
     ):
         """translate_tavily_answer関数をMAHIROのモックデータでテストする"""
         from app.views.beatboxer_web_search import translate_tavily_answer
@@ -765,10 +761,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             [],  # existing_cache for saving translation
         ]
 
-        # Gemini APIのモック（日本語翻訳）
-        mock_gemini.ask.return_value = {
-            "translated_text": "Mahiroは日本の著名なビートボクサーであり、ルーパーです。彼は東京で開催されたBeatcity 2025予選バトルで優勝しました。パフォーマンスにはBossとNovationの機材を使用しています。"
-        }
+        # DeepL APIのモック（日本語翻訳）
+        mock_deepl.translate.return_value = "Mahiroは日本の著名なビートボクサーであり、ルーパーです。彼は東京で開催されたBeatcity 2025予選バトルで優勝しました。パフォーマンスにはBossとNovationの機材を使用しています。"
 
         with patch("app.main.flask_cache") as mock_cache:
             mock_cache.get.return_value = None
@@ -782,13 +776,13 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             self.assertIn("Mahiro", result)
             self.assertIn("ビートボクサー", result)
             self.assertIn("ルーパー", result)
-            # Gemini APIが呼ばれたことを確認
-            mock_gemini.ask.assert_called_once()
+            # DeepL APIが呼ばれたことを確認
+            mock_deepl.translate.assert_called_once()
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.gemini_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.deepl_service")
     def test_translate_tavily_answer_english_no_translation(
-        self, mock_gemini, mock_supabase
+        self, mock_deepl, mock_supabase
     ):
         """translate_tavily_answer関数で英語の場合は翻訳せずそのまま返すことをテストする"""
         from app.views.beatboxer_web_search import translate_tavily_answer
@@ -819,18 +813,18 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                 beatboxer_id=999, mode="single", language_code="en"
             )
 
-            # 検証：英語の場合はGemini APIを呼ばずに元のanswerをそのまま返す
+            # 検証：英語の場合はDeepL APIを呼ばずに元のanswerをそのまま返す
             self.assertEqual(
                 result,
                 "Mahiro is a renowned Japanese beatboxer and looper. He won the Beatcity 2025 Qualifier battle in Tokyo. He uses Boss and Novation equipment for his performances.",
             )
-            # Gemini APIが呼ばれていないことを確認
-            mock_gemini.ask.assert_not_called()
+            # DeepL APIが呼ばれていないことを確認
+            mock_deepl.translate.assert_not_called()
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.gemini_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.deepl_service")
     def test_translate_tavily_answer_korean_translation(
-        self, mock_gemini, mock_supabase
+        self, mock_deepl, mock_supabase
     ):
         """translate_tavily_answer関数で韓国語翻訳をテストする"""
         from app.views.beatboxer_web_search import translate_tavily_answer
@@ -853,10 +847,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             [],  # existing_cache for saving translation
         ]
 
-        # Gemini APIのモック（韓国語翻訳）
-        mock_gemini.ask.return_value = {
-            "translated_text": "Mahiro는 유명한 일본 비트박서이자 루퍼입니다. 그는 도쿄에서 열린 Beatcity 2025 예선 배틀에서 우승했습니다. 공연에는 Boss와 Novation 장비를 사용합니다."
-        }
+        # DeepL APIのモック（韓国語翻訳）
+        mock_deepl.translate.return_value = "Mahiro는 유명한 일본 비트박서이자 루퍼입니다. 그는 도쿄에서 열린 Beatcity 2025 예선 배틀에서 우승했습니다. 공연에는 Boss와 Novation 장비를 사용합니다."
 
         with patch("app.main.flask_cache") as mock_cache:
             mock_cache.get.return_value = None
@@ -870,13 +862,13 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             self.assertIn("Mahiro", result)
             self.assertIn("비트박서", result)
             self.assertIn("루퍼", result)
-            # Gemini APIが呼ばれたことを確認
-            mock_gemini.ask.assert_called_once()
+            # DeepL APIが呼ばれたことを確認
+            mock_deepl.translate.assert_called_once()
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.gemini_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.deepl_service")
     def test_translate_tavily_answer_external_cache_hit(
-        self, mock_gemini, mock_supabase
+        self, mock_deepl, mock_supabase
     ):
         """translate_tavily_answer関数で外部キャッシュ（Supabase）がヒットする場合をテストする"""
         from app.views.beatboxer_web_search import translate_tavily_answer
@@ -905,8 +897,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             self.assertEqual(
                 result_ja, "Mahiroは日本の著名なビートボクサーであり、ルーパーです。"
             )
-            # Gemini APIが呼ばれていないことを確認（キャッシュヒットのため）
-            mock_gemini.ask.assert_not_called()
+            # DeepL APIが呼ばれていないことを確認（キャッシュヒットのため）
+            mock_deepl.translate.assert_not_called()
 
             # テスト実行（韓国語）
             mock_supabase.get_tavily_data.return_value = [cached_translation]
@@ -917,10 +909,10 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             # 検証
             self.assertEqual(result_ko, "Mahiro는 유명한 일본 비트박서이자 루퍼입니다.")
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.gemini_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.deepl_service")
     def test_translate_tavily_answer_internal_cache_hit(
-        self, mock_gemini, mock_supabase
+        self, mock_deepl, mock_supabase
     ):
         """translate_tavily_answer関数で内部キャッシュ（flask_cache）がヒットする場合をテストする"""
         from app.views.beatboxer_web_search import translate_tavily_answer
@@ -947,14 +939,14 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             self.assertEqual(
                 result, "Mahiroは日本の著名なビートボクサーであり、ルーパーです。"
             )
-            # Gemini APIとSupabaseのget_tavily_dataが呼ばれていないことを確認
-            mock_gemini.ask.assert_not_called()
+            # DeepL APIとSupabaseのget_tavily_dataが呼ばれていないことを確認
+            mock_deepl.translate.assert_not_called()
             mock_supabase.get_tavily_data.assert_not_called()
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.gemini_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.deepl_service")
     def test_translate_tavily_answer_beatboxer_not_found(
-        self, mock_gemini, mock_supabase
+        self, mock_deepl, mock_supabase
     ):
         """translate_tavily_answer関数でビートボクサーが見つからない場合をテストする"""
         from app.views.beatboxer_web_search import translate_tavily_answer
@@ -972,13 +964,13 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
 
             # 検証：ビートボクサーが見つからない場合は空文字列を返す
             self.assertEqual(result, "")
-            # Gemini APIが呼ばれていないことを確認
-            mock_gemini.ask.assert_not_called()
+            # DeepL APIが呼ばれていないことを確認
+            mock_deepl.translate.assert_not_called()
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.gemini_service")
-    def test_translate_tavily_answer_retry_mechanism(self, mock_gemini, mock_supabase):
-        """translate_tavily_answer関数でGemini APIが成功する場合をテストする"""
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.deepl_service")
+    def test_translate_tavily_answer_retry_mechanism(self, mock_deepl, mock_supabase):
+        """translate_tavily_answer関数でDeepL APIが成功する場合をテストする"""
         from app.views.beatboxer_web_search import translate_tavily_answer
 
         # MAHIROのモックデータ
@@ -999,10 +991,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             [],  # existing_cache for saving translation
         ]
 
-        # Gemini APIのモック（成功）
-        mock_gemini.ask.return_value = {
-            "translated_text": "リトライ後の詳細な翻訳テキストです"
-        }
+        # DeepL APIのモック（成功）
+        mock_deepl.translate.return_value = "リトライ後の詳細な翻訳テキストです"
 
         with patch("app.main.flask_cache") as mock_cache:
             mock_cache.get.return_value = None
@@ -1014,13 +1004,13 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
 
             # 検証：成功した結果が返される
             self.assertEqual(result, "リトライ後の詳細な翻訳テキストです")
-            # Gemini APIが1回呼ばれたことを確認
-            self.assertEqual(mock_gemini.ask.call_count, 1)
+            # DeepL APIが1回呼ばれたことを確認
+            self.assertEqual(mock_deepl.translate.call_count, 1)
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.gemini_service")
-    def test_translate_tavily_answer_retry_all_failed(self, mock_gemini, mock_supabase):
-        """translate_tavily_answer関数でGemini APIが失敗した場合をテストする"""
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.deepl_service")
+    def test_translate_tavily_answer_retry_all_failed(self, mock_deepl, mock_supabase):
+        """translate_tavily_answer関数でDeepL APIが失敗した場合をテストする"""
         from app.views.beatboxer_web_search import translate_tavily_answer
 
         # MAHIROのモックデータ
@@ -1041,8 +1031,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             [],  # existing_cache for saving translation
         ]
 
-        # Gemini APIのモック（失敗）
-        mock_gemini.ask.return_value = ""
+        # DeepL APIのモック（失敗）
+        mock_deepl.translate.return_value = ""
 
         with patch("app.main.flask_cache") as mock_cache:
             mock_cache.get.return_value = None
@@ -1054,12 +1044,12 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
 
             # 検証：失敗した場合は空文字列を返す
             self.assertEqual(result, "")
-            # Gemini APIが1回呼ばれたことを確認
-            self.assertEqual(mock_gemini.ask.call_count, 1)
+            # DeepL APIが1回呼ばれたことを確認
+            self.assertEqual(mock_deepl.translate.call_count, 1)
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.gemini_service")
-    def test_translate_tavily_answer_cache_update(self, mock_gemini, mock_supabase):
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.deepl_service")
+    def test_translate_tavily_answer_cache_update(self, mock_deepl, mock_supabase):
         """translate_tavily_answer関数で翻訳結果がキャッシュに保存されることをテストする"""
         from app.views.beatboxer_web_search import translate_tavily_answer
 
@@ -1081,10 +1071,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             {"en": "existing translation"},  # existing_cache
         ]
 
-        # Gemini APIのモック
-        mock_gemini.ask.return_value = {
-            "translated_text": "キャッシュ更新用の翻訳テキストです"
-        }
+        # DeepL APIのモック
+        mock_deepl.translate.return_value = "キャッシュ更新用の翻訳テキストです"
 
         with patch("app.main.flask_cache") as mock_cache:
             mock_cache.get.return_value = None
@@ -1111,8 +1099,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             self.assertIn("en", translated_answer)
             self.assertEqual(translated_answer["en"], "existing translation")
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.tavily_service")
     def test_beatboxer_tavily_search_with_mahiro_full_data(
         self, mock_tavily, mock_supabase
     ):
@@ -1297,8 +1285,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                 f"URLにprimary_domainが付与されていません: {url['url']}",
             )
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.tavily_service")
     def test_beatboxer_tavily_search_domain_deduplication(
         self, mock_tavily, mock_supabase
     ):
@@ -1386,8 +1374,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             "another.com", final_domains, "another.comのURLが含まれていません"
         )
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.tavily_service")
     def test_beatboxer_tavily_search_multiple_instagram_accounts(
         self, mock_tavily, mock_supabase
     ):
@@ -1727,8 +1715,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                         msg=f"mode不正: {href}",
                     )
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.tavily_service")
     def test_rule_violation_final_urls_less_than_3(self, mock_tavily, mock_supabase):
         """final_urlsが3件未満の場合のテスト（8件のデータ）"""
         from app.views.beatboxer_web_search import beatboxer_tavily_search
@@ -1796,8 +1784,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             f"final_urlsが2件未満です（{len(final_urls)}件）。ルール違反。",
         )
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.tavily_service")
     def test_rule_violation_final_urls_exceeds_5(self, mock_tavily, mock_supabase):
         """final_urlsが5件を超える場合、ルール違反となることをテスト（12件のデータ）"""
         from app.views.beatboxer_web_search import beatboxer_tavily_search
@@ -1831,8 +1819,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             f"final_urlsが5件を超えています（{len(final_urls)}件）。ルール違反。",
         )
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.tavily_service")
     def test_rule_violation_account_url_in_final_urls(self, mock_tavily, mock_supabase):
         """final_urlsにアカウントURLが含まれる場合、ルール違反となることをテスト（10件のデータ）"""
         from app.views.beatboxer_web_search import beatboxer_tavily_search
@@ -1912,8 +1900,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                 f"final_urlsにアカウントURL（{final_url['url']}）が含まれています。ルール違反。",
             )
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.tavily_service")
     def test_rule_violation_youtube_video_in_final_urls(
         self, mock_tavily, mock_supabase
     ):
@@ -1992,8 +1980,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                     f"final_urlsにYouTube動画URL（{final_url['url']}）が含まれています。ルール違反。",
                 )
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.tavily_service")
     def test_rule_violation_duplicate_domains_in_final_urls(
         self, mock_tavily, mock_supabase
     ):
@@ -2048,8 +2036,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             f"final_urlsに同じドメインが複数含まれています: {domains}。ルール違反。",
         )
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.tavily_service")
     def test_rule_violation_banned_words_in_final_urls(
         self, mock_tavily, mock_supabase
     ):
@@ -2136,8 +2124,8 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
                     f"final_urlsのコンテンツに禁止ワード（{ban_word}）が含まれています: {final_url['content']}。ルール違反。",
                 )
 
-    @patch("app.views.beatboxer_tavily_search.supabase_service")
-    @patch("app.views.beatboxer_tavily_search.tavily_service")
+    @patch("app.views.beatboxer_web_search.supabase_service")
+    @patch("app.views.beatboxer_web_search.tavily_service")
     def test_rule_all_checks_with_10_results(self, mock_tavily, mock_supabase):
         """10件のデータで全てのルールを同時にチェック（複合テスト）"""
         from app.views.beatboxer_web_search import beatboxer_tavily_search
