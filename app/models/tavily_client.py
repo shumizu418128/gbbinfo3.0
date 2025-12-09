@@ -24,7 +24,7 @@ class TavilyService:
             self._client = TavilyClient(self._tavily_api_key)
         return self._client
 
-    def search(self, beatboxer_name: str):
+    def beatboxer_research(self, beatboxer_name: str):
         query = f"{beatboxer_name} beatbox"
         result = self.client.search(
             query=query,
@@ -32,6 +32,15 @@ class TavilyService:
             include_answer="basic",
             include_favicon=True,
             exclude_domains=EXCLUDE_DOMAINS,
+        )
+        return result
+
+    def suggest_page_url(self, year: int, question: str) -> dict:
+        result = self.client.search(
+            query=f"{year} {question}",
+            max_results=5,
+            include_answer="basic",
+            include_domain=["gbbinfo-jpn.onrender.com"],
         )
         return result
 

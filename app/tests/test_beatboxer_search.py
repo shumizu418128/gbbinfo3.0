@@ -30,7 +30,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
     @patch("app.views.beatboxer_tavily_search.supabase_service")
     def test_get_primary_domain_various_urls(self, mock_supabase):
         """get_primary_domain関数に様々なURLをテストする"""
-        from app.views.beatboxer_tavily_search import get_primary_domain
+        from app.views.beatboxer_web_search import get_primary_domain
 
         test_cases = [
             # 正常なURL
@@ -57,7 +57,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
 
     def test_extract_youtube_video_id_various_urls(self):
         """extract_youtube_video_id関数に様々なYouTube URLをテストする"""
-        from app.views.beatboxer_tavily_search import extract_youtube_video_id
+        from app.views.beatboxer_web_search import extract_youtube_video_id
 
         test_cases = [
             # 正常なYouTube URL
@@ -87,7 +87,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
     @patch("app.views.beatboxer_tavily_search.supabase_service")
     def test_get_beatboxer_name_single_mode(self, mock_supabase):
         """get_beatboxer_name関数をsingleモードでテストする"""
-        from app.views.beatboxer_tavily_search import get_beatboxer_name
+        from app.views.beatboxer_web_search import get_beatboxer_name
 
         # モックデータの設定
         mock_supabase.get_data.return_value = [{"name": "test_beatboxer"}]
@@ -104,7 +104,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
     @patch("app.views.beatboxer_tavily_search.supabase_service")
     def test_get_beatboxer_name_team_member_mode(self, mock_supabase):
         """get_beatboxer_name関数をteam_memberモードでテストする"""
-        from app.views.beatboxer_tavily_search import get_beatboxer_name
+        from app.views.beatboxer_web_search import get_beatboxer_name
 
         # モックデータの設定
         # 最初の呼び出し（Participantテーブル）は空、2番目の呼び出し（ParticipantMemberテーブル）は結果を返す
@@ -131,7 +131,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
     @patch("app.views.beatboxer_tavily_search.supabase_service")
     def test_get_beatboxer_name_not_found(self, mock_supabase):
         """get_beatboxer_name関数でデータが見つからない場合のテスト"""
-        from app.views.beatboxer_tavily_search import get_beatboxer_name
+        from app.views.beatboxer_web_search import get_beatboxer_name
 
         # 空の結果を返す
         mock_supabase.get_data.return_value = []
@@ -145,7 +145,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         self, mock_tavily, mock_supabase
     ):
         """beatboxer_tavily_search関数にbeatboxer_idを指定してテストする"""
-        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+        from app.views.beatboxer_web_search import beatboxer_tavily_search
 
         # モックデータの設定
         mock_supabase.get_data.side_effect = [
@@ -197,7 +197,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
     @patch("app.views.beatboxer_tavily_search.supabase_service")
     def test_beatboxer_tavily_search_with_beatboxer_name(self, mock_supabase):
         """beatboxer_tavily_search関数にbeatboxer_nameを直接指定してテストする"""
-        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+        from app.views.beatboxer_web_search import beatboxer_tavily_search
 
         # モックデータの設定
         mock_supabase.get_data.return_value = []  # キャッシュなし
@@ -228,7 +228,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
     @patch("app.views.beatboxer_tavily_search.supabase_service")
     def test_beatboxer_tavily_search_no_parameters_error(self, mock_supabase):
         """beatboxer_tavily_search関数でパラメータが不足する場合のエラーテスト"""
-        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+        from app.views.beatboxer_web_search import beatboxer_tavily_search
 
         # 両方のパラメータがNoneの場合
         with self.assertRaises(ValueError) as context:
@@ -244,7 +244,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         self, mock_tavily, mock_supabase
     ):
         """beatboxer_tavily_search関数でYouTube動画ID抽出をテストする"""
-        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+        from app.views.beatboxer_web_search import beatboxer_tavily_search
 
         # モックデータの設定
         mock_supabase.get_data.side_effect = [
@@ -292,7 +292,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         self, mock_tavily, mock_supabase
     ):
         """beatboxer_tavily_search関数で禁止ワードによるフィルタリングをテストする"""
-        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+        from app.views.beatboxer_web_search import beatboxer_tavily_search
 
         # モックデータの設定
         mock_supabase.get_data.side_effect = [
@@ -345,7 +345,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             mock_tavily (MagicMock): Tavilyサービスのモック。
             mock_supabase (MagicMock): Supabaseサービスのモック。
         """
-        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+        from app.views.beatboxer_web_search import beatboxer_tavily_search
 
         mock_supabase.get_tavily_data.return_value = []
         response = {
@@ -379,7 +379,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             mock_tavily (MagicMock): Tavilyサービスのモック。
             mock_supabase (MagicMock): Supabaseサービスのモック。
         """
-        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+        from app.views.beatboxer_web_search import beatboxer_tavily_search
 
         mock_supabase.get_tavily_data.return_value = []
         response = {
@@ -403,7 +403,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
     @patch("app.views.beatboxer_tavily_search.tavily_service")
     def test_beatboxer_tavily_search_minimum_results(self, mock_tavily, mock_supabase):
         """beatboxer_tavily_search関数で最低3件の結果を確保するロジックをテストする"""
-        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+        from app.views.beatboxer_web_search import beatboxer_tavily_search
 
         # モックデータの設定
         mock_supabase.get_data.side_effect = [
@@ -458,7 +458,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
     @patch("app.views.beatboxer_tavily_search.tavily_service")
     def test_beatboxer_tavily_search_maximum_results(self, mock_tavily, mock_supabase):
         """beatboxer_tavily_search関数で最大5件の結果に制限されることをテストする"""
-        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+        from app.views.beatboxer_web_search import beatboxer_tavily_search
 
         # モックデータの設定
         mock_supabase.get_data.side_effect = [
@@ -493,7 +493,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
     @patch("app.views.beatboxer_tavily_search.tavily_service")
     def test_beatboxer_tavily_search_cached_results(self, mock_tavily, mock_supabase):
         """beatboxer_tavily_search関数でキャッシュされた結果を使用する場合をテストする"""
-        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+        from app.views.beatboxer_web_search import beatboxer_tavily_search
 
         # キャッシュされた結果を返す
         cached_result = {
@@ -534,7 +534,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         self, mock_tavily, mock_supabase
     ):
         """beatboxer_tavily_search関数でyoutu.be短縮URLの処理をテストする"""
-        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+        from app.views.beatboxer_web_search import beatboxer_tavily_search
 
         # モックデータの設定
         mock_supabase.get_data.side_effect = [
@@ -573,7 +573,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         self, mock_gemini, mock_tavily, mock_supabase
     ):
         """translate_tavily_answer関数でキャッシュされた翻訳を使用する場合をテストする"""
-        from app.views.beatboxer_tavily_search import translate_tavily_answer
+        from app.views.beatboxer_web_search import translate_tavily_answer
 
         # モックデータの設定
         mock_supabase.get_data.side_effect = [
@@ -602,7 +602,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         self, mock_gemini, mock_tavily, mock_supabase
     ):
         """translate_tavily_answer関数でキャッシュなしの場合の翻訳をテストする"""
-        from app.views.beatboxer_tavily_search import translate_tavily_answer
+        from app.views.beatboxer_web_search import translate_tavily_answer
 
         # モックデータの設定
         mock_supabase.get_data.side_effect = [
@@ -634,7 +634,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
     @patch("app.views.beatboxer_tavily_search.supabase_service")
     def test_translate_tavily_answer_no_search_result(self, mock_supabase):
         """translate_tavily_answer関数で検索結果がない場合をテストする"""
-        from app.views.beatboxer_tavily_search import translate_tavily_answer
+        from app.views.beatboxer_web_search import translate_tavily_answer
 
         with patch("app.main.flask_cache") as mock_cache:
             mock_cache.get.return_value = None
@@ -664,7 +664,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         self, mock_gemini, mock_tavily, mock_supabase
     ):
         """translate_tavily_answer関数でGemini APIエラーの場合をテストする"""
-        from app.views.beatboxer_tavily_search import translate_tavily_answer
+        from app.views.beatboxer_web_search import translate_tavily_answer
 
         # モックデータの設定
         mock_supabase.get_data.side_effect = [
@@ -694,7 +694,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         self, mock_gemini, mock_tavily, mock_supabase
     ):
         """translate_tavily_answer関数でGeminiがリストを返す場合をテストする"""
-        from app.views.beatboxer_tavily_search import translate_tavily_answer
+        from app.views.beatboxer_web_search import translate_tavily_answer
 
         # モックデータの設定
         mock_supabase.get_data.side_effect = [
@@ -725,7 +725,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         self, mock_gemini, mock_supabase
     ):
         """translate_tavily_answer関数をMAHIROのモックデータでテストする"""
-        from app.views.beatboxer_tavily_search import translate_tavily_answer
+        from app.views.beatboxer_web_search import translate_tavily_answer
 
         # MAHIROのモックデータ（提供されたデータを使用）
         mahiro_mock_data = {
@@ -791,7 +791,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         self, mock_gemini, mock_supabase
     ):
         """translate_tavily_answer関数で英語の場合は翻訳せずそのまま返すことをテストする"""
-        from app.views.beatboxer_tavily_search import translate_tavily_answer
+        from app.views.beatboxer_web_search import translate_tavily_answer
 
         # MAHIROのモックデータ
         mahiro_mock_data = {
@@ -833,7 +833,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         self, mock_gemini, mock_supabase
     ):
         """translate_tavily_answer関数で韓国語翻訳をテストする"""
-        from app.views.beatboxer_tavily_search import translate_tavily_answer
+        from app.views.beatboxer_web_search import translate_tavily_answer
 
         # MAHIROのモックデータ
         mahiro_mock_data = {
@@ -879,7 +879,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         self, mock_gemini, mock_supabase
     ):
         """translate_tavily_answer関数で外部キャッシュ（Supabase）がヒットする場合をテストする"""
-        from app.views.beatboxer_tavily_search import translate_tavily_answer
+        from app.views.beatboxer_web_search import translate_tavily_answer
 
         # モックデータの設定
         mock_supabase.get_data.return_value = [{"name": "MAHIRO"}]
@@ -923,7 +923,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         self, mock_gemini, mock_supabase
     ):
         """translate_tavily_answer関数で内部キャッシュ（flask_cache）がヒットする場合をテストする"""
-        from app.views.beatboxer_tavily_search import translate_tavily_answer
+        from app.views.beatboxer_web_search import translate_tavily_answer
 
         # モックデータの設定
         mock_supabase.get_data.return_value = [{"name": "MAHIRO"}]
@@ -957,7 +957,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         self, mock_gemini, mock_supabase
     ):
         """translate_tavily_answer関数でビートボクサーが見つからない場合をテストする"""
-        from app.views.beatboxer_tavily_search import translate_tavily_answer
+        from app.views.beatboxer_web_search import translate_tavily_answer
 
         # モックデータの設定（ビートボクサーが見つからない）
         mock_supabase.get_data.return_value = []
@@ -979,7 +979,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
     @patch("app.views.beatboxer_tavily_search.gemini_service")
     def test_translate_tavily_answer_retry_mechanism(self, mock_gemini, mock_supabase):
         """translate_tavily_answer関数でGemini APIが成功する場合をテストする"""
-        from app.views.beatboxer_tavily_search import translate_tavily_answer
+        from app.views.beatboxer_web_search import translate_tavily_answer
 
         # MAHIROのモックデータ
         mahiro_mock_data = {
@@ -1021,7 +1021,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
     @patch("app.views.beatboxer_tavily_search.gemini_service")
     def test_translate_tavily_answer_retry_all_failed(self, mock_gemini, mock_supabase):
         """translate_tavily_answer関数でGemini APIが失敗した場合をテストする"""
-        from app.views.beatboxer_tavily_search import translate_tavily_answer
+        from app.views.beatboxer_web_search import translate_tavily_answer
 
         # MAHIROのモックデータ
         mahiro_mock_data = {
@@ -1061,7 +1061,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
     @patch("app.views.beatboxer_tavily_search.gemini_service")
     def test_translate_tavily_answer_cache_update(self, mock_gemini, mock_supabase):
         """translate_tavily_answer関数で翻訳結果がキャッシュに保存されることをテストする"""
-        from app.views.beatboxer_tavily_search import translate_tavily_answer
+        from app.views.beatboxer_web_search import translate_tavily_answer
 
         # MAHIROのモックデータ
         mahiro_mock_data = {
@@ -1117,7 +1117,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         self, mock_tavily, mock_supabase
     ):
         """beatboxer_tavily_search関数をMAHIROの完全なモックデータでテストする"""
-        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+        from app.views.beatboxer_web_search import beatboxer_tavily_search
 
         # MAHIROの完全なモックデータ(提供されたデータをそのまま使用)
         mahiro_full_data = {
@@ -1303,7 +1303,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         self, mock_tavily, mock_supabase
     ):
         """beatboxer_tavily_search関数でドメインの重複排除が正しく動作することをテストする"""
-        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+        from app.views.beatboxer_web_search import beatboxer_tavily_search
 
         # 同じドメインから複数のURLがある場合のテストデータ
         test_data = {
@@ -1392,7 +1392,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         self, mock_tavily, mock_supabase
     ):
         """beatboxer_tavily_search関数で複数のInstagramアカウントURLがある場合のテストする"""
-        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+        from app.views.beatboxer_web_search import beatboxer_tavily_search
 
         # 複数のInstagramアカウントがある場合のテストデータ
         test_data = {
@@ -1731,7 +1731,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
     @patch("app.views.beatboxer_tavily_search.tavily_service")
     def test_rule_violation_final_urls_less_than_3(self, mock_tavily, mock_supabase):
         """final_urlsが3件未満の場合のテスト（8件のデータ）"""
-        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+        from app.views.beatboxer_web_search import beatboxer_tavily_search
 
         # 8件のデータ: 全てアカウントURLまたはYouTube動画
         test_data = {
@@ -1800,7 +1800,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
     @patch("app.views.beatboxer_tavily_search.tavily_service")
     def test_rule_violation_final_urls_exceeds_5(self, mock_tavily, mock_supabase):
         """final_urlsが5件を超える場合、ルール違反となることをテスト（12件のデータ）"""
-        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+        from app.views.beatboxer_web_search import beatboxer_tavily_search
 
         # 12件のデータ: 全て異なるドメインの一般URL
         test_data = {
@@ -1835,7 +1835,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
     @patch("app.views.beatboxer_tavily_search.tavily_service")
     def test_rule_violation_account_url_in_final_urls(self, mock_tavily, mock_supabase):
         """final_urlsにアカウントURLが含まれる場合、ルール違反となることをテスト（10件のデータ）"""
-        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+        from app.views.beatboxer_web_search import beatboxer_tavily_search
 
         # 10件のデータ: アカウントURLと一般URLの混在
         test_data = {
@@ -1918,7 +1918,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         self, mock_tavily, mock_supabase
     ):
         """final_urlsにYouTube動画URLが含まれる場合、ルール違反となることをテスト（9件のデータ）"""
-        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+        from app.views.beatboxer_web_search import beatboxer_tavily_search
 
         # 9件のデータ: YouTube動画と一般URLの混在
         test_data = {
@@ -1998,7 +1998,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         self, mock_tavily, mock_supabase
     ):
         """final_urlsに同じドメインが複数含まれる場合、ルール違反となることをテスト（11件のデータ）"""
-        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+        from app.views.beatboxer_web_search import beatboxer_tavily_search
 
         # 11件のデータ: 同じドメインから複数のURL
         test_data = {
@@ -2054,7 +2054,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         self, mock_tavily, mock_supabase
     ):
         """final_urlsに禁止ワードを含むURLが含まれる場合、ルール違反となることをテスト（8件のデータ）"""
-        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+        from app.views.beatboxer_web_search import beatboxer_tavily_search
 
         # 8件のデータ: 禁止ワードを含むURLと含まないURLの混在
         test_data = {
@@ -2140,7 +2140,7 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
     @patch("app.views.beatboxer_tavily_search.tavily_service")
     def test_rule_all_checks_with_10_results(self, mock_tavily, mock_supabase):
         """10件のデータで全てのルールを同時にチェック（複合テスト）"""
-        from app.views.beatboxer_tavily_search import beatboxer_tavily_search
+        from app.views.beatboxer_web_search import beatboxer_tavily_search
 
         # 10件のデータ: アカウント、YouTube動画、一般URLの混在
         test_data = {

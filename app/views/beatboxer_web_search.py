@@ -8,11 +8,9 @@ from app.config.config import (
     BAN_WORDS,
     FACEBOOK_ACCOUNT_PATTERN,
     INSTAGRAM_ACCOUNT_PATTERN,
-    LANGUAGE_NAMES,
-    PROMPT_TRANSLATE,
     YOUTUBE_CHANNEL_PATTERN,
 )
-from app.models.gemini_client import gemini_service
+from app.models.deepl_client import deepl_service
 from app.models.supabase_client import supabase_service
 from app.models.tavily_client import tavily_service
 
@@ -150,7 +148,7 @@ def beatboxer_tavily_search(
 
     # キャッシュがない場合はTavilyで検索して保存
     if len(tavily_response) == 0:
-        tavily_response = tavily_service.search(beatboxer_name)
+        tavily_response = tavily_service.beatboxer_research(beatboxer_name)
         # まれにanswerがnullの場合があるので、その場合は保存しない
         if tavily_response["answer"] is not None:
             supabase_service.insert_tavily_data(
@@ -358,32 +356,11 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language_code: str):
 
     # 翻訳 (対象を限定)
     if language_code in ALLOWED_LANGUAGES:
-        prompt = PROMPT_TRANSLATE.format(
-            text=answer, lang=LANGUAGE_NAMES[language_code]
-        )
-
-        # 1回だけ試す syntax errorはもうあきらめる
-        response = gemini_service.ask(prompt)
-
-        # 翻訳結果を取得
-        if isinstance(response, list):
-            response = response[0]
-        try:
-            translated_answer = response["translated_text"]
-        except Exception:
-            return ""
+        translated_answer = deepl_service.translate(text=answer, target_lang=language_code)
 
     # そのほかは翻訳不要
     else:
         translated_answer = answer
-
-    # まれに翻訳結果が「なし」などの場合があるので、10文字未満の場合は空文字列を返す
-    if len(translated_answer) < 10:
-        print(
-            f"ERROR: translated_answerが短すぎます beatboxer_id: {beatboxer_id} mode: {mode}",
-            flush=True,
-        )
-        return ""
 
     # キャッシュに保存
     # 翻訳結果を保存するためのディクショナリを準備

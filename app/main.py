@@ -20,15 +20,15 @@ from app.context_processors import (
     initialize_background_tasks,
 )
 from app.views import (
-    beatboxer_tavily_search,
+    beatboxer_finder,
+    beatboxer_web_search,
     common,
-    gemini_search,
     language,
     participant_detail,
     participants,
     result,
     rule,
-    search_participants,
+    site_navigation,
     world_map,
 )
 
@@ -137,32 +137,32 @@ app.add_url_rule(
 app.add_url_rule(
     "/beatboxer_tavily_search",
     "beatboxer_tavily_search",
-    beatboxer_tavily_search.post_beatboxer_tavily_search,
+    beatboxer_web_search.post_beatboxer_tavily_search,
     methods=["POST"],
 )
 app.add_url_rule(
     "/search_suggestions",
     "search_suggestion",
-    gemini_search.post_gemini_search_suggestion,
+    site_navigation.post_search_suggestion,
     methods=["POST"],
 )
 app.add_url_rule(
     "/<int:year>/search",
     "search",
-    gemini_search.post_gemini_search,
+    site_navigation.post_search,
     defaults={"IS_LOCAL": IS_LOCAL, "IS_PULL_REQUEST": IS_PULL_REQUEST},
     methods=["POST"],
 )
 app.add_url_rule(
     "/<int:year>/search_participants",
     "search_participants",
-    search_participants.post_search_participants,
+    beatboxer_finder.post_search_participants,
     methods=["POST"],
 )
 app.add_url_rule(
     "/answer_translation",
     "answer_translation",
-    beatboxer_tavily_search.post_answer_translation,
+    beatboxer_web_search.post_answer_translation,
     methods=["POST"],
 )
 
