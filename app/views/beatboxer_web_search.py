@@ -356,10 +356,9 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language_code: str):
 
     # 翻訳 (対象を限定)
     if language_code in ALLOWED_LANGUAGES:
-        try:
-            translated_answer = deepl_service.translate(text=answer, target_lang=language_code)
-        except Exception:
-            translated_answer = ""
+        translated_answer = deepl_service.translate(
+            text=answer, target_lang=language_code
+        )
     # そのほかは翻訳不要
     else:
         translated_answer = answer
