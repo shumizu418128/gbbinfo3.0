@@ -279,7 +279,7 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language_code: str):
     指定されたビートボクサーID・モード・言語に基づき、Tavily検索結果のanswerを翻訳して返します。
 
     まず内部キャッシュ（flask_cache）および外部キャッシュ（Supabase）を確認し、既に翻訳済みのanswerがあればそれを返します。
-    キャッシュが存在しない場合は、Tavily検索結果からanswerを取得し、Gemini APIを用いて指定言語に翻訳します。
+    キャッシュが存在しない場合は、Tavily検索結果からanswerを取得し、DeepL APIで指定言語に翻訳します。
     翻訳結果はキャッシュ（Supabase）に保存され、次回以降のリクエストで再利用されます。
 
     Args:
