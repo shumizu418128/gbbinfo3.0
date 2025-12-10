@@ -14,7 +14,7 @@ supabase==2.16.0
 python-dotenv==1.0.1
 
 # AI/ML APIs
-google-genai==1.26.0
+deepl==1.18.0
 tavily-python==0.5.4
 
 # Translation and Internationalization

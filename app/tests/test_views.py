@@ -30,7 +30,7 @@ class ViewsTestCase(unittest.TestCase):
         """テスト後のクリーンアップ"""
         self.app_context.pop()
 
-    @patch("app.views.search_participants.supabase_service")
+    @patch("app.views.beatboxer_finder.supabase_service")
     def test_search_participants(self, mock_supabase):
         """参加者検索のテスト"""
         # モックデータの設定
@@ -60,7 +60,7 @@ class ViewsTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.content_type, "application/json")
 
-    @patch("app.views.search_participants.supabase_service")
+    @patch("app.views.beatboxer_finder.supabase_service")
     def test_search_participants_solo_team_multinational(self, mock_supabase):
         """参加者検索でソロ・複数名チーム・多国籍チームの3種類をテスト"""
         # テストケース1: ソロ参加者

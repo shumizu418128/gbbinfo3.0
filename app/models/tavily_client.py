@@ -1,3 +1,4 @@
+import hashlib
 import os
 from typing import Optional
 
@@ -24,7 +25,7 @@ class TavilyService:
             self._client = TavilyClient(self._tavily_api_key)
         return self._client
 
-    def search(self, beatboxer_name: str):
+    def beatboxer_research(self, beatboxer_name: str):
         query = f"{beatboxer_name} beatbox"
         result = self.client.search(
             query=query,
@@ -34,6 +35,29 @@ class TavilyService:
             exclude_domains=EXCLUDE_DOMAINS,
         )
         return result
+
+    def suggest_page_url(self, year: int, question: str) -> dict:
+        # ここに書かないと循環インポートになる
+        from app.main import flask_cache
+
+        question_hash = hashlib.md5(question.encode()).hexdigest()
+        cache_key = f"suggest_url_{year}_{question_hash}"
+
+        # キャッシュから取得を試行 あるなら返す
+        cached_data = flask_cache.get(cache_key)
+        if cached_data is not None:
+            return cached_data
+
+        results = self.client.search(
+            query=f"GBB {year} {question}",
+            max_results=5,
+            include_domains=["gbbinfo-jpn.onrender.com"],
+        )
+
+        # キャッシュに保存
+        flask_cache.set(cache_key, results)
+
+        return results
 
 
 # グローバルインスタンス

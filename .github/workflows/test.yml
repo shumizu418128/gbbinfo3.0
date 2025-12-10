@@ -104,6 +104,7 @@ jobs:
         SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
         SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        DEEPL_API_KEY: ${{ secrets.DEEPL_API_KEY }}
         FLASK_ENV: testing
         TESTING: true
         ENVIRONMENT_CHECK: qawsedrftgyhujikolp
