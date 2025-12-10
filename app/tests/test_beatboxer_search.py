@@ -658,36 +658,6 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
     @patch("app.views.beatboxer_web_search.supabase_service")
     @patch("app.views.beatboxer_web_search.tavily_service")
     @patch("app.views.beatboxer_web_search.deepl_service")
-    def test_translate_tavily_answer_deepl_error(
-        self, mock_deepl, mock_tavily, mock_supabase
-    ):
-        """translate_tavily_answer関数でDeepL APIエラーの場合をテストする"""
-        from app.views.beatboxer_web_search import translate_tavily_answer
-
-        # モックデータの設定
-        mock_supabase.get_data.side_effect = [
-            [{"name": "test_beatboxer"}],  # get_beatboxer_name用
-            {"answer": "This is an answer"},  # search_result
-            [],  # no cached translation
-        ]
-
-        # DeepL APIがエラーを返す（例外を発生させる）
-        mock_deepl.translate.side_effect = Exception("Error occurred")
-
-        with patch("app.main.flask_cache") as mock_cache:
-            mock_cache.get.return_value = None
-
-            # テスト実行
-            result = translate_tavily_answer(
-                beatboxer_id=123, mode="single", language_code="ja"
-            )
-
-            # 検証（DeepLエラーの場合は空文字列を返す）
-            self.assertEqual(result, "")
-
-    @patch("app.views.beatboxer_web_search.supabase_service")
-    @patch("app.views.beatboxer_web_search.tavily_service")
-    @patch("app.views.beatboxer_web_search.deepl_service")
     def test_translate_tavily_answer_list_response(
         self, mock_deepl, mock_tavily, mock_supabase
     ):

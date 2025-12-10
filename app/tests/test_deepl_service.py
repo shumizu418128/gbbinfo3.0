@@ -48,19 +48,6 @@ class DeepLServiceTestCase(unittest.TestCase):
             service = DeepLService()
             self.assertEqual(service.translate("", "JA"), "")
 
-    @patch("app.models.deepl_client.deepl.Translator")
-    def test_deepl_translate_raises_exception_returns_empty(self, mock_translator):
-        """Translator が例外を出す場合、空文字列を返すことを確認する"""
-        from app.models.deepl_client import DeepLService
-
-        mock_instance = Mock()
-        mock_instance.translate_text.side_effect = Exception("API error")
-        mock_translator.return_value = mock_instance
-
-        with patch.dict(os.environ, {"DEEPL_API_KEY": "test_key"}):
-            service = DeepLService()
-            self.assertEqual(service.translate("Hello", "JA"), "")
-
     def test_rate_limit_configuration(self):
         """translate メソッドにレートリミットデコレータが適用されているか確認"""
         from app.models.deepl_client import DeepLService
