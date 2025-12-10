@@ -1,3 +1,4 @@
+import hashlib
 import os
 
 import deepl
@@ -55,10 +56,24 @@ class DeepLService:
         if not text or not text.strip():
             return ""
 
+        # ここに書かないと循環インポートになる
+        from app.main import flask_cache
+
+        question_hash = hashlib.md5(text.encode()).hexdigest()
+        cache_key = f"deepl_translate_{question_hash}"
+
+        # キャッシュから取得を試行 あるなら返す
+        cached_data = flask_cache.get(cache_key)
+        if cached_data is not None:
+            return cached_data
+
         result = self.translator.translate_text(
             text=text,
             target_lang=target_lang.upper(),
         )
+
+        # キャッシュに保存
+        flask_cache.set(cache_key, result.text)
 
         return result.text
 
