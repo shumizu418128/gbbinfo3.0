@@ -55,18 +55,12 @@ class DeepLService:
         if not text or not text.strip():
             return ""
 
-        try:
-            # DeepL APIで翻訳
-            result = self.translator.translate_text(
-                text=text,
-                target_lang=target_lang.upper(),
-            )
+        result = self.translator.translate_text(
+            text=text,
+            target_lang=target_lang.upper(),
+        )
 
-            return result.text
-
-        except Exception as e:
-            print(f"Unexpected error in DeepL translation: {e}", flush=True)
-            return ""
+        return result.text
 
 
 # グローバルインスタンス
