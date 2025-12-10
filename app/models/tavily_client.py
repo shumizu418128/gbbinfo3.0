@@ -48,17 +48,16 @@ class TavilyService:
         if cached_data is not None:
             return cached_data
 
-        result = self.client.search(
-            query=f"{year} {question}",
+        results = self.client.search(
+            query=f"GBB {year} {question}",
             max_results=5,
-            include_answer="basic",
-            include_domain=["gbbinfo-jpn.onrender.com"],
+            include_domains=["gbbinfo-jpn.onrender.com"],
         )
 
         # キャッシュに保存
-        flask_cache.set(cache_key, result)
+        flask_cache.set(cache_key, results)
 
-        return result
+        return results
 
 
 # グローバルインスタンス

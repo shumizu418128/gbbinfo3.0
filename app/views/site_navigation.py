@@ -35,9 +35,13 @@ def create_url(results: list[dict], year: int) -> str:
     """
     url = ""
 
-    # yearに一致するURLを優先的に探す
     for result in results:
-        if str(year) in result.get("url", ""):
+        url = result.get("url", "")
+        # これだけガイドは避ける
+        if "/top" in url and "/top_7tosmoke" not in url:
+            continue
+        # yearがURLに含まれているかチェック
+        if str(year) in url:
             url = result.get("url", "")
             break
 
@@ -97,7 +101,8 @@ def post_search(year: int, IS_LOCAL: bool, IS_PULL_REQUEST: bool):
 
     else:
         print(f"question: {question}", flush=True)
-        results = tavily_service.suggest_page_url(question)
+        tavily_results = tavily_service.suggest_page_url(year, question)
+        results = tavily_results.get("results", [])
 
         url = create_url(results, year)
 
