@@ -35,7 +35,7 @@ class DeepLService:
             target_lang (str): 翻訳先の言語コード。小文字でも可。
 
         Returns:
-            str: 翻訳後のテキスト。エラーが発生した場合は空文字列を返します。
+            str: 翻訳後のテキスト。
 
         Notes:
             - レート制限: 1秒間に5回のリクエスト制限付き
@@ -52,6 +52,8 @@ class DeepLService:
             >>> print(result)
             'こんにちは'
         """
+        target_lang_upper = target_lang.upper()
+
         # 空文字列チェック
         if not text or not text.strip():
             return ""
@@ -60,7 +62,7 @@ class DeepLService:
         from app.main import flask_cache
 
         question_hash = hashlib.md5(text.encode()).hexdigest()
-        cache_key = f"deepl_translate_{question_hash}"
+        cache_key = f"deepl_translate_{target_lang_upper}_{question_hash}"
 
         # キャッシュから取得を試行 あるなら返す
         cached_data = flask_cache.get(cache_key)
@@ -69,7 +71,7 @@ class DeepLService:
 
         result = self.translator.translate_text(
             text=text,
-            target_lang=target_lang.upper(),
+            target_lang=target_lang_upper,
         )
 
         # キャッシュに保存

@@ -36,13 +36,13 @@ def create_url(results: list[dict], year: int) -> str:
     url = ""
 
     for result in results:
-        url = result.get("url", "")
+        search_result_url = result.get("url", "")
         # これだけガイドは避ける
-        if "/top" in url and "/top_7tosmoke" not in url:
+        if "/top" in search_result_url and "/top_7tosmoke" not in search_result_url:
             continue
         # yearがURLに含まれているかチェック
-        if str(year) in url:
-            url = result.get("url", "")
+        if str(year) in search_result_url:
+            url = search_result_url
             break
 
     # yearに一致するものがない場合は最初の結果を使用
