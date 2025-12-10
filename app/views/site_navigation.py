@@ -1,4 +1,3 @@
-import os
 import random
 import re
 import unicodedata
@@ -11,10 +10,6 @@ from rapidfuzz import process
 from app.config.config import SEARCH_CACHE
 from app.models.spreadsheet_client import spreadsheet_service
 from app.models.tavily_client import tavily_service
-
-others_url_list = [
-    file_name.replace(".html", "") for file_name in os.listdir("app/templates/others")
-]
 
 
 # MARK: URL
