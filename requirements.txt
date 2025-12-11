@@ -2,7 +2,6 @@ Flask==2.3.3
 Flask-Caching==2.3.0
 flask-babel==2.0.0
 flask-sitemapper==1.8.1
-cachetools==5.5.1
 Jinja2==3.1.6
 waitress==3.0.2
 redis[hiredis]==6.4.0
@@ -14,7 +13,7 @@ supabase==2.16.0
 python-dotenv==1.0.1
 
 # AI/ML APIs
-google-genai==1.26.0
+deepl==1.18.0
 tavily-python==0.5.4
 
 # Translation and Internationalization
