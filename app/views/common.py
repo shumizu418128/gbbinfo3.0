@@ -114,7 +114,12 @@ def notice_view():
     """
     お知らせコンテンツを表示する。
     """
-    notice, timestamp_str = spreadsheet_service.get_notice()
+    notice, timestamp_str = "", ""
+    try:
+        notice, timestamp_str = spreadsheet_service.get_notice()
+    except Exception:
+        pass
+
     if notice == "" or timestamp_str == "":
         return jsonify({"notice": "", "timestamp": ""})
 
