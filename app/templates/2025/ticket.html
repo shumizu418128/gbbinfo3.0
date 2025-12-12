@@ -14,7 +14,7 @@
 
 <div class="button-container">
     <a href="/{{year}}/rule"><button>GBB {{ year }} {{_("ルール & 審査員")}}</button></a>
-    <a href="/{{year}}/participants"><button>{{_("Wildcard結果")}} & {{_("出場者")}}</button></a>
+    <a href="/{{year}}/participants"><button>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}} & {{_("出場者")}}</button></a>
     {% if language == 'ko' %}
         <a href="/{{ year }}/korea"><button>{{_("韓国代表")}}</button></a>
     {% else %}

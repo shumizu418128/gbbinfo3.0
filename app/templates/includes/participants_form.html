@@ -10,7 +10,7 @@
     <label for="ticket_class">{{_("情報選択")}}</label>
     <select name="ticket_class" id="ticket_class" class="filter-select" onchange="this.form.submit()">
         <option value="all" {% if ticket_class == 'all' %}selected{% endif %}>{{_("全出場者")}}</option>
-        <option value="wildcard" {% if ticket_class == 'wildcard' %}selected{% endif %}>{{_("Wildcard結果")}}</option>
+        <option value="wildcard" {% if ticket_class == 'wildcard' %}selected{% endif %}>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}}</option>
         <option value="seed_right" {% if ticket_class == 'seed_right' %}selected{% endif %}>{{_("シード権")}}</option>
     </select>
     <br>
