@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-08 12:35+0900\n"
+"POT-Creation-Date: 2025-12-12 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: hi <LL@li.org>\n"
@@ -29,7 +29,7 @@ msgstr ""
 #: templates/2026/rule.html:3 templates/2026/rule.html:4
 #: templates/2026/rule.html:5 templates/2026/rule.html:9
 #: templates/2026/rule.html:41 templates/2026/rule.html:280
-#: templates/2026/rule.html:285 templates/2026/timetable.html:62
+#: templates/2026/rule.html:285 templates/2026/timetable.html:69
 #: templates/2026/top.html:63 templates/2026/top.html:106
 #: templates/2026/wildcards.html:13 templates/2026/wildcards.html:60
 #: templates/common/participants.html:139
@@ -73,7 +73,7 @@ msgstr "स्थानीय मैच देखने की योजना �
 #: templates/2024/rule.html:26 templates/2024/timetable.html:16
 #: templates/2025/rule.html:26 templates/2025/timetable.html:18
 #: templates/2025/wildcard_regulation.html:26 templates/2026/rule.html:26
-#: templates/2026/timetable.html:20
+#: templates/2026/timetable.html:27
 msgid "目次"
 msgstr "विषयसूची"
 
@@ -253,12 +253,12 @@ msgstr "योग्यता"
 #: templates/2026/rule.html:344 templates/2026/rule.html:348
 #: templates/2026/rule.html:352 templates/2026/rule.html:356
 #: templates/2026/rule.html:376 templates/2026/stream.html:11
-#: templates/2026/timetable.html:47 templates/2026/timetable.html:51
-#: templates/2026/timetable.html:55 templates/2026/timetable.html:75
-#: templates/2026/timetable.html:79 templates/2026/timetable.html:83
-#: templates/2026/timetable.html:103 templates/2026/timetable.html:107
-#: templates/2026/timetable.html:111 templates/2026/timetable.html:131
-#: templates/2026/timetable.html:135 templates/2026/timetable.html:139
+#: templates/2026/timetable.html:54 templates/2026/timetable.html:58
+#: templates/2026/timetable.html:62 templates/2026/timetable.html:82
+#: templates/2026/timetable.html:86 templates/2026/timetable.html:90
+#: templates/2026/timetable.html:110 templates/2026/timetable.html:114
+#: templates/2026/timetable.html:118 templates/2026/timetable.html:138
+#: templates/2026/timetable.html:142 templates/2026/timetable.html:146
 #: templates/common/cancels.html:38 templates/common/participants.html:19
 #: templates/common/participants.html:85 templates/common/result.html:83
 msgid "発表次第更新"
@@ -401,7 +401,7 @@ msgstr "{Wildcard} न्यायाधीशों की सूची यह�
 #: templates/2025/top.html:58 templates/2025/top.html:101
 #: templates/2025/wildcards.html:15 templates/2025/wildcards.html:84
 #: templates/2026/rule.html:338 templates/2026/rule.html:399
-#: templates/2026/timetable.html:62 templates/2026/top.html:68
+#: templates/2026/timetable.html:69 templates/2026/top.html:68
 #: templates/2026/top.html:106 templates/2026/wildcards.html:13
 #: templates/2026/wildcards.html:60 templates/includes/hamburger_menu.html:11
 msgid "審査員"
@@ -430,8 +430,8 @@ msgstr "यहां मुख्य प्रतियोगिता के �
 #: templates/2025/timetable.html:158 templates/2025/top.html:130
 #: templates/2025/top_7tosmoke.html:40 templates/2026/stream.html:3
 #: templates/2026/stream.html:4 templates/2026/stream.html:5
-#: templates/2026/stream.html:9 templates/2026/timetable.html:90
-#: templates/2026/timetable.html:117 templates/2026/top.html:135
+#: templates/2026/stream.html:9 templates/2026/timetable.html:97
+#: templates/2026/timetable.html:124 templates/2026/top.html:135
 #: templates/2026/top_7tosmoke.html:40
 #: templates/includes/hamburger_menu.html:21
 #: templates/others/translation.html:23
@@ -468,8 +468,8 @@ msgstr "{Wildcard} परिणाम और प्रतिभागी"
 #: templates/2025/top_7tosmoke.html:39 templates/2026/stream.html:22
 #: templates/2026/timetable.html:3 templates/2026/timetable.html:4
 #: templates/2026/timetable.html:5 templates/2026/timetable.html:10
-#: templates/2026/top.html:17 templates/2026/top.html:114
-#: templates/2026/top_7tosmoke.html:39
+#: templates/2026/timetable.html:20 templates/2026/top.html:17
+#: templates/2026/top.html:114 templates/2026/top_7tosmoke.html:39
 #: templates/includes/hamburger_menu.html:14
 #: templates/others/translation.html:20
 msgid "タイムテーブル"
@@ -538,8 +538,8 @@ msgstr "कलाकारों की सूची"
 #: templates/2024/timetable.html:164 templates/2024/timetable.html:237
 #: templates/2025/timetable.html:41 templates/2025/timetable.html:110
 #: templates/2025/timetable.html:168 templates/2025/timetable.html:250
-#: templates/2026/timetable.html:41 templates/2026/timetable.html:69
-#: templates/2026/timetable.html:97 templates/2026/timetable.html:125
+#: templates/2026/timetable.html:48 templates/2026/timetable.html:76
+#: templates/2026/timetable.html:104 templates/2026/timetable.html:132
 msgid "時刻"
 msgstr "समय"
 
@@ -547,8 +547,8 @@ msgstr "समय"
 #: templates/2024/timetable.html:165 templates/2024/timetable.html:238
 #: templates/2025/timetable.html:42 templates/2025/timetable.html:111
 #: templates/2025/timetable.html:169 templates/2025/timetable.html:251
-#: templates/2026/timetable.html:42 templates/2026/timetable.html:70
-#: templates/2026/timetable.html:98 templates/2026/timetable.html:126
+#: templates/2026/timetable.html:49 templates/2026/timetable.html:77
+#: templates/2026/timetable.html:105 templates/2026/timetable.html:133
 msgid "内容"
 msgstr "सामग्री"
 
@@ -556,8 +556,8 @@ msgstr "सामग्री"
 #: templates/2024/timetable.html:171 templates/2024/timetable.html:244
 #: templates/2025/timetable.html:48 templates/2025/timetable.html:117
 #: templates/2025/timetable.html:175 templates/2025/timetable.html:257
-#: templates/2026/timetable.html:48 templates/2026/timetable.html:76
-#: templates/2026/timetable.html:104 templates/2026/timetable.html:132
+#: templates/2026/timetable.html:55 templates/2026/timetable.html:83
+#: templates/2026/timetable.html:111 templates/2026/timetable.html:139
 msgid "入場開始"
 msgstr "प्रवेश प्रारम्भ"
 
@@ -575,9 +575,9 @@ msgstr "अचानक अतिथि"
 
 #: templates/2024/timetable.html:69 templates/2024/timetable.html:126
 #: templates/2024/timetable.html:183 templates/2024/timetable.html:248
-#: templates/2025/timetable.html:261 templates/2026/timetable.html:52
-#: templates/2026/timetable.html:80 templates/2026/timetable.html:108
-#: templates/2026/timetable.html:136
+#: templates/2025/timetable.html:261 templates/2026/timetable.html:59
+#: templates/2026/timetable.html:87 templates/2026/timetable.html:115
+#: templates/2026/timetable.html:143
 msgid "スタート"
 msgstr "शुरू करें"
 
@@ -599,8 +599,8 @@ msgstr "अर्ध-फाइनल"
 #: templates/2024/timetable.html:219 templates/2024/timetable.html:280
 #: templates/2025/timetable.html:92 templates/2025/timetable.html:153
 #: templates/2025/timetable.html:231 templates/2025/timetable.html:269
-#: templates/2026/timetable.html:56 templates/2026/timetable.html:84
-#: templates/2026/timetable.html:112 templates/2026/timetable.html:140
+#: templates/2026/timetable.html:63 templates/2026/timetable.html:91
+#: templates/2026/timetable.html:119 templates/2026/timetable.html:147
 msgid "終了"
 msgstr "समाप्त"
 
@@ -1499,6 +1499,16 @@ msgstr "टिकट के बारे में पूछताछ"
 msgid "なお上記問い合わせ先は、当サイトとは無関係です。"
 msgstr "उपरोक्त संपर्क हमारे साइट से संबंधित नहीं है।"
 
+#: templates/2026/wildcards.html:86
+#, python-brace-format
+msgid ""
+"{Wildcard}シーズン中に、「{NOTWildcard}」を称する動画がまれに投稿されます。これは、正式な{Wildcard}エントリーではないものの、{Wildcard}に似た形式で制作された動画です。要するに、遊んでいるだけです。"
+msgstr ""
+"{Wildcard} सीजन के दौरान, कभी-कभी वीडियो पोस्ट किए जाते हैं जो खुद को "
+"\"{NOTWildcard}\" कहते हैं। ये आधिकारिक {Wildcard} एंट्री नहीं हैं, बल्कि "
+"{Wildcard} के समान प्रारूप में बने वीडियो हैं। संक्षेप में, वे सिर्फ मजाक कर"
+" रहे हैं।"
+
 #: templates/base.html:34 templates/base.html:45 templates/base.html:49
 #, python-brace-format
 msgid ""
@@ -1533,7 +1543,7 @@ msgstr ""
 #: templates/2025/wildcard_regulation.html:194
 #: templates/2025/wildcard_regulation.html:255
 #: templates/2025/wildcard_regulation.html:256
-#: templates/2026/timetable.html:146 templates/2026/top.html:3
+#: templates/2026/timetable.html:153 templates/2026/top.html:3
 #: templates/2026/top.html:4 templates/2026/top.html:5
 #: templates/2026/top.html:25 templates/2026/top.html:97
 #: templates/2026/top.html:168 templates/2026/top_7tosmoke.html:24
@@ -1625,7 +1635,7 @@ msgstr "मुख्य पृष्ठ पर वापस जाएँ"
 #: templates/2025/top.html:97 templates/2025/wildcards.html:14
 #: templates/2025/wildcards.html:83 templates/2026/rule.html:71
 #: templates/2026/rule.html:253 templates/2026/rule.html:390
-#: templates/2026/stream.html:18 templates/2026/timetable.html:118
+#: templates/2026/stream.html:18 templates/2026/timetable.html:125
 #: templates/2026/top.html:102 templates/2026/wildcards.html:12
 #: templates/2026/wildcards.html:59 templates/base.html:240
 #: templates/common/participants.html:25 templates/common/result.html:110
@@ -1641,7 +1651,7 @@ msgstr "{Wildcard} परिणाम"
 #: templates/2025/top.html:97 templates/2025/wildcards.html:14
 #: templates/2025/wildcards.html:83 templates/2026/rule.html:71
 #: templates/2026/rule.html:390 templates/2026/stream.html:18
-#: templates/2026/timetable.html:118 templates/2026/top.html:102
+#: templates/2026/timetable.html:125 templates/2026/top.html:102
 #: templates/2026/wildcards.html:12 templates/2026/wildcards.html:59
 #: templates/base.html:240 templates/common/result.html:110
 #: templates/includes/hamburger_menu.html:9
@@ -2033,3 +2043,7 @@ msgstr "翻訳 प्रदान नहीं करने वाले पृ�
 #~ msgstr ""
 #~ "एक बार ही Wildcard प्रस्तुत किया जा सकता है। एक बार प्रस्तुत करने के बाद, आप"
 #~ " बाद में कोई अन्य Wildcard प्रस्तुत नहीं कर सकते।"
+
+#~ msgid ""
+#~ "Wildcardシーズン中に、「{NOTWildcard}」を称する動画がまれに投稿されます。これは、正式な{Wildcard}エントリーではないものの、{Wildcard}に似た形式で制作された動画です。要するに、遊んでいるだけです。"
+#~ msgstr ""

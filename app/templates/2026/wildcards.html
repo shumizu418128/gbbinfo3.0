@@ -81,4 +81,9 @@
   {% endif %}
 </div>
 
+<h3>tips: NOT Wildcard</h3>
+<p>
+  {{_("{Wildcard}シーズン中に、「{NOTWildcard}」を称する動画がまれに投稿されます。これは、正式な{Wildcard}エントリーではないものの、{Wildcard}に似た形式で制作された動画です。要するに、遊んでいるだけです。").format(NOTWildcard="NOT Wildcard", Wildcard="Wildcard")}}
+</p>
+
 {% endblock %}
