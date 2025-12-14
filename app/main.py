@@ -82,16 +82,19 @@ if os.getenv("ENVIRONMENT_CHECK") == "qawsedrftgyhujikolp":
     print("*                                                                *")
     print("******************************************************************")
     app.config.from_object(TestConfig)
-    IS_LOCAL = True
     IS_PULL_REQUEST = False
+    IS_LOCAL = True
+    SITEMAP_GZIP = False
 elif os.getenv("IS_PULL_REQUEST") == "true":
     app.config.from_object(PRConfig)
     IS_PULL_REQUEST = True
     IS_LOCAL = False
+    SITEMAP_GZIP = True
 else:
     app.config.from_object(ProductionConfig)
     IS_PULL_REQUEST = False
     IS_LOCAL = False
+    SITEMAP_GZIP = True
 
 try:
     flask_cache = Cache(app)
@@ -265,7 +268,7 @@ def common_content(year, content):
 ####################################################################
 @app.route("/sitemap.xml")
 def sitemap_xml():
-    return sitemapper.generate()
+    return sitemapper.generate(gzip=SITEMAP_GZIP)
 
 
 @app.route("/.well-known/discord")
