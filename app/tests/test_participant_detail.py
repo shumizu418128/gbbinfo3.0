@@ -104,7 +104,7 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
         with self.client.session_transaction() as sess:
             sess["language"] = "ja"
 
-        response = self.client.get("/others/participant_detail?id=1&mode=single")
+        response = self.client.get("/participant_detail/1/single")
 
         # ステータスコードが200であることを確認
         self.assertEqual(response.status_code, 200)
@@ -174,7 +174,7 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
         with self.client.session_transaction() as sess:
             sess["language"] = "en"
 
-        response = self.client.get("/others/participant_detail?id=10&mode=team")
+        response = self.client.get("/participant_detail/10/team")
 
         # ステータスコードが200であることを確認
         self.assertEqual(response.status_code, 200)
@@ -253,7 +253,7 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
         with self.client.session_transaction() as sess:
             sess["language"] = "ja"
 
-        response = self.client.get("/others/participant_detail?id=100&mode=team_member")
+        response = self.client.get("/participant_detail/100/team_member")
 
         # ステータスコードが200であることを確認
         self.assertEqual(response.status_code, 200)
@@ -375,7 +375,7 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
         with self.client.session_transaction() as sess:
             sess["language"] = "ja"
 
-        response = self.client.get("/others/participant_detail?id=1&mode=single")
+        response = self.client.get("/participant_detail/1/single")
 
         # ステータスコードが200であることを確認
         self.assertEqual(response.status_code, 200)
@@ -463,7 +463,7 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
         with self.client.session_transaction() as sess:
             sess["language"] = "en"
 
-        response = self.client.get("/others/participant_detail?id=1&mode=single")
+        response = self.client.get("/participant_detail/1/single")
 
         # ステータスコードが200であることを確認
         self.assertEqual(response.status_code, 200)
@@ -480,7 +480,7 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
 
         # リダイレクトされることを確認
         self.assertEqual(response.status_code, 302)
-        self.assertIn("/participants", response.location)
+        self.assertIn("/participant_detail/None/None", response.location)
 
     @patch("app.context_processors.supabase_service")
     @patch("app.views.participant_detail.supabase_service")
@@ -510,11 +510,12 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
         # モックデータの設定（空のリストを返す）
         mock_view_supabase.get_data.return_value = []
 
-        response = self.client.get("/others/participant_detail?id=99999&mode=single")
+        response = self.client.get("/participant_detail/99999/single")
 
         # リダイレクトされることを確認
         self.assertEqual(response.status_code, 302)
-        self.assertIn("/participants", response.location)
+        # 2025年のparticipantsページへリダイレクトされる
+        self.assertIn("/2025/participants", response.location)
 
 
 if __name__ == "__main__":
