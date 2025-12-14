@@ -420,7 +420,7 @@ def get_yearly_content(AVAILABLE_YEARS):
     for year in AVAILABLE_YEARS:
         for html_file in BASE_DIR.glob(f"app/templates/{year}/*.html"):
             contents_per_year.append(html_file.stem)
-        years_list.append(year)
+            years_list.append(year)
 
     return years_list, contents_per_year
 

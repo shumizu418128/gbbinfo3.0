@@ -106,6 +106,7 @@ test = _("test")  # テスト翻訳
 AVAILABLE_YEARS, OTHERS_CONTENT, YEARS_LIST, CONTENTS_PER_YEAR, TRAVEL_CONTENT = (
     initialize_background_tasks(IS_LOCAL)
 )
+result_years = [y for y in AVAILABLE_YEARS if y not in (2013, 2014, 2015, 2016)]
 
 
 ####################################################################
@@ -188,16 +189,21 @@ def answer_translation():
 
 
 # MARK: 要データ取得
-@sitemapper.include(url_variables={"year": AVAILABLE_YEARS})
-@app.route("/<int:year>/world_map")
-def world_map_view(year):
-    return world_map.world_map_view(year)
-
-
-@sitemapper.include(url_variables={"year": AVAILABLE_YEARS})
+# ruleのsitemap追加は/<int:year>/<string:content>で行う
 @app.route("/<int:year>/rule")
 def rule_view(year):
     return rule.rules_view(year)
+
+
+@sitemapper.include(url_variables={"year": result_years})
+@app.route("/<int:year>/result")
+def result_view(year):
+    return result.result_view(year)
+
+
+@app.route("/<int:year>/world_map")
+def world_map_view(year):
+    return world_map.world_map_view(year)
 
 
 @sitemapper.include(url_variables={"year": AVAILABLE_YEARS})
@@ -210,12 +216,6 @@ def participants_view(year):
 @app.route("/<int:year>/cancels")
 def cancels_view(year):
     return participants.cancels_view(year)
-
-
-@sitemapper.include(url_variables={"year": AVAILABLE_YEARS})
-@app.route("/<int:year>/result")
-def result_view(year):
-    return result.result_view(year)
 
 
 @sitemapper.include(url_variables={"year": AVAILABLE_YEARS})
