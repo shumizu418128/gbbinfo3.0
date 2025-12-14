@@ -454,14 +454,9 @@ def initialize_background_tasks(IS_LOCAL):
         Thread(target=delete_world_map).start()
     Thread(target=get_translated_urls).start()
     AVAILABLE_YEARS = get_available_years()
-    print(AVAILABLE_YEARS)
     YEARS_LIST, CONTENTS_PER_YEAR = get_yearly_content(AVAILABLE_YEARS)
-    print(YEARS_LIST)
-    print(CONTENTS_PER_YEAR)
     OTHERS_CONTENT = get_others_content()
-    print(OTHERS_CONTENT)
     TRAVEL_CONTENT = get_travel_content()
-    print(TRAVEL_CONTENT)
     return (
         AVAILABLE_YEARS,
         OTHERS_CONTENT,
