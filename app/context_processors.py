@@ -379,23 +379,93 @@ def delete_world_map():
             html_file.unlink()
 
 
+def get_others_content():
+    """
+    'Others'カテゴリに属するコンテンツを取得します。
+
+    Returns:
+        list: 'Others'カテゴリに属するコンテンツのリスト
+    """
+    file_names = []
+    for html_file in BASE_DIR.glob("app/templates/others/*.html"):
+        file_names.append(html_file.stem)
+    return file_names
+
+
+def get_travel_content():
+    """
+    'Travel'カテゴリに属するコンテンツを取得します。
+
+    Returns:
+        list: 'Travel'カテゴリに属するコンテンツのリスト
+    """
+    file_names = []
+    for html_file in BASE_DIR.glob("app/templates/travel/*.html"):
+        file_names.append(html_file.stem)
+    return file_names
+
+
+def get_yearly_content(AVAILABLE_YEARS):
+    """
+    指定された年度のコンテンツを取得します。
+
+    Args:
+        year (int): 対象の年度
+
+    Returns:
+        list: 指定された年度のコンテンツのリスト
+    """
+    years_list = []
+    contents_per_year = []
+    for year in AVAILABLE_YEARS:
+        for html_file in BASE_DIR.glob(f"app/templates/{year}/*.html"):
+            contents_per_year.append(html_file.stem)
+        years_list.append(year)
+
+    return years_list, contents_per_year
+
+
 # MARK: 初期化タスク
 def initialize_background_tasks(IS_LOCAL):
     """
-    バックグラウンドタスクの初期化を行います。
+    バックグラウンドタスクを初期化して同期的に必要なコンテンツを取得します。
 
-    Args:
-        IS_LOCAL (bool): ローカル環境かどうかのフラグ
+    この関数は以下を行います：
+    - IS_LOCAL が True の場合、delete_world_map を別スレッドで起動（非同期、fire-and-forget）。
+    - get_translated_urls を別スレッドで起動（非同期、fire-and-forget）。
+    - get_available_years、get_others_content、get_yearly_content を同期的に呼び出し、その結果を返す。
 
-    Returns:
-        None
+    引数:
+        IS_LOCAL (bool): ローカル環境フラグ。True のとき delete_world_map を並列実行する。
 
-    Note:
-        - delete_world_map、check_locale_paths_and_languages、get_available_years、get_translated_urls
-          の各関数をバックグラウンドスレッドで非同期に実行します。
-        - 各タスクはアプリケーションの初期化時に一度だけ実行されます。
+    戻り値:
+        tuple:
+            - AVAILABLE_YEARS: get_available_years() の戻り値（利用可能な年一覧など）。
+            - OTHERS_CONTENT: get_others_content() の戻り値（その他共通コンテンツ）。
+            - YEARLY_CONTENT: get_yearly_content(AVAILABLE_YEARS) の戻り値（年度別コンテンツ）。
+
+    注意:
+        - 別スレッドで起動されるタスク（delete_world_map, get_translated_urls）は
+          fire-and-forget であり、この関数はそれらの完了を待ちません。
+        - 非同期タスク内で発生した例外はここでは捕捉されません。必要ならタスク内で例外処理を行ってください。
+        - 本関数はアプリケーション初期化時に一度だけ呼び出すことを想定しています。
     """
     if IS_LOCAL:
         Thread(target=delete_world_map).start()
-    Thread(target=get_available_years).start()
     Thread(target=get_translated_urls).start()
+    AVAILABLE_YEARS = get_available_years()
+    print(AVAILABLE_YEARS)
+    YEARS_LIST, CONTENTS_PER_YEAR = get_yearly_content(AVAILABLE_YEARS)
+    print(YEARS_LIST)
+    print(CONTENTS_PER_YEAR)
+    OTHERS_CONTENT = get_others_content()
+    print(OTHERS_CONTENT)
+    TRAVEL_CONTENT = get_travel_content()
+    print(TRAVEL_CONTENT)
+    return (
+        AVAILABLE_YEARS,
+        OTHERS_CONTENT,
+        YEARS_LIST,
+        CONTENTS_PER_YEAR,
+        TRAVEL_CONTENT,
+    )

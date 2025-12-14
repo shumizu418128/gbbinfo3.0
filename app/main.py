@@ -17,7 +17,6 @@ from app.config.config import (
 )
 from app.context_processors import (
     common_variables,
-    get_available_years,
     get_locale,
     initialize_background_tasks,
 )
@@ -104,8 +103,9 @@ babel = Babel(app)
 test = _("test")  # テスト翻訳
 
 # バックグラウンド初期化タスクはキャッシュ初期化後に起動
-initialize_background_tasks(IS_LOCAL)
-AVAILABLE_YEARS = get_available_years()
+AVAILABLE_YEARS, OTHERS_CONTENT, YEARS_LIST, CONTENTS_PER_YEAR, TRAVEL_CONTENT = (
+    initialize_background_tasks(IS_LOCAL)
+)
 
 
 ####################################################################
@@ -237,19 +237,19 @@ def notice_view():
 
 
 # MARK: 通常ページ
-@sitemapper.include()
+@sitemapper.include(url_variables={"content": OTHERS_CONTENT})
 @app.route("/others/<string:content>")
 def others(content):
     return common.other_content_view(content)
 
 
-@sitemapper.include()
+@sitemapper.include(url_variables={"content": TRAVEL_CONTENT})
 @app.route("/travel/<string:content>")
 def travel(content):
     return common.travel_content_view(content)
 
 
-@sitemapper.include(url_variables={"year": AVAILABLE_YEARS})
+@sitemapper.include(url_variables={"year": YEARS_LIST, "content": CONTENTS_PER_YEAR})
 @app.route("/<int:year>/<string:content>")
 def common_content(year, content):
     return common.content_view(year, content)
@@ -258,6 +258,11 @@ def common_content(year, content):
 ####################################################################
 # MARK: 静的ファイル
 ####################################################################
+@app.route("/sitemap.xml")
+def sitemap_xml():
+    return sitemapper.generate()
+
+
 @app.route("/.well-known/discord")
 def discord():
     return send_file("static/discord")
