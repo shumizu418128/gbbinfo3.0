@@ -149,7 +149,7 @@ def world_map_view(year: int):
         for participant in participants:
             popup_content += f"""
             <p style="margin: 5px 0;">
-                <a href="/others/participant_detail?id={participant["id"]}&mode={participant["mode"]}" target="_top">{participant["name"]}</a> ({participant["category"]})
+                <a href="/participant_detail/{participant["id"]}/{participant["mode"]}" target="_top">{participant["name"]}</a> ({participant["category"]})
             </p>
             """
         popup_content += "</div>"

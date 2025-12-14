@@ -27,7 +27,7 @@
         <tbody>
         {% for participant in cancels %}
             <tr>
-                <td>【{{_("辞退")}}】<br><a href="/others/participant_detail?id={{ participant.id }}&mode={{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a></td>
+                <td>【{{_("辞退")}}】<br><a href="/participant_detail/{{ participant.id }}/{{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a></td>
                 <td><s>{{ participant.category }}</s></td>
                 <td><s>{{ participant.ticket_class }}</s></td>
             </tr>

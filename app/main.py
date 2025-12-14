@@ -154,6 +154,11 @@ def change_language():
     return language.change_language()
 
 
+@app.route("/others/participant_detail")
+def participant_detail_deprecated():
+    return participant_detail.participant_detail_deprecated_view()
+
+
 # MARK: POST
 @app.route("/beatboxer_tavily_search", methods=["POST"])
 def beatboxer_tavily_search():
@@ -225,10 +230,10 @@ def korea(year):
     return participants.participants_country_specific_view(year)
 
 
-@sitemapper.include()
-@app.route("/others/participant_detail")
-def participant_detail_view():
-    return participant_detail.participant_detail_view()
+# @sitemapper.include()
+@app.route("/participant_detail/<int:participant_id>/<string:mode>")
+def participant_detail_view(participant_id, mode):
+    return participant_detail.participant_detail_view(participant_id, mode)
 
 
 @app.route("/notice")

@@ -43,12 +43,12 @@
       <tbody>
         {% for match in data %}
           <tr>
-            <td class="winner"><a href="/others/participant_detail?id={{ match.winner.id }}&mode={% if category_is_team %}team{% else %}single{% endif %}">
+            <td class="winner"><a href="/participant_detail/{{ match.winner.id }}/{% if category_is_team %}team{% else %}single{% endif %}">
               {% set participant = match.winner %}
               {% include "includes/country_flag.html" %}{{ match.winner.name }}
             </a></td>
             <td>vs</td>
-            <td><a href="/others/participant_detail?id={{ match.loser.id }}&mode={% if category_is_team %}team{% else %}single{% endif %}">
+            <td><a href="/participant_detail/{{ match.loser.id }}/{% if category_is_team %}team{% else %}single{% endif %}">
               {% set participant = match.loser %}
               {% include "includes/country_flag.html" %}{{ match.loser.name }}
             </a></td>
@@ -71,7 +71,7 @@
         {% for participant in data %}
           <tr>
             <td>{{ participant.rank }}</td>
-            <td><a href="/others/participant_detail?id={{ participant.id }}&mode={% if category_is_team %}team{% else %}single{% endif %}">
+            <td><a href="/participant_detail/{{ participant.id }}/{% if category_is_team %}team{% else %}single{% endif %}">
               {% include "includes/country_flag.html" %}{{ participant.name }}
             </a></td>
           </tr>

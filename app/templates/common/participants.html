@@ -52,7 +52,7 @@
             {% if participant.is_cancelled %}
               <td>
                 【{{_("辞退")}}】<br>
-                <a href="/others/participant_detail?id={{ participant.id }}&mode={{ participant.mode }}">{{ participant.name }}</a>
+                <a href="/participant_detail/{{ participant.id }}/{{ participant.mode }}">{{ participant.name }}</a>
               </td>
               <td {% if participant.country|length > 5 %} style="font-size: 12px;" {% endif %}>
                 {% include "includes/country_flag.html" %}
@@ -66,7 +66,7 @@
                 <td>{{ participant.name }}</td>
               {% else %}
                 <td>
-                  <a href="/others/participant_detail?id={{ participant.id }}&mode={{ participant.mode }}">{{ participant.name }}</a>
+                  <a href="/participant_detail/{{ participant.id }}/{{ participant.mode }}">{{ participant.name }}</a>
                 </td>
               {% endif %}
               <td {% if participant.country|length > 5 %} style="font-size: 12px;" {% endif %}>

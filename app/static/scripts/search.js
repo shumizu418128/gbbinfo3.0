@@ -121,7 +121,7 @@ function searchParticipants(year, event) {
                 return `<tr>
                     <td>
                         ${participant.is_cancelled ? '【辞退】<br>' : ''}
-                        <a href="/others/participant_detail?id=${participant.id}&mode=${participant.mode}">${participant.name}</a>
+                        <a href="/participant_detail/${participant.id}/${participant.mode}">${participant.name}</a>
                         ${participant.members ? `<div id="small-text">${participant.members}</div>` : ''}
                     </td>
                     <td>
