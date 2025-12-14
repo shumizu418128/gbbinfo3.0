@@ -17,7 +17,12 @@ from app.config.config import (
 )
 from app.context_processors import (
     common_variables,
+    get_available_years,
     get_locale,
+    get_others_content,
+    get_participant_id,
+    get_travel_content,
+    get_yearly_content,
     initialize_background_tasks,
 )
 from app.views import (
@@ -106,9 +111,14 @@ babel = Babel(app)
 test = _("test")  # テスト翻訳
 
 # バックグラウンド初期化タスクはキャッシュ初期化後に起動
-AVAILABLE_YEARS, OTHERS_CONTENT, YEARS_LIST, CONTENTS_PER_YEAR, TRAVEL_CONTENT = (
-    initialize_background_tasks(IS_LOCAL)
-)
+initialize_background_tasks(IS_LOCAL)
+
+AVAILABLE_YEARS = get_available_years()
+YEARS_LIST, CONTENTS_PER_YEAR = get_yearly_content(AVAILABLE_YEARS)
+OTHERS_CONTENT = get_others_content()
+TRAVEL_CONTENT = get_travel_content()
+PARTICIPANTS_ID_LIST, PARTICIPANTS_MODE_LIST = get_participant_id()
+
 result_years = [y for y in AVAILABLE_YEARS if y not in (2013, 2014, 2015, 2016)]
 
 
@@ -233,7 +243,12 @@ def korea(year):
     return participants.participants_country_specific_view(year)
 
 
-# @sitemapper.include()
+@sitemapper.include(
+    url_variables={
+        "participant_id": PARTICIPANTS_ID_LIST,
+        "mode": PARTICIPANTS_MODE_LIST,
+    }
+)
 @app.route("/participant_detail/<int:participant_id>/<string:mode>")
 def participant_detail_view(participant_id, mode):
     return participant_detail.participant_detail_view(participant_id, mode)

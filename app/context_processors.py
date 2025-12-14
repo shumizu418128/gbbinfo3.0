@@ -425,6 +425,57 @@ def get_yearly_content(AVAILABLE_YEARS):
     return years_list, contents_per_year
 
 
+def get_participant_id():
+    """
+    リクエストのクエリパラメータからparticipant_idを取得します。
+
+    Returns:
+        int or None: participant_idが存在し、整数に変換可能な場合はその値を返します。
+                     それ以外の場合はNoneを返します。
+    """
+    # ここに書かないと循環インポートになる
+    from app.main import flask_cache
+
+    cache_key = "participant_id_mode_list"
+    cached_data = flask_cache.get(cache_key)
+    if cached_data is not None:
+        return cached_data
+
+    participants_id_list = []
+    participants_mode_list = []
+
+    # 出場者データを取得
+    participants_data = supabase_service.get_data(
+        table="Participant",
+        columns=["id", "name"],
+        join_tables={
+            "Category": ["is_team"],
+        },
+    )
+    participant_members_data = supabase_service.get_data(
+        table="ParticipantMember",
+        columns=["id"],
+    )
+
+    for participant in participants_data:
+        if participant["Category"]["is_team"]:
+            mode = "team"
+        else:
+            mode = "single"
+        participants_id_list.append(participant["id"])
+        participants_mode_list.append(mode)
+
+    for member in participant_members_data:
+        participants_id_list.append(member["id"])
+        participants_mode_list.append("team_member")
+
+    flask_cache.set(
+        cache_key, (participants_id_list, participants_mode_list), timeout=None
+    )
+
+    return participants_id_list, participants_mode_list
+
+
 # MARK: 初期化タスク
 def initialize_background_tasks(IS_LOCAL):
     """
@@ -453,14 +504,3 @@ def initialize_background_tasks(IS_LOCAL):
     if IS_LOCAL:
         Thread(target=delete_world_map).start()
     Thread(target=get_translated_urls).start()
-    AVAILABLE_YEARS = get_available_years()
-    YEARS_LIST, CONTENTS_PER_YEAR = get_yearly_content(AVAILABLE_YEARS)
-    OTHERS_CONTENT = get_others_content()
-    TRAVEL_CONTENT = get_travel_content()
-    return (
-        AVAILABLE_YEARS,
-        OTHERS_CONTENT,
-        YEARS_LIST,
-        CONTENTS_PER_YEAR,
-        TRAVEL_CONTENT,
-    )
