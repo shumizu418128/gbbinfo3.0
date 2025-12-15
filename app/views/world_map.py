@@ -4,7 +4,12 @@ from collections import defaultdict
 import folium
 from flask import abort, render_template, session
 
-from app.config.config import FLAG_CODE, FOLIUM_CUSTOM_CSS, MULTI_COUNTRY_TEAM_ISO_CODE
+from app.config.config import (
+    FLAG_CODE,
+    FOLIUM_CUSTOM_CSS,
+    MULTI_COUNTRY_TEAM_ISO_CODE,
+    SUPPORTED_LOCALES,
+)
 from app.models.supabase_client import supabase_service
 
 
@@ -29,7 +34,10 @@ def world_map_view(year: int):
     """
     language = session["language"]
 
-    # マップがすでに作成されている場合はそれを表示
+    # 不正な言語名によるオープンリダイレクト・パストラバーサル対策
+    if language not in SUPPORTED_LOCALES:
+        abort(400)
+
     map_save_path = os.path.join(
         "app", "templates", str(year), "world_map", f"{language}.html"
     )
