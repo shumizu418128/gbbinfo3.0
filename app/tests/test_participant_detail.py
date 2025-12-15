@@ -455,111 +455,11 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
         # 2025年のparticipantsページへリダイレクトされる
         self.assertIn("/2025/participants", response.location)
 
-    @patch("app.context_processors.supabase_service")
-    @patch("app.views.participant_detail.supabase_service")
-    def test_participant_detail_redirects_when_iso_code_zero(
-        self, mock_view_supabase, mock_context_supabase
-    ):
-        """
-        データが存在してもiso_codeが0の場合、participantsページにリダイレクトされることを確認
-        """
+    # 重複のため削除: 単一出場者のiso_code==0のリダイレクトは
+    # `test_single_participant_with_iso_code_zero` が既にカバーしています。
 
-        # context_processors用のモック設定
-        def mock_get_data(**kwargs):
-            # pandas=Trueが指定されている場合はpandas DataFrameを返す
-            if kwargs.get("pandas", False):
-                return pd.DataFrame(
-                    [{"year": 2025, "ends_at": "2025-12-31T23:59:59+00:00"}]
-                )
-            # filtersが指定されている場合はYearテーブルからのデータとして扱う
-            elif "filters" in kwargs:
-                return [{"year": 2025, "ends_at": "2025-12-31T23:59:59+00:00"}]
-            # それ以外の場合はget_available_years()用のリストを返す
-            else:
-                return [{"year": 2025}]
-
-        mock_context_supabase.get_data.side_effect = mock_get_data
-
-        # モックデータの設定: iso_codeが0のデータを返す
-        mock_view_supabase.get_data.return_value = [
-            {
-                "id": 1,
-                "name": "tbd player",
-                "year": 2025,
-                "category": 1,
-                "iso_code": 0,  # iso_codeが0
-                "ticket_class": "GBB Seed",
-                "is_cancelled": False,
-                "Country": {"iso_code": 0, "names": {}, "iso_alpha2": ""},
-                "Category": {"id": 1, "name": "Solo"},
-                "ParticipantMember": [],
-            }
-        ]
-
-        with self.client.session_transaction() as sess:
-            sess["language"] = "ja"
-
-        response = self.client.get("/participant_detail/1/single")
-
-        # リダイレクトされることを確認
-        self.assertEqual(response.status_code, 302)
-        # 2025年のparticipantsページへリダイレクトされる
-        self.assertIn("/2025/participants", response.location)
-
-    @patch("app.context_processors.supabase_service")
-    @patch("app.views.participant_detail.supabase_service")
-    def test_team_member_with_iso_code_zero_redirect(
-        self, mock_view_supabase, mock_context_supabase
-    ):
-        """
-        team_memberモードでiso_codeが0の場合、participantsページにリダイレクトされることを確認
-        """
-
-        # context_processors用のモック設定
-        def mock_get_data(**kwargs):
-            # pandas=Trueが指定されている場合はpandas DataFrameを返す
-            if kwargs.get("pandas", False):
-                return pd.DataFrame(
-                    [{"year": 2025, "ends_at": "2025-12-31T23:59:59+00:00"}]
-                )
-            # filtersが指定されている場合はYearテーブルからのデータとして扱う
-            elif "filters" in kwargs:
-                return [{"year": 2025, "ends_at": "2025-12-31T23:59:59+00:00"}]
-            # それ以外の場合はget_available_years()用のリストを返す
-            else:
-                return [{"year": 2025}]
-
-        mock_context_supabase.get_data.side_effect = mock_get_data
-
-        # モックデータの設定: チームメンバーでiso_codeが0のデータを返す
-        mock_view_supabase.get_data.return_value = [
-            {
-                "id": 100,
-                "participant": 10,
-                "name": "tbd member",
-                "iso_code": 0,  # iso_codeが0
-                "Country": {"iso_code": 0, "names": {}, "iso_alpha2": ""},
-                "Participant": {
-                    "id": 10,
-                    "name": "team name",
-                    "year": 2025,
-                    "category": 2,
-                    "is_cancelled": False,
-                    "ticket_class": "GBB Seed",
-                    "Category": {"id": 2, "name": "Crew"},
-                },
-            }
-        ]
-
-        with self.client.session_transaction() as sess:
-            sess["language"] = "en"
-
-        response = self.client.get("/participant_detail/100/team_member")
-
-        # リダイレクトされることを確認
-        self.assertEqual(response.status_code, 302)
-        # 2025年のparticipantsページへリダイレクトされる
-        self.assertIn("/2025/participants", response.location)
+    # 重複のため削除: チームメンバーのiso_code==0のリダイレクトは
+    # `test_team_member_with_iso_code_zero` が既にカバーしています。
 
 
 if __name__ == "__main__":
