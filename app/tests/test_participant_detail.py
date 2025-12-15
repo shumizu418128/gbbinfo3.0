@@ -5,11 +5,26 @@ python -m pytest app/tests/test_participant_detail.py -v
 """
 
 import unittest
+from datetime import datetime
 from unittest.mock import patch
 
 import pandas as pd
 
-from app.main import app
+# Supabaseサービスをモックしてからapp.mainをインポート
+with patch("app.context_processors.supabase_service") as mock_supabase:
+    # get_available_years()とget_participant_id()のためのモックデータ
+    def mock_get_data(*args, **kwargs):
+        table = kwargs.get("table")
+        if table == "Year":
+            return [{"year": 2025}]
+        elif table == "Participant":
+            return [{"id": 1, "name": "Test", "Category": {"is_team": False}}]
+        elif table == "ParticipantMember":
+            return [{"id": 2}]
+        return []
+
+    mock_supabase.get_data.side_effect = mock_get_data
+    from app.main import app
 
 
 class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
@@ -104,7 +119,7 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
         with self.client.session_transaction() as sess:
             sess["language"] = "ja"
 
-        response = self.client.get("/others/participant_detail?id=1&mode=single")
+        response = self.client.get("/participant_detail/1/single")
 
         # ステータスコードが200であることを確認
         self.assertEqual(response.status_code, 200)
@@ -174,7 +189,7 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
         with self.client.session_transaction() as sess:
             sess["language"] = "en"
 
-        response = self.client.get("/others/participant_detail?id=10&mode=team")
+        response = self.client.get("/participant_detail/10/team")
 
         # ステータスコードが200であることを確認
         self.assertEqual(response.status_code, 200)
@@ -253,7 +268,7 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
         with self.client.session_transaction() as sess:
             sess["language"] = "ja"
 
-        response = self.client.get("/others/participant_detail?id=100&mode=team_member")
+        response = self.client.get("/participant_detail/100/team_member")
 
         # ステータスコードが200であることを確認
         self.assertEqual(response.status_code, 200)
@@ -375,7 +390,7 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
         with self.client.session_transaction() as sess:
             sess["language"] = "ja"
 
-        response = self.client.get("/others/participant_detail?id=1&mode=single")
+        response = self.client.get("/participant_detail/1/single")
 
         # ステータスコードが200であることを確認
         self.assertEqual(response.status_code, 200)
@@ -463,7 +478,7 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
         with self.client.session_transaction() as sess:
             sess["language"] = "en"
 
-        response = self.client.get("/others/participant_detail?id=1&mode=single")
+        response = self.client.get("/participant_detail/1/single")
 
         # ステータスコードが200であることを確認
         self.assertEqual(response.status_code, 200)
@@ -480,7 +495,8 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
 
         # リダイレクトされることを確認
         self.assertEqual(response.status_code, 302)
-        self.assertIn("/participants", response.location)
+        year = datetime.now().year
+        self.assertIn(f"/{year}/participants", response.location)
 
     @patch("app.context_processors.supabase_service")
     @patch("app.views.participant_detail.supabase_service")
@@ -510,11 +526,12 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
         # モックデータの設定（空のリストを返す）
         mock_view_supabase.get_data.return_value = []
 
-        response = self.client.get("/others/participant_detail?id=99999&mode=single")
+        response = self.client.get("/participant_detail/99999/single")
 
         # リダイレクトされることを確認
         self.assertEqual(response.status_code, 302)
-        self.assertIn("/participants", response.location)
+        # 2025年のparticipantsページへリダイレクトされる
+        self.assertIn("/2025/participants", response.location)
 
 
 if __name__ == "__main__":

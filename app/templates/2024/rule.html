@@ -147,7 +147,7 @@
     <tbody>
       {% for participant in gbb_seed %}
       <tr>
-        <td><a href="/others/participant_detail?id={{ participant.id }}&mode={% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a></td>
+        <td><a href="/participant_detail/{{ participant.id }}/{% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a></td>
         <td>{{ participant.category }}</td>
         <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
           {{ participant.ticket_class }}
@@ -173,7 +173,7 @@
     <tbody>
       {% for participant in other_seed %}
       <tr>
-        <td><a href="/others/participant_detail?id={{ participant.id }}&mode={% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a></td>
+        <td><a href="/participant_detail/{{ participant.id }}/{% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a></td>
         <td>{{ participant.category }}</td>
         <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
           {{ participant.ticket_class }}
@@ -200,7 +200,7 @@
       {% for participant in cancelled %}
       <tr>
         <td>
-          【{{_("辞退")}}】<br><a href="/others/participant_detail?id={{ participant.id }}&mode={% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a>
+          【{{_("辞退")}}】<br><a href="/participant_detail/{{ participant.id }}/{% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a>
         </td>
         <td>
           <s>{{ participant.category }}</s>
