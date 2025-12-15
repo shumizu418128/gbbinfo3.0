@@ -375,10 +375,9 @@ class AppUrlsTestCase(unittest.TestCase):
             # 2022年特別エンドポイント（main.pyのルート定義より）
             ("/2022/top", "2022年 トップページ"),
             ("/2022/rule", "2022年 ルール"),
-            # participant_detailは複雑なSupabaseクエリが多数あるためテストから除外
-            ("/others/participant_detail?id=2064&mode=single", "出場者詳細 JUNNO"),
-            ("/others/participant_detail?id=255&mode=team_member", "出場者詳細 TAKO"),
-            ("/others/participant_detail?id=1923&mode=team", "出場者詳細 WOLFGANG"),
+            ("/participant_detail/2064/single", "出場者詳細 JUNNO"),
+            ("/participant_detail/255/team_member", "出場者詳細 TAKO"),
+            ("/participant_detail/1923/team", "出場者詳細 WOLFGANG"),
         ]
 
         # 年度別のテンプレートファイルをチェック
