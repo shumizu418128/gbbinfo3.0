@@ -457,7 +457,7 @@ def get_participant_id():
         join_tables={
             "Category": ["is_team"],
         },
-        filters={f"iso_code__{Operator.IS_NOT}": 0},
+        filters={f"iso_code__{Operator.GREATER_THAN}": 0},
     )
     participant_members_data = supabase_service.get_data(
         table="ParticipantMember",
