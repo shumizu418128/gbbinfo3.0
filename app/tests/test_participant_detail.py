@@ -4,16 +4,11 @@ participant_detail.py のテストモジュール
 python -m pytest app/tests/test_participant_detail.py -v
 """
 
-import os
 import unittest
 from datetime import datetime
 from unittest.mock import patch
 
 import pandas as pd
-
-# app.mainをインポートする前に環境変数を設定
-os.environ.setdefault("SUPABASE_URL", "https://test.supabase.co")
-os.environ.setdefault("SUPABASE_SERVICE_ROLE_KEY", "test-key")
 
 # Supabaseサービスをモックしてからapp.mainをインポート
 with patch("app.context_processors.supabase_service") as mock_supabase:

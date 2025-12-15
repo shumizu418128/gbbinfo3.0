@@ -4,13 +4,8 @@ Flask アプリケーションのBeatboxer Tavily検索のテストモジュー�
 python -m pytest app/tests/test_beatboxer_search.py -v
 """
 
-import os
 import unittest
 from unittest.mock import patch
-
-# app.mainをインポートする前に環境変数を設定
-os.environ.setdefault("SUPABASE_URL", "https://test.supabase.co")
-os.environ.setdefault("SUPABASE_SERVICE_ROLE_KEY", "test-key")
 
 # Supabaseサービスをモックしてからapp.mainをインポート
 with patch("app.context_processors.supabase_service") as mock_supabase:

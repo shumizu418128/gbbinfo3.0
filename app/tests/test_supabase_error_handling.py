@@ -5,13 +5,8 @@ python -m pytest app/tests/test_supabase_error_handling.py -v
 """
 
 import json
-import os
 import unittest
 from unittest.mock import patch
-
-# app.mainをインポートする前に環境変数を設定
-os.environ.setdefault("SUPABASE_URL", "https://test.supabase.co")
-os.environ.setdefault("SUPABASE_SERVICE_ROLE_KEY", "test-key")
 
 # Supabaseサービスをモックしてからapp.mainをインポート
 with patch("app.context_processors.supabase_service") as mock_supabase:

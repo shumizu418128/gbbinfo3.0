@@ -8,9 +8,6 @@ import os
 import unittest
 from unittest.mock import patch
 
-# app.mainをインポートする前に環境変数を設定
-os.environ.setdefault("SUPABASE_URL", "https://test.supabase.co")
-os.environ.setdefault("SUPABASE_SERVICE_ROLE_KEY", "test-key")
 
 from app.config.config import LANGUAGE_CHOICES
 
