@@ -4,16 +4,24 @@ Flask アプリケーションのコンテキストプロセッサのテスト�
 python -m pytest app/tests/test_context_processors.py -v
 """
 
+import os
 import unittest
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
-from app.context_processors import (
-    get_available_years,
-    is_early_access,
-    is_latest_year,
-    is_translated,
-)
-from app.main import app
+# app.mainをインポートする前に環境変数を設定
+os.environ.setdefault("SUPABASE_URL", "https://test.supabase.co")
+os.environ.setdefault("SUPABASE_SERVICE_ROLE_KEY", "test-key")
+
+# Supabaseサービスをモックしてからapp.mainをインポート
+with patch("app.context_processors.supabase_service") as mock_supabase:
+    mock_supabase.get_data.return_value = [{"year": 2025}]
+    from app.context_processors import (
+        get_available_years,
+        is_early_access,
+        is_latest_year,
+        is_translated,
+    )
+    from app.main import app
 
 COMMON_URLS = ["/japan", "/korea", "/participants", "/rule"]
 
@@ -97,7 +105,6 @@ class ContextProcessorsTestCase(unittest.TestCase):
     def test_get_others_content(self, mock_base_dir):
         """'Others'カテゴリのコンテンツ取得テスト"""
         from pathlib import Path
-        from unittest.mock import MagicMock
 
         from app.context_processors import get_others_content
 
@@ -125,7 +132,6 @@ class ContextProcessorsTestCase(unittest.TestCase):
     def test_get_travel_content(self, mock_base_dir):
         """'Travel'カテゴリのコンテンツ取得テスト"""
         from pathlib import Path
-        from unittest.mock import MagicMock
 
         from app.context_processors import get_travel_content
 
@@ -151,7 +157,6 @@ class ContextProcessorsTestCase(unittest.TestCase):
     def test_get_yearly_content(self, mock_base_dir):
         """年度別コンテンツ取得テスト"""
         from pathlib import Path
-        from unittest.mock import MagicMock
 
         from app.context_processors import get_yearly_content
 

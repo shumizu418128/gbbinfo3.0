@@ -8,8 +8,16 @@ import os
 import unittest
 from unittest.mock import patch
 
+# app.mainをインポートする前に環境変数を設定
+os.environ.setdefault("SUPABASE_URL", "https://test.supabase.co")
+os.environ.setdefault("SUPABASE_SERVICE_ROLE_KEY", "test-key")
+
 from app.config.config import LANGUAGE_CHOICES
-from app.main import app
+
+# Supabaseサービスをモックしてからapp.mainをインポート
+with patch("app.context_processors.supabase_service") as mock_supabase:
+    mock_supabase.get_data.return_value = [{"year": 2025}]
+    from app.main import app
 
 COMMON_URLS = ["/japan", "/korea", "/participants", "/rule"]
 
