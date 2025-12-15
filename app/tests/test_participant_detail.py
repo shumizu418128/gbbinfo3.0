@@ -5,6 +5,7 @@ python -m pytest app/tests/test_participant_detail.py -v
 """
 
 import unittest
+from datetime import datetime
 from unittest.mock import patch
 
 import pandas as pd
@@ -480,7 +481,8 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
 
         # リダイレクトされることを確認
         self.assertEqual(response.status_code, 302)
-        self.assertIn("/participant_detail/None/None", response.location)
+        year = datetime.now().year
+        self.assertIn(f"/{year}/participants", response.location)
 
     @patch("app.context_processors.supabase_service")
     @patch("app.views.participant_detail.supabase_service")

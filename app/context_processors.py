@@ -410,7 +410,7 @@ def get_yearly_content(AVAILABLE_YEARS):
     指定された年度のコンテンツを取得します。
 
     Args:
-        year (int): 対象の年度
+        AVAILABLE_YEARS (list): 対象の年度リスト
 
     Returns:
         list: 指定された年度のコンテンツのリスト
@@ -427,12 +427,14 @@ def get_yearly_content(AVAILABLE_YEARS):
 
 def get_participant_id():
     """
-    リクエストのクエリパラメータからparticipant_idを取得します。
+    参加者のIDリストと各参加者のモードリストを返します。
 
     Returns:
-        int or None: participant_idが存在し、整数に変換可能な場合はその値を返します。
-                     それ以外の場合はNoneを返します。
+    tuple: (participants_id_list, participants_mode_list)
+        - participants_id_list: list[int | str] — 参加者またはメンバーのIDのリスト（順序は取得順）
+        - participants_mode_list: list[str] — 各IDに対応するモードのリスト。値は "team", "single", "team_member" のいずれか。
     """
+
     # ここに書かないと循環インポートになる
     from app.main import flask_cache
 

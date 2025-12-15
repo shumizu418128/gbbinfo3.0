@@ -3,8 +3,8 @@
 {% block title %}GBB {{ beatboxer_detail.year }} {{ beatboxer_detail.name }} - GBBINFO-JPN{% endblock %}
 {% block twitter_title %}GBB {{ beatboxer_detail.year }} {{ beatboxer_detail.name }} - GBBINFO-JPN{% endblock %}
 {% block og_title %}GBB {{ beatboxer_detail.year }} {{ beatboxer_detail.name }} - GBBINFO-JPN{% endblock %}
-{% block og_url %}https://gbbinfo-jpn.onrender.com/participant_detail{% endblock %}
-{% block canonical %}https://gbbinfo-jpn.onrender.com/participant_detail{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/participant_detail/{{ beatboxer_detail.id }}/{{ mode }}{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/participant_detail/{{ beatboxer_detail.id }}/{{ mode }}{% endblock %}
 {% block content %}
 
 <h1>GBB {{ beatboxer_detail.year }} {{ beatboxer_detail.name }}</h1>

@@ -275,7 +275,7 @@ def participant_detail_view(participant_id, mode):
 # MARK: リダイレクト
 def participant_detail_deprecated_view():
     """
-    参加者詳細情報を表示する（deprecated）。
+    参加者詳細情報を表示する (deprecated)。
 
     Args:
         request (HttpRequest): リクエストオブジェクト
@@ -285,4 +285,15 @@ def participant_detail_deprecated_view():
     """
     participant_id = request.args.get("id", type=int)
     mode = request.args.get("mode", type=str)
+
+    allowed_modes = {"single", "team", "team_member"}
+    if mode not in allowed_modes:
+        year = datetime.now().year
+        return redirect(f"/{year}/participants")
+
+    # パラメータが欠落している場合は直接参加者一覧ページへリダイレクトする
+    if participant_id is None or mode is None:
+        year = datetime.now().year
+        return redirect(f"/{year}/participants")
+
     return redirect(f"/participant_detail/{participant_id}/{mode}")
