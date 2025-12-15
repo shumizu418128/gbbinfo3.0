@@ -379,6 +379,7 @@ def delete_world_map():
             html_file.unlink()
 
 
+# MARK: others
 def get_others_content():
     """
     'Others'カテゴリに属するコンテンツを取得します。
@@ -392,6 +393,7 @@ def get_others_content():
     return file_names
 
 
+# MARK: travel
 def get_travel_content():
     """
     'Travel'カテゴリに属するコンテンツを取得します。
@@ -405,6 +407,7 @@ def get_travel_content():
     return file_names
 
 
+# MARK: 年度別
 def get_yearly_content(AVAILABLE_YEARS):
     """
     指定された年度のコンテンツを取得します。
@@ -425,6 +428,7 @@ def get_yearly_content(AVAILABLE_YEARS):
     return years_list, contents_per_year
 
 
+# MARK: 出場者id
 def get_participant_id():
     """
     参加者のIDリストと各参加者のモードリストを返します。
@@ -453,6 +457,7 @@ def get_participant_id():
         join_tables={
             "Category": ["is_team"],
         },
+        filters={f"iso_code__{Operator.GREATER_THAN}": 0},
     )
     participant_members_data = supabase_service.get_data(
         table="ParticipantMember",

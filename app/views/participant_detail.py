@@ -66,7 +66,7 @@ def participant_detail_view(participant_id, mode):
         )
 
     # データがない場合、出場者ページへリダイレクト
-    if not beatboxer_data:
+    if len(beatboxer_data) == 0 or beatboxer_data[0]["iso_code"] == 0:
         year = datetime.now().year
         return redirect(f"/{year}/participants")
 
