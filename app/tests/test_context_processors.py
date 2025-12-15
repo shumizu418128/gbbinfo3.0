@@ -258,3 +258,51 @@ class ContextProcessorsTestCase(unittest.TestCase):
 
         # 2回目の呼び出しではSupabaseが呼ばれていないことを確認
         self.assertEqual(mock_supabase.get_data.call_count, 2)
+
+    @patch("app.main.flask_cache")
+    @patch("app.context_processors.supabase_service")
+    def test_get_participant_id_filters_undefined_iso_code(
+        self, mock_supabase, mock_flask_cache
+    ):
+        """iso_codeが0（未定）の出場者をフィルタリングするテスト"""
+        from app.context_processors import get_participant_id
+
+        # キャッシュをクリア
+        mock_flask_cache.get.return_value = None
+
+        # モックデータの設定: iso_codeが0の参加者も含む
+        mock_supabase.get_data.side_effect = [
+            # Participantテーブルのデータ
+            # iso_code!=0 のフィルタが適用されているので、
+            # iso_codeが0の参加者は返されないはず
+            [
+                {
+                    "id": 1,
+                    "name": "Player A",
+                    "Category": {"is_team": False},
+                },
+                {
+                    "id": 2,
+                    "name": "Team B",
+                    "Category": {"is_team": True},
+                },
+            ],
+            # ParticipantMemberテーブルのデータ
+            [
+                {"id": 101},
+            ],
+        ]
+
+        participants_id_list, participants_mode_list = get_participant_id()
+
+        # Supabaseの呼び出しを確認：Participantテーブルで正しいフィルタが使用されているか
+        call_args = mock_supabase.get_data.call_args_list[0]
+        self.assertEqual(call_args[1]["table"], "Participant")
+
+        # フィルタに iso_code != 0 が含まれていることを確認
+        filters = call_args[1].get("filters", {})
+        self.assertIn("iso_code__", str(filters))
+
+        # 結果の確認: iso_code=0の参加者は除外されている
+        self.assertEqual(participants_id_list, [1, 2, 101])
+        self.assertEqual(participants_mode_list, ["single", "team", "team_member"])
