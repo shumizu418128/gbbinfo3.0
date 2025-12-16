@@ -37,9 +37,9 @@ def post_search_participants(year: int):
 
         members_data = supabase_service.get_data(
             table="ParticipantMember",
-            columns=["id"],
+            columns=["id", "name"],
             join_tables={
-                "Participant": [
+                "Participant!inner": [
                     "id",
                     "year",
                     "name",
@@ -50,7 +50,8 @@ def post_search_participants(year: int):
                 ],
             },
             raise_error=True,
-            filters={"participant!inner.year": year},
+            # Participant テーブルの year カラムでフィルタする
+            filters={"Participant.year": year},
         )
     except Exception:
         abort(500)
@@ -59,15 +60,19 @@ def post_search_participants(year: int):
     search_name_participants = [
         participant["name"].upper() for participant in participants_data
     ]
-    search_name_members = [
+    search_name_parent_names = [
         member["Participant"]["name"].upper() for member in members_data
     ]
+    search_name_member_names = [member["name"].upper() for member in members_data]
 
     extract_result_participants = process.extract(
         keyword.upper(), search_name_participants, limit=5
     )
-    extract_result_members = process.extract(
-        keyword.upper(), search_name_members, limit=5
+    extract_result_parent_names = process.extract(
+        keyword.upper(), search_name_parent_names, limit=5
+    )
+    extract_result_member_names = process.extract(
+        keyword.upper(), search_name_member_names, limit=5
     )
 
     result = []
@@ -93,7 +98,27 @@ def post_search_participants(year: int):
             }
         )
 
-    for _, ratio, index in extract_result_members:
+    for _, ratio, index in extract_result_parent_names:
+        member = members_data[index]
+        member_names_list = [
+            member["name"].upper()
+            for member in member["Participant"]["ParticipantMember"]
+        ]
+        result.append(
+            {
+                ratio: {
+                    "id": member["Participant"]["id"],
+                    "name": member["Participant"]["name"].upper(),
+                    "category": member["Participant"]["Category"]["name"],
+                    "ticket_class": member["Participant"]["ticket_class"],
+                    "members": ", ".join(member_names_list),
+                    "is_cancelled": member["Participant"]["is_cancelled"],
+                    "mode": "team",
+                }
+            }
+        )
+
+    for _, ratio, index in extract_result_member_names:
         member = members_data[index]
         member_names_list = [
             member["name"].upper()
@@ -114,6 +139,24 @@ def post_search_participants(year: int):
         )
 
     result.sort(key=lambda x: list(x.keys())[0], reverse=True)
-    result = [list(x.values())[0] for x in result]
+
+    # 重複削除: id, mode, category, ticket_class, is_cancelled, name ですべて一致するものは1つにまとめる ＆ 最大5件に限定
+    seen = set()
+    unique_result = []
+    for item in [list(x.values())[0] for x in result]:
+        key = (
+            item["id"],
+            item["mode"],
+            item["category"],
+            item["ticket_class"],
+            item["is_cancelled"],
+            item["name"],
+        )
+        if key not in seen:
+            seen.add(key)
+            unique_result.append(item)
+            if len(unique_result) >= 5:
+                break
+    result = unique_result
 
     return jsonify(result)
