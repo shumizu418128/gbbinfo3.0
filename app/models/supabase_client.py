@@ -6,7 +6,6 @@ SupabaseとのAPIやりとり用
 import hashlib
 import json
 import os
-import traceback
 from typing import Optional
 
 import pandas as pd
@@ -321,8 +320,7 @@ class SupabaseService:
         try:
             response = query.execute()
         except Exception as e:
-            print("SupabaseClient get_data error:", flush=True)
-            traceback.print_exc()
+            print(f"SupabaseClient get_data error: {e}", flush=True)
             if raise_error:
                 raise e
             if pandas:
@@ -372,7 +370,7 @@ class SupabaseService:
         try:
             response = query.execute()
         except Exception as e:
-            print("SupabaseClient get_tavily_data error:", e, flush=True)
+            print(f"SupabaseClient get_tavily_data error: {e}", flush=True)
             if raise_error:
                 raise e
             return []
