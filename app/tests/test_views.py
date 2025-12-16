@@ -56,7 +56,7 @@ class ViewsTestCase(unittest.TestCase):
                     "category": 1,
                     "ticket_class": "standard",
                     "is_cancelled": False,
-                    "Category": {"name": "Loopstation"},
+                    "Category": {"name": "Loopstation", "is_team": False},
                     "ParticipantMember": [],
                 }
             ],
@@ -131,7 +131,7 @@ class ViewsTestCase(unittest.TestCase):
         self.assertEqual(result[0]["name"], "TEAM JAPAN")  # 大文字変換
         self.assertEqual(result[0]["category"], "Tag Team")
         self.assertEqual(result[0]["mode"], "team")  # チーム
-        self.assertEqual(result[0]["members"], "MEMBER1/MEMBER2")  # メンバー
+        self.assertEqual(result[0]["members"], "MEMBER1, MEMBER2")  # メンバー
 
         # テストケース3: 多国籍チーム（異なる国籍）
         mock_supabase.get_data.side_effect = [
@@ -163,5 +163,6 @@ class ViewsTestCase(unittest.TestCase):
         self.assertEqual(result[0]["category"], "Crew")
         self.assertEqual(result[0]["mode"], "team")  # チーム
         self.assertEqual(
-            result[0]["members"], "JAPANESE MEMBER/KOREAN MEMBER/AMERICAN MEMBER"
+            result[0]["members"],
+            "JAPANESE MEMBER, KOREAN MEMBER, AMERICAN MEMBER",
         )  # 3名のメンバー
