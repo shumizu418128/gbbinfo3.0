@@ -79,6 +79,7 @@ def post_search_participants(year: int):
 
     result = []
 
+    # ratio をフィールドとして持つ dict のリストにする
     for _, ratio, index in extract_result_participants:
         participant = participants_data[index]
         member_names_list = [
@@ -86,17 +87,14 @@ def post_search_participants(year: int):
         ]
         result.append(
             {
-                ratio: {
-                    "id": participant["id"],
-                    "name": participant["name"].upper(),
-                    "category": participant["Category"]["name"],
-                    "ticket_class": participant["ticket_class"],
-                    "members": ", ".join(member_names_list),
-                    "is_cancelled": participant["is_cancelled"],
-                    "mode": "single"
-                    if not participant["Category"]["is_team"]
-                    else "team",
-                }
+                "ratio": ratio,
+                "id": participant["id"],
+                "name": participant["name"].upper(),
+                "category": participant["Category"]["name"],
+                "ticket_class": participant["ticket_class"],
+                "members": ", ".join(member_names_list),
+                "is_cancelled": participant["is_cancelled"],
+                "mode": "single" if not participant["Category"]["is_team"] else "team",
             }
         )
 
@@ -108,15 +106,14 @@ def post_search_participants(year: int):
         ]
         result.append(
             {
-                ratio: {
-                    "id": member["Participant"]["id"],
-                    "name": member["Participant"]["name"].upper(),
-                    "category": member["Participant"]["Category"]["name"],
-                    "ticket_class": member["Participant"]["ticket_class"],
-                    "members": ", ".join(member_names_list),
-                    "is_cancelled": member["Participant"]["is_cancelled"],
-                    "mode": "team",
-                }
+                "ratio": ratio,
+                "id": member["Participant"]["id"],
+                "name": member["Participant"]["name"].upper(),
+                "category": member["Participant"]["Category"]["name"],
+                "ticket_class": member["Participant"]["ticket_class"],
+                "members": ", ".join(member_names_list),
+                "is_cancelled": member["Participant"]["is_cancelled"],
+                "mode": "team",
             }
         )
 
@@ -128,24 +125,24 @@ def post_search_participants(year: int):
         ]
         result.append(
             {
-                ratio: {
-                    "id": member["Participant"]["id"],
-                    "name": member["Participant"]["name"].upper(),
-                    "category": member["Participant"]["Category"]["name"],
-                    "ticket_class": member["Participant"]["ticket_class"],
-                    "members": ", ".join(member_names_list),
-                    "is_cancelled": member["Participant"]["is_cancelled"],
-                    "mode": "team",
-                }
+                "ratio": ratio,
+                "id": member["Participant"]["id"],
+                "name": member["Participant"]["name"].upper(),
+                "category": member["Participant"]["Category"]["name"],
+                "ticket_class": member["Participant"]["ticket_class"],
+                "members": ", ".join(member_names_list),
+                "is_cancelled": member["Participant"]["is_cancelled"],
+                "mode": "team",
             }
         )
 
-    result.sort(key=lambda x: list(x.keys())[0], reverse=True)
+    # ratio でソート（降順）
+    result.sort(key=lambda x: x["ratio"], reverse=True)
 
     # 重複削除: id, mode, category, ticket_class, is_cancelled, name ですべて一致するものは1つにまとめる ＆ 最大5件に限定
     seen = set()
     unique_result = []
-    for item in [list(x.values())[0] for x in result]:
+    for item in result:
         key = (
             item["id"],
             item["mode"],
@@ -156,7 +153,9 @@ def post_search_participants(year: int):
         )
         if key not in seen:
             seen.add(key)
-            unique_result.append(item)
+            # レスポンスには ratio は含めない（従来仕様に合わせる）
+            item_without_ratio = {k: v for k, v in item.items() if k != "ratio"}
+            unique_result.append(item_without_ratio)
             if len(unique_result) >= 5:
                 break
     result = unique_result
