@@ -2,7 +2,6 @@ from flask import abort, jsonify, request
 from rapidfuzz import process
 
 from app.models.supabase_client import supabase_service
-from app.util.filter_eq import Operator
 
 
 # MARK: 出場者検索
@@ -24,53 +23,18 @@ def post_search_participants(year: int):
     """
     keyword = request.json.get("keyword")
 
-    participants_data = supabase_service.get_data(
-        table="Participant",
-        columns=["id", "name", "category", "ticket_class", "is_cancelled"],
-        order_by="category",
-        join_tables={
-            "Category": ["id", "name"],
-            "ParticipantMember": ["id", "name"],
-        },
-        filters={"year": year, f"name__{Operator.MATCH_IGNORE_CASE}": f"%{keyword}%"},
-    )
-
-    # 検索結果が無い場合、キーワードの最初の2文字のみで検索
-    if not participants_data:
-        try:
-            participants_data = supabase_service.get_data(
-                table="Participant",
-                columns=["id", "name", "category", "ticket_class", "is_cancelled"],
-                order_by="category",
-                join_tables={
-                    "Category": ["id", "name"],
-                    "ParticipantMember": ["id", "name"],
-                },
-                filters={
-                    "year": year,
-                    f"name__{Operator.MATCH_IGNORE_CASE}": f"%{keyword[:2]}%",
-                },
-                raise_error=True,
-            )
-        except Exception:
-            abort(500)
-
-    for participant in participants_data:
-        participant["name"] = participant["name"].upper()
-
-        participant["category"] = participant["Category"]["name"]
-        del participant["Category"]
-
-        participant["mode"] = (
-            "team" if len(participant["ParticipantMember"]) > 0 else "single"
-        )
-
-        participant["members"] = "/".join(
-            [member["name"].upper() for member in participant["ParticipantMember"]]
-        )
-        del participant["ParticipantMember"]
-
     try:
+        participants_data = supabase_service.get_data(
+            table="Participant",
+            columns=["id", "name", "category", "ticket_class", "is_cancelled"],
+            order_by="category",
+            join_tables={
+                "Category": ["name", "is_team"],
+                "ParticipantMember": ["name"],
+            },
+            filters={"year": year},
+        )
+
         members_data = supabase_service.get_data(
             table="ParticipantMember",
             columns=["id"],
@@ -81,46 +45,75 @@ def post_search_participants(year: int):
                     "name",
                     "ticket_class",
                     "is_cancelled",
-                    "Category(name)",
+                    "Category(name, is_team)",
                     "ParticipantMember(name)",
                 ],
             },
             raise_error=True,
-            filters={f"name__{Operator.MATCH_IGNORE_CASE}": f"%{keyword}%"},
+            filters={"participant!inner.year": year},
         )
     except Exception:
         abort(500)
 
-    for member in members_data:
-        if member["Participant"]["year"] == year:
-            participant = {
-                "id": member["Participant"]["id"],
-                "name": member["Participant"]["name"].upper(),
-                "category": member["Participant"]["Category"]["name"],
-                "ticket_class": member["Participant"]["ticket_class"],
-                "is_cancelled": member["Participant"]["is_cancelled"],
-                "members": "/".join(
-                    [
-                        m["name"].upper()
-                        for m in member["Participant"]["ParticipantMember"]
-                    ]
-                ),
-                "mode": "team",
-            }
-            participants_data.append(participant)
-
-    # 重複を削除
-    seen_ids = set()
-    participants_data = [
-        p
-        for p in participants_data
-        if p["id"] not in seen_ids and not seen_ids.add(p["id"])
+    # 検索用に参加者名とメンバー名リスト（重複排除）をそれぞれ生成
+    search_name_participants = [
+        participant["name"].upper() for participant in participants_data
+    ]
+    search_name_members = [
+        member["Participant"]["name"].upper() for member in members_data
     ]
 
-    # 5件以上ある場合、類似度上位5チームを抽出
-    if len(participants_data) > 5:
-        names = [p["name"] for p in participants_data]
-        top5 = process.extract(keyword, names, limit=5)
-        participants_data = [participants_data[index] for _, _, index in top5]
+    extract_result_participants = process.extract(
+        keyword.upper(), search_name_participants, limit=5
+    )
+    extract_result_members = process.extract(
+        keyword.upper(), search_name_members, limit=5
+    )
 
-    return jsonify(participants_data)
+    result = []
+
+    for _, ratio, index in extract_result_participants:
+        participant = participants_data[index]
+        member_names_list = [
+            member["name"].upper() for member in participant["ParticipantMember"]
+        ]
+        result.append(
+            {
+                ratio: {
+                    "id": participant["id"],
+                    "name": participant["name"].upper(),
+                    "category": participant["Category"]["name"],
+                    "ticket_class": participant["ticket_class"],
+                    "members": ", ".join(member_names_list),
+                    "is_cancelled": participant["is_cancelled"],
+                    "mode": "single"
+                    if not participant["Category"]["is_team"]
+                    else "team",
+                }
+            }
+        )
+
+    for _, ratio, index in extract_result_members:
+        member = members_data[index]
+        member_names_list = [
+            member["name"].upper()
+            for member in member["Participant"]["ParticipantMember"]
+        ]
+        result.append(
+            {
+                ratio: {
+                    "id": member["Participant"]["id"],
+                    "name": member["Participant"]["name"].upper(),
+                    "category": member["Participant"]["Category"]["name"],
+                    "ticket_class": member["Participant"]["ticket_class"],
+                    "members": ", ".join(member_names_list),
+                    "is_cancelled": member["Participant"]["is_cancelled"],
+                    "mode": "team",
+                }
+            }
+        )
+
+    result.sort(key=lambda x: list(x.keys())[0], reverse=True)
+    result = [list(x.values())[0] for x in result]
+
+    return jsonify(result)
