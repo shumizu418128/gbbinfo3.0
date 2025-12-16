@@ -22,6 +22,8 @@ def post_search_participants(year: int):
         - 5件を超える場合は、キーワードとの類似度が高い上位5件のみ返す。
     """
     keyword = request.json.get("keyword")
+    if not keyword:
+        return jsonify([])
 
     try:
         participants_data = supabase_service.get_data(
