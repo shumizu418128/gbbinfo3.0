@@ -198,6 +198,10 @@ def is_translated(url, language, translated_urls):
     if language == "ja":
         return True
 
+    # participant_detailは常にTrue
+    if "participant_detail" in url:
+        return True
+
     # 定数から翻訳されたURLを取得
     return url in translated_urls
 
@@ -360,6 +364,11 @@ def get_locale():
     if preferred_language in SUPPORTED_LOCALES:
         session["language"] = preferred_language
 
+    # セッションに言語が設定されていてサポート済みならその言語を使用
+    elif session.get("language") in SUPPORTED_LOCALES:
+        pass
+
+    # それ以外はブラウザのAccept-Languageヘッダーから最適な言語を選択
     else:
         best_match = request.accept_languages.best_match(SUPPORTED_LOCALES)
         session["language"] = best_match if best_match else "ja"
