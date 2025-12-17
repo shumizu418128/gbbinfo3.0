@@ -24,6 +24,7 @@ from app.context_processors import (
     get_travel_content,
     get_yearly_content,
     initialize_background_tasks,
+    redirect_based_on_language,
 )
 from app.views import (
     beatboxer_finder,
@@ -127,7 +128,7 @@ result_years = [y for y in AVAILABLE_YEARS if y not in (2013, 2014, 2015, 2016)]
 ####################################################################
 @app.before_request
 def before_request():
-    get_locale()
+    return redirect_based_on_language()
 
 
 @app.context_processor
@@ -152,14 +153,14 @@ def redirect_to_latest_top():
     return common.top_redirect_view()
 
 
-@app.route("/2022/<string:content>")
-def content_2022(content):
+@app.route("/<string:lang>/2022/<string:content>")
+def content_2022(lang, content):
     return common.content_2022_view(content)
 
 
 # MARK: deprecated
-@app.route("/<int:year>/time_schedule")
-def time_schedule(year):
+@app.route("/<string:lang>/<int:year>/time_schedule")
+def time_schedule(lang, year):
     return common.time_schedule_view(year)
 
 
@@ -168,8 +169,8 @@ def change_language():
     return language.change_language()
 
 
-@app.route("/others/participant_detail")
-def participant_detail_deprecated():
+@app.route("/<string:lang>/others/participant_detail")
+def participant_detail_deprecated(_):
     return participant_detail.participant_detail_deprecated_view()
 
 
@@ -201,45 +202,50 @@ def answer_translation():
     return beatboxer_web_search.post_answer_translation()
 
 
+@app.route("/notice", methods=["POST"])
+def notice_view():
+    return common.notice_view()
+
+
 # MARK: 要データ取得
 # ruleのsitemap追加は/<int:year>/<string:content>で行う
-@app.route("/<int:year>/rule")
-def rule_view(year):
+@app.route("/<string:lang>/<int:year>/rule")
+def rule_view(lang, year):
     return rule.rules_view(year)
 
 
-@sitemapper.include(url_variables={"year": result_years})
-@app.route("/<int:year>/result")
-def result_view(year):
+@sitemapper.include(url_variables={"lang": SUPPORTED_LOCALES, "year": result_years})
+@app.route("/<string:lang>/<int:year>/result")
+def result_view(lang, year):
     return result.result_view(year)
 
 
-@app.route("/<int:year>/world_map")
-def world_map_view(year):
+@app.route("/<string:lang>/<int:year>/world_map")
+def world_map_view(lang, year):
     return world_map.world_map_view(year)
 
 
 @sitemapper.include(url_variables={"year": AVAILABLE_YEARS})
-@app.route("/<int:year>/participants")
-def participants_view(year):
+@app.route("/<string:lang>/<int:year>/participants")
+def participants_view(lang, year):
     return participants.participants_view(year)
 
 
-@sitemapper.include(url_variables={"year": AVAILABLE_YEARS})
-@app.route("/<int:year>/cancels")
-def cancels_view(year):
+@sitemapper.include(url_variables={"lang": SUPPORTED_LOCALES, "year": AVAILABLE_YEARS})
+@app.route("/<string:lang>/<int:year>/cancels")
+def cancels_view(lang, year):
     return participants.cancels_view(year)
 
 
-@sitemapper.include(url_variables={"year": AVAILABLE_YEARS})
-@app.route("/<int:year>/japan")
-def japan(year):
+@sitemapper.include(url_variables={"lang": SUPPORTED_LOCALES, "year": AVAILABLE_YEARS})
+@app.route("/<string:lang>/<int:year>/japan")
+def japan(lang, year):
     return participants.participants_country_specific_view(year)
 
 
-@sitemapper.include(url_variables={"year": AVAILABLE_YEARS})
-@app.route("/<int:year>/korea")
-def korea(year):
+@sitemapper.include(url_variables={"lang": SUPPORTED_LOCALES, "year": AVAILABLE_YEARS})
+@app.route("/<string:lang>/<int:year>/korea")
+def korea(lang, year):
     return participants.participants_country_specific_view(year)
 
 
@@ -249,32 +255,37 @@ def korea(year):
         "mode": PARTICIPANTS_MODE_LIST,
     }
 )
-@app.route("/participant_detail/<int:participant_id>/<string:mode>")
-def participant_detail_view(participant_id, mode):
+@app.route("/<string:lang>/participant_detail/<int:participant_id>/<string:mode>")
+def participant_detail_view(lang, participant_id, mode):
     return participant_detail.participant_detail_view(participant_id, mode)
 
 
-@app.route("/notice")
-def notice_view():
-    return common.notice_view()
-
-
 # MARK: 通常ページ
-@sitemapper.include(url_variables={"content": OTHERS_CONTENT})
-@app.route("/others/<string:content>")
-def others(content):
+@sitemapper.include(
+    url_variables={"lang": SUPPORTED_LOCALES, "content": OTHERS_CONTENT}
+)
+@app.route("/<string:lang>/others/<string:content>")
+def others(lang, content):
     return common.other_content_view(content)
 
 
-@sitemapper.include(url_variables={"content": TRAVEL_CONTENT})
-@app.route("/travel/<string:content>")
-def travel(content):
+@sitemapper.include(
+    url_variables={"lang": SUPPORTED_LOCALES, "content": TRAVEL_CONTENT}
+)
+@app.route("/<string:lang>/travel/<string:content>")
+def travel(lang, content):
     return common.travel_content_view(content)
 
 
-@sitemapper.include(url_variables={"year": YEARS_LIST, "content": CONTENTS_PER_YEAR})
-@app.route("/<int:year>/<string:content>")
-def common_content(year, content):
+@sitemapper.include(
+    url_variables={
+        "lang": SUPPORTED_LOCALES,
+        "year": YEARS_LIST,
+        "content": CONTENTS_PER_YEAR,
+    }
+)
+@app.route("/<string:lang>/<int:year>/<string:content>")
+def common_content(lang, year, content):
     return common.content_view(year, content)
 
 

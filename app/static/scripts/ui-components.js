@@ -57,7 +57,7 @@ function handleAppInstalled() {
 // 通知の取得と表示
 async function loadNotice() {
     try {
-        const response = await fetch('/notice');
+        const response = await fetch('/notice', {method: 'POST'});
         const data = await response.json();
 
         if (data.notice && data.notice.trim() !== '' && data.timestamp) {
