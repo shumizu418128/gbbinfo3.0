@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-12 12:18+0900\n"
+"POT-Creation-Date: 2025-12-17 23:23+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh_Hans_CN <LL@li.org>\n"
@@ -162,9 +162,9 @@ msgstr "请务必再次确认规则。"
 #: templates/2026/top.html:53 templates/common/cancels.html:23
 #: templates/common/japan.html:22 templates/common/korea.html:22
 #: templates/common/participants.html:125
-#: templates/others/participant_detail.html:33
-#: templates/others/participant_detail.html:115
-#: templates/others/participant_detail.html:155
+#: templates/participant_detail/participant_detail.html:33
+#: templates/participant_detail/participant_detail.html:115
+#: templates/participant_detail/participant_detail.html:155
 msgid "部門"
 msgstr "部门"
 
@@ -217,8 +217,8 @@ msgstr "种子权 - GBB"
 #: templates/common/cancels.html:22 templates/common/japan.html:21
 #: templates/common/korea.html:21 templates/common/participants.html:44
 #: templates/common/participants.html:124 templates/common/result.html:67
-#: templates/others/participant_detail.html:154
-#: templates/others/participant_detail.html:217
+#: templates/participant_detail/participant_detail.html:154
+#: templates/participant_detail/participant_detail.html:217
 msgid "名前"
 msgstr "名字"
 
@@ -230,9 +230,9 @@ msgstr "名字"
 #: templates/common/japan.html:23 templates/common/korea.html:23
 #: templates/common/participants.html:46
 #: templates/common/participants.html:126
-#: templates/others/participant_detail.html:50
-#: templates/others/participant_detail.html:132
-#: templates/others/participant_detail.html:219
+#: templates/participant_detail/participant_detail.html:50
+#: templates/participant_detail/participant_detail.html:132
+#: templates/participant_detail/participant_detail.html:219
 msgid "出場権"
 msgstr "出场权"
 
@@ -267,21 +267,21 @@ msgstr "种子选手弃权者名单"
 #: templates/2026/rule.html:236 templates/common/cancels.html:30
 #: templates/common/japan.html:30 templates/common/korea.html:30
 #: templates/common/participants.html:54
-#: templates/others/participant_detail.html:23
-#: templates/others/participant_detail.html:75
-#: templates/others/participant_detail.html:88
-#: templates/others/participant_detail.html:97
-#: templates/others/participant_detail.html:109
-#: templates/others/participant_detail.html:163
-#: templates/others/participant_detail.html:227
+#: templates/participant_detail/participant_detail.html:23
+#: templates/participant_detail/participant_detail.html:75
+#: templates/participant_detail/participant_detail.html:88
+#: templates/participant_detail/participant_detail.html:97
+#: templates/participant_detail/participant_detail.html:109
+#: templates/participant_detail/participant_detail.html:163
+#: templates/participant_detail/participant_detail.html:227
 msgid "辞退"
 msgstr "弃权"
 
 #: templates/2024/rule.html:221 templates/2024/timetable.html:100
 #: templates/2024/timetable.html:230 templates/2025/rule.html:221
 #: templates/2026/rule.html:254 templates/common/cancels.html:52
-#: templates/others/participant_detail.html:179
-#: templates/others/participant_detail.html:186
+#: templates/participant_detail/participant_detail.html:179
+#: templates/participant_detail/participant_detail.html:186
 msgid "出場者一覧"
 msgstr "参赛者名单"
 
@@ -675,7 +675,7 @@ msgstr "最终更新"
 #: templates/2026/wildcards.html:78 templates/common/korea.html:3
 #: templates/common/korea.html:4 templates/common/korea.html:5
 #: templates/common/korea.html:9 templates/includes/hamburger_menu.html:16
-#: templates/others/participant_detail.html:259
+#: templates/participant_detail/participant_detail.html:259
 msgid "韓国代表"
 msgstr "韩国代表"
 
@@ -686,8 +686,8 @@ msgstr "韩国代表"
 #: templates/2026/wildcards.html:80 templates/common/japan.html:3
 #: templates/common/japan.html:4 templates/common/japan.html:5
 #: templates/common/japan.html:9 templates/includes/hamburger_menu.html:18
-#: templates/others/participant_detail.html:261
 #: templates/others/translation.html:21
+#: templates/participant_detail/participant_detail.html:261
 msgid "日本代表"
 msgstr "日本代表"
 
@@ -703,10 +703,10 @@ msgstr "大家一起鉴赏会"
 #: templates/common/result.html:4 templates/common/result.html:5
 #: templates/common/result.html:9 templates/common/result.html:107
 #: templates/includes/hamburger_menu.html:25
-#: templates/others/participant_detail.html:180
-#: templates/others/participant_detail.html:187
-#: templates/others/participant_detail.html:263
 #: templates/others/translation.html:24
+#: templates/participant_detail/participant_detail.html:180
+#: templates/participant_detail/participant_detail.html:187
+#: templates/participant_detail/participant_detail.html:263
 msgid "大会結果"
 msgstr "大会结果"
 
@@ -975,8 +975,8 @@ msgstr "参赛名额数量"
 #: templates/2025/top.html:74 templates/2026/top.html:82
 #: templates/common/japan.html:48 templates/common/korea.html:48
 #: templates/common/participants.html:29
-#: templates/others/participant_detail.html:144
-#: templates/others/participant_detail.html:257
+#: templates/participant_detail/participant_detail.html:144
+#: templates/participant_detail/participant_detail.html:257
 msgid "全出場者一覧"
 msgstr "全部参赛者名单"
 
@@ -1430,7 +1430,7 @@ msgstr ""
 #: templates/base.html:123 templates/base.html:234
 #: templates/includes/hamburger_menu.html:8
 #: templates/includes/next_year.html:5
-#: templates/others/participant_detail.html:145
+#: templates/participant_detail/participant_detail.html:145
 msgid "これだけガイド"
 msgstr "指南"
 
@@ -1618,10 +1618,10 @@ msgid "出場者 & 辞退者を表示"
 msgstr "显示参赛者 & 退出者"
 
 #: templates/common/participants.html:45
-#: templates/others/participant_detail.html:41
-#: templates/others/participant_detail.html:67
-#: templates/others/participant_detail.html:123
-#: templates/others/participant_detail.html:218
+#: templates/participant_detail/participant_detail.html:41
+#: templates/participant_detail/participant_detail.html:67
+#: templates/participant_detail/participant_detail.html:123
+#: templates/participant_detail/participant_detail.html:218
 msgid "国"
 msgstr "国家"
 
@@ -1747,40 +1747,6 @@ msgstr "您查找的信息，由于尚未有官方发布，因此在本网站的
 msgid "公式発表をお待ちください。"
 msgstr "请等待官方发布。"
 
-#: templates/others/participant_detail.html:148
-msgid "過去の出場履歴"
-msgstr "过去的出場履歴"
-
-#: templates/others/participant_detail.html:193
-msgid "関連サイト"
-msgstr "相关网站"
-
-#: templates/others/participant_detail.html:201
-msgid "表示されている関連サイトやSNS情報・紹介文は、自動検索によって取得されたものです。"
-msgstr "显示的关联网站、社交媒体信息和介绍文字是通过自动搜索获取的。"
-
-#: templates/others/participant_detail.html:202
-msgid "内容に誤りが含まれている可能性があります。"
-msgstr "内容可能包含错误。"
-
-#: templates/others/participant_detail.html:207
-msgid "もっと調べる"
-msgstr "更多信息"
-
-#: templates/others/participant_detail.html:207
-#: templates/others/participant_detail.html:210
-#, python-brace-format
-msgid "{name}について、詳しく調べてください"
-msgstr "{name}，请详细调查一下"
-
-#: templates/others/participant_detail.html:210
-msgid "ChatGPTに聞く"
-msgstr "询问 ChatGPT"
-
-#: templates/others/participant_detail.html:213
-msgid "他の出場者"
-msgstr "其他参赛者"
-
 #: templates/others/translation.html:11
 msgid "GBBINFO-JPNは、一部を除き、各ページの翻訳をAI Geminiを用いて提供しています。"
 msgstr "GBBINFO-JPN 在除了一小部分之外的所有页面上使用 AI Gemini 提供翻译。"
@@ -1804,6 +1770,40 @@ msgstr "此外，翻译支持的语言将根据访问情况随时添加。"
 #: templates/others/translation.html:32
 msgid "翻訳を提供していないページは、原文である日本語で表示されます。"
 msgstr "未提供翻译的页面将以原文日语显示。"
+
+#: templates/participant_detail/participant_detail.html:148
+msgid "過去の出場履歴"
+msgstr "过去的出場履歴"
+
+#: templates/participant_detail/participant_detail.html:193
+msgid "関連サイト"
+msgstr "相关网站"
+
+#: templates/participant_detail/participant_detail.html:201
+msgid "表示されている関連サイトやSNS情報・紹介文は、自動検索によって取得されたものです。"
+msgstr "显示的关联网站、社交媒体信息和介绍文字是通过自动搜索获取的。"
+
+#: templates/participant_detail/participant_detail.html:202
+msgid "内容に誤りが含まれている可能性があります。"
+msgstr "内容可能包含错误。"
+
+#: templates/participant_detail/participant_detail.html:207
+msgid "もっと調べる"
+msgstr "更多信息"
+
+#: templates/participant_detail/participant_detail.html:207
+#: templates/participant_detail/participant_detail.html:210
+#, python-brace-format
+msgid "{name}について、詳しく調べてください"
+msgstr "{name}，请详细调查一下"
+
+#: templates/participant_detail/participant_detail.html:210
+msgid "ChatGPTに聞く"
+msgstr "询问 ChatGPT"
+
+#: templates/participant_detail/participant_detail.html:213
+msgid "他の出場者"
+msgstr "其他参赛者"
 
 #~ msgid "GBB {year} なんでも検索"
 #~ msgstr ""

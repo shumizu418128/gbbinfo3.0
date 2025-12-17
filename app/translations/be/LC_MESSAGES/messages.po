@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-12 12:18+0900\n"
+"POT-Creation-Date: 2025-12-17 23:23+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: be <LL@li.org>\n"
@@ -164,9 +164,9 @@ msgstr "Калі ласка, яшчэ раз праверце правілы с�
 #: templates/2026/top.html:53 templates/common/cancels.html:23
 #: templates/common/japan.html:22 templates/common/korea.html:22
 #: templates/common/participants.html:125
-#: templates/others/participant_detail.html:33
-#: templates/others/participant_detail.html:115
-#: templates/others/participant_detail.html:155
+#: templates/participant_detail/participant_detail.html:33
+#: templates/participant_detail/participant_detail.html:115
+#: templates/participant_detail/participant_detail.html:155
 msgid "部門"
 msgstr "Катэгорыя"
 
@@ -227,8 +227,8 @@ msgstr "Рэйтынг - GBB"
 #: templates/common/cancels.html:22 templates/common/japan.html:21
 #: templates/common/korea.html:21 templates/common/participants.html:44
 #: templates/common/participants.html:124 templates/common/result.html:67
-#: templates/others/participant_detail.html:154
-#: templates/others/participant_detail.html:217
+#: templates/participant_detail/participant_detail.html:154
+#: templates/participant_detail/participant_detail.html:217
 msgid "名前"
 msgstr "Імя"
 
@@ -240,9 +240,9 @@ msgstr "Імя"
 #: templates/common/japan.html:23 templates/common/korea.html:23
 #: templates/common/participants.html:46
 #: templates/common/participants.html:126
-#: templates/others/participant_detail.html:50
-#: templates/others/participant_detail.html:132
-#: templates/others/participant_detail.html:219
+#: templates/participant_detail/participant_detail.html:50
+#: templates/participant_detail/participant_detail.html:132
+#: templates/participant_detail/participant_detail.html:219
 msgid "出場権"
 msgstr "Право на ўдзел"
 
@@ -277,21 +277,21 @@ msgstr "Спіс тых, хто адмовіўся ад пасяўных пра�
 #: templates/2026/rule.html:236 templates/common/cancels.html:30
 #: templates/common/japan.html:30 templates/common/korea.html:30
 #: templates/common/participants.html:54
-#: templates/others/participant_detail.html:23
-#: templates/others/participant_detail.html:75
-#: templates/others/participant_detail.html:88
-#: templates/others/participant_detail.html:97
-#: templates/others/participant_detail.html:109
-#: templates/others/participant_detail.html:163
-#: templates/others/participant_detail.html:227
+#: templates/participant_detail/participant_detail.html:23
+#: templates/participant_detail/participant_detail.html:75
+#: templates/participant_detail/participant_detail.html:88
+#: templates/participant_detail/participant_detail.html:97
+#: templates/participant_detail/participant_detail.html:109
+#: templates/participant_detail/participant_detail.html:163
+#: templates/participant_detail/participant_detail.html:227
 msgid "辞退"
 msgstr "Адмова"
 
 #: templates/2024/rule.html:221 templates/2024/timetable.html:100
 #: templates/2024/timetable.html:230 templates/2025/rule.html:221
 #: templates/2026/rule.html:254 templates/common/cancels.html:52
-#: templates/others/participant_detail.html:179
-#: templates/others/participant_detail.html:186
+#: templates/participant_detail/participant_detail.html:179
+#: templates/participant_detail/participant_detail.html:186
 msgid "出場者一覧"
 msgstr "Спіс удзельнікаў"
 
@@ -693,7 +693,7 @@ msgstr "Апошняе абнаўленне"
 #: templates/2026/wildcards.html:78 templates/common/korea.html:3
 #: templates/common/korea.html:4 templates/common/korea.html:5
 #: templates/common/korea.html:9 templates/includes/hamburger_menu.html:16
-#: templates/others/participant_detail.html:259
+#: templates/participant_detail/participant_detail.html:259
 msgid "韓国代表"
 msgstr "Прадстаўнікі Паўднёвай Карэі"
 
@@ -704,8 +704,8 @@ msgstr "Прадстаўнікі Паўднёвай Карэі"
 #: templates/2026/wildcards.html:80 templates/common/japan.html:3
 #: templates/common/japan.html:4 templates/common/japan.html:5
 #: templates/common/japan.html:9 templates/includes/hamburger_menu.html:18
-#: templates/others/participant_detail.html:261
 #: templates/others/translation.html:21
+#: templates/participant_detail/participant_detail.html:261
 msgid "日本代表"
 msgstr "Прадстаўнікі Японіі"
 
@@ -721,10 +721,10 @@ msgstr "Усе разам глядзім"
 #: templates/common/result.html:4 templates/common/result.html:5
 #: templates/common/result.html:9 templates/common/result.html:107
 #: templates/includes/hamburger_menu.html:25
-#: templates/others/participant_detail.html:180
-#: templates/others/participant_detail.html:187
-#: templates/others/participant_detail.html:263
 #: templates/others/translation.html:24
+#: templates/participant_detail/participant_detail.html:180
+#: templates/participant_detail/participant_detail.html:187
+#: templates/participant_detail/participant_detail.html:263
 msgid "大会結果"
 msgstr "Вынікі турніру"
 
@@ -1032,8 +1032,8 @@ msgstr "Колькасць месцаў удзелу"
 #: templates/2025/top.html:74 templates/2026/top.html:82
 #: templates/common/japan.html:48 templates/common/korea.html:48
 #: templates/common/participants.html:29
-#: templates/others/participant_detail.html:144
-#: templates/others/participant_detail.html:257
+#: templates/participant_detail/participant_detail.html:144
+#: templates/participant_detail/participant_detail.html:257
 msgid "全出場者一覧"
 msgstr "Спіс усіх удзельнікаў"
 
@@ -1094,7 +1094,7 @@ msgstr "узроставыя абмежаванні"
 #: templates/2025/wildcard_regulation.html:41
 #, python-brace-format
 msgid "{Wildcard}提出について"
-msgstr "{Wildcard}падача"
+msgstr "{Wildcard} падача"
 
 #: templates/2025/wildcard_regulation.html:45
 #: templates/2025/wildcard_regulation.html:197
@@ -1161,12 +1161,12 @@ msgstr ""
 #: templates/2025/wildcard_regulation.html:138
 #, python-brace-format
 msgid "{Wildcard}作成・提出について"
-msgstr "{Wildcard}Стварэнне і падача"
+msgstr "{Wildcard} Стварэнне і падача"
 
 #: templates/2025/wildcard_regulation.html:140
 #, python-brace-format
 msgid "{Wildcard}動画の内容"
-msgstr "{Wildcard}змест відэа"
+msgstr "{Wildcard} змест відэа"
 
 #: templates/2025/wildcard_regulation.html:141
 msgid "動画の冒頭で、以下のように自己紹介する"
@@ -1287,8 +1287,8 @@ msgstr "Калі вышэйзгаданыя два адсутнічаюць, ё�
 #, python-brace-format
 msgid "{Wildcard}提出は一度のみ。一度提出したら、後から別の{Wildcard}を提出することはできない"
 msgstr ""
-"{Wildcard}заяўка падаецца толькі адзін раз. Пасля падачы вы не зможаце "
-"падаць іншую {Wildcard}заяўку."
+"{Wildcard} заяўка падаецца толькі адзін раз. Пасля падачы вы не зможаце "
+"падаць іншую {Wildcard} заяўку."
 
 #: templates/2025/wildcard_regulation.html:185
 #, python-brace-format
@@ -1345,7 +1345,7 @@ msgstr ""
 #, python-brace-format
 msgid "{Wildcard}動画の作成にあたり使用したすべてのファイルを、バックアップ含め保存しておき、いつでも提出できるようにしておく"
 msgstr ""
-"{Wildcard}Усе файлы, якія выкарыстоўваліся пры стварэнні відэа, у тым ліку "
+"{Wildcard} Усе файлы, якія выкарыстоўваліся пры стварэнні відэа, у тым ліку "
 "рэзервовыя копіі, неабходна захоўваць і быць гатовымі да падачы ў любы час"
 
 #: templates/2025/wildcard_regulation.html:265
@@ -1556,7 +1556,7 @@ msgstr ""
 #: templates/base.html:123 templates/base.html:234
 #: templates/includes/hamburger_menu.html:8
 #: templates/includes/next_year.html:5
-#: templates/others/participant_detail.html:145
+#: templates/participant_detail/participant_detail.html:145
 msgid "これだけガイド"
 msgstr "Толькі гэта кіраўніцтва"
 
@@ -1748,10 +1748,10 @@ msgid "出場者 & 辞退者を表示"
 msgstr "Паказаць удзельнікаў і адмоўнікаў"
 
 #: templates/common/participants.html:45
-#: templates/others/participant_detail.html:41
-#: templates/others/participant_detail.html:67
-#: templates/others/participant_detail.html:123
-#: templates/others/participant_detail.html:218
+#: templates/participant_detail/participant_detail.html:41
+#: templates/participant_detail/participant_detail.html:67
+#: templates/participant_detail/participant_detail.html:123
+#: templates/participant_detail/participant_detail.html:218
 msgid "国"
 msgstr "Краіна"
 
@@ -1879,42 +1879,6 @@ msgstr ""
 msgid "公式発表をお待ちください。"
 msgstr "Дачакайце афіцыйнага паведамлення."
 
-#: templates/others/participant_detail.html:148
-msgid "過去の出場履歴"
-msgstr "Мінулыя гісторыі ўдзелу"
-
-#: templates/others/participant_detail.html:193
-msgid "関連サイト"
-msgstr "Звязаныя сайты"
-
-#: templates/others/participant_detail.html:201
-msgid "表示されている関連サイトやSNS情報・紹介文は、自動検索によって取得されたものです。"
-msgstr ""
-"Прыведзеныя тут звязаныя сайты, інфармацыя ў сацыяльных сетках і апісанні "
-"былі атрыманы шляхам аўтаматычнага пошуку."
-
-#: templates/others/participant_detail.html:202
-msgid "内容に誤りが含まれている可能性があります。"
-msgstr "Змест можа ўтрымліваць памылкі."
-
-#: templates/others/participant_detail.html:207
-msgid "もっと調べる"
-msgstr "Даследаваць больш"
-
-#: templates/others/participant_detail.html:207
-#: templates/others/participant_detail.html:210
-#, python-brace-format
-msgid "{name}について、詳しく調べてください"
-msgstr "Калі ласка, падрабязна даследуйце {name}."
-
-#: templates/others/participant_detail.html:210
-msgid "ChatGPTに聞く"
-msgstr "Запытаць у ChatGPT"
-
-#: templates/others/participant_detail.html:213
-msgid "他の出場者"
-msgstr "іншыя ўдзельнікі"
-
 #: templates/others/translation.html:11
 msgid "GBBINFO-JPNは、一部を除き、各ページの翻訳をAI Geminiを用いて提供しています。"
 msgstr ""
@@ -1945,6 +1909,42 @@ msgid "翻訳を提供していないページは、原文である日本語で�
 msgstr ""
 "Старонкі, для якіх пераклад не прадастаўлены, будуць адлюстроўвацца на мове "
 "арыгіналу, японскай."
+
+#: templates/participant_detail/participant_detail.html:148
+msgid "過去の出場履歴"
+msgstr "Мінулыя гісторыі ўдзелу"
+
+#: templates/participant_detail/participant_detail.html:193
+msgid "関連サイト"
+msgstr "Звязаныя сайты"
+
+#: templates/participant_detail/participant_detail.html:201
+msgid "表示されている関連サイトやSNS情報・紹介文は、自動検索によって取得されたものです。"
+msgstr ""
+"Прыведзеныя тут звязаныя сайты, інфармацыя ў сацыяльных сетках і апісанні "
+"былі атрыманы шляхам аўтаматычнага пошуку."
+
+#: templates/participant_detail/participant_detail.html:202
+msgid "内容に誤りが含まれている可能性があります。"
+msgstr "Змест можа ўтрымліваць памылкі."
+
+#: templates/participant_detail/participant_detail.html:207
+msgid "もっと調べる"
+msgstr "Даследаваць больш"
+
+#: templates/participant_detail/participant_detail.html:207
+#: templates/participant_detail/participant_detail.html:210
+#, python-brace-format
+msgid "{name}について、詳しく調べてください"
+msgstr "Калі ласка, падрабязна даследуйце {name}."
+
+#: templates/participant_detail/participant_detail.html:210
+msgid "ChatGPTに聞く"
+msgstr "Запытаць у ChatGPT"
+
+#: templates/participant_detail/participant_detail.html:213
+msgid "他の出場者"
+msgstr "іншыя ўдзельнікі"
 
 #~ msgid "GBB24では本番8日前公開"
 #~ msgstr "GBB24 за 8 дзён да запуску"

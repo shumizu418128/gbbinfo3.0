@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-12 12:18+0900\n"
+"POT-Creation-Date: 2025-12-17 23:23+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -165,9 +165,9 @@ msgstr "Veuillez consulter les règles par vous-même une fois de plus."
 #: templates/2026/top.html:53 templates/common/cancels.html:23
 #: templates/common/japan.html:22 templates/common/korea.html:22
 #: templates/common/participants.html:125
-#: templates/others/participant_detail.html:33
-#: templates/others/participant_detail.html:115
-#: templates/others/participant_detail.html:155
+#: templates/participant_detail/participant_detail.html:33
+#: templates/participant_detail/participant_detail.html:115
+#: templates/participant_detail/participant_detail.html:155
 msgid "部門"
 msgstr "catégorie"
 
@@ -229,8 +229,8 @@ msgstr "Tête de série - GBB"
 #: templates/common/cancels.html:22 templates/common/japan.html:21
 #: templates/common/korea.html:21 templates/common/participants.html:44
 #: templates/common/participants.html:124 templates/common/result.html:67
-#: templates/others/participant_detail.html:154
-#: templates/others/participant_detail.html:217
+#: templates/participant_detail/participant_detail.html:154
+#: templates/participant_detail/participant_detail.html:217
 msgid "名前"
 msgstr "Nom"
 
@@ -242,9 +242,9 @@ msgstr "Nom"
 #: templates/common/japan.html:23 templates/common/korea.html:23
 #: templates/common/participants.html:46
 #: templates/common/participants.html:126
-#: templates/others/participant_detail.html:50
-#: templates/others/participant_detail.html:132
-#: templates/others/participant_detail.html:219
+#: templates/participant_detail/participant_detail.html:50
+#: templates/participant_detail/participant_detail.html:132
+#: templates/participant_detail/participant_detail.html:219
 msgid "出場権"
 msgstr "Droit de participation"
 
@@ -279,21 +279,21 @@ msgstr "Liste des personnes ayant renoncé à leur statut de tête de série"
 #: templates/2026/rule.html:236 templates/common/cancels.html:30
 #: templates/common/japan.html:30 templates/common/korea.html:30
 #: templates/common/participants.html:54
-#: templates/others/participant_detail.html:23
-#: templates/others/participant_detail.html:75
-#: templates/others/participant_detail.html:88
-#: templates/others/participant_detail.html:97
-#: templates/others/participant_detail.html:109
-#: templates/others/participant_detail.html:163
-#: templates/others/participant_detail.html:227
+#: templates/participant_detail/participant_detail.html:23
+#: templates/participant_detail/participant_detail.html:75
+#: templates/participant_detail/participant_detail.html:88
+#: templates/participant_detail/participant_detail.html:97
+#: templates/participant_detail/participant_detail.html:109
+#: templates/participant_detail/participant_detail.html:163
+#: templates/participant_detail/participant_detail.html:227
 msgid "辞退"
 msgstr "désistement"
 
 #: templates/2024/rule.html:221 templates/2024/timetable.html:100
 #: templates/2024/timetable.html:230 templates/2025/rule.html:221
 #: templates/2026/rule.html:254 templates/common/cancels.html:52
-#: templates/others/participant_detail.html:179
-#: templates/others/participant_detail.html:186
+#: templates/participant_detail/participant_detail.html:179
+#: templates/participant_detail/participant_detail.html:186
 msgid "出場者一覧"
 msgstr "Liste des participants"
 
@@ -699,7 +699,7 @@ msgstr "Dernière mise à jour"
 #: templates/2026/wildcards.html:78 templates/common/korea.html:3
 #: templates/common/korea.html:4 templates/common/korea.html:5
 #: templates/common/korea.html:9 templates/includes/hamburger_menu.html:16
-#: templates/others/participant_detail.html:259
+#: templates/participant_detail/participant_detail.html:259
 msgid "韓国代表"
 msgstr "Équipe nationale sud-coréenne"
 
@@ -710,8 +710,8 @@ msgstr "Équipe nationale sud-coréenne"
 #: templates/2026/wildcards.html:80 templates/common/japan.html:3
 #: templates/common/japan.html:4 templates/common/japan.html:5
 #: templates/common/japan.html:9 templates/includes/hamburger_menu.html:18
-#: templates/others/participant_detail.html:261
 #: templates/others/translation.html:21
+#: templates/participant_detail/participant_detail.html:261
 msgid "日本代表"
 msgstr "Équipe nationale du Japon"
 
@@ -727,10 +727,10 @@ msgstr "Séance de visionnage en groupe"
 #: templates/common/result.html:4 templates/common/result.html:5
 #: templates/common/result.html:9 templates/common/result.html:107
 #: templates/includes/hamburger_menu.html:25
-#: templates/others/participant_detail.html:180
-#: templates/others/participant_detail.html:187
-#: templates/others/participant_detail.html:263
 #: templates/others/translation.html:24
+#: templates/participant_detail/participant_detail.html:180
+#: templates/participant_detail/participant_detail.html:187
+#: templates/participant_detail/participant_detail.html:263
 msgid "大会結果"
 msgstr "Résultats du tournoi"
 
@@ -1046,8 +1046,8 @@ msgstr "Nombre de places disponibles"
 #: templates/2025/top.html:74 templates/2026/top.html:82
 #: templates/common/japan.html:48 templates/common/korea.html:48
 #: templates/common/participants.html:29
-#: templates/others/participant_detail.html:144
-#: templates/others/participant_detail.html:257
+#: templates/participant_detail/participant_detail.html:144
+#: templates/participant_detail/participant_detail.html:257
 msgid "全出場者一覧"
 msgstr "Liste de tous les participants"
 
@@ -1545,7 +1545,7 @@ msgstr ""
 "Pendant la saison {Wildcard}, des vidéos se prétendant \"{NOTWildcard}\" "
 "sont occasionnellement publiées. Ce ne sont pas des entrées {Wildcard} "
 "officielles, mais des vidéos réalisées dans un format similaire à "
-"{Wildcard}. En bref, ils ne font que s'amuser."
+"{Wildcard}. En bref, elles ne font que s'amuser."
 
 #: templates/base.html:34 templates/base.html:45 templates/base.html:49
 #, python-brace-format
@@ -1588,7 +1588,7 @@ msgstr ""
 #: templates/base.html:123 templates/base.html:234
 #: templates/includes/hamburger_menu.html:8
 #: templates/includes/next_year.html:5
-#: templates/others/participant_detail.html:145
+#: templates/participant_detail/participant_detail.html:145
 msgid "これだけガイド"
 msgstr "Guide"
 
@@ -1780,10 +1780,10 @@ msgid "出場者 & 辞退者を表示"
 msgstr "Participants & Désistements"
 
 #: templates/common/participants.html:45
-#: templates/others/participant_detail.html:41
-#: templates/others/participant_detail.html:67
-#: templates/others/participant_detail.html:123
-#: templates/others/participant_detail.html:218
+#: templates/participant_detail/participant_detail.html:41
+#: templates/participant_detail/participant_detail.html:67
+#: templates/participant_detail/participant_detail.html:123
+#: templates/participant_detail/participant_detail.html:218
 msgid "国"
 msgstr "pays"
 
@@ -1913,42 +1913,6 @@ msgstr ""
 msgid "公式発表をお待ちください。"
 msgstr "Veuillez attendre l'annonce officielle."
 
-#: templates/others/participant_detail.html:148
-msgid "過去の出場履歴"
-msgstr "Historique des participations"
-
-#: templates/others/participant_detail.html:193
-msgid "関連サイト"
-msgstr "Sites connexes"
-
-#: templates/others/participant_detail.html:201
-msgid "表示されている関連サイトやSNS情報・紹介文は、自動検索によって取得されたものです。"
-msgstr ""
-"Les informations relatives aux sites et aux réseaux sociaux, ainsi que les "
-"descriptions présentées, ont été obtenues par recherche automatique."
-
-#: templates/others/participant_detail.html:202
-msgid "内容に誤りが含まれている可能性があります。"
-msgstr "Le contenu peut contenir des erreurs."
-
-#: templates/others/participant_detail.html:207
-msgid "もっと調べる"
-msgstr "En savoir plus"
-
-#: templates/others/participant_detail.html:207
-#: templates/others/participant_detail.html:210
-#, python-brace-format
-msgid "{name}について、詳しく調べてください"
-msgstr "Renseignez-vous sur {name}."
-
-#: templates/others/participant_detail.html:210
-msgid "ChatGPTに聞く"
-msgstr "Demander à ChatGPT"
-
-#: templates/others/participant_detail.html:213
-msgid "他の出場者"
-msgstr "Autres participants"
-
 #: templates/others/translation.html:11
 msgid "GBBINFO-JPNは、一部を除き、各ページの翻訳をAI Geminiを用いて提供しています。"
 msgstr ""
@@ -1978,6 +1942,42 @@ msgid "翻訳を提供していないページは、原文である日本語で�
 msgstr ""
 "Les pages qui ne fournissent pas de traduction seront affichées dans la "
 "langue source, le japonais."
+
+#: templates/participant_detail/participant_detail.html:148
+msgid "過去の出場履歴"
+msgstr "Historique des participations"
+
+#: templates/participant_detail/participant_detail.html:193
+msgid "関連サイト"
+msgstr "Sites connexes"
+
+#: templates/participant_detail/participant_detail.html:201
+msgid "表示されている関連サイトやSNS情報・紹介文は、自動検索によって取得されたものです。"
+msgstr ""
+"Les informations relatives aux sites et aux réseaux sociaux, ainsi que les "
+"descriptions présentées, ont été obtenues par recherche automatique."
+
+#: templates/participant_detail/participant_detail.html:202
+msgid "内容に誤りが含まれている可能性があります。"
+msgstr "Le contenu peut contenir des erreurs."
+
+#: templates/participant_detail/participant_detail.html:207
+msgid "もっと調べる"
+msgstr "En savoir plus"
+
+#: templates/participant_detail/participant_detail.html:207
+#: templates/participant_detail/participant_detail.html:210
+#, python-brace-format
+msgid "{name}について、詳しく調べてください"
+msgstr "Renseignez-vous sur {name}."
+
+#: templates/participant_detail/participant_detail.html:210
+msgid "ChatGPTに聞く"
+msgstr "Demander à ChatGPT"
+
+#: templates/participant_detail/participant_detail.html:213
+msgid "他の出場者"
+msgstr "Autres participants"
 
 #~ msgid "GBB {year} なんでも検索"
 #~ msgstr ""

@@ -15,11 +15,11 @@
 </p>
 
 <div class="button-container">
-  <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
-  <a href="/{{ year }}/wildcards"><button>{{_("{Wildcard}一覧").format(Wildcard="Wildcard")}}</button></a>
+  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/wildcards"><button>{{_("{Wildcard}一覧").format(Wildcard="Wildcard")}}</button></a>
 </div>
 <div class="button-container">
-  <a href="/{{ year }}/wildcard_regulation"><button>{{_("【{Beatboxer}向け】{Wildcard}レギュレーション解説").format(Beatboxer="Beatboxer", Wildcard="Wildcard")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/wildcard_regulation"><button>{{_("【{Beatboxer}向け】{Wildcard}レギュレーション解説").format(Beatboxer="Beatboxer", Wildcard="Wildcard")}}</button></a>
 </div>
 
 <div>
@@ -67,8 +67,8 @@
 </p>
 
 <div class="button-container">
-  <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
-  <a href="/{{ year }}/participants"><button>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}} & {{_("出場者")}}</button></a>
+  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/participants"><button>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}} & {{_("出場者")}}</button></a>
 </div>
 
 <h2 id="category-section" name="category">{{_("開催部門一覧")}}</h2>
@@ -150,7 +150,7 @@
 </p>
 
 <div class="button-container">
-  <a href="/{{ year }}/wildcard_regulation"><button>{{_("【{Beatboxer}向け】{Wildcard}レギュレーション解説").format(Beatboxer="Beatboxer", Wildcard="Wildcard")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/wildcard_regulation"><button>{{_("【{Beatboxer}向け】{Wildcard}レギュレーション解説").format(Beatboxer="Beatboxer", Wildcard="Wildcard")}}</button></a>
 </div>
 
 <h2 id="seeds-section" name="seeds">{{_("GBB出場権獲得条件")}}</h2>
@@ -269,11 +269,11 @@
 </div>
 
 <div class="button-container">
-  <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
   {% if language == 'ko' %}
-    <a href="/{{ year }}/korea"><button>{{_("韓国代表")}}</button></a>
+    <a href="/{{ language }}/{{ year }}/korea"><button>{{_("韓国代表")}}</button></a>
   {% else %}
-    <a href="/{{ year }}/japan"><button>{{_("日本代表")}}</button></a>
+    <a href="/{{ language }}/{{ year }}/japan"><button>{{_("日本代表")}}</button></a>
   {% endif %}
 </div>
 
@@ -322,8 +322,8 @@
 </table>
 
 <div class="button-container">
-  <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
-  <a href="/others/result_stream"><button>{{_("{Wildcard}結果発表配信").format(Wildcard="Wildcard")}}</button></a>
+  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ language }}/others/result_stream"><button>{{_("{Wildcard}結果発表配信").format(Wildcard="Wildcard")}}</button></a>
 </div>
 
 <h2 id="main-judges-section" name="judges">{{_("本戦審査員一覧")}}</h2>
@@ -386,8 +386,8 @@
 </div>
 
 <div class="button-container">
-  <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
-  <a href="/{{ year }}/participants"><button>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}} & {{_("出場者")}}</button></a>
+  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/participants"><button>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}} & {{_("出場者")}}</button></a>
 </div>
 
 <h2 id="wildcard-judges-section">{{_("{Wildcard}審査員一覧").format(Wildcard="Wildcard")}}</h2>
@@ -436,8 +436,8 @@
 </div>
 
 <div class="button-container">
-  <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
-  <a href="/{{ year }}/wildcards"><button>{{_("{Wildcard}一覧").format(Wildcard="Wildcard")}}</button></a>
+  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/wildcards"><button>{{_("{Wildcard}一覧").format(Wildcard="Wildcard")}}</button></a>
 </div>
 
 <h2 id="second-league-section" name="second-league">{{_("セカンドリーグ")}}</h2>
