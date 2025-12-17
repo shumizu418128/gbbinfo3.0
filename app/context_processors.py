@@ -499,6 +499,8 @@ def get_participant_id():
     participants_id_list = []
     participants_mode_list = []
 
+    FIVE_YEARS_AGO = datetime.now().year - 5
+
     # 出場者データを取得
     participants_data = supabase_service.get_data(
         table="Participant",
@@ -506,7 +508,10 @@ def get_participant_id():
         join_tables={
             "Category": ["is_team"],
         },
-        filters={f"iso_code__{Operator.GREATER_THAN}": 0},
+        filters={
+            f"iso_code__{Operator.GREATER_THAN}": 0,
+            f"year__{Operator.GREATER_THAN}": FIVE_YEARS_AGO,
+        },
     )
     participant_members_data = supabase_service.get_data(
         table="ParticipantMember",
