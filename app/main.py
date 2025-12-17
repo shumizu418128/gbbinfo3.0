@@ -202,7 +202,7 @@ def change_language():
 
 
 @app.route("/<string:lang>/others/participant_detail")
-def participant_detail_deprecated(_):
+def participant_detail_deprecated(lang):
     return participant_detail.participant_detail_deprecated_view()
 
 
