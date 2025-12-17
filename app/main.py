@@ -1,5 +1,6 @@
 import logging
 import os
+from functools import lru_cache
 
 from flask import (
     Flask,
@@ -8,6 +9,7 @@ from flask import (
 )
 from flask_babel import Babel, _
 from flask_caching import Cache
+from flask_sitemapper import Sitemapper
 
 from app.config.config import (
     BASE_DIR,
@@ -17,7 +19,9 @@ from app.config.config import (
 from app.context_processors import (
     common_variables,
     get_locale,
+    get_variable,
     initialize_background_tasks,
+    language_code_redirect_handler,
 )
 from app.views import (
     beatboxer_finder,
@@ -37,7 +41,10 @@ _waitress_queue_logger = logging.getLogger("waitress.queue")
 _waitress_queue_logger.propagate = False
 _waitress_queue_logger.disabled = True
 
+sitemapper = Sitemapper()
+
 app = Flask(__name__)
+sitemapper.init_app(app)
 
 
 ####################################################################
@@ -78,16 +85,19 @@ if os.getenv("ENVIRONMENT_CHECK") == "qawsedrftgyhujikolp":
     print("*                                                                *")
     print("******************************************************************")
     app.config.from_object(TestConfig)
-    IS_LOCAL = True
     IS_PULL_REQUEST = False
+    IS_LOCAL = True
+    SITEMAP_GZIP = False
 elif os.getenv("IS_PULL_REQUEST") == "true":
     app.config.from_object(PRConfig)
     IS_PULL_REQUEST = True
     IS_LOCAL = False
+    SITEMAP_GZIP = True
 else:
     app.config.from_object(ProductionConfig)
     IS_PULL_REQUEST = False
     IS_LOCAL = False
+    SITEMAP_GZIP = True
 
 try:
     flask_cache = Cache(app)
@@ -102,12 +112,55 @@ test = _("test")  # テスト翻訳
 initialize_background_tasks(IS_LOCAL)
 
 
+@lru_cache(maxsize=1)
+def build_sitemap_variables():
+    """サイトマップ用のURL変数を構築してメモ化する。
+
+    Returns:
+        dict: サイトマップ登録に使うURL変数の辞書。
+    """
+
+    result_year, result_lang = get_variable(mode="result")
+    yearly_year, yearly_lang = get_variable(mode="general")
+    participant_detail_id, participant_detail_mode, participant_detail_lang = (
+        get_variable(mode="participant_detail")
+    )
+    others_content, others_lang = get_variable(mode="others")
+    travel_content, travel_lang = get_variable(mode="travel")
+    (
+        general_content_year,
+        general_content_lang,
+        general_content_content,
+    ) = get_variable(mode="general_content")
+
+    return {
+        "result": {"lang": result_lang, "year": result_year},
+        "yearly_pages": {"lang": yearly_lang, "year": yearly_year},
+        "participant_detail": {
+            "lang": participant_detail_lang,
+            "participant_id": participant_detail_id,
+            "mode": participant_detail_mode,
+        },
+        "travel": {"lang": travel_lang, "content": travel_content},
+        "others": {"lang": others_lang, "content": others_content},
+        "content_pages": {
+            "lang": general_content_lang,
+            "year": general_content_year,
+            "content": general_content_content,
+        },
+    }
+
+
+sitemap_variables = build_sitemap_variables()
+
+
 ####################################################################
 # MARK: 共通変数
 ####################################################################
 @app.before_request
 def before_request():
     get_locale()
+    return language_code_redirect_handler()
 
 
 @app.context_processor
@@ -124,93 +177,146 @@ def locale_selector():
 
 
 #####################################################################
-# MARK: URL
+# URL
 #####################################################################
-# リダイレクト
-app.add_url_rule("/", "redirect_to_latest_top", common.top_redirect_view)
-app.add_url_rule("/2022/<string:content>", "2022_content", common.content_2022_view)
-app.add_url_rule(
-    "/<int:year>/time_schedule", "time_schedule", common.time_schedule_view
-)
+# MARK: リダイレクト
+@app.route("/")
+def redirect_to_latest_top():
+    return common.top_redirect_view()
 
-# POSTリクエスト
-app.add_url_rule(
-    "/beatboxer_tavily_search",
-    "beatboxer_tavily_search",
-    beatboxer_web_search.post_beatboxer_tavily_search,
-    methods=["POST"],
-)
-app.add_url_rule(
-    "/search_suggestions",
-    "search_suggestion",
-    site_navigation.post_search_suggestion,
-    methods=["POST"],
-)
-app.add_url_rule(
-    "/<int:year>/search",
-    "search",
-    site_navigation.post_search,
-    defaults={"IS_LOCAL": IS_LOCAL, "IS_PULL_REQUEST": IS_PULL_REQUEST},
-    methods=["POST"],
-)
-app.add_url_rule(
-    "/<int:year>/search_participants",
-    "search_participants",
-    beatboxer_finder.post_search_participants,
-    methods=["POST"],
-)
-app.add_url_rule(
-    "/answer_translation",
-    "answer_translation",
-    beatboxer_web_search.post_answer_translation,
-    methods=["POST"],
-)
 
-# 要データ取得
-app.add_url_rule("/<int:year>/world_map", "world_map", world_map.world_map_view)
-app.add_url_rule("/<int:year>/rule", "rule", rule.rules_view)
-app.add_url_rule(
-    "/<int:year>/participants", "participants", participants.participants_view
-)
-app.add_url_rule("/<int:year>/cancels", "cancels", participants.cancels_view)
-app.add_url_rule("/<int:year>/result", "result", result.result_view)
-app.add_url_rule(
-    "/<int:year>/japan", "japan", participants.participants_country_specific_view
-)
-app.add_url_rule(
-    "/<int:year>/korea", "korea", participants.participants_country_specific_view
-)
-app.add_url_rule(
-    "/others/participant_detail",
-    "participant_detail",
-    participant_detail.participant_detail_view,
-)
-app.add_url_rule("/notice", "notice", common.notice_view)
+@app.route("/<string:lang>/2022/<string:content>")
+def content_2022(lang, content):
+    return common.content_2022_view(content)
 
-# その他通常ページ
-app.add_url_rule("/others/<string:content>", "others", common.other_content_view)
-app.add_url_rule("/travel/<string:content>", "travel", common.travel_content_view)
-app.add_url_rule("/<int:year>/<string:content>", "common", common.content_view)
 
-# deprecated
-app.add_url_rule(
-    "/lang",
-    "change_language",
-    language.change_language,
-)
+# MARK: deprecated
+@app.route("/<string:lang>/<int:year>/time_schedule")
+def time_schedule(lang, year):
+    return common.time_schedule_view(year)
+
+
+@app.route("/lang")
+def change_language():
+    return language.change_language()
+
+
+@app.route("/<string:lang>/others/participant_detail")
+def participant_detail_deprecated(lang):
+    return participant_detail.participant_detail_deprecated_view()
+
+
+# MARK: POST
+@app.route("/beatboxer_tavily_search", methods=["POST"])
+def beatboxer_tavily_search():
+    return beatboxer_web_search.post_beatboxer_tavily_search()
+
+
+@app.route("/search_suggestions", methods=["POST"])
+def search_suggestion():
+    return site_navigation.post_search_suggestion()
+
+
+@app.route("/<int:year>/search", methods=["POST"])
+def search(year):
+    return site_navigation.post_search(
+        year, IS_LOCAL=IS_LOCAL, IS_PULL_REQUEST=IS_PULL_REQUEST
+    )
+
+
+@app.route("/<int:year>/search_participants", methods=["POST"])
+def search_participants(year):
+    return beatboxer_finder.post_search_participants(year)
+
+
+@app.route("/answer_translation", methods=["POST"])
+def answer_translation():
+    return beatboxer_web_search.post_answer_translation()
+
+
+@app.route("/notice", methods=["POST"])
+def notice_view():
+    return common.notice_view()
+
+
+# MARK: 要データ取得
+# ruleのsitemap追加は/<int:year>/<string:content>で行う
+@app.route("/<string:lang>/<int:year>/rule")
+def rule_view(lang, year):
+    return rule.rules_view(year)
+
+
+@sitemapper.include(url_variables=sitemap_variables["result"])
+@app.route("/<string:lang>/<int:year>/result")
+def result_view(lang, year):
+    return result.result_view(year)
+
+
+@app.route("/<string:lang>/<int:year>/world_map")
+def world_map_view(lang, year):
+    return world_map.world_map_view(year)
+
+
+@sitemapper.include(url_variables=sitemap_variables["yearly_pages"])
+@app.route("/<string:lang>/<int:year>/participants")
+def participants_view(lang, year):
+    return participants.participants_view(year)
+
+
+@sitemapper.include(url_variables=sitemap_variables["yearly_pages"])
+@app.route("/<string:lang>/<int:year>/cancels")
+def cancels_view(lang, year):
+    return participants.cancels_view(year)
+
+
+@sitemapper.include(url_variables=sitemap_variables["yearly_pages"])
+@app.route("/<string:lang>/<int:year>/japan")
+def japan(lang, year):
+    return participants.participants_country_specific_view(year)
+
+
+@sitemapper.include(url_variables=sitemap_variables["yearly_pages"])
+@app.route("/<string:lang>/<int:year>/korea")
+def korea(lang, year):
+    return participants.participants_country_specific_view(year)
+
+
+@sitemapper.include(url_variables=sitemap_variables["participant_detail"])
+@app.route("/<string:lang>/participant_detail/<int:participant_id>/<string:mode>")
+def participant_detail_view(lang, participant_id, mode):
+    return participant_detail.participant_detail_view(participant_id, mode)
+
+
+# MARK: 通常ページ
+@sitemapper.include(url_variables=sitemap_variables["others"])
+@app.route("/<string:lang>/others/<string:content>")
+def others(lang, content):
+    return common.other_content_view(content)
+
+
+@sitemapper.include(url_variables=sitemap_variables["travel"])
+@app.route("/<string:lang>/travel/<string:content>")
+def travel(lang, content):
+    return common.travel_content_view(content)
+
+
+@sitemapper.include(url_variables=sitemap_variables["content_pages"])
+@app.route("/<string:lang>/<int:year>/<string:content>")
+def common_content(lang, year, content):
+    return common.content_view(year, content)
 
 
 ####################################################################
 # MARK: 静的ファイル
 ####################################################################
+@app.route("/sitemap.xml")
+def sitemap_xml():
+    return sitemapper.generate(gzip=SITEMAP_GZIP)
+
+
 @app.route("/.well-known/discord")
 def discord():
     return send_file("static/discord")
-
-
-@app.route("/sitemap.xml")
-def sitemap():
-    return send_file("static/sitemap.xml", mimetype="application/xml")
 
 
 @app.route("/robots.txt")

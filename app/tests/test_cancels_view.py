@@ -7,7 +7,21 @@ python -m pytest app/tests/test_cancels_view.py -v
 import unittest
 from unittest.mock import patch
 
-from app.main import app
+# Supabaseサービスをモックしてからapp.mainをインポート
+with patch("app.context_processors.supabase_service") as mock_supabase:
+    # get_available_years()とget_participant_id()のためのモックデータ
+    def mock_get_data(*args, **kwargs):
+        table = kwargs.get("table")
+        if table == "Year":
+            return [{"year": 2025}]
+        elif table == "Participant":
+            return [{"id": 1, "name": "Test", "Category": {"is_team": False}}]
+        elif table == "ParticipantMember":
+            return [{"id": 2}]
+        return []
+
+    mock_supabase.get_data.side_effect = mock_get_data
+    from app.main import app
 
 
 class CancelsViewTestCase(unittest.TestCase):
@@ -76,7 +90,7 @@ class CancelsViewTestCase(unittest.TestCase):
         with self.client.session_transaction() as sess:
             sess["language"] = "ja"
 
-        resp = self.client.get("/2025/cancels")
+        resp = self.client.get("/ja/2025/cancels")
         self.assertEqual(resp.status_code, 200)
 
         # レスポンスの内容確認
@@ -112,7 +126,7 @@ class CancelsViewTestCase(unittest.TestCase):
         with self.client.session_transaction() as sess:
             sess["language"] = "ja"
 
-        resp = self.client.get("/2025/cancels")
+        resp = self.client.get("/ja/2025/cancels")
         self.assertEqual(resp.status_code, 200)
 
         # 空の場合のメッセージ確認
@@ -142,7 +156,7 @@ class CancelsViewTestCase(unittest.TestCase):
         with self.client.session_transaction() as sess:
             sess["language"] = "ja"
 
-        resp = self.client.get("/2025/cancels")
+        resp = self.client.get("/ja/2025/cancels")
         self.assertEqual(resp.status_code, 500)
 
 

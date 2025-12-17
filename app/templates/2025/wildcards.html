@@ -3,16 +3,16 @@
 {% block title %}GBB {{ year }} {{_("{Wildcard}一覧").format(Wildcard="Wildcard")}} - GBBINFO-JPN{% endblock %}
 {% block twitter_title %}GBB {{ year }} {{_("{Wildcard}一覧").format(Wildcard="Wildcard")}} - GBBINFO-JPN{% endblock %}
 {% block og_title %}GBB {{ year }} {{_("{Wildcard}一覧").format(Wildcard="Wildcard")}} - GBBINFO-JPN{% endblock %}
-{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/wildcards{% endblock %}
-{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/wildcards{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/wildcards{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/wildcards{% endblock %}
 {% block content %}
 <h1>GBB {{ year }} {{_("{Wildcard}一覧").format(Wildcard="Wildcard")}}</h1>
 
 <p>{{_("各部門の締め切り期日は、中央ヨーロッパ時刻を基準に表記しています。")}}</p>
 
 <div class="button-container">
-  <a href="/{{ year }}/participants"><button>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}} & {{_("出場者")}}</button></a>
-  <a href="/{{ year }}/rule"><button>{{_("ルール")}} & {{_("審査員")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/participants"><button>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}} & {{_("出場者")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/rule"><button>{{_("ルール")}} & {{_("審査員")}}</button></a>
 </div>
 
 <ul>
@@ -80,8 +80,8 @@
 </ul>
 
 <div class="button-container">
-  <a href="/{{ year }}/participants"><button>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}} & {{_("出場者")}}</button></a>
-  <a href="/{{ year }}/rule"><button>{{_("ルール")}} & {{_("審査員")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/participants"><button>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}} & {{_("出場者")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/rule"><button>{{_("ルール")}} & {{_("審査員")}}</button></a>
 </div>
 
 <h2>{{_("注意事項")}}</h2>
@@ -102,18 +102,18 @@
   <p>Wildcardを見る会<br>Wildcard結果発表を見る会<br>ビト森にて随時開催中！</p>
 </div>
 <div class="button-container">
-  <a href="/{{ year }}/bitomori"><button style="background-image: url('/static/images/button/bitomori.webp');" class="button-with-background-image">
+  <a href="/{{ language }}/{{ year }}/bitomori"><button style="background-image: url('/static/images/button/bitomori.webp');" class="button-with-background-image">
     <svg class="button-background-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0044CC"><path d="m380-340 280-180-280-180v360Zm-60 220v-80H160q-33 0-56.5-23.5T80-280v-480q0-33 23.5-56.5T160-840h640q33 0 56.5 23.5T880-760v480q0 33-23.5 56.5T800-200H640v80H320Z"/></svg>
     <span class="button-text-with-icon">ビト森 GBB鑑賞会</span>
   </button></a>
 </div>
 
 <div class="button-container">
-  <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
   {% if language == 'ko' %}
-    <a href="/{{ year }}/korea"><button>{{_("韓国代表")}}</button></a>
+    <a href="/{{ language }}/{{ year }}/korea"><button>{{_("韓国代表")}}</button></a>
   {% else %}
-    <a href="/{{ year }}/japan"><button>{{_("日本代表")}}</button></a>
+    <a href="/{{ language }}/{{ year }}/japan"><button>{{_("日本代表")}}</button></a>
   {% endif %}
 </div>
 

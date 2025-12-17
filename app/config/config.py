@@ -135,7 +135,11 @@ FLAG_CODE = """
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 MINUTE = 60
+HOUR = 60 * MINUTE
 
 LAST_UPDATED = datetime.now(timezone(timedelta(hours=9)))
 
 ALL_DATA = "*"
+
+TEMPORARY_REDIRECT_CODE = 302
+PERMANENT_REDIRECT_CODE = 301

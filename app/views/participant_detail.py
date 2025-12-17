@@ -4,13 +4,14 @@ from urllib.parse import quote
 
 from flask import redirect, render_template, request, session
 
+from app.config.config import PERMANENT_REDIRECT_CODE
 from app.models.supabase_client import supabase_service
 from app.util.filter_eq import Operator
 from app.util.participant_edit import edit_country_data, wildcard_rank_sort
 
 
 # MARK: 出場者詳細
-def participant_detail_view():
+def participant_detail_view(participant_id, mode):
     """
     出場者詳細ページのビュー関数。
 
@@ -24,17 +25,6 @@ def participant_detail_view():
     Raises:
         なし（id, modeが無い場合やデータが存在しない場合は参加者ページにリダイレクトする）
     """
-    # ========================================
-    # 1. リクエストパラメータの取得
-    # ========================================
-    try:
-        id = request.args["id"]  # 出場者ID
-        mode = request.args["mode"]  # single, team, team_member
-    except KeyError:
-        # id, modeが無い場合、出場者ページへリダイレクト
-        year = datetime.now().year
-        return redirect(f"/{year}/participants")
-
     language = session["language"]
 
     # ========================================
@@ -55,7 +45,7 @@ def participant_detail_view():
                     "Category(id, name)",
                 ],
             },
-            filters={"id": id},
+            filters={"id": participant_id},
         )
     else:
         beatboxer_data = supabase_service.get_data(
@@ -73,13 +63,13 @@ def participant_detail_view():
                 "Category": ["id", "name"],
                 "ParticipantMember": ["id", "name", "Country(names, iso_alpha2)"],
             },
-            filters={"id": id},
+            filters={"id": participant_id},
         )
 
     # データがない場合、出場者ページへリダイレクト
-    if not beatboxer_data:
+    if len(beatboxer_data) == 0 or beatboxer_data[0]["iso_code"] == 0:
         year = datetime.now().year
-        return redirect(f"/{year}/participants")
+        return redirect(f"/{language}/{year}/participants")
 
     # ========================================
     # 3. 出場者データの正規化
@@ -280,4 +270,33 @@ def participant_detail_view():
         "past_year_participation": past_year_participation,
     }
 
-    return render_template("others/participant_detail.html", **context)
+    return render_template("participant_detail/participant_detail.html", **context)
+
+
+# MARK: リダイレクト
+def participant_detail_deprecated_view():
+    """
+    参加者詳細情報を表示する (deprecated)。
+
+    Args:
+        request (HttpRequest): リクエストオブジェクト
+
+    Returns:
+        HttpResponse: レンダリングされたテンプレート
+    """
+    participant_id = request.args.get("id", type=int)
+    mode = request.args.get("mode", type=str)
+
+    language = session.get("language", "ja")
+
+    allowed_modes = {"single", "team", "team_member"}
+    if mode not in allowed_modes:
+        year = datetime.now().year
+        return redirect(f"/{language}/{year}/participants", code=PERMANENT_REDIRECT_CODE)
+
+    # パラメータが欠落している場合は直接参加者一覧ページへリダイレクトする
+    if participant_id is None or mode is None:
+        year = datetime.now().year
+        return redirect(f"/{language}/{year}/participants", code=PERMANENT_REDIRECT_CODE)
+
+    return redirect(f"/participant_detail/{participant_id}/{mode}")

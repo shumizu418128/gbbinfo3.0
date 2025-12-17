@@ -8,7 +8,21 @@ import os
 import unittest
 from unittest.mock import Mock, patch
 
-from app.main import app
+# Supabaseサービスをモックしてからapp.mainをインポート
+with patch("app.context_processors.supabase_service") as mock_supabase:
+    # get_available_years()とget_participant_id()のためのモックデータ
+    def mock_get_data(*args, **kwargs):
+        table = kwargs.get("table")
+        if table == "Year":
+            return [{"year": 2025}]
+        elif table == "Participant":
+            return [{"id": 1, "name": "Test", "Category": {"is_team": False}}]
+        elif table == "ParticipantMember":
+            return [{"id": 2}]
+        return []
+
+    mock_supabase.get_data.side_effect = mock_get_data
+    from app.main import app
 
 
 class DeepLServiceTestCase(unittest.TestCase):

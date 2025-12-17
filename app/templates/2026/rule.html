@@ -3,8 +3,8 @@
 {% block title %}GBB {{ year }} {{_("ルール")}} - GBBINFO-JPN{% endblock %}
 {% block twitter_title %}GBB {{ year }} {{_("ルール")}} - GBBINFO-JPN{% endblock %}
 {% block og_title %}GBB {{ year }} {{_("ルール")}} - GBBINFO-JPN{% endblock %}
-{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/rule{% endblock %}
-{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/rule{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/rule{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/rule{% endblock %}
 {% block content %}
 <h1>GBB {{ year }} {{_("ルール")}}</h1>
 <p>
@@ -176,7 +176,7 @@
     <tbody>
       {% for participant in gbb_seed %}
         <tr>
-          <td><a href="/others/participant_detail?id={{ participant.id }}&mode={{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a></td>
+          <td><a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a></td>
           <td>{{ participant.category }}</td>
           <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
           {{ participant.ticket_class }}
@@ -205,7 +205,7 @@
         {% if participant.name == "???" %}
           <td>{{ participant.name }}</td>
         {% else %}
-          <td><a href="/others/participant_detail?id={{ participant.id }}&mode={{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a></td>
+          <td><a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a></td>
         {% endif %}
         <td>{{ participant.category }}</td>
         <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
@@ -233,7 +233,7 @@
       {% for participant in cancelled %}
       <tr>
         <td>
-          【{{_("辞退")}}】<br><a href="/others/participant_detail?id={{ participant.id }}&mode={{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a>
+          【{{_("辞退")}}】<br><a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a>
         </td>
         <td>
           <s>{{ participant.category }}</s>
@@ -250,6 +250,7 @@
 {% endif %}
 
 <div class="button-container">
+<<<<<<< HEAD
   <a href="/{{ year }}/participants"><button>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}}</button></a>
   <a href="/{{ year }}/participants"><button>{{_("出場者一覧")}}</button></a>
 </div>
@@ -266,6 +267,10 @@
   <p style="font-size: 14px;">
     {{_("例：チャレンジャーシリーズ優勝者が、すでに{Wildcard}で出場権を獲得していた場合、チャレンジャーシリーズ2位ではなく、{Wildcard}下位からの繰り上げが行われます。").format(Wildcard="Wildcard")}}
   </p>
+=======
+    <a href="/{{ language }}/{{ year }}/participants"><button>{{_("Wildcard結果")}}</button></a>
+    <a href="/{{ language }}/{{ year }}/participants"><button>{{_("出場者一覧")}}</button></a>
+>>>>>>> main
 </div>
 
 <div class="button-container">

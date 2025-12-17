@@ -2,8 +2,8 @@
 {% block title %}GBB {{ year }} ルール - GBBINFO-JPN{% endblock %}
 {% block twitter_title %}GBB {{ year }} ルール - GBBINFO-JPN{% endblock %}
 {% block og_title %}GBB {{ year }} ルール - GBBINFO-JPN{% endblock %}
-{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/rule{% endblock %}
-{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/rule{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/rule{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/rule{% endblock %}
 {% block content %}
 <h1>GBB {{ year }} ルール</h1>
 <p>
@@ -92,7 +92,7 @@
     <tbody>
       {% for participant in gbb_seed %}
       <tr>
-        <td><a href="/others/participant_detail?id={{ participant.id }}&mode={% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a></td>
+        <td><a href="/{{ language }}/participant_detail/{{ participant.id }}/{% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a></td>
         <td>{{ participant.category }}</td>
         <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
           {{ participant.ticket_class }}
@@ -118,7 +118,7 @@
     <tbody>
       {% for participant in other_seed %}
       <tr>
-        <td><a href="/others/participant_detail?id={{ participant.id }}&mode={% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a></td>
+        <td><a href="/{{ language }}/participant_detail/{{ participant.id }}/{% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a></td>
         <td>{{ participant.category }}</td>
         <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
           {{ participant.ticket_class }}
@@ -145,7 +145,7 @@
       {% for participant in cancelled %}
       <tr>
         <td>
-          【辞退】<br><a href="/others/participant_detail?id={{ participant.id }}&mode={% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a>
+          【辞退】<br><a href="/{{ language }}/participant_detail/{{ participant.id }}/{% if participant.is_team %}team{% else %}single{% endif %}">{{ participant.name }}</a>
         </td>
         <td>
           <s>{{ participant.category }}</s>
@@ -162,14 +162,14 @@
 {% endif %}
 
 <div class="button-container">
-  <a href="/{{ year }}/participants"><button>Wildcard結果</button></a>
-  <a href="/{{ year }}/participants"><button>出場者一覧</button></a>
+  <a href="/{{ language }}/{{ year }}/participants"><button>Wildcard結果</button></a>
+  <a href="/{{ language }}/{{ year }}/participants"><button>出場者一覧</button></a>
 </div>
 <p>シード権を持つ人が辞退した場合、原則として、該当シード権は消滅し、Wildcard下位からの繰り上げが行われます。</p>
 
 <div class="button-container">
-  <a href="/others/how_to_plan"><button>現地観戦計画のたてかた</button></a>
-  <a href="/{{ year }}/top"><button>GBB {{ year }} これだけガイド</button></a>
+  <a href="/{{ language }}/others/how_to_plan"><button>現地観戦計画のたてかた</button></a>
+  <a href="/{{ language }}/{{ year }}/top"><button>GBB {{ year }} これだけガイド</button></a>
 </div>
 
 <h2 id="p04">本戦審査員一覧</h2>

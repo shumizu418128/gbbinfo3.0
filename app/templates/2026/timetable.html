@@ -3,8 +3,8 @@
 {% block title %}GBB {{ year }} {{_("タイムテーブル")}} - GBBINFO-JPN{% endblock %}
 {% block twitter_title %}GBB {{ year }} {{_("タイムテーブル")}} - GBBINFO-JPN{% endblock %}
 {% block og_title %}GBB {{ year }} {{_("タイムテーブル")}} - GBBINFO-JPN{% endblock %}
-{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/timetable{% endblock %}
-{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/timetable{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/timetable{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/timetable{% endblock %}
 {% block content %}
 
 <h1>GBB {{ year }} {{_("タイムテーブル")}}</h1>
@@ -17,10 +17,10 @@
 <p>{{_("なお、GBB 2022は中止され、GBB 2023~2025は、東京で開催されました。")}}</p>
 
 <div class="button-container">
-    <a href="/2021/timetable"><button>GBB 2021 {{_("タイムテーブル")}}</button></a>
+    <a href="/{{ language }}/2021/timetable"><button>GBB 2021 {{_("タイムテーブル")}}</button></a>
 </div>
 <div class="button-container">
-    <a href="/travel/top"><button>ワルシャワへ行こう</button></a>
+    <a href="/{{ language }}/travel/top"><button>ワルシャワへ行こう</button></a>
 </div>
 
 <div>
@@ -65,8 +65,8 @@
     </tbody>
 </table>
 <div class="button-container">
-    <a href="/travel/top"><button>ワルシャワへ行こう</button></a>
-    <a href="/{{ year }}/rule"><button>{{_("ルール")}} & {{_("審査員")}}</button></a>
+    <a href="/{{ language }}/travel/top"><button>ワルシャワへ行こう</button></a>
+    <a href="/{{ language }}/{{ year }}/rule"><button>{{_("ルール")}} & {{_("審査員")}}</button></a>
 </div>
 
 <h2 id="day2">Day2 - 9/25</h2>
@@ -93,8 +93,8 @@
     </tbody>
 </table>
 <div class="button-container">
-    <a href="/travel/top"><button>ワルシャワへ行こう</button></a>
-    <a href="/{{ year }}/stream"><button>{{_("当日配信")}}</button></a>
+    <a href="/{{ language }}/travel/top"><button>ワルシャワへ行こう</button></a>
+    <a href="/{{ language }}/{{ year }}/stream"><button>{{_("当日配信")}}</button></a>
 </div>
 
 <h2 id="day3">Day3 - 9/26</h2>
@@ -121,8 +121,8 @@
     </tbody>
 </table>
 <div class="button-container">
-    <a href="/{{ year }}/stream"><button>{{_("当日配信")}}</button></a>
-    <a href="/{{ year }}/participants"><button>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}} & {{_("出場者")}}</button></a>
+    <a href="/{{ language }}/{{ year }}/stream"><button>{{_("当日配信")}}</button></a>
+    <a href="/{{ language }}/{{ year }}/participants"><button>{{_("\{Wildcard\}結果").format(Wildcard="Wildcard")}} & {{_("出場者")}}</button></a>
 </div>
 
 <h2 id="seven-to-smoke" name="7tosmoke">7toSmoke - 9/27</h2>
@@ -149,8 +149,8 @@
     </tbody>
 </table>
 <div class="button-container">
-    <a href="/travel/top"><button>ワルシャワへ行こう</button></a>
-    <a href="/{{ year }}/top_7tosmoke"><button>7toSmoke {{_("これだけガイド")}}</button></a>
+    <a href="/{{ language }}/travel/top"><button>ワルシャワへ行こう</button></a>
+    <a href="/{{ language }}/{{ year }}/top_7tosmoke"><button>7toSmoke {{_("これだけガイド")}}</button></a>
 </div>
 
 {% endblock %}

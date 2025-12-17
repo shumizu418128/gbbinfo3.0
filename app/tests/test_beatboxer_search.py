@@ -7,7 +7,21 @@ python -m pytest app/tests/test_beatboxer_search.py -v
 import unittest
 from unittest.mock import patch
 
-from app.main import app
+# Supabaseサービスをモックしてからapp.mainをインポート
+with patch("app.context_processors.supabase_service") as mock_supabase:
+    # get_available_years()とget_participant_id()のためのモックデータ
+    def mock_get_data(*args, **kwargs):
+        table = kwargs.get("table")
+        if table == "Year":
+            return [{"year": 2025}]
+        elif table == "Participant":
+            return [{"id": 1, "name": "Test", "Category": {"is_team": False}}]
+        elif table == "ParticipantMember":
+            return [{"id": 2}]
+        return []
+
+    mock_supabase.get_data.side_effect = mock_get_data
+    from app.main import app
 
 COMMON_URLS = ["/japan", "/korea", "/participants", "/rule"]
 
@@ -1640,15 +1654,18 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
 
         # 対象URLを巡回
         urls = [
-            "/2025/participants?category=Loopstation&ticket_class=all&cancel=show",
-            "/2025/japan",
-            "/2025/korea",
+            "/ja/2025/participants?category=Loopstation&ticket_class=all&cancel=show",
+            "/ja/2025/japan",
+            "/ja/2025/korea",
         ]
 
         allowed_modes = {"single", "team", "team_member"}
 
         for url in urls:
             with self.subTest(url=url):
+                # セッションに言語を設定しておく
+                with self.client.session_transaction() as sess:
+                    sess["language"] = "ja"
                 resp = self.client.get(url)
                 self.assertEqual(
                     resp.status_code,

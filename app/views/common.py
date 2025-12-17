@@ -1,10 +1,11 @@
 import os
 from datetime import datetime, timedelta, timezone
 
-from flask import jsonify, redirect, render_template
+from flask import jsonify, redirect, render_template, session
 from flask_babel import format_datetime
 from jinja2 import TemplateNotFound
 
+from app.config.config import PERMANENT_REDIRECT_CODE
 from app.context_processors import get_available_years
 from app.models.spreadsheet_client import spreadsheet_service
 
@@ -33,7 +34,11 @@ def time_schedule_view(year: int):
     """
     タイムテーブルを表示するビュー。
     """
-    return redirect(f"/{year}/timetable")
+    language = session.get("language", "ja")
+    available_years = get_available_years()
+    if year not in available_years:
+        year = datetime.now().year
+    return redirect(f"/{language}/{year}/timetable", code=PERMANENT_REDIRECT_CODE)
 
 
 # MARK: 共通ビュー
@@ -50,10 +55,14 @@ def content_view(year: int, content: str):
         HttpResponse: レンダリングされたテンプレート
     """
     content_basename = os.path.basename(content)
+    language = session.get("language", "ja")
+    available_years = get_available_years()
+    if year not in available_years:
+        year = datetime.now().year
 
     # 2013-2016年の場合、topページ以外はリダイレクト
     if 2013 <= year <= 2016 and content_basename != "top":
-        return redirect(f"/{year}/top")
+        return redirect(f"/{language}/{year}/top")
 
     try:
         return render_template(f"{year}/{content_basename}.html")

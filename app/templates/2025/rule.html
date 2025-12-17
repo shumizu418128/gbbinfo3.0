@@ -3,8 +3,8 @@
 {% block title %}GBB {{ year }} {{_("ルール")}} - GBBINFO-JPN{% endblock %}
 {% block twitter_title %}GBB {{ year }} {{_("ルール")}} - GBBINFO-JPN{% endblock %}
 {% block og_title %}GBB {{ year }} {{_("ルール")}} - GBBINFO-JPN{% endblock %}
-{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/rule{% endblock %}
-{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/rule{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/rule{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/rule{% endblock %}
 {% block content %}
 <h1>GBB {{ year }} {{_("ルール")}}</h1>
 <p>
@@ -15,11 +15,11 @@
 </p>
 
 <div class="button-container">
-  <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
-  <a href="/{{ year }}/wildcards"><button>{{_("{Wildcard}一覧").format(Wildcard="Wildcard")}}</button></a>
+  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/wildcards"><button>{{_("{Wildcard}一覧").format(Wildcard="Wildcard")}}</button></a>
 </div>
 <div class="button-container">
-  <a href="/{{ year }}/wildcard_regulation"><button>{{_("【{Beatboxer}向け】{Wildcard}レギュレーション解説").format(Beatboxer="Beatboxer", Wildcard="Wildcard")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/wildcard_regulation"><button>{{_("【{Beatboxer}向け】{Wildcard}レギュレーション解説").format(Beatboxer="Beatboxer", Wildcard="Wildcard")}}</button></a>
 </div>
 
 <div>
@@ -63,8 +63,8 @@
 </p>
 
 <div class="button-container">
-  <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
-  <a href="/{{ year }}/participants"><button>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}} & {{_("出場者")}}</button></a>
+  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/participants"><button>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}} & {{_("出場者")}}</button></a>
 </div>
 
 <h2 id="category-section" name="category">{{_("開催部門一覧")}}</h2>
@@ -122,7 +122,7 @@
 </p>
 
 <div class="button-container">
-  <a href="/{{ year }}/wildcard_regulation"><button>{{_("【{Beatboxer}向け】{Wildcard}レギュレーション解説").format(Beatboxer="Beatboxer", Wildcard="Wildcard")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/wildcard_regulation"><button>{{_("【{Beatboxer}向け】{Wildcard}レギュレーション解説").format(Beatboxer="Beatboxer", Wildcard="Wildcard")}}</button></a>
 </div>
 
 <h2 id="seeds-section" name="seeds">{{_("出場シード権 獲得条件")}}</h2>
@@ -143,7 +143,7 @@
     <tbody>
       {% for participant in gbb_seed %}
       <tr>
-        <td><a href="/others/participant_detail?id={{ participant.id }}&mode={{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a></td>
+        <td><a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a></td>
         <td>{{ participant.category }}</td>
         <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
           {{ participant.ticket_class }}
@@ -172,7 +172,7 @@
         {% if participant.name == "???" %}
           <td>{{ participant.name }}</td>
         {% else %}
-          <td><a href="/others/participant_detail?id={{ participant.id }}&mode={{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a></td>
+          <td><a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a></td>
         {% endif %}
         <td>{{ participant.category }}</td>
         <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
@@ -200,7 +200,7 @@
       {% for participant in cancelled %}
       <tr>
         <td>
-          【{{_("辞退")}}】<br><a href="/others/participant_detail?id={{ participant.id }}&mode={{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a>
+          【{{_("辞退")}}】<br><a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a>
         </td>
         <td>
           <s>{{ participant.category }}</s>
@@ -217,8 +217,8 @@
 {% endif %}
 
 <div class="button-container">
-  <a href="/{{ year }}/participants"><button>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}}</button></a>
-  <a href="/{{ year }}/participants"><button>{{_("出場者一覧")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/participants"><button>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/participants"><button>{{_("出場者一覧")}}</button></a>
 </div>
 <div style="margin: 40px 0;"></div>
 
@@ -235,11 +235,11 @@
 </div>
 
 <div class="button-container">
-  <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
   {% if language == 'ko' %}
-    <a href="/{{ year }}/korea"><button>{{_("韓国代表")}}</button></a>
+    <a href="/{{ language }}/{{ year }}/korea"><button>{{_("韓国代表")}}</button></a>
   {% else %}
-    <a href="/{{ year }}/japan"><button>{{_("日本代表")}}</button></a>
+    <a href="/{{ language }}/{{ year }}/japan"><button>{{_("日本代表")}}</button></a>
   {% endif %}
 </div>
 
@@ -291,15 +291,15 @@
   <p>Wildcardを見る会<br>Wildcard結果発表を見る会<br>ビト森にて随時開催中！</p>
 </div>
 <div class="button-container">
-  <a href="/{{ year }}/bitomori"><button style="background-image: url('/static/images/button/bitomori.webp');" class="button-with-background-image">
+  <a href="/{{ language }}/{{ year }}/bitomori"><button style="background-image: url('/static/images/button/bitomori.webp');" class="button-with-background-image">
     <svg class="button-background-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0044CC"><path d="m380-340 280-180-280-180v360Zm-60 220v-80H160q-33 0-56.5-23.5T80-280v-480q0-33 23.5-56.5T160-840h640q33 0 56.5 23.5T880-760v480q0 33-23.5 56.5T800-200H640v80H320Z"/></svg>
     <span class="button-text-with-icon">ビト森 GBB鑑賞会</span>
   </button></a>
 </div>
 
 <div class="button-container">
-  <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
-  <a href="/others/result_stream"><button>{{_("{Wildcard}結果発表配信").format(Wildcard="Wildcard")}}</button></a>
+  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ language }}/others/result_stream"><button>{{_("{Wildcard}結果発表配信").format(Wildcard="Wildcard")}}</button></a>
 </div>
 
 <h2 id="main-judges-section" name="judges">{{_("本戦審査員一覧")}}</h2>
@@ -354,8 +354,8 @@
 </div>
 
 <div class="button-container">
-  <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
-  <a href="/{{ year }}/participants"><button>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}} & {{_("出場者")}}</button></a>
+  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/participants"><button>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}} & {{_("出場者")}}</button></a>
 </div>
 
 <h2 id="wildcard-judges-section">{{_("{Wildcard}審査員一覧").format(Wildcard="Wildcard")}}</h2>
@@ -396,8 +396,8 @@
 </div>
 
 <div class="button-container">
-  <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
-  <a href="/{{ year }}/wildcards"><button>{{_("{Wildcard}一覧").format(Wildcard="Wildcard")}}</button></a>
+  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/wildcards"><button>{{_("{Wildcard}一覧").format(Wildcard="Wildcard")}}</button></a>
 </div>
 
 {% endblock %}

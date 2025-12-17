@@ -1,16 +1,20 @@
 import re
 from datetime import datetime, timezone
+from functools import lru_cache
+from itertools import product
 from threading import Thread
-from urllib.parse import parse_qs, urlencode, urlparse, urlunparse
+from urllib.parse import urlparse, urlunparse
 
 from dateutil import parser
-from flask import request, session
+from flask import redirect, request, session
 from flask_babel import format_datetime
 
 from app.config.config import (
     BASE_DIR,
+    HOUR,
     LANGUAGE_CHOICES,
     LAST_UPDATED,
+    PERMANENT_REDIRECT_CODE,
     SUPPORTED_LOCALES,
 )
 from app.models.supabase_client import supabase_service
@@ -28,7 +32,7 @@ def get_available_years():
     # ここに書かないと循環インポートになる
     from app.main import flask_cache
 
-    cache_key = "available_years"
+    cache_key = "available_years_list"
     cached_years = flask_cache.get(cache_key)
 
     if cached_years is not None:
@@ -42,7 +46,7 @@ def get_available_years():
     available_years.sort(reverse=True)
 
     # キャッシュに保存（タイムアウトなし）
-    flask_cache.set(cache_key, available_years, timeout=None)
+    flask_cache.set(cache_key, available_years)
 
     return available_years
 
@@ -64,16 +68,14 @@ def get_translated_urls():
     # ここに書かないと循環インポートになる
     from app.main import flask_cache
 
-    cache_key = "translated_urls"
+    cache_key = "translated_urls_with_languages"
     cached_urls = flask_cache.get(cache_key)
 
     if cached_urls is not None:
         return cached_urls
 
-    language = "en"
-
     po_file_path = (
-        BASE_DIR / "app" / "translations" / language / "LC_MESSAGES" / "messages.po"
+        BASE_DIR / "app" / "translations" / "en" / "LC_MESSAGES" / "messages.po"
     )
     translated_urls = set()
 
@@ -84,12 +86,12 @@ def get_translated_urls():
         return set()
 
     exclude_patterns = [
-        r"includes/",  # includesディレクトリ
-        r"base\.html",  # base.html
-        r"404\.html",  # 404.html
+        r"includes/",
+        r"base\.html",
+        r"404\.html",
     ]
 
-    # 年度ごとに展開 中止年度は除外
+    # 年度ごとに展開（中止年度は除外）
     year_data = supabase_service.get_data(
         table="Year",
         columns=["year"],
@@ -98,39 +100,44 @@ def get_translated_urls():
     )
     available_years = year_data["year"].tolist()
 
-    for line in po_content.split("\n"):
-        if line.startswith("#: templates/"):
-            # コメント行から複数パスを取得
-            paths = line.replace("#:", "").split()
-            for path in paths:
-                # 除外条件
-                if any(re.search(pattern, path) for pattern in exclude_patterns):
-                    continue
+    for lang in SUPPORTED_LOCALES:
+        for line in po_content.split("\n"):
+            if line.startswith("#: templates/"):
+                # コメント行から複数パスを取得
+                paths = line.replace("#:", "").split()
+                for path in paths:
+                    # 除外条件
+                    if any(re.search(pattern, path) for pattern in exclude_patterns):
+                        continue
 
-                # パスからテンプレート部分を抽出
-                m = re.match(r"templates/(.+?\.html)", path)
-                if not m:
-                    continue
-                template_path = m.group(1)
+                    # パスからテンプレート部分を抽出
+                    m = re.match(r"templates/(.+?\.html)", path)
+                    if not m:
+                        continue
+                    template_path = m.group(1)
 
-                # 年度ディレクトリ or commonディレクトリ
-                if template_path.startswith("common/"):
-                    for year in available_years:
-                        # common/foo.html → /{year}/foo
-                        url_path = (
-                            "/"
-                            + str(year)
-                            + "/"
-                            + template_path.replace("common/", "").replace(".html", "")
-                        )
+                    # 年度ディレクトリ or commonディレクトリ
+                    if template_path.startswith("common/"):
+                        for year in available_years:
+                            # common/foo.html -> /{lang}/{year}/foo
+                            url_path = (
+                                "/"
+                                + lang
+                                + "/"
+                                + str(year)
+                                + "/"
+                                + template_path.replace("common/", "").replace(
+                                    ".html", ""
+                                )
+                            )
+                            translated_urls.add(url_path)
+                    else:
+                        # 2024/foo.html -> /{lang}/2024/foo
+                        url_path = "/" + lang + "/" + template_path.replace(".html", "")
                         translated_urls.add(url_path)
-                else:
-                    # 2024/foo.html → /2024/foo
-                    url_path = "/" + template_path.replace(".html", "")
-                    translated_urls.add(url_path)
 
-    # キャッシュに保存（タイムアウトなし）
-    flask_cache.set(cache_key, translated_urls, timeout=None)
+    # キャッシュに保存
+    flask_cache.set(cache_key, translated_urls, timeout=24 * HOUR)
 
     return translated_urls
 
@@ -183,6 +190,10 @@ def is_translated(url, language, translated_urls):
     """
     # 日本語は常にTrue
     if language == "ja":
+        return True
+
+    # participant_detailは常にTrue
+    if "participant_detail" in url:
         return True
 
     # 定数から翻訳されたURLを取得
@@ -254,22 +265,18 @@ def get_change_language_url(current_url):
         list: 各言語ごとの(url, lang_name)のタプルリスト。
     """
     change_language_urls = []
-
     parsed_url = urlparse(current_url)
-    query_params = parse_qs(parsed_url.query)
+    current_language = session.get("language", "")
 
     for lang_code, lang_name in LANGUAGE_CHOICES:
-        query_params["lang"] = [lang_code]
-        new_query = urlencode(query_params, doseq=True)
+        # path の言語部分を置換して新しいパスを作る
+        new_path = (
+            parsed_url.path.replace(f"/{current_language}/", f"/{lang_code}/")
+            if current_language
+            else parsed_url.path
+        )
         new_url = urlunparse(
-            (
-                "",
-                "",
-                parsed_url.path,
-                parsed_url.params,
-                new_query,
-                parsed_url.fragment,
-            )
+            ("", "", new_path, parsed_url.params, parsed_url.query, parsed_url.fragment)
         )
         change_language_urls.append((new_url, lang_name))
 
@@ -303,7 +310,7 @@ def common_variables(
             - is_pull_request (bool): プルリクエスト環境かどうか
             - scroll (str): スクロール位置（クエリパラメータ）
     """
-    year_str = request.path.split("/")[1]
+    year_str = request.path.split("/")[2]
 
     # 年度が最新 or 試験公開年度か検証
     try:
@@ -312,7 +319,7 @@ def common_variables(
         year = datetime.now().year
 
     translated_urls = get_translated_urls()
-    language = session["language"]
+    language = session.get("language", "ja")
 
     return {
         "year": year,
@@ -342,17 +349,59 @@ def get_locale():
         セッションに"language"が設定されていない場合は、リクエストのAccept-Languageヘッダーから
         最適なロケールを選択し、セッションに保存します。該当するロケールがない場合は"ja"をデフォルトとします。
     """
-    # クエリパラメータで言語指定されている場合、それを優先
-    preferred_language = request.args.get("lang")
-    if preferred_language and preferred_language in SUPPORTED_LOCALES:
-        session["language"] = preferred_language
-        return session["language"]
+    # URL の最初のパス要素を優先
+    preferred_language = (
+        request.path.split("/")[1] if request.path.startswith("/") else None
+    )
 
-    # セッションに言語が設定されているか確認
-    if "language" not in session:
+    # URL の言語がサポート済みなら優先
+    if preferred_language in SUPPORTED_LOCALES:
+        session["language"] = preferred_language
+
+    # セッションに言語が設定されていてサポート済みならその言語を使用
+    elif session.get("language") in SUPPORTED_LOCALES:
+        pass
+
+    # それ以外はブラウザのAccept-Languageヘッダーから最適な言語を選択
+    else:
         best_match = request.accept_languages.best_match(SUPPORTED_LOCALES)
         session["language"] = best_match if best_match else "ja"
+
     return session["language"]
+
+
+# MARK: 言語rd判定
+def language_code_redirect_handler():
+    """
+    URL に言語コードが含まれていない場合、セッションの言語コードを付与してリダイレクトする。
+    """
+    # participant_detailもリダイレクト対象
+    if request.path.startswith("/participant_detail"):
+        return add_language_and_redirect()
+
+    # パスに'/'が2つしか含まれていない（例: /2024/foo）場合は言語追加
+    if request.path.count("/") == 2:
+        # 検索APIなどは除外
+        if (
+            request.path.endswith("/search")
+            or request.path.endswith("/search_participants")
+            or request.path.startswith("/static")
+        ):
+            return
+        return add_language_and_redirect()
+
+
+# MARK: 言語rd
+def add_language_and_redirect():
+    """
+    現在の URL の先頭に session['language'] を付与してリダイレクトする。
+    """
+    parsed_url = urlparse(request.url)
+    new_path = "/" + session.get("language", "ja") + parsed_url.path
+    new_url = urlunparse(
+        ("", "", new_path, parsed_url.params, parsed_url.query, parsed_url.fragment)
+    )
+    return redirect(new_url, code=PERMANENT_REDIRECT_CODE)
 
 
 # MARK: 世界地図初期化
@@ -373,23 +422,263 @@ def delete_world_map():
             html_file.unlink()
 
 
+# MARK: others
+def get_others_content():
+    """
+    'Others'カテゴリに属するコンテンツを取得します。
+
+    Returns:
+        list: 'Others'カテゴリに属するコンテンツのリスト
+    """
+    file_names = []
+    for html_file in BASE_DIR.glob("app/templates/others/*.html"):
+        file_names.append(html_file.stem)
+    return file_names
+
+
+# MARK: travel
+def get_travel_content():
+    """
+    'Travel'カテゴリに属するコンテンツを取得します。
+
+    Returns:
+        list: 'Travel'カテゴリに属するコンテンツのリスト
+    """
+    file_names = []
+    for html_file in BASE_DIR.glob("app/templates/travel/*.html"):
+        file_names.append(html_file.stem)
+    return file_names
+
+
+# MARK: 年度別
+def get_yearly_content(AVAILABLE_YEARS):
+    """年度ごとのコンテンツ一覧と対応する年度リストを返す。
+
+    Args:
+        AVAILABLE_YEARS (list): 対象の年度リスト
+
+    Returns:
+        tuple: (years_list, contents_per_year)
+            - years_list (list[int]): 各コンテンツに対応する年度
+            - contents_per_year (list[str]): 年度別テンプレートのコンテンツ名
+    """
+    years_list = []
+    contents_per_year = []
+    for year in AVAILABLE_YEARS:
+        for html_file in BASE_DIR.glob(f"app/templates/{year}/*.html"):
+            contents_per_year.append(html_file.stem)
+            years_list.append(year)
+
+    return years_list, contents_per_year
+
+
+# MARK: 出場者id
+def get_participant_id():
+    """
+    参加者のIDリストと各参加者のモードリストを返します。
+
+    Returns:
+    tuple: (participants_id_list, participants_mode_list)
+        - participants_id_list: list[int | str] — 参加者またはメンバーのIDのリスト（順序は取得順）
+        - participants_mode_list: list[str] — 各IDに対応するモードのリスト。値は "team", "single", "team_member" のいずれか。
+    """
+
+    # ここに書かないと循環インポートになる
+    from app.main import flask_cache
+
+    cache_key = "participant_data_list"
+    cached_data = flask_cache.get(cache_key)
+    if cached_data is not None:
+        return cached_data
+
+    participants_id_list = []
+    participants_mode_list = []
+
+    # 出場者データを取得
+    participants_data = supabase_service.get_data(
+        table="Participant",
+        columns=["id", "name"],
+        join_tables={
+            "Category": ["is_team"],
+        },
+        filters={f"iso_code__{Operator.GREATER_THAN}": 0},
+    )
+    participant_members_data = supabase_service.get_data(
+        table="ParticipantMember",
+        columns=["id"],
+    )
+
+    for participant in participants_data:
+        if participant["Category"]["is_team"]:
+            mode = "team"
+        else:
+            mode = "single"
+        participants_id_list.append(participant["id"])
+        participants_mode_list.append(mode)
+
+    for member in participant_members_data:
+        participants_id_list.append(member["id"])
+        participants_mode_list.append("team_member")
+
+    flask_cache.set(cache_key, (participants_id_list, participants_mode_list))
+
+    return participants_id_list, participants_mode_list
+
+
+@lru_cache(maxsize=None)
+def _build_year_lang_pairs(years):
+    """年度×言語の直積を平坦な2リストで返す。
+
+    Args:
+        years (list[int]): 年度リスト。
+
+    Returns:
+        tuple: (year_list, lang_list)
+            - year_list (list[int]): 年度を展開したリスト。
+            - lang_list (list[str]): 対応する言語コードを展開したリスト。
+    """
+    year_list = []
+    lang_list = []
+    for year, lang in product(years, SUPPORTED_LOCALES):
+        year_list.append(year)
+        lang_list.append(lang)
+    return year_list, lang_list
+
+
+@lru_cache(maxsize=1)
+def _sitemap_general():
+    """一般ページ用の年度×言語リストを返す。"""
+
+    years = get_available_years()
+    return _build_year_lang_pairs(tuple(years))
+
+
+@lru_cache(maxsize=1)
+def _sitemap_result():
+    """リザルト用の年度×言語リストを返す（2017年以降）。"""
+
+    years = [y for y in get_available_years() if y >= 2017]
+    return _build_year_lang_pairs(tuple(years))
+
+
+@lru_cache(maxsize=1)
+def _sitemap_participant_detail():
+    """参加者詳細用のID×モード×言語リストを返す。"""
+
+    participant_ids, participant_modes = get_participant_id()
+    id_mode_pairs = tuple(sorted(set(zip(participant_ids, participant_modes))))
+
+    lang_list = []
+    id_list = []
+    mode_list = []
+
+    for lang, (participant_id, mode) in product(SUPPORTED_LOCALES, id_mode_pairs):
+        lang_list.append(lang)
+        id_list.append(participant_id)
+        mode_list.append(mode)
+
+    return id_list, mode_list, lang_list
+
+
+def _build_content_lang_pairs(contents):
+    """コンテンツ×言語の直積を返す。"""
+
+    lang_list = []
+    content_list = []
+    for lang, content in product(SUPPORTED_LOCALES, contents):
+        lang_list.append(lang)
+        content_list.append(content)
+    return content_list, lang_list
+
+
+@lru_cache(maxsize=1)
+def _sitemap_others():
+    """others 配下のコンテンツ×言語を返す。"""
+
+    return _build_content_lang_pairs(tuple(get_others_content()))
+
+
+@lru_cache(maxsize=1)
+def _sitemap_travel():
+    """travel 配下のコンテンツ×言語を返す。"""
+
+    return _build_content_lang_pairs(tuple(get_travel_content()))
+
+
+@lru_cache(maxsize=1)
+def _sitemap_general_content():
+    """年度別テンプレートのコンテンツ×年度×言語を返す。"""
+
+    years_list, contents_per_year = get_yearly_content(get_available_years())
+
+    sitemap_years = []
+    sitemap_langs = []
+    sitemap_contents = []
+
+    pair_list = list(zip(years_list, contents_per_year))
+
+    for (year, content), lang in product(pair_list, SUPPORTED_LOCALES):
+        sitemap_years.append(year)
+        sitemap_langs.append(lang)
+        sitemap_contents.append(content)
+
+    return sitemap_years, sitemap_langs, sitemap_contents
+
+
+# MARK: sitemap変数
+def get_variable(mode):
+    """サイトマップ登録に必要な変数セットをモード別に返す。
+
+    Args:
+        mode (str): 取得対象のモード。"general" | "result" | "participant_detail" | "others" | "travel" | "general_content"。
+
+    Returns:
+        tuple | list: モードに応じた展開済みの値リスト。
+
+    Raises:
+        ValueError: 未対応のモードが指定された場合。
+    """
+
+    builders = {
+        "general": _sitemap_general,
+        "result": _sitemap_result,
+        "participant_detail": _sitemap_participant_detail,
+        "others": _sitemap_others,
+        "travel": _sitemap_travel,
+        "general_content": _sitemap_general_content,
+    }
+
+    try:
+        return builders[mode]()
+    except KeyError as exc:  # pragma: no cover - ガード
+        raise ValueError(f"Unsupported mode: {mode}") from exc
+
+
 # MARK: 初期化タスク
 def initialize_background_tasks(IS_LOCAL):
     """
-    バックグラウンドタスクの初期化を行います。
+    バックグラウンドタスクを初期化して同期的に必要なコンテンツを取得します。
 
-    Args:
-        IS_LOCAL (bool): ローカル環境かどうかのフラグ
+    この関数は以下を行います：
+    - IS_LOCAL が True の場合、delete_world_map を別スレッドで起動（非同期、fire-and-forget）。
+    - get_translated_urls を別スレッドで起動（非同期、fire-and-forget）。
+    - get_available_years、get_others_content、get_yearly_content を同期的に呼び出し、その結果を返す。
 
-    Returns:
-        None
+    引数:
+        IS_LOCAL (bool): ローカル環境フラグ。True のとき delete_world_map を並列実行する。
 
-    Note:
-        - delete_world_map、check_locale_paths_and_languages、get_available_years、get_translated_urls
-          の各関数をバックグラウンドスレッドで非同期に実行します。
-        - 各タスクはアプリケーションの初期化時に一度だけ実行されます。
+    戻り値:
+        tuple:
+            - AVAILABLE_YEARS: get_available_years() の戻り値（利用可能な年一覧など）。
+            - OTHERS_CONTENT: get_others_content() の戻り値（その他共通コンテンツ）。
+            - YEARLY_CONTENT: get_yearly_content(AVAILABLE_YEARS) の戻り値（年度別コンテンツ）。
+
+    注意:
+        - 別スレッドで起動されるタスク（delete_world_map, get_translated_urls）は
+          fire-and-forget であり、この関数はそれらの完了を待ちません。
+        - 非同期タスク内で発生した例外はここでは捕捉されません。必要ならタスク内で例外処理を行ってください。
+        - 本関数はアプリケーション初期化時に一度だけ呼び出すことを想定しています。
     """
     if IS_LOCAL:
         Thread(target=delete_world_map).start()
-    Thread(target=get_available_years).start()
     Thread(target=get_translated_urls).start()

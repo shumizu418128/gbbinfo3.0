@@ -3,8 +3,8 @@
 {% block title %}GBB {{ year }} {{_("辞退者一覧")}} - GBBINFO-JPN{% endblock %}
 {% block twitter_title %}GBB {{ year }} {{_("辞退者一覧")}} - GBBINFO-JPN{% endblock %}
 {% block og_title %}GBB {{ year }} {{_("辞退者一覧")}} - GBBINFO-JPN{% endblock %}
-{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/cancels{% endblock %}
-{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/cancels{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/cancels{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/cancels{% endblock %}
 {% block content %}
 
 <h1>GBB {{ year }} {{_("辞退者一覧")}}</h1>
@@ -27,7 +27,7 @@
         <tbody>
         {% for participant in cancels %}
             <tr>
-                <td>【{{_("辞退")}}】<br><a href="/others/participant_detail?id={{ participant.id }}&mode={{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a></td>
+                <td>【{{_("辞退")}}】<br><a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a></td>
                 <td><s>{{ participant.category }}</s></td>
                 <td><s>{{ participant.ticket_class }}</s></td>
             </tr>
@@ -49,10 +49,10 @@
 </form>
 
 <div class="button-container">
-    <a href="/{{ year }}/participants"><button>GBB {{ year }} {{_("出場者一覧")}}</button></a>
-    <a href="/{{ year }}/rule"><button>{{_("出場権詳細")}}</button></a>
-    <a href="/{{ year }}/rule?scroll=result_date"><button>{{_("{Wildcard}結果発表日").format(Wildcard="Wildcard")}}</button></a>
-    <a href="/{{ year }}/wildcards"><button>{{_("{Wildcard}一覧").format(Wildcard="Wildcard")}}</button></a>
+    <a href="/{{ language }}/{{ year }}/participants"><button>GBB {{ year }} {{_("出場者一覧")}}</button></a>
+    <a href="/{{ language }}/{{ year }}/rule"><button>{{_("出場権詳細")}}</button></a>
+    <a href="/{{ language }}/{{ year }}/rule?scroll=result_date"><button>{{_("{Wildcard}結果発表日").format(Wildcard="Wildcard")}}</button></a>
+    <a href="/{{ language }}/{{ year }}/wildcards"><button>{{_("{Wildcard}一覧").format(Wildcard="Wildcard")}}</button></a>
 </div>
 
 

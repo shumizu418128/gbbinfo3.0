@@ -6,7 +6,6 @@ SupabaseとのAPIやりとり用
 import hashlib
 import json
 import os
-import traceback
 from typing import Optional
 
 import pandas as pd
@@ -89,6 +88,12 @@ class SupabaseService:
         if self._admin_client is None:
             supabase_url = os.getenv("SUPABASE_URL")
             supabase_key = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
+
+            if not supabase_url or not supabase_key:
+                raise ValueError(
+                    "環境変数 SUPABASE_URL および SUPABASE_SERVICE_ROLE_KEY が設定されている必要があります"
+                )
+
             self._admin_client = create_client(supabase_url, supabase_key)
 
         return self._admin_client
@@ -315,8 +320,7 @@ class SupabaseService:
         try:
             response = query.execute()
         except Exception as e:
-            print("SupabaseClient get_data error:", flush=True)
-            traceback.print_exc()
+            print(f"SupabaseClient get_data error: {e}", flush=True)
             if raise_error:
                 raise e
             if pandas:
@@ -366,7 +370,7 @@ class SupabaseService:
         try:
             response = query.execute()
         except Exception as e:
-            print("SupabaseClient get_tavily_data error:", e, flush=True)
+            print(f"SupabaseClient get_tavily_data error: {e}", flush=True)
             if raise_error:
                 raise e
             return []

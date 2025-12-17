@@ -37,6 +37,8 @@ def participants_view(year: int):
     scroll = request.args.get("scroll")
     value = request.args.get("value")
 
+    language = session["language"]
+
     # その年のカテゴリ一覧を取得
     year_data = supabase_service.get_data(
         table="Year",
@@ -91,7 +93,7 @@ def participants_view(year: int):
         ]
     ):
         redirect_url = (
-            f"/{year}/participants?category=Loopstation&ticket_class=all&cancel=show"
+            f"/{language}/{year}/participants?category=Loopstation&ticket_class=all&cancel=show"
         )
 
         # スクロール・出場者検索のパラメータがある場合はそれも追加
@@ -154,9 +156,6 @@ def participants_view(year: int):
             "GBB" not in x["ticket_class"],  # GBBによるシードは上
         )
     )
-
-    # 言語を取得
-    language = session["language"]
 
     participants_data_edited = []
 

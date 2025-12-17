@@ -3,8 +3,8 @@
 {% block title %}GBB {{ year }} 7toSmoke - GBBINFO-JPN{% endblock %}
 {% block twitter_title %}GBB {{ year }} 7toSmoke - GBBINFO-JPN{% endblock %}
 {% block og_title %}GBB {{ year }} 7toSmoke - GBBINFO-JPN{% endblock %}
-{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/top_7tosmoke{% endblock %}
-{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/top_7tosmoke{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/top_7tosmoke{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/top_7tosmoke{% endblock %}
 {% block content %}
 <h1>GBB {{ year }} 7toSmoke</h1>
 <div style="text-align: center;">
@@ -30,14 +30,14 @@
 {% endif %}
 
 <div class="button-container">
-  <a href="/others/7tosmoke"><button>{{_("7toSmokeとは")}}</button></a>
-  <a href="/others/7tosmoke"><button>{{_("7toSmokeルール & 参加方法")}}</button></a>
-  <a href="/{{ year }}/ticket"><button>{{_("会場 & チケット")}}</button></a>
-  <a href="/travel/top"><button>ワルシャワへ行こう</button></a>
+  <a href="/{{ language }}/others/7tosmoke"><button>{{_("7toSmokeとは")}}</button></a>
+  <a href="/{{ language }}/others/7tosmoke"><button>{{_("7toSmokeルール & 参加方法")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/ticket"><button>{{_("会場 & チケット")}}</button></a>
+  <a href="/{{ language }}/travel/top"><button>ワルシャワへ行こう</button></a>
 </div>
 <div class="button-container">
-  <a href="/{{ year }}/timetable?scroll=7tosmoke"><button>{{_("タイムテーブル")}}</button></a>
-  <a href="/{{ year }}/stream"><button>{{_("当日配信")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/timetable?scroll=7tosmoke"><button>{{_("タイムテーブル")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/stream"><button>{{_("当日配信")}}</button></a>
 </div>
 
 <p>{{_("7toSmokeは、GBB本戦に比べて最新情報の公開が非常に遅い傾向にあり、そもそも情報が発表されないまま本番を迎えてしまったケースもあります。")}}</p>
@@ -45,7 +45,7 @@
 
 {% if is_latest_year is true %}
   <div class="button-container">
-    <a href="/{{ year }}/top#contact"><button>{{_("お問い合わせ")}}</button></a>
+    <a href="/{{ language }}/{{ year }}/top#contact"><button>{{_("お問い合わせ")}}</button></a>
   </div>
 {% endif %}
 

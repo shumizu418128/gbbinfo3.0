@@ -9,7 +9,22 @@ import unittest
 from unittest.mock import patch
 
 from app.config.config import LANGUAGE_CHOICES
-from app.main import app
+
+# Supabaseサービスをモックしてからapp.mainをインポート
+with patch("app.context_processors.supabase_service") as mock_supabase:
+    # get_available_years()とget_participant_id()のためのモックデータ
+    def mock_get_data(*args, **kwargs):
+        table = kwargs.get("table")
+        if table == "Year":
+            return [{"year": 2025}]
+        elif table == "Participant":
+            return [{"id": 1, "name": "Test", "Category": {"is_team": False}}]
+        elif table == "ParticipantMember":
+            return [{"id": 2}]
+        return []
+
+    mock_supabase.get_data.side_effect = mock_get_data
+    from app.main import app
 
 COMMON_URLS = ["/japan", "/korea", "/participants", "/rule"]
 
@@ -360,10 +375,9 @@ class AppUrlsTestCase(unittest.TestCase):
             # 2022年特別エンドポイント（main.pyのルート定義より）
             ("/2022/top", "2022年 トップページ"),
             ("/2022/rule", "2022年 ルール"),
-            # participant_detailは複雑なSupabaseクエリが多数あるためテストから除外
-            ("/others/participant_detail?id=2064&mode=single", "出場者詳細 JUNNO"),
-            ("/others/participant_detail?id=255&mode=team_member", "出場者詳細 TAKO"),
-            ("/others/participant_detail?id=1923&mode=team", "出場者詳細 WOLFGANG"),
+            ("/participant_detail/2064/single", "出場者詳細 JUNNO"),
+            ("/participant_detail/255/team_member", "出場者詳細 TAKO"),
+            ("/participant_detail/1923/team", "出場者詳細 WOLFGANG"),
         ]
 
         # 年度別のテンプレートファイルをチェック
@@ -413,8 +427,13 @@ class AppUrlsTestCase(unittest.TestCase):
                         ),
                     )
 
+        # デフォルト言語を日本語に設定
+        lang = "ja"
         for url, description in test_cases:
             with self.subTest(url=url, description=description):
+                # セッションに言語を設定しておく
+                with self.client.session_transaction() as sess:
+                    sess["language"] = lang
                 response = self.client.get(url)
 
                 # 200-399の範囲のステータスコードまたは、レスポンスが存在することを確認
@@ -530,7 +549,10 @@ class AppUrlsTestCase(unittest.TestCase):
         for lang in supported_languages:
             with self.subTest(language=lang):
                 # 必要なクエリパラメータを含めてURLを構築
-                url = f"/2025/participants?category=Loopstation&ticket_class=all&cancel=show&lang={lang}"
+                url = f"/{lang}/2025/participants?category=Loopstation&ticket_class=all&cancel=show"
+                # セッションに言語を設定してリクエストを行う
+                with self.client.session_transaction() as sess:
+                    sess["language"] = lang
                 response = self.client.get(url)
 
                 # 200を期待（適切なパラメータがあるためリダイレクトは発生しないはず）
