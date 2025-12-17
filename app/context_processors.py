@@ -366,7 +366,8 @@ def get_locale():
     return session["language"]
 
 
-def redirect_based_on_language():
+# MARK: 言語rd判定
+def language_code_redirect_handler():
     """
     URL に言語コードが含まれていない場合、セッションの言語コードを付与してリダイレクトする。
     """
@@ -384,6 +385,7 @@ def redirect_based_on_language():
         return add_language_and_redirect()
 
 
+# MARK: 言語rd
 def add_language_and_redirect():
     """
     現在の URL の先頭に session['language'] を付与してリダイレクトする。
@@ -619,6 +621,7 @@ def _sitemap_general_content():
     return sitemap_years, sitemap_langs, sitemap_contents
 
 
+# MARK: sitemap変数
 def get_variable(mode):
     """サイトマップ登録に必要な変数セットをモード別に返す。
 

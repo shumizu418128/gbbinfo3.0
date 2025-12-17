@@ -3,8 +3,8 @@
 {% block title %}GBB {{ year }} {{_("タイムテーブル")}} - GBBINFO-JPN{% endblock %}
 {% block twitter_title %}GBB {{ year }} {{_("タイムテーブル")}} - GBBINFO-JPN{% endblock %}
 {% block og_title %}GBB {{ year }} {{_("タイムテーブル")}} - GBBINFO-JPN{% endblock %}
-{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/timetable{% endblock %}
-{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/timetable{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/timetable{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/timetable{% endblock %}
 {% block content %}
 <h1>GBB {{ year }} {{_("タイムテーブル")}}</h1>
 
@@ -39,8 +39,8 @@
 </div>
 
 <div class="button-container">
-  <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
-  <a href="/{{ year }}/top"><button>GBB {{ year }} {{_("これだけガイド")}}</button></a>
+  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/top"><button>GBB {{ year }} {{_("これだけガイド")}}</button></a>
 </div>
 
 <h2 id="day1">Day1 - 11/1</h2>
@@ -96,8 +96,8 @@
 </table>
 
 <div class="button-container">
-  <a href="/{{ year }}/participants"><button>{{_("Wildcard結果")}}</button></a>
-  <a href="/{{ year }}/participants"><button>{{_("出場者一覧")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/participants"><button>{{_("Wildcard結果")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/participants"><button>{{_("出場者一覧")}}</button></a>
 </div>
 
 <h2 id="day2">Day2 - 11/2</h2>
@@ -153,8 +153,8 @@
 </table>
 
 <div class="button-container">
-  <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
-  <a href="/{{ year }}/top"><button>GBB {{ year }} {{_("これだけガイド")}}</button></a>
+  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/top"><button>GBB {{ year }} {{_("これだけガイド")}}</button></a>
 </div>
 
 <h2 id="day3">Day3 - 11/3</h2>
@@ -226,8 +226,8 @@
 </table>
 
 <div class="button-container">
-  <a href="/{{ year }}/participants"><button>{{_("Wildcard結果")}}</button></a>
-  <a href="/{{ year }}/participants"><button>{{_("出場者一覧")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/participants"><button>{{_("Wildcard結果")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/participants"><button>{{_("出場者一覧")}}</button></a>
 </div>
 
 <h2 id="seven-to-smoke" name="7tosmoke">7toSmoke - 11/4</h2>
@@ -283,8 +283,8 @@
 </table>
 
 <div class="button-container">
-  <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
-  <a href="/{{ year }}/top"><button>GBB {{ year }} {{_("これだけガイド")}}</button></a>
+  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/top"><button>GBB {{ year }} {{_("これだけガイド")}}</button></a>
 </div>
 
 <h2 id="showcase" name="showcase">SPECIAL SHOWCASE<br>{{_("出演者一覧")}}</h2>

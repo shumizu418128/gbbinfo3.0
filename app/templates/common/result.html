@@ -3,8 +3,8 @@
 {% block title %}GBB {{ year }} {{_("大会結果")}} - GBBINFO-JPN{% endblock %}
 {% block twitter_title %}GBB {{ year }} {{_("大会結果")}} - GBBINFO-JPN{% endblock %}
 {% block og_title %}GBB {{ year }} {{_("大会結果")}} - GBBINFO-JPN{% endblock %}
-{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/result{% endblock %}
-{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/result{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/result{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/result{% endblock %}
 {% block content %}
 <h1>GBB {{ year }} {{_("大会結果")}}</h1>
 
@@ -15,7 +15,7 @@
 {% endif %}
 
 {% if all_category %}
-  <form method="get" action="/{{ year }}/result" class="participants-form">
+  <form method="get" action="/{{ language }}/{{ year }}/result" class="participants-form">
     <label for="category">{{_("部門選択")}}</label>
     <select name="category" id="category" class="filter-select" onchange="this.form.submit()">
       {% for c in all_category %}
@@ -43,12 +43,12 @@
       <tbody>
         {% for match in data %}
           <tr>
-            <td class="winner"><a href="/participant_detail/{{ match.winner.id }}/{% if category_is_team %}team{% else %}single{% endif %}">
+            <td class="winner"><a href="/{{ language }}/participant_detail/{{ match.winner.id }}/{% if category_is_team %}team{% else %}single{% endif %}">
               {% set participant = match.winner %}
               {% include "includes/country_flag.html" %}{{ match.winner.name }}
             </a></td>
             <td>vs</td>
-            <td><a href="/participant_detail/{{ match.loser.id }}/{% if category_is_team %}team{% else %}single{% endif %}">
+            <td><a href="/{{ language }}/participant_detail/{{ match.loser.id }}/{% if category_is_team %}team{% else %}single{% endif %}">
               {% set participant = match.loser %}
               {% include "includes/country_flag.html" %}{{ match.loser.name }}
             </a></td>
@@ -71,7 +71,7 @@
         {% for participant in data %}
           <tr>
             <td>{{ participant.rank }}</td>
-            <td><a href="/participant_detail/{{ participant.id }}/{% if category_is_team %}team{% else %}single{% endif %}">
+            <td><a href="/{{ language }}/participant_detail/{{ participant.id }}/{% if category_is_team %}team{% else %}single{% endif %}">
               {% include "includes/country_flag.html" %}{{ participant.name }}
             </a></td>
           </tr>
@@ -84,7 +84,7 @@
 {% endif %}
 
 {% if all_category %}
-  <form method="GET" action="/{{ year }}/result" class="participants-form">
+  <form method="GET" action="/{{ language }}/{{ year }}/result" class="participants-form">
     <label for="category">{{_("部門選択")}}</label>
     <select name="category" id="category" class="filter-select" onchange="this.form.submit()">
       {% for c in all_category %}
@@ -104,10 +104,10 @@
 </form>
 
 <div class="button-container">
-  <a href="/{{ year - 1 }}/result"><button type="button">GBB {{ year - 1 }} {{_("大会結果")}}</button></a>
-  <a href="/{{ year }}/rule"><button type="button">{{_("出場権詳細")}}</button></a>
-  <a href="/{{ year }}/rule"><button type="button">{{_("ルール & 審査員")}}</button></a>
-  <a href="/{{ year }}/participants"><button>{{_("Wildcard結果")}} & {{_("出場者")}}</button></a>
+  <a href="/{{ language }}/{{ year - 1 }}/result"><button type="button">GBB {{ year - 1 }} {{_("大会結果")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/rule"><button type="button">{{_("出場権詳細")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/rule"><button type="button">{{_("ルール & 審査員")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/participants"><button>{{_("Wildcard結果")}} & {{_("出場者")}}</button></a>
 </div>
 
 {% endblock %}

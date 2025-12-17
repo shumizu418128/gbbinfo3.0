@@ -2,8 +2,8 @@
 {% block title %}ワルシャワへ行こう - GBBINFO-JPN{% endblock %}
 {% block twitter_title %}ワルシャワへ行こう - GBBINFO-JPN{% endblock %}
 {% block og_title %}ワルシャワへ行こう - GBBINFO-JPN{% endblock %}
-{% block og_url %}https://gbbinfo-jpn.onrender.com/travel/top{% endblock %}
-{% block canonical %}https://gbbinfo-jpn.onrender.com/travel/top{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ language }}/travel/top{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ language }}/travel/top{% endblock %}
 {% block content %}
 <h1>ワルシャワへ行こう</h1>
 <div style="display: flex; justify-content: center;">
@@ -20,26 +20,26 @@
 <h2>1. 予約編</h2>
 <p>ワルシャワまでの飛行機やホテルの予約を立てるための情報を、GBB 2021 の実例を参考にまとめています。</p>
 <div class="button-container">
-    <a href="/travel/v1_reservation"><button>予約編</button></a>
+    <a href="/{{ language }}/travel/v1_reservation"><button>予約編</button></a>
 </div>
 
 <h2>2. 旅程・荷物編</h2>
 <p>ワルシャワでの旅程や、おすすめの持ち物などを、GBB 2021 の実例を参考にまとめています。</p>
 <div class="button-container">
-    <a href="/travel/v1_journey"><button>旅程・荷物編</button></a>
+    <a href="/{{ language }}/travel/v1_journey"><button>旅程・荷物編</button></a>
 </div>
 
 <h2>3. 飛行機編</h2>
 <p>ワルシャワまでの飛行機の情報を、GBB 2021 の実例を参考にまとめています。</p>
 <div class="button-container">
-    <a href="/travel/v1_flight"><button>飛行機編</button></a>
+    <a href="/{{ language }}/travel/v1_flight"><button>飛行機編</button></a>
 </div>
 
 <h2>4. 現地観戦編</h2>
 <p>ワルシャワに到着したら、ついに現地観戦です！<br>
     現地観戦のための情報を、GBB 2021 の実例を参考にまとめています。</p>
 <div class="button-container">
-    <a href="/others/how_to_plan"><button>現地観戦計画のたてかた</button></a>
+    <a href="/{{ language }}/others/how_to_plan"><button>現地観戦計画のたてかた</button></a>
 </div>
 
 {% endblock %}

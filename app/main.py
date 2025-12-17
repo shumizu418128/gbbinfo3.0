@@ -21,7 +21,7 @@ from app.context_processors import (
     get_locale,
     get_variable,
     initialize_background_tasks,
-    redirect_based_on_language,
+    language_code_redirect_handler,
 )
 from app.views import (
     beatboxer_finder,
@@ -159,7 +159,7 @@ sitemap_variables = build_sitemap_variables()
 ####################################################################
 @app.before_request
 def before_request():
-    return redirect_based_on_language()
+    return language_code_redirect_handler()
 
 
 @app.context_processor

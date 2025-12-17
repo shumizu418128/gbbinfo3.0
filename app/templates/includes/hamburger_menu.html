@@ -6,23 +6,23 @@
   <p>{{_("メニュー")}}</p>
   <div class="button-container" style="margin-top: 10px;">
     <a href="/"><button>Home<br>{{_("これだけガイド")}}</button></a>
-    <a href="/{{ year }}/participants"><button>{{_("Wildcard結果")}}<br>{{_("出場者")}}</button></a>
-    <a href="/{{ year }}/cancels"><button>{{_("辞退者一覧")}}</button></a>
-    <a href="/{{ year }}/rule"><button>{{_("ルール")}}<br>{{_("審査員")}}</button></a>
+    <a href="/{{ language }}/{{ year }}/participants"><button>{{_("Wildcard結果")}}<br>{{_("出場者")}}</button></a>
+    <a href="/{{ language }}/{{ year }}/cancels"><button>{{_("辞退者一覧")}}</button></a>
+    <a href="/{{ language }}/{{ year }}/rule"><button>{{_("ルール")}}<br>{{_("審査員")}}</button></a>
   </div>
   <div class="button-container">
-    <a href="/{{ year }}/timetable"><button>{{_("タイムテーブル")}}</button></a>
+    <a href="/{{ language }}/{{ year }}/timetable"><button>{{_("タイムテーブル")}}</button></a>
     {% if language == "ko" %}
-      <a href="/{{ year }}/korea"><button>{{_("韓国代表")}}</button></a>
+      <a href="/{{ language }}/{{ year }}/korea"><button>{{_("韓国代表")}}</button></a>
     {% else %}
-      <a href="/{{ year }}/japan"><button>{{_("日本代表")}}</button></a>
+      <a href="/{{ language }}/{{ year }}/japan"><button>{{_("日本代表")}}</button></a>
     {% endif %}
-    <a href="/{{ year }}/ticket"><button>{{_("会場")}}<br>{{_("チケット")}}</button></a>
-    <a href="/{{ year }}/stream"><button>{{_("当日配信")}}</button></a>
+    <a href="/{{ language }}/{{ year }}/ticket"><button>{{_("会場")}}<br>{{_("チケット")}}</button></a>
+    <a href="/{{ language }}/{{ year }}/stream"><button>{{_("当日配信")}}</button></a>
   </div>
   <div class="button-container">
-    <a href="/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
-    <a href="/{{ year }}/result"><button>{{_("大会結果")}}</button></a>
+    <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+    <a href="/{{ language }}/{{ year }}/result"><button>{{_("大会結果")}}</button></a>
   </div>
   <p>LANGUAGE</p>
   <div class="button-container" style="margin-top: 10px;">
