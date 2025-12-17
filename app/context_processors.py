@@ -311,7 +311,7 @@ def common_variables(
             - is_pull_request (bool): プルリクエスト環境かどうか
             - scroll (str): スクロール位置（クエリパラメータ）
     """
-    year_str = request.path.split("/")[1]
+    year_str = request.path.split("/")[2]
 
     # 年度が最新 or 試験公開年度か検証
     try:
