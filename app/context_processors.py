@@ -1,10 +1,10 @@
 import re
 from datetime import datetime, timezone
 from threading import Thread
-from urllib.parse import parse_qs, urlencode, urlparse, urlunparse
+from urllib.parse import urlparse, urlunparse
 
 from dateutil import parser
-from flask import request, session
+from flask import redirect, request, session
 from flask_babel import format_datetime
 
 from app.config.config import (
@@ -70,10 +70,8 @@ def get_translated_urls():
     if cached_urls is not None:
         return cached_urls
 
-    language = "en"
-
     po_file_path = (
-        BASE_DIR / "app" / "translations" / language / "LC_MESSAGES" / "messages.po"
+        BASE_DIR / "app" / "translations" / "en" / "LC_MESSAGES" / "messages.po"
     )
     translated_urls = set()
 
@@ -84,12 +82,12 @@ def get_translated_urls():
         return set()
 
     exclude_patterns = [
-        r"includes/",  # includesディレクトリ
-        r"base\.html",  # base.html
-        r"404\.html",  # 404.html
+        r"includes/",
+        r"base\.html",
+        r"404\.html",
     ]
 
-    # 年度ごとに展開 中止年度は除外
+    # 年度ごとに展開（中止年度は除外）
     year_data = supabase_service.get_data(
         table="Year",
         columns=["year"],
@@ -98,36 +96,41 @@ def get_translated_urls():
     )
     available_years = year_data["year"].tolist()
 
-    for line in po_content.split("\n"):
-        if line.startswith("#: templates/"):
-            # コメント行から複数パスを取得
-            paths = line.replace("#:", "").split()
-            for path in paths:
-                # 除外条件
-                if any(re.search(pattern, path) for pattern in exclude_patterns):
-                    continue
+    for lang in SUPPORTED_LOCALES:
+        for line in po_content.split("\n"):
+            if line.startswith("#: templates/"):
+                # コメント行から複数パスを取得
+                paths = line.replace("#:", "").split()
+                for path in paths:
+                    # 除外条件
+                    if any(re.search(pattern, path) for pattern in exclude_patterns):
+                        continue
 
-                # パスからテンプレート部分を抽出
-                m = re.match(r"templates/(.+?\.html)", path)
-                if not m:
-                    continue
-                template_path = m.group(1)
+                    # パスからテンプレート部分を抽出
+                    m = re.match(r"templates/(.+?\.html)", path)
+                    if not m:
+                        continue
+                    template_path = m.group(1)
 
-                # 年度ディレクトリ or commonディレクトリ
-                if template_path.startswith("common/"):
-                    for year in available_years:
-                        # common/foo.html → /{year}/foo
-                        url_path = (
-                            "/"
-                            + str(year)
-                            + "/"
-                            + template_path.replace("common/", "").replace(".html", "")
-                        )
+                    # 年度ディレクトリ or commonディレクトリ
+                    if template_path.startswith("common/"):
+                        for year in available_years:
+                            # common/foo.html -> /{lang}/{year}/foo
+                            url_path = (
+                                "/"
+                                + lang
+                                + "/"
+                                + str(year)
+                                + "/"
+                                + template_path.replace("common/", "").replace(
+                                    ".html", ""
+                                )
+                            )
+                            translated_urls.add(url_path)
+                    else:
+                        # 2024/foo.html -> /{lang}/2024/foo
+                        url_path = "/" + lang + "/" + template_path.replace(".html", "")
                         translated_urls.add(url_path)
-                else:
-                    # 2024/foo.html → /2024/foo
-                    url_path = "/" + template_path.replace(".html", "")
-                    translated_urls.add(url_path)
 
     # キャッシュに保存（タイムアウトなし）
     flask_cache.set(cache_key, translated_urls, timeout=None)
@@ -260,22 +263,18 @@ def get_change_language_url(current_url):
         list: 各言語ごとの(url, lang_name)のタプルリスト。
     """
     change_language_urls = []
-
     parsed_url = urlparse(current_url)
-    query_params = parse_qs(parsed_url.query)
+    current_language = session.get("language", "")
 
     for lang_code, lang_name in LANGUAGE_CHOICES:
-        query_params["lang"] = [lang_code]
-        new_query = urlencode(query_params, doseq=True)
+        # path の言語部分を置換して新しいパスを作る
+        new_path = (
+            parsed_url.path.replace(f"/{current_language}/", f"/{lang_code}/")
+            if current_language
+            else parsed_url.path
+        )
         new_url = urlunparse(
-            (
-                "",
-                "",
-                parsed_url.path,
-                parsed_url.params,
-                new_query,
-                parsed_url.fragment,
-            )
+            ("", "", new_path, parsed_url.params, parsed_url.query, parsed_url.fragment)
         )
         change_language_urls.append((new_url, lang_name))
 
@@ -348,17 +347,50 @@ def get_locale():
         セッションに"language"が設定されていない場合は、リクエストのAccept-Languageヘッダーから
         最適なロケールを選択し、セッションに保存します。該当するロケールがない場合は"ja"をデフォルトとします。
     """
-    # クエリパラメータで言語指定されている場合、それを優先
-    preferred_language = request.args.get("lang")
-    if preferred_language and preferred_language in SUPPORTED_LOCALES:
-        session["language"] = preferred_language
-        return session["language"]
+    # URL の最初のパス要素を優先
+    preferred_language = (
+        request.path.split("/")[1] if request.path.startswith("/") else None
+    )
 
-    # セッションに言語が設定されているか確認
-    if "language" not in session:
+    # セッションが無い、もしくは空文字の場合、Accept-Language から判定
+    if "language" not in session or session.get("language", "") == "":
         best_match = request.accept_languages.best_match(SUPPORTED_LOCALES)
         session["language"] = best_match if best_match else "ja"
+    # URL の言語がサポート済みなら優先
+    elif preferred_language in SUPPORTED_LOCALES:
+        session["language"] = preferred_language
+
     return session["language"]
+
+
+def redirect_based_on_language():
+    """
+    URL に言語コードが含まれていない場合、セッションの言語コードを付与してリダイレクトする。
+    """
+    # participant_detail は特例で /participant_detail/... のまま扱う
+    if request.path.startswith("/participant_detail"):
+        return add_language_and_redirect()
+
+    # パスに'/'が2つしか含まれていない（例: /2024/foo）場合は言語追加
+    if request.path.count("/") == 2:
+        # 検索APIなどは除外
+        if request.path.endswith("/search") or request.path.endswith(
+            "/search_participants"
+        ):
+            return
+        return add_language_and_redirect()
+
+
+def add_language_and_redirect():
+    """
+    現在の URL の先頭に session['language'] を付与してリダイレクトする。
+    """
+    parsed_url = urlparse(request.url)
+    new_path = "/" + session.get("language", "ja") + parsed_url.path
+    new_url = urlunparse(
+        ("", "", new_path, parsed_url.params, parsed_url.query, parsed_url.fragment)
+    )
+    return redirect(new_url)
 
 
 # MARK: 世界地図初期化
