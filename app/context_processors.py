@@ -32,7 +32,7 @@ def get_available_years():
     # ここに書かないと循環インポートになる
     from app.main import flask_cache
 
-    cache_key = "available_years"
+    cache_key = "available_years_list"
     cached_years = flask_cache.get(cache_key)
 
     if cached_years is not None:
@@ -481,7 +481,7 @@ def get_participant_id():
     # ここに書かないと循環インポートになる
     from app.main import flask_cache
 
-    cache_key = "participant_id_mode_list"
+    cache_key = "participant_data_list"
     cached_data = flask_cache.get(cache_key)
     if cached_data is not None:
         return cached_data
