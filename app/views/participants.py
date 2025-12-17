@@ -90,8 +90,9 @@ def participants_view(year: int):
             cancel not in VALID_CANCEL,
         ]
     ):
+        language = session["language"]
         redirect_url = (
-            f"/{year}/participants?category=Loopstation&ticket_class=all&cancel=show"
+            f"/{language}/{year}/participants?category=Loopstation&ticket_class=all&cancel=show"
         )
 
         # スクロール・出場者検索のパラメータがある場合はそれも追加
