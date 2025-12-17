@@ -8,6 +8,7 @@ EXCLUDE_DOMAINS = [
     "tiktok.com",
     "reddit.com",
     "swissbeatbox.com",
+    "gbbinfo-jpn.onrender.com",
 ]
 
 
