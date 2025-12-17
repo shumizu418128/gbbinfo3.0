@@ -388,8 +388,10 @@ def language_code_redirect_handler():
     # パスに'/'が2つしか含まれていない（例: /2024/foo）場合は言語追加
     if request.path.count("/") == 2:
         # 検索APIなどは除外
-        if request.path.endswith("/search") or request.path.endswith(
-            "/search_participants"
+        if (
+            request.path.endswith("/search")
+            or request.path.endswith("/search_participants")
+            or request.path.startswith("/static")
         ):
             return
         return add_language_and_redirect()
