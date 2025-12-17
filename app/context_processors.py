@@ -515,9 +515,7 @@ def get_participant_id():
         participants_id_list.append(member["id"])
         participants_mode_list.append("team_member")
 
-    flask_cache.set(
-        cache_key, (participants_id_list, participants_mode_list)
-    )
+    flask_cache.set(cache_key, (participants_id_list, participants_mode_list))
 
     return participants_id_list, participants_mode_list
 
