@@ -139,3 +139,6 @@ MINUTE = 60
 LAST_UPDATED = datetime.now(timezone(timedelta(hours=9)))
 
 ALL_DATA = "*"
+
+TEMPORARY_REDIRECT_CODE = 302
+PERMANENT_REDIRECT_CODE = 301

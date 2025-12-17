@@ -2,8 +2,8 @@
 {% block title %}GBB {{ year }} これだけガイド - GBBINFO-JPN{% endblock %}
 {% block twitter_title %}GBB {{ year }} これだけガイド - GBBINFO-JPN{% endblock %}
 {% block og_title %}GBB {{ year }} これだけガイド - GBBINFO-JPN{% endblock %}
-{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/top{% endblock %}
-{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/top{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/top{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/top{% endblock %}
 {% block content %}
 
 <h1>GBB {{ year }}</h1>
@@ -11,22 +11,22 @@
 <p style="text-align: center;">Grand Beatbox Battleの各種情報を、日本語に翻訳し見やすくまとめた非公式情報サイトです。</p>
 <h2>これだけガイド</h2>
 <div class="button-container">
-    <a href="/{{ year }}/participants"><button>Wildcard結果 & 出場者</button></a>
-    <a href="/others/how_to_plan"><button>現地観戦計画のたてかた</button></a>
-    <a href="/{{ year }}/rule"><button>GBB{{ year }}ルール & 審査員</button></a>
-    <a href="/{{ year }}/ticket"><button>会場 & チケット</button></a>
-    <a href="/{{ year }}/timetable"><button>タイムテーブル</button></a>
+    <a href="/{{ language }}/{{ year }}/participants"><button>Wildcard結果 & 出場者</button></a>
+    <a href="/{{ language }}/others/how_to_plan"><button>現地観戦計画のたてかた</button></a>
+    <a href="/{{ language }}/{{ year }}/rule"><button>GBB{{ year }}ルール & 審査員</button></a>
+    <a href="/{{ language }}/{{ year }}/ticket"><button>会場 & チケット</button></a>
+    <a href="/{{ language }}/{{ year }}/timetable"><button>タイムテーブル</button></a>
     {% if language == "ko" %}
-        <a href="/{{ year }}/korea"><button>韓国代表</button></a>
+        <a href="/{{ language }}/{{ year }}/korea"><button>韓国代表</button></a>
     {% else %}
-        <a href="/{{ year }}/japan"><button>日本代表</button></a>
+        <a href="/{{ language }}/{{ year }}/japan"><button>日本代表</button></a>
     {% endif %}
-    <a href="/{{ year }}/result"><button>大会結果</button></a>
+    <a href="/{{ language }}/{{ year }}/result"><button>大会結果</button></a>
 </div>
 <ul>
-    <li><a href="/others/url_change">当サイトURL変更のお知らせ</a></li>
-    <li><a href="/others/result_stream">Wildcard結果発表配信</a></li>
-    <li><a href="/others/7tosmoke">7toSmokeとは</a></li>
+    <li><a href="/{{ language }}/others/url_change">当サイトURL変更のお知らせ</a></li>
+    <li><a href="/{{ language }}/others/result_stream">Wildcard結果発表配信</a></li>
+    <li><a href="/{{ language }}/others/7tosmoke">7toSmokeとは</a></li>
 </ul>
 
 {% endblock %}

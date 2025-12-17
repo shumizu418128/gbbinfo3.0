@@ -3,8 +3,8 @@
 {% block title %}Wildcard結果発表配信 - GBBINFO-JPN{% endblock %}
 {% block twitter_title %}Wildcard結果発表配信 - GBBINFO-JPN{% endblock %}
 {% block og_title %}Wildcard結果発表配信 - GBBINFO-JPN{% endblock %}
-{% block og_url %}https://gbbinfo-jpn.onrender.com/others/result_stream{% endblock %}
-{% block canonical %}https://gbbinfo-jpn.onrender.com/others/result_stream{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ language }}/others/result_stream{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ language }}/others/result_stream{% endblock %}
 
 {% block content %}
 <h1>Wildcard結果発表配信</h1>
@@ -15,8 +15,8 @@
 <p><span style="color: #ff0000;"><strong><span style="font-size: 24px;">後悔しますよ、マジで</span></strong></span></p>
 
 <div class="button-container">
-    <a href="/{{ year }}/participants"><button>Wildcard結果 & 出場者</button></a>
-    <a href="/{{ year }}/rule?scroll=result_date"><button type="button">Wildcard結果発表日</button></a>
+    <a href="/{{ language }}/{{ year }}/participants"><button>Wildcard結果 & 出場者</button></a>
+    <a href="/{{ language }}/{{ year }}/rule?scroll=result_date"><button type="button">Wildcard結果発表日</button></a>
 </div>
 
 <img alt="自己防衛" height="100%" src="https://live.staticflickr.com/65535/53462882364_331151250a_o.jpg" style="display: block; margin: auto;" width="100%" />
@@ -25,12 +25,12 @@
 <p>つまり、自己防衛。</p>
 
 <div class="button-container">
-    <a href="/{{ year }}/rule"><button type="button">GBB {{ year }} ルール & 審査員</button></a>
-    <a href="/{{ year }}/wildcards"><button>Wildcard一覧</button></a>
+    <a href="/{{ language }}/{{ year }}/rule"><button type="button">GBB {{ year }} ルール & 審査員</button></a>
+    <a href="/{{ language }}/{{ year }}/wildcards"><button>Wildcard一覧</button></a>
 </div>
 <div class="button-container">
-    <a href="/{{ year }}/participants"><button>Wildcard結果 & 出場者</button></a>
-    <a href="/{{ year }}/rule?scroll=result_date"><button type="button">Wildcard結果発表日</button></a>
+    <a href="/{{ language }}/{{ year }}/participants"><button>Wildcard結果 & 出場者</button></a>
+    <a href="/{{ language }}/{{ year }}/rule?scroll=result_date"><button type="button">Wildcard結果発表日</button></a>
 </div>
 
 {% endblock %}

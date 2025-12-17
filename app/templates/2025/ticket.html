@@ -3,8 +3,8 @@
 {% block title %}GBB {{ year }} {{_("会場 & チケット")}} - GBBINFO-JPN{% endblock %}
 {% block twitter_title %}GBB {{ year }} {{_("会場 & チケット")}} - GBBINFO-JPN{% endblock %}
 {% block og_title %}GBB {{ year }} {{_("会場 & チケット")}} - GBBINFO-JPN{% endblock %}
-{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/ticket{% endblock %}
-{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/ticket{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/ticket{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/ticket{% endblock %}
 {% block content %}
 <h1>GBB {{ year }} {{_("会場 & チケット")}}</h1>
 
@@ -13,14 +13,14 @@
 <p>{{_("チケット")}}：✖</p>
 
 <div class="button-container">
-    <a href="/{{year}}/rule"><button>GBB {{ year }} {{_("ルール & 審査員")}}</button></a>
-    <a href="/{{year}}/participants"><button>{{_("Wildcard結果")}} & {{_("出場者")}}</button></a>
+    <a href="/{{ language }}/{{ year }}/rule"><button>GBB {{ year }} {{_("ルール & 審査員")}}</button></a>
+    <a href="/{{ language }}/{{ year }}/participants"><button>{{_("Wildcard結果")}} & {{_("出場者")}}</button></a>
     {% if language == 'ko' %}
-        <a href="/{{ year }}/korea"><button>{{_("韓国代表")}}</button></a>
+        <a href="/{{ language }}/{{ year }}/korea"><button>{{_("韓国代表")}}</button></a>
     {% else %}
-        <a href="/{{ year }}/japan"><button>{{_("日本代表")}}</button></a>
+        <a href="/{{ language }}/{{ year }}/japan"><button>{{_("日本代表")}}</button></a>
     {% endif %}
-    <a href="/{{year}}/timetable"><button>{{_("タイムテーブル")}}</button></a>
+    <a href="/{{ language }}/{{ year }}/timetable"><button>{{_("タイムテーブル")}}</button></a>
 </div>
 
 {% endblock %}

@@ -2,8 +2,8 @@
 {% block title %}1. 予約編 [ワルシャワへ行こう] - GBBINFO-JPN{% endblock %}
 {% block twitter_title %}1. 予約編 [ワルシャワへ行こう] - GBBINFO-JPN{% endblock %}
 {% block og_title %}1. 予約編 [ワルシャワへ行こう] - GBBINFO-JPN{% endblock %}
-{% block og_url %}https://gbbinfo-jpn.onrender.com/travel/v1_reservation{% endblock %}
-{% block canonical %}https://gbbinfo-jpn.onrender.com/travel/v1_reservation{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ language }}/travel/v1_reservation{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ language }}/travel/v1_reservation{% endblock %}
 {% block content %}
 <h1>1. 予約編 - ワルシャワへ行こう</h1>
 <p>ワルシャワまでの飛行機やホテルの予約を立てるための情報を、GBB 2021 の実例を参考にまとめています。</p>
@@ -31,7 +31,7 @@
     </li>
     <li>
         <strong>1日遅れの帰国</strong>：<br>
-        <a href="/2021/timetable">GBB 2021 タイムテーブル</a>を確認すると、GBB 2021最終日の終了時刻が非常に遅いことがわかります。<br>
+        <a href="/{{ language }}/2021/timetable">GBB 2021 タイムテーブル</a>を確認すると、GBB 2021最終日の終了時刻が非常に遅いことがわかります。<br>
         イベント終了後すぐに空港へ向かい、そのまま帰国便に乗るのは、体力的にとても大変です。<br>
         イベントの余韻を楽しんだり、荷物の整理やお土産の購入、観光などの時間を確保するためにも、GBB終了日の翌日または翌々日に帰国するのが安心です。
     </li>
@@ -46,7 +46,7 @@
 
 <h2 id="flight-booking-section">2. 飛行機の予約</h2>
 <p>最安値は時期によって大きく変動しますが、以下のフライトが最安値になることが多いです。</p>
-<p>旅行当日の飛行機搭乗に関する詳細情報は、<a href="/travel/v1_flight">飛行機編</a>をご覧ください。</p>
+<p>旅行当日の飛行機搭乗に関する詳細情報は、<a href="/{{ language }}/travel/v1_flight">飛行機編</a>をご覧ください。</p>
 <h3>主要な航空会社・ルート</h3>
 <table>
     <thead>
@@ -200,11 +200,11 @@
 </table>
 
 <div class="button-container">
-    <a href="/travel/v1_journey"><button>NEXT<br>2. 旅程・荷物編</button></a>
+    <a href="/{{ language }}/travel/v1_journey"><button>NEXT<br>2. 旅程・荷物編</button></a>
 </div>
 
 <div class="button-container">
-    <a href="/travel/top"><button>ワルシャワへ行こう<br>トップページへ戻る</button></a>
+    <a href="/{{ language }}/travel/top"><button>ワルシャワへ行こう<br>トップページへ戻る</button></a>
 </div>
 
 {% endblock %}

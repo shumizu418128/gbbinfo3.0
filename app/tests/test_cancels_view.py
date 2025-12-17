@@ -90,7 +90,7 @@ class CancelsViewTestCase(unittest.TestCase):
         with self.client.session_transaction() as sess:
             sess["language"] = "ja"
 
-        resp = self.client.get("/2025/cancels")
+        resp = self.client.get("/ja/2025/cancels")
         self.assertEqual(resp.status_code, 200)
 
         # レスポンスの内容確認
@@ -126,7 +126,7 @@ class CancelsViewTestCase(unittest.TestCase):
         with self.client.session_transaction() as sess:
             sess["language"] = "ja"
 
-        resp = self.client.get("/2025/cancels")
+        resp = self.client.get("/ja/2025/cancels")
         self.assertEqual(resp.status_code, 200)
 
         # 空の場合のメッセージ確認
@@ -156,7 +156,7 @@ class CancelsViewTestCase(unittest.TestCase):
         with self.client.session_transaction() as sess:
             sess["language"] = "ja"
 
-        resp = self.client.get("/2025/cancels")
+        resp = self.client.get("/ja/2025/cancels")
         self.assertEqual(resp.status_code, 500)
 
 

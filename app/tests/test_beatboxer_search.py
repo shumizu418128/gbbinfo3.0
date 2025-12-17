@@ -1654,15 +1654,18 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
 
         # 対象URLを巡回
         urls = [
-            "/2025/participants?category=Loopstation&ticket_class=all&cancel=show",
-            "/2025/japan",
-            "/2025/korea",
+            "/ja/2025/participants?category=Loopstation&ticket_class=all&cancel=show",
+            "/ja/2025/japan",
+            "/ja/2025/korea",
         ]
 
         allowed_modes = {"single", "team", "team_member"}
 
         for url in urls:
             with self.subTest(url=url):
+                # セッションに言語を設定しておく
+                with self.client.session_transaction() as sess:
+                    sess["language"] = "ja"
                 resp = self.client.get(url)
                 self.assertEqual(
                     resp.status_code,

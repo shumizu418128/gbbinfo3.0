@@ -427,8 +427,13 @@ class AppUrlsTestCase(unittest.TestCase):
                         ),
                     )
 
+        # デフォルト言語を日本語に設定
+        lang = "ja"
         for url, description in test_cases:
             with self.subTest(url=url, description=description):
+                # セッションに言語を設定しておく
+                with self.client.session_transaction() as sess:
+                    sess["language"] = lang
                 response = self.client.get(url)
 
                 # 200-399の範囲のステータスコードまたは、レスポンスが存在することを確認
@@ -544,7 +549,10 @@ class AppUrlsTestCase(unittest.TestCase):
         for lang in supported_languages:
             with self.subTest(language=lang):
                 # 必要なクエリパラメータを含めてURLを構築
-                url = f"/2025/participants?category=Loopstation&ticket_class=all&cancel=show&lang={lang}"
+                url = f"/{lang}/2025/participants?category=Loopstation&ticket_class=all&cancel=show"
+                # セッションに言語を設定してリクエストを行う
+                with self.client.session_transaction() as sess:
+                    sess["language"] = lang
                 response = self.client.get(url)
 
                 # 200を期待（適切なパラメータがあるためリダイレクトは発生しないはず）
