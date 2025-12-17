@@ -355,13 +355,13 @@ def get_locale():
         request.path.split("/")[1] if request.path.startswith("/") else None
     )
 
-    # セッションが無い、もしくは空文字の場合、Accept-Language から判定
-    if "language" not in session or session.get("language", "") == "":
+    # URL の言語がサポート済みなら優先
+    if preferred_language in SUPPORTED_LOCALES:
+        session["language"] = preferred_language
+
+    else:
         best_match = request.accept_languages.best_match(SUPPORTED_LOCALES)
         session["language"] = best_match if best_match else "ja"
-    # URL の言語がサポート済みなら優先
-    elif preferred_language in SUPPORTED_LOCALES:
-        session["language"] = preferred_language
 
     return session["language"]
 
