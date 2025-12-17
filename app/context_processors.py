@@ -46,7 +46,7 @@ def get_available_years():
     available_years.sort(reverse=True)
 
     # キャッシュに保存（タイムアウトなし）
-    flask_cache.set(cache_key, available_years, timeout=None)
+    flask_cache.set(cache_key, available_years)
 
     return available_years
 
@@ -516,7 +516,7 @@ def get_participant_id():
         participants_mode_list.append("team_member")
 
     flask_cache.set(
-        cache_key, (participants_id_list, participants_mode_list), timeout=None
+        cache_key, (participants_id_list, participants_mode_list)
     )
 
     return participants_id_list, participants_mode_list
