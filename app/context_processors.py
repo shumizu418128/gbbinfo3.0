@@ -320,7 +320,7 @@ def common_variables(
         year = datetime.now().year
 
     translated_urls = get_translated_urls()
-    language = session["language"]
+    language = session.get("language", "ja")
 
     return {
         "year": year,

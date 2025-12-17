@@ -159,6 +159,7 @@ sitemap_variables = build_sitemap_variables()
 ####################################################################
 @app.before_request
 def before_request():
+    get_locale()
     return language_code_redirect_handler()
 
 
