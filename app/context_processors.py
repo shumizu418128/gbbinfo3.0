@@ -370,7 +370,7 @@ def redirect_based_on_language():
     """
     URL に言語コードが含まれていない場合、セッションの言語コードを付与してリダイレクトする。
     """
-    # participant_detail は特例で /participant_detail/... のまま扱う
+    # participant_detailもリダイレクト対象
     if request.path.startswith("/participant_detail"):
         return add_language_and_redirect()
 

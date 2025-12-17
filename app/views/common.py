@@ -35,6 +35,9 @@ def time_schedule_view(year: int):
     タイムテーブルを表示するビュー。
     """
     language = session.get("language", "ja")
+    available_years = get_available_years()
+    if year not in available_years:
+        year = datetime.now().year
     return redirect(f"/{language}/{year}/timetable", code=PERMANENT_REDIRECT_CODE)
 
 
@@ -53,6 +56,9 @@ def content_view(year: int, content: str):
     """
     content_basename = os.path.basename(content)
     language = session.get("language", "ja")
+    available_years = get_available_years()
+    if year not in available_years:
+        year = datetime.now().year
 
     # 2013-2016年の場合、topページ以外はリダイレクト
     if 2013 <= year <= 2016 and content_basename != "top":
