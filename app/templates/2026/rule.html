@@ -250,9 +250,8 @@
 {% endif %}
 
 <div class="button-container">
-<<<<<<< HEAD
-  <a href="/{{ year }}/participants"><button>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}}</button></a>
-  <a href="/{{ year }}/participants"><button>{{_("出場者一覧")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/participants"><button>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/participants"><button>{{_("出場者一覧")}}</button></a>
 </div>
 <div style="margin: 40px 0;"></div>
 
@@ -267,10 +266,6 @@
   <p style="font-size: 14px;">
     {{_("例：チャレンジャーシリーズ優勝者が、すでに{Wildcard}で出場権を獲得していた場合、チャレンジャーシリーズ2位ではなく、{Wildcard}下位からの繰り上げが行われます。").format(Wildcard="Wildcard")}}
   </p>
-=======
-    <a href="/{{ language }}/{{ year }}/participants"><button>{{_("Wildcard結果")}}</button></a>
-    <a href="/{{ language }}/{{ year }}/participants"><button>{{_("出場者一覧")}}</button></a>
->>>>>>> main
 </div>
 
 <div class="button-container">

@@ -1,18 +1,10 @@
 {% extends "base.html" %}
 
-<<<<<<< HEAD
 {% block title %}GBB {{ year }} {{_("{Wildcard}結果 & 出場者").format(Wildcard="Wildcard")}} - GBBINFO-JPN{% endblock %}
 {% block twitter_title %}GBB {{ year }} {{_("{Wildcard}結果 & 出場者").format(Wildcard="Wildcard")}} - GBBINFO-JPN{% endblock %}
 {% block og_title %}GBB {{ year }} {{_("{Wildcard}結果 & 出場者").format(Wildcard="Wildcard")}} - GBBINFO-JPN{% endblock %}
-{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ year }}/participants{% endblock %}
-{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ year }}/participants{% endblock %}
-=======
-{% block title %}GBB {{ year }} {{_("Wildcard結果 & 出場者")}} - GBBINFO-JPN{% endblock %}
-{% block twitter_title %}GBB {{ year }} {{_("Wildcard結果 & 出場者")}} - GBBINFO-JPN{% endblock %}
-{% block og_title %}GBB {{ year }} {{_("Wildcard結果 & 出場者")}} - GBBINFO-JPN{% endblock %}
 {% block og_url %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/participants{% endblock %}
 {% block canonical %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/participants{% endblock %}
->>>>>>> main
 {% block content %}
 
 <h1>GBB {{ year }} {{_("{Wildcard}結果 & 出場者").format(Wildcard="Wildcard")}}</h1>
@@ -148,11 +140,7 @@
   <a href="/{{ language }}/{{ year }}/cancels"><button type="button">GBB {{ year }} {{_("辞退者一覧")}}</button></a>
 </div>
 <div class="button-container">
-<<<<<<< HEAD
-  <a href="/{{ year - 1 }}/participants"><button type="button">GBB {{ year - 1 }} {{_("{Wildcard}結果 & 出場者").format(Wildcard="Wildcard")}}</button></a>
-=======
-  <a href="/{{ language }}/{{ year - 1 }}/participants"><button type="button">GBB {{ year - 1 }} {{_("Wildcard結果 & 出場者")}}</button></a>
->>>>>>> main
+  <a href="/{{ language }}/{{ year - 1 }}/participants"><button type="button">GBB {{ year - 1 }} {{_("{Wildcard結果} & 出場者").format(Wildcard="Wildcard")}}</button></a>
 </div>
 
 {% endblock %}
