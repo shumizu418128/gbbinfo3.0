@@ -1,5 +1,7 @@
 import re
 from datetime import datetime, timezone
+from functools import lru_cache
+from itertools import product
 from threading import Thread
 from urllib.parse import urlparse, urlunparse
 
@@ -441,14 +443,15 @@ def get_travel_content():
 
 # MARK: 年度別
 def get_yearly_content(AVAILABLE_YEARS):
-    """
-    指定された年度のコンテンツを取得します。
+    """年度ごとのコンテンツ一覧と対応する年度リストを返す。
 
     Args:
         AVAILABLE_YEARS (list): 対象の年度リスト
 
     Returns:
-        list: 指定された年度のコンテンツのリスト
+        tuple: (years_list, contents_per_year)
+            - years_list (list[int]): 各コンテンツに対応する年度
+            - contents_per_year (list[str]): 年度別テンプレートのコンテンツ名
     """
     years_list = []
     contents_per_year = []
@@ -513,6 +516,134 @@ def get_participant_id():
     )
 
     return participants_id_list, participants_mode_list
+
+
+@lru_cache(maxsize=None)
+def _build_year_lang_pairs(years):
+    """年度×言語の直積を平坦な2リストで返す。
+
+    Args:
+        years (list[int]): 年度リスト。
+
+    Returns:
+        tuple: (year_list, lang_list)
+            - year_list (list[int]): 年度を展開したリスト。
+            - lang_list (list[str]): 対応する言語コードを展開したリスト。
+    """
+    year_list = []
+    lang_list = []
+    for year, lang in product(years, SUPPORTED_LOCALES):
+        year_list.append(year)
+        lang_list.append(lang)
+    return year_list, lang_list
+
+
+@lru_cache(maxsize=1)
+def _sitemap_general():
+    """一般ページ用の年度×言語リストを返す。"""
+
+    years = get_available_years()
+    return _build_year_lang_pairs(tuple(years))
+
+
+@lru_cache(maxsize=1)
+def _sitemap_result():
+    """リザルト用の年度×言語リストを返す（2017年以降）。"""
+
+    years = [y for y in get_available_years() if y >= 2017]
+    return _build_year_lang_pairs(tuple(years))
+
+
+@lru_cache(maxsize=1)
+def _sitemap_participant_detail():
+    """参加者詳細用のID×モード×言語リストを返す。"""
+
+    participant_ids, participant_modes = get_participant_id()
+    id_mode_pairs = tuple(sorted(set(zip(participant_ids, participant_modes))))
+
+    lang_list = []
+    id_list = []
+    mode_list = []
+
+    for lang, (participant_id, mode) in product(SUPPORTED_LOCALES, id_mode_pairs):
+        lang_list.append(lang)
+        id_list.append(participant_id)
+        mode_list.append(mode)
+
+    return id_list, mode_list, lang_list
+
+
+def _build_content_lang_pairs(contents):
+    """コンテンツ×言語の直積を返す。"""
+
+    lang_list = []
+    content_list = []
+    for lang, content in product(SUPPORTED_LOCALES, contents):
+        lang_list.append(lang)
+        content_list.append(content)
+    return content_list, lang_list
+
+
+@lru_cache(maxsize=1)
+def _sitemap_others():
+    """others 配下のコンテンツ×言語を返す。"""
+
+    return _build_content_lang_pairs(tuple(get_others_content()))
+
+
+@lru_cache(maxsize=1)
+def _sitemap_travel():
+    """travel 配下のコンテンツ×言語を返す。"""
+
+    return _build_content_lang_pairs(tuple(get_travel_content()))
+
+
+@lru_cache(maxsize=1)
+def _sitemap_general_content():
+    """年度別テンプレートのコンテンツ×年度×言語を返す。"""
+
+    years_list, contents_per_year = get_yearly_content(get_available_years())
+
+    sitemap_years = []
+    sitemap_langs = []
+    sitemap_contents = []
+
+    pair_list = list(zip(years_list, contents_per_year))
+
+    for (year, content), lang in product(pair_list, SUPPORTED_LOCALES):
+        sitemap_years.append(year)
+        sitemap_langs.append(lang)
+        sitemap_contents.append(content)
+
+    return sitemap_years, sitemap_langs, sitemap_contents
+
+
+def get_variable(mode):
+    """サイトマップ登録に必要な変数セットをモード別に返す。
+
+    Args:
+        mode (str): 取得対象のモード。"general" | "result" | "participant_detail" | "others" | "travel" | "general_content"。
+
+    Returns:
+        tuple | list: モードに応じた展開済みの値リスト。
+
+    Raises:
+        ValueError: 未対応のモードが指定された場合。
+    """
+
+    builders = {
+        "general": _sitemap_general,
+        "result": _sitemap_result,
+        "participant_detail": _sitemap_participant_detail,
+        "others": _sitemap_others,
+        "travel": _sitemap_travel,
+        "general_content": _sitemap_general_content,
+    }
+
+    try:
+        return builders[mode]()
+    except KeyError as exc:  # pragma: no cover - ガード
+        raise ValueError(f"Unsupported mode: {mode}") from exc
 
 
 # MARK: 初期化タスク

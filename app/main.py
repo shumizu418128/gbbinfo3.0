@@ -1,5 +1,6 @@
 import logging
 import os
+from functools import lru_cache
 
 from flask import (
     Flask,
@@ -17,12 +18,8 @@ from app.config.config import (
 )
 from app.context_processors import (
     common_variables,
-    get_available_years,
     get_locale,
-    get_others_content,
-    get_participant_id,
-    get_travel_content,
-    get_yearly_content,
+    get_variable,
     initialize_background_tasks,
     redirect_based_on_language,
 )
@@ -114,13 +111,47 @@ test = _("test")  # テスト翻訳
 # バックグラウンド初期化タスクはキャッシュ初期化後に起動
 initialize_background_tasks(IS_LOCAL)
 
-AVAILABLE_YEARS = get_available_years()
-YEARS_LIST, CONTENTS_PER_YEAR = get_yearly_content(AVAILABLE_YEARS)
-OTHERS_CONTENT = get_others_content()
-TRAVEL_CONTENT = get_travel_content()
-PARTICIPANTS_ID_LIST, PARTICIPANTS_MODE_LIST = get_participant_id()
 
-result_years = [y for y in AVAILABLE_YEARS if y not in (2013, 2014, 2015, 2016)]
+@lru_cache(maxsize=1)
+def build_sitemap_variables():
+    """サイトマップ用のURL変数を構築してメモ化する。
+
+    Returns:
+        dict: サイトマップ登録に使うURL変数の辞書。
+    """
+
+    result_year, result_lang = get_variable(mode="result")
+    yearly_year, yearly_lang = get_variable(mode="general")
+    participant_detail_id, participant_detail_mode, participant_detail_lang = (
+        get_variable(mode="participant_detail")
+    )
+    others_content, others_lang = get_variable(mode="others")
+    travel_content, travel_lang = get_variable(mode="travel")
+    (
+        general_content_year,
+        general_content_lang,
+        general_content_content,
+    ) = get_variable(mode="general_content")
+
+    return {
+        "result": {"lang": result_lang, "year": result_year},
+        "yearly_pages": {"lang": yearly_lang, "year": yearly_year},
+        "participant_detail": {
+            "lang": participant_detail_lang,
+            "participant_id": participant_detail_id,
+            "mode": participant_detail_mode,
+        },
+        "travel": {"lang": travel_lang, "content": travel_content},
+        "others": {"lang": others_lang, "content": others_content},
+        "content_pages": {
+            "lang": general_content_lang,
+            "year": general_content_year,
+            "content": general_content_content,
+        },
+    }
+
+
+sitemap_variables = build_sitemap_variables()
 
 
 ####################################################################
@@ -214,7 +245,7 @@ def rule_view(lang, year):
     return rule.rules_view(year)
 
 
-@sitemapper.include(url_variables={"lang": SUPPORTED_LOCALES, "year": result_years})
+@sitemapper.include(url_variables=sitemap_variables["result"])
 @app.route("/<string:lang>/<int:year>/result")
 def result_view(lang, year):
     return result.result_view(year)
@@ -225,65 +256,50 @@ def world_map_view(lang, year):
     return world_map.world_map_view(year)
 
 
-@sitemapper.include(url_variables={"year": AVAILABLE_YEARS})
+@sitemapper.include(url_variables=sitemap_variables["yearly_pages"])
 @app.route("/<string:lang>/<int:year>/participants")
 def participants_view(lang, year):
     return participants.participants_view(year)
 
 
-@sitemapper.include(url_variables={"lang": SUPPORTED_LOCALES, "year": AVAILABLE_YEARS})
+@sitemapper.include(url_variables=sitemap_variables["yearly_pages"])
 @app.route("/<string:lang>/<int:year>/cancels")
 def cancels_view(lang, year):
     return participants.cancels_view(year)
 
 
-@sitemapper.include(url_variables={"lang": SUPPORTED_LOCALES, "year": AVAILABLE_YEARS})
+@sitemapper.include(url_variables=sitemap_variables["yearly_pages"])
 @app.route("/<string:lang>/<int:year>/japan")
 def japan(lang, year):
     return participants.participants_country_specific_view(year)
 
 
-@sitemapper.include(url_variables={"lang": SUPPORTED_LOCALES, "year": AVAILABLE_YEARS})
+@sitemapper.include(url_variables=sitemap_variables["yearly_pages"])
 @app.route("/<string:lang>/<int:year>/korea")
 def korea(lang, year):
     return participants.participants_country_specific_view(year)
 
 
-@sitemapper.include(
-    url_variables={
-        "participant_id": PARTICIPANTS_ID_LIST,
-        "mode": PARTICIPANTS_MODE_LIST,
-    }
-)
+@sitemapper.include(url_variables=sitemap_variables["participant_detail"])
 @app.route("/<string:lang>/participant_detail/<int:participant_id>/<string:mode>")
 def participant_detail_view(lang, participant_id, mode):
     return participant_detail.participant_detail_view(participant_id, mode)
 
 
 # MARK: 通常ページ
-@sitemapper.include(
-    url_variables={"lang": SUPPORTED_LOCALES, "content": OTHERS_CONTENT}
-)
+@sitemapper.include(url_variables=sitemap_variables["others"])
 @app.route("/<string:lang>/others/<string:content>")
 def others(lang, content):
     return common.other_content_view(content)
 
 
-@sitemapper.include(
-    url_variables={"lang": SUPPORTED_LOCALES, "content": TRAVEL_CONTENT}
-)
+@sitemapper.include(url_variables=sitemap_variables["travel"])
 @app.route("/<string:lang>/travel/<string:content>")
 def travel(lang, content):
     return common.travel_content_view(content)
 
 
-@sitemapper.include(
-    url_variables={
-        "lang": SUPPORTED_LOCALES,
-        "year": YEARS_LIST,
-        "content": CONTENTS_PER_YEAR,
-    }
-)
+@sitemapper.include(url_variables=sitemap_variables["content_pages"])
 @app.route("/<string:lang>/<int:year>/<string:content>")
 def common_content(lang, year, content):
     return common.content_view(year, content)
