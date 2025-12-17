@@ -62,16 +62,10 @@ def post_search_participants(year: int):
     search_name_participants = [
         participant["name"].upper() for participant in participants_data
     ]
-    search_name_parent_names = [
-        member["Participant"]["name"].upper() for member in members_data
-    ]
     search_name_member_names = [member["name"].upper() for member in members_data]
 
     extract_result_participants = process.extract(
         keyword.upper(), search_name_participants, limit=5
-    )
-    extract_result_parent_names = process.extract(
-        keyword.upper(), search_name_parent_names, limit=5
     )
     extract_result_member_names = process.extract(
         keyword.upper(), search_name_member_names, limit=5
@@ -95,25 +89,6 @@ def post_search_participants(year: int):
                 "members": ", ".join(member_names_list),
                 "is_cancelled": participant["is_cancelled"],
                 "mode": "single" if not participant["Category"]["is_team"] else "team",
-            }
-        )
-
-    for _, ratio, index in extract_result_parent_names:
-        member = members_data[index]
-        member_names_list = [
-            member["name"].upper()
-            for member in member["Participant"]["ParticipantMember"]
-        ]
-        result.append(
-            {
-                "ratio": ratio,
-                "id": member["Participant"]["id"],
-                "name": member["Participant"]["name"].upper(),
-                "category": member["Participant"]["Category"]["name"],
-                "ticket_class": member["Participant"]["ticket_class"],
-                "members": ", ".join(member_names_list),
-                "is_cancelled": member["Participant"]["is_cancelled"],
-                "mode": "team",
             }
         )
 
