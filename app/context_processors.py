@@ -13,6 +13,7 @@ from app.config.config import (
     BASE_DIR,
     LANGUAGE_CHOICES,
     LAST_UPDATED,
+    PERMANENT_REDIRECT_CODE,
     SUPPORTED_LOCALES,
 )
 from app.models.supabase_client import supabase_service
@@ -392,7 +393,7 @@ def add_language_and_redirect():
     new_url = urlunparse(
         ("", "", new_path, parsed_url.params, parsed_url.query, parsed_url.fragment)
     )
-    return redirect(new_url)
+    return redirect(new_url, code=PERMANENT_REDIRECT_CODE)
 
 
 # MARK: 世界地図初期化

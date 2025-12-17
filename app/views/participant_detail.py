@@ -4,6 +4,7 @@ from urllib.parse import quote
 
 from flask import redirect, render_template, request, session
 
+from app.config.config import PERMANENT_REDIRECT_CODE
 from app.models.supabase_client import supabase_service
 from app.util.filter_eq import Operator
 from app.util.participant_edit import edit_country_data, wildcard_rank_sort
@@ -68,7 +69,7 @@ def participant_detail_view(participant_id, mode):
     # データがない場合、出場者ページへリダイレクト
     if len(beatboxer_data) == 0 or beatboxer_data[0]["iso_code"] == 0:
         year = datetime.now().year
-        return redirect(f"/{year}/participants")
+        return redirect(f"/{language}/{year}/participants")
 
     # ========================================
     # 3. 出場者データの正規化
@@ -286,14 +287,16 @@ def participant_detail_deprecated_view():
     participant_id = request.args.get("id", type=int)
     mode = request.args.get("mode", type=str)
 
+    language = session.get("language", "ja")
+
     allowed_modes = {"single", "team", "team_member"}
     if mode not in allowed_modes:
         year = datetime.now().year
-        return redirect(f"/{year}/participants")
+        return redirect(f"/{language}/{year}/participants", code=PERMANENT_REDIRECT_CODE)
 
     # パラメータが欠落している場合は直接参加者一覧ページへリダイレクトする
     if participant_id is None or mode is None:
         year = datetime.now().year
-        return redirect(f"/{year}/participants")
+        return redirect(f"/{language}/{year}/participants", code=PERMANENT_REDIRECT_CODE)
 
     return redirect(f"/participant_detail/{participant_id}/{mode}")
