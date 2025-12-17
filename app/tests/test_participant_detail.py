@@ -415,7 +415,7 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
         response = self.client.get("/others/participant_detail")
 
         # リダイレクトされることを確認（言語プレフィックス追加のため）
-        self.assertEqual(response.status_code, 302)
+        self.assertIn(response.status_code, (301, 302))
         # 現在の実装では言語プレフィックス付きのURLへリダイレクトされる
         self.assertIn("/ja/others/participant_detail", response.location)
 

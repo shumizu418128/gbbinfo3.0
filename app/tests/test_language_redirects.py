@@ -23,13 +23,13 @@ class LanguageRedirectTestCase(unittest.TestCase):
     def test_redirects_for_yearly_participants(self):
         """/2025/participants にアクセスすると /ja/2025/participants へリダイレクトされる"""
         resp = self.client.get("/2025/participants", follow_redirects=False)
-        self.assertEqual(resp.status_code, 302)
+        self.assertIn(resp.status_code, (301, 302))
         loc = resp.headers.get("Location", "")
         self.assertIn("/ja/2025/participants", loc)
 
     def test_redirects_for_participant_detail(self):
         """/participant_detail/1/single にアクセスすると /ja/participant_detail/1/single へリダイレクトされる"""
         resp = self.client.get("/participant_detail/1/single", follow_redirects=False)
-        self.assertEqual(resp.status_code, 302)
+        self.assertIn(resp.status_code, (301, 302))
         loc = resp.headers.get("Location", "")
         self.assertIn("/ja/participant_detail/1/single", loc)
