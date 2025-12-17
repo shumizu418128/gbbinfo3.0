@@ -11,6 +11,7 @@ from flask_babel import format_datetime
 
 from app.config.config import (
     BASE_DIR,
+    HOUR,
     LANGUAGE_CHOICES,
     LAST_UPDATED,
     PERMANENT_REDIRECT_CODE,
@@ -67,7 +68,7 @@ def get_translated_urls():
     # ここに書かないと循環インポートになる
     from app.main import flask_cache
 
-    cache_key = "translated_urls"
+    cache_key = "translated_urls_with_languages"
     cached_urls = flask_cache.get(cache_key)
 
     if cached_urls is not None:
@@ -135,8 +136,8 @@ def get_translated_urls():
                         url_path = "/" + lang + "/" + template_path.replace(".html", "")
                         translated_urls.add(url_path)
 
-    # キャッシュに保存（タイムアウトなし）
-    flask_cache.set(cache_key, translated_urls, timeout=None)
+    # キャッシュに保存
+    flask_cache.set(cache_key, translated_urls, timeout=24 * HOUR)
 
     return translated_urls
 
