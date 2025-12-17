@@ -11,6 +11,7 @@ from flask_babel import format_datetime
 
 from app.config.config import (
     BASE_DIR,
+    HOUR,
     LANGUAGE_CHOICES,
     LAST_UPDATED,
     PERMANENT_REDIRECT_CODE,
@@ -31,7 +32,7 @@ def get_available_years():
     # ここに書かないと循環インポートになる
     from app.main import flask_cache
 
-    cache_key = "available_years"
+    cache_key = "available_years_list"
     cached_years = flask_cache.get(cache_key)
 
     if cached_years is not None:
@@ -45,7 +46,7 @@ def get_available_years():
     available_years.sort(reverse=True)
 
     # キャッシュに保存（タイムアウトなし）
-    flask_cache.set(cache_key, available_years, timeout=None)
+    flask_cache.set(cache_key, available_years)
 
     return available_years
 
@@ -67,7 +68,7 @@ def get_translated_urls():
     # ここに書かないと循環インポートになる
     from app.main import flask_cache
 
-    cache_key = "translated_urls"
+    cache_key = "translated_urls_with_languages"
     cached_urls = flask_cache.get(cache_key)
 
     if cached_urls is not None:
@@ -135,8 +136,8 @@ def get_translated_urls():
                         url_path = "/" + lang + "/" + template_path.replace(".html", "")
                         translated_urls.add(url_path)
 
-    # キャッシュに保存（タイムアウトなし）
-    flask_cache.set(cache_key, translated_urls, timeout=None)
+    # キャッシュに保存
+    flask_cache.set(cache_key, translated_urls, timeout=24 * HOUR)
 
     return translated_urls
 
@@ -480,7 +481,7 @@ def get_participant_id():
     # ここに書かないと循環インポートになる
     from app.main import flask_cache
 
-    cache_key = "participant_id_mode_list"
+    cache_key = "participant_data_list"
     cached_data = flask_cache.get(cache_key)
     if cached_data is not None:
         return cached_data
@@ -514,9 +515,7 @@ def get_participant_id():
         participants_id_list.append(member["id"])
         participants_mode_list.append("team_member")
 
-    flask_cache.set(
-        cache_key, (participants_id_list, participants_mode_list), timeout=None
-    )
+    flask_cache.set(cache_key, (participants_id_list, participants_mode_list))
 
     return participants_id_list, participants_mode_list
 

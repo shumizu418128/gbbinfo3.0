@@ -204,7 +204,7 @@ class ContextProcessorsTestCase(unittest.TestCase):
         from app.context_processors import get_participant_id
 
         # キャッシュをクリア
-        mock_flask_cache.delete("participant_id_mode_list")
+        mock_flask_cache.delete("participant_data_list")
 
         # モックデータの設定
         mock_supabase.get_data.side_effect = [
@@ -243,9 +243,8 @@ class ContextProcessorsTestCase(unittest.TestCase):
 
         # キャッシュがセットされたことを確認
         mock_flask_cache.set.assert_called_once_with(
-            "participant_id_mode_list",
+            "participant_data_list",
             ([1, 2, 101, 102], ["single", "team", "team_member", "team_member"]),
-            timeout=None,
         )
 
         # キャッシュのテスト: キャッシュあり
