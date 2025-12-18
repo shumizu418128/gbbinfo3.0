@@ -51,7 +51,7 @@
     box-sizing: border-box;
     font-size: 1em;
     outline: none;
-    font-family: 'Averta ExtraBold', 'Noto sans JP';
+    font-family: 'Averta ExtraBold', 'Noto sans JP', 'Noto sans KR';
 }
 
 .search-container input::placeholder {
@@ -100,7 +100,7 @@
     padding: 8px 15px;
     cursor: pointer;
     font-size: 1em;
-    font-family: 'Averta ExtraBold', 'Noto sans JP';
+    font-family: 'Averta ExtraBold', 'Noto sans JP', 'Noto sans KR';
 }
 
 .suggestion-item:hover {

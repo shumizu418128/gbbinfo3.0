@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function getTextWidth(text, fontSize) {
         const canvas = document.createElement('canvas');
         const context = canvas.getContext('2d');
-        context.font = `${fontSize}px 'Noto Sans JP'`;
+        context.font = `${fontSize}px 'Noto sans JP', 'Noto sans KR'`;
         return context.measureText(text).width;
     }
 
