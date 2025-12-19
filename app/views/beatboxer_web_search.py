@@ -13,6 +13,7 @@ from app.config.config import (
 from app.models.deepl_client import deepl_service
 from app.models.supabase_client import supabase_service
 from app.models.tavily_client import tavily_service
+from app.util.locale import get_validated_language
 
 
 # MARK: ドメイン取得
@@ -406,6 +407,6 @@ def post_answer_translation():
     """
     beatboxer_id = request.json.get("beatboxer_id")
     mode = request.json.get("mode", "single")
-    language = session["language"]
+    language = get_validated_language(session)
     translated_answer = translate_tavily_answer(beatboxer_id, mode, language)
     return jsonify({"answer": translated_answer})
