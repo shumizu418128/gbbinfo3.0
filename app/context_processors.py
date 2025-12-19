@@ -19,6 +19,7 @@ from app.config.config import (
 )
 from app.models.supabase_client import supabase_service
 from app.util.filter_eq import Operator
+from app.util.locale import get_validated_language
 
 
 # MARK: 年度一覧
@@ -318,7 +319,7 @@ def common_variables(
         year = datetime.now().year
 
     translated_urls = get_translated_urls()
-    language = session.get("language", "ja")
+    language = get_validated_language(session)
 
     return {
         "year": year,
@@ -385,6 +386,7 @@ def language_code_redirect_handler():
             request.path.endswith("/search")
             or request.path.endswith("/search_participants")
             or request.path.startswith("/static")
+            or request.path.startswith("/.well-known")
         ):
             return
         return add_language_and_redirect()
@@ -396,7 +398,10 @@ def add_language_and_redirect():
     現在の URL の先頭に session['language'] を付与してリダイレクトする。
     """
     parsed_url = urlparse(request.url)
-    new_path = "/" + session.get("language", "ja") + parsed_url.path
+
+    language = get_validated_language(session)
+
+    new_path = "/" + language + parsed_url.path
     new_url = urlunparse(
         ("", "", new_path, parsed_url.params, parsed_url.query, parsed_url.fragment)
     )
@@ -493,6 +498,8 @@ def get_participant_id():
     participants_id_list = []
     participants_mode_list = []
 
+    FIVE_YEARS_AGO = datetime.now().year - 5
+
     # 出場者データを取得
     participants_data = supabase_service.get_data(
         table="Participant",
@@ -500,7 +507,10 @@ def get_participant_id():
         join_tables={
             "Category": ["is_team"],
         },
-        filters={f"iso_code__{Operator.GREATER_THAN}": 0},
+        filters={
+            f"iso_code__{Operator.GREATER_THAN}": 0,
+            f"year__{Operator.GREATER_THAN}": FIVE_YEARS_AGO,
+        },
     )
     participant_members_data = supabase_service.get_data(
         table="ParticipantMember",

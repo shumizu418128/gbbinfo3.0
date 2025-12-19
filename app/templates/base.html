@@ -39,8 +39,7 @@
     <link rel="canonical" href="{% block canonical %}{% endblock %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
-    <link href="https://db.onlinewebfonts.com/c/efc5d27fcf85239bbfee077b689e3ac9?family=Averta+ExtraBold" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
     <meta name="twitter:title" content="{% block twitter_title %}{% endblock %}" />
     <meta name="twitter:description" content="{{_("Swissbeatboxが主催する{HumanBeatbox}の世界大会「{GrandBeatboxBattle}」の各種情報を、見やすくまとめたサイトです。").format(HumanBeatbox="Human Beatbox", GrandBeatboxBattle="Grand Beatbox Battle")}}" />
     <meta name="twitter:card" content="summary_large_image"/>
@@ -188,7 +187,7 @@
       {% endif %}
 
       <p style="text-align: center">{{_("GBBまでの残り時間")}}</p>
-      <p id="countdown" style="text-align: center; font-size: 24px; font-family: 'Noto sans JP';"></p>
+      <p id="countdown" style="text-align: center; font-size: 24px; font-family: 'Noto sans JP', 'Noto sans KR';"></p>
 
       {% if is_latest_year is false %}
         <hr>

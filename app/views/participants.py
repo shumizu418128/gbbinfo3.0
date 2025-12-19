@@ -4,6 +4,7 @@ from app.config.config import MULTI_COUNTRY_TEAM_ISO_CODE
 from app.context_processors import get_available_years
 from app.models.supabase_client import supabase_service
 from app.util.filter_eq import Operator
+from app.util.locale import get_validated_language
 from app.util.participant_edit import edit_country_data, wildcard_rank_sort
 
 VALID_TICKET_CLASSES = ["all", "wildcard", "seed_right"]
@@ -37,7 +38,7 @@ def participants_view(year: int):
     scroll = request.args.get("scroll")
     value = request.args.get("value")
 
-    language = session["language"]
+    language = get_validated_language(session)
 
     # その年のカテゴリ一覧を取得
     year_data = supabase_service.get_data(
@@ -92,9 +93,7 @@ def participants_view(year: int):
             cancel not in VALID_CANCEL,
         ]
     ):
-        redirect_url = (
-            f"/{language}/{year}/participants?category=Loopstation&ticket_class=all&cancel=show"
-        )
+        redirect_url = f"/{language}/{year}/participants?category=Loopstation&ticket_class=all&cancel=show"
 
         # スクロール・出場者検索のパラメータがある場合はそれも追加
         if scroll:
