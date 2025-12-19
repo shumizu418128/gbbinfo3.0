@@ -18,22 +18,22 @@
   <table>
     <thead>
       <tr>
-        <th style="width: 33%;">{{_("名前")}}</th>
-        <th style="width: 34%;">{{_("部門")}}</th>
-        <th style="width: 33%;">{{_("出場権")}}</th>
+        <th class="participant-table-left-col">{{_("出場権")}}</th>
+        <th class="participant-table-name-col">{{_("名前")}}</th>
+        <th class="participant-table-right-col">{{_("部門")}}</th>
       </tr>
     </thead>
     <tbody>
     {% for participant in participants %}
       <tr>
         {% if participant.is_cancelled %}
-          <td>【{{_("辞退")}}】<br>{% include "includes/country_flag.html" %}<a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{{ participant.name }}</a></td>
-          <td><s>{{ participant.category }}</s></td>
-          <td {% if participant.ticket_class|length > 11 %} style="font-size: 12px;" {% endif %}><s>{{ participant.ticket_class }}</s></td>
+          <td class="participant-table-left-col"><s>{{ participant.ticket_class }}</s></td>
+          <td class="participant-table-name-col">【{{_("辞退")}}】<br>{% include "includes/country_flag.html" %}<a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{{ participant.name }}</a></td>
+          <td class="participant-table-right-col"><s>{{ participant.category }}</s></td>
         {% else %}
-          <td>{% include "includes/country_flag.html" %}<a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{{ participant.name }}</a></td>
-          <td>{{ participant.category }}</td>
-          <td {% if participant.ticket_class|length > 11 %} style="font-size: 12px;" {% endif %}>{{ participant.ticket_class }}</td>
+          <td class="participant-table-left-col">{{ participant.ticket_class }}</td>
+          <td class="participant-table-name-col">{% include "includes/country_flag.html" %}<a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{{ participant.name }}</a></td>
+          <td class="participant-table-right-col">{{ participant.category }}</td>
         {% endif %}
       </tr>
       {% endfor %}

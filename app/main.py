@@ -1,5 +1,6 @@
 import logging
 import os
+from datetime import datetime
 from functools import lru_cache
 
 from flask import (
@@ -77,11 +78,12 @@ class TestConfig(ProductionConfig):
 # テスト環境ではキャッシュを無効化
 # ローカル環境にはこの環境変数を設定してある
 if os.getenv("ENVIRONMENT_CHECK") == "qawsedrftgyhujikolp":
+    year = datetime.now().year
     print("\n")
     print("******************************************************************")
     print("*                                                                *")
-    print("*    GBBINFO-JPN is running in test mode!                        *")
-    print("*    Access the application at http://127.0.0.1:10000?lang=ja    *")
+    print("*  GBBINFO-JPN is running in test mode!                          *")
+    print(f"*  Access the application at http://127.0.0.1:10000/ja/{year}/top  *")
     print("*                                                                *")
     print("******************************************************************")
     app.config.from_object(TestConfig)
@@ -183,6 +185,7 @@ def locale_selector():
 @app.route("/")
 def redirect_to_latest_top():
     return common.top_redirect_view()
+
 
 @app.route("/<string:lang>/2012/<string:content>")
 def content_2012(lang, content):
