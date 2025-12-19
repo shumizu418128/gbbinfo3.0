@@ -6,13 +6,17 @@
     font-display: swap;
 }
 
+:root {
+    --font-stack: 'Averta ExtraBold', 'Noto sans JP', 'Noto sans KR';
+}
+
 body,
 html {
     height: 100%;
     margin: 0;
     padding: 0;
     font-weight: 450;
-    font-family: 'Averta ExtraBold', 'Noto sans JP', 'Noto sans KR';
+    font-family: var(--font-stack);
 }
 
 body {

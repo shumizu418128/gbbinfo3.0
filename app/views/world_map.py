@@ -144,9 +144,11 @@ def world_map_view(year: int):
         country_name = country_names_dict[language]
 
         # ポップアップの内容を作成 (長い場合はスクロール可能にする)
-        popup_content = "<div style=\"font-family: 'Noto sans JP', 'Noto sans KR'; font-size: 14px;\">"
+        style = "font-family: 'Averta ExtraBold', 'Noto sans JP', 'Noto sans KR'; font-size: 14px;"
         if len(participants) > 7:
-            popup_content = "<div style=\"font-family: 'Noto sans JP', 'Noto sans KR'; font-size: 14px; max-height: 200px; overflow-y: scroll;\">"
+            style += " max-height: 200px; overflow-y: scroll;"
+
+        popup_content = f'<div style="{style}">'
 
         flag_code = FLAG_CODE.format(iso_alpha2=iso_alpha2)
 

@@ -25,9 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function getTextWidth(text, fontSize) {
+        const FONT_FAMILY_SANS = "'Noto sans JP', 'Noto sans KR'";
         const canvas = document.createElement('canvas');
         const context = canvas.getContext('2d');
-        context.font = `${fontSize}px 'Noto sans JP', 'Noto sans KR'`;
+        context.font = `${fontSize}px ${FONT_FAMILY_SANS}`;
         return context.measureText(text).width;
     }
 
