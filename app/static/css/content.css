@@ -13,6 +13,7 @@ table th {
     background-color: rgba(255, 255, 255, 0.3);
     color: black;
     font-weight: bold;
+    font-size: 16px;
 }
 
 table td {
@@ -52,4 +53,23 @@ table tr:nth-child(even) {
 .chart {
     max-height: 40vh;
     background-color: rgba(255, 255, 255, 0.3);
+}
+
+.participant-table-left-col {
+    width: 30%;
+    font-size: 14px;
+}
+
+.participant-table-name-col {
+    width: 40%;
+    font-size: 16px;
+}
+
+.participant-table-right-col {
+    width: 30%;
+    font-size: 14px;
+}
+
+.participant-member-text {
+    font-size: 14px;
 }

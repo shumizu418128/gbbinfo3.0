@@ -75,19 +75,17 @@
     <table>
         <thead>
             <tr>
-                <th style="width: 33%;">{{_("名前")}}</th>
-                <th style="width: 34%;">{{_("部門")}}</th>
-                <th style="width: 33%;">{{_("出場権")}}</th>
+                <th class="participant-table-left-col">{{_("出場権")}}</th>
+                <th class="participant-table-name-col">{{_("名前")}}</th>
+                <th class="participant-table-right-col">{{_("部門")}}</th>
             </tr>
         </thead>
         <tbody>
             {% for participant in gbb_seed %}
                 <tr>
-                    <td><a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a></td>
-                    <td>{{ participant.category }}</td>
-                    <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
-                    {{ participant.ticket_class }}
-                    </td>
+                    <td class="participant-table-left-col">{{ participant.ticket_class }}</td>
+                    <td class="participant-table-name-col">{% include "includes/country_flag.html" %}<a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{{ participant.name }}</a></td>
+                    <td class="participant-table-right-col">{{ participant.category }}</td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -101,23 +99,21 @@
     <table>
         <thead>
             <tr>
-                <th style="width: 33%;">{{_("名前")}}</th>
-                <th style="width: 34%;">{{_("部門")}}</th>
-                <th style="width: 33%;">{{_("出場権")}}</th>
+                <th class="participant-table-left-col">{{_("出場権")}}</th>
+                <th class="participant-table-name-col">{{_("名前")}}</th>
+                <th class="participant-table-right-col">{{_("部門")}}</th>
             </tr>
         </thead>
         <tbody>
             {% for participant in other_seed %}
                 <tr>
+                    <td class="participant-table-left-col">{{ participant.ticket_class }}</td>
                     {% if participant.name == "???" %}
-                        <td>{{ participant.name }}</td>
+                        <td class="participant-table-name-col">{{ participant.name }}</td>
                     {% else %}
-                        <td><a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a></td>
+                        <td class="participant-table-name-col">{% include "includes/country_flag.html" %}<a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{{ participant.name }}</a></td>
                     {% endif %}
-                    <td>{{ participant.category }}</td>
-                    <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
-                        {{ participant.ticket_class }}
-                    </td>
+                    <td class="participant-table-right-col">{{ participant.category }}</td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -131,22 +127,22 @@
     <table>
         <thead>
             <tr>
-            <th style="width: 33%;">{{_("名前")}}</th>
-            <th style="width: 34%;">{{_("部門")}}</th>
-            <th style="width: 33%;">{{_("出場権")}}</th>
+            <th class="participant-table-left-col">{{_("出場権")}}</th>
+            <th class="participant-table-name-col">{{_("名前")}}</th>
+            <th class="participant-table-right-col">{{_("部門")}}</th>
             </tr>
         </thead>
         <tbody>
             {% for participant in cancelled %}
                 <tr>
-                    <td>
-                        【{{_("辞退")}}】<br><a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a>
-                    </td>
-                    <td>
-                        <s>{{ participant.category }}</s>
-                    </td>
-                    <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
+                    <td class="participant-table-left-col">
                         <s>{{ participant.ticket_class }}</s>
+                    </td>
+                    <td class="participant-table-name-col">
+                        【{{_("辞退")}}】<br>{% include "includes/country_flag.html" %}<a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{{ participant.name }}</a>
+                    </td>
+                    <td class="participant-table-right-col">
+                        <s>{{ participant.category }}</s>
                     </td>
                 </tr>
             {% endfor %}

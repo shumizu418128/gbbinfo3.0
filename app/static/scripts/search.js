@@ -119,16 +119,16 @@ function searchParticipants(year, event) {
                     exactMatchFound = true;
                 }
                 return `<tr>
-                    <td>
+                    <td class="participant-table-left-col">
+                        ${participant.is_cancelled ? `<s>${participant.ticket_class}</s>` : participant.ticket_class}
+                    </td>
+                    <td class="participant-table-name-col">
                         ${participant.is_cancelled ? '【辞退】<br>' : ''}
                         <a href="/participant_detail/${participant.id}/${participant.mode}">${participant.name}</a>
-                        ${participant.members ? `<div id="small-text">${participant.members}</div>` : ''}
+                        ${participant.members ? `<div class="participant-member-text">${participant.members}</div>` : ''}
                     </td>
-                    <td>
+                    <td class="participant-table-right-col">
                         ${participant.is_cancelled ? `<s>${participant.category}</s>` : participant.category}
-                    </td>
-                    <td style="${participant.ticket_class.length > 11 ? 'font-size: 12px;' : ''}">
-                        ${participant.is_cancelled ? `<s>${participant.ticket_class}</s>` : participant.ticket_class}
                     </td>
                 </tr>`;
             }).join('');
