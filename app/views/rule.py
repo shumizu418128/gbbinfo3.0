@@ -1,6 +1,7 @@
-from flask import redirect, render_template
+from flask import redirect, render_template, session
 from jinja2 import TemplateNotFound
 
+from app.config.config import SUPPORTED_LOCALES
 from app.models.supabase_client import supabase_service
 from app.util.filter_eq import Operator
 from app.util.participant_edit import edit_country_data
@@ -22,9 +23,13 @@ def rules_view(year: int):
         - シード権獲得者（GBBシード、その他シード、辞退者）を取得し、テンプレートに渡す。
         - ルールページのテンプレートは "{year}/rules.html" を使用する。
     """
+    language = session.get("language", "ja")
+    if language not in SUPPORTED_LOCALES:
+        language = "ja"
+
     # 2013-2016は非対応
     if 2013 <= year <= 2016:
-        return redirect(f"/{year}/top")
+        return redirect(f"/{language}/{year}/top")
 
     # シード権獲得者を取得
     participants_data = supabase_service.get_data(

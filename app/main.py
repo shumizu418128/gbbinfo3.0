@@ -184,6 +184,10 @@ def locale_selector():
 def redirect_to_latest_top():
     return common.top_redirect_view()
 
+@app.route("/<string:lang>/2012/<string:content>")
+def content_2012(lang, content):
+    return common.not_found_page_view()
+
 
 @app.route("/<string:lang>/2022/<string:content>")
 def content_2022(lang, content):

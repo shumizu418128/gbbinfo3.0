@@ -1,6 +1,6 @@
 from flask import abort, redirect, render_template, request, session
 
-from app.config.config import MULTI_COUNTRY_TEAM_ISO_CODE
+from app.config.config import MULTI_COUNTRY_TEAM_ISO_CODE, SUPPORTED_LOCALES
 from app.context_processors import get_available_years
 from app.models.supabase_client import supabase_service
 from app.util.filter_eq import Operator
@@ -37,7 +37,9 @@ def participants_view(year: int):
     scroll = request.args.get("scroll")
     value = request.args.get("value")
 
-    language = session["language"]
+    language = session.get("language", "ja")
+    if language not in SUPPORTED_LOCALES:
+        language = "ja"
 
     # その年のカテゴリ一覧を取得
     year_data = supabase_service.get_data(

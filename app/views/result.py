@@ -1,8 +1,8 @@
 from collections import defaultdict
 
-from flask import abort, redirect, render_template, request
+from flask import abort, redirect, render_template, request, session
 
-from app.config.config import MULTI_COUNTRY_TEAM_ISO_CODE
+from app.config.config import MULTI_COUNTRY_TEAM_ISO_CODE, SUPPORTED_LOCALES
 from app.models.supabase_client import supabase_service
 from app.util.filter_eq import Operator
 
@@ -23,9 +23,13 @@ def result_view(year: int):
         - カテゴリごとにトーナメント制または順位制の結果を取得し、テンプレートに渡す。
         - 結果データが存在しない場合は空データでページを表示する。
     """
+    language = session.get("language", "ja")
+    if language not in SUPPORTED_LOCALES:
+        language = "ja"
+
     # 2013-2016は非対応
     if 2013 <= year <= 2016:
-        return redirect(f"/{year}/top")
+        return redirect(f"/{language}/{year}/top")
 
     # クエリパラメータ
     category = request.args.get("category")
@@ -77,7 +81,7 @@ def result_view(year: int):
     # 問題がある場合デフォルト値にしてリダイレクト
     if category not in all_category_names:
         category = "Loopstation"
-        return redirect(f"/{year}/result?category={category}")
+        return redirect(f"/{language}/{year}/result?category={category}")
 
     # カテゴリIDを取得
     category_id = int(category_data[category_data["name"] == category]["id"].values[0])

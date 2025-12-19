@@ -402,7 +402,12 @@ def add_language_and_redirect():
     現在の URL の先頭に session['language'] を付与してリダイレクトする。
     """
     parsed_url = urlparse(request.url)
-    new_path = "/" + session.get("language", "ja") + parsed_url.path
+
+    language = session.get("language", "ja")
+    if language not in SUPPORTED_LOCALES:
+        language = "ja"
+
+    new_path = "/" + language + parsed_url.path
     new_url = urlunparse(
         ("", "", new_path, parsed_url.params, parsed_url.query, parsed_url.fragment)
     )
