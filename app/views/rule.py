@@ -22,8 +22,8 @@ def rules_view(year: int):
         - シード権獲得者（GBBシード、その他シード、辞退者）を取得し、テンプレートに渡す。
         - ルールページのテンプレートは "{year}/rules.html" を使用する。
     """
-    # 2016以前は非対応
-    if year <= 2016:
+    # 2013-2016は非対応
+    if 2013 <= year <= 2016:
         return redirect(f"/{year}/top")
 
     # シード権獲得者を取得
