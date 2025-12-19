@@ -4,9 +4,10 @@ from urllib.parse import quote
 
 from flask import redirect, render_template, request, session
 
-from app.config.config import PERMANENT_REDIRECT_CODE, SUPPORTED_LOCALES
+from app.config.config import PERMANENT_REDIRECT_CODE
 from app.models.supabase_client import supabase_service
 from app.util.filter_eq import Operator
+from app.util.locale import get_validated_language
 from app.util.participant_edit import edit_country_data, wildcard_rank_sort
 
 
@@ -25,9 +26,7 @@ def participant_detail_view(participant_id, mode):
     Raises:
         なし（id, modeが無い場合やデータが存在しない場合は参加者ページにリダイレクトする）
     """
-    language = session.get("language", "ja")
-    if language not in SUPPORTED_LOCALES:
-        language = "ja"
+    language = get_validated_language(session)
 
     # ========================================
     # 2. 出場者データの取得
@@ -289,9 +288,7 @@ def participant_detail_deprecated_view():
     participant_id = request.args.get("id", type=int)
     mode = request.args.get("mode", type=str)
 
-    language = session.get("language", "ja")
-    if language not in SUPPORTED_LOCALES:
-        language = "ja"
+    language = get_validated_language(session)
 
     allowed_modes = {"single", "team", "team_member"}
     if mode not in allowed_modes:

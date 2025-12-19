@@ -1,9 +1,9 @@
 from flask import redirect, render_template, session
 from jinja2 import TemplateNotFound
 
-from app.config.config import SUPPORTED_LOCALES
 from app.models.supabase_client import supabase_service
 from app.util.filter_eq import Operator
+from app.util.locale import get_validated_language
 from app.util.participant_edit import edit_country_data
 
 
@@ -23,9 +23,7 @@ def rules_view(year: int):
         - シード権獲得者（GBBシード、その他シード、辞退者）を取得し、テンプレートに渡す。
         - ルールページのテンプレートは "{year}/rules.html" を使用する。
     """
-    language = session.get("language", "ja")
-    if language not in SUPPORTED_LOCALES:
-        language = "ja"
+    language = get_validated_language(session)
 
     # 2013-2016は非対応
     if 2013 <= year <= 2016:
@@ -95,4 +93,4 @@ def rules_view(year: int):
     try:
         return render_template(f"{year}/rule.html", **context)
     except TemplateNotFound:
-        return render_template("404.html"), 404
+        return render_template("404.html", is_translated=True), 404

@@ -5,9 +5,10 @@ from flask import jsonify, redirect, render_template, session
 from flask_babel import format_datetime
 from jinja2 import TemplateNotFound
 
-from app.config.config import PERMANENT_REDIRECT_CODE, SUPPORTED_LOCALES
+from app.config.config import PERMANENT_REDIRECT_CODE
 from app.context_processors import get_available_years
 from app.models.spreadsheet_client import spreadsheet_service
+from app.util.locale import get_validated_language
 
 
 # MARK: トップ遷移
@@ -27,9 +28,7 @@ def top_redirect_view():
     else:
         latest_year = max(available_years)
 
-    language = session.get("language", "ja")
-    if language not in SUPPORTED_LOCALES:
-        language = "ja"
+    language = get_validated_language(session)
 
     return redirect(f"/{language}/{latest_year}/top")
 
@@ -39,9 +38,7 @@ def time_schedule_view(year: int):
     """
     タイムテーブルを表示するビュー。
     """
-    language = session.get("language", "ja")
-    if language not in SUPPORTED_LOCALES:
-        language = "ja"
+    language = get_validated_language(session)
 
     available_years = get_available_years()
     if year not in available_years:
@@ -64,9 +61,7 @@ def content_view(year: int, content: str):
     """
     content_basename = os.path.basename(content)
 
-    language = session.get("language", "ja")
-    if language not in SUPPORTED_LOCALES:
-        language = "ja"
+    language = get_validated_language(session)
 
     available_years = get_available_years()
     if year not in available_years:
@@ -94,9 +89,7 @@ def content_2022_view(content: str):
     Returns:
         HttpResponse: レンダリングされたテンプレート
     """
-    language = session.get("language", "ja")
-    if language not in SUPPORTED_LOCALES:
-        language = "ja"
+    language = get_validated_language(session)
 
     content_basename = os.path.basename(content)
     if content_basename != "top":
@@ -105,7 +98,7 @@ def content_2022_view(content: str):
     try:
         return render_template(f"2022/{content_basename}.html")
     except TemplateNotFound:
-        return render_template("/common/404.html"), 404
+        return render_template("/common/404.html", is_translated=True), 404
 
 
 # MARK: others
@@ -118,7 +111,7 @@ def other_content_view(content: str):
     try:
         return render_template(f"others/{content_basename}.html")
     except TemplateNotFound:
-        return render_template("/common/404.html"), 404
+        return render_template("/common/404.html", is_translated=True), 404
 
 
 # MARK: travel
@@ -126,9 +119,7 @@ def travel_content_view(content: str):
     """
     旅行関連のコンテンツを表示する。
     """
-    language = session.get("language", "ja")
-    if language not in SUPPORTED_LOCALES:
-        language = "ja"
+    language = get_validated_language(session)
 
     content_basename = os.path.basename(content)
 

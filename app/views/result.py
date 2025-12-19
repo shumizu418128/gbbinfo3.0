@@ -2,9 +2,10 @@ from collections import defaultdict
 
 from flask import abort, redirect, render_template, request, session
 
-from app.config.config import MULTI_COUNTRY_TEAM_ISO_CODE, SUPPORTED_LOCALES
+from app.config.config import MULTI_COUNTRY_TEAM_ISO_CODE
 from app.models.supabase_client import supabase_service
 from app.util.filter_eq import Operator
+from app.util.locale import get_validated_language
 
 
 # MARK: 大会結果
@@ -23,9 +24,7 @@ def result_view(year: int):
         - カテゴリごとにトーナメント制または順位制の結果を取得し、テンプレートに渡す。
         - 結果データが存在しない場合は空データでページを表示する。
     """
-    language = session.get("language", "ja")
-    if language not in SUPPORTED_LOCALES:
-        language = "ja"
+    language = get_validated_language(session)
 
     # 2013-2016は非対応
     if 2013 <= year <= 2016:

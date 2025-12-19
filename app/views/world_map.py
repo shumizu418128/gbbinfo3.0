@@ -8,9 +8,9 @@ from app.config.config import (
     FLAG_CODE,
     FOLIUM_CUSTOM_CSS,
     MULTI_COUNTRY_TEAM_ISO_CODE,
-    SUPPORTED_LOCALES,
 )
 from app.models.supabase_client import supabase_service
+from app.util.locale import get_validated_language
 
 
 # MARK: 世界地図
@@ -32,11 +32,7 @@ def world_map_view(year: int):
         - チームで複数国籍の場合は、各国ごとにデータを分配する。
         - Foliumを用いて地図を生成し、テンプレートとして保存・表示する。
     """
-    language = session["language"]
-
-    # 不正な言語名によるオープンリダイレクト・パストラバーサル対策
-    if language not in SUPPORTED_LOCALES:
-        abort(400)
+    language = get_validated_language(session)
 
     map_save_path = os.path.join(
         "app", "templates", str(year), "world_map", f"{language}.html"

@@ -19,6 +19,7 @@ from app.config.config import (
 )
 from app.models.supabase_client import supabase_service
 from app.util.filter_eq import Operator
+from app.util.locale import get_validated_language
 
 
 # MARK: 年度一覧
@@ -324,7 +325,7 @@ def common_variables(
         year = datetime.now().year
 
     translated_urls = get_translated_urls()
-    language = session.get("language", "ja")
+    language = get_validated_language(session)
 
     return {
         "year": year,
@@ -403,9 +404,7 @@ def add_language_and_redirect():
     """
     parsed_url = urlparse(request.url)
 
-    language = session.get("language", "ja")
-    if language not in SUPPORTED_LOCALES:
-        language = "ja"
+    language = get_validated_language(session)
 
     new_path = "/" + language + parsed_url.path
     new_url = urlunparse(
