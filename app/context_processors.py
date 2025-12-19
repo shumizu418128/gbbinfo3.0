@@ -392,6 +392,7 @@ def language_code_redirect_handler():
             request.path.endswith("/search")
             or request.path.endswith("/search_participants")
             or request.path.startswith("/static")
+            or request.path.startswith("/.well-known")
         ):
             return
         return add_language_and_redirect()
