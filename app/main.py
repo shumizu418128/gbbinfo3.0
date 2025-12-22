@@ -14,6 +14,7 @@ from flask_sitemapper import Sitemapper
 
 from app.config.config import (
     BASE_DIR,
+    HOUR,
     MINUTE,
     SUPPORTED_LOCALES,
 )
@@ -57,6 +58,7 @@ class ProductionConfig:
     BABEL_DEFAULT_TIMEZONE = "Asia/Tokyo"
     BABEL_TRANSLATION_DIRECTORIES = str(BASE_DIR / "app" / "translations")
     CACHE_DEFAULT_TIMEOUT = 15 * MINUTE  # キャッシュの有効期限を15分に設定
+    CACHE_SOURCE_CHECK = True
     CACHE_TYPE = "RedisCache"
     CACHE_REDIS_URL = os.getenv("REDIS_URL")
     DEBUG = False
@@ -297,18 +299,21 @@ def participant_detail_view(lang, participant_id, mode):
 # MARK: 通常ページ
 @sitemapper.include(url_variables=sitemap_variables["others"])
 @app.route("/<string:lang>/others/<string:content>")
+@flask_cache.cached(timeout=24 * HOUR)
 def others(lang, content):
     return common.other_content_view(content)
 
 
 @sitemapper.include(url_variables=sitemap_variables["travel"])
 @app.route("/<string:lang>/travel/<string:content>")
+@flask_cache.cached(timeout=24 * HOUR)
 def travel(lang, content):
     return common.travel_content_view(content)
 
 
 @sitemapper.include(url_variables=sitemap_variables["content_pages"])
 @app.route("/<string:lang>/<int:year>/<string:content>")
+@flask_cache.cached(timeout=24 * HOUR)
 def common_content(lang, year, content):
     return common.content_view(year, content)
 
