@@ -60,6 +60,7 @@ class ProductionConfig:
     CACHE_DEFAULT_TIMEOUT = 15 * MINUTE  # キャッシュの有効期限を15分に設定
     CACHE_TYPE = "RedisCache"
     CACHE_REDIS_URL = os.getenv("REDIS_URL")
+    CACHE_QUERY_STRING = True
     DEBUG = False
     SECRET_KEY = os.getenv("SECRET_KEY")
     TEMPLATES_AUTO_RELOAD = False
