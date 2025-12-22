@@ -58,7 +58,6 @@ class ProductionConfig:
     BABEL_DEFAULT_TIMEZONE = "Asia/Tokyo"
     BABEL_TRANSLATION_DIRECTORIES = str(BASE_DIR / "app" / "translations")
     CACHE_DEFAULT_TIMEOUT = 15 * MINUTE  # キャッシュの有効期限を15分に設定
-    CACHE_SOURCE_CHECK = True
     CACHE_TYPE = "RedisCache"
     CACHE_REDIS_URL = os.getenv("REDIS_URL")
     DEBUG = False
@@ -251,47 +250,55 @@ def notice_view():
 # MARK: 要データ取得
 # ruleのsitemap追加は/<int:year>/<string:content>で行う
 @app.route("/<string:lang>/<int:year>/rule")
+@flask_cache.cached()
 def rule_view(lang, year):
     return rule.rules_view(year)
 
 
 @sitemapper.include(url_variables=sitemap_variables["result"])
 @app.route("/<string:lang>/<int:year>/result")
+@flask_cache.cached()
 def result_view(lang, year):
     return result.result_view(year)
 
 
 @app.route("/<string:lang>/<int:year>/world_map")
+@flask_cache.cached()
 def world_map_view(lang, year):
     return world_map.world_map_view(year)
 
 
 @sitemapper.include(url_variables=sitemap_variables["yearly_pages"])
 @app.route("/<string:lang>/<int:year>/participants")
+@flask_cache.cached()
 def participants_view(lang, year):
     return participants.participants_view(year)
 
 
 @sitemapper.include(url_variables=sitemap_variables["yearly_pages"])
 @app.route("/<string:lang>/<int:year>/cancels")
+@flask_cache.cached()
 def cancels_view(lang, year):
     return participants.cancels_view(year)
 
 
 @sitemapper.include(url_variables=sitemap_variables["yearly_pages"])
 @app.route("/<string:lang>/<int:year>/japan")
+@flask_cache.cached()
 def japan(lang, year):
     return participants.participants_country_specific_view(year)
 
 
 @sitemapper.include(url_variables=sitemap_variables["yearly_pages"])
 @app.route("/<string:lang>/<int:year>/korea")
+@flask_cache.cached()
 def korea(lang, year):
     return participants.participants_country_specific_view(year)
 
 
 @sitemapper.include(url_variables=sitemap_variables["participant_detail"])
 @app.route("/<string:lang>/participant_detail/<int:participant_id>/<string:mode>")
+@flask_cache.cached()
 def participant_detail_view(lang, participant_id, mode):
     return participant_detail.participant_detail_view(participant_id, mode)
 
@@ -313,7 +320,7 @@ def travel(lang, content):
 
 @sitemapper.include(url_variables=sitemap_variables["content_pages"])
 @app.route("/<string:lang>/<int:year>/<string:content>")
-@flask_cache.cached(timeout=24 * HOUR)
+@flask_cache.cached()
 def common_content(lang, year, content):
     return common.content_view(year, content)
 
