@@ -60,7 +60,6 @@ class ProductionConfig:
     CACHE_DEFAULT_TIMEOUT = 15 * MINUTE  # キャッシュの有効期限を15分に設定
     CACHE_TYPE = "RedisCache"
     CACHE_REDIS_URL = os.getenv("REDIS_URL")
-    CACHE_QUERY_STRING = True
     DEBUG = False
     SECRET_KEY = os.getenv("SECRET_KEY")
     TEMPLATES_AUTO_RELOAD = False
@@ -251,55 +250,55 @@ def notice_view():
 # MARK: 要データ取得
 # ruleのsitemap追加は/<int:year>/<string:content>で行う
 @app.route("/<string:lang>/<int:year>/rule")
-@flask_cache.cached()
+@flask_cache.cached(query_string=True)
 def rule_view(lang, year):
     return rule.rules_view(year)
 
 
 @sitemapper.include(url_variables=sitemap_variables["result"])
 @app.route("/<string:lang>/<int:year>/result")
-@flask_cache.cached()
+@flask_cache.cached(query_string=True)
 def result_view(lang, year):
     return result.result_view(year)
 
 
 @app.route("/<string:lang>/<int:year>/world_map")
-@flask_cache.cached()
+@flask_cache.cached(query_string=True)
 def world_map_view(lang, year):
     return world_map.world_map_view(year)
 
 
 @sitemapper.include(url_variables=sitemap_variables["yearly_pages"])
 @app.route("/<string:lang>/<int:year>/participants")
-@flask_cache.cached()
+@flask_cache.cached(query_string=True)
 def participants_view(lang, year):
     return participants.participants_view(year)
 
 
 @sitemapper.include(url_variables=sitemap_variables["yearly_pages"])
 @app.route("/<string:lang>/<int:year>/cancels")
-@flask_cache.cached()
+@flask_cache.cached(query_string=True)
 def cancels_view(lang, year):
     return participants.cancels_view(year)
 
 
 @sitemapper.include(url_variables=sitemap_variables["yearly_pages"])
 @app.route("/<string:lang>/<int:year>/japan")
-@flask_cache.cached()
+@flask_cache.cached(query_string=True)
 def japan(lang, year):
     return participants.participants_country_specific_view(year)
 
 
 @sitemapper.include(url_variables=sitemap_variables["yearly_pages"])
 @app.route("/<string:lang>/<int:year>/korea")
-@flask_cache.cached()
+@flask_cache.cached(query_string=True)
 def korea(lang, year):
     return participants.participants_country_specific_view(year)
 
 
 @sitemapper.include(url_variables=sitemap_variables["participant_detail"])
 @app.route("/<string:lang>/participant_detail/<int:participant_id>/<string:mode>")
-@flask_cache.cached()
+@flask_cache.cached(query_string=True)
 def participant_detail_view(lang, participant_id, mode):
     return participant_detail.participant_detail_view(participant_id, mode)
 
@@ -307,21 +306,21 @@ def participant_detail_view(lang, participant_id, mode):
 # MARK: 通常ページ
 @sitemapper.include(url_variables=sitemap_variables["others"])
 @app.route("/<string:lang>/others/<string:content>")
-@flask_cache.cached(timeout=24 * HOUR)
+@flask_cache.cached(timeout=24 * HOUR, query_string=True)
 def others(lang, content):
     return common.other_content_view(content)
 
 
 @sitemapper.include(url_variables=sitemap_variables["travel"])
 @app.route("/<string:lang>/travel/<string:content>")
-@flask_cache.cached(timeout=24 * HOUR)
+@flask_cache.cached(timeout=24 * HOUR, query_string=True)
 def travel(lang, content):
     return common.travel_content_view(content)
 
 
 @sitemapper.include(url_variables=sitemap_variables["content_pages"])
 @app.route("/<string:lang>/<int:year>/<string:content>")
-@flask_cache.cached()
+@flask_cache.cached(query_string=True)
 def common_content(lang, year, content):
     return common.content_view(year, content)
 
