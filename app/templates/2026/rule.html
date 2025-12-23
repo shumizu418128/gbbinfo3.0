@@ -10,7 +10,6 @@
 <p>
   {{ _("Swissbeatbox公式サイトにて、GBB {year} で実施される部門・{Wildcard}のルールについて発表がありました。").format(year=year, Wildcard="Wildcard") }}<br />
   <a href="https://swissbeatbox.com/newsfeed/gbb-2026-wildcard-competition/" target="_blank" rel="noopener noreferrer">{{ _("ソースサイト") }}</a>
-  </a>
 </p>
 
 <div class="button-container">
@@ -205,86 +204,86 @@
 
 <h3>GBB {{ year - 1 }} {{_("上位入賞者")}}</h3>
 {% if gbb_seed|length > 0 %}
-  <table>
-    <thead>
-      <tr>
-        <th style="width: 33%;">{{_("名前")}}</th>
-          <th style="width: 34%;">{{_("部門")}}</th>
-          <th style="width: 33%;">{{_("出場権")}}</th>
-        </tr>
-    </thead>
-    <tbody>
-      {% for participant in gbb_seed %}
-        <tr>
-          <td><a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a></td>
-          <td>{{ participant.category }}</td>
-          <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
-          {{ participant.ticket_class }}
-          </td>
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 33%;">{{_("名前")}}</th>
+                <th style="width: 34%;">{{_("部門")}}</th>
+                <th style="width: 33%;">{{_("出場権")}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for participant in gbb_seed %}
+                <tr>
+                    <td><a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a></td>
+                    <td>{{ participant.category }}</td>
+                    <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
+                    {{ participant.ticket_class }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% else %}
   <p>{{_("発表次第更新")}}</p>
 {% endif %}
 
 <h3>{{_("チャレンジャーシリーズ")}}<br>{{_("優勝者のみ")}}</h3>
 {% if other_seed|length > 0 %}
-  <table>
-    <thead>
-    <tr>
-      <th style="width: 33%;">{{_("名前")}}</th>
-      <th style="width: 34%;">{{_("部門")}}</th>
-      <th style="width: 33%;">{{_("出場権")}}</th>
-    </tr>
-    </thead>
-    <tbody>
-      {% for participant in other_seed %}
-      <tr>
-        {% if participant.name == "???" %}
-          <td>{{ participant.name }}</td>
-        {% else %}
-          <td><a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a></td>
-        {% endif %}
-        <td>{{ participant.category }}</td>
-        <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
-          {{ participant.ticket_class }}
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 33%;">{{_("名前")}}</th>
+                <th style="width: 34%;">{{_("部門")}}</th>
+                <th style="width: 33%;">{{_("出場権")}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for participant in other_seed %}
+                <tr>
+                    {% if participant.name == "???" %}
+                        <td>{{ participant.name }}</td>
+                    {% else %}
+                        <td><a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a></td>
+                    {% endif %}
+                    <td>{{ participant.category }}</td>
+                    <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
+                        {{ participant.ticket_class }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% else %}
   <p>{{_("発表次第更新")}}</p>
 {% endif %}
 
 <h3>{{_("辞退者一覧")}}</h3>
 {% if cancelled|length > 0 %}
-  <table>
-    <thead>
-    <tr>
-      <th style="width: 33%;">{{_("名前")}}</th>
-      <th style="width: 34%;">{{_("部門")}}</th>
-      <th style="width: 33%;">{{_("出場権")}}</th>
-    </tr>
-    </thead>
-    <tbody>
-      {% for participant in cancelled %}
-      <tr>
-        <td>
-          【{{_("辞退")}}】<br><a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a>
-        </td>
-        <td>
-          <s>{{ participant.category }}</s>
-        </td>
-        <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
-          <s>{{ participant.ticket_class }}</s>
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+    <table>
+        <thead>
+            <tr>
+            <th style="width: 33%;">{{_("名前")}}</th>
+            <th style="width: 34%;">{{_("部門")}}</th>
+            <th style="width: 33%;">{{_("出場権")}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for participant in cancelled %}
+                <tr>
+                    <td>
+                        【{{_("辞退")}}】<br><a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a>
+                    </td>
+                    <td>
+                        <s>{{ participant.category }}</s>
+                    </td>
+                    <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
+                        <s>{{ participant.ticket_class }}</s>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% else %}
   <p>{{_("発表次第更新")}}</p>
 {% endif %}

@@ -214,37 +214,37 @@
 <table>
     <thead>
         <tr>
-            <th style="width:33%">{{_("名前")}}</th>
-            <th style="width:34%">{{_("国")}}</th>
-            <th style="width:33%">{{_("出場権")}}</th>
+            <th class="participant-table-left-col">{{_("国")}}</th>
+            <th class="participant-table-name-col">{{_("名前")}}</th>
+            <th class="participant-table-right-col">{{_("出場権")}}</th>
         </tr>
     </thead>
     <tbody>
         {% for participant in same_year_category_participants %}
         <tr>
             {% if participant.is_cancelled %}
-                <td>
+                <td class="participant-table-left-col" {% if participant.country|length > 5 %} style="font-size: 12px;" {% endif %}>
+                    <s>{{ participant.country }}</s>
+                </td>
+                <td class="participant-table-name-col">
                     【{{_("辞退")}}】<br>
-                    <a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ same_year_category_mode }}">{{ participant.name }}</a>
+                    {% include "includes/country_flag.html" %}<a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ same_year_category_mode }}">{{ participant.name }}</a>
                 </td>
-                    <td {% if participant.country|length > 5 %} style="font-size: 12px;" {% endif %}>
-                    {% include "includes/country_flag.html" %}<s>{{ participant.country }}</s>
-                </td>
-                    <td {% if participant.ticket_class|length > 11 %} style="font-size: 12px;" {% endif %}>
+                    <td class="participant-table-right-col" {% if participant.ticket_class|length > 11 %} style="font-size: 12px;" {% endif %}>
                     <s>{{ participant.ticket_class }}</s>
                 </td>
             {% else %}
-                <td>
+                <td class="participant-table-left-col" {% if participant.country|length > 5 %} style="font-size: 12px;" {% endif %}>
+                    {{ participant.country }}
+                </td>
+                <td class="participant-table-name-col">
                     {% if participant.name == "???" %}
                         {{ participant.name }}
                     {% else %}
-                        <a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ same_year_category_mode }}">{{ participant.name }}</a>
+                        {% include "includes/country_flag.html" %}<a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ same_year_category_mode }}">{{ participant.name }}</a>
                     {% endif %}
                 </td>
-                <td {% if participant.country|length > 5 %} style="font-size: 12px;" {% endif %}>
-                    {% include "includes/country_flag.html" %}{{ participant.country }}
-                </td>
-                <td {% if participant.ticket_class|length > 11 %} style="font-size: 12px;" {% endif %}>
+                <td class="participant-table-right-col" {% if participant.ticket_class|length > 11 %} style="font-size: 12px;" {% endif %}>
                     {{ participant.ticket_class }}
                 </td>
             {% endif %}
