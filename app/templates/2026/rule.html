@@ -158,10 +158,6 @@
   {{_("GBB 2021以来、8人トーナメントで開催するよう、Beatboxerから繰り返し要望を受けている、と説明されています。")}}
 </p>
 
-<div class="button-container">
-  <a href="/{{ language }}/{{ year }}/wildcard_regulation"><button>{{_("【{Beatboxer}向け】{Wildcard}レギュレーション解説").format(Beatboxer="Beatboxer", Wildcard="Wildcard")}}</button></a>
-</div>
-
 <h2 id="comeback-wildcard-section">COMEBACK Wildcard</h2>
 <p>
   {{_("{ComebackWildcard}は、通常の{SoloWildcard}ランキングで出場枠を獲得できなかった方のうち1名が、特別枠として出場権を獲得する制度です。").format(ComebackWildcard="COMEBACK Wildcard", SoloWildcard="Solo Wildcard")}}
@@ -309,11 +305,11 @@
   <tbody>
     <tr>
       <td><strong>{{_("2026年8月1日まで")}}</strong></td>
-      <td>{{_("原則として、辞退者が出た場合はランキングの次点者が繰り上がります。")}}</td>
+      <td>{{_("原則として、辞退者が出た場合は{Wildcard}下位からの繰り上げが発生します。").format(Wildcard="Wildcard")}}</td>
     </tr>
     <tr>
       <td><strong>{{_("2026年8月1日以降")}}</strong></td>
-      <td>{{_("運営側が個別に判断します。渡航ビザの取得や移動の手配が間に合うかなど、状況に応じて決定されます。")}}</td>
+      <td>{{_("{Swissbeatbox}が個別に判断します。渡航ビザの取得や移動の手配が間に合うかなど、状況に応じて決定されます。").format(Swissbeatbox="Swissbeatbox")}}</td>
     </tr>
   </tbody>
 </table>
