@@ -35,7 +35,7 @@
         </tbody>
     </table>
 {% else %}
-    <p>{{_("～発表次第更新～")}}</p>
+    <p>{{_("発表次第更新")}}</p>
     <div style="height: 200px;"></div>
 {% endif %}
 
@@ -51,8 +51,8 @@
 <div class="button-container">
     <a href="/{{ language }}/{{ year }}/participants"><button>GBB {{ year }} {{_("出場者一覧")}}</button></a>
     <a href="/{{ language }}/{{ year }}/rule"><button>{{_("出場権詳細")}}</button></a>
-    <a href="/{{ language }}/{{ year }}/rule?scroll=result_date"><button>{{_("Wildcard結果発表日")}}</button></a>
-    <a href="/{{ language }}/{{ year }}/wildcards"><button>{{_("Wildcard一覧")}}</button></a>
+    <a href="/{{ language }}/{{ year }}/rule?scroll=result_date"><button>{{_("{Wildcard}結果発表日").format(Wildcard="Wildcard")}}</button></a>
+    <a href="/{{ language }}/{{ year }}/wildcards"><button>{{_("{Wildcard}一覧").format(Wildcard="Wildcard")}}</button></a>
 </div>
 
 

@@ -6,7 +6,7 @@
   <p>{{_("メニュー")}}</p>
   <div class="button-container" style="margin-top: 10px;">
     <a href="/"><button>Home<br>{{_("これだけガイド")}}</button></a>
-    <a href="/{{ language }}/{{ year }}/participants"><button>{{_("Wildcard結果")}}<br>{{_("出場者")}}</button></a>
+    <a href="/{{ language }}/{{ year }}/participants"><button>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}}<br>{{_("出場者")}}</button></a>
     <a href="/{{ language }}/{{ year }}/cancels"><button>{{_("辞退者一覧")}}</button></a>
     <a href="/{{ language }}/{{ year }}/rule"><button>{{_("ルール")}}<br>{{_("審査員")}}</button></a>
   </div>

@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
-{% block title %}GBB {{ year }} {{_("Wildcard結果 & 出場者")}} - GBBINFO-JPN{% endblock %}
-{% block twitter_title %}GBB {{ year }} {{_("Wildcard結果 & 出場者")}} - GBBINFO-JPN{% endblock %}
-{% block og_title %}GBB {{ year }} {{_("Wildcard結果 & 出場者")}} - GBBINFO-JPN{% endblock %}
+{% block title %}GBB {{ year }} {{_("{Wildcard}結果 & 出場者").format(Wildcard="Wildcard")}} - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBB {{ year }} {{_("{Wildcard}結果 & 出場者").format(Wildcard="Wildcard")}} - GBBINFO-JPN{% endblock %}
+{% block og_title %}GBB {{ year }} {{_("{Wildcard}結果 & 出場者").format(Wildcard="Wildcard")}} - GBBINFO-JPN{% endblock %}
 {% block og_url %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/participants{% endblock %}
 {% block canonical %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/participants{% endblock %}
 {% block content %}
 
-<h1>GBB {{ year }} {{_("Wildcard結果 & 出場者")}}</h1>
+<h1>GBB {{ year }} {{_("{Wildcard}結果 & 出場者").format(Wildcard="Wildcard")}}</h1>
 
 {% if is_latest_year is true %}
   <div style="text-align: center;">
@@ -16,13 +16,13 @@
 {% endif %}
 
 {% if not all_category %}
-  <p style="text-align: center;">{{_("～発表次第更新～")}}</p>
+  <p style="text-align: center;">{{_("発表次第更新")}}</p>
   <div style="height: 100px;"></div>
 {% else %}
   {% include "includes/participants_form.html" %}
 
   {% if ticket_class == "wildcard" %}
-    <h2>{{ category }} {{_("Wildcard結果")}}</h2>
+    <h2>{{ category }} {{_("{Wildcard}結果").format(Wildcard="Wildcard")}}</h2>
   {% elif ticket_class == "seed_right" %}
     <h2>{{ category }} {{_("シード権獲得者")}}</h2>
   {% elif ticket_class == "all" %}
@@ -82,7 +82,7 @@
       </tbody>
     </table>
   {% else %}
-    <p style="text-align: center;">{{_("～発表次第更新～")}}</p>
+    <p style="text-align: center;">{{_("発表次第更新")}}</p>
     <div style="height: 200px;"></div>
   {% endif %}
     {% include "includes/participants_form.html" %}
@@ -90,8 +90,8 @@
 <div style="margin: 40px 0;"></div>
 
 <div class="button-container">
-  <a href="/{{ language }}/{{year}}/rule?scroll=result_date"><button>{{_("Wildcard結果発表日")}}</button></a>
-  <a href="/{{ language }}/{{ year }}/wildcards"><button>{{_("Wildcard一覧")}}</button></a>
+  <a href="/{{ language }}/{{year}}/rule?scroll=result_date"><button>{{_("{Wildcard}結果発表日").format(Wildcard="Wildcard")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/wildcards"><button>{{_("{Wildcard}一覧").format(Wildcard="Wildcard")}}</button></a>
   <a href="/{{ language }}/travel/top"><button style="background-image: url('/static/images/button/zenhit.webp');" class="button-with-background-image">
     <svg class="button-background-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0044CC"><path d="M480-80Q315-220 237.5-339T160-570q0-137 96.5-223.5T480-880q127 0 223.5 89T800-552l84-84 56 56-180 180-180-180 56-56 84 84q0-109-69.5-178.5T480-800q-101 0-170.5 67T240-569q0 83 59 177t181 206q20-18 37-35l34-34q-5-11-8-22t-3-23q0-42 29-71t71-29q42 0 71 29t29 71q0 42-29 71t-71 29q-8 0-14.5-1t-13.5-3q-29 30-61.5 61T480-80Z"/></svg>
     <span class="button-text-with-icon">ワルシャワへ行こう</span>
@@ -140,7 +140,7 @@
   <a href="/{{ language }}/{{ year }}/cancels"><button type="button">GBB {{ year }} {{_("辞退者一覧")}}</button></a>
 </div>
 <div class="button-container">
-  <a href="/{{ language }}/{{ year - 1 }}/participants"><button type="button">GBB {{ year - 1 }} {{_("Wildcard結果 & 出場者")}}</button></a>
+  <a href="/{{ language }}/{{ year - 1 }}/participants"><button type="button">GBB {{ year - 1 }} {{_("{Wildcard}結果 & 出場者").format(Wildcard="Wildcard")}}</button></a>
 </div>
 
 {% endblock %}

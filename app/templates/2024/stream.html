@@ -37,7 +37,7 @@
 <h2>{{_("観戦のお供に")}}</h2>
 <p>{{ _("GBB {year} の最新情報をチェックしよう").format(year=year) }}</p>
 <div class="button-container">
-  <a href="/{{ language }}/{{ year }}/participants"><button>{{_("Wildcard結果 & 出場者")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/participants"><button>{{_("{Wildcard}結果 & 出場者").format(Wildcard="Wildcard")}}</button></a>
   <a href="/{{ language }}/{{ year }}/timetable"><button>{{_("タイムテーブル")}}</button></a>
   <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
 </div>

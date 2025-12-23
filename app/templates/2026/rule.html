@@ -6,158 +6,568 @@
 {% block og_url %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/rule{% endblock %}
 {% block canonical %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/rule{% endblock %}
 {% block content %}
-
 <h1>GBB {{ year }} {{_("ルール")}}</h1>
-
-<div style="text-align: center;">
-    <p>{{_("最終更新")}}<br>{{ last_updated }}</p>
-</div>
-
-<p>{{_("現時点で、以下の断片的な情報のみ発表されています。")}}</p>
-<ul>
-    <li>
-        {{_("開催部門一覧")}}
-        <ul>
-            <li>
-                Loopstation
-            </li>
-            <li>
-                Solo
-            </li>
-            <li>
-                Tag Team
-            </li>
-            <li>
-                Crew
-            </li>
-        </ul>
-    </li>
-</ul>
-<ul>
-    <li>{{_("Producer部門は廃止")}}</li>
-</ul>
-<ul>
-    <li>
-        {{_("新部門として「SHOWCASE」を追加")}}
-        <ul>
-            <li>
-                {{_("この部門では、バトルを行わない")}}
-            </li>
-            <li>
-                {{_("Wildcardの審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価")}}
-            </li>
-            <li>
-                SHOWCASE - {{_("開催部門一覧")}}
-                <ul>
-                    <li>
-                        SHOWCASE - Solo
-                    </li>
-                    <li>
-                        SHOWCASE - Loopstation
-                    </li>
-                    <li>
-                        SHOWCASE - Producer
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </li>
-</ul>
-<p>{{_("また、Solo部門・Loopstation部門のWildcardルールが変更されることが予告されています。最新情報が公開され次第、このページを更新します。")}}</p>
-
-<h2 id="seeds-section" name="seeds">{{_("出場シード権 獲得条件")}}</h2>
 <p>
-    {{_("Wildcardを勝ち上がる以外の方法でGBB出場権を得る方法（シード権）と、その該当者は以下の通りです。")}}
+  {{ _("Swissbeatbox公式サイトにて、GBB {year} で実施される部門・{Wildcard}のルールについて発表がありました。").format(year=year, Wildcard="Wildcard") }}<br />
+  <a href="https://swissbeatbox.com/newsfeed/gbb-2026-wildcard-competition/" target="_blank" rel="noopener noreferrer">{{ _("ソースサイト") }}</a>
 </p>
 
-<h3>{{_("シード権 - GBB")}}</h3>
+<div class="button-container">
+  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/wildcards"><button>{{_("{Wildcard}一覧").format(Wildcard="Wildcard")}}</button></a>
+</div>
+
+<div>
+  <h2>{{_("目次")}}</h2>
+  <ol>
+    <li>
+      <a href="#notices-section">{{_("注意事項")}}</a>
+    </li>
+
+    <li>
+      <a href="#category-section">{{_("開催部門一覧")}}</a>
+    </li>
+
+    <li>
+      <a href="#seeds-section">{{_("チャレンジャーシリーズ")}}</a>
+    </li>
+
+    <li>
+      <a href="#wildcard-rules-section">Wildcard {{_("ルール")}}</a>
+    </li>
+
+    <li>
+      <a href="#comeback-wildcard-section">Comeback Wildcard</a>
+    </li>
+
+    <li>
+      <a href="#replacement-section">{{_("繰り上げ出場について")}}</a>
+    </li>
+
+    <li>
+      <a href="#main-judges-section">GBB {{ year }} {{_("本戦審査員一覧")}}</a>
+    </li>
+
+    <li>
+      <a href="#wildcard-judges-section">{{_("{Wildcard}審査員一覧").format(Wildcard="Wildcard")}}</a>
+    </li>
+
+    <li>
+      <a href="#second-league-section">{{_("セカンドリーグ")}}</a>
+    </li>
+  </ol>
+</div>
+
+<h2 id="notices-section">{{_("注意事項")}}</h2>
+<p>
+  {{_("以下に示す内容は、あくまでも{Beatbox}ファンが知っておくとよりGBBを楽しめる知識として紹介するものです。").format(Beatbox="Beatbox")}}<br />
+  {{_("一部内容において、わかりやすさを優先します。")}}<strong>{{_("これにより、正確さに欠ける表現を用いることがあります。")}}</strong>
+</p>
+<p>
+  {{_("当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねます。")}}<br />
+  {{_("{Wildcard}を提出する方は、").format(Wildcard="Wildcard")}}
+  <strong><span style="color: #ff0000">{{_("必ずご自身でルールを今一度ご確認ください。")}}</span></strong>
+</p>
+
+<div class="button-container">
+  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/participants"><button>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}} & {{_("出場者")}}</button></a>
+</div>
+
+<h2 id="category-section" name="category">{{_("開催部門一覧")}}</h2>
+<p>CS = {{_("チャレンジャーシリーズ")}}</p>
+<table>
+  <thead>
+    <tr>
+      <th style="width: 25%; font-size: 14px">{{_("部門")}}</th>
+      <th style="font-size: 14px">Wildcard</th>
+      <th style="width: 10%; font-size: 14px">CS</th>
+      <th style="font-size: 14px">GBB<br>{{ year - 1 }}</th>
+      <th style="width: 10%; font-size: 14px">{{_("計")}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Solo</td>
+      <td>9 + 1</td>
+      <td>7</td>
+      <td>3</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>Loopstation</td>
+      <td>5</td>
+      <td>2</td>
+      <td>1</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>Tag Team</td>
+      <td>6</td>
+      <td>1</td>
+      <td>1</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>Crew</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>SHOWCASE<br>(producer)</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>SHOWCASE<br>(loopstation)<br><br>{{_("発表次第更新")}}</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>SHOWCASE<br>(solo)<br><br>{{_("発表次第更新")}}</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>{{_("忘れられた{TagTeamLoopstation}...").format(TagTeamLoopstation="Tag Team Loopstation")}}😭</p>
+
+<p>
+  {{_("上記のデータは、ルール発表時現在の情報です。実際は、辞退などにより、出場者数が変動します。")}}
+</p>
+
+<h3>{{_("{SHOWCASE}とは").format(SHOWCASE="SHOWCASE")}}</h3>
+<p>
+  {{_("2026年から新部門として「{SHOWCASE}」が追加されました。").format(SHOWCASE="SHOWCASE")}}<br />
+  {{_("この部門では、バトルを行いません。")}}<br />
+  {{_("{Wildcard}の審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価されます。").format(Wildcard="Wildcard")}}
+</p>
+
+<h3>{{_("{Solo}部門 決勝トーナメント").format(Solo="Solo")}}</h3>
+<p>
+  {{_("GBB {year} {Solo}部門の決勝トーナメントは8人トーナメントで開催されます。").format(year=year, Solo="Solo")}}<br />
+  {{_("GBB 2021以来、8人トーナメントで開催するよう、Beatboxerから繰り返し要望を受けている、と説明されています。")}}
+</p>
+
+<h2 id="comeback-wildcard-section">COMEBACK Wildcard</h2>
+<p>
+  {{_("{ComebackWildcard}は、通常の{SoloWildcard}ランキングで出場枠を獲得できなかった方のうち1名が、特別枠として出場権を獲得する制度です。").format(ComebackWildcard="COMEBACK Wildcard", SoloWildcard="Solo Wildcard")}}
+</p>
+
+<h3>{{_("対象")}}</h3>
+<p>
+  Wildcard {{_("10位〜25位")}}
+</p>
+
+<h3>{{_("選出の流れ")}}</h3>
+<ol>
+  <li>
+    <strong>{{_("審査員による指名")}}</strong><br />
+    {{_("5名の審査員が、対象者の中から各自1名を自由に指名します（最大5名が候補）。")}}<br />
+    <div class="post-it"><p>{{_("※5名全員が同じアーティストを指名した場合、その時点で出場者が確定します。")}}</p></div>
+  </li>
+  <li>
+    <strong>{{_("再投票（審査員+{Swissbeatbox} {YouTube}メンバーシップ）").format(Swissbeatbox="Swissbeatbox", YouTube="YouTube")}}</strong>
+    <ul>
+      <li>{{_("審査員の票：各審査員が候補者をランキングします。")}}</li>
+      <li>{{_("メンバー票：生配信中に{Swissbeatbox} {YouTube}メンバーシップ会員が投票し、その結果が「6人目の審査員」の票としてカウントされます。").format(Swissbeatbox="Swissbeatbox", YouTube="YouTube")}}</li>
+    </ul>
+  </li>
+  <li>
+    <strong>{{_("勝者の決定")}}</strong><br />
+    {{_("審査員5名 + {Swissbeatbox} {YouTube}メンバーシップ会員（計6つのランキング）をポイント化して合計し、合計スコアが最も高い1名がGBB {year}に出場します。").format(year=year, Swissbeatbox="Swissbeatbox", YouTube="YouTube")}}
+  </li>
+</ol>
+
+<h2 id="seeds-section" name="seeds">{{_("GBB出場権獲得条件")}}</h2>
+<p>
+  {{ _("GBB出場権を得る方法は、以下の通りです。") }}
+</p>
+<ul>
+  <li>GBB {{ year - 1 }} {{ _("上位入賞者") }}</li>
+  <li>{{ _("チャレンジャーシリーズ") }} {{ _("優勝者のみ") }}</li>
+  <li>Wildcard</li>
+</ul>
+
+<h3>GBB {{ year - 1 }} {{_("上位入賞者")}}</h3>
 {% if gbb_seed|length > 0 %}
     <table>
         <thead>
             <tr>
-                <th class="participant-table-left-col">{{_("出場権")}}</th>
-                <th class="participant-table-name-col">{{_("名前")}}</th>
-                <th class="participant-table-right-col">{{_("部門")}}</th>
+                <th style="width: 33%;">{{_("名前")}}</th>
+                <th style="width: 34%;">{{_("部門")}}</th>
+                <th style="width: 33%;">{{_("出場権")}}</th>
             </tr>
         </thead>
         <tbody>
             {% for participant in gbb_seed %}
                 <tr>
-                    <td class="participant-table-left-col">{{ participant.ticket_class }}</td>
-                    <td class="participant-table-name-col">{% include "includes/country_flag.html" %}<a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{{ participant.name }}</a></td>
-                    <td class="participant-table-right-col">{{ participant.category }}</td>
+                    <td><a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a></td>
+                    <td>{{ participant.category }}</td>
+                    <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
+                    {{ participant.ticket_class }}
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
 {% else %}
-    <p>{{_("～発表次第更新～")}}</p>
+  <p>{{_("発表次第更新")}}</p>
 {% endif %}
 
-<h3>{{_("シード権 - その他")}}</h3>
+<h3>{{_("チャレンジャーシリーズ")}}<br>{{_("優勝者のみ")}}</h3>
 {% if other_seed|length > 0 %}
     <table>
         <thead>
             <tr>
-                <th class="participant-table-left-col">{{_("出場権")}}</th>
-                <th class="participant-table-name-col">{{_("名前")}}</th>
-                <th class="participant-table-right-col">{{_("部門")}}</th>
+                <th style="width: 33%;">{{_("名前")}}</th>
+                <th style="width: 34%;">{{_("部門")}}</th>
+                <th style="width: 33%;">{{_("出場権")}}</th>
             </tr>
         </thead>
         <tbody>
             {% for participant in other_seed %}
                 <tr>
-                    <td class="participant-table-left-col">{{ participant.ticket_class }}</td>
                     {% if participant.name == "???" %}
-                        <td class="participant-table-name-col">{{ participant.name }}</td>
+                        <td>{{ participant.name }}</td>
                     {% else %}
-                        <td class="participant-table-name-col">{% include "includes/country_flag.html" %}<a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{{ participant.name }}</a></td>
+                        <td><a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a></td>
                     {% endif %}
-                    <td class="participant-table-right-col">{{ participant.category }}</td>
+                    <td>{{ participant.category }}</td>
+                    <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
+                        {{ participant.ticket_class }}
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
 {% else %}
-    <p>{{_("～発表次第更新～")}}</p>
+  <p>{{_("発表次第更新")}}</p>
 {% endif %}
 
-<h3>{{_("シード権辞退者一覧")}}</h3>
+<h3>{{_("辞退者一覧")}}</h3>
 {% if cancelled|length > 0 %}
     <table>
         <thead>
             <tr>
-            <th class="participant-table-left-col">{{_("出場権")}}</th>
-            <th class="participant-table-name-col">{{_("名前")}}</th>
-            <th class="participant-table-right-col">{{_("部門")}}</th>
+            <th style="width: 33%;">{{_("名前")}}</th>
+            <th style="width: 34%;">{{_("部門")}}</th>
+            <th style="width: 33%;">{{_("出場権")}}</th>
             </tr>
         </thead>
         <tbody>
             {% for participant in cancelled %}
                 <tr>
-                    <td class="participant-table-left-col">
-                        <s>{{ participant.ticket_class }}</s>
+                    <td>
+                        【{{_("辞退")}}】<br><a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a>
                     </td>
-                    <td class="participant-table-name-col">
-                        【{{_("辞退")}}】<br>{% include "includes/country_flag.html" %}<a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{{ participant.name }}</a>
-                    </td>
-                    <td class="participant-table-right-col">
+                    <td>
                         <s>{{ participant.category }}</s>
+                    </td>
+                    <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
+                        <s>{{ participant.ticket_class }}</s>
                     </td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
 {% else %}
-    <p>{{_("～発表次第更新～")}}</p>
+  <p>{{_("発表次第更新")}}</p>
 {% endif %}
 
 <div class="button-container">
-    <a href="/{{ language }}/{{ year }}/participants"><button>{{_("Wildcard結果")}}</button></a>
-    <a href="/{{ language }}/{{ year }}/participants"><button>{{_("出場者一覧")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/participants"><button>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/participants"><button>{{_("出場者一覧")}}</button></a>
+</div>
+<div style="margin: 40px 0;"></div>
+
+<h2 id="replacement-section">{{_("繰り上げ出場")}}</h2>
+<p>{{_("GBB出場辞退が発生した場合、{Wildcard}下位からの繰り上げが行われます。").format(Wildcard="Wildcard")}}<br>
+  {{_("基本的には、2026年8月1日を境に対応が変わるのがポイントです。")}}</p>
+
+<h3>{{_("繰り上げ期限")}}</h3>
+<table>
+  <thead>
+    <tr>
+      <th>{{_("期限")}}</th>
+      <th>{{_("対応")}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>{{_("2026年8月1日まで")}}</strong></td>
+      <td>{{_("原則として、辞退者が出た場合は{Wildcard}下位からの繰り上げが発生します。").format(Wildcard="Wildcard")}}</td>
+    </tr>
+    <tr>
+      <td><strong>{{_("2026年8月1日以降")}}</strong></td>
+      <td>{{_("{Swissbeatbox}が個別に判断します。渡航ビザの取得や移動の手配が間に合うかなど、状況に応じて決定されます。").format(Swissbeatbox="Swissbeatbox")}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>{{_("繰り上げ対象")}}</h3>
+<p>{{_("繰り上げの対象となるのは、{Wildcard}の順位が上位の人たちに限定されています。").format(Wildcard="Wildcard")}}</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>{{_("部門")}}</th>
+      <th>{{_("対象")}}</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Solo</td>
+      <td>{{_("15位まで")}}</td>
+      <td>{{_("16位以下の繰り上げは一切無し")}}</td>
+    </tr>
+    <tr>
+      <td>Loopstation</td>
+      <td>{{_("20位まで")}}</td>
+      <td>{{_("21位以降は運営の個別判断")}}</td>
+    </tr>
+    <tr>
+      <td>Tag Team</td>
+      <td>{{_("10位まで")}}</td>
+      <td>{{_("11位以下の繰り上げは一切無し")}}</td>
+    </tr>
+    <tr>
+      <td>Crew</td>
+      <td>{{_("5位まで")}}</td>
+      <td>{{_("6位以下の繰り上げは一切無し")}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>{{_("特殊なケース")}}</h3>
+<table>
+  <thead>
+    <tr>
+      <th>{{_("項目")}}</th>
+      <th>{{_("説明")}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Crew</strong></td>
+      <td>{{_("8月1日以降に辞退が発生し、繰り上げができない場合、対戦形式ではなく{Showcase}形式に変更されることがあります。").format(Showcase="ショーケース")}}</td>
+    </tr>
+    <tr>
+      <td><strong>7toSmoke</strong></td>
+      <td>{{_("優勝者が辞退しても繰り上げはありません。")}}</td>
+    </tr>
+    <tr>
+      <td><strong>{{_("チャレンジャーシリーズ")}}</strong></td>
+      <td>{{_("辞退が発生した場合、3名までは繰り上げを行いますが、4名以上の辞退には対応しません。")}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="button-container">
+  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  {% if language == 'ko' %}
+    <a href="/{{ language }}/{{ year }}/korea"><button>{{_("韓国代表")}}</button></a>
+  {% else %}
+    <a href="/{{ language }}/{{ year }}/japan"><button>{{_("日本代表")}}</button></a>
+  {% endif %}
 </div>
 
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">GBB26ワイカのマスタリング承ります！！<br>詳細はDMまで！！</p>&mdash; 𝐼𝑚𝑝𝑒𝑑𝑎𝑛𝑐𝑒 (@impedanceryuma) <a href="https://twitter.com/impedanceryuma/status/1989002266301591893?ref_src=twsrc%5Etfw">November 13, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">GBB26 ワイルドカード サムネイル制作します<br>価格 : 3000円<br>支払い方法 : アマギフ、PayPay、ゆうちょ振込、SuiCa、Nanaco、WAON、はやかけん</p>&mdash; dupo 🛸 (@TWlCER) <a href="https://twitter.com/TWlCER/status/1989003314953113881?ref_src=twsrc%5Etfw">November 13, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<h2 id="wildcard-rules-section" name="result_date">Wildcard {{_("ルール")}}</h2>
+<table>
+  <thead>
+    <tr>
+      <th>{{_("部門")}}</th>
+      <th>{{_("ルール")}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{_("全部門共通")}}</td>
+      <td style="font-size: 14px;">{{_("提出受付開始日時")}} 1/1 00:01 am CET<br>{{_("制限時間を超過した場合、1秒につき最終順位を1つ下げる")}}<br>{{_("制限時間を使い切らず余らせた場合、3秒につき最終順位を1つ下げる")}}</td>
+    </tr>
+    <tr>
+      <td>Solo</td>
+      <td style="font-size: 14px;">{{_("制限時間")}} 2:00 (±10s)<br />{{_("提出期限")}} {{_("3月1日")}} 23:59 CET<br />{{_("結果発表")}} {{_("3月28日〜30日")}}</td>
+    </tr>
+    <tr>
+      <td>Tag Team</td>
+      <td style="font-size: 14px;">{{_("制限時間")}} 2:00 (±10s)<br />{{_("提出期限")}} {{_("3月1日")}} 23:59 CET<br />{{_("結果発表")}} {{_("3月23日〜24日")}}</td>
+    </tr>
+    <tr>
+      <td>Loopstation</td>
+      <td style="font-size: 14px;">{{_("制限時間")}} 3:00~3:30 (±0s)<br />{{_("3分31秒以上はペナルティ対象")}}<br />{{_("提出期限")}} {{_("3月1日")}} 23:59 CET<br />{{_("結果発表")}} {{_("3月25日〜27日")}}</td>
+    </tr>
+    <tr>
+      <td>Crew</td>
+      <td style="font-size: 14px;">{{_("制限時間")}} 3:00 (±10s)<br />{{_("提出期限")}} {{_("4月12日")}} 23:59 CET<br />{{_("結果発表")}} {{_("5月1日〜2日")}}</td>
+    </tr>
+    <tr>
+      <td>SHOWCASE<br>(producer)</td>
+      <td style="font-size: 14px;">{{_("制限時間")}} 3:00~5:00 (±0s)<br />{{_("5分01秒以上はペナルティ対象")}}<br />{{_("提出期限")}} {{_("4月12日")}} 23:59 CET<br />{{_("結果発表")}} {{_("5月3日〜4日")}}</td>
+    </tr>
+    <tr>
+      <td>SHOWCASE<br>(loopstation)<br><br>{{_("発表次第更新")}}</td>
+      <td style="font-size: 14px;">{{_("制限時間")}} <br />{{_("提出期限")}} <br />{{_("結果発表")}} </td>
+    </tr>
+    <tr>
+      <td>SHOWCASE<br>(solo)<br><br>{{_("発表次第更新")}}</td>
+      <td style="font-size: 14px;">{{_("制限時間")}} <br />{{_("提出期限")}} <br />{{_("結果発表")}} </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="button-container">
+  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ language }}/others/result_stream"><button>{{_("{Wildcard}結果発表配信").format(Wildcard="Wildcard")}}</button></a>
+</div>
+
+<h2 id="main-judges-section" name="judges">{{_("本戦審査員一覧")}}</h2>
+<div style="text-align: center;">
+  <a href="#wildcard-judges-section">{{_("{Wildcard}審査員一覧はこちら").format(Wildcard="Wildcard")}}</a>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 50%">{{_("部門")}}</th>
+      <th style="width: 50%">{{_("審査員")}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Solo</td>
+      <td>{{_("発表次第更新")}}</td>
+    </tr>
+    <tr>
+      <td>Tag Team</td>
+      <td>{{_("発表次第更新")}}</td>
+    </tr>
+    <tr>
+      <td>Loopstation</td>
+      <td>{{_("発表次第更新")}}</td>
+    </tr>
+    <tr>
+      <td>Crew</td>
+      <td>{{_("発表次第更新")}}</td>
+    </tr>
+    <tr>
+      <td>SHOWCASE<br>(loopstation)</td>
+      <td>{{_("審査員なし")}}</td>
+    </tr>
+    <tr>
+      <td>SHOWCASE<br>(producer)</td>
+      <td>{{_("審査員なし")}}</td>
+    </tr>
+    <tr>
+      <td>SHOWCASE<br>(solo)</td>
+      <td>{{_("審査員なし")}}</td>
+    </tr>
+    <tr>
+      <td>7toSmoke</td>
+      <td>{{_("審査員不明")}}<br />{{_("例年発表なし")}}</td>
+    </tr>
+    <tr>
+      <td>{{_("レフェリー")}}</td>
+      <td>{{_("発表次第更新")}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="post-it">
+  <p>
+    <b>{{_("レフェリーについて")}}</b><br />
+    {{_("レフェリーは、GBB23から導入された、審査員とは別のメンバーです。審査員は各出場者の評価を行うのに対し、レフェリーは「ルールを守っているか」を確認する役割を担います。")}}
+  </p>
+</div>
+
+<div class="button-container">
+  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/participants"><button>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}} & {{_("出場者")}}</button></a>
+</div>
+
+<h2 id="wildcard-judges-section">{{_("{Wildcard}審査員一覧").format(Wildcard="Wildcard")}}</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 50%">{{_("部門")}}</th>
+      <th style="width: 50%">{{_("審査員")}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Solo</td>
+      <td>COLAPS<br>ZEDE<br>NAPOM<br>SKILLER<br>WING</td>
+    </tr>
+    <tr>
+      <td>Tag Team</td>
+      <td>MAXO<br>JOHN-T<br>CHRIS CELIZ</td>
+    </tr>
+    <tr>
+      <td>Loopstation</td>
+      <td>ZHANG ZE<br>SYJO<br>YASWEDE<br>BIZKIT<br>SARO</td>
+    </tr>
+    <tr>
+      <td>Crew</td>
+      <td>{{_("発表次第更新")}}</td>
+    </tr>
+    <tr>
+      <td>SHOWCASE<br>(producer)</td>
+      <td>FRIIDON<br>KRISTOF<br>KBA<br>KAOS<br>SYJO<br>LENNARD<br />(Loop Mayhem Team)</td>
+    </tr>
+    <tr>
+      <td>SHOWCASE<br>(loopstation)</td>
+      <td>{{_("発表次第更新")}}</td>
+    </tr>
+    <tr>
+      <td>SHOWCASE<br>(solo)</td>
+      <td>{{_("発表次第更新")}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div style="text-align: center;">
+  <a href="#main-judges-section">GBB {{ year }} {{_("本戦審査員一覧はこちら")}}</a>
+</div>
+
+<div class="button-container">
+  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/wildcards"><button>{{_("{Wildcard}一覧").format(Wildcard="Wildcard")}}</button></a>
+</div>
+
+<h2 id="second-league-section" name="second-league">{{_("セカンドリーグ")}}</h2>
+<h3>{{ _("正式名称") }}：Off The Lips Beatbox Battle</h3>
+<p>
+  {{_("今年から新たに「セカンドリーグ」が設けられました。セカンドリーグは、中国で開催され、GBB {year} の{Solo}部門ランナーズアップが招待されます。").format(year=year, Solo="Solo")}}<br>
+  {{_("この「セカンドリーグ」で優勝すれば、GBB {year} {Solo}部門への出場権が得られます。").format(year=year+1, Solo="Solo")}}
+</p>
+<div class="post-it">
+  <p>
+    {{_("ランナーズアップ：本戦に出場できなかった、{Wildcard}上位入賞者").format(Wildcard="Wildcard")}}<br>
+    {{_("例：{Wildcard}出場枠が8枠の場合、9位～16位を指します。").format(Wildcard="Wildcard")}}
+  </p>
+</div>
+<p>{{_("当サイトでは、セカンドリーグについての情報は取り扱わない方針です。")}}</p>
+
+<h2>{{_("ここまで読んでくださった皆様へ")}}</h2>
+<p>{{_("今年のルールは例年と比べて変化が大きく、理解が難しかったと思います。")}}</p>
+<p>{{_("私自身、2時間もかけてこのページを執筆しました。マジで疲れた")}}</p>
+<p>{{_("そこで、ルールをよりわかりやすく解説してくれる「GBB {year} なんでもチャット」をご用意しました。").format(year=year)}}</p>
+<div class="button-container">
+  <a href="https://notebooklm.google.com/notebook/7b384060-d2cd-4064-a57e-8b2b7d41571e" target="_blank" rel="noopener noreferrer">
+    <button>GBB {{ year }} {{_("なんでもチャット")}}</button>
+  </a>
+</div>
+<p>{{_("ぜひこちらをご活用ください！")}}</p>
 
 {% endblock %}

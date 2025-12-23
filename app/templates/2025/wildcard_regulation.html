@@ -1,25 +1,25 @@
 {% extends "base.html" %}
 
-{% block title %}GBB {{ year }} {{_("【Beatboxer向け】Wildcardレギュレーション解説")}} - GBBINFO-JPN{% endblock %}
-{% block twitter_title %}GBB {{ year }} {{_("【Beatboxer向け】Wildcardレギュレーション解説")}} - GBBINFO-JPN{% endblock %}
-{% block og_title %}GBB {{ year }} {{_("【Beatboxer向け】Wildcardレギュレーション解説")}} - GBBINFO-JPN{% endblock %}
+{% block title %}GBB {{ year }} {{_("【{Beatboxer}向け】{Wildcard}レギュレーション解説").format(Beatboxer="Beatboxer", Wildcard="Wildcard")}} - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBB {{ year }} {{_("【{Beatboxer}向け】{Wildcard}レギュレーション解説").format(Beatboxer="Beatboxer", Wildcard="Wildcard")}} - GBBINFO-JPN{% endblock %}
+{% block og_title %}GBB {{ year }} {{_("【{Beatboxer}向け】{Wildcard}レギュレーション解説").format(Beatboxer="Beatboxer", Wildcard="Wildcard")}} - GBBINFO-JPN{% endblock %}
 {% block og_url %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/wildcard_regulation{% endblock %}
 {% block canonical %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/wildcard_regulation{% endblock %}
 {% block content %}
 <h1>GBB {{ year }} {{_("レギュレーション")}}</h1>
 <p style="font-size: 30px; text-align: center; font-weight: bold;">- For Beatboxers -</p><hr>
 <p>
-    {{ _("Swissbeatbox公式サイトにて、GBB {year} で実施される部門・Wildcardのルールについて発表がありました。").format(year=year) }}<br />
+    {{ _("Swissbeatbox公式サイトにて、GBB {year} で実施される部門・{Wildcard}のルールについて発表がありました。").format(year=year, Wildcard="Wildcard") }}<br />
     {{ _("ソースサイト：") }}<a href="https://swissbeatbox.com/newsfeed/gbb-2025-wildcard-competition/" target="_blank" rel="noopener noreferrer">
         GBB 2025 Wildcard Competition
     </a><br>
-    {{_("このページでは、Wildcard提出にあたって重要なルールを解説します。")}}
+    {{_("このページでは、{Wildcard}提出にあたって重要なルールを解説します。").format(Wildcard="Wildcard")}}
 </p>
 
 <div class="button-container">
     <a href="/{{ language }}/{{ year }}/top"><button>GBB {{ year }} {{_("これだけガイド")}}</button></a>
     <a href="/{{ language }}/{{ year }}/top_7tosmoke"><button>7toSmoke {{_("これだけガイド")}}</button></a>
-    <a href="/{{ language }}/{{ year }}/rule"><button>{{_("【Beatboxファン向け】")}}<br>GBB {{ year }} {{_("ルール")}}</button></a>
+    <a href="/{{ language }}/{{ year }}/rule"><button>{{_("【{Beatbox}ファン向け】").format(Beatbox="Beatbox")}}<br>GBB {{ year }} {{_("ルール")}}</button></a>
 </div>
 
 <div>
@@ -38,7 +38,7 @@
         </li>
 
         <li>
-            <a href="#p04">{{_("Wildcard提出について")}}</a>
+            <a href="#p04">{{_("{Wildcard}提出について").format(Wildcard="Wildcard")}}</a>
         </li>
 
         <li>
@@ -58,12 +58,12 @@
 
 <h2 id="p01">{{_("注意事項")}}</h2>
 <p>
-    {{_("以下に示す内容は、Wildcardを作るBeatboxer向けの情報です。")}}<br />
-    {{_("当サイト管理人はBeatboxerではありません。また、当サイト管理人はGBB運営と一切無関係です。")}}
+    {{_("以下に示す内容は、{Wildcard}を作る{Beatboxer}向けの情報です。").format(Wildcard="Wildcard", Beatboxer="Beatboxer")}}<br />
+    {{_("当サイト管理人は{Beatboxer}ではありません。また、当サイト管理人はGBB運営と一切無関係です。").format(Beatboxer="Beatboxer")}}
 </p>
 <p>
     {{_("当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねます。")}}<br />
-    {{_("Wildcardを提出する方は、")}}<strong><span style="color: #ff0000">
+    {{_("{Wildcard}を提出する方は、").format(Wildcard="Wildcard")}}<strong><span style="color: #ff0000">
     {{_("必ずご自身でルールを今一度ご確認ください。")}}</span></strong>
 </p>
 <p>
@@ -125,7 +125,7 @@
         <ul>
             <li>{{_("保護者の同伴が必須")}}</li>
             <li>{{_("主催者は、保護者の同伴にかかる費用(ビザ、フライト、ホテル、食事など)を負担しない")}}</li>
-            <li>{{_("上記要件を満たさない、同意できない場合は失格となり、Wildcard下位からの繰り上げが行われる")}}</li>
+            <li>{{_("上記要件を満たさない、同意できない場合は失格となり、{Wildcard}下位からの繰り上げが行われる").format(Wildcard="Wildcard")}}</li>
         </ul>
     </li>
 </ul>
@@ -135,9 +135,9 @@
     <a href="/{{ language }}/{{ year }}/top_7tosmoke"><button>7toSmoke {{_("これだけガイド")}}</button></a>
 </div>
 
-<h2 id="p04">{{_("Wildcard作成・提出について")}}</h2>
+<h2 id="p04">{{_("{Wildcard}作成・提出について").format(Wildcard="Wildcard")}}</h2>
 
-<h3>{{_("Wildcard動画の内容")}}</h3>
+<h3>{{_("{Wildcard}動画の内容").format(Wildcard="Wildcard")}}</h3>
 <p>{{_("動画の冒頭で、以下のように自己紹介する")}}</p>
 <p>"My name is 【{{_("名前")}}】, and this is my 【{{_("部門")}}】 wildcard for the GBB {{ year }} World League."</p>
 <div class="post-it">
@@ -156,12 +156,12 @@
     <li>{{_("キックとスネアに異なる EQ やコンプレッションを施すなどの自動処理は禁止")}}</li>
     <li>{{_("録音全体を同じように処理すること")}}</li>
     <li>{{_("歪み、遅延、その他の動的処理、周波数歪み効果は禁止")}}</li>
-    <li style="color: red;"><strong>{{_("上記ルールについて、不正行為の疑いがある場合、Wildcard作成に使ったファイルの追加提出を求められる場合あり")}}</strong></li>
+    <li style="color: red;"><strong>{{_("上記ルールについて、不正行為の疑いがある場合、{Wildcard}作成に使ったファイルの追加提出を求められる場合あり").format(Wildcard="Wildcard")}}</strong></li>
 </ul>
 
 <h3>{{_("提出方法")}}</h3>
 <ol>
-    <li>{{_("WildcardをYouTubeにアップロード")}}</li>
+    <li>{{_("{Wildcard}をYouTubeにアップロード").format(Wildcard="Wildcard")}}</li>
     <li>{{_("Swissbeatbox公式サイトにある申請フォームで提出")}}</li>
 </ol>
 <ul>
@@ -177,12 +177,12 @@
 <p>{{_("ぜひここのスクリーンショットをとってSNSで拡散してください。推しが失格にならないために...")}}</p>
 <ul>
     <li>{{_("生のオーディオと生のビデオ (カメラのオーディオを含む) の提出が必要")}}</li>
-    <li>{{_("Solo以外の全部門は、録画中のスクリーンキャプチャの提出も必要")}}</li>
+    <li>{{_("{Solo}以外の全部門は、録画中のスクリーンキャプチャの提出も必要").format(Solo="Solo")}}</li>
     <li style="color: red;"><strong>{{_("上記2つが無い場合は、失格")}}</strong></li>
 </ul>
 <ul>
-    <li>{{_("Wildcard提出は一度のみ。一度提出したら、後から別のWildcardを提出することはできない")}}</li>
-    <li style="color: red;"><strong>{{_("誤って一度提出したWildcardを削除した場合、失格")}}</strong>
+    <li>{{_("{Wildcard}提出は一度のみ。一度提出したら、後から別の{Wildcard}を提出することはできない").format(Wildcard="Wildcard")}}</li>
+    <li style="color: red;"><strong>{{_("誤って一度提出した{Wildcard}を削除した場合、失格").format(Wildcard="Wildcard")}}</strong>
         <ul>
             <li>{{_("このルールは、GBB 2019で発生したトラブルの対策として設けられている")}}</li>
         </ul>
@@ -236,7 +236,7 @@
     </p>
 </div>
 
-<h3>Loopstation {{_("デバイスルール")}}</h3>
+<h3>{Loopstation} {{_("デバイスルール")}}</h3>
 <ul>
     <li>{{_("MIDIコントローラーの使用は禁止")}}</li>
     <li>{{_("マシン内の追加ケーブルは使用可能 ケーブルはデバイスではないとみなされる")}}</li>
@@ -244,7 +244,7 @@
 
 <h3>Producer {{_("デバイスルール")}}</h3>
 <ul>
-    <li>{{_("Loopstation単体での出場は禁止")}}</li>
+    <li>{{_("{Loopstation}単体での出場は禁止").format(Loopstation="Loopstation")}}</li>
     <li style="color: red;"><strong>{{_("事前にデバイス構成をSUPPORT@swissbeatbox.comへ申請すること")}}</strong></li>
     <li>{{_("ボイスソース、ボイストリガーのみ")}}</li>
     <li>{{_("事前に録音されたサンプルは使用禁止")}}</li>
@@ -259,10 +259,10 @@
 <h2 id="p06">{{_("失格にならないために")}}</h2>
 <ol>
     <li><strong>{{_("Swissbeatbox公式サイトにある申請フォームで提出")}}</strong></li>
-    <li><strong>{{_("Wildcard動画の作成にあたり使用したすべてのファイルを、バックアップ含め保存しておき、いつでも提出できるようにしておく")}}</strong></li>
-    <li><strong>{{_("Wildcard提出は一度のみ。一度提出したら、後から別のWildcardを提出することはできない")}}</strong></li>
+    <li><strong>{{_("{Wildcard}動画の作成にあたり使用したすべてのファイルを、バックアップ含め保存しておき、いつでも提出できるようにしておく").format(Wildcard="Wildcard")}}</strong></li>
+    <li><strong>{{_("{Wildcard}提出は一度のみ。一度提出したら、後から別の{Wildcard}を提出することはできない").format(Wildcard="Wildcard")}}</strong></li>
 </ol>
-<p style="text-align: center;">{{_("皆さんのWildcardを楽しみにしています！")}}<br>Good luck have fun!</p>
+<p style="text-align: center;">{{_("皆さんの{Wildcard}を楽しみにしています！").format(Wildcard="Wildcard")}}<br>Good luck have fun!</p>
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">GBB25 ワイルドカードの募集が始まったらサムネイル作成致します。<br>価格は3000円（PayPay、ゆうちょ振込、アマギフ対応)<br>配色、フォント、テーマなど希望に沿ったデザインで作成します。<br>サンプルとして過去に作ったサムネイル載せておきます <a href="https://t.co/kZvzVHUJIc">pic.twitter.com/kZvzVHUJIc</a></p>&mdash; dupo 🐻‍❄️ (@TWlCER) <a href="https://twitter.com/TWlCER/status/1881662085576442197?ref_src=twsrc%5Etfw">January 21, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">GBBの wildcardマスタリング、できるようになりましたので各カテゴリー一人当たり4000円で承ります！！<br>DMまで！</p>&mdash; Impedance (@impedanceryuma) <a href="https://twitter.com/impedanceryuma/status/1894719533031784655?ref_src=twsrc%5Etfw">February 26, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
