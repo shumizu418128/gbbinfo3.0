@@ -42,6 +42,14 @@
     </li>
 
     <li>
+      <a href="#comeback-wildcard-section">Comeback Wildcard</a>
+    </li>
+
+    <li>
+      <a href="#replacement-section">{{_("繰り上げ出場について")}}</a>
+    </li>
+
+    <li>
       <a href="#main-judges-section">GBB {{ year }} {{_("本戦審査員一覧")}}</a>
     </li>
 
@@ -86,57 +94,57 @@
   <tbody>
     <tr>
       <td>Solo</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>9 + 1</td>
+      <td>7</td>
+      <td>3</td>
+      <td>20</td>
     </tr>
     <tr>
       <td>Loopstation</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>5</td>
+      <td>2</td>
+      <td>1</td>
+      <td>8</td>
     </tr>
     <tr>
       <td>Tag Team</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>6</td>
+      <td>1</td>
+      <td>1</td>
+      <td>8</td>
     </tr>
     <tr>
       <td>Crew</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>SHOWCASE<br>(loopstation)</td>
-      <td></td>
-      <td></td>
+      <td>2</td>
       <td>0</td>
-      <td></td>
+      <td>0</td>
+      <td>2</td>
     </tr>
     <tr>
       <td>SHOWCASE<br>(producer)</td>
-      <td></td>
-      <td></td>
+      <td>2</td>
       <td>0</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>SHOWCASE<br>(loopstation)<br><br>{{_("発表次第更新")}}</td>
+      <td></td>
+      <td></td>
+      <td></td>
       <td></td>
     </tr>
     <tr>
-      <td>SHOWCASE<br>(solo)</td>
+      <td>SHOWCASE<br>(solo)<br><br>{{_("発表次第更新")}}</td>
       <td></td>
       <td></td>
-      <td>0</td>
+      <td></td>
       <td></td>
     </tr>
   </tbody>
 </table>
 
-<p>Producer: {{_("廃止")}}😭😭<br>{{_("忘れられた{TagTeamLoopstation}...").format(TagTeamLoopstation="Tag Team Loopstation")}}😭</p>
+<p>{{_("忘れられた{TagTeamLoopstation}...").format(TagTeamLoopstation="Tag Team Loopstation")}}😭</p>
 
 <p>
   {{_("上記のデータは、ルール発表時現在の情報です。実際は、辞退などにより、出場者数が変動します。")}}
@@ -149,9 +157,45 @@
   {{_("{Wildcard}の審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価されます。").format(Wildcard="Wildcard")}}
 </p>
 
+<h3>{{_("{Solo}部門 決勝トーナメント").format(Solo="Solo")}}</h3>
+<p>
+  {{_("GBB {year} {Solo}部門の決勝トーナメントは8人トーナメントで開催されます。").format(year=year, Solo="Solo")}}<br />
+  {{_("GBB 2021以来、8人トーナメントで開催するよう、Beatboxerから繰り返し要望を受けている、と説明されています。")}}
+</p>
+
 <div class="button-container">
   <a href="/{{ language }}/{{ year }}/wildcard_regulation"><button>{{_("【{Beatboxer}向け】{Wildcard}レギュレーション解説").format(Beatboxer="Beatboxer", Wildcard="Wildcard")}}</button></a>
 </div>
+
+<h2 id="comeback-wildcard-section">COMEBACK Wildcard</h2>
+<p>
+  {{_("{ComebackWildcard}は、通常の{SoloWildcard}ランキングで出場枠を獲得できなかった方のうち1名が、特別枠として出場権を獲得する制度です。").format(ComebackWildcard="COMEBACK Wildcard", SoloWildcard="Solo Wildcard")}}
+</p>
+
+<h3>{{_("対象")}}</h3>
+<p>
+  Wildcard {{_("10位〜25位")}}
+</p>
+
+<h3>{{_("選出の流れ")}}</h3>
+<ol>
+  <li>
+    <strong>{{_("審査員による指名")}}</strong><br />
+    {{_("5名の審査員が、対象者の中から各自1名を自由に指名します（最大5名が候補）。")}}<br />
+    <div class="post-it"><p>{{_("※5名全員が同じアーティストを指名した場合、その時点で出場者が確定します。")}}</p></div>
+  </li>
+  <li>
+    <strong>{{_("再投票（審査員+{Swissbeatbox} {YouTube}メンバーシップ）").format(Swissbeatbox="Swissbeatbox", YouTube="YouTube")}}</strong>
+    <ul>
+      <li>{{_("審査員の票：各審査員が候補者をランキングします。")}}</li>
+      <li>{{_("メンバー票：生配信中に{Swissbeatbox} {YouTube}メンバーシップ会員が投票し、その結果が「6人目の審査員」の票としてカウントされます。").format(Swissbeatbox="Swissbeatbox", YouTube="YouTube")}}</li>
+    </ul>
+  </li>
+  <li>
+    <strong>{{_("勝者の決定")}}</strong><br />
+    {{_("審査員5名 + {Swissbeatbox} {YouTube}メンバーシップ会員（計6つのランキング）をポイント化して合計し、合計スコアが最も高い1名がGBB {year}に出場します。").format(year=year, Swissbeatbox="Swissbeatbox", YouTube="YouTube")}}
+  </li>
+</ol>
 
 <h2 id="seeds-section" name="seeds">{{_("GBB出場権獲得条件")}}</h2>
 <p>
@@ -255,18 +299,88 @@
 </div>
 <div style="margin: 40px 0;"></div>
 
-<p>{{_("GBB出場辞退が発生した場合、{Wildcard}下位からの繰り上げが行われます。").format(Wildcard="Wildcard")}}</p>
+<h2 id="replacement-section">{{_("繰り上げ出場")}}</h2>
+<p>{{_("GBB出場辞退が発生した場合、{Wildcard}下位からの繰り上げが行われます。").format(Wildcard="Wildcard")}}<br>
+  {{_("基本的には、2026年8月1日を境に対応が変わるのがポイントです。")}}</p>
 
-<div class="post-it">
-  <p>
-    <strong>{{_("いかなる理由があっても、チャレンジャーシリーズ2位以下の人に、出場権は与えられません。")}}</strong><br>
-    {{_("「チャレンジャーシリーズにおいてGBB出場権が与えられるのは、例外なく、常に優勝者のみである」とルールに明記されています。")}}
-  </p>
+<h3>{{_("繰り上げ期限")}}</h3>
+<table>
+  <thead>
+    <tr>
+      <th>{{_("期限")}}</th>
+      <th>{{_("対応")}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>{{_("2026年8月1日まで")}}</strong></td>
+      <td>{{_("原則として、辞退者が出た場合はランキングの次点者が繰り上がります。")}}</td>
+    </tr>
+    <tr>
+      <td><strong>{{_("2026年8月1日以降")}}</strong></td>
+      <td>{{_("運営側が個別に判断します。渡航ビザの取得や移動の手配が間に合うかなど、状況に応じて決定されます。")}}</td>
+    </tr>
+  </tbody>
+</table>
 
-  <p style="font-size: 14px;">
-    {{_("例：チャレンジャーシリーズ優勝者が、すでに{Wildcard}で出場権を獲得していた場合、チャレンジャーシリーズ2位ではなく、{Wildcard}下位からの繰り上げが行われます。").format(Wildcard="Wildcard")}}
-  </p>
-</div>
+<h3>{{_("繰り上げ対象")}}</h3>
+<p>{{_("繰り上げの対象となるのは、{Wildcard}の順位が上位の人たちに限定されています。").format(Wildcard="Wildcard")}}</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>{{_("部門")}}</th>
+      <th>{{_("対象")}}</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Solo</td>
+      <td>{{_("15位まで")}}</td>
+      <td>{{_("16位以下の繰り上げは一切無し")}}</td>
+    </tr>
+    <tr>
+      <td>Loopstation</td>
+      <td>{{_("20位まで")}}</td>
+      <td>{{_("21位以降は運営の個別判断")}}</td>
+    </tr>
+    <tr>
+      <td>Tag Team</td>
+      <td>{{_("10位まで")}}</td>
+      <td>{{_("11位以下の繰り上げは一切無し")}}</td>
+    </tr>
+    <tr>
+      <td>Crew</td>
+      <td>{{_("5位まで")}}</td>
+      <td>{{_("6位以下の繰り上げは一切無し")}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>{{_("特殊なケース")}}</h3>
+<table>
+  <thead>
+    <tr>
+      <th>{{_("項目")}}</th>
+      <th>{{_("説明")}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Crew</strong></td>
+      <td>{{_("8月1日以降に辞退が発生し、繰り上げができない場合、対戦形式ではなく{Showcase}形式に変更されることがあります。").format(Showcase="ショーケース")}}</td>
+    </tr>
+    <tr>
+      <td><strong>7toSmoke</strong></td>
+      <td>{{_("優勝者が辞退しても繰り上げはありません。")}}</td>
+    </tr>
+    <tr>
+      <td><strong>{{_("チャレンジャーシリーズ")}}</strong></td>
+      <td>{{_("辞退が発生した場合、3名までは繰り上げを行いますが、4名以上の辞退には対応しません。")}}</td>
+    </tr>
+  </tbody>
+</table>
 
 <div class="button-container">
   <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
@@ -288,34 +402,34 @@
   <tbody>
     <tr>
       <td>{{_("全部門共通")}}</td>
-      <td style="font-size: 14px;">{{_("提出受付開始日時")}} <br>{{_("制限時間を超過した場合、1秒につき最終順位を1つ下げる")}}<br>{{_("制限時間を使い切らず余らせた場合、3秒につき最終順位を1つ下げる")}}</td>
+      <td style="font-size: 14px;">{{_("提出受付開始日時")}} 1/1 00:01 am CET<br>{{_("制限時間を超過した場合、1秒につき最終順位を1つ下げる")}}<br>{{_("制限時間を使い切らず余らせた場合、3秒につき最終順位を1つ下げる")}}</td>
     </tr>
     <tr>
       <td>Solo</td>
-      <td style="font-size: 14px;">{{_("制限時間")}} <br />{{_("提出期限")}} <br />{{_("結果発表")}} </td>
+      <td style="font-size: 14px;">{{_("制限時間")}} 2:00 (±10s)<br />{{_("提出期限")}} {{_("3月1日")}} 23:59 CET<br />{{_("結果発表")}} {{_("3月28日〜30日")}}</td>
     </tr>
     <tr>
       <td>Tag Team</td>
-      <td style="font-size: 14px;">{{_("制限時間")}} <br />{{_("提出期限")}} <br />{{_("結果発表")}} </td>
+      <td style="font-size: 14px;">{{_("制限時間")}} 2:00 (±10s)<br />{{_("提出期限")}} {{_("3月1日")}} 23:59 CET<br />{{_("結果発表")}} {{_("3月23日〜24日")}}</td>
     </tr>
     <tr>
       <td>Loopstation</td>
-      <td style="font-size: 14px;">{{_("制限時間")}} <br />{{_("提出期限")}} <br />{{_("結果発表")}} <br /></td>
+      <td style="font-size: 14px;">{{_("制限時間")}} 3:00~3:30 (±0s)<br />{{_("3分31秒以上はペナルティ対象")}}<br />{{_("提出期限")}} {{_("3月1日")}} 23:59 CET<br />{{_("結果発表")}} {{_("3月25日〜27日")}}</td>
     </tr>
     <tr>
       <td>Crew</td>
-      <td style="font-size: 14px;">{{_("制限時間")}} <br />{{_("提出期限")}} <br />{{_("結果発表")}} </td>
-    </tr>
-    <tr>
-      <td>SHOWCASE<br>(loopstation)</td>
-      <td style="font-size: 14px;">{{_("制限時間")}} <br />{{_("提出期限")}} <br />{{_("結果発表")}} </td>
+      <td style="font-size: 14px;">{{_("制限時間")}} 3:00 (±10s)<br />{{_("提出期限")}} {{_("4月12日")}} 23:59 CET<br />{{_("結果発表")}} {{_("5月1日〜2日")}}</td>
     </tr>
     <tr>
       <td>SHOWCASE<br>(producer)</td>
+      <td style="font-size: 14px;">{{_("制限時間")}} 3:00~5:00 (±0s)<br />{{_("5分01秒以上はペナルティ対象")}}<br />{{_("提出期限")}} {{_("4月12日")}} 23:59 CET<br />{{_("結果発表")}} {{_("5月3日〜4日")}}</td>
+    </tr>
+    <tr>
+      <td>SHOWCASE<br>(loopstation)<br><br>{{_("発表次第更新")}}</td>
       <td style="font-size: 14px;">{{_("制限時間")}} <br />{{_("提出期限")}} <br />{{_("結果発表")}} </td>
     </tr>
     <tr>
-      <td>SHOWCASE<br>(solo)</td>
+      <td>SHOWCASE<br>(solo)<br><br>{{_("発表次第更新")}}</td>
       <td style="font-size: 14px;">{{_("制限時間")}} <br />{{_("提出期限")}} <br />{{_("結果発表")}} </td>
     </tr>
   </tbody>
@@ -402,31 +516,31 @@
   <tbody>
     <tr>
       <td>Solo</td>
-      <td></td>
+      <td>COLAPS<br>ZEDE<br>NAPOM<br>SKILLER<br>WING</td>
     </tr>
     <tr>
       <td>Tag Team</td>
-      <td></td>
+      <td>MAXO<br>JOHN-T<br>CHRIS CELIZ</td>
     </tr>
     <tr>
       <td>Loopstation</td>
-      <td></td>
+      <td>ZHANG ZE<br>SYJO<br>YASWEDE<br>BIZKIT<br>SARO</td>
     </tr>
     <tr>
       <td>Crew</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>SHOWCASE<br>(loopstation)</td>
-      <td></td>
+      <td>{{_("発表次第更新")}}</td>
     </tr>
     <tr>
       <td>SHOWCASE<br>(producer)</td>
-      <td></td>
+      <td>FRIIDON<br>KRISTOF<br>KBA<br>KAOS<br>SYJO<br>LENNARD<br />(Loop Mayhem Team)</td>
+    </tr>
+    <tr>
+      <td>SHOWCASE<br>(loopstation)</td>
+      <td>{{_("発表次第更新")}}</td>
     </tr>
     <tr>
       <td>SHOWCASE<br>(solo)</td>
-      <td></td>
+      <td>{{_("発表次第更新")}}</td>
     </tr>
   </tbody>
 </table>
