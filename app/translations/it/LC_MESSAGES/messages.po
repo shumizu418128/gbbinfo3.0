@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-24 14:30+0900\n"
+"POT-Creation-Date: 2025-12-24 14:38+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: it <LL@li.org>\n"
@@ -1505,7 +1505,7 @@ msgstr ""
 
 #: templates/2026/rule.html:191
 msgid "勝者の決定"
-msgstr "Solo il vincitore"
+msgstr "Determinazione del vincitore"
 
 #: templates/2026/rule.html:192
 #, python-brace-format
@@ -1652,7 +1652,7 @@ msgstr ""
 #: templates/2026/rule.html:401
 msgid "制限時間を使い切らず余らせた場合、1秒につき最終順位を1つ下げる"
 msgstr ""
-"Se il tempo limite non viene esaurito, per ogni 3 secondi rimanenti si "
+"Se il tempo limite non viene esaurito, per ogni secondo rimanente si "
 "retrocede di una posizione nella classifica finale."
 
 #: templates/2026/rule.html:405
