@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-24 23:53+0900\n"
+"POT-Creation-Date: 2025-12-25 00:02+0900\n"
 "PO-Revision-Date: 2025-10-29 10:38+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: pl <LL@li.org>\n"
@@ -1464,8 +1464,8 @@ msgstr ""
 #, python-brace-format
 msgid "※5名全員が同じ{Beatboxer}を指名した場合、その時点で出場者が確定します。"
 msgstr ""
-"※ Jeśli wszyscy 5 sędziów wskaże tego samego {Beatboxer}, uczestnik zostanie "
-"ustalony w tym momencie."
+"※ Jeśli wszyscy 5 sędziów wskaże tego samego {Beatboxer}, uczestnik zostanie"
+" ustalony w tym momencie."
 
 #: templates/2026/rule.html:198
 #, python-brace-format
