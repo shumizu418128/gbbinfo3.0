@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-24 03:14+0900\n"
+"POT-Creation-Date: 2025-12-24 12:10+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: en <LL@li.org>\n"
@@ -1539,9 +1539,7 @@ msgid "{Swissbeatbox}が個別に判断します。渡航ビザの取得や移�
 msgstr ""
 "{Swissbeatbox} will make individual judgments. Decisions will be made based "
 "on the situation, such as whether travel visa acquisition and travel "
-"arrangements can be made in time.{Swissbeatbox} will make individual "
-"judgments. Decisions will be made depending on the situation, such as "
-"whether travel visa acquisition and travel arrangements can be made in time."
+"arrangements can be made in time."
 
 #: templates/2026/rule.html:317
 msgid "繰り上げ対象"
@@ -2204,7 +2202,7 @@ msgstr "Please research {name} in detail."
 
 #: templates/participant_detail/participant_detail.html:210
 msgid "ChatGPTに聞く"
-msgstr "Ask ChatGPTipant_detail/participant_detail.html:21"
+msgstr "Ask ChatGPT"
 
 #: templates/participant_detail/participant_detail.html:213
 msgid "他の出場者"

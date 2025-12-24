@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-24 03:14+0900\n"
+"POT-Creation-Date: 2025-12-24 12:10+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ga <LL@li.org>\n"
@@ -1476,7 +1476,7 @@ msgstr ""
 
 #: templates/2026/rule.html:186
 msgid "勝者の決定"
-msgstr "Don bhuaiteoir amháin"
+msgstr "Cinneadh an bhuaiteora"
 
 #: templates/2026/rule.html:187
 #, python-brace-format
@@ -1625,7 +1625,7 @@ msgstr ""
 msgid "制限時間を使い切らず余らせた場合、1秒につき最終順位を1つ下げる"
 msgstr ""
 "Má úsáideann tú an t-am atá fágtha, laghdaítear do rátáil deiridh faoi 1 "
-"phointe gach 3 shoicind."
+"phointe gach soicind."
 
 #: templates/2026/rule.html:400
 msgid "3月28日〜30日"
