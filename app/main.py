@@ -250,55 +250,47 @@ def notice_view():
 # MARK: 要データ取得
 # ruleのsitemap追加は/<int:year>/<string:content>で行う
 @app.route("/<string:lang>/<int:year>/rule")
-@flask_cache.cached(query_string=True)
 def rule_view(lang, year):
     return rule.rules_view(year)
 
 
 @sitemapper.include(url_variables=sitemap_variables["result"])
 @app.route("/<string:lang>/<int:year>/result")
-@flask_cache.cached(query_string=True)
 def result_view(lang, year):
     return result.result_view(year)
 
 
 @app.route("/<string:lang>/<int:year>/world_map")
-@flask_cache.cached(query_string=True)
 def world_map_view(lang, year):
     return world_map.world_map_view(year)
 
 
 @sitemapper.include(url_variables=sitemap_variables["yearly_pages"])
 @app.route("/<string:lang>/<int:year>/participants")
-@flask_cache.cached(query_string=True)
 def participants_view(lang, year):
     return participants.participants_view(year)
 
 
 @sitemapper.include(url_variables=sitemap_variables["yearly_pages"])
 @app.route("/<string:lang>/<int:year>/cancels")
-@flask_cache.cached(query_string=True)
 def cancels_view(lang, year):
     return participants.cancels_view(year)
 
 
 @sitemapper.include(url_variables=sitemap_variables["yearly_pages"])
 @app.route("/<string:lang>/<int:year>/japan")
-@flask_cache.cached(query_string=True)
 def japan(lang, year):
     return participants.participants_country_specific_view(year)
 
 
 @sitemapper.include(url_variables=sitemap_variables["yearly_pages"])
 @app.route("/<string:lang>/<int:year>/korea")
-@flask_cache.cached(query_string=True)
 def korea(lang, year):
     return participants.participants_country_specific_view(year)
 
 
 @sitemapper.include(url_variables=sitemap_variables["participant_detail"])
 @app.route("/<string:lang>/participant_detail/<int:participant_id>/<string:mode>")
-@flask_cache.cached(query_string=True)
 def participant_detail_view(lang, participant_id, mode):
     return participant_detail.participant_detail_view(participant_id, mode)
 
