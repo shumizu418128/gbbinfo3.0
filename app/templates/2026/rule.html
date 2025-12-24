@@ -179,7 +179,7 @@
 
 <h2 id="comeback-wildcard-section">COMEBACK Wildcard</h2>
 <p>
-  {{_("{ComebackWildcard}は、通常の{SoloWildcard}ランキングで出場枠を獲得できなかった方のうち1名が、特別枠として出場権を獲得する制度です。").format(ComebackWildcard="COMEBACK Wildcard", SoloWildcard="Solo Wildcard")}}
+  {{_("{ComebackWildcard}は、通常の{SoloWildcard}ランキングで出場枠を獲得できなかった{Beatboxer}のうち1名が、特別枠として出場権を獲得する制度です。").format(ComebackWildcard="COMEBACK Wildcard", SoloWildcard="Solo Wildcard", Beatboxer="Beatboxer")}}
 </p>
 
 <h3>{{_("対象")}}</h3>
@@ -192,7 +192,7 @@
   <li>
     <strong>{{_("審査員による指名")}}</strong><br />
     {{_("5名の審査員が、対象者の中から各自1名を自由に指名します（最大5名が候補）。")}}<br />
-    <div class="post-it"><p>{{_("※5名全員が同じアーティストを指名した場合、その時点で出場者が確定します。")}}</p></div>
+    <div class="post-it"><p>{{_("※5名全員が同じ{Beatboxer}を指名した場合、その時点で出場者が確定します。").format(Beatboxer="Beatboxer")}}</p></div>
   </li>
   <li>
     <strong>{{_("再投票（審査員+{Swissbeatbox} {YouTube}メンバーシップ）").format(Swissbeatbox="Swissbeatbox", YouTube="YouTube")}}</strong>
@@ -203,7 +203,7 @@
   </li>
   <li>
     <strong>{{_("勝者の決定")}}</strong><br />
-    {{_("審査員5名 + {Swissbeatbox} {YouTube}メンバーシップ会員（計6つのランキング）をポイント化して合計し、合計スコアが最も高い1名がGBB {year}に出場します。").format(year=year, Swissbeatbox="Swissbeatbox", YouTube="YouTube")}}
+    {{_("審査員5名 + {Swissbeatbox} {YouTube}メンバーシップ会員（計6つのランキング）をポイント化して合計し、合計スコアが最も高い1名がGBB {year}に出場権を獲得します。").format(year=year, Swissbeatbox="Swissbeatbox", YouTube="YouTube")}}
   </li>
 </ol>
 
@@ -234,8 +234,8 @@
   <table style="font-size: 14px;">
     <thead>
       <tr>
-        <th class="participant-table-left-col">{{_("名前")}}</th>
-        <th class="participant-table-name-col">{{_("部門")}}</th>
+        <th class="participant-table-left-col">{{_("部門")}}</th>
+        <th class="participant-table-name-col">{{_("名前")}}</th>
         <th class="participant-table-right-col">{{_("出場権")}}</th>
       </tr>
     </thead>
@@ -243,12 +243,13 @@
       {% for participant in gbb_seed %}
         <tr>
           <td class="participant-table-left-col">
+            {{ participant.category }}
+          </td>
+          <td class="participant-table-name-col">
             {% include "includes/country_flag.html" %}
             <a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">
               {{ participant.name }}
-            </a>
-          </td>
-          <td class="participant-table-name-col">{{ participant.category }}</td>
+            </a></td>
           <td class="participant-table-right-col">
             {{ participant.ticket_class }}
           </td>
@@ -265,25 +266,25 @@
   <table style="font-size: 14px;">
     <thead>
       <tr>
-        <th class="participant-table-left-col">{{_("名前")}}</th>
-        <th class="participant-table-name-col">{{_("部門")}}</th>
+        <th class="participant-table-left-col">{{_("部門")}}</th>
+        <th class="participant-table-name-col">{{_("名前")}}</th>
         <th class="participant-table-right-col">{{_("出場権")}}</th>
       </tr>
     </thead>
     <tbody>
       {% for participant in other_seed %}
         <tr>
-          {% if participant.name == "???" %}
-            <td class="participant-table-left-col">{{ participant.name }}</td>
-          {% else %}
-            <td class="participant-table-left-col">
+          <td class="participant-table-left-col">{{ participant.category }}</td>
+          <td class="participant-table-name-col">
+            {% if participant.name == "???" %}
+              {{ participant.name }}
+            {% else %}
               {% include "includes/country_flag.html" %}
               <a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">
                 {{ participant.name }}
               </a>
-            </td>
-          {% endif %}
-          <td class="participant-table-name-col">{{ participant.category }}</td>
+            {% endif %}
+          </td>
           <td class="participant-table-right-col">
             {{ participant.ticket_class }}
           </td>
@@ -309,14 +310,14 @@
       {% for participant in cancelled %}
         <tr>
           <td class="participant-table-left-col">
+            <s>{{ participant.category }}</s>
+          </td>
+          <td class="participant-table-name-col">
             【{{_("辞退")}}】<br>
             {% include "includes/country_flag.html" %}
             <a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">
               {{ participant.name }}
             </a>
-          </td>
-          <td class="participant-table-name-col">
-            <s>{{ participant.category }}</s>
           </td>
           <td class="participant-table-right-col">
             <s>{{ participant.ticket_class }}</s>
