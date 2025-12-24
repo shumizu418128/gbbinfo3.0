@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-24 12:39+0900\n"
+"POT-Creation-Date: 2025-12-24 14:30+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ga <LL@li.org>\n"
@@ -28,8 +28,8 @@ msgstr ""
 #: templates/2025/wildcards.html:15 templates/2025/wildcards.html:84
 #: templates/2026/rule.html:3 templates/2026/rule.html:4
 #: templates/2026/rule.html:5 templates/2026/rule.html:9
-#: templates/2026/rule.html:36 templates/2026/rule.html:385
-#: templates/2026/rule.html:390 templates/2026/timetable.html:69
+#: templates/2026/rule.html:36 templates/2026/rule.html:390
+#: templates/2026/rule.html:395 templates/2026/timetable.html:69
 #: templates/2026/top.html:63 templates/2026/top.html:106
 #: templates/2026/wildcards.html:13 templates/2026/wildcards.html:60
 #: templates/common/participants.html:139
@@ -63,9 +63,9 @@ msgstr "Suíomh foinse: "
 #: templates/2025/timetable.html:236 templates/2025/timetable.html:277
 #: templates/2025/top.html:157 templates/2025/top_7tosmoke.html:36
 #: templates/2025/wildcards.html:112 templates/2026/rule.html:16
-#: templates/2026/rule.html:73 templates/2026/rule.html:377
-#: templates/2026/rule.html:430 templates/2026/rule.html:494
-#: templates/2026/rule.html:544 templates/2026/wildcards.html:76
+#: templates/2026/rule.html:73 templates/2026/rule.html:382
+#: templates/2026/rule.html:435 templates/2026/rule.html:499
+#: templates/2026/rule.html:549 templates/2026/wildcards.html:76
 #: templates/includes/hamburger_menu.html:24
 msgid "現地観戦計画のたてかた"
 msgstr "Conas plean a dhéanamh chun féachaint go pearsanta"
@@ -101,13 +101,13 @@ msgstr "Coinníollacha chun an ceart síolta a fháil"
 
 #: templates/2024/rule.html:46 templates/2024/rule.html:272
 #: templates/2025/rule.html:45 templates/2025/rule.html:305
-#: templates/2026/rule.html:48 templates/2026/rule.html:434
+#: templates/2026/rule.html:48 templates/2026/rule.html:439
 msgid "本戦審査員一覧"
 msgstr "Liosta na mBreithiúna Cluiche Deiridh"
 
 #: templates/2024/rule.html:50 templates/2024/rule.html:316
 #: templates/2025/rule.html:49 templates/2025/rule.html:361
-#: templates/2026/rule.html:52 templates/2026/rule.html:498
+#: templates/2026/rule.html:52 templates/2026/rule.html:503
 #, python-brace-format
 msgid "{Wildcard}審査員一覧"
 msgstr "{Wildcard} liosta na mbreithiúna"
@@ -159,10 +159,10 @@ msgstr "Déan cinnte go bhfuil na rialacha seiceáilte agat arís leat féin."
 #: templates/2025/wildcard_regulation.html:85
 #: templates/2025/wildcard_regulation.html:142
 #: templates/2025/wildcard_regulation.html:201 templates/2026/rule.html:82
-#: templates/2026/rule.html:207 templates/2026/rule.html:233
-#: templates/2026/rule.html:263 templates/2026/rule.html:323
-#: templates/2026/rule.html:389 templates/2026/rule.html:442
-#: templates/2026/rule.html:503 templates/2026/top.html:53
+#: templates/2026/rule.html:212 templates/2026/rule.html:238
+#: templates/2026/rule.html:268 templates/2026/rule.html:328
+#: templates/2026/rule.html:394 templates/2026/rule.html:447
+#: templates/2026/rule.html:508 templates/2026/top.html:53
 #: templates/common/cancels.html:24 templates/common/japan.html:23
 #: templates/common/korea.html:23 templates/common/participants.html:126
 #: templates/participant_detail/participant_detail.html:33
@@ -221,8 +221,8 @@ msgstr "Síolchoinne - GBB"
 #: templates/2024/rule.html:142 templates/2024/rule.html:168
 #: templates/2024/rule.html:194 templates/2025/rule.html:138
 #: templates/2025/rule.html:164 templates/2025/rule.html:194
-#: templates/2025/wildcard_regulation.html:142 templates/2026/rule.html:206
-#: templates/2026/rule.html:232 templates/2026/rule.html:262
+#: templates/2025/wildcard_regulation.html:142 templates/2026/rule.html:211
+#: templates/2026/rule.html:237 templates/2026/rule.html:267
 #: templates/common/cancels.html:23 templates/common/japan.html:22
 #: templates/common/korea.html:22 templates/common/participants.html:45
 #: templates/common/participants.html:125 templates/common/result.html:67
@@ -234,8 +234,8 @@ msgstr "ainm"
 #: templates/2024/rule.html:144 templates/2024/rule.html:170
 #: templates/2024/rule.html:196 templates/2025/rule.html:140
 #: templates/2025/rule.html:166 templates/2025/rule.html:196
-#: templates/2026/rule.html:208 templates/2026/rule.html:234
-#: templates/2026/rule.html:264 templates/common/cancels.html:22
+#: templates/2026/rule.html:213 templates/2026/rule.html:239
+#: templates/2026/rule.html:269 templates/common/cancels.html:22
 #: templates/common/japan.html:21 templates/common/korea.html:21
 #: templates/common/participants.html:46
 #: templates/common/participants.html:124
@@ -249,13 +249,13 @@ msgstr "Ceart páirt a ghlacadh"
 #: templates/2024/rule.html:216 templates/2025/rule.html:156
 #: templates/2025/rule.html:186 templates/2025/rule.html:216
 #: templates/2025/timetable.html:268 templates/2026/rule.html:126
-#: templates/2026/rule.html:133 templates/2026/rule.html:224
-#: templates/2026/rule.html:254 templates/2026/rule.html:284
-#: templates/2026/rule.html:419 templates/2026/rule.html:423
-#: templates/2026/rule.html:449 templates/2026/rule.html:453
-#: templates/2026/rule.html:457 templates/2026/rule.html:461
-#: templates/2026/rule.html:481 templates/2026/rule.html:522
-#: templates/2026/rule.html:530 templates/2026/rule.html:534
+#: templates/2026/rule.html:133 templates/2026/rule.html:229
+#: templates/2026/rule.html:259 templates/2026/rule.html:289
+#: templates/2026/rule.html:424 templates/2026/rule.html:428
+#: templates/2026/rule.html:454 templates/2026/rule.html:458
+#: templates/2026/rule.html:462 templates/2026/rule.html:466
+#: templates/2026/rule.html:486 templates/2026/rule.html:527
+#: templates/2026/rule.html:535 templates/2026/rule.html:539
 #: templates/2026/stream.html:11 templates/2026/timetable.html:54
 #: templates/2026/timetable.html:58 templates/2026/timetable.html:62
 #: templates/2026/timetable.html:82 templates/2026/timetable.html:86
@@ -277,7 +277,7 @@ msgid "シード権辞退者一覧"
 msgstr "Liosta na ndaoine a d’éirigh as an ‘seed’"
 
 #: templates/2024/rule.html:203 templates/2025/rule.html:203
-#: templates/2026/rule.html:271 templates/common/cancels.html:31
+#: templates/2026/rule.html:276 templates/common/cancels.html:31
 #: templates/common/japan.html:31 templates/common/korea.html:31
 #: templates/common/participants.html:57
 #: templates/participant_detail/participant_detail.html:23
@@ -292,7 +292,7 @@ msgstr "Diúltaigh"
 
 #: templates/2024/rule.html:221 templates/2024/timetable.html:100
 #: templates/2024/timetable.html:230 templates/2025/rule.html:221
-#: templates/2026/rule.html:289 templates/common/cancels.html:52
+#: templates/2026/rule.html:294 templates/common/cancels.html:52
 #: templates/participant_detail/participant_detail.html:179
 #: templates/participant_detail/participant_detail.html:186
 msgid "出場者一覧"
@@ -307,19 +307,19 @@ msgstr ""
 "ó na céimeanna níos ísle."
 
 #: templates/2024/rule.html:240 templates/2025/rule.html:256
-#: templates/2025/wildcard_regulation.html:207 templates/2026/rule.html:395
+#: templates/2025/wildcard_regulation.html:207 templates/2026/rule.html:400
 msgid "全部門共通"
 msgstr "Comhchoiteann do gach roinn"
 
 #: templates/2024/rule.html:241 templates/2025/rule.html:257
-#: templates/2025/wildcard_regulation.html:208 templates/2026/rule.html:396
+#: templates/2025/wildcard_regulation.html:208 templates/2026/rule.html:401
 msgid "制限時間を超過した場合、1秒につき最終順位を1つ下げる"
 msgstr ""
 "Má théann tú thar an am teoranta, laghdófar do rangú deiridh faoi 1 as gach "
 "soicind."
 
 #: templates/2024/rule.html:241 templates/2025/rule.html:257
-#: templates/2025/wildcard_regulation.html:208 templates/2026/rule.html:396
+#: templates/2025/wildcard_regulation.html:208 templates/2026/rule.html:401
 msgid "提出受付開始日時"
 msgstr "Am tosach feidhmithe iarratais"
 
@@ -332,10 +332,10 @@ msgstr "Am tosach feidhmithe iarratais"
 #: templates/2025/wildcard_regulation.html:216
 #: templates/2025/wildcard_regulation.html:220
 #: templates/2025/wildcard_regulation.html:224
-#: templates/2025/wildcard_regulation.html:228 templates/2026/rule.html:400
-#: templates/2026/rule.html:404 templates/2026/rule.html:408
-#: templates/2026/rule.html:412 templates/2026/rule.html:416
-#: templates/2026/rule.html:420 templates/2026/rule.html:424
+#: templates/2025/wildcard_regulation.html:228 templates/2026/rule.html:405
+#: templates/2026/rule.html:409 templates/2026/rule.html:413
+#: templates/2026/rule.html:417 templates/2026/rule.html:421
+#: templates/2026/rule.html:425 templates/2026/rule.html:429
 msgid "制限時間"
 msgstr "Am teoranta"
 
@@ -348,10 +348,10 @@ msgstr "Am teoranta"
 #: templates/2025/wildcard_regulation.html:216
 #: templates/2025/wildcard_regulation.html:220
 #: templates/2025/wildcard_regulation.html:224
-#: templates/2025/wildcard_regulation.html:228 templates/2026/rule.html:400
-#: templates/2026/rule.html:404 templates/2026/rule.html:408
-#: templates/2026/rule.html:412 templates/2026/rule.html:416
-#: templates/2026/rule.html:420 templates/2026/rule.html:424
+#: templates/2025/wildcard_regulation.html:228 templates/2026/rule.html:405
+#: templates/2026/rule.html:409 templates/2026/rule.html:413
+#: templates/2026/rule.html:417 templates/2026/rule.html:421
+#: templates/2026/rule.html:425 templates/2026/rule.html:429
 msgid "提出期限"
 msgstr "Spriocdhátaí comhdaigh"
 
@@ -364,10 +364,10 @@ msgstr "Spriocdhátaí comhdaigh"
 #: templates/2025/wildcard_regulation.html:216
 #: templates/2025/wildcard_regulation.html:220
 #: templates/2025/wildcard_regulation.html:224
-#: templates/2025/wildcard_regulation.html:228 templates/2026/rule.html:400
-#: templates/2026/rule.html:404 templates/2026/rule.html:408
-#: templates/2026/rule.html:412 templates/2026/rule.html:416
-#: templates/2026/rule.html:420 templates/2026/rule.html:424
+#: templates/2025/wildcard_regulation.html:228 templates/2026/rule.html:405
+#: templates/2026/rule.html:409 templates/2026/rule.html:413
+#: templates/2026/rule.html:417 templates/2026/rule.html:421
+#: templates/2026/rule.html:425 templates/2026/rule.html:429
 msgid "結果発表"
 msgstr "Fógra torthaí"
 
@@ -396,7 +396,7 @@ msgid "デバイス制限なし"
 msgstr "Gach feiste gan teorainn"
 
 #: templates/2024/rule.html:274 templates/2025/rule.html:307
-#: templates/2026/rule.html:436
+#: templates/2026/rule.html:441
 #, python-brace-format
 msgid "{Wildcard}審査員一覧はこちら"
 msgstr "{Wildcard} Liosta na mBreithiúna anseo"
@@ -406,7 +406,7 @@ msgstr "{Wildcard} Liosta na mBreithiúna anseo"
 #: templates/2025/rule.html:367 templates/2025/timetable.html:101
 #: templates/2025/top.html:58 templates/2025/top.html:101
 #: templates/2025/wildcards.html:15 templates/2025/wildcards.html:84
-#: templates/2026/rule.html:443 templates/2026/rule.html:504
+#: templates/2026/rule.html:448 templates/2026/rule.html:509
 #: templates/2026/timetable.html:69 templates/2026/top.html:68
 #: templates/2026/top.html:106 templates/2026/wildcards.html:13
 #: templates/2026/wildcards.html:60 templates/includes/hamburger_menu.html:11
@@ -414,17 +414,17 @@ msgid "審査員"
 msgstr "giúiré"
 
 #: templates/2024/rule.html:306 templates/2025/rule.html:340
-#: templates/2026/rule.html:477
+#: templates/2026/rule.html:482
 msgid "審査員不明"
 msgstr "Breitheamh anaithnid"
 
 #: templates/2024/rule.html:306 templates/2025/rule.html:340
-#: templates/2026/rule.html:477
+#: templates/2026/rule.html:482
 msgid "例年発表なし"
 msgstr "Ní fhoilsítear é de ghnáth."
 
 #: templates/2024/rule.html:318 templates/2025/rule.html:395
-#: templates/2026/rule.html:540
+#: templates/2026/rule.html:545
 msgid "本戦審査員一覧はこちら"
 msgstr "Liosta na mbreithiúnais phríomha anseo"
 
@@ -692,7 +692,7 @@ msgstr "Nuashonrú deiridh"
 #: templates/2024/top.html:66 templates/2025/rule.html:240
 #: templates/2025/ticket.html:19 templates/2025/timetable.html:238
 #: templates/2025/top.html:116 templates/2025/wildcards.html:114
-#: templates/2026/rule.html:379 templates/2026/top.html:121
+#: templates/2026/rule.html:384 templates/2026/top.html:121
 #: templates/2026/wildcards.html:78 templates/common/korea.html:3
 #: templates/common/korea.html:4 templates/common/korea.html:5
 #: templates/common/korea.html:9 templates/includes/hamburger_menu.html:16
@@ -703,7 +703,7 @@ msgstr "Ionadaí na Cóiré Theas"
 #: templates/2024/top.html:71 templates/2025/rule.html:242
 #: templates/2025/ticket.html:21 templates/2025/timetable.html:240
 #: templates/2025/top.html:121 templates/2025/wildcards.html:116
-#: templates/2026/rule.html:381 templates/2026/top.html:126
+#: templates/2026/rule.html:386 templates/2026/top.html:126
 #: templates/2026/wildcards.html:80 templates/common/japan.html:3
 #: templates/common/japan.html:4 templates/common/japan.html:5
 #: templates/common/japan.html:9 templates/includes/hamburger_menu.html:18
@@ -737,7 +737,7 @@ msgid "当サイトURL変更のお知らせ"
 msgstr "Fógra faoi athrú ar URL an láithreáin seo"
 
 #: templates/2024/top.html:90 templates/2025/rule.html:302
-#: templates/2025/top.html:140 templates/2026/rule.html:431
+#: templates/2025/top.html:140 templates/2026/rule.html:436
 #: templates/2026/top.html:152
 #, python-brace-format
 msgid "{Wildcard}結果発表配信"
@@ -749,7 +749,7 @@ msgstr "{Wildcard} Craoladh Torthaí"
 #: templates/2025/rule.html:400 templates/2025/top.html:141
 #: templates/2025/wildcards.html:3 templates/2025/wildcards.html:4
 #: templates/2025/wildcards.html:5 templates/2025/wildcards.html:9
-#: templates/2026/rule.html:17 templates/2026/rule.html:545
+#: templates/2026/rule.html:17 templates/2026/rule.html:550
 #: templates/2026/top.html:153 templates/2026/wildcards.html:3
 #: templates/2026/wildcards.html:4 templates/2026/wildcards.html:5
 #: templates/2026/wildcards.html:9 templates/common/cancels.html:55
@@ -884,7 +884,7 @@ msgstr ""
 msgid "【{Beatboxer}向け】{Wildcard}レギュレーション解説"
 msgstr "【Do {Beatboxer}】 Míniú ar Rialacháin {Wildcard}"
 
-#: templates/2025/rule.html:225 templates/2026/rule.html:294
+#: templates/2025/rule.html:225 templates/2026/rule.html:299
 #, python-brace-format
 msgid "GBB出場辞退が発生した場合、{Wildcard}下位からの繰り上げが行われます。"
 msgstr ""
@@ -931,15 +931,15 @@ msgstr ""
 "Tabhair aire, iad siúd ar mian leo páirt a ghlacadh i Rannóg Fhoireann Tag "
 "agus Rannóg Criú."
 
-#: templates/2025/rule.html:343 templates/2026/rule.html:480
+#: templates/2025/rule.html:343 templates/2026/rule.html:485
 msgid "レフェリー"
 msgstr "Réiteoir"
 
-#: templates/2025/rule.html:351 templates/2026/rule.html:488
+#: templates/2025/rule.html:351 templates/2026/rule.html:493
 msgid "レフェリーについて"
 msgstr "Maidir leis an réiteoir"
 
-#: templates/2025/rule.html:352 templates/2026/rule.html:489
+#: templates/2025/rule.html:352 templates/2026/rule.html:494
 msgid ""
 "レフェリーは、GBB23から導入された、審査員とは別のメンバーです。審査員は各出場者の評価を行うのに対し、レフェリーは「ルールを守っているか」を確認する役割を担います。"
 msgstr ""
@@ -1044,7 +1044,7 @@ msgid "全出場者一覧"
 msgstr "Liosta iomlán na rannpháirtithe"
 
 #: templates/2025/top.html:77 templates/2025/top.html:105
-#: templates/2026/rule.html:257 templates/2026/top.html:85
+#: templates/2026/rule.html:262 templates/2026/top.html:85
 #: templates/2026/top.html:110 templates/common/cancels.html:3
 #: templates/common/cancels.html:4 templates/common/cancels.html:5
 #: templates/common/cancels.html:10 templates/common/participants.html:140
@@ -1365,8 +1365,8 @@ msgid "ソースサイト"
 msgstr "Suíomh foinse: "
 
 #: templates/2026/rule.html:32 templates/2026/rule.html:78
-#: templates/2026/rule.html:197 templates/2026/rule.html:227
-#: templates/2026/rule.html:370
+#: templates/2026/rule.html:202 templates/2026/rule.html:232
+#: templates/2026/rule.html:375
 msgid "チャレンジャーシリーズ"
 msgstr "Sraith Dúshlán"
 
@@ -1374,7 +1374,7 @@ msgstr "Sraith Dúshlán"
 msgid "繰り上げ出場について"
 msgstr "Maidir le rannpháirtíocht ardaithe céime"
 
-#: templates/2026/rule.html:56 templates/2026/rule.html:548
+#: templates/2026/rule.html:56 templates/2026/rule.html:553
 msgid "セカンドリーグ"
 msgstr "An Dara Sraith"
 
@@ -1418,7 +1418,19 @@ msgstr ""
 "Mínítear gur iarr Beatboxer-i go rialta go reáchtálfaí comórtas 8 duine ó "
 "GBB 2021."
 
+#: templates/2026/rule.html:161
+msgid "特別ルール"
+msgstr "Rialacha"
+
 #: templates/2026/rule.html:163
+msgid ""
+"合計5人の審査員が採点しますが、その中の最高点と最低点をカットした、残りの3人の平均点を得点とします。極端な評価に左右されない、安定した採点方式です。"
+msgstr ""
+"Scóráil 5 moltóir ar fad, ach baintear an scór is airde agus an scór is "
+"ísle, agus is é meánscór na 3 moltóir eile an scór deiridh. Is córas scórála"
+" cobhsaí é seo nach gcuireann measúnuithe foircneacha isteach air."
+
+#: templates/2026/rule.html:168
 #, python-brace-format
 msgid ""
 "{ComebackWildcard}は、通常の{SoloWildcard}ランキングで出場枠を獲得できなかった方のうち1名が、特別枠として出場権を獲得する制度です。"
@@ -1427,44 +1439,44 @@ msgstr ""
 "éirigh leo sliotán iontrála a fháil sa rátáil {SoloWildcard} ghnáth, ceart "
 "iontrála mar shliotán speisialta."
 
-#: templates/2026/rule.html:166 templates/2026/rule.html:324
+#: templates/2026/rule.html:171 templates/2026/rule.html:329
 msgid "対象"
 msgstr "Sprioc"
 
-#: templates/2026/rule.html:168
+#: templates/2026/rule.html:173
 msgid "10位〜25位"
 msgstr "10ú go 25ú háit"
 
-#: templates/2026/rule.html:171
+#: templates/2026/rule.html:176
 msgid "選出の流れ"
 msgstr "An próiseas roghnúcháin"
 
-#: templates/2026/rule.html:174
+#: templates/2026/rule.html:179
 msgid "審査員による指名"
 msgstr "Ainmniú ag breithiúna"
 
-#: templates/2026/rule.html:175
+#: templates/2026/rule.html:180
 msgid "5名の審査員が、対象者の中から各自1名を自由に指名します（最大5名が候補）。"
 msgstr ""
 "Ainmneoidh 5 breitheamh duine amháin go saor as an sprioc (5 iarrthóir ar a "
 "mhéad)."
 
-#: templates/2026/rule.html:176
+#: templates/2026/rule.html:181
 msgid "※5名全員が同じアーティストを指名した場合、その時点で出場者が確定します。"
 msgstr ""
 "※Má ainmníonn na 5 duine an t-ealaíontóir céanna, socraítear an rannpháirtí "
 "ag an bpointe sin."
 
-#: templates/2026/rule.html:179
+#: templates/2026/rule.html:184
 #, python-brace-format
 msgid "再投票（審査員+{Swissbeatbox} {YouTube}メンバーシップ）"
 msgstr "Vótaíocht arís (breithiúna + ballraíocht {Swissbeatbox} {YouTube})"
 
-#: templates/2026/rule.html:181
+#: templates/2026/rule.html:186
 msgid "審査員の票：各審査員が候補者をランキングします。"
 msgstr "Vótaí breithiúna: Rangaíonn gach breitheamh na hiarrthóirí."
 
-#: templates/2026/rule.html:182
+#: templates/2026/rule.html:187
 #, python-brace-format
 msgid ""
 "メンバー票：生配信中に{Swissbeatbox} "
@@ -1474,11 +1486,11 @@ msgstr ""
 "{Swissbeatbox} {YouTube}, agus áirítear an toradh mar vóta an \"6ú "
 "breithiúna\"."
 
-#: templates/2026/rule.html:186
+#: templates/2026/rule.html:191
 msgid "勝者の決定"
 msgstr "Cinneadh an bhuaiteora"
 
-#: templates/2026/rule.html:187
+#: templates/2026/rule.html:192
 #, python-brace-format
 msgid ""
 "審査員5名 + {Swissbeatbox} "
@@ -1488,58 +1500,58 @@ msgstr ""
 "iomlán) a thiontú go pointí agus a shuimiú, agus beidh an duine amháin leis "
 "an scór iomlán is airde ag rannpháirtíocht i GBB {year}."
 
-#: templates/2026/rule.html:191
+#: templates/2026/rule.html:196
 msgid "GBB出場権獲得条件"
 msgstr "Critéir cáilithe don GBB"
 
-#: templates/2026/rule.html:193
+#: templates/2026/rule.html:198
 msgid "GBB出場権を得る方法は、以下の通りです。"
 msgstr "Seo a leanas an bealach chun cáiliú do GBB."
 
-#: templates/2026/rule.html:196 templates/2026/rule.html:201
+#: templates/2026/rule.html:201 templates/2026/rule.html:206
 msgid "上位入賞者"
 msgstr "Rannpháirtithe is fearr"
 
-#: templates/2026/rule.html:197 templates/2026/rule.html:227
+#: templates/2026/rule.html:202 templates/2026/rule.html:232
 msgid "優勝者のみ"
 msgstr "Don bhuaiteoir amháin"
 
-#: templates/2026/rule.html:293
+#: templates/2026/rule.html:298
 msgid "繰り上げ出場"
 msgstr "Rannpháirtíocht ardaithe céime"
 
-#: templates/2026/rule.html:295
+#: templates/2026/rule.html:300
 msgid "基本的には、2026年8月1日を境に対応が変わるのがポイントです。"
 msgstr "Go bunúsach, is é an pointe go n-athraíonn an cás ar 1 Lúnasa 2026."
 
-#: templates/2026/rule.html:297
+#: templates/2026/rule.html:302
 msgid "繰り上げ期限"
 msgstr "Spriocdháta ardaithe céime"
 
-#: templates/2026/rule.html:301
+#: templates/2026/rule.html:306
 msgid "期限"
 msgstr "Spriocdhátaí comhdaigh"
 
-#: templates/2026/rule.html:302
+#: templates/2026/rule.html:307
 msgid "対応"
 msgstr "Cás"
 
-#: templates/2026/rule.html:307
+#: templates/2026/rule.html:312
 msgid "2026年8月1日まで"
 msgstr "Go dtí 1 Lúnasa 2026"
 
-#: templates/2026/rule.html:308
+#: templates/2026/rule.html:313
 #, python-brace-format
 msgid "原則として、辞退者が出た場合は{Wildcard}下位からの繰り上げが発生します。"
 msgstr ""
 "Má tharlaíonn tarraingt siar ó GBB, déanfar ardú céime ó na céimeanna níos "
 "ísle de {Wildcard}."
 
-#: templates/2026/rule.html:311
+#: templates/2026/rule.html:316
 msgid "2026年8月1日以降"
 msgstr "Ó 1 Lúnasa 2026 ar aghaidh"
 
-#: templates/2026/rule.html:312
+#: templates/2026/rule.html:317
 #, python-brace-format
 msgid "{Swissbeatbox}が個別に判断します。渡航ビザの取得や移動の手配が間に合うかなど、状況に応じて決定されます。"
 msgstr ""
@@ -1547,63 +1559,63 @@ msgstr ""
 "shampla an bhfaighidh tú víosa taistil agus an mbeidh socruithe taistil in "
 "am."
 
-#: templates/2026/rule.html:317
+#: templates/2026/rule.html:322
 msgid "繰り上げ対象"
 msgstr "Sprioc ardaithe céime"
 
-#: templates/2026/rule.html:318
+#: templates/2026/rule.html:323
 #, python-brace-format
 msgid "繰り上げの対象となるのは、{Wildcard}の順位が上位の人たちに限定されています。"
 msgstr ""
 "Tá sprioc an ardaithe céime teoranta do dhaoine a bhfuil rangú níos airde "
 "acu sa {Wildcard}."
 
-#: templates/2026/rule.html:331
+#: templates/2026/rule.html:336
 msgid "15位まで"
 msgstr "Go dtí an 15ú háit"
 
-#: templates/2026/rule.html:332
+#: templates/2026/rule.html:337
 msgid "16位以下の繰り上げは一切無し"
 msgstr "Níl aon ardú céime ar bith faoin 16ú háit"
 
-#: templates/2026/rule.html:336
+#: templates/2026/rule.html:341
 msgid "20位まで"
 msgstr "Go dtí an 20ú háit"
 
-#: templates/2026/rule.html:337
+#: templates/2026/rule.html:342
 msgid "21位以降は運営の個別判断"
 msgstr ""
 "Ón 21ú háit ar aghaidh, is breithniú aonarach de chuid an oibriúcháin é"
 
-#: templates/2026/rule.html:341
+#: templates/2026/rule.html:346
 msgid "10位まで"
 msgstr "Go dtí an 10ú háit"
 
-#: templates/2026/rule.html:342
+#: templates/2026/rule.html:347
 msgid "11位以下の繰り上げは一切無し"
 msgstr "Níl aon ardú céime ar bith faoin 11ú háit"
 
-#: templates/2026/rule.html:346
+#: templates/2026/rule.html:351
 msgid "5位まで"
 msgstr "Go dtí an 5ú háit"
 
-#: templates/2026/rule.html:347
+#: templates/2026/rule.html:352
 msgid "6位以下の繰り上げは一切無し"
 msgstr "Níl aon ardú céime ar bith faoin 6ú háit"
 
-#: templates/2026/rule.html:352
+#: templates/2026/rule.html:357
 msgid "特殊なケース"
 msgstr "Cásanna speisialta"
 
-#: templates/2026/rule.html:356
+#: templates/2026/rule.html:361
 msgid "項目"
 msgstr "Mír"
 
-#: templates/2026/rule.html:357
+#: templates/2026/rule.html:362
 msgid "説明"
 msgstr "Míniú"
 
-#: templates/2026/rule.html:363
+#: templates/2026/rule.html:368
 #, python-brace-format
 msgid "8月1日以降に辞退が発生し、繰り上げができない場合、対戦形式ではなく{Showcase}形式に変更されることがあります。"
 msgstr ""
@@ -1611,69 +1623,69 @@ msgstr ""
 "céime a dhéanamh, d'fhéadfadh sé a athrú go foirm {Showcase} seachas foirm "
 "catha."
 
-#: templates/2026/rule.html:367
+#: templates/2026/rule.html:372
 msgid "優勝者が辞退しても繰り上げはありません。"
 msgstr "Fiú má tharraingíonn an buaiteoir siar, ní bheidh aon ardú céime ann."
 
-#: templates/2026/rule.html:371
+#: templates/2026/rule.html:376
 msgid "辞退が発生した場合、3名までは繰り上げを行いますが、4名以上の辞退には対応しません。"
 msgstr ""
 "Má tharlaíonn tarraingt siar, déanfar ardú céime go dtí 3 duine, ach ní "
 "fhreagrófar do 4 nó níos mó tarraingt siar."
 
-#: templates/2026/rule.html:396
+#: templates/2026/rule.html:401
 msgid "制限時間を使い切らず余らせた場合、1秒につき最終順位を1つ下げる"
 msgstr ""
 "Má úsáideann tú an t-am atá fágtha, laghdaítear do rátáil deiridh faoi 1 "
 "phointe gach soicind."
 
-#: templates/2026/rule.html:400
+#: templates/2026/rule.html:405
 msgid "3月28日〜30日"
 msgstr "28–30 Márta"
 
-#: templates/2026/rule.html:400 templates/2026/rule.html:404
-#: templates/2026/rule.html:408
+#: templates/2026/rule.html:405 templates/2026/rule.html:409
+#: templates/2026/rule.html:413
 msgid "3月1日"
 msgstr "1 Márta"
 
-#: templates/2026/rule.html:404
+#: templates/2026/rule.html:409
 msgid "3月23日〜24日"
 msgstr "23–24 Márta"
 
-#: templates/2026/rule.html:408
+#: templates/2026/rule.html:413
 msgid "3分31秒以上はペナルティ対象"
 msgstr "3 nóiméad 31 soicind nó níos mó is cuspóir pionóis é"
 
-#: templates/2026/rule.html:408
+#: templates/2026/rule.html:413
 msgid "3月25日〜27日"
 msgstr "25–27 Márta"
 
-#: templates/2026/rule.html:412
+#: templates/2026/rule.html:417
 msgid "5月1日〜2日"
 msgstr "1–2 Bealtaine"
 
-#: templates/2026/rule.html:412 templates/2026/rule.html:416
+#: templates/2026/rule.html:417 templates/2026/rule.html:421
 msgid "4月12日"
 msgstr "12 Aibreán"
 
-#: templates/2026/rule.html:416
+#: templates/2026/rule.html:421
 msgid "5分01秒以上はペナルティ対象"
 msgstr "5 nóiméad 1 soicind nó níos mó is cuspóir pionóis é"
 
-#: templates/2026/rule.html:416
+#: templates/2026/rule.html:421
 msgid "5月3日〜4日"
 msgstr "3–4 Bealtaine"
 
-#: templates/2026/rule.html:465 templates/2026/rule.html:469
-#: templates/2026/rule.html:473
+#: templates/2026/rule.html:470 templates/2026/rule.html:474
+#: templates/2026/rule.html:478
 msgid "審査員なし"
 msgstr "Gan breithiúna"
 
-#: templates/2026/rule.html:549
+#: templates/2026/rule.html:554
 msgid "正式名称"
 msgstr "Ainm oifigiúil"
 
-#: templates/2026/rule.html:551
+#: templates/2026/rule.html:556
 #, python-brace-format
 msgid ""
 "今年から新たに「セカンドリーグ」が設けられました。セカンドリーグは、中国で開催され、GBB {year} "
@@ -1683,59 +1695,59 @@ msgstr ""
 "Sraith sa tSín, agus tabharfar cuireadh do dhaoine a bhí sa dara háit i "
 "rannóg {Solo} GBB {year}."
 
-#: templates/2026/rule.html:552
+#: templates/2026/rule.html:557
 #, python-brace-format
 msgid "この「セカンドリーグ」で優勝すれば、GBB {year} {Solo}部門への出場権が得られます。"
 msgstr ""
 "Má bhuann tú sa \"Dara Sraith\" seo, gheobhaidh tú áit i rannóg GBB {year} "
 "{Solo}."
 
-#: templates/2026/rule.html:556
+#: templates/2026/rule.html:561
 #, python-brace-format
 msgid "ランナーズアップ：本戦に出場できなかった、{Wildcard}上位入賞者"
 msgstr ""
 "Iomaitheoirí Cúlchiste: Iomaitheoirí barr-rangaithe {Wildcard} nár éirigh "
 "leo páirt a ghlacadh sa phríomhchomórtas."
 
-#: templates/2026/rule.html:557
+#: templates/2026/rule.html:562
 #, python-brace-format
 msgid "例：{Wildcard}出場枠が8枠の場合、9位～16位を指します。"
 msgstr ""
 "Sampla: Má tá 8 sliotán iontrála {Wildcard} ann, tagraíonn sé do na "
 "háiteanna 9ú go 16ú."
 
-#: templates/2026/rule.html:560
+#: templates/2026/rule.html:565
 msgid "当サイトでは、セカンドリーグについての情報は取り扱わない方針です。"
 msgstr "Ní láimhseáiltear faisnéis faoin dara léig ar an suíomh seo."
 
-#: templates/2026/rule.html:562
+#: templates/2026/rule.html:567
 msgid "ここまで読んでくださった皆様へ"
 msgstr "Do gach duine a léigh go dtí seo"
 
-#: templates/2026/rule.html:563
+#: templates/2026/rule.html:568
 msgid "今年のルールは例年と比べて変化が大きく、理解が難しかったと思います。"
 msgstr ""
 "Sílim go raibh na rialacha i mbliana níos mó athraithe i gcomparáid le "
 "blianta eile agus go raibh sé deacair iad a thuiscint."
 
-#: templates/2026/rule.html:564
+#: templates/2026/rule.html:569
 msgid "私自身、2時間もかけてこのページを執筆しました。マジで疲れた"
 msgstr ""
 "Scríobh mé féin an leathanach seo le 2 uair an chloig. Bhí mé tuirseach go "
 "fírinneach"
 
-#: templates/2026/rule.html:565
+#: templates/2026/rule.html:570
 #, python-brace-format
 msgid "そこで、ルールをよりわかりやすく解説してくれる「GBB {year} なんでもチャット」をご用意しました。"
 msgstr ""
 "Dá bhrí sin, táimid tar éis \"GBB {year} comhrá ar bith\" a sholáthar a "
 "mhíneoidh na rialacha níos soiléire."
 
-#: templates/2026/rule.html:568
+#: templates/2026/rule.html:573
 msgid "なんでもチャット"
 msgstr "Comhrá ar bith"
 
-#: templates/2026/rule.html:571
+#: templates/2026/rule.html:576
 msgid "ぜひこちらをご活用ください！"
 msgstr "Bain úsáid as seo le do thoil!"
 
@@ -1917,7 +1929,7 @@ msgstr "Filleadh abhaile"
 #: templates/2025/ticket.html:17 templates/2025/timetable.html:159
 #: templates/2025/top.html:97 templates/2025/wildcards.html:14
 #: templates/2025/wildcards.html:83 templates/2026/rule.html:74
-#: templates/2026/rule.html:288 templates/2026/rule.html:495
+#: templates/2026/rule.html:293 templates/2026/rule.html:500
 #: templates/2026/stream.html:18 templates/2026/timetable.html:125
 #: templates/2026/top.html:102 templates/2026/wildcards.html:12
 #: templates/2026/wildcards.html:59 templates/base.html:239
@@ -1933,7 +1945,7 @@ msgstr "{Wildcard} toradh"
 #: templates/2025/ticket.html:17 templates/2025/timetable.html:159
 #: templates/2025/top.html:97 templates/2025/wildcards.html:14
 #: templates/2025/wildcards.html:83 templates/2026/rule.html:74
-#: templates/2026/rule.html:495 templates/2026/stream.html:18
+#: templates/2026/rule.html:500 templates/2026/stream.html:18
 #: templates/2026/timetable.html:125 templates/2026/top.html:102
 #: templates/2026/wildcards.html:12 templates/2026/wildcards.html:59
 #: templates/base.html:239 templates/common/result.html:110
