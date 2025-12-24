@@ -1469,8 +1469,8 @@ msgstr ""
 #, python-brace-format
 msgid "※5名全員が同じ{Beatboxer}を指名した場合、その時点で出場者が確定します。"
 msgstr ""
-"※Jika kesemua 5 orang mencalonkan artis yang sama, peserta akan ditentukan "
-"pada masa itu."
+"※Jika kesemua 5 orang hakim mencalonkan {Beatboxer} yang sama, peserta akan "
+"ditentukan pada masa itu."
 
 #: templates/2026/rule.html:198
 #, python-brace-format

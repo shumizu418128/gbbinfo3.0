@@ -1450,9 +1450,9 @@ msgstr ""
 msgid ""
 "{ComebackWildcard}は、通常の{SoloWildcard}ランキングで出場枠を獲得できなかった{Beatboxer}のうち1名が、特別枠として出場権を獲得する制度です。"
 msgstr ""
-"{ComebackWildcard} è un sistema in cui una persona tra coloro che non sono "
-"riusciti a ottenere un posto nella classifica normale {SoloWildcard} ottiene"
-" il diritto di partecipazione come posto speciale."
+"{ComebackWildcard} è un sistema in cui un {Beatboxer} tra coloro che non "
+"sono riusciti a ottenere un posto nella classifica normale {SoloWildcard} "
+"ottiene il diritto di partecipazione come posto speciale."
 
 #: templates/2026/rule.html:185 templates/2026/rule.html:370
 msgid "対象"
@@ -1480,8 +1480,8 @@ msgstr ""
 #, python-brace-format
 msgid "※5名全員が同じ{Beatboxer}を指名した場合、その時点で出場者が確定します。"
 msgstr ""
-"※ Se tutti e 5 i giudici nominano lo stesso artista, il partecipante viene "
-"determinato in quel momento."
+"※ Se tutti e 5 i giudici nominano lo stesso {Beatboxer}, il partecipante "
+"viene determinato in quel momento."
 
 #: templates/2026/rule.html:198
 #, python-brace-format

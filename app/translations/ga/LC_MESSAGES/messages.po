@@ -1433,9 +1433,9 @@ msgstr ""
 msgid ""
 "{ComebackWildcard}は、通常の{SoloWildcard}ランキングで出場枠を獲得できなかった{Beatboxer}のうち1名が、特別枠として出場権を獲得する制度です。"
 msgstr ""
-"Is córas é {ComebackWildcard} ina bhfaigheann duine amháin de na daoine nár "
-"éirigh leo sliotán iontrála a fháil sa rátáil {SoloWildcard} ghnáth, ceart "
-"iontrála mar shliotán speisialta."
+"Is córas é {ComebackWildcard} ina bhfaigheann duine amháin de na "
+"{Beatboxer} nár éirigh leo sliotán iontrála a fháil sa ghnáth-rangú "
+"{SoloWildcard} ceart iontrála mar shliotán speisialta."
 
 #: templates/2026/rule.html:185 templates/2026/rule.html:370
 msgid "対象"
@@ -1463,7 +1463,7 @@ msgstr ""
 #, python-brace-format
 msgid "※5名全員が同じ{Beatboxer}を指名した場合、その時点で出場者が確定します。"
 msgstr ""
-"※Má ainmníonn na 5 duine an t-ealaíontóir céanna, socraítear an rannpháirtí "
+"※Má ainmníonn na 5 duine an {Beatboxer} céanna, socraítear an rannpháirtí "
 "ag an bpointe sin."
 
 #: templates/2026/rule.html:198
