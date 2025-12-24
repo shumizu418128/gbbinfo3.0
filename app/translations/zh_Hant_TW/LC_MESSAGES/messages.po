@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-24 23:35+0900\n"
+"POT-Creation-Date: 2025-12-24 23:53+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh_Hant_TW <LL@li.org>\n"
@@ -154,7 +154,7 @@ msgstr "請務必再次確認自己的規則。"
 #: templates/2025/wildcard_regulation.html:142
 #: templates/2025/wildcard_regulation.html:201 templates/2026/rule.html:88
 #: templates/2026/rule.html:237 templates/2026/rule.html:269
-#: templates/2026/rule.html:305 templates/2026/rule.html:369
+#: templates/2026/rule.html:304 templates/2026/rule.html:369
 #: templates/2026/rule.html:434 templates/2026/rule.html:490
 #: templates/2026/rule.html:554 templates/2026/top.html:53
 #: templates/common/cancels.html:24 templates/common/japan.html:23
@@ -211,7 +211,7 @@ msgstr "種子權 - GBB"
 #: templates/2024/rule.html:194 templates/2025/rule.html:138
 #: templates/2025/rule.html:164 templates/2025/rule.html:194
 #: templates/2025/wildcard_regulation.html:142 templates/2026/rule.html:238
-#: templates/2026/rule.html:270 templates/2026/rule.html:304
+#: templates/2026/rule.html:270 templates/2026/rule.html:305
 #: templates/common/cancels.html:23 templates/common/japan.html:22
 #: templates/common/korea.html:22 templates/common/participants.html:45
 #: templates/common/participants.html:125 templates/common/result.html:67
