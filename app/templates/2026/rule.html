@@ -13,7 +13,10 @@
 </p>
 
 <div class="button-container">
-  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ language }}/travel/top"><button style="background-image: url('/static/images/button/zenhit.webp');" class="button-with-background-image">
+    <svg class="button-background-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0044CC"><path d="M480-80Q315-220 237.5-339T160-570q0-137 96.5-223.5T480-880q127 0 223.5 89T800-552l84-84 56 56-180 180-180-180 56-56 84 84q0-109-69.5-178.5T480-800q-101 0-170.5 67T240-569q0 83 59 177t181 206q20-18 37-35l34-34q-5-11-8-22t-3-23q0-42 29-71t71-29q42 0 71 29t29 71q0 42-29 71t-71 29q-8 0-14.5-1t-13.5-3q-29 30-61.5 61T480-80Z"/></svg>
+    <span class="button-text-with-icon">ワルシャワへ行こう</span>
+  </button></a>
   <a href="/{{ language }}/{{ year }}/wildcards"><button>{{_("{Wildcard}一覧").format(Wildcard="Wildcard")}}</button></a>
 </div>
 
@@ -70,7 +73,10 @@
 </p>
 
 <div class="button-container">
-  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ language }}/travel/top"><button style="background-image: url('/static/images/button/zenhit.webp');" class="button-with-background-image">
+    <svg class="button-background-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0044CC"><path d="M480-80Q315-220 237.5-339T160-570q0-137 96.5-223.5T480-880q127 0 223.5 89T800-552l84-84 56 56-180 180-180-180 56-56 84 84q0-109-69.5-178.5T480-800q-101 0-170.5 67T240-569q0 83 59 177t181 206q20-18 37-35l34-34q-5-11-8-22t-3-23q0-42 29-71t71-29q42 0 71 29t29 71q0 42-29 71t-71 29q-8 0-14.5-1t-13.5-3q-29 30-61.5 61T480-80Z"/></svg>
+    <span class="button-text-with-icon">ワルシャワへ行こう</span>
+  </button></a>
   <a href="/{{ language }}/{{ year }}/participants"><button>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}} & {{_("出場者")}}</button></a>
 </div>
 
@@ -163,6 +169,14 @@
   {{_("合計5人の審査員が採点しますが、その中の最高点と最低点をカットした、残りの3人の平均点を得点とします。極端な評価に左右されない、安定した採点方式です。")}}
 </p>
 
+<div class="button-container">
+  <a href="/{{ language }}/travel/top"><button style="background-image: url('/static/images/button/zenhit.webp');" class="button-with-background-image">
+    <svg class="button-background-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0044CC"><path d="M480-80Q315-220 237.5-339T160-570q0-137 96.5-223.5T480-880q127 0 223.5 89T800-552l84-84 56 56-180 180-180-180 56-56 84 84q0-109-69.5-178.5T480-800q-101 0-170.5 67T240-569q0 83 59 177t181 206q20-18 37-35l34-34q-5-11-8-22t-3-23q0-42 29-71t71-29q42 0 71 29t29 71q0 42-29 71t-71 29q-8 0-14.5-1t-13.5-3q-29 30-61.5 61T480-80Z"/></svg>
+    <span class="button-text-with-icon">ワルシャワへ行こう</span>
+  </button></a>
+  <a href="/{{ language }}/{{ year }}/participants"><button>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}} & {{_("出場者")}}</button></a>
+</div>
+
 <h2 id="comeback-wildcard-section">COMEBACK Wildcard</h2>
 <p>
   {{_("{ComebackWildcard}は、通常の{SoloWildcard}ランキングで出場枠を獲得できなかった方のうち1名が、特別枠として出場権を獲得する制度です。").format(ComebackWildcard="COMEBACK Wildcard", SoloWildcard="Solo Wildcard")}}
@@ -193,6 +207,18 @@
   </li>
 </ol>
 
+<div class="button-container">
+  <a href="/{{ language }}/travel/top"><button style="background-image: url('/static/images/button/zenhit.webp');" class="button-with-background-image">
+    <svg class="button-background-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0044CC"><path d="M480-80Q315-220 237.5-339T160-570q0-137 96.5-223.5T480-880q127 0 223.5 89T800-552l84-84 56 56-180 180-180-180 56-56 84 84q0-109-69.5-178.5T480-800q-101 0-170.5 67T240-569q0 83 59 177t181 206q20-18 37-35l34-34q-5-11-8-22t-3-23q0-42 29-71t71-29q42 0 71 29t29 71q0 42-29 71t-71 29q-8 0-14.5-1t-13.5-3q-29 30-61.5 61T480-80Z"/></svg>
+    <span class="button-text-with-icon">ワルシャワへ行こう</span>
+  </button></a>
+  {% if language == 'ko' %}
+    <a href="/{{ language }}/{{ year }}/korea"><button>{{_("韓国代表")}}</button></a>
+  {% else %}
+    <a href="/{{ language }}/{{ year }}/japan"><button>{{_("日本代表")}}</button></a>
+  {% endif %}
+</div>
+
 <h2 id="seeds-section" name="seeds">{{_("GBB出場権獲得条件")}}</h2>
 <p>
   {{ _("GBB出場権を得る方法は、以下の通りです。") }}
@@ -205,86 +231,100 @@
 
 <h3>GBB {{ year - 1 }} {{_("上位入賞者")}}</h3>
 {% if gbb_seed|length > 0 %}
-    <table>
-        <thead>
-            <tr>
-                <th style="width: 33%;">{{_("名前")}}</th>
-                <th style="width: 34%;">{{_("部門")}}</th>
-                <th style="width: 33%;">{{_("出場権")}}</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for participant in gbb_seed %}
-                <tr>
-                    <td><a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a></td>
-                    <td>{{ participant.category }}</td>
-                    <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
-                    {{ participant.ticket_class }}
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+  <table style="font-size: 14px;">
+    <thead>
+      <tr>
+        <th class="participant-table-left-col">{{_("名前")}}</th>
+        <th class="participant-table-name-col">{{_("部門")}}</th>
+        <th class="participant-table-right-col">{{_("出場権")}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for participant in gbb_seed %}
+        <tr>
+          <td class="participant-table-left-col">
+            {% include "includes/country_flag.html" %}
+            <a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">
+              {{ participant.name }}
+            </a>
+          </td>
+          <td class="participant-table-name-col">{{ participant.category }}</td>
+          <td class="participant-table-right-col">
+            {{ participant.ticket_class }}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 {% else %}
   <p>{{_("発表次第更新")}}</p>
 {% endif %}
 
 <h3>{{_("チャレンジャーシリーズ")}}<br>{{_("優勝者のみ")}}</h3>
 {% if other_seed|length > 0 %}
-    <table>
-        <thead>
-            <tr>
-                <th style="width: 33%;">{{_("名前")}}</th>
-                <th style="width: 34%;">{{_("部門")}}</th>
-                <th style="width: 33%;">{{_("出場権")}}</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for participant in other_seed %}
-                <tr>
-                    {% if participant.name == "???" %}
-                        <td>{{ participant.name }}</td>
-                    {% else %}
-                        <td><a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a></td>
-                    {% endif %}
-                    <td>{{ participant.category }}</td>
-                    <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
-                        {{ participant.ticket_class }}
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+  <table style="font-size: 14px;">
+    <thead>
+      <tr>
+        <th class="participant-table-left-col">{{_("名前")}}</th>
+        <th class="participant-table-name-col">{{_("部門")}}</th>
+        <th class="participant-table-right-col">{{_("出場権")}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for participant in other_seed %}
+        <tr>
+          {% if participant.name == "???" %}
+            <td class="participant-table-left-col">{{ participant.name }}</td>
+          {% else %}
+            <td class="participant-table-left-col">
+              {% include "includes/country_flag.html" %}
+              <a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">
+                {{ participant.name }}
+              </a>
+            </td>
+          {% endif %}
+          <td class="participant-table-name-col">{{ participant.category }}</td>
+          <td class="participant-table-right-col">
+            {{ participant.ticket_class }}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 {% else %}
   <p>{{_("発表次第更新")}}</p>
 {% endif %}
 
 <h3>{{_("辞退者一覧")}}</h3>
 {% if cancelled|length > 0 %}
-    <table>
-        <thead>
-            <tr>
-            <th style="width: 33%;">{{_("名前")}}</th>
-            <th style="width: 34%;">{{_("部門")}}</th>
-            <th style="width: 33%;">{{_("出場権")}}</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for participant in cancelled %}
-                <tr>
-                    <td>
-                        【{{_("辞退")}}】<br><a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">{% include "includes/country_flag.html" %}{{ participant.name }}</a>
-                    </td>
-                    <td>
-                        <s>{{ participant.category }}</s>
-                    </td>
-                    <td {% if participant.ticket_class|length > 10 %} style="font-size: 12px;" {% endif %}>
-                        <s>{{ participant.ticket_class }}</s>
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+  <table style="font-size: 14px;">
+    <thead>
+      <tr>
+        <th class="participant-table-left-col">{{_("名前")}}</th>
+        <th class="participant-table-name-col">{{_("部門")}}</th>
+        <th class="participant-table-right-col">{{_("出場権")}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for participant in cancelled %}
+        <tr>
+          <td class="participant-table-left-col">
+            【{{_("辞退")}}】<br>
+            {% include "includes/country_flag.html" %}
+            <a href="/{{ language }}/participant_detail/{{ participant.id }}/{{ participant.mode }}">
+              {{ participant.name }}
+            </a>
+          </td>
+          <td class="participant-table-name-col">
+            <s>{{ participant.category }}</s>
+          </td>
+          <td class="participant-table-right-col">
+            <s>{{ participant.ticket_class }}</s>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 {% else %}
   <p>{{_("発表次第更新")}}</p>
 {% endif %}
@@ -379,12 +419,11 @@
 </table>
 
 <div class="button-container">
-  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
-  {% if language == 'ko' %}
-    <a href="/{{ language }}/{{ year }}/korea"><button>{{_("韓国代表")}}</button></a>
-  {% else %}
-    <a href="/{{ language }}/{{ year }}/japan"><button>{{_("日本代表")}}</button></a>
-  {% endif %}
+  <a href="/{{ language }}/travel/top"><button style="background-image: url('/static/images/button/zenhit.webp');" class="button-with-background-image">
+    <svg class="button-background-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0044CC"><path d="M480-80Q315-220 237.5-339T160-570q0-137 96.5-223.5T480-880q127 0 223.5 89T800-552l84-84 56 56-180 180-180-180 56-56 84 84q0-109-69.5-178.5T480-800q-101 0-170.5 67T240-569q0 83 59 177t181 206q20-18 37-35l34-34q-5-11-8-22t-3-23q0-42 29-71t71-29q42 0 71 29t29 71q0 42-29 71t-71 29q-8 0-14.5-1t-13.5-3q-29 30-61.5 61T480-80Z"/></svg>
+    <span class="button-text-with-icon">ワルシャワへ行こう</span>
+  </button></a>
+  <a href="/{{ language }}/{{ year }}/cancels"><button>{{_("辞退者一覧")}}</button></a>
 </div>
 
 <h2 id="wildcard-rules-section" name="result_date">Wildcard {{_("ルール")}}</h2>
@@ -432,7 +471,10 @@
 </table>
 
 <div class="button-container">
-  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ language }}/travel/top"><button style="background-image: url('/static/images/button/zenhit.webp');" class="button-with-background-image">
+    <svg class="button-background-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0044CC"><path d="M480-80Q315-220 237.5-339T160-570q0-137 96.5-223.5T480-880q127 0 223.5 89T800-552l84-84 56 56-180 180-180-180 56-56 84 84q0-109-69.5-178.5T480-800q-101 0-170.5 67T240-569q0 83 59 177t181 206q20-18 37-35l34-34q-5-11-8-22t-3-23q0-42 29-71t71-29q42 0 71 29t29 71q0 42-29 71t-71 29q-8 0-14.5-1t-13.5-3q-29 30-61.5 61T480-80Z"/></svg>
+    <span class="button-text-with-icon">ワルシャワへ行こう</span>
+  </button></a>
   <a href="/{{ language }}/others/result_stream"><button>{{_("{Wildcard}結果発表配信").format(Wildcard="Wildcard")}}</button></a>
 </div>
 
@@ -496,7 +538,10 @@
 </div>
 
 <div class="button-container">
-  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ language }}/travel/top"><button style="background-image: url('/static/images/button/zenhit.webp');" class="button-with-background-image">
+    <svg class="button-background-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0044CC"><path d="M480-80Q315-220 237.5-339T160-570q0-137 96.5-223.5T480-880q127 0 223.5 89T800-552l84-84 56 56-180 180-180-180 56-56 84 84q0-109-69.5-178.5T480-800q-101 0-170.5 67T240-569q0 83 59 177t181 206q20-18 37-35l34-34q-5-11-8-22t-3-23q0-42 29-71t71-29q42 0 71 29t29 71q0 42-29 71t-71 29q-8 0-14.5-1t-13.5-3q-29 30-61.5 61T480-80Z"/></svg>
+    <span class="button-text-with-icon">ワルシャワへ行こう</span>
+  </button></a>
   <a href="/{{ language }}/{{ year }}/participants"><button>{{_("{Wildcard}結果").format(Wildcard="Wildcard")}} & {{_("出場者")}}</button></a>
 </div>
 
@@ -546,7 +591,10 @@
 </div>
 
 <div class="button-container">
-  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ language }}/travel/top"><button style="background-image: url('/static/images/button/zenhit.webp');" class="button-with-background-image">
+    <svg class="button-background-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0044CC"><path d="M480-80Q315-220 237.5-339T160-570q0-137 96.5-223.5T480-880q127 0 223.5 89T800-552l84-84 56 56-180 180-180-180 56-56 84 84q0-109-69.5-178.5T480-800q-101 0-170.5 67T240-569q0 83 59 177t181 206q20-18 37-35l34-34q-5-11-8-22t-3-23q0-42 29-71t71-29q42 0 71 29t29 71q0 42-29 71t-71 29q-8 0-14.5-1t-13.5-3q-29 30-61.5 61T480-80Z"/></svg>
+    <span class="button-text-with-icon">ワルシャワへ行こう</span>
+  </button></a>
   <a href="/{{ language }}/{{ year }}/wildcards"><button>{{_("{Wildcard}一覧").format(Wildcard="Wildcard")}}</button></a>
 </div>
 
