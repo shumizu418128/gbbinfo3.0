@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-24 14:38+0900\n"
+"POT-Creation-Date: 2025-12-24 14:46+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ta <LL@li.org>\n"
@@ -1649,7 +1649,7 @@ msgstr ""
 #: templates/2026/rule.html:401
 msgid "制限時間を使い切らず余らせた場合、1秒につき最終順位を1つ下げる"
 msgstr ""
-"நேர வரம்பை முடிக்காமல் விட்டால், ஒவ்வொரு 3 வினாடிக்கும் இறுதி தரவரிசை ஒன்றை "
+"நேர வரம்பை முடிக்காமல் விட்டால், ஒவ்வொரு 1 வினாடிக்கும் இறுதி தரவரிசை ஒன்றை "
 "குறைக்கப்படும்."
 
 #: templates/2026/rule.html:405
