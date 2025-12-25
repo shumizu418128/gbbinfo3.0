@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-25 00:02+0900\n"
+"POT-Creation-Date: 2025-12-25 19:23+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: hu <LL@li.org>\n"
@@ -1094,7 +1094,7 @@ msgstr "Korhatár"
 #: templates/2025/wildcard_regulation.html:41
 #, python-brace-format
 msgid "{Wildcard}提出について"
-msgstr "Az alábbiak {Wildcard}ot készítő {Beatboxer}eknek szóló információk."
+msgstr "A {Wildcard} benyújtásáról"
 
 #: templates/2025/wildcard_regulation.html:45
 #: templates/2025/wildcard_regulation.html:197
