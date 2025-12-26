@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-25 19:23+0900\n"
+"POT-Creation-Date: 2025-12-26 13:21+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -1608,10 +1608,11 @@ msgid "20位まで"
 msgstr "Jusqu'à la 20e place"
 
 #: templates/2026/rule.html:383
-msgid "21位以降は運営の個別判断"
+#, python-brace-format
+msgid "21位以下の繰り上げは{Swissbeatbox}の個別判断"
 msgstr ""
-"La 21e place et au-delà sont soumises au jugement individuel des "
-"organisateurs"
+"La promotion à partir de la 21e place et au‑delà est à la discrétion de "
+"{Swissbeatbox}."
 
 #: templates/2026/rule.html:387
 msgid "10位まで"

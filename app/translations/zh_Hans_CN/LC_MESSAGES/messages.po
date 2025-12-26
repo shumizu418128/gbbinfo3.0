@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-25 19:23+0900\n"
+"POT-Creation-Date: 2025-12-26 13:21+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh_Hans_CN <LL@li.org>\n"
@@ -1445,8 +1445,9 @@ msgid "20位まで"
 msgstr "第20名为止"
 
 #: templates/2026/rule.html:383
-msgid "21位以降は運営の個別判断"
-msgstr "第21名以后由运营方单独判断"
+#, python-brace-format
+msgid "21位以下の繰り上げは{Swissbeatbox}の個別判断"
+msgstr "第21名及以后名次的递补由{Swissbeatbox}决定。"
 
 #: templates/2026/rule.html:387
 msgid "10位まで"

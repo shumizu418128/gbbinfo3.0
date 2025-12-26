@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-25 19:23+0900\n"
+"POT-Creation-Date: 2025-12-26 13:21+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: it <LL@li.org>\n"
@@ -1600,8 +1600,9 @@ msgid "20位まで"
 msgstr "Fino al 20° posto"
 
 #: templates/2026/rule.html:383
-msgid "21位以降は運営の個別判断"
-msgstr "Dal 21° posto in poi è a discrezione dell'organizzazione"
+#, python-brace-format
+msgid "21位以下の繰り上げは{Swissbeatbox}の個別判断"
+msgstr "La promozione oltre il 21° posto è a discrezione di {Swissbeatbox}."
 
 #: templates/2026/rule.html:387
 msgid "10位まで"
@@ -3257,7 +3258,7 @@ msgstr "Altri partecipanti"
 #~ msgstr ""
 
 #~ msgid "21位以降は運営の個別判断"
-#~ msgstr ""
+#~ msgstr "Dal 21° posto in poi è a discrezione dell'organizzazione"
 
 #~ msgid "10位まで"
 #~ msgstr ""

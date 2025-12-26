@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-25 19:23+0900\n"
+"POT-Creation-Date: 2025-12-26 13:21+0900\n"
 "PO-Revision-Date: 2025-10-29 23:04+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: et <LL@li.org>\n"
@@ -1571,8 +1571,11 @@ msgid "20位まで"
 msgstr "Kuni 20. kohani"
 
 #: templates/2026/rule.html:383
-msgid "21位以降は運営の個別判断"
-msgstr "21. kohast alates on see korralduse individuaalne otsus"
+#, python-brace-format
+msgid "21位以下の繰り上げは{Swissbeatbox}の個別判断"
+msgstr ""
+"21. koha ja sellest madalamate kohtade edasipääs on {Swissbeatbox} "
+"otsustada."
 
 #: templates/2026/rule.html:387
 msgid "10位まで"
@@ -3121,7 +3124,7 @@ msgstr "Teised osalejad"
 #~ msgstr ""
 
 #~ msgid "21位以降は運営の個別判断"
-#~ msgstr ""
+#~ msgstr "21. kohast alates on see korralduse individuaalne otsus"
 
 #~ msgid "10位まで"
 #~ msgstr ""
