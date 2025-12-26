@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-25 19:23+0900\n"
+"POT-Creation-Date: 2025-12-26 13:21+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: hi <LL@li.org>\n"
@@ -1566,8 +1566,9 @@ msgid "20位まで"
 msgstr "20वें स्थान तक"
 
 #: templates/2026/rule.html:383
-msgid "21位以降は運営の個別判断"
-msgstr "21वें स्थान के बाद प्रबंधन का व्यक्तिगत निर्णय"
+#, python-brace-format
+msgid "21位以下の繰り上げは{Swissbeatbox}の個別判断"
+msgstr "21वें स्थान और उसके नीचे की पदोन्नति {Swissbeatbox} के विवेक पर होगी।"
 
 #: templates/2026/rule.html:387
 msgid "10位まで"
@@ -3180,7 +3181,7 @@ msgstr "अन्य प्रतियोगी"
 #~ msgstr ""
 
 #~ msgid "21位以降は運営の個別判断"
-#~ msgstr ""
+#~ msgstr "21वें स्थान के बाद प्रबंधन का व्यक्तिगत निर्णय"
 
 #~ msgid "10位まで"
 #~ msgstr ""

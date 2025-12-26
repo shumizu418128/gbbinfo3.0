@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-25 19:23+0900\n"
+"POT-Creation-Date: 2025-12-26 13:21+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ga <LL@li.org>\n"
@@ -1582,9 +1582,10 @@ msgid "20位まで"
 msgstr "Go dtí an 20ú háit"
 
 #: templates/2026/rule.html:383
-msgid "21位以降は運営の個別判断"
+#, python-brace-format
+msgid "21位以下の繰り上げは{Swissbeatbox}の個別判断"
 msgstr ""
-"Ón 21ú háit ar aghaidh, is breithniú aonarach de chuid an oibriúcháin é"
+"Is ag meon {Swissbeatbox} a bheidh an ardú ó shuíomh 21 agus níos ísle."
 
 #: templates/2026/rule.html:387
 msgid "10位まで"
@@ -3183,6 +3184,7 @@ msgstr "na iomaitheoirí eile"
 
 #~ msgid "21位以降は運営の個別判断"
 #~ msgstr ""
+#~ "Ón 21ú háit ar aghaidh, is breithniú aonarach de chuid an oibriúcháin é"
 
 #~ msgid "10位まで"
 #~ msgstr ""
