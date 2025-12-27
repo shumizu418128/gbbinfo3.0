@@ -7,7 +7,7 @@ from urllib.parse import parse_qs, urlencode, urlparse, urlunparse
 from flask import jsonify, request
 from rapidfuzz import process
 
-from app.config.config import SEARCH_CACHE
+from app.config.config import SEARCH_CACHE, SUPPORTED_LOCALES
 from app.models.spreadsheet_client import spreadsheet_service
 from app.models.tavily_client import tavily_service
 
@@ -55,8 +55,16 @@ def create_url(results: list[dict], year: int) -> str:
     # tavilyは常に外部URLなので、内部URLに変換
     parsed = urlparse(url)
     url = parsed.path
+
+    # クエリパラメータが残っていれば追加
     if parsed.query:
         url += "?" + parsed.query
+
+    # 言語情報を削除
+    for lang in SUPPORTED_LOCALES:
+        if url.startswith(f"/{lang}"):
+            url = url.replace(f"/{lang}", "")
+            break
 
     return url
 
