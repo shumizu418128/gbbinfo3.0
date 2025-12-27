@@ -62,8 +62,8 @@ def create_url(results: list[dict], year: int) -> str:
 
     # 言語情報を削除
     for lang in SUPPORTED_LOCALES:
-        if url.startswith(f"/{lang}"):
-            url = url.replace(f"/{lang}", "")
+        if url.startswith(f"/{lang}/"):
+            url = url.replace(f"/{lang}/", "/", 1)
             break
 
     return url
