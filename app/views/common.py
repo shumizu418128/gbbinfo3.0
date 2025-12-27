@@ -5,7 +5,6 @@ from flask import jsonify, redirect, render_template, session
 from flask_babel import format_datetime
 from jinja2 import TemplateNotFound
 
-from app.config.config import PERMANENT_REDIRECT_CODE
 from app.context_processors import get_available_years
 from app.models.spreadsheet_client import spreadsheet_service
 from app.util.locale import get_validated_language
@@ -43,7 +42,7 @@ def time_schedule_view(year: int):
     available_years = get_available_years()
     if year not in available_years:
         year = datetime.now().year
-    return redirect(f"/{language}/{year}/timetable", code=PERMANENT_REDIRECT_CODE)
+    return redirect(f"/{language}/{year}/timetable")
 
 
 # MARK: 共通ビュー

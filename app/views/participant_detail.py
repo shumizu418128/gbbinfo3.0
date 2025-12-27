@@ -4,7 +4,6 @@ from urllib.parse import quote
 
 from flask import redirect, render_template, request, session
 
-from app.config.config import PERMANENT_REDIRECT_CODE
 from app.models.supabase_client import supabase_service
 from app.util.filter_eq import Operator
 from app.util.locale import get_validated_language
@@ -293,15 +292,11 @@ def participant_detail_deprecated_view():
     allowed_modes = {"single", "team", "team_member"}
     if mode not in allowed_modes:
         year = datetime.now().year
-        return redirect(
-            f"/{language}/{year}/participants", code=PERMANENT_REDIRECT_CODE
-        )
+        return redirect(f"/{language}/{year}/participants")
 
     # パラメータが欠落している場合は直接参加者一覧ページへリダイレクトする
     if participant_id is None or mode is None:
         year = datetime.now().year
-        return redirect(
-            f"/{language}/{year}/participants", code=PERMANENT_REDIRECT_CODE
-        )
+        return redirect(f"/{language}/{year}/participants")
 
     return redirect(f"/{language}/participant_detail/{participant_id}/{mode}")
