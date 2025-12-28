@@ -1,5 +1,6 @@
 import hashlib
 import os
+import re
 
 import deepl
 from ratelimit import limits, sleep_and_retry
@@ -24,11 +25,32 @@ class DeepLService:
         self.translator = deepl.Translator(api_key)
 
     def add_ignore_key(self, text: str, beatboxer_name: str) -> str:
-        """特定のビートボクサー名を翻訳から除外するためのキーを追加する"""
-        text = text.replace(
-            beatboxer_name, f"<{IGNORE_TAG}>{beatboxer_name}</{IGNORE_TAG}>"
-        )
-        return text
+        """
+        特定のビートボクサー名を翻訳から除外するためのキーを追加する。
+
+        Args:
+            text (str): 入力テキスト。
+            beatboxer_name (str): 除外したいビートボクサー名。
+
+        Returns:
+            str: ビートボクサー名が単語として現れる場合にのみタグで囲んだテキスト。
+
+        Notes:
+            - 名前が別の単語の一部になっている場合は置換しません。
+            - 既にタグで囲まれている場合は二重に囲みません。
+        """
+        if not beatboxer_name:
+            return text
+
+        wrapped = f"<{IGNORE_TAG}>{beatboxer_name}</{IGNORE_TAG}>"
+        # 既に囲まれている場合は処理不要
+        if wrapped in text:
+            return text
+
+        # 単語境界でマッチするように negative/positive lookarounds を使用
+        pattern = rf"(?<!\w){re.escape(beatboxer_name)}(?!\w)"
+
+        return re.sub(pattern, wrapped, text, flags=re.UNICODE)
 
     def remove_ignore_key(self, text: str) -> str:
         """翻訳後のテキストから除外キーを削除する"""
