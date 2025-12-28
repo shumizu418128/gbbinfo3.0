@@ -49,7 +49,7 @@ class DeepLServiceTestCase(unittest.TestCase):
 
         with patch.dict(os.environ, {"DEEPL_API_KEY": "test_key"}):
             service = DeepLService()
-            translated = service.translate("Hello", "JA")
+            translated = service.translate("Hello", "JA", "Test")
             self.assertEqual(translated, "こんにちは")
 
     @patch("app.models.deepl_client.deepl.Translator")
@@ -60,7 +60,7 @@ class DeepLServiceTestCase(unittest.TestCase):
         mock_translator.return_value = Mock()
         with patch.dict(os.environ, {"DEEPL_API_KEY": "test_key"}):
             service = DeepLService()
-            self.assertEqual(service.translate("", "JA"), "")
+            self.assertEqual(service.translate("", "JA", "Test"), "")
 
     def test_rate_limit_configuration(self):
         """translate メソッドにレートリミットデコレータが適用されているか確認"""
