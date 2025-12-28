@@ -8,6 +8,8 @@ from ratelimit import limits, sleep_and_retry
 RATE_LIMIT_CALLS = 5
 RATE_LIMIT_PERIOD = 1
 
+IGNORE_TAG = "ignore"
+
 
 class DeepLService:
     def __init__(self):
@@ -20,12 +22,25 @@ class DeepLService:
 
         self.translator = deepl.Translator(api_key)
 
+    def add_ignore_key(self, text: str, beatboxer_name: str) -> str:
+        """特定のビートボクサー名を翻訳から除外するためのキーを追加する"""
+        text = text.replace(
+            beatboxer_name, f"<{IGNORE_TAG}>{beatboxer_name}</{IGNORE_TAG}>"
+        )
+        return text
+
+    def remove_ignore_key(self, text: str) -> str:
+        """翻訳後のテキストから除外キーを削除する"""
+        text = text.replace(f"<{IGNORE_TAG}>", "").replace(f"</{IGNORE_TAG}>", "")
+        return text
+
     @sleep_and_retry
     @limits(calls=RATE_LIMIT_CALLS, period=RATE_LIMIT_PERIOD)
     def translate(
         self,
         text: str,
         target_lang: str,
+        beatboxer_name: str,
     ) -> str:
         """
         DeepL APIを用いてテキストを翻訳します。
@@ -69,15 +84,24 @@ class DeepLService:
         if cached_data is not None:
             return cached_data
 
+        # ビートボクサー名を翻訳から除外
+        text_with_ignore_key = self.add_ignore_key(text, beatboxer_name)
+
         result = self.translator.translate_text(
-            text=text,
+            text=text_with_ignore_key,
+            source_lang="EN",
             target_lang=target_lang_upper,
+            ignore_tags=[IGNORE_TAG],
+            formality="prefer_more",
         )
 
-        # キャッシュに保存
-        flask_cache.set(cache_key, result.text)
+        # 除外キーを削除
+        text_ignore_key_removed = self.remove_ignore_key(result.text)
 
-        return result.text
+        # キャッシュに保存
+        flask_cache.set(cache_key, text_ignore_key_removed)
+
+        return text_ignore_key_removed
 
 
 # グローバルインスタンス
