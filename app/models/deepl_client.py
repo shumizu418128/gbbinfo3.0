@@ -50,7 +50,7 @@ class DeepLService:
         # 単語境界でマッチするように negative/positive lookarounds を使用
         pattern = rf"(?<!\w){re.escape(beatboxer_name)}(?!\w)"
 
-        return re.sub(pattern, wrapped, text, flags=re.UNICODE)
+        return re.sub(pattern, wrapped, text, flags=re.IGNORECASE)
 
     def remove_ignore_key(self, text: str) -> str:
         """翻訳後のテキストから除外キーを削除する"""
