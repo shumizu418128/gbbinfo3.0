@@ -8,7 +8,8 @@ from ratelimit import limits, sleep_and_retry
 RATE_LIMIT_CALLS = 5
 RATE_LIMIT_PERIOD = 1
 
-IGNORE_TAG = "ignore"
+# 絶対にBeatboxer名と被らないよう冗長なタグを使用
+IGNORE_TAG = "_ignore_beatboxer_name_tag_"
 
 
 class DeepLService:
@@ -48,6 +49,7 @@ class DeepLService:
         Args:
             text (str): 翻訳対象のテキスト。
             target_lang (str): 翻訳先の言語コード。小文字でも可。
+            beatboxer_name (str): ビートボクサー名。翻訳から除外されます。
 
         Returns:
             str: 翻訳後のテキスト。
