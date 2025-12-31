@@ -6,7 +6,7 @@ from threading import Thread
 from urllib.parse import urlparse, urlunparse
 
 from dateutil import parser
-from flask import redirect, request, session
+from flask import abort, redirect, request, session
 from flask_babel import format_datetime
 
 from app.config.config import (
@@ -158,6 +158,7 @@ def is_latest_year(year):
 
     # 現在年度以上の年度は最新年度とみなす
     return year >= now
+
 
 # MARK: 試験公開年度
 def is_early_access(year):
@@ -367,6 +368,22 @@ def get_locale():
         session["language"] = best_match if best_match else "ja"
 
     return session["language"]
+
+
+def valid_locale(language):
+    """
+    指定された言語コードがサポートされているかを検証します。
+
+    Args:
+        language (str): 検証する言語コード
+
+    Returns:
+        None: 言語コードがサポートされている場合
+        abort(404): 言語コードがサポートされていない場合に404エラーを発生させる
+    """
+    if language in SUPPORTED_LOCALES:
+        return
+    return abort(404)
 
 
 # MARK: 言語rd判定
