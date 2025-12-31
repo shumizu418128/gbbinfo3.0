@@ -6,6 +6,7 @@ python -m pytest app/tests/test_supabase_error_handling.py -v
 
 import json
 import unittest
+from datetime import datetime
 from unittest.mock import patch
 
 # Supabaseサービスをモックしてからapp.mainをインポート
@@ -37,6 +38,7 @@ class SupabaseErrorHandlingTestCase(unittest.TestCase):
         self.client = app.test_client()
         self.app_context = app.app_context()
         self.app_context.push()
+        self.year = datetime.now().year
 
     def tearDown(self):
         """テスト後のクリーンアップ"""
@@ -64,7 +66,7 @@ class SupabaseErrorHandlingTestCase(unittest.TestCase):
         with self.client.session_transaction() as sess:
             sess["language"] = "ja"
 
-        resp = self.client.get("/ja/2025/result?category=Loopstation")
+        resp = self.client.get(f"/ja/{self.year}/result?category=Loopstation")
         self.assertEqual(resp.status_code, 500)
 
     @patch("app.views.world_map.os.path.exists")
@@ -94,7 +96,7 @@ class SupabaseErrorHandlingTestCase(unittest.TestCase):
         with self.client.session_transaction() as sess:
             sess["language"] = "ja"
 
-        resp = self.client.get("/ja/2025/world_map")
+        resp = self.client.get(f"/ja/{self.year}/world_map")
         self.assertEqual(resp.status_code, 500)
 
     @patch("app.views.participants.supabase_service")
@@ -124,7 +126,7 @@ class SupabaseErrorHandlingTestCase(unittest.TestCase):
         with self.client.session_transaction() as sess:
             sess["language"] = "ja"
 
-        resp = self.client.get("/ja/2025/participants")
+        resp = self.client.get(f"/ja/{self.year}/participants")
         self.assertEqual(resp.status_code, 500)
 
     @patch("app.views.beatboxer_finder.supabase_service")
@@ -151,7 +153,7 @@ class SupabaseErrorHandlingTestCase(unittest.TestCase):
 
         request_data = json.dumps({"keyword": "test"})
         resp = self.client.post(
-            "/2025/search_participants",
+            f"/{self.year}/search_participants",
             data=request_data,
             content_type="application/json",
         )
@@ -180,7 +182,7 @@ class SupabaseErrorHandlingTestCase(unittest.TestCase):
         with self.client.session_transaction() as sess:
             sess["language"] = "ja"
 
-        resp = self.client.get("/ja/2025/result?category=Loopstation")
+        resp = self.client.get(f"/ja/{self.year}/result?category=Loopstation")
         self.assertEqual(resp.status_code, 500)
 
     @patch("app.views.participants.supabase_service")
@@ -210,7 +212,7 @@ class SupabaseErrorHandlingTestCase(unittest.TestCase):
         with self.client.session_transaction() as sess:
             sess["language"] = "ja"
 
-        resp = self.client.get("/ja/2025/participants")
+        resp = self.client.get(f"/ja/{self.year}/participants")
         self.assertEqual(resp.status_code, 500)
 
     @patch("app.views.beatboxer_finder.supabase_service")
@@ -237,7 +239,7 @@ class SupabaseErrorHandlingTestCase(unittest.TestCase):
 
         request_data = json.dumps({"keyword": "test"})
         resp = self.client.post(
-            "/2025/search_participants",
+            f"/{self.year}/search_participants",
             data=request_data,
             content_type="application/json",
         )
@@ -270,7 +272,7 @@ class SupabaseErrorHandlingTestCase(unittest.TestCase):
         with self.client.session_transaction() as sess:
             sess["language"] = "ja"
 
-        resp = self.client.get("/ja/2025/rule")
+        resp = self.client.get(f"/ja/{self.year}/rule")
         # rule.pyでは空のデータでもページを表示するため200が返される
         self.assertEqual(resp.status_code, 200)
 
@@ -301,6 +303,6 @@ class SupabaseErrorHandlingTestCase(unittest.TestCase):
         with self.client.session_transaction() as sess:
             sess["language"] = "ja"
 
-        resp = self.client.get("/ja/2025/rule")
+        resp = self.client.get(f"/ja/{self.year}/rule")
         # rule.pyでは応答がなくても空のデータでページを表示するため200が返される
         self.assertEqual(resp.status_code, 200)

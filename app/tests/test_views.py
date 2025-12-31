@@ -6,6 +6,7 @@ python -m pytest app/tests/test_views.py -v
 
 import json
 import unittest
+from datetime import datetime
 from unittest.mock import patch
 
 # Supabaseサービスをモックしてからapp.mainをインポート
@@ -39,6 +40,7 @@ class ViewsTestCase(unittest.TestCase):
         self.client = app.test_client()
         self.app_context = app.app_context()
         self.app_context.push()
+        self.year = datetime.now().year
 
     def tearDown(self):
         """テスト後のクリーンアップ"""
@@ -65,7 +67,7 @@ class ViewsTestCase(unittest.TestCase):
 
         request_data = json.dumps({"keyword": "test"})
         response = self.client.post(
-            "/2025/search_participants",
+            f"/{self.year}/search_participants",
             data=request_data,
             content_type="application/json",
         )
@@ -94,7 +96,7 @@ class ViewsTestCase(unittest.TestCase):
         ]
 
         response = self.client.post(
-            "/2025/search_participants", json={"keyword": "SoloPlayer"}
+            f"/{self.year}/search_participants", json={"keyword": "SoloPlayer"}
         )
         self.assertEqual(response.status_code, 200)
         result = response.get_json()
@@ -123,7 +125,7 @@ class ViewsTestCase(unittest.TestCase):
         ]
 
         response = self.client.post(
-            "/2025/search_participants", json={"keyword": "Team Japan"}
+            f"/{self.year}/search_participants", json={"keyword": "Team Japan"}
         )
         self.assertEqual(response.status_code, 200)
         result = response.get_json()
@@ -154,7 +156,7 @@ class ViewsTestCase(unittest.TestCase):
         ]
 
         response = self.client.post(
-            "/2025/search_participants", json={"keyword": "International Team"}
+            f"/{self.year}/search_participants", json={"keyword": "International Team"}
         )
         self.assertEqual(response.status_code, 200)
         result = response.get_json()

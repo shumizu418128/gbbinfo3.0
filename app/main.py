@@ -24,6 +24,7 @@ from app.context_processors import (
     get_variable,
     initialize_background_tasks,
     language_code_redirect_handler,
+    valid_locale,
 )
 from app.views import (
     beatboxer_finder,
@@ -190,17 +191,20 @@ def redirect_to_latest_top():
 
 @app.route("/<string:lang>/2012/<string:content>")
 def content_2012(lang, content):
+    valid_locale(lang)
     return common.not_found_page_view()
 
 
 @app.route("/<string:lang>/2022/<string:content>")
 def content_2022(lang, content):
+    valid_locale(lang)
     return common.content_2022_view(content)
 
 
 # MARK: deprecated
 @app.route("/<string:lang>/<int:year>/time_schedule")
 def time_schedule(lang, year):
+    valid_locale(lang)
     return common.time_schedule_view(year)
 
 
@@ -211,6 +215,7 @@ def change_language():
 
 @app.route("/<string:lang>/others/participant_detail")
 def participant_detail_deprecated(lang):
+    valid_locale(lang)
     return participant_detail.participant_detail_deprecated_view()
 
 
@@ -251,47 +256,55 @@ def notice_view():
 # ruleのsitemap追加は/<int:year>/<string:content>で行う
 @app.route("/<string:lang>/<int:year>/rule")
 def rule_view(lang, year):
+    valid_locale(lang)
     return rule.rules_view(year)
 
 
 @sitemapper.include(url_variables=sitemap_variables["result"])
 @app.route("/<string:lang>/<int:year>/result")
 def result_view(lang, year):
+    valid_locale(lang)
     return result.result_view(year)
 
 
 @app.route("/<string:lang>/<int:year>/world_map")
 def world_map_view(lang, year):
+    valid_locale(lang)
     return world_map.world_map_view(year)
 
 
 @sitemapper.include(url_variables=sitemap_variables["yearly_pages"])
 @app.route("/<string:lang>/<int:year>/participants")
 def participants_view(lang, year):
+    valid_locale(lang)
     return participants.participants_view(year)
 
 
 @sitemapper.include(url_variables=sitemap_variables["yearly_pages"])
 @app.route("/<string:lang>/<int:year>/cancels")
 def cancels_view(lang, year):
+    valid_locale(lang)
     return participants.cancels_view(year)
 
 
 @sitemapper.include(url_variables=sitemap_variables["yearly_pages"])
 @app.route("/<string:lang>/<int:year>/japan")
 def japan(lang, year):
+    valid_locale(lang)
     return participants.participants_country_specific_view(year)
 
 
 @sitemapper.include(url_variables=sitemap_variables["yearly_pages"])
 @app.route("/<string:lang>/<int:year>/korea")
 def korea(lang, year):
+    valid_locale(lang)
     return participants.participants_country_specific_view(year)
 
 
 @sitemapper.include(url_variables=sitemap_variables["participant_detail"])
 @app.route("/<string:lang>/participant_detail/<int:participant_id>/<string:mode>")
 def participant_detail_view(lang, participant_id, mode):
+    valid_locale(lang)
     return participant_detail.participant_detail_view(participant_id, mode)
 
 
@@ -300,6 +313,7 @@ def participant_detail_view(lang, participant_id, mode):
 @app.route("/<string:lang>/others/<string:content>")
 @flask_cache.cached(timeout=24 * HOUR, query_string=True)
 def others(lang, content):
+    valid_locale(lang)
     return common.other_content_view(content)
 
 
@@ -307,6 +321,7 @@ def others(lang, content):
 @app.route("/<string:lang>/travel/<string:content>")
 @flask_cache.cached(timeout=24 * HOUR, query_string=True)
 def travel(lang, content):
+    valid_locale(lang)
     return common.travel_content_view(content)
 
 
@@ -314,6 +329,7 @@ def travel(lang, content):
 @app.route("/<string:lang>/<int:year>/<string:content>")
 @flask_cache.cached(query_string=True)
 def common_content(lang, year, content):
+    valid_locale(lang)
     return common.content_view(year, content)
 
 

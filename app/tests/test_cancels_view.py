@@ -5,6 +5,7 @@ python -m pytest app/tests/test_cancels_view.py -v
 """
 
 import unittest
+from datetime import datetime
 from unittest.mock import patch
 
 # Supabaseサービスをモックしてからapp.mainをインポート
@@ -34,6 +35,7 @@ class CancelsViewTestCase(unittest.TestCase):
         self.client = app.test_client()
         self.app_context = app.app_context()
         self.app_context.push()
+        self.year = datetime.now().year
 
     def tearDown(self):
         """テスト後のクリーンアップ"""
@@ -90,7 +92,7 @@ class CancelsViewTestCase(unittest.TestCase):
         with self.client.session_transaction() as sess:
             sess["language"] = "ja"
 
-        resp = self.client.get("/ja/2025/cancels")
+        resp = self.client.get(f"/ja/{self.year}/cancels")
         self.assertEqual(resp.status_code, 200)
 
         # レスポンスの内容確認
@@ -126,7 +128,7 @@ class CancelsViewTestCase(unittest.TestCase):
         with self.client.session_transaction() as sess:
             sess["language"] = "ja"
 
-        resp = self.client.get("/ja/2025/cancels")
+        resp = self.client.get(f"/ja/{self.year}/cancels")
         self.assertEqual(resp.status_code, 200)
 
         # 空の場合のメッセージ確認
@@ -156,7 +158,7 @@ class CancelsViewTestCase(unittest.TestCase):
         with self.client.session_transaction() as sess:
             sess["language"] = "ja"
 
-        resp = self.client.get("/ja/2025/cancels")
+        resp = self.client.get(f"/ja/{self.year}/cancels")
         self.assertEqual(resp.status_code, 500)
 
 
