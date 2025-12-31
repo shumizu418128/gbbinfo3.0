@@ -257,7 +257,7 @@ def notice_view():
 @app.route("/<string:lang>/<int:year>/rule")
 def rule_view(lang, year):
     valid_locale(lang)
-    return rule.rules_view(year)\
+    return rule.rules_view(year)
 
 
 @sitemapper.include(url_variables=sitemap_variables["result"])

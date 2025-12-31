@@ -383,7 +383,7 @@ def valid_locale(language):
     """
     if language in SUPPORTED_LOCALES:
         return
-    return abort(404)
+    abort(404)
 
 
 # MARK: 言語rd判定
