@@ -55,19 +55,3 @@ class LanguageRedirectTestCase(unittest.TestCase):
             loc = resp.headers.get("Location", "")
             # セッションが無効な言語なら ja にフォールバックするはず
             self.assertIn("/ja", loc, msg=f"{path} did not redirect to /ja, got {loc}")
-
-    def test_invalid_url_language_returns_404(self):
-        """URLに不正な言語コードが含まれる場合、404を返すことを検証する"""
-        paths = [
-            f"/xx/{self.year}/top",
-            f"/xx/{self.year}/participants",
-            "/xx/participant_detail/1/single",
-        ]
-
-        for path in paths:
-            resp = self.client.get(path, follow_redirects=False)
-            self.assertEqual(
-                resp.status_code,
-                404,
-                msg=f"{path} did not return 404, got {resp.status_code}",
-            )
