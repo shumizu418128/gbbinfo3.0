@@ -6,6 +6,7 @@ python -m pytest app/tests/test_urls.py -v
 
 import os
 import unittest
+from datetime import datetime
 from unittest.mock import patch
 
 from app.config.config import LANGUAGE_CHOICES
@@ -546,10 +547,11 @@ class AppUrlsTestCase(unittest.TestCase):
         )
 
         # 各言語でテストを実行
+        year = datetime.now().year
         for lang in supported_languages:
             with self.subTest(language=lang):
                 # 必要なクエリパラメータを含めてURLを構築
-                url = f"/{lang}/2025/participants?category=Loopstation&ticket_class=all&cancel=show"
+                url = f"/{lang}/{year}/participants?category=Loopstation&ticket_class=all&cancel=show"
                 # セッションに言語を設定してリクエストを行う
                 with self.client.session_transaction() as sess:
                     sess["language"] = lang

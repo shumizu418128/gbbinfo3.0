@@ -1653,10 +1653,14 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         )
 
         # 対象URLを巡回
+        from datetime import datetime
+
+        year = datetime.now().year
+
         urls = [
-            "/ja/2025/participants?category=Loopstation&ticket_class=all&cancel=show",
-            "/ja/2025/japan",
-            "/ja/2025/korea",
+            f"/ja/{year}/participants?category=Loopstation&ticket_class=all&cancel=show",
+            f"/ja/{year}/japan",
+            f"/ja/{year}/korea",
         ]
 
         allowed_modes = {"single", "team", "team_member"}

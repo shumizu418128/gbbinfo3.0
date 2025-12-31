@@ -5,6 +5,7 @@ python -m pytest app/tests/test_participant_detail.py -v
 """
 
 import unittest
+from datetime import datetime
 from unittest.mock import patch
 
 import pandas as pd
@@ -38,6 +39,7 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
         self.client = app.test_client()
         self.app_context = app.app_context()
         self.app_context.push()
+        self.year = datetime.now().year
 
     def tearDown(self):
         """テスト後のクリーンアップ"""
@@ -91,8 +93,8 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
 
         # リダイレクトされることを確認
         self.assertEqual(response.status_code, 302)
-        # 2025年のparticipantsページへリダイレクトされる
-        self.assertIn("/2025/participants", response.location)
+        # 現在年のparticipantsページへリダイレクトされる
+        self.assertIn(f"/{self.year}/participants", response.location)
 
     @patch("app.context_processors.supabase_service")
     @patch("app.views.participant_detail.supabase_service")
@@ -140,8 +142,8 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
 
         # リダイレクトされることを確認
         self.assertEqual(response.status_code, 302)
-        # 2025年のparticipantsページへリダイレクトされる
-        self.assertIn("/2025/participants", response.location)
+        # 現在年のparticipantsページへリダイレクトされる
+        self.assertIn(f"/{self.year}/participants", response.location)
 
     @patch("app.context_processors.supabase_service")
     @patch("app.views.participant_detail.supabase_service")
@@ -195,8 +197,8 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
 
         # リダイレクトされることを確認
         self.assertEqual(response.status_code, 302)
-        # 2025年のparticipantsページへリダイレクトされる
-        self.assertIn("/2025/participants", response.location)
+        # 現在年のparticipantsページへリダイレクトされる
+        self.assertIn(f"/{self.year}/participants", response.location)
 
     @patch("app.context_processors.supabase_service")
     @patch("app.views.participant_detail.supabase_service")
@@ -454,8 +456,8 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
 
         # リダイレクトされることを確認
         self.assertEqual(response.status_code, 302)
-        # 2025年のparticipantsページへリダイレクトされる
-        self.assertIn("/2025/participants", response.location)
+        # 現在年のparticipantsページへリダイレクトされる
+        self.assertIn(f"/{self.year}/participants", response.location)
 
     # 重複のため削除: 単一出場者のiso_code==0のリダイレクトは
     # `test_single_participant_with_iso_code_zero` が既にカバーしています。
