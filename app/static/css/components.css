@@ -448,3 +448,8 @@ button {
 .dropdown-content a:hover {
     background-color: rgb(241, 241, 241);
 }
+
+.unavailable-text {
+    text-align: center;
+    padding: 100px 0;
+}
