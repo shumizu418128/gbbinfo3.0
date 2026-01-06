@@ -16,8 +16,7 @@
 {% endif %}
 
 {% if not all_category %}
-  <p style="text-align: center;">{{_("発表次第更新")}}</p>
-  <div style="height: 100px;"></div>
+  <p class="unavailable-text">{{_("発表次第更新")}}</p>
 {% else %}
   {% include "includes/participants_form.html" %}
 
@@ -82,7 +81,7 @@
       </tbody>
     </table>
   {% else %}
-    <p style="text-align: center;">{{_("発表次第更新")}}</p>
+    <p class="unavailable-text">{{_("発表次第更新")}}</p>
     <div style="height: 200px;"></div>
   {% endif %}
     {% include "includes/participants_form.html" %}
