@@ -54,9 +54,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateDropdownSelection(headerArray, dropdown) {
         // 現在の位置情報を取得
         const currentOffsetTops = headerArray.map(header => header.offsetTop);
-        const scrollPosition = window.scrollY + 51;
+        const scrollPosition = window.scrollY;
+        if (currentOffsetTops.length === 0) {
+            return;
+        }
 
-        if (scrollPosition < currentOffsetTops[0]) {
+        const dropdownDisplayThreshold = currentOffsetTops[1];
+        if (scrollPosition < dropdownDisplayThreshold) {
             dropdown.style.display = 'none';
         } else {
             for (let index = headerArray.length - 1; index >= 0; index -= 1) {
