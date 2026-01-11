@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-11 14:40+0900\n"
+"POT-Creation-Date: 2026-01-11 15:03+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: da <LL@li.org>\n"
@@ -1577,13 +1577,14 @@ msgstr "Op til {rank}. plads"
 #: templates/2026/rule.html:393
 #, python-brace-format
 msgid "{rank}位以下の繰り上げは一切無し"
-msgstr "Ingen erstatninger for {rank}. plads eller lavere"
+msgstr "Ingen oprykning for {rank}. plads eller lavere"
 
 #: templates/2026/rule.html:383
 #, python-brace-format
 msgid "{rank}位以下の繰り上げは{Swissbeatbox}の個別判断"
 msgstr ""
-"Erstatninger for {rank}. plads eller lavere er efter {Swissbeatbox}'s skøn"
+"Oprykning for {rank}. plads eller lavere afgøres individuelt af "
+"{Swissbeatbox}"
 
 #: templates/2026/rule.html:398
 msgid "特殊なケース"

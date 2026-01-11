@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-11 14:40+0900\n"
+"POT-Creation-Date: 2026-01-11 15:03+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: hu <LL@li.org>\n"
@@ -1573,14 +1573,13 @@ msgstr "{rank}. helyig"
 #: templates/2026/rule.html:393
 #, python-brace-format
 msgid "{rank}位以下の繰り上げは一切無し"
-msgstr "Nincs helyettesítés a {rank}. hely vagy az alatta lévő helyekre"
+msgstr "A {rank}. helyezéstől lefelé nincs felkerülés"
 
 #: templates/2026/rule.html:383
 #, python-brace-format
 msgid "{rank}位以下の繰り上げは{Swissbeatbox}の個別判断"
 msgstr ""
-"A {rank}. hely vagy az alatta lévő helyek helyettesítése {Swissbeatbox} "
-"egyedi döntésén múlik"
+"A {rank}. helyezéstől lefelé a felkerülésről a {Swissbeatbox} egyedileg dönt"
 
 #: templates/2026/rule.html:398
 msgid "特殊なケース"

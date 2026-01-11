@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-11 14:40+0900\n"
+"POT-Creation-Date: 2026-01-11 15:03+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ga <LL@li.org>\n"
@@ -1579,13 +1579,13 @@ msgstr "Suas go dtí an {rank}ú háit"
 #: templates/2026/rule.html:393
 #, python-brace-format
 msgid "{rank}位以下の繰り上げは一切無し"
-msgstr "Gan ionadaí ar bith don {rank}ú háit nó níos ísle"
+msgstr "Níl aon ardú céime don {rank}ú háit ná níos ísle"
 
 #: templates/2026/rule.html:383
 #, python-brace-format
 msgid "{rank}位以下の繰り上げは{Swissbeatbox}の個別判断"
 msgstr ""
-"Tá ionadaí don {rank}ú háit nó níos ísle faoi bhreithiúnas aonair "
+"Tá ardú céime don {rank}ú háit ná níos ísle faoi chinneadh aonair "
 "{Swissbeatbox}"
 
 #: templates/2026/rule.html:398

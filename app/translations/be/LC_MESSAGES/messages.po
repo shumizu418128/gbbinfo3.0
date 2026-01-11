@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-11 14:40+0900\n"
+"POT-Creation-Date: 2026-01-11 15:03+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: be <LL@li.org>\n"
@@ -1574,13 +1574,13 @@ msgstr "Да {rank}-га месца"
 #: templates/2026/rule.html:393
 #, python-brace-format
 msgid "{rank}位以下の繰り上げは一切無し"
-msgstr "Ніякіх замен для {rank}-га месца ці ніжэй"
+msgstr "Ніякага павышэння для {rank}-га месца і ніжэй"
 
 #: templates/2026/rule.html:383
 #, python-brace-format
 msgid "{rank}位以下の繰り上げは{Swissbeatbox}の個別判断"
 msgstr ""
-"Замены для {rank}-га месца ці ніжэй залежаць ад індывідуальнага рашэння "
+"Павышэнне для {rank}-га месца і ніжэй — індывідуальнае рашэнне "
 "{Swissbeatbox}."
 
 #: templates/2026/rule.html:398

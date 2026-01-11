@@ -466,8 +466,11 @@ class AppUrlsTestCase(unittest.TestCase):
         # 日本語以外の言語のみを対象とする（日本語はデフォルト言語なので翻訳ファイルが不要）
         supported_languages = [code for code, _ in LANGUAGE_CHOICES if code != "ja"]
 
+        # 現在の年度を取得
+        year = datetime.now().year
+
         # モックデータの設定
-        mock_get_years.return_value = [2025, 2024, 2023]
+        mock_get_years.return_value = [year, year - 1, year - 2]
         mock_is_gbb_ended.return_value = False
 
         # context_processors内のSupabase呼び出しモック
@@ -479,27 +482,27 @@ class AppUrlsTestCase(unittest.TestCase):
 
                 return pd.DataFrame(
                     [
-                        {"year": 2025},
-                        {"year": 2024},
-                        {"year": 2023},
+                        {"year": year},
+                        {"year": year - 1},
+                        {"year": year - 2},
                     ]
                 )
             # 他の場合はデフォルトのリストを返す
             return [
                 {
-                    "year": 2025,
+                    "year": year,
                     "categories__is_not": None,
-                    "ends_at": "2025-12-31T23:59:59Z",
+                    "ends_at": f"{year}-12-31T23:59:59Z",
                 },
                 {
-                    "year": 2024,
+                    "year": year - 1,
                     "categories__is_not": None,
-                    "ends_at": "2024-12-31T23:59:59Z",
+                    "ends_at": f"{year - 1}-12-31T23:59:59Z",
                 },
                 {
-                    "year": 2023,
+                    "year": year - 2,
                     "categories__is_not": None,
-                    "ends_at": "2023-12-31T23:59:59Z",
+                    "ends_at": f"{year - 2}-12-31T23:59:59Z",
                 },
             ]
 

@@ -1470,11 +1470,15 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             - `id`は数字、`mode`は`single|team|team_member`のいずれか
         """
         import re
+        from datetime import datetime
         from urllib.parse import parse_qs, urlparse
 
+        # 現在の年度を取得
+        year = datetime.now().year
+
         # コンテキスト依存の関数をモック
-        mock_participants_get_available_years.return_value = [2025]
-        mock_context_get_available_years.return_value = [2025]
+        mock_participants_get_available_years.return_value = [year]
+        mock_context_get_available_years.return_value = [year]
         mock_is_gbb_ended.return_value = False
         mock_get_translated_urls.return_value = set()
 
@@ -1653,10 +1657,6 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
         )
 
         # 対象URLを巡回
-        from datetime import datetime
-
-        year = datetime.now().year
-
         urls = [
             f"/ja/{year}/participants?category=Loopstation&ticket_class=all&cancel=show",
             f"/ja/{year}/japan",
