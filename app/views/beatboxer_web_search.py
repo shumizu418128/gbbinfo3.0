@@ -296,8 +296,15 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language_code: str):
     """
     ALLOWED_LANGUAGES = ["ja", "ko"]
 
-    # 対応言語を確認、日韓以外は英語にフォールバック
-    if language_code not in ALLOWED_LANGUAGES:
+    CONVERT_LANGUAGES = {
+        "zh_Hans_CN": "zh-hans",
+        "zh_Hant_TW": "zh-hant",
+    }
+
+    # 対応言語を確認、無い場合は英語にフォールバック
+    if CONVERT_LANGUAGES.get(language_code) is not None:
+        language_code = CONVERT_LANGUAGES[language_code]
+    elif language_code not in ALLOWED_LANGUAGES:
         language_code = "en"
 
     # まずキャッシュを取得
@@ -355,12 +362,12 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language_code: str):
     except (KeyError, TypeError, IndexError):
         return ""  # answerの生成は他エンドポイントの責任
 
-    # 翻訳 (対象を限定)
-    if language_code in ALLOWED_LANGUAGES:
+    # 翻訳
+    if language_code != "en":
         translated_answer = deepl_service.translate(
             text=answer, target_lang=language_code, beatboxer_name=beatboxer_name
         )
-    # そのほかは翻訳不要
+    # 英語は翻訳不要
     else:
         translated_answer = answer
 
