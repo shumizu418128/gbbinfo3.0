@@ -447,7 +447,7 @@ class AppUrlsTestCase(unittest.TestCase):
     @patch("app.context_processors.supabase_service")
     @patch("app.context_processors.get_available_years")
     @patch("app.context_processors.is_gbb_ended")
-    def test_2025_participants_translation_accessibility(
+    def test_participants_translation_accessibility_current_year(
         self,
         mock_is_gbb_ended,
         mock_get_years,
@@ -455,7 +455,7 @@ class AppUrlsTestCase(unittest.TestCase):
         mock_participants_supabase,
     ):
         """
-        /2025/participants?lang=(すべての言語)にアクセスして200を返すことをテストします。
+        /<lang>/<year>/participants?lang=(すべての言語)にアクセスして200を返すことをテストします（yearは現在年度）。
 
         翻訳の問題がないかを確認するため、サポートされているすべての言語で
         参加者ページが正常に表示されることを検証します。
@@ -550,7 +550,6 @@ class AppUrlsTestCase(unittest.TestCase):
         )
 
         # 各言語でテストを実行
-        year = datetime.now().year
         for lang in supported_languages:
             with self.subTest(language=lang):
                 # 必要なクエリパラメータを含めてURLを構築

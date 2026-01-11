@@ -113,9 +113,8 @@ class SupabaseErrorHandlingTestCase(unittest.TestCase):
         mock_supabase,
     ):
         """participants_viewでSupabaseからの応答がない場合に500エラーが返されることをテスト"""
-        year = datetime.now().year
-        mock_participants_get_available_years.return_value = [year]
-        mock_context_get_available_years.return_value = [year]
+        mock_participants_get_available_years.return_value = [self.year]
+        mock_context_get_available_years.return_value = [self.year]
         mock_is_gbb_ended.return_value = False
         mock_get_translated_urls.return_value = set()
 
@@ -202,9 +201,8 @@ class SupabaseErrorHandlingTestCase(unittest.TestCase):
         """participants_viewで空のDataFrameが返される場合に500エラーが返されることをテスト"""
         import pandas as pd
 
-        year = datetime.now().year
-        mock_participants_get_available_years.return_value = [year]
-        mock_context_get_available_years.return_value = [year]
+        mock_participants_get_available_years.return_value = [self.year]
+        mock_context_get_available_years.return_value = [self.year]
         mock_is_gbb_ended.return_value = False
         mock_get_translated_urls.return_value = set()
 

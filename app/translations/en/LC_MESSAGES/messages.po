@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-11 15:03+0900\n"
+"POT-Creation-Date: 2026-01-11 15:15+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: en <LL@li.org>\n"
@@ -1566,19 +1566,19 @@ msgstr ""
 #: templates/2026/rule.html:387 templates/2026/rule.html:392
 #, python-brace-format
 msgid "{rank}位まで"
-msgstr "Up to {rank}th place"
+msgstr "Up to place {rank}"
 
 #: templates/2026/rule.html:378 templates/2026/rule.html:388
 #: templates/2026/rule.html:393
 #, python-brace-format
 msgid "{rank}位以下の繰り上げは一切無し"
-msgstr "No replacements for {rank}th place or below"
+msgstr "No replacements for place {rank} or below"
 
 #: templates/2026/rule.html:383
 #, python-brace-format
 msgid "{rank}位以下の繰り上げは{Swissbeatbox}の個別判断"
 msgstr ""
-"Replacements for {rank}th place or below are at the discretion of "
+"Replacements for place {rank} or below are at the discretion of "
 "{Swissbeatbox}"
 
 #: templates/2026/rule.html:398
