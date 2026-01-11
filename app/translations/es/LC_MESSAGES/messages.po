@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-26 13:21+0900\n"
+"POT-Creation-Date: 2026-01-11 15:15+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: es <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr ""
 #: templates/2026/rule.html:435 templates/2026/timetable.html:69
 #: templates/2026/top.html:63 templates/2026/top.html:106
 #: templates/2026/wildcards.html:13 templates/2026/wildcards.html:60
-#: templates/common/participants.html:139
+#: templates/common/participants.html:138
 #: templates/includes/hamburger_menu.html:11
 msgid "ルール"
 msgstr "Reglas"
@@ -162,7 +162,7 @@ msgstr "Asegúrese de revisar las reglas una vez más."
 #: templates/2026/rule.html:434 templates/2026/rule.html:490
 #: templates/2026/rule.html:554 templates/2026/top.html:53
 #: templates/common/cancels.html:24 templates/common/japan.html:23
-#: templates/common/korea.html:23 templates/common/participants.html:126
+#: templates/common/korea.html:23 templates/common/participants.html:125
 #: templates/participant_detail/participant_detail.html:33
 #: templates/participant_detail/participant_detail.html:115
 #: templates/participant_detail/participant_detail.html:155
@@ -224,8 +224,8 @@ msgstr "Cabezas de serie - GBB"
 #: templates/2025/wildcard_regulation.html:142 templates/2026/rule.html:238
 #: templates/2026/rule.html:270 templates/2026/rule.html:305
 #: templates/common/cancels.html:23 templates/common/japan.html:22
-#: templates/common/korea.html:22 templates/common/participants.html:45
-#: templates/common/participants.html:125 templates/common/result.html:67
+#: templates/common/korea.html:22 templates/common/participants.html:44
+#: templates/common/participants.html:124 templates/common/result.html:67
 #: templates/participant_detail/participant_detail.html:154
 #: templates/participant_detail/participant_detail.html:218
 msgid "名前"
@@ -237,8 +237,8 @@ msgstr "Nombre"
 #: templates/2026/rule.html:239 templates/2026/rule.html:271
 #: templates/2026/rule.html:306 templates/common/cancels.html:22
 #: templates/common/japan.html:21 templates/common/korea.html:21
-#: templates/common/participants.html:46
-#: templates/common/participants.html:124
+#: templates/common/participants.html:45
+#: templates/common/participants.html:123
 #: templates/participant_detail/participant_detail.html:50
 #: templates/participant_detail/participant_detail.html:132
 #: templates/participant_detail/participant_detail.html:219
@@ -263,7 +263,7 @@ msgstr "Clasificación"
 #: templates/2026/timetable.html:114 templates/2026/timetable.html:118
 #: templates/2026/timetable.html:138 templates/2026/timetable.html:142
 #: templates/2026/timetable.html:146 templates/common/cancels.html:38
-#: templates/common/participants.html:19 templates/common/participants.html:85
+#: templates/common/participants.html:19 templates/common/participants.html:84
 #: templates/common/result.html:83
 msgid "発表次第更新"
 msgstr "Se actualizará en cuanto se anuncie"
@@ -279,7 +279,7 @@ msgstr "Lista de Retiros de Sembrados"
 #: templates/2024/rule.html:203 templates/2025/rule.html:203
 #: templates/2026/rule.html:316 templates/common/cancels.html:31
 #: templates/common/japan.html:31 templates/common/korea.html:31
-#: templates/common/participants.html:57
+#: templates/common/participants.html:56
 #: templates/participant_detail/participant_detail.html:23
 #: templates/participant_detail/participant_detail.html:75
 #: templates/participant_detail/participant_detail.html:88
@@ -292,7 +292,7 @@ msgstr "Renuncia"
 
 #: templates/2024/rule.html:221 templates/2024/timetable.html:100
 #: templates/2024/timetable.html:230 templates/2025/rule.html:221
-#: templates/2026/rule.html:335 templates/common/cancels.html:52
+#: templates/2026/rule.html:335 templates/common/cancels.html:51
 #: templates/participant_detail/participant_detail.html:179
 #: templates/participant_detail/participant_detail.html:186
 msgid "出場者一覧"
@@ -457,7 +457,7 @@ msgstr "Consulta las últimas noticias de GBB {year}"
 #: templates/2024/stream.html:40 templates/common/participants.html:3
 #: templates/common/participants.html:4 templates/common/participants.html:5
 #: templates/common/participants.html:10
-#: templates/common/participants.html:143 templates/others/translation.html:18
+#: templates/common/participants.html:142 templates/others/translation.html:18
 #, python-brace-format
 msgid "{Wildcard}結果 & 出場者"
 msgstr "Resultados y participantes de {Wildcard}"
@@ -755,8 +755,8 @@ msgstr "Transmisión del anuncio de resultados de {Wildcard}"
 #: templates/2026/rule.html:20 templates/2026/rule.html:599
 #: templates/2026/top.html:153 templates/2026/wildcards.html:3
 #: templates/2026/wildcards.html:4 templates/2026/wildcards.html:5
-#: templates/2026/wildcards.html:9 templates/common/cancels.html:55
-#: templates/common/participants.html:94 templates/others/translation.html:25
+#: templates/2026/wildcards.html:9 templates/common/cancels.html:54
+#: templates/common/participants.html:93 templates/others/translation.html:25
 #, python-brace-format
 msgid "{Wildcard}一覧"
 msgstr "Lista de {Wildcard}"
@@ -1043,7 +1043,7 @@ msgstr "Número de plazas disponibles"
 
 #: templates/2025/top.html:74 templates/2026/top.html:82
 #: templates/common/japan.html:48 templates/common/korea.html:48
-#: templates/common/participants.html:29
+#: templates/common/participants.html:28
 #: templates/participant_detail/participant_detail.html:144
 #: templates/participant_detail/participant_detail.html:257
 msgid "全出場者一覧"
@@ -1054,7 +1054,7 @@ msgstr "Lista de todos los participantes"
 #: templates/2026/top.html:85 templates/2026/top.html:110
 #: templates/common/cancels.html:3 templates/common/cancels.html:4
 #: templates/common/cancels.html:5 templates/common/cancels.html:10
-#: templates/common/participants.html:140
+#: templates/common/participants.html:139
 #: templates/includes/hamburger_menu.html:10
 msgid "辞退者一覧"
 msgstr "Lista de renunciantes"
@@ -1587,39 +1587,24 @@ msgstr ""
 "Los candidatos para el ascenso se limitan a las personas con las posiciones "
 "más altas en el ranking de {Wildcard}."
 
-#: templates/2026/rule.html:377
-msgid "15位まで"
-msgstr "Hasta el puesto 15"
+#: templates/2026/rule.html:377 templates/2026/rule.html:382
+#: templates/2026/rule.html:387 templates/2026/rule.html:392
+#, python-brace-format
+msgid "{rank}位まで"
+msgstr "Hasta el {rank}º lugar"
 
-#: templates/2026/rule.html:378
-msgid "16位以下の繰り上げは一切無し"
-msgstr "No hay ascenso para el puesto 16 o inferior"
-
-#: templates/2026/rule.html:382
-msgid "20位まで"
-msgstr "Hasta el puesto 20"
+#: templates/2026/rule.html:378 templates/2026/rule.html:388
+#: templates/2026/rule.html:393
+#, python-brace-format
+msgid "{rank}位以下の繰り上げは一切無し"
+msgstr "Sin reemplazos para el {rank}º lugar o inferior"
 
 #: templates/2026/rule.html:383
 #, python-brace-format
-msgid "21位以下の繰り上げは{Swissbeatbox}の個別判断"
+msgid "{rank}位以下の繰り上げは{Swissbeatbox}の個別判断"
 msgstr ""
-"El ascenso para puestos 21 y siguientes queda a criterio de {Swissbeatbox}."
-
-#: templates/2026/rule.html:387
-msgid "10位まで"
-msgstr "Hasta el puesto 10"
-
-#: templates/2026/rule.html:388
-msgid "11位以下の繰り上げは一切無し"
-msgstr "No hay ascenso para el puesto 11 o inferior"
-
-#: templates/2026/rule.html:392
-msgid "5位まで"
-msgstr "Hasta el puesto 5"
-
-#: templates/2026/rule.html:393
-msgid "6位以下の繰り上げは一切無し"
-msgstr "No hay ascenso para el puesto 6 o inferior"
+"Los reemplazos para el {rank}º lugar o inferior están a discreción de "
+"{Swissbeatbox}"
 
 #: templates/2026/rule.html:398
 msgid "特殊なケース"
@@ -1951,7 +1936,7 @@ msgstr "Volver a la página principal"
 #: templates/2026/rule.html:546 templates/2026/stream.html:18
 #: templates/2026/timetable.html:125 templates/2026/top.html:102
 #: templates/2026/wildcards.html:12 templates/2026/wildcards.html:59
-#: templates/base.html:239 templates/common/participants.html:25
+#: templates/base.html:239 templates/common/participants.html:24
 #: templates/common/result.html:110 templates/includes/hamburger_menu.html:9
 #: templates/includes/participants_form.html:13
 #, python-brace-format
@@ -2001,19 +1986,19 @@ msgstr "Si no se redirige, use los siguientes botones:"
 msgid "トップページ"
 msgstr "Página principal"
 
-#: templates/common/cancels.html:43 templates/common/japan.html:59
-#: templates/common/korea.html:59 templates/common/participants.html:102
+#: templates/common/cancels.html:42 templates/common/japan.html:59
+#: templates/common/korea.html:59 templates/common/participants.html:101
 #: templates/common/result.html:98
 msgid "その他の年度を確認："
 msgstr "Verificar otros años:"
 
-#: templates/common/cancels.html:53 templates/common/japan.html:49
+#: templates/common/cancels.html:52 templates/common/japan.html:49
 #: templates/common/korea.html:49 templates/common/result.html:108
 msgid "出場権詳細"
 msgstr "Detalles de la clasificación"
 
-#: templates/common/cancels.html:54 templates/common/japan.html:51
-#: templates/common/korea.html:51 templates/common/participants.html:93
+#: templates/common/cancels.html:53 templates/common/japan.html:51
+#: templates/common/korea.html:51 templates/common/participants.html:92
 #, python-brace-format
 msgid "{Wildcard}結果発表日"
 msgstr "Fecha de anuncio de resultados de {Wildcard}"
@@ -2023,12 +2008,12 @@ msgid "日本代表なし"
 msgstr "Sin representantes de Japón."
 
 #: templates/common/japan.html:54 templates/common/korea.html:54
-#: templates/common/participants.html:133
+#: templates/common/participants.html:132
 msgid "出場者世界地図"
 msgstr "Mapa mundial de participantes"
 
 #: templates/common/japan.html:55 templates/common/korea.html:55
-#: templates/common/participants.html:134
+#: templates/common/participants.html:133
 msgid "国旗をタップorクリックすると、詳細を確認できます。"
 msgstr "Pulsa o haz clic en la bandera para ver los detalles."
 
@@ -2036,25 +2021,25 @@ msgstr "Pulsa o haz clic en la bandera para ver los detalles."
 msgid "韓国代表なし"
 msgstr "Sin representantes coreanos"
 
-#: templates/common/participants.html:27
+#: templates/common/participants.html:26
 msgid "シード権獲得者"
 msgstr "Sembrados"
 
-#: templates/common/participants.html:33
+#: templates/common/participants.html:32
 #: templates/includes/participants_form.html:20
 msgid "出場者のみ"
 msgstr "Solo para participantes"
 
-#: templates/common/participants.html:35
+#: templates/common/participants.html:34
 #: templates/includes/participants_form.html:21
 msgid "辞退者のみ"
 msgstr "Solo para los que han renunciado"
 
-#: templates/common/participants.html:37
+#: templates/common/participants.html:36
 msgid "出場者 & 辞退者を表示"
 msgstr "Mostrar Participantes & Retirados"
 
-#: templates/common/participants.html:44
+#: templates/common/participants.html:43
 #: templates/participant_detail/participant_detail.html:41
 #: templates/participant_detail/participant_detail.html:67
 #: templates/participant_detail/participant_detail.html:123
@@ -2062,24 +2047,24 @@ msgstr "Mostrar Participantes & Retirados"
 msgid "国"
 msgstr "País"
 
-#: templates/common/participants.html:111
-#: templates/common/participants.html:114
+#: templates/common/participants.html:110
+#: templates/common/participants.html:113
 msgid "出場者検索"
 msgstr "Búsqueda de participantes"
 
-#: templates/common/participants.html:112
+#: templates/common/participants.html:111
 msgid "出場者名を検索できます"
 msgstr "Puedes buscar el nombre del participante."
 
-#: templates/common/participants.html:112
+#: templates/common/participants.html:111
 msgid "半角英数字推奨"
 msgstr "Se recomienda usar caracteres alfanuméricos de media anchura."
 
-#: templates/common/participants.html:119
+#: templates/common/participants.html:118
 msgid "検索結果"
 msgstr "Resultados de la búsqueda"
 
-#: templates/common/participants.html:134
+#: templates/common/participants.html:133
 msgid "全出場者を地図にマッピングしました。"
 msgstr "Mapeamos a todos los participantes en un mapa."
 
@@ -2251,1420 +2236,3 @@ msgstr "Preguntar a ChatGPT"
 #: templates/participant_detail/participant_detail.html:213
 msgid "他の出場者"
 msgstr "Otros participantes"
-
-#~ msgid "GBB {year} なんでも検索"
-#~ msgstr ""
-
-#~ msgid "について検索してみよう"
-#~ msgstr "Busquemos sobre GBB {year}"
-
-#~ msgid "「シード権大会において出場が認められるのは、例外なく、常に優勝者のみである」とルールに明記されています。"
-#~ msgstr ""
-
-#~ msgid "開催日未定"
-#~ msgstr "Fecha de celebración por determinar."
-
-#~ msgid "10月1日 掲載募集開始予定"
-#~ msgstr "Se publicará la convocatoria el 1 de octubre."
-
-#~ msgid "作成者：ぬる湯さん"
-#~ msgstr "Creado por: Nuru yu-san"
-
-#~ msgid "バトルを行わない部門"
-#~ msgstr ""
-
-#~ msgid "審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価"
-#~ msgstr ""
-
-#~ msgid "GBB24では本番8日前公開"
-#~ msgstr "GBB24 se publica 8 días antes del evento."
-
-#~ msgid "譲渡希望ツイート"
-#~ msgstr "Tweet de transferencia deseada"
-
-#~ msgid "譲渡に関するトラブルについて、当サイトは一切の責任を負いません。また、連絡の仲介も一切行いません。"
-#~ msgstr ""
-#~ "Este sitio web no se responsabiliza por ningún problema relacionado con la "
-#~ "transferencia. Además, no actuamos como intermediarios en las "
-#~ "comunicaciones."
-
-#~ msgid "購入を希望する場合、ご本人様へ直接DM or リプライにてご連絡ください。"
-#~ msgstr ""
-#~ "Si desea comprar, póngase en contacto con la persona directamente por DM o "
-#~ "respuesta."
-
-#~ msgid "掲載申込があり次第、掲載開始予定 (現在掲載申込を募集中)"
-#~ msgstr ""
-#~ "La publicación comenzará tan pronto como se reciba la solicitud (ahora se "
-#~ "aceptan solicitudes)"
-
-#~ msgid "譲渡希望ツイートの掲載をご希望の場合、GBBINFO-JPN開発者 TwitterへDMにてご連絡ください。"
-#~ msgstr ""
-#~ "Si desea publicar un tweet de solicitud de transferencia, comuníquese con el"
-#~ " desarrollador de GBBINFO-JPN en Twitter a través de DM."
-
-#~ msgid "配信スタート"
-#~ msgstr "Inicio de la transmisión"
-
-#~ msgid "GBB {year} の配信URLは、お住まいの国によって異なります。"
-#~ msgstr ""
-#~ "La URL de transmisión de GBB {year} varía según el país en el que resida."
-
-#~ msgid "日本国外にお住まいの方"
-#~ msgstr "Personas que residen fuera de Japón"
-
-#~ msgid "日本にお住まいの方"
-#~ msgstr "Personas que viven en Japón"
-
-#~ msgid "現時点で、以下の断片的な情報のみ発表されています。"
-#~ msgstr ""
-#~ "Por el momento, solo se ha hecho público el siguiente fragmento de "
-#~ "información."
-
-#~ msgid "Producer部門は廃止"
-#~ msgstr "El departamento de productores se elimina"
-
-#~ msgid ""
-#~ "また、Solo部門・Loopstation部門のWildcardルールが変更されることが予告されています。最新情報が公開され次第、このページを更新します。"
-#~ msgstr ""
-#~ "Además, se ha anunciado que las reglas de Wildcard para las divisiones Solo "
-#~ "y Loopstation se modificarán. Actualizaremos esta página tan pronto como se "
-#~ "publique la información más reciente."
-
-#~ msgid "{Wildcard} ルール"
-#~ msgstr "{Wildcard} regla"
-
-#~ msgid "Wildcard ルール"
-#~ msgstr "Regla Wildcard"
-
-#~ msgid "Wildcard一覧"
-#~ msgstr "Lista de Wildcard"
-
-#~ msgid "Wildcard審査員一覧はこちら"
-#~ msgstr "Lista de jueces de Wildcard aquí"
-
-#~ msgid "Wildcard提出は一度のみ。一度提出したら、後から別のWildcardを提出することはできない"
-#~ msgstr ""
-#~ "Solo se permite una presentación de Wildcard. Una vez presentado, no se "
-#~ "puede presentar otro Wildcard."
-
-#~ msgid ""
-#~ "Wildcardシーズン中に、「{NOTWildcard}」を称する動画がまれに投稿されます。これは、正式な{Wildcard}エントリーではないものの、{Wildcard}に似た形式で制作された動画です。要するに、遊んでいるだけです。"
-#~ msgstr ""
-
-#~ msgid "廃止"
-#~ msgstr "Abolido"
-
-#~ msgid "いかなる理由があっても、チャレンジャーシリーズ2位以下の人に、出場権は与えられません。"
-#~ msgstr ""
-#~ "Por ninguna razón, no se otorgará el derecho a participar a las personas que"
-#~ " estén en el puesto 2 o inferior en la Challenger Series."
-
-#~ msgid "「チャレンジャーシリーズにおいてGBB出場権が与えられるのは、例外なく、常に優勝者のみである」とルールに明記されています。"
-#~ msgstr ""
-#~ "En las series Challenger, el derecho a participar en GBB se otorga, sin "
-#~ "excepción, siempre solo al ganador, como se especifica en las reglas."
-
-#~ msgid ""
-#~ "例：チャレンジャーシリーズ優勝者が、すでに{Wildcard}で出場権を獲得していた場合、チャレンジャーシリーズ2位ではなく、{Wildcard}下位からの繰り上げが行われます。"
-#~ msgstr ""
-#~ "Por ejemplo, si el ganador de la serie Challenger ya se ha clasificado para "
-#~ "el torneo a través de {Wildcard}, se avanzará desde el siguiente puesto más "
-#~ "bajo en {Wildcard} en lugar del segundo puesto en la serie Challenger."
-
-#~ msgid "ルール"
-#~ msgstr "Reglas"
-
-#~ msgid "Swissbeatbox公式サイトにて、GBB {year} で実施される部門・{Wildcard}のルールについて発表がありました。"
-#~ msgstr ""
-#~ "En el sitio web oficial de Swissbeatbox se han anunciado las categorías que "
-#~ "se llevarán a cabo en GBB {year} y las reglas de {Wildcard}."
-
-#~ msgid "ソースサイト："
-#~ msgstr "Sitio fuente:"
-
-#~ msgid "現地観戦計画のたてかた"
-#~ msgstr "Cómo planificar un viaje para ver un evento en el lugar"
-
-#~ msgid "目次"
-#~ msgstr "Índice"
-
-#~ msgid "注意事項"
-#~ msgstr "Aviso importante"
-
-#~ msgid "開催部門一覧"
-#~ msgstr "Lista de categorías del evento"
-
-#~ msgid "出場シード権 獲得条件"
-#~ msgstr ""
-#~ "Criterios para obtener la clasificación para el torneo (lit. derecho a ser "
-#~ "cabezas de serie)"
-
-#~ msgid "本戦審査員一覧"
-#~ msgstr "Lista de jueces de la ronda principal"
-
-#~ msgid "{Wildcard}審査員一覧"
-#~ msgstr "Lista de jueces de {Wildcard}"
-
-#~ msgid "以下に示す内容は、あくまでも{Beatbox}ファンが知っておくとよりGBBを楽しめる知識として紹介するものです。"
-#~ msgstr ""
-#~ "Lo que se presenta a continuación es simplemente información que los fans de"
-#~ " {Beatbox} encontrarán útil para disfrutar aún más del GBB."
-
-#~ msgid "一部内容において、わかりやすさを優先します。"
-#~ msgstr "En algunas partes, se priorizará la claridad."
-
-#~ msgid "これにより、正確さに欠ける表現を用いることがあります。"
-#~ msgstr "Esto puede llevar a usar expresiones imprecisas."
-
-#~ msgid "当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねます。"
-#~ msgstr ""
-#~ "No nos hacemos responsables de ningún daño causado por el contenido "
-#~ "publicado en este sitio."
-
-#~ msgid "{Wildcard}を提出する方は、"
-#~ msgstr "Quienes presenten {Wildcard},"
-
-#~ msgid "必ずご自身でルールを今一度ご確認ください。"
-#~ msgstr "Asegúrese de revisar las reglas una vez más."
-
-#~ msgid "部門"
-#~ msgstr "Categoría"
-
-#~ msgid "シード"
-#~ msgstr "Semilla"
-
-#~ msgid "計"
-#~ msgstr "Total"
-
-#~ msgid "上記のデータは、ルール発表時現在の情報です。実際は、辞退などにより、出場者数が変動します。"
-#~ msgstr ""
-#~ "Los datos anteriores corresponden a la información disponible al momento del"
-#~ " anuncio de las reglas. En realidad, el número de participantes puede variar"
-#~ " debido a renuncias u otras circunstancias."
-
-#~ msgid "Producerとは"
-#~ msgstr "¿Qué es Producer?"
-
-#~ msgid ""
-#~ "{Loopstation}のセカンドデバイス（{Loopstation}に接続する端末）ありの部門で、GBB23で「Producer "
-#~ "showcase」として新設されました。その代わり、{Loopstation}部門においてセカンドデバイスの使用が禁止されます。"
-#~ msgstr ""
-#~ "En la categoría con un segundo dispositivo de {Loopstation} (un terminal "
-#~ "conectado a {Loopstation}), que fue establecida como \"Producer showcase\" "
-#~ "en GBB23. En cambio, el uso de un segundo dispositivo está prohibido en la "
-#~ "categoría de {Loopstation}."
-
-#~ msgid "忘れられた{TagTeamLoopstation}..."
-#~ msgstr "Olvidada {TagTeamLoopstation}..."
-
-#~ msgid "{Wildcard}を勝ち上がる以外の方法でGBB出場権を得る方法（シード権）と、その該当者は以下の通りです。"
-#~ msgstr ""
-#~ "Las formas de obtener una plaza para el GBB que no sean ganar el {Wildcard} "
-#~ "(ranking) y los que cumplen los requisitos son los siguientes."
-
-#~ msgid "シード権 - GBB"
-#~ msgstr "Cabezas de serie - GBB"
-
-#~ msgid "名前"
-#~ msgstr "Nombre"
-
-#~ msgid "出場権"
-#~ msgstr "Clasificación"
-
-#~ msgid "発表次第更新"
-#~ msgstr "Se actualizará en cuanto se anuncie"
-
-#~ msgid "シード権 - その他"
-#~ msgstr "Cabezas de serie - Otros"
-
-#~ msgid "シード権辞退者一覧"
-#~ msgstr "Lista de Retiros de Sembrados"
-
-#~ msgid "辞退"
-#~ msgstr "Renuncia"
-
-#~ msgid "出場者一覧"
-#~ msgstr "Lista de participantes"
-
-#~ msgid "シード権を持つ人が辞退した場合、原則として、該当シード権は消滅し、{Wildcard}下位からの繰り上げが行われます。"
-#~ msgstr ""
-#~ "Cuando un cabeza de serie renuncia, en principio, su derecho a siembra se "
-#~ "extingue y se reasignará la plaza al siguiente clasificado de {Wildcard}."
-
-#~ msgid "全部門共通"
-#~ msgstr "Común a todos los departamentos"
-
-#~ msgid "制限時間を超過した場合、1秒につき最終順位を1つ下げる"
-#~ msgstr ""
-#~ "Si se excede el límite de tiempo, la clasificación final se reducirá en un "
-#~ "puesto por segundo."
-
-#~ msgid "提出受付開始日時"
-#~ msgstr "Fecha y hora de inicio de la presentación"
-
-#~ msgid "制限時間"
-#~ msgstr "Tiempo límite"
-
-#~ msgid "提出期限"
-#~ msgstr "Fecha límite"
-
-#~ msgid "結果発表"
-#~ msgstr "Anuncio de resultados"
-
-#~ msgid "時間未定"
-#~ msgstr "Horario por determinar"
-
-#~ msgid "一部例外あり"
-#~ msgstr "Con algunas excepciones."
-
-#~ msgid "RC505 mki, mkiiのみ"
-#~ msgstr "Solo RC505 mki, mkii."
-
-#~ msgid "デバイス制限なし"
-#~ msgstr "Sin restricción de dispositivos"
-
-#~ msgid "{Wildcard}審査員一覧はこちら"
-#~ msgstr "Haz clic aquí para ver la lista de jueces de {Wildcard}"
-
-#~ msgid "審査員"
-#~ msgstr "Jurado"
-
-#~ msgid "審査員不明"
-#~ msgstr "Jurado desconocido"
-
-#~ msgid "例年発表なし"
-#~ msgstr "No se anuncia anualmente."
-
-#~ msgid "本戦審査員一覧はこちら"
-#~ msgstr "La lista de jueces del torneo principal es la siguiente:"
-
-#~ msgid "当日配信"
-#~ msgstr "Transmisión del día"
-
-#~ msgid "観戦のお供に"
-#~ msgstr "Para acompañar el evento"
-
-#~ msgid "GBB {year} の最新情報をチェックしよう"
-#~ msgstr "Consulta las últimas noticias de GBB {year}"
-
-#~ msgid "{Wildcard}結果 & 出場者"
-#~ msgstr "Resultados y participantes de {Wildcard}"
-
-#~ msgid "タイムテーブル"
-#~ msgstr "Horario"
-
-#~ msgid "会場 & チケット"
-#~ msgstr "Lugar & Entradas"
-
-#~ msgid "【完売】公式販売"
-#~ msgstr "【Agotado】Venta oficial"
-
-#~ msgid "会場"
-#~ msgstr "Lugar de encuentro"
-
-#~ msgid "チケットぴあ"
-#~ msgstr "Tickets Pia"
-
-#~ msgid "楽天チケット"
-#~ msgstr "Rakuten Ticket"
-
-#~ msgid "チケット"
-#~ msgstr "Entradas"
-
-#~ msgid "時刻はあくまでも予定です。"
-#~ msgstr "La hora es solo un estimado."
-
-#~ msgid "GBB21では、予定から約2時間遅延しました。"
-#~ msgstr ""
-#~ "En GBB21, hubo un retraso de aproximadamente dos horas con respecto a lo "
-#~ "programado."
-
-#~ msgid "GBB23では、本番7日前に日本語版・英語版のタイムテーブルが公開されましたが、日本語版のみ正しく、英語版には誤記が多くみられました。"
-#~ msgstr ""
-#~ "En GBB23, los horarios en japonés e inglés se publicaron 7 días antes del "
-#~ "evento, pero solo la versión en japonés era correcta y la versión en inglés "
-#~ "tenía muchos errores de escritura."
-
-#~ msgid "出演者一覧"
-#~ msgstr "Lista de participantes"
-
-#~ msgid "時刻"
-#~ msgstr "Hora"
-
-#~ msgid "内容"
-#~ msgstr "Contenido"
-
-#~ msgid "入場開始"
-#~ msgstr "Apertura de puertas"
-
-#~ msgid "ABEMA配信スタート"
-#~ msgstr "Comienza la transmisión de ABEMA"
-
-#~ msgid "サプライズゲスト"
-#~ msgstr "Invitado sorpresa"
-
-#~ msgid "スタート"
-#~ msgstr "Comienzo"
-
-#~ msgid "予選"
-#~ msgstr "Clasificación"
-
-#~ msgid "準決勝"
-#~ msgstr "Semifinales"
-
-#~ msgid "終了"
-#~ msgstr "Fin"
-
-#~ msgid "準々決勝"
-#~ msgstr "Cuartos de final"
-
-#~ msgid "決勝"
-#~ msgstr "Final"
-
-#~ msgid "準決勝・3位決定戦・決勝"
-#~ msgstr "Semifinales・Partido por el tercer lugar・Final"
-
-#~ msgid "3位決定戦・決勝"
-#~ msgstr "Partido por el tercer puesto y final"
-
-#~ msgid "セレモニー"
-#~ msgstr "Ceremonia"
-
-#~ msgid "アフターパーティー"
-#~ msgstr "Fiesta posterior"
-
-#~ msgid "ソース：会場公式サイト"
-#~ msgstr "Fuente: Sitio web oficial del recinto."
-
-#~ msgid "ソース：ABEMA配信ページ"
-#~ msgstr "Fuente: Página de transmisión de ABEMA"
-
-#~ msgid "予選開始より遅い理由は不明"
-#~ msgstr ""
-#~ "La razón de la tardanza desde el inicio de la fase de clasificación es "
-#~ "desconocida."
-
-#~ msgid "本戦出場者アナウンス"
-#~ msgstr "Anuncio de los participantes en la fase final"
-
-#~ msgid "本戦スタート"
-#~ msgstr "Comienzo de la fase final"
-
-#~ msgid "各出演者の出演日時は不明です。"
-#~ msgstr "Los horarios de aparición de cada artista son desconocidos."
-
-#~ msgid "開催日"
-#~ msgstr "Fecha de la celebración"
-
-#~ msgid "公式よりもわかりやすい！"
-#~ msgstr "¡Más claro que el oficial!"
-
-#~ msgid "非公式情報サイト"
-#~ msgstr "Sitio de información no oficial"
-
-#~ msgid "最終更新"
-#~ msgstr "Última actualización"
-
-#~ msgid "韓国代表"
-#~ msgstr "Representación coreana"
-
-#~ msgid "日本代表"
-#~ msgstr "Equipo Nacional de Japón"
-
-#~ msgid "みんなで鑑賞会"
-#~ msgstr "Visualización en grupo."
-
-#~ msgid "大会結果"
-#~ msgstr "Resultados del evento."
-
-#~ msgid "当サイトURL変更のお知らせ"
-#~ msgstr "Aviso de cambio de URL del sitio"
-
-#~ msgid "{Wildcard}結果発表配信"
-#~ msgstr "Transmisión del anuncio de resultados de {Wildcard}"
-
-#~ msgid "{Wildcard}一覧"
-#~ msgstr "Lista de {Wildcard}"
-
-#~ msgid "お問い合わせ"
-#~ msgstr "Consulta"
-
-#~ msgid "これらの情報のほかにも、"
-#~ msgstr "Además de esta información,"
-
-#~ msgid "未発表の情報(決まっているが、なぜか公式が発表を渋っている)"
-#~ msgstr ""
-#~ "Información no divulgada (ya decidida, pero por alguna razón la autoridad "
-#~ "oficial se resiste a anunciarla)."
-
-#~ msgid "未定事項(そもそも決まってすらいない)"
-#~ msgstr "Cuestiones no resueltas (ni siquiera decididas)"
-
-#~ msgid "このような情報が多く存在します。"
-#~ msgstr "Existe mucha información como esta."
-
-#~ msgid "GBBの各種情報は、発表が非常に遅いことで有名です。気長に待ちましょう。"
-#~ msgstr ""
-#~ "La información sobre GBB es famosa por ser publicada con mucha demora. "
-#~ "Esperemos pacientemente."
-
-#~ msgid "過去のGBBにおいて、下記番号に電話したらGBB詳細情報を教えてくれた、という報告が相次ぎました。"
-#~ msgstr ""
-#~ "En GBBs pasados, hubo numerosos informes de que al llamar a los números "
-#~ "siguientes, se proporcionaba información detallada sobre el GBB."
-
-#~ msgid "場所"
-#~ msgstr "Lugar"
-
-#~ msgid "電話番号"
-#~ msgstr "Número de teléfono:"
-
-#~ msgid "チケット販売ページ記載の番号"
-#~ msgstr "Página de venta de boletos"
-
-#~ msgid "なお上記電話番号は、当サイトとは無関係です。"
-#~ msgstr ""
-#~ "Tenga en cuenta que el número de teléfono anterior no está relacionado con "
-#~ "este sitio."
-
-#~ msgid "7toSmokeとは"
-#~ msgstr "¿Qué es 7toSmoke?"
-
-#~ msgid "7toSmokeルール & 参加方法"
-#~ msgstr "Reglas 7toSmoke & Cómo Participar"
-
-#~ msgid ""
-#~ "7toSmokeは、GBB本戦に比べて最新情報の公開が非常に遅い傾向にあり、そもそも情報が発表されないまま本番を迎えてしまったケースもあります。"
-#~ msgstr ""
-#~ "El anuncio de información más reciente de 7toSmoke tiende a ser mucho más "
-#~ "tardío en comparación con el evento principal de GBB, e incluso ha habido "
-#~ "casos en los que el evento se ha celebrado sin que se publique ninguna "
-#~ "información."
-
-#~ msgid "諦めましょう。"
-#~ msgstr "Rendámonos."
-
-#~ msgid "各部門の締め切り期日は、中央ヨーロッパ時刻を基準に表記しています。"
-#~ msgstr ""
-#~ "Los plazos de entrega para cada departamento se indican en la Hora de Europa"
-#~ " Central."
-
-#~ msgid "締め切り"
-#~ msgstr "Fecha límite"
-
-#~ msgid "今回公開する{Wildcard}一覧は、有志が作成した、非公式のものです。"
-#~ msgstr ""
-#~ "La lista de {Wildcard} que se publica esta vez no es oficial y ha sido "
-#~ "creada por voluntarios."
-
-#~ msgid "すべて手作業で制作されたものであるため、重複や欠落がある可能性があります。"
-#~ msgstr ""
-#~ "Debido a que todos están hechos a mano, puede haber duplicados y faltantes."
-
-#~ msgid ""
-#~ "また、この再生リストにある動画が必ずしも{Wildcard}として申請された動画であるとは限りません（毎年必ず出場者の手続きミスで失格者が出ます）。"
-#~ msgstr ""
-#~ "Además, los videos de esta lista de reproducción no son necesariamente "
-#~ "aquellos que fueron solicitados como {Wildcard} (cada año hay participantes "
-#~ "descalificados debido a errores de procedimiento)."
-
-#~ msgid "【{Beatboxer}向け】{Wildcard}レギュレーション解説"
-#~ msgstr "[Para {Beatboxer}] Explicación del reglamento {Wildcard}"
-
-#~ msgid "GBB出場辞退が発生した場合、{Wildcard}下位からの繰り上げが行われます。"
-#~ msgstr ""
-#~ "En caso de que se produzca una retirada de la participación en GBB, se "
-#~ "reasignará la plaza al siguiente clasificado de {Wildcard}."
-
-#~ msgid "いかなる理由があっても、シード権大会2位以下の人に、出場権は与えられません。"
-#~ msgstr ""
-#~ "Por ninguna razón, no se otorgará la elegibilidad a participar a las "
-#~ "personas que estén en el segundo lugar o inferior del torneo de "
-#~ "clasificación."
-
-#~ msgid "「シード権大会においてGBB出場権が与えられるのは、例外なく、常に優勝者のみである」とルールに明記されています。"
-#~ msgstr ""
-#~ "En el torneo de clasificación, la entrada al GBB se otorga, sin excepción, "
-#~ "solo al ganador, según se especifica en las reglas."
-
-#~ msgid ""
-#~ "例：シード権大会優勝者が、すでに{Wildcard}で出場権を獲得していた場合、シード権大会2位ではなく、{Wildcard}下位からの繰り上げが行われます。"
-#~ msgstr ""
-#~ "Por ejemplo: Si el ganador del torneo de cabezas de serie ya ha obtenido la "
-#~ "clasificación con un {Wildcard}, el avance se realizará desde los puestos "
-#~ "inferiores de {Wildcard} en lugar del segundo puesto del torneo de cabezas "
-#~ "de serie."
-
-#~ msgid "制限時間を使い切らず余らせた場合、3秒につき最終順位を1つ下げる"
-#~ msgstr ""
-#~ "Si no utilizas todo el tiempo asignado, cada 3 segundos de tiempo restante "
-#~ "te harán bajar un puesto en la clasificación final."
-
-#~ msgid "※中央ヨーロッパ時間には、サマータイムがあります。2025年のサマータイムは3/30からです。"
-#~ msgstr ""
-#~ "※La hora de Europa Central tiene horario de verano. El horario de verano de "
-#~ "2025 comienza el 3/30."
-
-#~ msgid "Tag Team部門・Crew部門参加希望の方はご注意ください。"
-#~ msgstr ""
-#~ "Atención para los que desean participar en la categoría Tag Team o Crew:"
-
-#~ msgid "レフェリー"
-#~ msgstr "Árbitro"
-
-#~ msgid "レフェリーについて"
-#~ msgstr "Sobre el árbitro"
-
-#~ msgid ""
-#~ "レフェリーは、GBB23から導入された、審査員とは別のメンバーです。審査員は各出場者の評価を行うのに対し、レフェリーは「ルールを守っているか」を確認する役割を担います。"
-#~ msgstr ""
-#~ "El árbitro, introducido a partir de GBB23, es un miembro diferente de los "
-#~ "jueces. Mientras que los jueces evalúan a cada participante, el árbitro "
-#~ "tiene la función de comprobar si se cumplen las reglas."
-
-#~ msgid "ルール & 審査員"
-#~ msgstr "Reglas & Jurado"
-
-#~ msgid "GBB24では、本番約1ヶ月前に公開されましたが、誤記が多くみられました。"
-#~ msgstr ""
-#~ "En GBB24, se publicó aproximadamente un mes antes del evento principal, pero"
-#~ " se observaron muchos errores tipográficos."
-
-#~ msgid "オープニング"
-#~ msgstr "Apertura"
-
-#~ msgid "休憩"
-#~ msgstr "Descanso"
-
-#~ msgid ""
-#~ "タイムテーブルの終了時刻は19:30になっていますが、なぜか中継配信は21時まで行われるようです。理由は不明です。初日も21時まで行われるのかどうかも不明です。"
-#~ msgstr ""
-#~ "La hora de finalización del horario es a las 19:30, pero por alguna razón la"
-#~ " transmisión en diferido parece que continuará hasta las 21:00. Se desconoce"
-#~ " el motivo. Tampoco se sabe si el primer día también continuará hasta las "
-#~ "21:00."
-
-#~ msgid "7toSmoke開始時刻と配信スタート時刻が違う理由は不明です。"
-#~ msgstr ""
-#~ "La razón por la que la hora de inicio de 7toSmoke y la hora de inicio de la "
-#~ "transmisión son diferentes es desconocida."
-
-#~ msgid "注目キーワード"
-#~ msgstr "Palabras clave destacadas"
-
-#~ msgid "ワイルドカード"
-#~ msgstr "Wildcard"
-
-#~ msgid "結果"
-#~ msgstr "Resultados"
-
-#~ msgid "結果発表日"
-#~ msgstr "Fecha de anuncio de resultados"
-
-#~ msgid "動画一覧"
-#~ msgstr "Lista de videos"
-
-#~ msgid "提出締切"
-#~ msgstr "Fecha límite de presentación"
-
-#~ msgid "結果発表配信"
-#~ msgstr "Transmisión de anuncio de resultados"
-
-#~ msgid "出場枠の数"
-#~ msgstr "Número de plazas disponibles"
-
-#~ msgid "全出場者一覧"
-#~ msgstr "Lista de todos los participantes"
-
-#~ msgid "辞退者一覧"
-#~ msgstr "Lista de renunciantes"
-
-#~ msgid "閉じる"
-#~ msgstr "Cerrar"
-
-#~ msgid "お探しの情報は、当サイトにありません。下記お問い合わせより、GBB運営に直接お尋ねください。"
-#~ msgstr ""
-#~ "La información que busca no está en este sitio. Por favor, consulte "
-#~ "directamente con la organización de GBB a través de los siguientes datos de "
-#~ "contacto."
-
-#~ msgid "記載の番号"
-#~ msgstr "Número indicado"
-
-#~ msgid "チケット販売ページ"
-#~ msgstr "Página de venta de boletos"
-
-#~ msgid "GBB {year} 会場webサイトに記載のあった番号"
-#~ msgstr "Número indicado en el sitio web del lugar GBB {year}"
-
-#~ msgid "レギュレーション"
-#~ msgstr "Reglamento"
-
-#~ msgid "このページでは、{Wildcard}提出にあたって重要なルールを解説します。"
-#~ msgstr ""
-#~ "En esta página explicamos las reglas importantes para la presentación de "
-#~ "{Wildcard}."
-
-#~ msgid "【{Beatbox}ファン向け】"
-#~ msgstr "【Para fans de {Beatbox}】"
-
-#~ msgid "年齢制限"
-#~ msgstr "Restricción de edad"
-
-#~ msgid "{Wildcard}提出について"
-#~ msgstr "{Wildcard} Presentación"
-
-#~ msgid "部門別ルール"
-#~ msgstr "Reglas por categoría"
-
-#~ msgid "失格にならないために"
-#~ msgstr "Para no ser descalificado."
-
-#~ msgid "以下に示す内容は、{Wildcard}を作る{Beatboxer}向けの情報です。"
-#~ msgstr "La siguiente información es para {Beatboxer} que crean {Wildcard}."
-
-#~ msgid "当サイト管理人は{Beatboxer}ではありません。また、当サイト管理人はGBB運営と一切無関係です。"
-#~ msgstr ""
-#~ "El administrador de este sitio no es un {Beatboxer}. Además, el "
-#~ "administrador de este sitio no tiene ninguna relación con las operaciones de"
-#~ " GBB."
-
-#~ msgid ""
-#~ "For Non-Japanese Users:\n"
-#~ "    Please note that this article was originally written in Japanese and subsequently translated using AI.\n"
-#~ "    As a result, there may be instances of inaccurate translation.\n"
-#~ "    For any questions or concerns, please refer to the official website or social media channels."
-#~ msgstr ""
-#~ "Para usuarios no japoneses: Tenga en cuenta que este artículo fue escrito "
-#~ "originalmente en japonés y posteriormente traducido con IA. Como resultado, "
-#~ "puede haber casos de traducción inexacta. Para cualquier pregunta o "
-#~ "inquietud, consulte el sitio web oficial o los canales de redes sociales."
-
-#~ msgid "年齢制限: 本番当日、16歳以上であること"
-#~ msgstr "Restricciones de edad: Ser mayor de 16 años el día del evento."
-
-#~ msgid "未成年者(18歳未満)の参加:"
-#~ msgstr "Participación de menores de edad (menores de 18 años):"
-
-#~ msgid "保護者の同伴が必須"
-#~ msgstr "Se requiere la presencia de un tutor legal."
-
-#~ msgid "主催者は、保護者の同伴にかかる費用(ビザ、フライト、ホテル、食事など)を負担しない"
-#~ msgstr ""
-#~ "El organizador no cubrirá los gastos asociados a la acompañamiento de los "
-#~ "padres (Visa, vuelo, hotel, comida, etc.)."
-
-#~ msgid "上記要件を満たさない、同意できない場合は失格となり、{Wildcard}下位からの繰り上げが行われる"
-#~ msgstr ""
-#~ "En caso de no cumplir los requisitos anteriores o no estar de acuerdo, será "
-#~ "descalificado y se reasignará la plaza al siguiente clasificado de "
-#~ "{Wildcard}."
-
-#~ msgid "{Wildcard}作成・提出について"
-#~ msgstr "Creación y presentación de {Wildcard}"
-
-#~ msgid "{Wildcard}動画の内容"
-#~ msgstr "Contenido del video de {Wildcard}"
-
-#~ msgid "動画の冒頭で、以下のように自己紹介する"
-#~ msgstr "Al principio del video, me presento de la siguiente manera:"
-
-#~ msgid "このルールに関する表記は、原文では非常に強い表現で示されています。"
-#~ msgstr ""
-#~ "La descripción de esta regla se presenta con una expresión muy fuerte en el "
-#~ "texto original."
-
-#~ msgid "また、過去にこのルールに違反したことで失格処分になった事例があります。"
-#~ msgstr ""
-#~ "Además, en el pasado ha habido casos de descalificación por violar esta "
-#~ "regla."
-
-#~ msgid "録音方法"
-#~ msgstr "Método de grabación"
-
-#~ msgid "カメラにはっきり映っていること (マスクや視覚効果で顔や口を覆わないこと)"
-#~ msgstr ""
-#~ "Que se vea claramente en la cámara (sin cubrirse la cara ni la boca con "
-#~ "mascarillas o efectos visuales)"
-
-#~ msgid "リップシンクやその他のビデオ技術は禁止"
-#~ msgstr "La sincronización labial y otras técnicas de video están prohibidas."
-
-#~ msgid "撮影と録音は、同時に行うこと"
-#~ msgstr "La filmación y la grabación de sonido deben hacerse simultáneamente."
-
-#~ msgid "基本的なダイナミック (コンプレッション)、EQ プラグイン、リバーブは使用可能。ただし、録音自体は生の状態で行い、後で編集すること"
-#~ msgstr ""
-#~ "Están disponibles plugins básicos de dinámica (compresión), ecualización y "
-#~ "reverberación. Sin embargo, la grabación en sí se realizará en bruto y se "
-#~ "editará posteriormente."
-
-#~ msgid "キックとスネアに異なる EQ やコンプレッションを施すなどの自動処理は禁止"
-#~ msgstr ""
-#~ "No se permiten automatizaciones, como aplicar ecualización o compresión "
-#~ "diferente a los kicks y snares."
-
-#~ msgid "録音全体を同じように処理すること"
-#~ msgstr "Procesar toda la grabación de la misma manera."
-
-#~ msgid "歪み、遅延、その他の動的処理、周波数歪み効果は禁止"
-#~ msgstr ""
-#~ "Distorsión, retardo, y otros procesamientos dinámicos, efectos de distorsión"
-#~ " de frecuencia están prohibidos."
-
-#~ msgid "上記ルールについて、不正行為の疑いがある場合、{Wildcard}作成に使ったファイルの追加提出を求められる場合あり"
-#~ msgstr ""
-#~ "Con respecto a las reglas anteriores, en caso de sospecha de fraude, se le "
-#~ "podría solicitar la presentación de archivos adicionales utilizados para "
-#~ "crear {Wildcard}."
-
-#~ msgid "提出方法"
-#~ msgstr "Método de presentación"
-
-#~ msgid "{Wildcard}をYouTubeにアップロード"
-#~ msgstr "Subir {Wildcard} a YouTube"
-
-#~ msgid "Swissbeatbox公式サイトにある申請フォームで提出"
-#~ msgstr ""
-#~ "Presentado en el formulario de solicitud en el sitio web oficial de "
-#~ "Swissbeatbox."
-
-#~ msgid "上記2つが両方できていない場合は、失格"
-#~ msgstr "Si no se cumplen ambos requisitos, se descalificará."
-
-#~ msgid "毎年必ず、申請フォーム入力忘れによる失格者が発生します！！！"
-#~ msgstr ""
-#~ "¡Todos los años, sin falta, hay personas descalificadas por olvidar rellenar"
-#~ " el formulario de solicitud!"
-
-#~ msgid "ぜひここのスクリーンショットをとってSNSで拡散してください。推しが失格にならないために..."
-#~ msgstr ""
-#~ "Por favor, tome una captura de pantalla de esto y difúndala en las redes "
-#~ "sociales. Para que tu favorito no sea descalificado..."
-
-#~ msgid "生のオーディオと生のビデオ (カメラのオーディオを含む) の提出が必要"
-#~ msgstr ""
-#~ "Se requiere la presentación de audio en bruto y video en bruto (incluyendo "
-#~ "el audio de la cámara)."
-
-#~ msgid "{Solo}以外の全部門は、録画中のスクリーンキャプチャの提出も必要"
-#~ msgstr ""
-#~ "Todas las divisiones, excepto {Solo}, también requieren la presentación de "
-#~ "una captura de pantalla durante la grabación."
-
-#~ msgid "上記2つが無い場合は、失格"
-#~ msgstr "Si no existen los dos anteriores, la descalificación."
-
-#~ msgid "{Wildcard}提出は一度のみ。一度提出したら、後から別の{Wildcard}を提出することはできない"
-#~ msgstr ""
-#~ "La presentación de {Wildcard} es única. Una vez enviado, no podrás enviar "
-#~ "otro {Wildcard} posteriormente."
-
-#~ msgid "誤って一度提出した{Wildcard}を削除した場合、失格"
-#~ msgstr "Si elimina accidentalmente un {Wildcard} enviado, será descalificado."
-
-#~ msgid "このルールは、GBB 2019で発生したトラブルの対策として設けられている"
-#~ msgstr ""
-#~ "Esta regla se establece como medida de precaución ante los problemas "
-#~ "ocurridos en GBB 2019."
-
-#~ msgid "デバイスルール"
-#~ msgstr "Reglas del dispositivo"
-
-#~ msgid "MIDIコントローラーの使用は禁止"
-#~ msgstr "El uso del controlador MIDI está prohibido."
-
-#~ msgid "マシン内の追加ケーブルは使用可能 ケーブルはデバイスではないとみなされる"
-#~ msgstr ""
-#~ "Cables adicionales dentro de la máquina están disponibles. Los cables se "
-#~ "consideran no dispositivos."
-
-#~ msgid "{Loopstation}単体での出場は禁止"
-#~ msgstr "Se prohíbe la participación individual con {Loopstation}"
-
-#~ msgid "事前にデバイス構成をSUPPORT@swissbeatbox.comへ申請すること"
-#~ msgstr ""
-#~ "Debe solicitar la configuración de su dispositivo con antelación a "
-#~ "SUPPORT@swissbeatbox.com"
-
-#~ msgid "ボイスソース、ボイストリガーのみ"
-#~ msgstr "Solo fuentes de voz y disparadores de voz"
-
-#~ msgid "事前に録音されたサンプルは使用禁止"
-#~ msgstr "Se prohíbe el uso de samples grabados previamente."
-
-#~ msgid "FOH (ミキシング デスク) または録音への出力はステレオ信号である必要があり、マルチチャンネル出力は禁止"
-#~ msgstr ""
-#~ "La salida a FOH (consola de mezcla) o a la grabación debe ser una señal "
-#~ "estéreo, y las salidas multicanal están prohibidas"
-
-#~ msgid "{Wildcard}動画の作成にあたり使用したすべてのファイルを、バックアップ含め保存しておき、いつでも提出できるようにしておく"
-#~ msgstr ""
-#~ "Guarde todos los archivos utilizados para crear el video de {Wildcard}, "
-#~ "incluidos los respaldos, y manténgalos listos para su presentación en "
-#~ "cualquier momento."
-
-#~ msgid "皆さんの{Wildcard}を楽しみにしています！"
-#~ msgstr "¡Espero con ansias su {Wildcard}!"
-
-#~ msgid "ソースサイト"
-#~ msgstr "Sitio fuente:"
-
-#~ msgid "チャレンジャーシリーズ"
-#~ msgstr "Serie Challenger"
-
-#~ msgid "繰り上げ出場について"
-#~ msgstr "Sobre la participación por ascenso"
-
-#~ msgid "セカンドリーグ"
-#~ msgstr "Segunda Liga"
-
-#~ msgid "{SHOWCASE}とは"
-#~ msgstr "¿Qué es {SHOWCASE}?"
-
-#~ msgid "2026年から新部門として「{SHOWCASE}」が追加されました。"
-#~ msgstr "A partir de 2026, se añadió una nueva división: «{SHOWCASE}»."
-
-#~ msgid "この部門では、バトルを行いません。"
-#~ msgstr "En esta categoría no se disputan batallas."
-
-#~ msgid "{Wildcard}の審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価されます。"
-#~ msgstr ""
-#~ "La evaluación de {Wildcard} se lleva a cabo con criterios diferentes a los "
-#~ "de otras categorías, y se valora por su historia, arte y originalidad, entre"
-#~ " otros."
-
-#~ msgid "{Solo}部門 決勝トーナメント"
-#~ msgstr "Torneo final de la categoría {Solo}"
-
-#~ msgid "GBB {year} {Solo}部門の決勝トーナメントは8人トーナメントで開催されます。"
-#~ msgstr ""
-#~ "El torneo final de la categoría {Solo} del GBB {year} se celebrará como un "
-#~ "torneo de 8 participantes."
-
-#~ msgid "GBB 2021以来、8人トーナメントで開催するよう、Beatboxerから繰り返し要望を受けている、と説明されています。"
-#~ msgstr ""
-#~ "Se explica que desde GBB 2021, los Beatboxers han solicitado repetidamente "
-#~ "que se celebre como un torneo de 8 participantes."
-
-#~ msgid ""
-#~ "{ComebackWildcard}は、通常の{SoloWildcard}ランキングで出場枠を獲得できなかった方のうち1名が、特別枠として出場権を獲得する制度です。"
-#~ msgstr ""
-#~ "{ComebackWildcard} es un sistema mediante el cual una persona que no pudo "
-#~ "obtener una plaza en el ranking normal de {SoloWildcard} puede obtener el "
-#~ "derecho a participar como plaza especial."
-
-#~ msgid "対象"
-#~ msgstr "Elegibles"
-
-#~ msgid "10位〜25位"
-#~ msgstr "Posiciones 10 a 25"
-
-#~ msgid "選出の流れ"
-#~ msgstr "Proceso de selección"
-
-#~ msgid "審査員による指名"
-#~ msgstr "Nominación por los jueces"
-
-#~ msgid "5名の審査員が、対象者の中から各自1名を自由に指名します（最大5名が候補）。"
-#~ msgstr ""
-#~ "Los 5 jueces nominan libremente a 1 persona cada uno de entre los elegibles "
-#~ "(máximo 5 candidatos)."
-
-#~ msgid "※5名全員が同じアーティストを指名した場合、その時点で出場者が確定します。"
-#~ msgstr ""
-#~ "※Si los 5 jueces nominan al mismo artista, el participante se determina en "
-#~ "ese momento."
-
-#~ msgid "再投票（審査員+{Swissbeatbox} {YouTube}メンバーシップ）"
-#~ msgstr "Segunda votación (Jueces + Membresía de {Swissbeatbox} {YouTube})"
-
-#~ msgid "審査員の票：各審査員が候補者をランキングします。"
-#~ msgstr "Votos de los jueces: Cada juez clasifica a los candidatos."
-
-#~ msgid ""
-#~ "メンバー票：生配信中に{Swissbeatbox} "
-#~ "{YouTube}メンバーシップ会員が投票し、その結果が「6人目の審査員」の票としてカウントされます。"
-#~ msgstr ""
-#~ "Voto de los miembros: Durante la transmisión en vivo, los miembros de la "
-#~ "membresía de {Swissbeatbox} {YouTube} votan, y el resultado se cuenta como "
-#~ "el voto del \"sexto juez\"."
-
-#~ msgid "勝者の決定"
-#~ msgstr "Determinación del ganador"
-
-#~ msgid ""
-#~ "審査員5名 + {Swissbeatbox} "
-#~ "{YouTube}メンバーシップ会員（計6つのランキング）をポイント化して合計し、合計スコアが最も高い1名がGBB {year}に出場します。"
-#~ msgstr ""
-
-#~ msgid "GBB出場権獲得条件"
-#~ msgstr "Condiciones para la calificación de GBB"
-
-#~ msgid "GBB出場権を得る方法は、以下の通りです。"
-#~ msgstr "La forma de obtener la clasificación para GBB es la siguiente."
-
-#~ msgid "上位入賞者"
-#~ msgstr "Los clasificados en los primeros puestos"
-
-#~ msgid "優勝者のみ"
-#~ msgstr "Solo el ganador"
-
-#~ msgid "繰り上げ出場"
-#~ msgstr "Participación por ascenso"
-
-#~ msgid "基本的には、2026年8月1日を境に対応が変わるのがポイントです。"
-#~ msgstr ""
-#~ "Básicamente, el punto clave es que la respuesta cambia a partir del 1 de "
-#~ "agosto de 2026."
-
-#~ msgid "繰り上げ期限"
-#~ msgstr ""
-
-#~ msgid "期限"
-#~ msgstr "Fecha límite"
-
-#~ msgid "対応"
-#~ msgstr ""
-
-#~ msgid "2026年8月1日まで"
-#~ msgstr ""
-
-#~ msgid "原則として、辞退者が出た場合は{Wildcard}下位からの繰り上げが発生します。"
-#~ msgstr ""
-#~ "En caso de que se produzca una retirada de la participación en GBB, se "
-#~ "reasignará la plaza al siguiente clasificado de {Wildcard}."
-
-#~ msgid "2026年8月1日以降"
-#~ msgstr ""
-
-#~ msgid "{Swissbeatbox}が個別に判断します。渡航ビザの取得や移動の手配が間に合うかなど、状況に応じて決定されます。"
-#~ msgstr ""
-
-#~ msgid "繰り上げ対象"
-#~ msgstr ""
-
-#~ msgid "繰り上げの対象となるのは、{Wildcard}の順位が上位の人たちに限定されています。"
-#~ msgstr ""
-
-#~ msgid "15位まで"
-#~ msgstr ""
-
-#~ msgid "16位以下の繰り上げは一切無し"
-#~ msgstr ""
-
-#~ msgid "20位まで"
-#~ msgstr ""
-
-#~ msgid "21位以降は運営の個別判断"
-#~ msgstr "A partir del puesto 21, decisión individual de la organización"
-
-#~ msgid "10位まで"
-#~ msgstr ""
-
-#~ msgid "11位以下の繰り上げは一切無し"
-#~ msgstr ""
-
-#~ msgid "5位まで"
-#~ msgstr ""
-
-#~ msgid "6位以下の繰り上げは一切無し"
-#~ msgstr ""
-
-#~ msgid "特殊なケース"
-#~ msgstr ""
-
-#~ msgid "項目"
-#~ msgstr ""
-
-#~ msgid "説明"
-#~ msgstr ""
-
-#~ msgid "8月1日以降に辞退が発生し、繰り上げができない場合、対戦形式ではなく{Showcase}形式に変更されることがあります。"
-#~ msgstr ""
-
-#~ msgid "優勝者が辞退しても繰り上げはありません。"
-#~ msgstr ""
-
-#~ msgid "辞退が発生した場合、3名までは繰り上げを行いますが、4名以上の辞退には対応しません。"
-#~ msgstr ""
-
-#~ msgid "制限時間を使い切らず余らせた場合、1秒につき最終順位を1つ下げる"
-#~ msgstr ""
-#~ "Si no utilizas todo el tiempo asignado, cada 3 segundos de tiempo restante "
-#~ "te harán bajar un puesto en la clasificación final."
-
-#~ msgid "3月28日〜30日"
-#~ msgstr ""
-
-#~ msgid "3月1日"
-#~ msgstr ""
-
-#~ msgid "3月23日〜24日"
-#~ msgstr ""
-
-#~ msgid "3分31秒以上はペナルティ対象"
-#~ msgstr ""
-
-#~ msgid "3月25日〜27日"
-#~ msgstr ""
-
-#~ msgid "5月1日〜2日"
-#~ msgstr ""
-
-#~ msgid "4月12日"
-#~ msgstr ""
-
-#~ msgid "5分01秒以上はペナルティ対象"
-#~ msgstr ""
-
-#~ msgid "5月3日〜4日"
-#~ msgstr ""
-
-#~ msgid "審査員なし"
-#~ msgstr "Sin jurado"
-
-#~ msgid "正式名称"
-#~ msgstr "Nombre oficial"
-
-#~ msgid ""
-#~ "今年から新たに「セカンドリーグ」が設けられました。セカンドリーグは、中国で開催され、GBB {year} "
-#~ "の{Solo}部門ランナーズアップが招待されます。"
-#~ msgstr ""
-#~ "Desde este año, se ha establecido una nueva \"Segunda Liga\". La Segunda "
-#~ "Liga se celebrará en China, y los subcampeones de la categoría {Solo} del "
-#~ "GBB {year} serán invitados."
-
-#~ msgid "この「セカンドリーグ」で優勝すれば、GBB {year} {Solo}部門への出場権が得られます。"
-#~ msgstr ""
-#~ "Si ganas esta 'Segunda Liga', obtendrás el derecho a participar en la "
-#~ "división GBB {year} {Solo}."
-
-#~ msgid "ランナーズアップ：本戦に出場できなかった、{Wildcard}上位入賞者"
-#~ msgstr ""
-#~ "Suplentes: los {Wildcard} mejor clasificados que no pudieron participar en "
-#~ "la fase principal."
-
-#~ msgid "例：{Wildcard}出場枠が8枠の場合、9位～16位を指します。"
-#~ msgstr ""
-#~ "Por ejemplo: si hay 8 plazas de {Wildcard}, se refiere a las posiciones del "
-#~ "9 al 16."
-
-#~ msgid "当サイトでは、セカンドリーグについての情報は取り扱わない方針です。"
-#~ msgstr "Este sitio web no proporcionará información sobre la segunda liga."
-
-#~ msgid "ここまで読んでくださった皆様へ"
-#~ msgstr ""
-
-#~ msgid "今年のルールは例年と比べて変化が大きく、理解が難しかったと思います。"
-#~ msgstr ""
-
-#~ msgid "私自身、2時間もかけてこのページを執筆しました。マジで疲れた"
-#~ msgstr ""
-
-#~ msgid "そこで、ルールをよりわかりやすく解説してくれる「GBB {year} なんでもチャット」をご用意しました。"
-#~ msgstr ""
-
-#~ msgid "なんでもチャット"
-#~ msgstr ""
-
-#~ msgid "ぜひこちらをご活用ください！"
-#~ msgstr ""
-
-#~ msgid "ポーランド・ワルシャワ"
-#~ msgstr "Varsovia, Polonia"
-
-#~ msgid "GBBが最後にポーランド・ワルシャワで開催された年は2021年ですが、GBB 2021は予定から約2時間遅延しました。"
-#~ msgstr ""
-#~ "El último año en que se celebró la GBB en Varsovia, Polonia, fue en 2021, "
-#~ "pero la GBB 2021 se retrasó aproximadamente 2 horas respecto a lo previsto."
-
-#~ msgid "なお、GBB 2022は中止され、GBB 2023~2025は、東京で開催されました。"
-#~ msgstr "Además, GBB 2022 fue cancelado y GBB 2023~2025 se celebró en Tokio."
-
-#~ msgid "ページ 先行公開中！"
-#~ msgstr "¡Página en vista previa!"
-
-#~ msgid "終了しました"
-#~ msgstr "Finalizado"
-
-#~ msgid "先行公開"
-#~ msgstr "Avance"
-
-#~ msgid "イベントに関する問い合わせ先"
-#~ msgstr "Contacto para eventos"
-
-#~ msgid "チケットに関する問い合わせ先"
-#~ msgstr "Consultas sobre entradas"
-
-#~ msgid "なお上記問い合わせ先は、当サイトとは無関係です。"
-#~ msgstr ""
-#~ "Tenga en cuenta que el contacto anterior no está relacionado con este sitio "
-#~ "web."
-
-#~ msgid ""
-#~ "{Wildcard}シーズン中に、「{NOTWildcard}」を称する動画がまれに投稿されます。これは、正式な{Wildcard}エントリーではないものの、{Wildcard}に似た形式で制作された動画です。要するに、遊んでいるだけです。"
-#~ msgstr ""
-#~ "Durante la temporada {Wildcard}, ocasionalmente se publican videos que se "
-#~ "hacen pasar por \"{NOTWildcard}\". Estos no son entradas {Wildcard} "
-#~ "oficiales, sino videos hechos en un formato similar a {Wildcard}. En "
-#~ "resumen, solo están jugando."
-
-#~ msgid ""
-#~ "Swissbeatboxが主催する{HumanBeatbox}の世界大会「{GrandBeatboxBattle}」の各種情報を、見やすくまとめたサイトです。"
-#~ msgstr ""
-#~ "Este es un sitio que recopila de forma clara diversas informaciones sobre el"
-#~ " campeonato mundial de {HumanBeatbox} «{GrandBeatboxBattle}», organizado por"
-#~ " Swissbeatbox."
-
-#~ msgid "これだけガイド"
-#~ msgstr "Guía"
-
-#~ msgid "年度選択"
-#~ msgstr "Selección de año"
-
-#~ msgid "翻訳未提供"
-#~ msgstr "Traducción no disponible"
-
-#~ msgid "このページは翻訳が提供されていません。現在は原文の日本語を表示しています。"
-#~ msgstr ""
-#~ "Esta página no tiene traducción disponible. Actualmente se muestra el "
-#~ "japonés original."
-
-#~ msgid "GBBまでの残り時間"
-#~ msgstr "Tiempo restante hasta GBB"
-
-#~ msgid "なんでも検索"
-#~ msgstr "Buscar cualquier cosa"
-
-#~ msgid "GBB {year} の検索のみ可能です"
-#~ msgstr "Solo se puede buscar GBB {year}"
-
-#~ msgid "GBB {year} は終了しました"
-#~ msgstr "GBB {year} ha terminado"
-
-#~ msgid "例：GBB {year} の最終結果は？"
-#~ msgstr "Ejemplo: ¿Cuáles son los resultados finales de GBB {year}?"
-
-#~ msgid "GBB最新情報の検索はこちら"
-#~ msgstr "Busca la información más reciente sobre GBB aquí."
-
-#~ msgid "GBB {year} について検索してみよう"
-#~ msgstr "Busquemos sobre GBB {year}"
-
-#~ msgid "例：現地観戦計画のたてかた"
-#~ msgstr "Ejemplo: Cómo planificar tu visita al evento"
-
-#~ msgid "ホーム画面に追加"
-#~ msgstr "Añadir a la pantalla de inicio"
-
-#~ msgid "GBBINFO-JPNはPWAに対応しています。"
-#~ msgstr "GBBINFO-JPN es compatible con PWA."
-
-#~ msgid "ブラウザメニューを開き、「ホーム画面に追加」をタップすると、アプリとしてインストールできます。"
-#~ msgstr ""
-#~ "Abre el menú del navegador y toca \"Añadir a la pantalla de inicio\" para "
-#~ "instalar como una aplicación."
-
-#~ msgid "ホームへもどる"
-#~ msgstr "Volver a la página principal"
-
-#~ msgid "{Wildcard}結果"
-#~ msgstr "Resultados de {Wildcard}"
-
-#~ msgid "出場者"
-#~ msgstr "Participantes"
-
-#~ msgid "GBBINFO-JPN開発者 Twitter"
-#~ msgstr "Twitter del desarrollador de GBBINFO-JPN"
-
-#~ msgid "GBBINFO-JPNについて"
-#~ msgstr "Acerca de GBBINFO-JPN"
-
-#~ msgid "各ページの翻訳提供について"
-#~ msgstr "Sobre la provisión de traducción de cada página."
-
-#~ msgid "いい景色だろ？"
-#~ msgstr "¿Bonitas vistas, verdad?"
-
-#~ msgid "まもなくトップページへリダイレクトされます"
-#~ msgstr "Se te redirigirá a la página principal en breve."
-
-#~ msgid "リダイレクトされない場合、以下のボタンをご利用ください"
-#~ msgstr "Si no se redirige, use los siguientes botones:"
-
-#~ msgid "トップページ"
-#~ msgstr "Página principal"
-
-#~ msgid "その他の年度を確認："
-#~ msgstr "Verificar otros años:"
-
-#~ msgid "出場権詳細"
-#~ msgstr "Detalles de la clasificación"
-
-#~ msgid "{Wildcard}結果発表日"
-#~ msgstr "Fecha de anuncio de resultados de {Wildcard}"
-
-#~ msgid "日本代表なし"
-#~ msgstr "Sin representantes de Japón."
-
-#~ msgid "出場者世界地図"
-#~ msgstr "Mapa mundial de participantes"
-
-#~ msgid "国旗をタップorクリックすると、詳細を確認できます。"
-#~ msgstr "Pulsa o haz clic en la bandera para ver los detalles."
-
-#~ msgid "韓国代表なし"
-#~ msgstr "Sin representantes coreanos"
-
-#~ msgid "シード権獲得者"
-#~ msgstr "Sembrados"
-
-#~ msgid "出場者のみ"
-#~ msgstr "Solo para participantes"
-
-#~ msgid "辞退者のみ"
-#~ msgstr "Solo para los que han renunciado"
-
-#~ msgid "出場者 & 辞退者を表示"
-#~ msgstr "Mostrar Participantes & Retirados"
-
-#~ msgid "国"
-#~ msgstr "País"
-
-#~ msgid "出場者検索"
-#~ msgstr "Búsqueda de participantes"
-
-#~ msgid "出場者名を検索できます"
-#~ msgstr "Puedes buscar el nombre del participante."
-
-#~ msgid "半角英数字推奨"
-#~ msgstr "Se recomienda usar caracteres alfanuméricos de media anchura."
-
-#~ msgid "検索結果"
-#~ msgstr "Resultados de la búsqueda"
-
-#~ msgid "全出場者を地図にマッピングしました。"
-#~ msgstr "Mapeamos a todos los participantes en un mapa."
-
-#~ msgid "部門選択"
-#~ msgstr "Selección de departamento"
-
-#~ msgid "{SHOWCASE}部門は、バトルを行わないため、結果はありません。"
-#~ msgstr "La categoría {SHOWCASE} no tiene resultados porque no hay batallas."
-
-#~ msgid "勝ち"
-#~ msgstr "Ganar"
-
-#~ msgid "負け"
-#~ msgstr "Perder"
-
-#~ msgid "順位"
-#~ msgstr "Posición"
-
-#~ msgid "さがす"
-#~ msgstr "buscar"
-
-#~ msgid "とじる"
-#~ msgstr "Cerrar"
-
-#~ msgid "先行公開中"
-#~ msgstr "Disponible en acceso anticipado"
-
-#~ msgid "ここは、まだ情報が少ないGBB {year} のページです"
-#~ msgstr "Esta es la página de GBB {year}, donde todavía hay poca información."
-
-#~ msgid "GBB {year} の情報はこちら"
-#~ msgstr "Información de GBB {year} aquí"
-
-#~ msgid "中止"
-#~ msgstr "Cancelado"
-
-#~ msgid "ここは、すでに終了したGBB {year} のページです"
-#~ msgstr "Esta es la página del GBB {year} ya finalizado"
-
-#~ msgid "GBB最新情報はこちら"
-#~ msgstr "Las últimas noticias de GBB aquí."
-
-#~ msgid "メニュー"
-#~ msgstr "Menú"
-
-#~ msgid "管理人からのお知らせ"
-#~ msgstr "Aviso del administrador"
-
-#~ msgid "情報選択"
-#~ msgstr "Selección de información"
-
-#~ msgid "全出場者"
-#~ msgstr "Todos los participantes"
-
-#~ msgid "シード権"
-#~ msgstr "Sembrado"
-
-#~ msgid "表示選択"
-#~ msgstr "Selección de visualización"
-
-#~ msgid "出場者・辞退者"
-#~ msgstr "Participantes / Renunciantes"
-
-#~ msgid "情報なし"
-#~ msgstr "No hay información."
-
-#~ msgid "お探しの情報は、公式発表がまだ無いため、当サイトのどこにも存在しません。"
-#~ msgstr ""
-#~ "La información que busca no existe en este sitio porque aún no hay un "
-#~ "anuncio oficial."
-
-#~ msgid "公式発表をお待ちください。"
-#~ msgstr "Espere el anuncio oficial."
-
-#~ msgid "GBBINFO-JPNは、一部を除き、各ページの翻訳をAI Geminiを用いて提供しています。"
-#~ msgstr ""
-#~ "GBBINFO-JPN proporciona, con la excepción de algunas partes, traducciones de"
-#~ " cada página utilizando la IA Gemini."
-
-#~ msgid "AIによる翻訳のため、誤りがある可能性があります。"
-#~ msgstr "Debido a la traducción por IA, puede haber errores."
-
-#~ msgid "翻訳を提供しているページは、以下の通りです。"
-#~ msgstr "La página que ofrece la traducción es la siguiente."
-
-#~ msgid "対応年度：2024年以降"
-#~ msgstr "Año fiscal: 2024 y posteriores"
-
-#~ msgid "なお、翻訳対応言語は、アクセス状況に応じて随時追加予定です。"
-#~ msgstr ""
-#~ "Además, los idiomas de traducción admitidos se añadirán en cualquier momento"
-#~ " en función del estado de acceso."
-
-#~ msgid "翻訳を提供していないページは、原文である日本語で表示されます。"
-#~ msgstr ""
-#~ "Las páginas que no ofrecen traducción se mostrarán en el idioma original, "
-#~ "que es japonés."
-
-#~ msgid "過去の出場履歴"
-#~ msgstr "Historial de participaciones"
-
-#~ msgid "関連サイト"
-#~ msgstr "Sitios relacionados"
-
-#~ msgid "表示されている関連サイトやSNS情報・紹介文は、自動検索によって取得されたものです。"
-#~ msgstr ""
-#~ "La información de sitios relacionados, redes sociales y descripciones "
-#~ "mostradas se obtuvo mediante búsquedas automáticas."
-
-#~ msgid "内容に誤りが含まれている可能性があります。"
-#~ msgstr "Es posible que el contenido contenga errores."
-
-#~ msgid "もっと調べる"
-#~ msgstr "Más información"
-
-#~ msgid "{name}について、詳しく調べてください"
-#~ msgstr "Investiga a fondo sobre {name}"
-
-#~ msgid "ChatGPTに聞く"
-#~ msgstr "Preguntar a ChatGPT"
-
-#~ msgid "他の出場者"
-#~ msgstr "Otros participantes"

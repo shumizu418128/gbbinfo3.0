@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-26 13:21+0900\n"
+"POT-Creation-Date: 2026-01-11 15:15+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh_Hant_TW <LL@li.org>\n"
@@ -36,7 +36,7 @@ msgstr ""
 #: templates/2026/rule.html:435 templates/2026/timetable.html:69
 #: templates/2026/top.html:63 templates/2026/top.html:106
 #: templates/2026/wildcards.html:13 templates/2026/wildcards.html:60
-#: templates/common/participants.html:139
+#: templates/common/participants.html:138
 #: templates/includes/hamburger_menu.html:11
 msgid "ルール"
 msgstr "規則"
@@ -158,7 +158,7 @@ msgstr "請務必再次確認自己的規則。"
 #: templates/2026/rule.html:434 templates/2026/rule.html:490
 #: templates/2026/rule.html:554 templates/2026/top.html:53
 #: templates/common/cancels.html:24 templates/common/japan.html:23
-#: templates/common/korea.html:23 templates/common/participants.html:126
+#: templates/common/korea.html:23 templates/common/participants.html:125
 #: templates/participant_detail/participant_detail.html:33
 #: templates/participant_detail/participant_detail.html:115
 #: templates/participant_detail/participant_detail.html:155
@@ -213,8 +213,8 @@ msgstr "種子權 - GBB"
 #: templates/2025/wildcard_regulation.html:142 templates/2026/rule.html:238
 #: templates/2026/rule.html:270 templates/2026/rule.html:305
 #: templates/common/cancels.html:23 templates/common/japan.html:22
-#: templates/common/korea.html:22 templates/common/participants.html:45
-#: templates/common/participants.html:125 templates/common/result.html:67
+#: templates/common/korea.html:22 templates/common/participants.html:44
+#: templates/common/participants.html:124 templates/common/result.html:67
 #: templates/participant_detail/participant_detail.html:154
 #: templates/participant_detail/participant_detail.html:218
 msgid "名前"
@@ -226,8 +226,8 @@ msgstr "姓名"
 #: templates/2026/rule.html:239 templates/2026/rule.html:271
 #: templates/2026/rule.html:306 templates/common/cancels.html:22
 #: templates/common/japan.html:21 templates/common/korea.html:21
-#: templates/common/participants.html:46
-#: templates/common/participants.html:124
+#: templates/common/participants.html:45
+#: templates/common/participants.html:123
 #: templates/participant_detail/participant_detail.html:50
 #: templates/participant_detail/participant_detail.html:132
 #: templates/participant_detail/participant_detail.html:219
@@ -252,7 +252,7 @@ msgstr "參賽權"
 #: templates/2026/timetable.html:114 templates/2026/timetable.html:118
 #: templates/2026/timetable.html:138 templates/2026/timetable.html:142
 #: templates/2026/timetable.html:146 templates/common/cancels.html:38
-#: templates/common/participants.html:19 templates/common/participants.html:85
+#: templates/common/participants.html:19 templates/common/participants.html:84
 #: templates/common/result.html:83
 msgid "発表次第更新"
 msgstr "隨著發佈更新"
@@ -268,7 +268,7 @@ msgstr "種子權辭退者名單"
 #: templates/2024/rule.html:203 templates/2025/rule.html:203
 #: templates/2026/rule.html:316 templates/common/cancels.html:31
 #: templates/common/japan.html:31 templates/common/korea.html:31
-#: templates/common/participants.html:57
+#: templates/common/participants.html:56
 #: templates/participant_detail/participant_detail.html:23
 #: templates/participant_detail/participant_detail.html:75
 #: templates/participant_detail/participant_detail.html:88
@@ -281,7 +281,7 @@ msgstr "辭退"
 
 #: templates/2024/rule.html:221 templates/2024/timetable.html:100
 #: templates/2024/timetable.html:230 templates/2025/rule.html:221
-#: templates/2026/rule.html:335 templates/common/cancels.html:52
+#: templates/2026/rule.html:335 templates/common/cancels.html:51
 #: templates/participant_detail/participant_detail.html:179
 #: templates/participant_detail/participant_detail.html:186
 msgid "出場者一覧"
@@ -442,7 +442,7 @@ msgstr "查看 GBB {year} 的最新資訊"
 #: templates/2024/stream.html:40 templates/common/participants.html:3
 #: templates/common/participants.html:4 templates/common/participants.html:5
 #: templates/common/participants.html:10
-#: templates/common/participants.html:143 templates/others/translation.html:18
+#: templates/common/participants.html:142 templates/others/translation.html:18
 #, python-brace-format
 msgid "{Wildcard}結果 & 出場者"
 msgstr "{Wildcard} 結果與參賽者"
@@ -733,8 +733,8 @@ msgstr "{Wildcard}結果發表直播"
 #: templates/2026/rule.html:20 templates/2026/rule.html:599
 #: templates/2026/top.html:153 templates/2026/wildcards.html:3
 #: templates/2026/wildcards.html:4 templates/2026/wildcards.html:5
-#: templates/2026/wildcards.html:9 templates/common/cancels.html:55
-#: templates/common/participants.html:94 templates/others/translation.html:25
+#: templates/2026/wildcards.html:9 templates/common/cancels.html:54
+#: templates/common/participants.html:93 templates/others/translation.html:25
 #, python-brace-format
 msgid "{Wildcard}一覧"
 msgstr "{Wildcard}一覽"
@@ -974,7 +974,7 @@ msgstr "參賽名額"
 
 #: templates/2025/top.html:74 templates/2026/top.html:82
 #: templates/common/japan.html:48 templates/common/korea.html:48
-#: templates/common/participants.html:29
+#: templates/common/participants.html:28
 #: templates/participant_detail/participant_detail.html:144
 #: templates/participant_detail/participant_detail.html:257
 msgid "全出場者一覧"
@@ -985,7 +985,7 @@ msgstr "所有參賽者名單"
 #: templates/2026/top.html:85 templates/2026/top.html:110
 #: templates/common/cancels.html:3 templates/common/cancels.html:4
 #: templates/common/cancels.html:5 templates/common/cancels.html:10
-#: templates/common/participants.html:140
+#: templates/common/participants.html:139
 #: templates/includes/hamburger_menu.html:10
 msgid "辞退者一覧"
 msgstr "辭退者一覽"
@@ -1433,38 +1433,22 @@ msgstr "遞補對象"
 msgid "繰り上げの対象となるのは、{Wildcard}の順位が上位の人たちに限定されています。"
 msgstr "遞補對象僅限於{Wildcard}排名較高的人員。"
 
-#: templates/2026/rule.html:377
-msgid "15位まで"
-msgstr "第15名為止"
+#: templates/2026/rule.html:377 templates/2026/rule.html:382
+#: templates/2026/rule.html:387 templates/2026/rule.html:392
+#, python-brace-format
+msgid "{rank}位まで"
+msgstr "至{rank}位"
 
-#: templates/2026/rule.html:378
-msgid "16位以下の繰り上げは一切無し"
-msgstr "第16名以下不進行任何遞補"
-
-#: templates/2026/rule.html:382
-msgid "20位まで"
-msgstr "第20名為止"
+#: templates/2026/rule.html:378 templates/2026/rule.html:388
+#: templates/2026/rule.html:393
+#, python-brace-format
+msgid "{rank}位以下の繰り上げは一切無し"
+msgstr "第6名以下不進行任何遞補"
 
 #: templates/2026/rule.html:383
 #, python-brace-format
-msgid "21位以下の繰り上げは{Swissbeatbox}の個別判断"
+msgid "{rank}位以下の繰り上げは{Swissbeatbox}の個別判断"
 msgstr "第21名及以後名次的遞補由{Swissbeatbox}決定。"
-
-#: templates/2026/rule.html:387
-msgid "10位まで"
-msgstr "第10名為止"
-
-#: templates/2026/rule.html:388
-msgid "11位以下の繰り上げは一切無し"
-msgstr "第11名以下不進行任何遞補"
-
-#: templates/2026/rule.html:392
-msgid "5位まで"
-msgstr "第5名為止"
-
-#: templates/2026/rule.html:393
-msgid "6位以下の繰り上げは一切無し"
-msgstr "第6名以下不進行任何遞補"
 
 #: templates/2026/rule.html:398
 msgid "特殊なケース"
@@ -1763,7 +1747,7 @@ msgstr "返回主頁"
 #: templates/2026/rule.html:546 templates/2026/stream.html:18
 #: templates/2026/timetable.html:125 templates/2026/top.html:102
 #: templates/2026/wildcards.html:12 templates/2026/wildcards.html:59
-#: templates/base.html:239 templates/common/participants.html:25
+#: templates/base.html:239 templates/common/participants.html:24
 #: templates/common/result.html:110 templates/includes/hamburger_menu.html:9
 #: templates/includes/participants_form.html:13
 #, python-brace-format
@@ -1813,19 +1797,19 @@ msgstr "如果未重定向，請使用以下按鈕"
 msgid "トップページ"
 msgstr "主頁"
 
-#: templates/common/cancels.html:43 templates/common/japan.html:59
-#: templates/common/korea.html:59 templates/common/participants.html:102
+#: templates/common/cancels.html:42 templates/common/japan.html:59
+#: templates/common/korea.html:59 templates/common/participants.html:101
 #: templates/common/result.html:98
 msgid "その他の年度を確認："
 msgstr "查看其他年度："
 
-#: templates/common/cancels.html:53 templates/common/japan.html:49
+#: templates/common/cancels.html:52 templates/common/japan.html:49
 #: templates/common/korea.html:49 templates/common/result.html:108
 msgid "出場権詳細"
 msgstr "參賽權詳細"
 
-#: templates/common/cancels.html:54 templates/common/japan.html:51
-#: templates/common/korea.html:51 templates/common/participants.html:93
+#: templates/common/cancels.html:53 templates/common/japan.html:51
+#: templates/common/korea.html:51 templates/common/participants.html:92
 #, python-brace-format
 msgid "{Wildcard}結果発表日"
 msgstr "{Wildcard}結果公布日期"
@@ -1835,12 +1819,12 @@ msgid "日本代表なし"
 msgstr "無日本代表"
 
 #: templates/common/japan.html:54 templates/common/korea.html:54
-#: templates/common/participants.html:133
+#: templates/common/participants.html:132
 msgid "出場者世界地図"
 msgstr "參賽者世界地圖"
 
 #: templates/common/japan.html:55 templates/common/korea.html:55
-#: templates/common/participants.html:134
+#: templates/common/participants.html:133
 msgid "国旗をタップorクリックすると、詳細を確認できます。"
 msgstr "點擊或點擊國旗可以查看詳細資訊。"
 
@@ -1848,25 +1832,25 @@ msgstr "點擊或點擊國旗可以查看詳細資訊。"
 msgid "韓国代表なし"
 msgstr "無韓國代表"
 
-#: templates/common/participants.html:27
+#: templates/common/participants.html:26
 msgid "シード権獲得者"
 msgstr "獲得種子權的參賽者"
 
-#: templates/common/participants.html:33
+#: templates/common/participants.html:32
 #: templates/includes/participants_form.html:20
 msgid "出場者のみ"
 msgstr "僅參賽者"
 
-#: templates/common/participants.html:35
+#: templates/common/participants.html:34
 #: templates/includes/participants_form.html:21
 msgid "辞退者のみ"
 msgstr "僅辭退者"
 
-#: templates/common/participants.html:37
+#: templates/common/participants.html:36
 msgid "出場者 & 辞退者を表示"
 msgstr "顯示出場者與辭退者"
 
-#: templates/common/participants.html:44
+#: templates/common/participants.html:43
 #: templates/participant_detail/participant_detail.html:41
 #: templates/participant_detail/participant_detail.html:67
 #: templates/participant_detail/participant_detail.html:123
@@ -1874,24 +1858,24 @@ msgstr "顯示出場者與辭退者"
 msgid "国"
 msgstr "國家"
 
-#: templates/common/participants.html:111
-#: templates/common/participants.html:114
+#: templates/common/participants.html:110
+#: templates/common/participants.html:113
 msgid "出場者検索"
 msgstr "參賽者搜尋"
 
-#: templates/common/participants.html:112
+#: templates/common/participants.html:111
 msgid "出場者名を検索できます"
 msgstr "您可以搜索參賽者名稱"
 
-#: templates/common/participants.html:112
+#: templates/common/participants.html:111
 msgid "半角英数字推奨"
 msgstr "建議使用半角英數字"
 
-#: templates/common/participants.html:119
+#: templates/common/participants.html:118
 msgid "検索結果"
 msgstr "搜尋結果"
 
-#: templates/common/participants.html:134
+#: templates/common/participants.html:133
 msgid "全出場者を地図にマッピングしました。"
 msgstr "所有參賽者已在地圖上標示。"
 
@@ -2053,1229 +2037,3 @@ msgstr "問 ChatGPT"
 #: templates/participant_detail/participant_detail.html:213
 msgid "他の出場者"
 msgstr "其他出場者"
-
-#~ msgid "GBB {year} なんでも検索"
-#~ msgstr "GBB {year} 全方位搜尋"
-
-#~ msgid "について検索してみよう"
-#~ msgstr "讓我們搜尋看看"
-
-#~ msgid "「シード権大会において出場が認められるのは、例外なく、常に優勝者のみである」とルールに明記されています。"
-#~ msgstr "規則中明確指出：「在種子權賽事中，毫無例外地，始終只允許優勝者參賽。」"
-
-#~ msgid "開催日未定"
-#~ msgstr "舉辦日未定"
-
-#~ msgid "10月1日 掲載募集開始予定"
-#~ msgstr "10月1日 刊登徵才開始預定"
-
-#~ msgid "作成者：ぬる湯さん"
-#~ msgstr "製作人：nuruyu"
-
-#~ msgid "バトルを行わない部門"
-#~ msgstr "不進行對戰的部門"
-
-#~ msgid "審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価"
-#~ msgstr "評審將以不同於其他部門的標準進行，並根據故事性、藝術性、獨創性等進行評估"
-
-#~ msgid "GBB24では本番8日前公開"
-#~ msgstr "GBB24在比賽前8天公開"
-
-#~ msgid "譲渡希望ツイート"
-#~ msgstr "轉讓希望推文"
-
-#~ msgid "譲渡に関するトラブルについて、当サイトは一切の責任を負いません。また、連絡の仲介も一切行いません。"
-#~ msgstr "關於轉讓相關的糾紛，本網站概不負責。此外，亦不提供任何聯絡仲介服務。"
-
-#~ msgid "購入を希望する場合、ご本人様へ直接DM or リプライにてご連絡ください。"
-#~ msgstr "如欲購買，請直接DM或回覆給本人。"
-
-#~ msgid "掲載申込があり次第、掲載開始予定 (現在掲載申込を募集中)"
-#~ msgstr "刊登申請一旦提出，即可開始刊登 (目前正招募刊登申請)"
-
-#~ msgid "譲渡希望ツイートの掲載をご希望の場合、GBBINFO-JPN開発者 TwitterへDMにてご連絡ください。"
-#~ msgstr "如欲刊登轉讓推文，請透過 Twitter DM 聯繫 GBBINFO-JPN 開發者。"
-
-#~ msgid "配信スタート"
-#~ msgstr "開始"
-
-#~ msgid "GBB {year} の配信URLは、お住まいの国によって異なります。"
-#~ msgstr "GBB {year} 的發布網址會因您所在的國家/地區而異。"
-
-#~ msgid "日本国外にお住まいの方"
-#~ msgstr "居住在日本國外的人"
-
-#~ msgid "日本にお住まいの方"
-#~ msgstr "居住在日本的顧客"
-
-#~ msgid "現時点で、以下の断片的な情報のみ発表されています。"
-#~ msgstr "現時点，僅公布以下零散資訊。"
-
-#~ msgid "Producer部門は廃止"
-#~ msgstr "Producer部門已廢除"
-
-#~ msgid ""
-#~ "また、Solo部門・Loopstation部門のWildcardルールが変更されることが予告されています。最新情報が公開され次第、このページを更新します。"
-#~ msgstr "此外，獨奏組和Loopstation組的Wildcard規則預計將會有所變動。一旦發布最新資訊，我們將更新此頁面。"
-
-#~ msgid "ランナーズアップ：本戦に出場できなかった、Wildcard上位入賞者"
-#~ msgstr "候補選手：未能晉級正式比賽的 Wildcard 高排名者"
-
-#~ msgid "例：Wildcard出場枠が8枠の場合、9位～16位を指します。"
-#~ msgstr "例如：若 Wildcard 名額為 8 個，則指第 9 名至第 16 名。"
-
-#~ msgid ""
-#~ "今年から新たに「セカンドリーグ」が設けられました。セカンドリーグは、中国で開催され、GBB {year} のSolo部門ランナーズアップが招待されます。"
-#~ msgstr "今年新設立了「第二聯賽」。第二聯賽將在中國舉辦，GBB {year} Solo 部門的候補選手將受邀參加。"
-
-#~ msgid "この「セカンドリーグ」で優勝すれば、GBB {year} Solo部門への出場権が得られます。"
-#~ msgstr "若在「第二聯賽」中獲勝，即可獲得 GBB {year} Solo 部門的參賽權。"
-
-#~ msgid "{Wildcard} ルール"
-#~ msgstr "Wildcard規則"
-
-#~ msgid "Wildcard ルール"
-#~ msgstr "{Wildcard}規則"
-
-#~ msgid "Wildcard一覧"
-#~ msgstr "Wildcard列表"
-
-#~ msgid "Wildcard審査員一覧はこちら"
-#~ msgstr "這裡是Wildcard評審名單"
-
-#~ msgid "Wildcard提出は一度のみ。一度提出したら、後から別のWildcardを提出することはできない"
-#~ msgstr "僅限提交一次Wildcard。提交後，不得再次提交其他Wildcard。"
-
-#~ msgid ""
-#~ "Wildcardシーズン中に、「{NOTWildcard}」を称する動画がまれに投稿されます。これは、正式な{Wildcard}エントリーではないものの、{Wildcard}に似た形式で制作された動画です。要するに、遊んでいるだけです。"
-#~ msgstr ""
-
-#~ msgid "廃止"
-#~ msgstr "廢止"
-
-#~ msgid "いかなる理由があっても、チャレンジャーシリーズ2位以下の人に、出場権は与えられません。"
-#~ msgstr "無論任何理由，挑戰者系列第二名以下的選手都不會獲得參賽資格。"
-
-#~ msgid "「チャレンジャーシリーズにおいてGBB出場権が与えられるのは、例外なく、常に優勝者のみである」とルールに明記されています。"
-#~ msgstr "規則明載：「在挑戰者系列中，GBB 的出場權無一例外僅授予冠軍。」"
-
-#~ msgid ""
-#~ "例：チャレンジャーシリーズ優勝者が、すでに{Wildcard}で出場権を獲得していた場合、チャレンジャーシリーズ2位ではなく、{Wildcard}下位からの繰り上げが行われます。"
-#~ msgstr "例：若挑戰者系列冠軍已透過{Wildcard}取得出場權，將不會遞補給挑戰者系列第二名，而會由{Wildcard}較低名次者遞補。"
-
-#~ msgid "ルール"
-#~ msgstr "規則"
-
-#~ msgid "Swissbeatbox公式サイトにて、GBB {year} で実施される部門・{Wildcard}のルールについて発表がありました。"
-#~ msgstr "瑞士beatbox官網上，公布了有關GBB {year} 所舉辦的賽事項目、{Wildcard}的規則。"
-
-#~ msgid "ソースサイト："
-#~ msgstr "來源網站："
-
-#~ msgid "現地観戦計画のたてかた"
-#~ msgstr "如何制定現場觀賽計畫"
-
-#~ msgid "目次"
-#~ msgstr "目錄"
-
-#~ msgid "注意事項"
-#~ msgstr "注意事項"
-
-#~ msgid "開催部門一覧"
-#~ msgstr "舉辦部門列表"
-
-#~ msgid "出場シード権 獲得条件"
-#~ msgstr "獲得參賽種子權的條件"
-
-#~ msgid "本戦審査員一覧"
-#~ msgstr "本戰評審名單"
-
-#~ msgid "{Wildcard}審査員一覧"
-#~ msgstr "{Wildcard}評審名單"
-
-#~ msgid "以下に示す内容は、あくまでも{Beatbox}ファンが知っておくとよりGBBを楽しめる知識として紹介するものです。"
-#~ msgstr "以下內容僅供{Beatbox}粉絲了解，以便更好地享受GBB。"
-
-#~ msgid "一部内容において、わかりやすさを優先します。"
-#~ msgstr "為了易於理解部分內容，我將優先考慮清晰度。"
-
-#~ msgid "これにより、正確さに欠ける表現を用いることがあります。"
-#~ msgstr "這可能會導致使用不準確的表達方式。"
-
-#~ msgid "当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねます。"
-#~ msgstr "對於本網站上所載內容所引起的任何損害，我們不承擔任何責任。"
-
-#~ msgid "{Wildcard}を提出する方は、"
-#~ msgstr "提交{Wildcard}的人，"
-
-#~ msgid "必ずご自身でルールを今一度ご確認ください。"
-#~ msgstr "請務必再次確認自己的規則。"
-
-#~ msgid "部門"
-#~ msgstr "部門"
-
-#~ msgid "シード"
-#~ msgstr "種子"
-
-#~ msgid "計"
-#~ msgstr "計"
-
-#~ msgid "上記のデータは、ルール発表時現在の情報です。実際は、辞退などにより、出場者数が変動します。"
-#~ msgstr "上述數據是規則發佈時的資訊。實際上，由於辭退等原因，參賽者數量會變動。"
-
-#~ msgid "Producerとは"
-#~ msgstr "Producer是什麼"
-
-#~ msgid ""
-#~ "{Loopstation}のセカンドデバイス（{Loopstation}に接続する端末）ありの部門で、GBB23で「Producer "
-#~ "showcase」として新設されました。その代わり、{Loopstation}部門においてセカンドデバイスの使用が禁止されます。"
-#~ msgstr ""
-#~ "這是允許使用{Loopstation}的第二裝置（連接至{Loopstation}的設備）的部門，於GBB23新設成為「Producer "
-#~ "showcase」。取而代之，{Loopstation}部門則禁止使用第二裝置。"
-
-#~ msgid "忘れられた{TagTeamLoopstation}..."
-#~ msgstr "被遺忘的{TagTeamLoopstation}..."
-
-#~ msgid "{Wildcard}を勝ち上がる以外の方法でGBB出場権を得る方法（シード権）と、その該当者は以下の通りです。"
-#~ msgstr "除透過{Wildcard}晉級外，取得GBB參賽資格（種子權）的方法與符合對象如下。"
-
-#~ msgid "シード権 - GBB"
-#~ msgstr "種子權 - GBB"
-
-#~ msgid "名前"
-#~ msgstr "姓名"
-
-#~ msgid "出場権"
-#~ msgstr "參賽權"
-
-#~ msgid "発表次第更新"
-#~ msgstr "隨著發佈更新"
-
-#~ msgid "シード権 - その他"
-#~ msgstr "種子權 - 其他"
-
-#~ msgid "シード権辞退者一覧"
-#~ msgstr "種子權辭退者名單"
-
-#~ msgid "辞退"
-#~ msgstr "辭退"
-
-#~ msgid "出場者一覧"
-#~ msgstr "參賽者名單"
-
-#~ msgid "シード権を持つ人が辞退した場合、原則として、該当シード権は消滅し、{Wildcard}下位からの繰り上げが行われます。"
-#~ msgstr "持有種子權的人辭退時，該種子權將原則上消失，並將從{Wildcard}下位進行繰升。"
-
-#~ msgid "全部門共通"
-#~ msgstr "所有部門通用"
-
-#~ msgid "制限時間を超過した場合、1秒につき最終順位を1つ下げる"
-#~ msgstr "超過限制時間的話，每超過一秒，最終排名下降一位"
-
-#~ msgid "提出受付開始日時"
-#~ msgstr "提交接受開始日期"
-
-#~ msgid "制限時間"
-#~ msgstr "限制時間"
-
-#~ msgid "提出期限"
-#~ msgstr "提交期限"
-
-#~ msgid "結果発表"
-#~ msgstr "結果發佈"
-
-#~ msgid "時間未定"
-#~ msgstr "時間未定"
-
-#~ msgid "一部例外あり"
-#~ msgstr "有部分例外"
-
-#~ msgid "RC505 mki, mkiiのみ"
-#~ msgstr "僅限RC505 mki, mkii"
-
-#~ msgid "デバイス制限なし"
-#~ msgstr "無設備限制"
-
-#~ msgid "{Wildcard}審査員一覧はこちら"
-#~ msgstr "這裡是{Wildcard}評審名單"
-
-#~ msgid "審査員"
-#~ msgstr "評審"
-
-#~ msgid "審査員不明"
-#~ msgstr "評審不明"
-
-#~ msgid "例年発表なし"
-#~ msgstr "例年無發佈"
-
-#~ msgid "本戦審査員一覧はこちら"
-#~ msgstr "這裡是本戰評審名單"
-
-#~ msgid "当日配信"
-#~ msgstr "當日直播"
-
-#~ msgid "観戦のお供に"
-#~ msgstr "觀賽的好伴侶"
-
-#~ msgid "GBB {year} の最新情報をチェックしよう"
-#~ msgstr "查看 GBB {year} 的最新資訊"
-
-#~ msgid "{Wildcard}結果 & 出場者"
-#~ msgstr "{Wildcard} 結果與參賽者"
-
-#~ msgid "タイムテーブル"
-#~ msgstr "時間表"
-
-#~ msgid "会場 & チケット"
-#~ msgstr "會場 & 票券"
-
-#~ msgid "【完売】公式販売"
-#~ msgstr "【售罄】官方銷售"
-
-#~ msgid "会場"
-#~ msgstr "場地"
-
-#~ msgid "チケットぴあ"
-#~ msgstr "票券PIA"
-
-#~ msgid "楽天チケット"
-#~ msgstr "樂天票券"
-
-#~ msgid "チケット"
-#~ msgstr "票券"
-
-#~ msgid "時刻はあくまでも予定です。"
-#~ msgstr "時間僅供參考。"
-
-#~ msgid "GBB21では、予定から約2時間遅延しました。"
-#~ msgstr "GBB21比預定晚了約2小時。"
-
-#~ msgid "GBB23では、本番7日前に日本語版・英語版のタイムテーブルが公開されましたが、日本語版のみ正しく、英語版には誤記が多くみられました。"
-#~ msgstr "GBB23於比賽前7日公布了日文版與英文版的賽程表，但僅有日文版正確，英文版則有多處誤植。"
-
-#~ msgid "出演者一覧"
-#~ msgstr "參賽者名單"
-
-#~ msgid "時刻"
-#~ msgstr "時間"
-
-#~ msgid "内容"
-#~ msgstr "內容"
-
-#~ msgid "入場開始"
-#~ msgstr "入場開始"
-
-#~ msgid "ABEMA配信スタート"
-#~ msgstr "ABEMA直播開始"
-
-#~ msgid "サプライズゲスト"
-#~ msgstr "驚喜嘉賓"
-
-#~ msgid "スタート"
-#~ msgstr "開始"
-
-#~ msgid "予選"
-#~ msgstr "預賽"
-
-#~ msgid "準決勝"
-#~ msgstr "準決賽"
-
-#~ msgid "終了"
-#~ msgstr "結束"
-
-#~ msgid "準々決勝"
-#~ msgstr "四分之一決賽"
-
-#~ msgid "決勝"
-#~ msgstr "決賽"
-
-#~ msgid "準決勝・3位決定戦・決勝"
-#~ msgstr "準決賽・三名決定賽・決賽"
-
-#~ msgid "3位決定戦・決勝"
-#~ msgstr "三名決定賽・決賽"
-
-#~ msgid "セレモニー"
-#~ msgstr "典禮"
-
-#~ msgid "アフターパーティー"
-#~ msgstr "慶功宴"
-
-#~ msgid "ソース：会場公式サイト"
-#~ msgstr "來源：場地官方網站"
-
-#~ msgid "ソース：ABEMA配信ページ"
-#~ msgstr "來源：ABEMA直播頁面"
-
-#~ msgid "予選開始より遅い理由は不明"
-#~ msgstr "延遲開始預賽的原因不明"
-
-#~ msgid "本戦出場者アナウンス"
-#~ msgstr "本戰參賽者公告"
-
-#~ msgid "本戦スタート"
-#~ msgstr "本戰開始"
-
-#~ msgid "各出演者の出演日時は不明です。"
-#~ msgstr "各參賽者的出場時間不明。"
-
-#~ msgid "開催日"
-#~ msgstr "舉辦日"
-
-#~ msgid "公式よりもわかりやすい！"
-#~ msgstr "比官方更易懂！"
-
-#~ msgid "非公式情報サイト"
-#~ msgstr "非官方資訊網站"
-
-#~ msgid "最終更新"
-#~ msgstr "最後更新"
-
-#~ msgid "韓国代表"
-#~ msgstr "韓國代表"
-
-#~ msgid "日本代表"
-#~ msgstr "日本代表"
-
-#~ msgid "みんなで鑑賞会"
-#~ msgstr "大家一起觀賞會"
-
-#~ msgid "大会結果"
-#~ msgstr "比賽結果"
-
-#~ msgid "当サイトURL変更のお知らせ"
-#~ msgstr "本網站URL變更通知"
-
-#~ msgid "{Wildcard}結果発表配信"
-#~ msgstr "{Wildcard}結果發表直播"
-
-#~ msgid "{Wildcard}一覧"
-#~ msgstr "{Wildcard}一覽"
-
-#~ msgid "お問い合わせ"
-#~ msgstr "聯繫我們"
-
-#~ msgid "これらの情報のほかにも、"
-#~ msgstr "除了這些資訊，"
-
-#~ msgid "未発表の情報(決まっているが、なぜか公式が発表を渋っている)"
-#~ msgstr "未發佈的資訊（已確定，但官方卻不願發佈）"
-
-#~ msgid "未定事項(そもそも決まってすらいない)"
-#~ msgstr "未定事項（根本還未決定）"
-
-#~ msgid "このような情報が多く存在します。"
-#~ msgstr "這類資訊有很多。"
-
-#~ msgid "GBBの各種情報は、発表が非常に遅いことで有名です。気長に待ちましょう。"
-#~ msgstr "GBB的各種資訊以發佈非常緩慢而聞名。請耐心等待。"
-
-#~ msgid "過去のGBBにおいて、下記番号に電話したらGBB詳細情報を教えてくれた、という報告が相次ぎました。"
-#~ msgstr "在過去的GBB中，有報告稱如果撥打以下號碼，會告訴你GBB的詳細資訊。"
-
-#~ msgid "場所"
-#~ msgstr "地點"
-
-#~ msgid "電話番号"
-#~ msgstr "電話號碼"
-
-#~ msgid "チケット販売ページ記載の番号"
-#~ msgstr "票券銷售頁面"
-
-#~ msgid "なお上記電話番号は、当サイトとは無関係です。"
-#~ msgstr "請注意，上述電話號碼與本網站無關。"
-
-#~ msgid "7toSmokeとは"
-#~ msgstr "什麼是7toSmoke"
-
-#~ msgid "7toSmokeルール & 参加方法"
-#~ msgstr "7toSmoke規則 & 參加方法"
-
-#~ msgid ""
-#~ "7toSmokeは、GBB本戦に比べて最新情報の公開が非常に遅い傾向にあり、そもそも情報が発表されないまま本番を迎えてしまったケースもあります。"
-#~ msgstr "7toSmoke的最新資訊公開相對於GBB本戰非常緩慢，甚至有情況是資訊未發佈就迎來了比賽。"
-
-#~ msgid "諦めましょう。"
-#~ msgstr "放棄吧。"
-
-#~ msgid "各部門の締め切り期日は、中央ヨーロッパ時刻を基準に表記しています。"
-#~ msgstr "各部門的截止日期以中歐時間為準。"
-
-#~ msgid "締め切り"
-#~ msgstr "截止日期"
-
-#~ msgid "今回公開する{Wildcard}一覧は、有志が作成した、非公式のものです。"
-#~ msgstr "這次公開的{Wildcard}一覽是，由有志者製作的，非官方的。"
-
-#~ msgid "すべて手作業で制作されたものであるため、重複や欠落がある可能性があります。"
-#~ msgstr "由於所有內容均為手工製作，因此可能會有重複或缺失。"
-
-#~ msgid ""
-#~ "また、この再生リストにある動画が必ずしも{Wildcard}として申請された動画であるとは限りません（毎年必ず出場者の手続きミスで失格者が出ます）。"
-#~ msgstr "此外，此播放清單中的影片不一定都是以 {Wildcard} 報名的影片（每年都會有參賽者因手續失誤而被取消資格）。"
-
-#~ msgid "【{Beatboxer}向け】{Wildcard}レギュレーション解説"
-#~ msgstr "【{Beatboxer}專用】{Wildcard}規則說明"
-
-#~ msgid "GBB出場辞退が発生した場合、{Wildcard}下位からの繰り上げが行われます。"
-#~ msgstr "若出現GBB棄權，將由{Wildcard}較低順位晉級。"
-
-#~ msgid "いかなる理由があっても、シード権大会2位以下の人に、出場権は与えられません。"
-#~ msgstr "無論任何理由，都不會給予第二名以下種子權選手出場資格。"
-
-#~ msgid "「シード権大会においてGBB出場権が与えられるのは、例外なく、常に優勝者のみである」とルールに明記されています。"
-#~ msgstr "規則中明確指出：「在種子權大會中，GBB的出場權，毫無例外地，只授予優勝者。」"
-
-#~ msgid ""
-#~ "例：シード権大会優勝者が、すでに{Wildcard}で出場権を獲得していた場合、シード権大会2位ではなく、{Wildcard}下位からの繰り上げが行われます。"
-#~ msgstr "例：種子權大會優勝者若已透過{Wildcard}獲得參賽權，則不會從種子權大會第2名遞補，而是從{Wildcard}排名較低的隊伍遞補。"
-
-#~ msgid "制限時間を使い切らず余らせた場合、3秒につき最終順位を1つ下げる"
-#~ msgstr "若未使用完限制時間，每剩餘3秒，最終排名將下降1名"
-
-#~ msgid "※中央ヨーロッパ時間には、サマータイムがあります。2025年のサマータイムは3/30からです。"
-#~ msgstr "※中歐時間有夏令時間。2025年的夏令時間從3/30開始。"
-
-#~ msgid "Tag Team部門・Crew部門参加希望の方はご注意ください。"
-#~ msgstr "希望參加Tag Team部門・Crew部門的人請注意。"
-
-#~ msgid "レフェリー"
-#~ msgstr "裁判"
-
-#~ msgid "レフェリーについて"
-#~ msgstr "關於裁判"
-
-#~ msgid ""
-#~ "レフェリーは、GBB23から導入された、審査員とは別のメンバーです。審査員は各出場者の評価を行うのに対し、レフェリーは「ルールを守っているか」を確認する役割を担います。"
-#~ msgstr "裁判員是從GBB23導入的，與評審是不同的成員。 評審負責對每位參賽者進行評分，而裁判員則負責確認「是否遵守規則」。"
-
-#~ msgid "ルール & 審査員"
-#~ msgstr "規則 & 評審"
-
-#~ msgid "GBB24では、本番約1ヶ月前に公開されましたが、誤記が多くみられました。"
-#~ msgstr "GBB24在比賽前約1個月公開，但有很多錯誤。"
-
-#~ msgid "オープニング"
-#~ msgstr "開場"
-
-#~ msgid "休憩"
-#~ msgstr "休憩"
-
-#~ msgid ""
-#~ "タイムテーブルの終了時刻は19:30になっていますが、なぜか中継配信は21時まで行われるようです。理由は不明です。初日も21時まで行われるのかどうかも不明です。"
-#~ msgstr "時間表的結束時間是19:30，但不知何故，轉播似乎會持續到21:00。原因不明。第一天是否也會持續到21:00也不清楚。"
-
-#~ msgid "7toSmoke開始時刻と配信スタート時刻が違う理由は不明です。"
-#~ msgstr "7toSmoke開始時間和轉播開始時間不同的原因不明。"
-
-#~ msgid "注目キーワード"
-#~ msgstr "關鍵字"
-
-#~ msgid "ワイルドカード"
-#~ msgstr "Wildcard"
-
-#~ msgid "結果"
-#~ msgstr "結果"
-
-#~ msgid "結果発表日"
-#~ msgstr "結果公布日期"
-
-#~ msgid "動画一覧"
-#~ msgstr "影片清單"
-
-#~ msgid "提出締切"
-#~ msgstr "截止日期"
-
-#~ msgid "結果発表配信"
-#~ msgstr "結果發表直播"
-
-#~ msgid "出場枠の数"
-#~ msgstr "參賽名額"
-
-#~ msgid "全出場者一覧"
-#~ msgstr "所有參賽者名單"
-
-#~ msgid "辞退者一覧"
-#~ msgstr "辭退者一覽"
-
-#~ msgid "閉じる"
-#~ msgstr "關閉"
-
-#~ msgid "お探しの情報は、当サイトにありません。下記お問い合わせより、GBB運営に直接お尋ねください。"
-#~ msgstr "您所尋找的資訊在本網站上沒有。請透過下方的聯絡方式直接洽詢GBB營運單位。"
-
-#~ msgid "記載の番号"
-#~ msgstr "所列的號碼"
-
-#~ msgid "チケット販売ページ"
-#~ msgstr "票券銷售頁面"
-
-#~ msgid "GBB {year} 会場webサイトに記載のあった番号"
-#~ msgstr "GBB {year} 會場網站上記載的號碼"
-
-#~ msgid "レギュレーション"
-#~ msgstr "規則"
-
-#~ msgid "このページでは、{Wildcard}提出にあたって重要なルールを解説します。"
-#~ msgstr "此頁面將說明提交{Wildcard}的重要規則。"
-
-#~ msgid "【{Beatbox}ファン向け】"
-#~ msgstr "【{Beatbox}粉絲注意】"
-
-#~ msgid "年齢制限"
-#~ msgstr "年齡限制"
-
-#~ msgid "{Wildcard}提出について"
-#~ msgstr "關於提交{Wildcard}"
-
-#~ msgid "部門別ルール"
-#~ msgstr "各部門規則"
-
-#~ msgid "失格にならないために"
-#~ msgstr "為了不被取消資格"
-
-#~ msgid "以下に示す内容は、{Wildcard}を作る{Beatboxer}向けの情報です。"
-#~ msgstr "以下顯示的內容是為{Wildcard}製作的{Beatboxer}提供的資訊。"
-
-#~ msgid "当サイト管理人は{Beatboxer}ではありません。また、当サイト管理人はGBB運営と一切無関係です。"
-#~ msgstr "本網站管理員並非{Beatboxer}，且與GBB營運毫無關聯。"
-
-#~ msgid ""
-#~ "For Non-Japanese Users:\n"
-#~ "    Please note that this article was originally written in Japanese and subsequently translated using AI.\n"
-#~ "    As a result, there may be instances of inaccurate translation.\n"
-#~ "    For any questions or concerns, please refer to the official website or social media channels."
-#~ msgstr ""
-#~ "非日語用戶請注意：本文最初以日語撰寫，隨後透過AI翻譯。因此，可能會出現翻譯不準確的情況。如有任何問題或疑慮，請參閱官方網站或社群媒體管道。"
-
-#~ msgid "年齢制限: 本番当日、16歳以上であること"
-#~ msgstr "年齡限制：比賽當天必須年滿16歲"
-
-#~ msgid "未成年者(18歳未満)の参加:"
-#~ msgstr "未成年者（未滿18歲）的參與："
-
-#~ msgid "保護者の同伴が必須"
-#~ msgstr "必須由監護人陪同"
-
-#~ msgid "主催者は、保護者の同伴にかかる費用(ビザ、フライト、ホテル、食事など)を負担しない"
-#~ msgstr "主辦單位不承擔監護人陪同產生的費用（簽證、機票、酒店、餐飲等）"
-
-#~ msgid "上記要件を満たさない、同意できない場合は失格となり、{Wildcard}下位からの繰り上げが行われる"
-#~ msgstr "若不符合上述要求或不同意，將被取消資格，並從{Wildcard}以下遞補"
-
-#~ msgid "{Wildcard}作成・提出について"
-#~ msgstr "關於{Wildcard}的製作與提交"
-
-#~ msgid "{Wildcard}動画の内容"
-#~ msgstr "{Wildcard}影片內容"
-
-#~ msgid "動画の冒頭で、以下のように自己紹介する"
-#~ msgstr "在影片的開頭，請按以下方式自我介紹"
-
-#~ msgid "このルールに関する表記は、原文では非常に強い表現で示されています。"
-#~ msgstr "原文中，關於此規則的表述非常強烈。"
-
-#~ msgid "また、過去にこのルールに違反したことで失格処分になった事例があります。"
-#~ msgstr "過去也曾發生過因違反此規則而被取消資格的案例。"
-
-#~ msgid "録音方法"
-#~ msgstr "錄音方法"
-
-#~ msgid "カメラにはっきり映っていること (マスクや視覚効果で顔や口を覆わないこと)"
-#~ msgstr "需清晰地出現在鏡頭前（請勿使用面具或視覺效果遮蓋臉部或嘴巴）"
-
-#~ msgid "リップシンクやその他のビデオ技術は禁止"
-#~ msgstr "禁止對嘴或其他影片技術"
-
-#~ msgid "撮影と録音は、同時に行うこと"
-#~ msgstr "拍攝和錄音需同時進行"
-
-#~ msgid "基本的なダイナミック (コンプレッション)、EQ プラグイン、リバーブは使用可能。ただし、録音自体は生の状態で行い、後で編集すること"
-#~ msgstr "可以使用基本的動態（壓縮）、等化器插件和殘響，但錄音本身需保持原始狀態，之後再進行編輯。"
-
-#~ msgid "キックとスネアに異なる EQ やコンプレッションを施すなどの自動処理は禁止"
-#~ msgstr "禁止對Kick和Snare施加不同的EQ或壓縮等自動處理。"
-
-#~ msgid "録音全体を同じように処理すること"
-#~ msgstr "整個錄音需以相同方式處理"
-
-#~ msgid "歪み、遅延、その他の動的処理、周波数歪み効果は禁止"
-#~ msgstr "禁止使用失真、延遲、其他動態處理和頻率失真效果"
-
-#~ msgid "上記ルールについて、不正行為の疑いがある場合、{Wildcard}作成に使ったファイルの追加提出を求められる場合あり"
-#~ msgstr "若懷疑違反上述規則，可能會要求提交用於創建{Wildcard}的其他檔案"
-
-#~ msgid "提出方法"
-#~ msgstr "提交方法"
-
-#~ msgid "{Wildcard}をYouTubeにアップロード"
-#~ msgstr "將{Wildcard}上傳到YouTube"
-
-#~ msgid "Swissbeatbox公式サイトにある申請フォームで提出"
-#~ msgstr "透過Swissbeatbox官方網站上的申請表提交"
-
-#~ msgid "上記2つが両方できていない場合は、失格"
-#~ msgstr "若上述兩者皆未完成，則視為失格"
-
-#~ msgid "毎年必ず、申請フォーム入力忘れによる失格者が発生します！！！"
-#~ msgstr "每年都一定會有因為忘記填寫申請表而失格的參賽者！！！"
-
-#~ msgid "ぜひここのスクリーンショットをとってSNSで拡散してください。推しが失格にならないために..."
-#~ msgstr "請截取此處的螢幕截圖並在社群媒體上分享。為了不讓您支持的選手失格..."
-
-#~ msgid "生のオーディオと生のビデオ (カメラのオーディオを含む) の提出が必要"
-#~ msgstr "需要提交原始音訊和原始影片（包含相機音訊）"
-
-#~ msgid "{Solo}以外の全部門は、録画中のスクリーンキャプチャの提出も必要"
-#~ msgstr "除{Solo}外所有部門也需要提交錄製過程中的螢幕截圖"
-
-#~ msgid "上記2つが無い場合は、失格"
-#~ msgstr "若缺少上述兩者，則視為失格"
-
-#~ msgid "{Wildcard}提出は一度のみ。一度提出したら、後から別の{Wildcard}を提出することはできない"
-#~ msgstr "僅限提交一次{Wildcard}。提交後，不得再次提交其他{Wildcard}。"
-
-#~ msgid "誤って一度提出した{Wildcard}を削除した場合、失格"
-#~ msgstr "如果您不小心刪除了已提交的{Wildcard}，您將被取消資格。"
-
-#~ msgid "このルールは、GBB 2019で発生したトラブルの対策として設けられている"
-#~ msgstr "此規則是為了解決GBB 2019發生的問題而設立的。"
-
-#~ msgid "デバイスルール"
-#~ msgstr "設備規則"
-
-#~ msgid "MIDIコントローラーの使用は禁止"
-#~ msgstr "禁止使用MIDI控制器"
-
-#~ msgid "マシン内の追加ケーブルは使用可能 ケーブルはデバイスではないとみなされる"
-#~ msgstr "機器內部的額外纜線可以使用；纜線不被視為設備"
-
-#~ msgid "{Loopstation}単体での出場は禁止"
-#~ msgstr "禁止單獨使用{Loopstation}參賽"
-
-#~ msgid "事前にデバイス構成をSUPPORT@swissbeatbox.comへ申請すること"
-#~ msgstr "請事先將設備配置提交至SUPPORT@swissbeatbox.com"
-
-#~ msgid "ボイスソース、ボイストリガーのみ"
-#~ msgstr "僅限語音來源、語音觸發器"
-
-#~ msgid "事前に録音されたサンプルは使用禁止"
-#~ msgstr "禁止使用預先錄製好的樣本"
-
-#~ msgid "FOH (ミキシング デスク) または録音への出力はステレオ信号である必要があり、マルチチャンネル出力は禁止"
-#~ msgstr "FOH（混音台）或錄音的輸出必須是立體聲訊號，禁止多聲道輸出"
-
-#~ msgid "{Wildcard}動画の作成にあたり使用したすべてのファイルを、バックアップ含め保存しておき、いつでも提出できるようにしておく"
-#~ msgstr "請務必妥善保存製作{Wildcard}影片時使用的所有檔案（包含備份），以便隨時可以提交。"
-
-#~ msgid "皆さんの{Wildcard}を楽しみにしています！"
-#~ msgstr "我們非常期待各位的{Wildcard}作品！"
-
-#~ msgid "ソースサイト"
-#~ msgstr "來源網站"
-
-#~ msgid "チャレンジャーシリーズ"
-#~ msgstr "挑戰者系列"
-
-#~ msgid "繰り上げ出場について"
-#~ msgstr "關於遞補參賽"
-
-#~ msgid "セカンドリーグ"
-#~ msgstr "第二聯賽"
-
-#~ msgid "{SHOWCASE}とは"
-#~ msgstr "什麼是{SHOWCASE}"
-
-#~ msgid "2026年から新部門として「{SHOWCASE}」が追加されました。"
-#~ msgstr "自2026年起，新部門「{SHOWCASE}」將被添加。"
-
-#~ msgid "この部門では、バトルを行いません。"
-#~ msgstr "此部門不進行任何對戰。"
-
-#~ msgid "{Wildcard}の審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価されます。"
-#~ msgstr "{Wildcard}的審查會以不同於其他部門的標準進行，將根據故事性、藝術性、獨創性等標準來評分。"
-
-#~ msgid "{Solo}部門 決勝トーナメント"
-#~ msgstr "{Solo}部門 決賽錦標賽"
-
-#~ msgid "GBB {year} {Solo}部門の決勝トーナメントは8人トーナメントで開催されます。"
-#~ msgstr "GBB {year} {Solo}部門的決賽錦標賽將以8人錦標賽的形式舉辦。"
-
-#~ msgid "GBB 2021以来、8人トーナメントで開催するよう、Beatboxerから繰り返し要望を受けている、と説明されています。"
-#~ msgstr "據說明，自GBB 2021以來，Beatboxer們一直要求以8人錦標賽的形式舉辦。"
-
-#~ msgid ""
-#~ "{ComebackWildcard}は、通常の{SoloWildcard}ランキングで出場枠を獲得できなかった方のうち1名が、特別枠として出場権を獲得する制度です。"
-#~ msgstr ""
-#~ "{ComebackWildcard}是一項制度，允許在常規{SoloWildcard}排名中未能獲得參賽名額的其中1名選手，以特別名額的形式獲得參賽資格。"
-
-#~ msgid "対象"
-#~ msgstr "對象"
-
-#~ msgid "10位〜25位"
-#~ msgstr "第10名至第25名"
-
-#~ msgid "選出の流れ"
-#~ msgstr "選拔流程"
-
-#~ msgid "審査員による指名"
-#~ msgstr "評審員提名"
-
-#~ msgid "5名の審査員が、対象者の中から各自1名を自由に指名します（最大5名が候補）。"
-#~ msgstr "5名評審員從對象中各自自由提名1名（最多5名候選）。"
-
-#~ msgid "※5名全員が同じアーティストを指名した場合、その時点で出場者が確定します。"
-#~ msgstr "※如果5名評審員都提名了同一位藝術家，則此時參賽者即確定。"
-
-#~ msgid "再投票（審査員+{Swissbeatbox} {YouTube}メンバーシップ）"
-#~ msgstr "再次投票（評審員+{Swissbeatbox} {YouTube}會員）"
-
-#~ msgid "審査員の票：各審査員が候補者をランキングします。"
-#~ msgstr "評審員的票：各評審員對候選人進行排名。"
-
-#~ msgid ""
-#~ "メンバー票：生配信中に{Swissbeatbox} "
-#~ "{YouTube}メンバーシップ会員が投票し、その結果が「6人目の審査員」の票としてカウントされます。"
-#~ msgstr "會員票：在直播中，{Swissbeatbox} {YouTube}會員進行投票，其結果將作為「第6名評審員」的票數計入。"
-
-#~ msgid "勝者の決定"
-#~ msgstr "獲勝者的決定"
-
-#~ msgid ""
-#~ "審査員5名 + {Swissbeatbox} "
-#~ "{YouTube}メンバーシップ会員（計6つのランキング）をポイント化して合計し、合計スコアが最も高い1名がGBB {year}に出場します。"
-#~ msgstr ""
-#~ "將5名評審員 + {Swissbeatbox} {YouTube}會員（共6個排名）轉換為分數並合計，總分最高的1名將參加GBB {year}。"
-
-#~ msgid "GBB出場権獲得条件"
-#~ msgstr "GBB 參賽資格取得條件"
-
-#~ msgid "GBB出場権を得る方法は、以下の通りです。"
-#~ msgstr "取得 GBB 參賽資格的方法如下。"
-
-#~ msgid "上位入賞者"
-#~ msgstr "名列前茅的得獎者"
-
-#~ msgid "優勝者のみ"
-#~ msgstr "僅限冠軍"
-
-#~ msgid "繰り上げ出場"
-#~ msgstr "遞補參賽"
-
-#~ msgid "基本的には、2026年8月1日を境に対応が変わるのがポイントです。"
-#~ msgstr "基本上，以2026年8月1日為分界點，處理方式會發生變化。"
-
-#~ msgid "繰り上げ期限"
-#~ msgstr "遞補期限"
-
-#~ msgid "期限"
-#~ msgstr "期限"
-
-#~ msgid "対応"
-#~ msgstr "處理"
-
-#~ msgid "2026年8月1日まで"
-#~ msgstr "2026年8月1日之前"
-
-#~ msgid "原則として、辞退者が出た場合は{Wildcard}下位からの繰り上げが発生します。"
-#~ msgstr "原則上，如果出現退賽者，將從{Wildcard}的較低排名進行遞補。"
-
-#~ msgid "2026年8月1日以降"
-#~ msgstr "2026年8月1日之後"
-
-#~ msgid "{Swissbeatbox}が個別に判断します。渡航ビザの取得や移動の手配が間に合うかなど、状況に応じて決定されます。"
-#~ msgstr "{Swissbeatbox}將單獨判斷。根據能否及時獲得旅行簽證、安排行程等情況來決定。"
-
-#~ msgid "繰り上げ対象"
-#~ msgstr "遞補對象"
-
-#~ msgid "繰り上げの対象となるのは、{Wildcard}の順位が上位の人たちに限定されています。"
-#~ msgstr "遞補對象僅限於{Wildcard}排名較高的人員。"
-
-#~ msgid "15位まで"
-#~ msgstr "第15名為止"
-
-#~ msgid "16位以下の繰り上げは一切無し"
-#~ msgstr "第16名以下不進行任何遞補"
-
-#~ msgid "20位まで"
-#~ msgstr "第20名為止"
-
-#~ msgid "21位以降は運営の個別判断"
-#~ msgstr "第21名以後由營運方單獨判斷"
-
-#~ msgid "10位まで"
-#~ msgstr "第10名為止"
-
-#~ msgid "11位以下の繰り上げは一切無し"
-#~ msgstr "第11名以下不進行任何遞補"
-
-#~ msgid "5位まで"
-#~ msgstr "第5名為止"
-
-#~ msgid "6位以下の繰り上げは一切無し"
-#~ msgstr "第6名以下不進行任何遞補"
-
-#~ msgid "特殊なケース"
-#~ msgstr "特殊情況"
-
-#~ msgid "項目"
-#~ msgstr "項目"
-
-#~ msgid "説明"
-#~ msgstr "說明"
-
-#~ msgid "8月1日以降に辞退が発生し、繰り上げができない場合、対戦形式ではなく{Showcase}形式に変更されることがあります。"
-#~ msgstr "如果8月1日之後發生退賽且無法進行遞補，可能會改為{Showcase}形式而非對戰形式。"
-
-#~ msgid "優勝者が辞退しても繰り上げはありません。"
-#~ msgstr "即使冠軍退賽也不會進行遞補。"
-
-#~ msgid "辞退が発生した場合、3名までは繰り上げを行いますが、4名以上の辞退には対応しません。"
-#~ msgstr "如果發生退賽，最多進行3人的遞補，但不會處理4人以上的退賽。"
-
-#~ msgid "制限時間を使い切らず余らせた場合、1秒につき最終順位を1つ下げる"
-#~ msgstr "若未使用完限制時間，每剩餘1秒，最終排名將下降1名"
-
-#~ msgid "3月28日〜30日"
-#~ msgstr "3月28日至30日"
-
-#~ msgid "3月1日"
-#~ msgstr "3月1日"
-
-#~ msgid "3月23日〜24日"
-#~ msgstr "3月23日至24日"
-
-#~ msgid "3分31秒以上はペナルティ対象"
-#~ msgstr "3分31秒以上將受到處罰"
-
-#~ msgid "3月25日〜27日"
-#~ msgstr "3月25日至27日"
-
-#~ msgid "5月1日〜2日"
-#~ msgstr "5月1日至2日"
-
-#~ msgid "4月12日"
-#~ msgstr "4月12日"
-
-#~ msgid "5分01秒以上はペナルティ対象"
-#~ msgstr "5分01秒以上將受到處罰"
-
-#~ msgid "5月3日〜4日"
-#~ msgstr "5月3日至4日"
-
-#~ msgid "審査員なし"
-#~ msgstr "無評審"
-
-#~ msgid "正式名称"
-#~ msgstr "正式名稱"
-
-#~ msgid ""
-#~ "今年から新たに「セカンドリーグ」が設けられました。セカンドリーグは、中国で開催され、GBB {year} "
-#~ "の{Solo}部門ランナーズアップが招待されます。"
-#~ msgstr "今年新設立了「第二聯賽」。第二聯賽將在中國舉辦，邀請 GBB {year} {Solo} 部門的候補選手參加。"
-
-#~ msgid "この「セカンドリーグ」で優勝すれば、GBB {year} {Solo}部門への出場権が得られます。"
-#~ msgstr "若在此「第二聯賽」中奪冠，即可獲得 GBB {year} {Solo} 部門的參賽資格。"
-
-#~ msgid "ランナーズアップ：本戦に出場できなかった、{Wildcard}上位入賞者"
-#~ msgstr "候補選手：未能晉級正賽的 {Wildcard} 高排名者"
-
-#~ msgid "例：{Wildcard}出場枠が8枠の場合、9位～16位を指します。"
-#~ msgstr "例如：若 {Wildcard} 參賽名額為 8 個，則指第 9 名至第 16 名。"
-
-#~ msgid "当サイトでは、セカンドリーグについての情報は取り扱わない方針です。"
-#~ msgstr "本網站將不提供關於第二聯賽的資訊。"
-
-#~ msgid "ここまで読んでくださった皆様へ"
-#~ msgstr "致閱讀至此的各位"
-
-#~ msgid "今年のルールは例年と比べて変化が大きく、理解が難しかったと思います。"
-#~ msgstr "今年的規則與往年相比變化很大，想必理解起來很困難。"
-
-#~ msgid "私自身、2時間もかけてこのページを執筆しました。マジで疲れた"
-#~ msgstr "我自己花了2個小時來撰寫這個頁面。真的累了"
-
-#~ msgid "そこで、ルールをよりわかりやすく解説してくれる「GBB {year} なんでもチャット」をご用意しました。"
-#~ msgstr "因此，我們準備了「GBB {year} 萬事聊天」，以便更清楚地解釋規則。"
-
-#~ msgid "なんでもチャット"
-#~ msgstr "萬事聊天"
-
-#~ msgid "ぜひこちらをご活用ください！"
-#~ msgstr "請務必使用此功能！"
-
-#~ msgid "ポーランド・ワルシャワ"
-#~ msgstr "波蘭, 華沙"
-
-#~ msgid "GBBが最後にポーランド・ワルシャワで開催された年は2021年ですが、GBB 2021は予定から約2時間遅延しました。"
-#~ msgstr "GBB 上次於 2021 年在波蘭華沙舉行，但 GBB 2021 比預定時間延遲了大約 2 小時。"
-
-#~ msgid "なお、GBB 2022は中止され、GBB 2023~2025は、東京で開催されました。"
-#~ msgstr "此外，GBB 2022 已取消，GBB 2023~2025 在東京舉行。"
-
-#~ msgid "ページ 先行公開中！"
-#~ msgstr "頁面提前公開中！"
-
-#~ msgid "終了しました"
-#~ msgstr "已結束"
-
-#~ msgid "先行公開"
-#~ msgstr "提前公開"
-
-#~ msgid "イベントに関する問い合わせ先"
-#~ msgstr "關於活動的聯絡方式"
-
-#~ msgid "チケットに関する問い合わせ先"
-#~ msgstr "關於票務的聯絡方式"
-
-#~ msgid "なお上記問い合わせ先は、当サイトとは無関係です。"
-#~ msgstr "請注意，上述聯絡方式與本網站無關。"
-
-#~ msgid ""
-#~ "{Wildcard}シーズン中に、「{NOTWildcard}」を称する動画がまれに投稿されます。これは、正式な{Wildcard}エントリーではないものの、{Wildcard}に似た形式で制作された動画です。要するに、遊んでいるだけです。"
-#~ msgstr ""
-#~ "在 {Wildcard} 賽季中，偶爾會發布聲稱是 \"{NOTWildcard}\" 的影片。這些不是官方的 {Wildcard} 條目，而是以類似 "
-#~ "{Wildcard} 的格式製作的影片。簡而言之，他們只是在胡鬧。"
-
-#~ msgid ""
-#~ "Swissbeatboxが主催する{HumanBeatbox}の世界大会「{GrandBeatboxBattle}」の各種情報を、見やすくまとめたサイトです。"
-#~ msgstr ""
-#~ "由Swissbeatbox主辦的{HumanBeatbox}世界大賽「{GrandBeatboxBattle}」的各種資訊，是一個易於瀏覽的彙整網站。"
-
-#~ msgid "これだけガイド"
-#~ msgstr "指南"
-
-#~ msgid "年度選択"
-#~ msgstr "年度選擇"
-
-#~ msgid "翻訳未提供"
-#~ msgstr "翻譯未提供"
-
-#~ msgid "このページは翻訳が提供されていません。現在は原文の日本語を表示しています。"
-#~ msgstr "此頁面未提供翻譯。目前正在顯示日文原文。"
-
-#~ msgid "GBBまでの残り時間"
-#~ msgstr "距離 GBB 的剩餘時間"
-
-#~ msgid "なんでも検索"
-#~ msgstr "搜尋任何東西"
-
-#~ msgid "GBB {year} の検索のみ可能です"
-#~ msgstr "僅限搜尋 GBB {year}"
-
-#~ msgid "GBB {year} は終了しました"
-#~ msgstr "GBB {year} 已結束"
-
-#~ msgid "例：GBB {year} の最終結果は？"
-#~ msgstr "例：GBB {year} 的最終結果是？"
-
-#~ msgid "GBB最新情報の検索はこちら"
-#~ msgstr "在這裡搜尋最新的GBB資訊"
-
-#~ msgid "GBB {year} について検索してみよう"
-#~ msgstr "讓我們來搜尋關於 GBB {year}"
-
-#~ msgid "例：現地観戦計画のたてかた"
-#~ msgstr "例：如何制定現場觀賽計畫"
-
-#~ msgid "ホーム画面に追加"
-#~ msgstr "添加到主畫面"
-
-#~ msgid "GBBINFO-JPNはPWAに対応しています。"
-#~ msgstr "GBBINFO-JPN支援PWA。"
-
-#~ msgid "ブラウザメニューを開き、「ホーム画面に追加」をタップすると、アプリとしてインストールできます。"
-#~ msgstr "打開瀏覽器菜單，點擊「添加到主畫面」，即可作為應用程式安裝。"
-
-#~ msgid "ホームへもどる"
-#~ msgstr "返回主頁"
-
-#~ msgid "{Wildcard}結果"
-#~ msgstr "{Wildcard}結果公布"
-
-#~ msgid "出場者"
-#~ msgstr "參賽者"
-
-#~ msgid "GBBINFO-JPN開発者 Twitter"
-#~ msgstr "GBBINFO-JPN開發者 Twitter"
-
-#~ msgid "GBBINFO-JPNについて"
-#~ msgstr "關於GBBINFO-JPN"
-
-#~ msgid "各ページの翻訳提供について"
-#~ msgstr "關於各個頁面的翻譯提供"
-
-#~ msgid "いい景色だろ？"
-#~ msgstr "這風景不錯吧？"
-
-#~ msgid "まもなくトップページへリダイレクトされます"
-#~ msgstr "即將重定向到主頁"
-
-#~ msgid "リダイレクトされない場合、以下のボタンをご利用ください"
-#~ msgstr "如果未重定向，請使用以下按鈕"
-
-#~ msgid "トップページ"
-#~ msgstr "主頁"
-
-#~ msgid "その他の年度を確認："
-#~ msgstr "查看其他年度："
-
-#~ msgid "出場権詳細"
-#~ msgstr "參賽權詳細"
-
-#~ msgid "{Wildcard}結果発表日"
-#~ msgstr "{Wildcard}結果公布日期"
-
-#~ msgid "日本代表なし"
-#~ msgstr "無日本代表"
-
-#~ msgid "出場者世界地図"
-#~ msgstr "參賽者世界地圖"
-
-#~ msgid "国旗をタップorクリックすると、詳細を確認できます。"
-#~ msgstr "點擊或點擊國旗可以查看詳細資訊。"
-
-#~ msgid "韓国代表なし"
-#~ msgstr "無韓國代表"
-
-#~ msgid "シード権獲得者"
-#~ msgstr "獲得種子權的參賽者"
-
-#~ msgid "出場者のみ"
-#~ msgstr "僅參賽者"
-
-#~ msgid "辞退者のみ"
-#~ msgstr "僅辭退者"
-
-#~ msgid "出場者 & 辞退者を表示"
-#~ msgstr "顯示出場者與辭退者"
-
-#~ msgid "国"
-#~ msgstr "國家"
-
-#~ msgid "出場者検索"
-#~ msgstr "參賽者搜尋"
-
-#~ msgid "出場者名を検索できます"
-#~ msgstr "您可以搜索參賽者名稱"
-
-#~ msgid "半角英数字推奨"
-#~ msgstr "建議使用半角英數字"
-
-#~ msgid "検索結果"
-#~ msgstr "搜尋結果"
-
-#~ msgid "全出場者を地図にマッピングしました。"
-#~ msgstr "所有參賽者已在地圖上標示。"
-
-#~ msgid "部門選択"
-#~ msgstr "部門選擇"
-
-#~ msgid "{SHOWCASE}部門は、バトルを行わないため、結果はありません。"
-#~ msgstr "{SHOWCASE}部門不進行對戰，因此沒有結果。"
-
-#~ msgid "勝ち"
-#~ msgstr "勝"
-
-#~ msgid "負け"
-#~ msgstr "負"
-
-#~ msgid "順位"
-#~ msgstr "排名"
-
-#~ msgid "さがす"
-#~ msgstr "尋找"
-
-#~ msgid "とじる"
-#~ msgstr "關閉"
-
-#~ msgid "先行公開中"
-#~ msgstr "提前公開中"
-
-#~ msgid "ここは、まだ情報が少ないGBB {year} のページです"
-#~ msgstr "這裡還是資訊很少的GBB {year} 頁面"
-
-#~ msgid "GBB {year} の情報はこちら"
-#~ msgstr "GBB {year} 的資訊在這裡"
-
-#~ msgid "中止"
-#~ msgstr "中止"
-
-#~ msgid "ここは、すでに終了したGBB {year} のページです"
-#~ msgstr "這裡是已經結束的GBB {year} 的頁面"
-
-#~ msgid "GBB最新情報はこちら"
-#~ msgstr "最新的GBB資訊在這裡"
-
-#~ msgid "メニュー"
-#~ msgstr "選單"
-
-#~ msgid "管理人からのお知らせ"
-#~ msgstr "管理員公告"
-
-#~ msgid "情報選択"
-#~ msgstr "資訊選擇"
-
-#~ msgid "全出場者"
-#~ msgstr "所有參賽者"
-
-#~ msgid "シード権"
-#~ msgstr "種子權"
-
-#~ msgid "表示選択"
-#~ msgstr "顯示選擇"
-
-#~ msgid "出場者・辞退者"
-#~ msgstr "參賽者與辭退者"
-
-#~ msgid "情報なし"
-#~ msgstr "無資訊"
-
-#~ msgid "お探しの情報は、公式発表がまだ無いため、当サイトのどこにも存在しません。"
-#~ msgstr "您所尋找的資訊尚未有官方發佈，因此在本網站上不存在。"
-
-#~ msgid "公式発表をお待ちください。"
-#~ msgstr "請等待官方公告。"
-
-#~ msgid "GBBINFO-JPNは、一部を除き、各ページの翻訳をAI Geminiを用いて提供しています。"
-#~ msgstr "GBBINFO-JPN 除了部分內容外，使用 AI Gemini 翻譯每個頁面。"
-
-#~ msgid "AIによる翻訳のため、誤りがある可能性があります。"
-#~ msgstr "由於是AI翻譯，所以可能會有錯誤。"
-
-#~ msgid "翻訳を提供しているページは、以下の通りです。"
-#~ msgstr "提供翻譯的頁面如下："
-
-#~ msgid "対応年度：2024年以降"
-#~ msgstr "對應年份：2024年以後"
-
-#~ msgid "なお、翻訳対応言語は、アクセス状況に応じて随時追加予定です。"
-#~ msgstr "此外，支援翻譯的語言將根據存取情況隨時新增。"
-
-#~ msgid "翻訳を提供していないページは、原文である日本語で表示されます。"
-#~ msgstr "未提供翻譯的頁面將以原文日語顯示。"
-
-#~ msgid "過去の出場履歴"
-#~ msgstr "過去的出場履歷"
-
-#~ msgid "関連サイト"
-#~ msgstr "相關網站"
-
-#~ msgid "表示されている関連サイトやSNS情報・紹介文は、自動検索によって取得されたものです。"
-#~ msgstr "顯示的相關網站、社群媒體資訊、介紹文，是透過自動搜尋取得的。"
-
-#~ msgid "内容に誤りが含まれている可能性があります。"
-#~ msgstr "內容可能包含錯誤。"
-
-#~ msgid "もっと調べる"
-#~ msgstr "更多資訊"
-
-#~ msgid "{name}について、詳しく調べてください"
-#~ msgstr "關於{name}，請詳細調查。"
-
-#~ msgid "ChatGPTに聞く"
-#~ msgstr "問 ChatGPT"
-
-#~ msgid "他の出場者"
-#~ msgstr "其他出場者"

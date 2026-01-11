@@ -1,14 +1,14 @@
 # Translations template for PROJECT.
-# Copyright (C) 2025 ORGANIZATION
+# Copyright (C) 2026 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-26 13:21+0900\n"
+"POT-Creation-Date: 2026-01-11 15:15+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,7 +34,7 @@ msgstr ""
 #: templates/2026/rule.html:430 templates/2026/rule.html:435
 #: templates/2026/timetable.html:69 templates/2026/top.html:63
 #: templates/2026/top.html:106 templates/2026/wildcards.html:13
-#: templates/2026/wildcards.html:60 templates/common/participants.html:139
+#: templates/2026/wildcards.html:60 templates/common/participants.html:138
 #: templates/includes/hamburger_menu.html:11
 msgid "ルール"
 msgstr ""
@@ -156,7 +156,7 @@ msgstr ""
 #: templates/2026/rule.html:434 templates/2026/rule.html:490
 #: templates/2026/rule.html:554 templates/2026/top.html:53
 #: templates/common/cancels.html:24 templates/common/japan.html:23
-#: templates/common/korea.html:23 templates/common/participants.html:126
+#: templates/common/korea.html:23 templates/common/participants.html:125
 #: templates/participant_detail/participant_detail.html:33
 #: templates/participant_detail/participant_detail.html:115
 #: templates/participant_detail/participant_detail.html:155
@@ -207,8 +207,8 @@ msgstr ""
 #: templates/2025/wildcard_regulation.html:142 templates/2026/rule.html:238
 #: templates/2026/rule.html:270 templates/2026/rule.html:305
 #: templates/common/cancels.html:23 templates/common/japan.html:22
-#: templates/common/korea.html:22 templates/common/participants.html:45
-#: templates/common/participants.html:125 templates/common/result.html:67
+#: templates/common/korea.html:22 templates/common/participants.html:44
+#: templates/common/participants.html:124 templates/common/result.html:67
 #: templates/participant_detail/participant_detail.html:154
 #: templates/participant_detail/participant_detail.html:218
 msgid "名前"
@@ -220,7 +220,7 @@ msgstr ""
 #: templates/2026/rule.html:239 templates/2026/rule.html:271
 #: templates/2026/rule.html:306 templates/common/cancels.html:22
 #: templates/common/japan.html:21 templates/common/korea.html:21
-#: templates/common/participants.html:46 templates/common/participants.html:124
+#: templates/common/participants.html:45 templates/common/participants.html:123
 #: templates/participant_detail/participant_detail.html:50
 #: templates/participant_detail/participant_detail.html:132
 #: templates/participant_detail/participant_detail.html:219
@@ -245,7 +245,7 @@ msgstr ""
 #: templates/2026/timetable.html:114 templates/2026/timetable.html:118
 #: templates/2026/timetable.html:138 templates/2026/timetable.html:142
 #: templates/2026/timetable.html:146 templates/common/cancels.html:38
-#: templates/common/participants.html:19 templates/common/participants.html:85
+#: templates/common/participants.html:19 templates/common/participants.html:84
 #: templates/common/result.html:83
 msgid "発表次第更新"
 msgstr ""
@@ -261,7 +261,7 @@ msgstr ""
 #: templates/2024/rule.html:203 templates/2025/rule.html:203
 #: templates/2026/rule.html:316 templates/common/cancels.html:31
 #: templates/common/japan.html:31 templates/common/korea.html:31
-#: templates/common/participants.html:57
+#: templates/common/participants.html:56
 #: templates/participant_detail/participant_detail.html:23
 #: templates/participant_detail/participant_detail.html:75
 #: templates/participant_detail/participant_detail.html:88
@@ -274,7 +274,7 @@ msgstr ""
 
 #: templates/2024/rule.html:221 templates/2024/timetable.html:100
 #: templates/2024/timetable.html:230 templates/2025/rule.html:221
-#: templates/2026/rule.html:335 templates/common/cancels.html:52
+#: templates/2026/rule.html:335 templates/common/cancels.html:51
 #: templates/participant_detail/participant_detail.html:179
 #: templates/participant_detail/participant_detail.html:186
 msgid "出場者一覧"
@@ -434,7 +434,7 @@ msgstr ""
 
 #: templates/2024/stream.html:40 templates/common/participants.html:3
 #: templates/common/participants.html:4 templates/common/participants.html:5
-#: templates/common/participants.html:10 templates/common/participants.html:143
+#: templates/common/participants.html:10 templates/common/participants.html:142
 #: templates/others/translation.html:18
 #, python-brace-format
 msgid "{Wildcard}結果 & 出場者"
@@ -726,8 +726,8 @@ msgstr ""
 #: templates/2026/rule.html:20 templates/2026/rule.html:599
 #: templates/2026/top.html:153 templates/2026/wildcards.html:3
 #: templates/2026/wildcards.html:4 templates/2026/wildcards.html:5
-#: templates/2026/wildcards.html:9 templates/common/cancels.html:55
-#: templates/common/participants.html:94 templates/others/translation.html:25
+#: templates/2026/wildcards.html:9 templates/common/cancels.html:54
+#: templates/common/participants.html:93 templates/others/translation.html:25
 #, python-brace-format
 msgid "{Wildcard}一覧"
 msgstr ""
@@ -962,7 +962,7 @@ msgstr ""
 
 #: templates/2025/top.html:74 templates/2026/top.html:82
 #: templates/common/japan.html:48 templates/common/korea.html:48
-#: templates/common/participants.html:29
+#: templates/common/participants.html:28
 #: templates/participant_detail/participant_detail.html:144
 #: templates/participant_detail/participant_detail.html:257
 msgid "全出場者一覧"
@@ -973,7 +973,7 @@ msgstr ""
 #: templates/2026/top.html:85 templates/2026/top.html:110
 #: templates/common/cancels.html:3 templates/common/cancels.html:4
 #: templates/common/cancels.html:5 templates/common/cancels.html:10
-#: templates/common/participants.html:140
+#: templates/common/participants.html:139
 #: templates/includes/hamburger_menu.html:10
 msgid "辞退者一覧"
 msgstr ""
@@ -1411,37 +1411,21 @@ msgstr ""
 msgid "繰り上げの対象となるのは、{Wildcard}の順位が上位の人たちに限定されています。"
 msgstr ""
 
-#: templates/2026/rule.html:377
-msgid "15位まで"
+#: templates/2026/rule.html:377 templates/2026/rule.html:382
+#: templates/2026/rule.html:387 templates/2026/rule.html:392
+#, python-brace-format
+msgid "{rank}位まで"
 msgstr ""
 
-#: templates/2026/rule.html:378
-msgid "16位以下の繰り上げは一切無し"
-msgstr ""
-
-#: templates/2026/rule.html:382
-msgid "20位まで"
+#: templates/2026/rule.html:378 templates/2026/rule.html:388
+#: templates/2026/rule.html:393
+#, python-brace-format
+msgid "{rank}位以下の繰り上げは一切無し"
 msgstr ""
 
 #: templates/2026/rule.html:383
 #, python-brace-format
-msgid "21位以下の繰り上げは{Swissbeatbox}の個別判断"
-msgstr ""
-
-#: templates/2026/rule.html:387
-msgid "10位まで"
-msgstr ""
-
-#: templates/2026/rule.html:388
-msgid "11位以下の繰り上げは一切無し"
-msgstr ""
-
-#: templates/2026/rule.html:392
-msgid "5位まで"
-msgstr ""
-
-#: templates/2026/rule.html:393
-msgid "6位以下の繰り上げは一切無し"
+msgid "{rank}位以下の繰り上げは{Swissbeatbox}の個別判断"
 msgstr ""
 
 #: templates/2026/rule.html:398
@@ -1733,7 +1717,7 @@ msgstr ""
 #: templates/2026/rule.html:546 templates/2026/stream.html:18
 #: templates/2026/timetable.html:125 templates/2026/top.html:102
 #: templates/2026/wildcards.html:12 templates/2026/wildcards.html:59
-#: templates/base.html:239 templates/common/participants.html:25
+#: templates/base.html:239 templates/common/participants.html:24
 #: templates/common/result.html:110 templates/includes/hamburger_menu.html:9
 #: templates/includes/participants_form.html:13
 #, python-brace-format
@@ -1783,19 +1767,19 @@ msgstr ""
 msgid "トップページ"
 msgstr ""
 
-#: templates/common/cancels.html:43 templates/common/japan.html:59
-#: templates/common/korea.html:59 templates/common/participants.html:102
+#: templates/common/cancels.html:42 templates/common/japan.html:59
+#: templates/common/korea.html:59 templates/common/participants.html:101
 #: templates/common/result.html:98
 msgid "その他の年度を確認："
 msgstr ""
 
-#: templates/common/cancels.html:53 templates/common/japan.html:49
+#: templates/common/cancels.html:52 templates/common/japan.html:49
 #: templates/common/korea.html:49 templates/common/result.html:108
 msgid "出場権詳細"
 msgstr ""
 
-#: templates/common/cancels.html:54 templates/common/japan.html:51
-#: templates/common/korea.html:51 templates/common/participants.html:93
+#: templates/common/cancels.html:53 templates/common/japan.html:51
+#: templates/common/korea.html:51 templates/common/participants.html:92
 #, python-brace-format
 msgid "{Wildcard}結果発表日"
 msgstr ""
@@ -1805,12 +1789,12 @@ msgid "日本代表なし"
 msgstr ""
 
 #: templates/common/japan.html:54 templates/common/korea.html:54
-#: templates/common/participants.html:133
+#: templates/common/participants.html:132
 msgid "出場者世界地図"
 msgstr ""
 
 #: templates/common/japan.html:55 templates/common/korea.html:55
-#: templates/common/participants.html:134
+#: templates/common/participants.html:133
 msgid "国旗をタップorクリックすると、詳細を確認できます。"
 msgstr ""
 
@@ -1818,25 +1802,25 @@ msgstr ""
 msgid "韓国代表なし"
 msgstr ""
 
-#: templates/common/participants.html:27
+#: templates/common/participants.html:26
 msgid "シード権獲得者"
 msgstr ""
 
-#: templates/common/participants.html:33
+#: templates/common/participants.html:32
 #: templates/includes/participants_form.html:20
 msgid "出場者のみ"
 msgstr ""
 
-#: templates/common/participants.html:35
+#: templates/common/participants.html:34
 #: templates/includes/participants_form.html:21
 msgid "辞退者のみ"
 msgstr ""
 
-#: templates/common/participants.html:37
+#: templates/common/participants.html:36
 msgid "出場者 & 辞退者を表示"
 msgstr ""
 
-#: templates/common/participants.html:44
+#: templates/common/participants.html:43
 #: templates/participant_detail/participant_detail.html:41
 #: templates/participant_detail/participant_detail.html:67
 #: templates/participant_detail/participant_detail.html:123
@@ -1844,24 +1828,24 @@ msgstr ""
 msgid "国"
 msgstr ""
 
-#: templates/common/participants.html:111
-#: templates/common/participants.html:114
+#: templates/common/participants.html:110
+#: templates/common/participants.html:113
 msgid "出場者検索"
 msgstr ""
 
-#: templates/common/participants.html:112
+#: templates/common/participants.html:111
 msgid "出場者名を検索できます"
 msgstr ""
 
-#: templates/common/participants.html:112
+#: templates/common/participants.html:111
 msgid "半角英数字推奨"
 msgstr ""
 
-#: templates/common/participants.html:119
+#: templates/common/participants.html:118
 msgid "検索結果"
 msgstr ""
 
-#: templates/common/participants.html:134
+#: templates/common/participants.html:133
 msgid "全出場者を地図にマッピングしました。"
 msgstr ""
 

@@ -374,23 +374,23 @@
   <tbody>
     <tr>
       <td>Solo</td>
-      <td>{{_("15位まで")}}</td>
-      <td>{{_("16位以下の繰り上げは一切無し")}}</td>
+      <td>{{_("{rank}位まで").format(rank="15")}}</td>
+      <td>{{_("{rank}位以下の繰り上げは一切無し").format(rank="16")}}</td>
     </tr>
     <tr>
       <td>Loopstation</td>
-      <td>{{_("20位まで")}}</td>
-      <td>{{_("21位以下の繰り上げは{Swissbeatbox}の個別判断").format(Swissbeatbox="Swissbeatbox")}}</td>
+      <td>{{_("{rank}位まで").format(rank="20")}}</td>
+      <td>{{_("{rank}位以下の繰り上げは{Swissbeatbox}の個別判断").format(rank="21", Swissbeatbox="Swissbeatbox")}}</td>
     </tr>
     <tr>
       <td>Tag Team</td>
-      <td>{{_("10位まで")}}</td>
-      <td>{{_("11位以下の繰り上げは一切無し")}}</td>
+      <td>{{_("{rank}位まで").format(rank="10")}}</td>
+      <td>{{_("{rank}位以下の繰り上げは一切無し").format(rank="11")}}</td>
     </tr>
     <tr>
       <td>Crew</td>
-      <td>{{_("5位まで")}}</td>
-      <td>{{_("6位以下の繰り上げは一切無し")}}</td>
+      <td>{{_("{rank}位まで").format(rank="5")}}</td>
+      <td>{{_("{rank}位以下の繰り上げは一切無し").format(rank="6")}}</td>
     </tr>
   </tbody>
 </table>
