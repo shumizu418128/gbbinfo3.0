@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-11 15:15+0900\n"
+"POT-Creation-Date: 2026-01-19 15:42+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ms <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr ""
 #: templates/2026/rule.html:435 templates/2026/timetable.html:69
 #: templates/2026/top.html:63 templates/2026/top.html:106
 #: templates/2026/wildcards.html:13 templates/2026/wildcards.html:60
-#: templates/common/participants.html:138
+#: templates/common/participants.html:137
 #: templates/includes/hamburger_menu.html:11
 msgid "ルール"
 msgstr "Peraturan"
@@ -161,7 +161,7 @@ msgstr "Sila semak semula peraturan sendiri."
 #: templates/2026/rule.html:434 templates/2026/rule.html:490
 #: templates/2026/rule.html:554 templates/2026/top.html:53
 #: templates/common/cancels.html:24 templates/common/japan.html:23
-#: templates/common/korea.html:23 templates/common/participants.html:125
+#: templates/common/korea.html:23 templates/common/participants.html:124
 #: templates/participant_detail/participant_detail.html:33
 #: templates/participant_detail/participant_detail.html:115
 #: templates/participant_detail/participant_detail.html:155
@@ -223,7 +223,7 @@ msgstr "Benih - GBB"
 #: templates/2026/rule.html:270 templates/2026/rule.html:305
 #: templates/common/cancels.html:23 templates/common/japan.html:22
 #: templates/common/korea.html:22 templates/common/participants.html:44
-#: templates/common/participants.html:124 templates/common/result.html:67
+#: templates/common/participants.html:123 templates/common/result.html:67
 #: templates/participant_detail/participant_detail.html:154
 #: templates/participant_detail/participant_detail.html:218
 msgid "名前"
@@ -236,7 +236,7 @@ msgstr "Nama"
 #: templates/2026/rule.html:306 templates/common/cancels.html:22
 #: templates/common/japan.html:21 templates/common/korea.html:21
 #: templates/common/participants.html:45
-#: templates/common/participants.html:123
+#: templates/common/participants.html:122
 #: templates/participant_detail/participant_detail.html:50
 #: templates/participant_detail/participant_detail.html:132
 #: templates/participant_detail/participant_detail.html:219
@@ -456,7 +456,7 @@ msgstr "Semak maklumat terkini GBB {year}"
 #: templates/2024/stream.html:40 templates/common/participants.html:3
 #: templates/common/participants.html:4 templates/common/participants.html:5
 #: templates/common/participants.html:10
-#: templates/common/participants.html:142 templates/others/translation.html:18
+#: templates/common/participants.html:141 templates/others/translation.html:18
 #, python-brace-format
 msgid "{Wildcard}結果 & 出場者"
 msgstr "{Wildcard} Keputusan & Peserta"
@@ -751,7 +751,7 @@ msgstr "{Wildcard} Siaran Pengumuman Keputusan"
 #: templates/2026/top.html:153 templates/2026/wildcards.html:3
 #: templates/2026/wildcards.html:4 templates/2026/wildcards.html:5
 #: templates/2026/wildcards.html:9 templates/common/cancels.html:54
-#: templates/common/participants.html:93 templates/others/translation.html:25
+#: templates/common/participants.html:92 templates/others/translation.html:25
 #, python-brace-format
 msgid "{Wildcard}一覧"
 msgstr "{Wildcard} Senarai"
@@ -1047,7 +1047,7 @@ msgstr "Senarai semua peserta"
 #: templates/2026/top.html:85 templates/2026/top.html:110
 #: templates/common/cancels.html:3 templates/common/cancels.html:4
 #: templates/common/cancels.html:5 templates/common/cancels.html:10
-#: templates/common/participants.html:139
+#: templates/common/participants.html:138
 #: templates/includes/hamburger_menu.html:10
 msgid "辞退者一覧"
 msgstr "Senarai penarik diri"
@@ -1976,7 +1976,7 @@ msgid "トップページ"
 msgstr "Laman utama"
 
 #: templates/common/cancels.html:42 templates/common/japan.html:59
-#: templates/common/korea.html:59 templates/common/participants.html:101
+#: templates/common/korea.html:59 templates/common/participants.html:100
 #: templates/common/result.html:98
 msgid "その他の年度を確認："
 msgstr "Semak tahun-tahun lain:"
@@ -1987,7 +1987,7 @@ msgid "出場権詳細"
 msgstr "Butiran Kelayakan"
 
 #: templates/common/cancels.html:53 templates/common/japan.html:51
-#: templates/common/korea.html:51 templates/common/participants.html:92
+#: templates/common/korea.html:51 templates/common/participants.html:91
 #, python-brace-format
 msgid "{Wildcard}結果発表日"
 msgstr "{Wildcard} tarikh pengumuman keputusan"
@@ -1997,12 +1997,12 @@ msgid "日本代表なし"
 msgstr "Tiada wakil Jepun"
 
 #: templates/common/japan.html:54 templates/common/korea.html:54
-#: templates/common/participants.html:132
+#: templates/common/participants.html:131
 msgid "出場者世界地図"
 msgstr "Peta dunia peserta"
 
 #: templates/common/japan.html:55 templates/common/korea.html:55
-#: templates/common/participants.html:133
+#: templates/common/participants.html:132
 msgid "国旗をタップorクリックすると、詳細を確認できます。"
 msgstr "Ketuk atau klik bendera negara untuk maklumat lanjut."
 
@@ -2036,24 +2036,24 @@ msgstr "Peserta & Penarikan Diri"
 msgid "国"
 msgstr "Negara"
 
-#: templates/common/participants.html:110
-#: templates/common/participants.html:113
+#: templates/common/participants.html:109
+#: templates/common/participants.html:112
 msgid "出場者検索"
 msgstr "Cari peserta"
 
-#: templates/common/participants.html:111
+#: templates/common/participants.html:110
 msgid "出場者名を検索できます"
 msgstr "Anda boleh mencari nama peserta"
 
-#: templates/common/participants.html:111
+#: templates/common/participants.html:110
 msgid "半角英数字推奨"
 msgstr "Disyorkan huruf dan nombor separuh lebar"
 
-#: templates/common/participants.html:118
+#: templates/common/participants.html:117
 msgid "検索結果"
 msgstr "Keputusan carian"
 
-#: templates/common/participants.html:133
+#: templates/common/participants.html:132
 msgid "全出場者を地図にマッピングしました。"
 msgstr "Saya telah memetakan semua peserta pada peta."
 
