@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-19 15:42+0900\n"
+"POT-Creation-Date: 2026-01-19 17:06+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: en <LL@li.org>\n"
@@ -1620,6 +1620,13 @@ msgstr ""
 msgid "3月28日〜30日"
 msgstr "March 28-30"
 
+#: templates/2026/rule.html:445 templates/2026/rule.html:449
+#: templates/2026/rule.html:453 templates/2026/rule.html:457
+#: templates/2026/rule.html:461
+#, python-brace-format
+msgid "{m}分{s}秒以上はペナルティ対象"
+msgstr "A penalty applies if {m} minutes {s} seconds or more."
+
 #: templates/2026/rule.html:445 templates/2026/rule.html:453
 msgid "3月1日"
 msgstr "March 1"
@@ -1633,10 +1640,6 @@ msgid "3月23日〜24日"
 msgstr "March 23-24"
 
 #: templates/2026/rule.html:453
-msgid "3分31秒以上はペナルティ対象"
-msgstr "3 minutes 31 seconds or more is subject to penalty"
-
-#: templates/2026/rule.html:453
 msgid "3月25日〜27日"
 msgstr "March 25-27"
 
@@ -1647,10 +1650,6 @@ msgstr "May 1-2"
 #: templates/2026/rule.html:457 templates/2026/rule.html:461
 msgid "4月12日"
 msgstr "April 12"
-
-#: templates/2026/rule.html:461
-msgid "5分01秒以上はペナルティ対象"
-msgstr "5 minutes 01 seconds or more is subject to penalty"
 
 #: templates/2026/rule.html:461
 msgid "5月3日〜4日"
