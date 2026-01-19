@@ -459,7 +459,7 @@ msgstr "Check out the latest updates for GBB {year}"
 #: templates/common/participants.html:142 templates/others/translation.html:18
 #, python-brace-format
 msgid "{Wildcard}結果 & 出場者"
-msgstr "{Wildcard} results & contestants"
+msgstr "{Wildcard} results & participants"
 
 #: templates/2024/stream.html:41 templates/2024/timetable.html:3
 #: templates/2024/timetable.html:4 templates/2024/timetable.html:5
@@ -871,7 +871,7 @@ msgid ""
 msgstr ""
 "Also, the videos in this playlist are not necessarily the videos submitted "
 "as {Wildcard} (there are always disqualifications every year due to "
-"contestant procedural errors)."
+"participant procedural errors)."
 
 #: templates/2025/rule.html:22 templates/2025/rule.html:125
 #: templates/2025/wildcard_regulation.html:3
@@ -2206,4 +2206,4 @@ msgstr "Ask ChatGPT"
 
 #: templates/participant_detail/participant_detail.html:213
 msgid "他の出場者"
-msgstr "Other contestants"
+msgstr "Other participants"
