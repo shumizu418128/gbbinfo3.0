@@ -79,6 +79,9 @@ class BeatboxerTavilySearchTestCase(unittest.TestCase):
             ("https://youtube.com/watch?v=dQw4w9WgXcQ", "dQw4w9WgXcQ"),
             ("https://youtu.be/dQw4w9WgXcQ", "dQw4w9WgXcQ"),
             ("https://www.youtube.com/embed/dQw4w9WgXcQ", "dQw4w9WgXcQ"),
+            # YouTube Shorts URL
+            ("https://www.youtube.com/shorts/dQw4w9WgXcQ", "dQw4w9WgXcQ"),
+            ("https://www.youtube.com/shorts/dQw4w9WgXcQ?feature=share", "dQw4w9WgXcQ"),
             # 無効な形式のURL
             ("https://www.youtube.com/watch", None),
             ("https://www.youtube.com/channel/UC123", None),

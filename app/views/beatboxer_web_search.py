@@ -92,8 +92,8 @@ def extract_youtube_video_id(url):
         qs = parse_qs(parsed.query)
         if "v" in qs and re.match(r"^[a-zA-Z0-9_-]{11}$", qs["v"][0]):
             return qs["v"][0]
-        # /embed/VIDEO_ID
-        m = re.match(r"^/embed/([a-zA-Z0-9_-]{11})", parsed.path)
+        # /embed/VIDEO_ID or /shorts/VIDEO_ID
+        m = re.match(r"^/(?:embed|shorts)/([a-zA-Z0-9_-]{11})(?:[/?].*)?$", parsed.path)
         if m:
             return m.group(1)
     elif "youtu.be" in parsed.netloc:
