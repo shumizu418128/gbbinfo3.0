@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-19 15:42+0900\n"
+"POT-Creation-Date: 2026-01-19 16:43+0900\n"
 "PO-Revision-Date: 2025-10-29 10:38+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: pl <LL@li.org>\n"
@@ -338,7 +338,7 @@ msgstr "Data rozpoczęcia przyjmowania zgłoszeń"
 #: templates/2026/rule.html:457 templates/2026/rule.html:461
 #: templates/2026/rule.html:465 templates/2026/rule.html:469
 msgid "制限時間"
-msgstr "Czas ograniczenia"
+msgstr "Limit czasu"
 
 #: templates/2024/rule.html:245 templates/2024/rule.html:249
 #: templates/2024/rule.html:253 templates/2024/rule.html:257
@@ -354,7 +354,7 @@ msgstr "Czas ograniczenia"
 #: templates/2026/rule.html:457 templates/2026/rule.html:461
 #: templates/2026/rule.html:465 templates/2026/rule.html:469
 msgid "提出期限"
-msgstr "Termin zgłoszeń"
+msgstr "Termin składania"
 
 #: templates/2024/rule.html:245 templates/2024/rule.html:249
 #: templates/2024/rule.html:253 templates/2024/rule.html:257
@@ -1628,6 +1628,13 @@ msgstr ""
 msgid "3月28日〜30日"
 msgstr "28-30 marca"
 
+#: templates/2026/rule.html:445 templates/2026/rule.html:449
+#: templates/2026/rule.html:453 templates/2026/rule.html:457
+#: templates/2026/rule.html:461
+#, python-brace-format
+msgid "{m}分{s}秒以上はペナルティ対象"
+msgstr "Nałożona zostanie kara, jeśli {m} minut {s} sekund lub więcej."
+
 #: templates/2026/rule.html:445 templates/2026/rule.html:453
 msgid "3月1日"
 msgstr "1 marca"
@@ -1641,10 +1648,6 @@ msgid "3月23日〜24日"
 msgstr "23-24 marca"
 
 #: templates/2026/rule.html:453
-msgid "3分31秒以上はペナルティ対象"
-msgstr "3 minuty 31 sekund lub więcej podlega karze"
-
-#: templates/2026/rule.html:453
 msgid "3月25日〜27日"
 msgstr "25-27 marca"
 
@@ -1655,10 +1658,6 @@ msgstr "1-2 maja"
 #: templates/2026/rule.html:457 templates/2026/rule.html:461
 msgid "4月12日"
 msgstr "12 kwietnia"
-
-#: templates/2026/rule.html:461
-msgid "5分01秒以上はペナルティ対象"
-msgstr "5 minut 01 sekund lub więcej podlega karze"
 
 #: templates/2026/rule.html:461
 msgid "5月3日〜4日"

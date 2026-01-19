@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-19 15:42+0900\n"
+"POT-Creation-Date: 2026-01-19 16:43+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh_Hant_TW <LL@li.org>\n"
@@ -300,7 +300,7 @@ msgstr "所有部門通用"
 #: templates/2024/rule.html:241 templates/2025/rule.html:257
 #: templates/2025/wildcard_regulation.html:208 templates/2026/rule.html:441
 msgid "制限時間を超過した場合、1秒につき最終順位を1つ下げる"
-msgstr "超過限制時間的話，每超過一秒，最終排名下降一位"
+msgstr "若超過限制時間，每超過1秒，最終排名下降1名"
 
 #: templates/2024/rule.html:241 templates/2025/rule.html:257
 #: templates/2025/wildcard_regulation.html:208 templates/2026/rule.html:441
@@ -1483,6 +1483,13 @@ msgstr "若未使用完限制時間，每剩餘1秒，最終排名將下降1名"
 msgid "3月28日〜30日"
 msgstr "3月28日至30日"
 
+#: templates/2026/rule.html:445 templates/2026/rule.html:449
+#: templates/2026/rule.html:453 templates/2026/rule.html:457
+#: templates/2026/rule.html:461
+#, python-brace-format
+msgid "{m}分{s}秒以上はペナルティ対象"
+msgstr "{m}分{s}秒以上將受到處罰。"
+
 #: templates/2026/rule.html:445 templates/2026/rule.html:453
 msgid "3月1日"
 msgstr "3月1日"
@@ -1496,10 +1503,6 @@ msgid "3月23日〜24日"
 msgstr "3月23日至24日"
 
 #: templates/2026/rule.html:453
-msgid "3分31秒以上はペナルティ対象"
-msgstr "3分31秒以上將受到處罰"
-
-#: templates/2026/rule.html:453
 msgid "3月25日〜27日"
 msgstr "3月25日至27日"
 
@@ -1510,10 +1513,6 @@ msgstr "5月1日至2日"
 #: templates/2026/rule.html:457 templates/2026/rule.html:461
 msgid "4月12日"
 msgstr "4月12日"
-
-#: templates/2026/rule.html:461
-msgid "5分01秒以上はペナルティ対象"
-msgstr "5分01秒以上將受到處罰"
 
 #: templates/2026/rule.html:461
 msgid "5月3日〜4日"

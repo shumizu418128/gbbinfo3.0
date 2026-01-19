@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-19 15:42+0900\n"
+"POT-Creation-Date: 2026-01-19 16:43+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: da <LL@li.org>\n"
@@ -334,7 +334,7 @@ msgstr "Indleveringsstartdato og -tidspunkt"
 #: templates/2026/rule.html:457 templates/2026/rule.html:461
 #: templates/2026/rule.html:465 templates/2026/rule.html:469
 msgid "制限時間"
-msgstr "Tidsbegrænsning"
+msgstr "Tidsgrænse"
 
 #: templates/2024/rule.html:245 templates/2024/rule.html:249
 #: templates/2024/rule.html:253 templates/2024/rule.html:257
@@ -1625,6 +1625,13 @@ msgstr ""
 msgid "3月28日〜30日"
 msgstr "28.-30. marts"
 
+#: templates/2026/rule.html:445 templates/2026/rule.html:449
+#: templates/2026/rule.html:453 templates/2026/rule.html:457
+#: templates/2026/rule.html:461
+#, python-brace-format
+msgid "{m}分{s}秒以上はペナルティ対象"
+msgstr "Der pålægges en straf, hvis {m} minutter {s} sekunder eller mere."
+
 #: templates/2026/rule.html:445 templates/2026/rule.html:453
 msgid "3月1日"
 msgstr "1. marts"
@@ -1638,10 +1645,6 @@ msgid "3月23日〜24日"
 msgstr "23.-24. marts"
 
 #: templates/2026/rule.html:453
-msgid "3分31秒以上はペナルティ対象"
-msgstr "3 minutter 31 sekunder eller mere - strafobjekt"
-
-#: templates/2026/rule.html:453
 msgid "3月25日〜27日"
 msgstr "25.-27. marts"
 
@@ -1652,10 +1655,6 @@ msgstr "1.-2. maj"
 #: templates/2026/rule.html:457 templates/2026/rule.html:461
 msgid "4月12日"
 msgstr "12. april"
-
-#: templates/2026/rule.html:461
-msgid "5分01秒以上はペナルティ対象"
-msgstr "5 minutter 1 sekund eller mere - strafobjekt"
 
 #: templates/2026/rule.html:461
 msgid "5月3日〜4日"

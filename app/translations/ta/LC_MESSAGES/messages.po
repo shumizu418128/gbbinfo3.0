@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-19 15:42+0900\n"
+"POT-Creation-Date: 2026-01-19 16:43+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ta <LL@li.org>\n"
@@ -336,7 +336,7 @@ msgstr "சமர்ப்பிக்கும் தொடக்க தேத�
 #: templates/2026/rule.html:457 templates/2026/rule.html:461
 #: templates/2026/rule.html:465 templates/2026/rule.html:469
 msgid "制限時間"
-msgstr "வரையறுக்கப்பட்ட நேரம்"
+msgstr "கால வரம்பு"
 
 #: templates/2024/rule.html:245 templates/2024/rule.html:249
 #: templates/2024/rule.html:253 templates/2024/rule.html:257
@@ -1641,6 +1641,13 @@ msgstr ""
 msgid "3月28日〜30日"
 msgstr "மார்ச் 28-30"
 
+#: templates/2026/rule.html:445 templates/2026/rule.html:449
+#: templates/2026/rule.html:453 templates/2026/rule.html:457
+#: templates/2026/rule.html:461
+#, python-brace-format
+msgid "{m}分{s}秒以上はペナルティ対象"
+msgstr "{m} நிமிடம் {s} விநாடிகள் அல்லது அதற்கு மேல் தண்டனை விதிக்கப்படும்."
+
 #: templates/2026/rule.html:445 templates/2026/rule.html:453
 msgid "3月1日"
 msgstr "மார்ச் 1"
@@ -1654,10 +1661,6 @@ msgid "3月23日〜24日"
 msgstr "மார்ச் 23-24"
 
 #: templates/2026/rule.html:453
-msgid "3分31秒以上はペナルティ対象"
-msgstr "3 நிமிடம் 31 வினாடி அல்லது அதற்கு மேல் தண்டனைக்கு உட்பட்டது"
-
-#: templates/2026/rule.html:453
 msgid "3月25日〜27日"
 msgstr "மார்ச் 25-27"
 
@@ -1668,10 +1671,6 @@ msgstr "மே 1-2"
 #: templates/2026/rule.html:457 templates/2026/rule.html:461
 msgid "4月12日"
 msgstr "ஏப்ரல் 12"
-
-#: templates/2026/rule.html:461
-msgid "5分01秒以上はペナルティ対象"
-msgstr "5 நிமிடம் 1 வினாடி அல்லது அதற்கு மேல் தண்டனைக்கு உட்பட்டது"
 
 #: templates/2026/rule.html:461
 msgid "5月3日〜4日"
