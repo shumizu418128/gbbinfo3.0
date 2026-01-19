@@ -111,7 +111,7 @@ YOUTUBE_CHANNEL_PATTERN = (
 INSTAGRAM_ACCOUNT_PATTERN = r"^(https?:\/\/)?(www\.)?instagram\.com\/[a-zA-Z0-9_.]+\/?$"
 FACEBOOK_ACCOUNT_PATTERN = r"^(https?:\/\/)?(www\.)?facebook\.com\/[a-zA-Z0-9_.]+\/?$"
 
-BAN_WORDS = ["HATEN", "BEATCITY", "JPN CUP", "WIKI", "/PLAYLIST"]
+BAN_WORDS = ["HATEN", "BEATCITY", "BCJ", "JPN CUP", "WIKI", "/PLAYLIST"]
 
 FLAG_CODE = """
 <picture>
