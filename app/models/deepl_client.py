@@ -116,6 +116,7 @@ class DeepLService:
             source_lang="EN",
             target_lang=target_lang_upper,
             ignore_tags=[IGNORE_TAG],
+            tag_handling="xml",
             formality="prefer_more",
         )
 
