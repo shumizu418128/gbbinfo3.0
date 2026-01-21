@@ -300,6 +300,34 @@ class TestWildcardRankSort(unittest.TestCase):
         result = wildcard_rank_sort({"ticket_class": "Seed"})
         self.assertEqual(result, (float("inf"), float("inf")))
 
+    def test_comeback_wildcard(self):
+        """
+        COMEBACK Wildcardの場合、(0, 0)を返すことを確認
+        """
+        result = wildcard_rank_sort({"ticket_class": "COMEBACK Wildcard"})
+        self.assertEqual(result, (0, 0))
+
+    def test_comeback_wildcard_in_sorting(self):
+        """
+        COMEBACK Wildcardがソートで最上位に来ることを確認
+        """
+        data = [
+            {"ticket_class": "Wildcard 1 (2020)"},
+            {"ticket_class": "COMEBACK Wildcard"},
+            {"ticket_class": "Wildcard 2 (2020)"},
+            {"ticket_class": "Champion"},
+            {"ticket_class": "Wildcard 1 (2021)"},
+        ]
+
+        sorted_data = sorted(data, key=wildcard_rank_sort)
+
+        # COMEBACK Wildcardは(0, 0)を返すため、最上位に来る
+        self.assertEqual(sorted_data[0]["ticket_class"], "COMEBACK Wildcard")
+        self.assertEqual(sorted_data[1]["ticket_class"], "Wildcard 1 (2020)")
+        self.assertEqual(sorted_data[2]["ticket_class"], "Wildcard 2 (2020)")
+        self.assertEqual(sorted_data[3]["ticket_class"], "Wildcard 1 (2021)")
+        self.assertEqual(sorted_data[4]["ticket_class"], "Champion")
+
     def test_wildcard_sorting(self):
         """
         Wildcardのソートが正しく動作することを確認
