@@ -169,17 +169,19 @@ class ViewsTestCase(unittest.TestCase):
             "JAPANESE MEMBER, KOREAN MEMBER, AMERICAN MEMBER",
         )  # 3名のメンバー
 
+    @patch("app.context_processors.supabase_service")
     @patch("app.views.participants.supabase_service")
-    @patch("app.context_processors.get_available_years")
+    @patch("app.views.participants.get_available_years")
     def test_participants_view_with_comeback_wildcard(
-        self, mock_get_available_years, mock_supabase
+        self, mock_get_available_years, mock_supabase_participants, mock_context_supabase
     ):
         """
         participants_viewでCOMEBACK Wildcardを含む出場者データが正しくソートされることを確認
         """
         import pandas as pd
 
-        mock_get_available_years.return_value = [2025, 2024, 2023]
+        # self.yearを含む年度リストを設定
+        mock_get_available_years.return_value = [self.year, 2025, 2024, 2023]
 
         # Yearテーブルからのデータ（categoriesを含む）
         year_data = pd.DataFrame([{"categories": [1]}])
@@ -249,7 +251,19 @@ class ViewsTestCase(unittest.TestCase):
                 return participants_data
             return []
 
-        mock_supabase.get_data.side_effect = mock_get_data_side_effect
+        mock_supabase_participants.get_data.side_effect = mock_get_data_side_effect
+        
+        # context_processorsのsupabase_serviceもモック（get_translated_urls用）
+        def mock_context_get_data_side_effect(*args, **kwargs):
+            table = kwargs.get("table")
+            pandas_flag = kwargs.get("pandas", False)
+            
+            if table == "Year" and pandas_flag:
+                # get_translated_urls用のDataFrame
+                return pd.DataFrame([{"year": self.year}, {"year": 2025}, {"year": 2024}])
+            return []
+        
+        mock_context_supabase.get_data.side_effect = mock_context_get_data_side_effect
 
         with self.client.session_transaction() as sess:
             sess["language"] = "ja"
