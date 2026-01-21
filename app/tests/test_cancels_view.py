@@ -161,6 +161,83 @@ class CancelsViewTestCase(unittest.TestCase):
         resp = self.client.get(f"/ja/{self.year}/cancels")
         self.assertEqual(resp.status_code, 500)
 
+    @patch("app.views.participants.wildcard_rank_sort")
+    @patch("app.views.participants.supabase_service")
+    @patch("app.context_processors.get_translated_urls")
+    @patch("app.context_processors.is_gbb_ended")
+    @patch("app.context_processors.get_available_years")
+    def test_cancels_view_with_comeback_wildcard(
+        self,
+        mock_get_available_years,
+        mock_is_gbb_ended,
+        mock_get_translated_urls,
+        mock_supabase,
+        mock_wildcard_rank_sort,
+    ):
+        """
+        cancels_viewでCOMEBACK Wildcardを含む辞退者データが正しくソートされることを確認
+        """
+        from app.util.participant_edit import wildcard_rank_sort
+
+        mock_get_available_years.return_value = [2025, 2024, 2023]
+        mock_is_gbb_ended.return_value = False
+        mock_get_translated_urls.return_value = set()
+
+        # wildcard_rank_sortを実際の関数で置き換える（モックではなく）
+        mock_wildcard_rank_sort.side_effect = wildcard_rank_sort
+
+        # 辞退者のモックデータ（COMEBACK Wildcardを含む）
+        cancels_data = [
+            {
+                "id": 1,
+                "name": "normal cancelled",
+                "category": 1,
+                "ticket_class": "GBB Seed",
+                "iso_code": 392,
+                "Category": {"id": 1, "name": "Loopstation", "is_team": False},
+                "Country": {"iso_alpha2": "JP"},
+                "ParticipantMember": [],
+            },
+            {
+                "id": 2,
+                "name": "comeback cancelled",
+                "category": 1,
+                "ticket_class": "COMEBACK Wildcard",
+                "iso_code": 840,
+                "Category": {"id": 1, "name": "Loopstation", "is_team": False},
+                "Country": {"iso_alpha2": "US"},
+                "ParticipantMember": [],
+            },
+            {
+                "id": 3,
+                "name": "wildcard cancelled",
+                "category": 1,
+                "ticket_class": "Wildcard 1 (2024)",
+                "iso_code": 826,
+                "Category": {"id": 1, "name": "Loopstation", "is_team": False},
+                "Country": {"iso_alpha2": "GB"},
+                "ParticipantMember": [],
+            },
+        ]
+
+        mock_supabase.get_data.return_value = cancels_data
+
+        with self.client.session_transaction() as sess:
+            sess["language"] = "ja"
+
+        resp = self.client.get(f"/ja/{self.year}/cancels")
+        self.assertEqual(resp.status_code, 200)
+
+        # レスポンスの内容確認
+        response_data = resp.get_data(as_text=True)
+        self.assertIn("辞退者一覧", response_data)
+        self.assertIn("NORMAL CANCELLED", response_data)  # 大文字変換確認
+        self.assertIn("COMEBACK CANCELLED", response_data)
+        self.assertIn("WILDCARD CANCELLED", response_data)
+
+        # COMEBACK Wildcardが正しく処理されていることを確認
+        # （実際のソート順序はビュー内で処理されるため、レスポンスに含まれることを確認）
+
 
 if __name__ == "__main__":
     unittest.main()

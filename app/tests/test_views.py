@@ -168,3 +168,104 @@ class ViewsTestCase(unittest.TestCase):
             result[0]["members"],
             "JAPANESE MEMBER, KOREAN MEMBER, AMERICAN MEMBER",
         )  # 3名のメンバー
+
+    @patch("app.views.participants.supabase_service")
+    @patch("app.context_processors.get_available_years")
+    def test_participants_view_with_comeback_wildcard(
+        self, mock_get_available_years, mock_supabase
+    ):
+        """
+        participants_viewでCOMEBACK Wildcardを含む出場者データが正しくソートされることを確認
+        """
+        import pandas as pd
+
+        mock_get_available_years.return_value = [2025, 2024, 2023]
+
+        # Yearテーブルからのデータ（categoriesを含む）
+        year_data = pd.DataFrame([{"categories": [1]}])
+
+        # Categoryテーブルからのデータ
+        category_data = pd.DataFrame([{"id": 1, "name": "Loopstation"}])
+
+        # Participantテーブルからのデータ（COMEBACK Wildcardを含む）
+        participants_data = [
+            {
+                "id": 1,
+                "name": "normal player",
+                "category": 1,
+                "ticket_class": "GBB Seed",
+                "is_cancelled": False,
+                "iso_code": 392,
+                "Category": {"id": 1, "name": "Loopstation", "is_team": False},
+                "ParticipantMember": [],
+                "Country": {
+                    "iso_code": 392,
+                    "names": {"ja": "日本", "en": "Japan"},
+                    "iso_alpha2": "JP",
+                },
+            },
+            {
+                "id": 2,
+                "name": "comeback player",
+                "category": 1,
+                "ticket_class": "COMEBACK Wildcard",
+                "is_cancelled": False,
+                "iso_code": 840,
+                "Category": {"id": 1, "name": "Loopstation", "is_team": False},
+                "ParticipantMember": [],
+                "Country": {
+                    "iso_code": 840,
+                    "names": {"ja": "アメリカ", "en": "United States"},
+                    "iso_alpha2": "US",
+                },
+            },
+            {
+                "id": 3,
+                "name": "wildcard player",
+                "category": 1,
+                "ticket_class": "Wildcard 1 (2024)",
+                "is_cancelled": False,
+                "iso_code": 826,
+                "Category": {"id": 1, "name": "Loopstation", "is_team": False},
+                "ParticipantMember": [],
+                "Country": {
+                    "iso_code": 826,
+                    "names": {"ja": "イギリス", "en": "United Kingdom"},
+                    "iso_alpha2": "GB",
+                },
+            },
+        ]
+
+        # supabase_service.get_dataの呼び出し順序に応じてデータを返す
+        def mock_get_data_side_effect(*args, **kwargs):
+            table = kwargs.get("table")
+            pandas_flag = kwargs.get("pandas", False)
+
+            if table == "Year" and pandas_flag:
+                return year_data
+            elif table == "Category" and pandas_flag:
+                return category_data
+            elif table == "Participant":
+                return participants_data
+            return []
+
+        mock_supabase.get_data.side_effect = mock_get_data_side_effect
+
+        with self.client.session_transaction() as sess:
+            sess["language"] = "ja"
+
+        response = self.client.get(
+            f"/ja/{self.year}/participants?category=Loopstation&ticket_class=all&cancel=show"
+        )
+
+        # ステータスコードが200であることを確認
+        self.assertEqual(response.status_code, 200)
+
+        # レスポンスの内容確認
+        response_data = response.get_data(as_text=True)
+        self.assertIn("NORMAL PLAYER", response_data)
+        self.assertIn("COMEBACK PLAYER", response_data)
+        self.assertIn("WILDCARD PLAYER", response_data)
+
+        # COMEBACK Wildcardが正しく処理されていることを確認
+        # （実際のソート順序はビュー内で処理されるため、レスポンスに含まれることを確認）

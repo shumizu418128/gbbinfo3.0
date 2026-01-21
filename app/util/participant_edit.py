@@ -99,6 +99,10 @@ def wildcard_rank_sort(x):
     Note:
         'ticket_class'が "Wildcard 1 (2020)" または "Wildcard 1" の形式であることを想定。
     """
+    # COMEBACK Wildcardは1位の上として処理
+    if x["ticket_class"] == "COMEBACK Wildcard":
+        return (0, 0)
+
     if "Wildcard" in x["ticket_class"]:
         # 例: "Wildcard 1 (2020)" または "Wildcard 1" の両方に対応
         m = re.match(r"Wildcard\s+(\d+)(?:\s*\((\d{4})\))?", x["ticket_class"])
