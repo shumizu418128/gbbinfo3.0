@@ -95,9 +95,6 @@ def wildcard_rank_sort(x):
 
     Returns:
         tuple: (year, rank) のタプル。'ticket_class'がワイルドカードでない場合は (float("inf"), float("inf")) を返す。
-
-    Note:
-        'ticket_class'が "Wildcard 1 (2020)" または "Wildcard 1" の形式であることを想定。
     """
     if "Wildcard" in x["ticket_class"]:
         # 例: "Wildcard 1 (2020)" または "Wildcard 1" の両方に対応
