@@ -155,14 +155,9 @@ if (scrollTopButton) {
             // 最下部に到達したら完全に下に隠す
             const translateY = bottomProgress * 100;
             overlay.style.transform = `translateY(${translateY}%)`;
-        } else if (scrollY > threshold) {
-            // 中間部分：完全に画面を覆う
-            overlay.style.transform = "translateY(0%)";
         } else {
-            // 上部：スクロール位置に応じて徐々に上にスワイプ
-            const progress = Math.min(scrollY / threshold, 1);
-            const translateY = (1 - progress) * 100;
-            overlay.style.transform = `translateY(${translateY}%)`;
+            // 通常時：常にすべて表示
+            overlay.style.transform = "translateY(0%)";
         }
 
         ticking = false;
