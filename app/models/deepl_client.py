@@ -1,6 +1,5 @@
 import hashlib
 import os
-import re
 
 import deepl
 from ratelimit import limits, sleep_and_retry
@@ -21,41 +20,7 @@ class DeepLService:
                 "DEEPL_API_KEY環境変数が設定されていません。"
                 "DeepL APIキーを設定してください。"
             )
-
         self.translator = deepl.Translator(api_key)
-
-    def add_ignore_key(self, text: str, beatboxer_name: str) -> str:
-        """
-        特定のビートボクサー名を翻訳から除外するためのキーを追加する。
-
-        Args:
-            text (str): 入力テキスト。
-            beatboxer_name (str): 除外したいビートボクサー名。
-
-        Returns:
-            str: ビートボクサー名が単語として現れる場合にのみタグで囲んだテキスト。
-
-        Notes:
-            - 名前が別の単語の一部になっている場合は置換しません。
-            - 既にタグで囲まれている場合は二重に囲みません。
-        """
-        if not beatboxer_name:
-            return text
-
-        wrapped = f"<{IGNORE_TAG}>{beatboxer_name}</{IGNORE_TAG}>"
-        # 既に囲まれている場合は処理不要
-        if wrapped in text:
-            return text
-
-        # 単語境界でマッチするように negative/positive lookarounds を使用
-        pattern = rf"(?<!\w){re.escape(beatboxer_name)}(?!\w)"
-
-        return re.sub(pattern, wrapped, text, flags=re.IGNORECASE)
-
-    def remove_ignore_key(self, text: str) -> str:
-        """翻訳後のテキストから除外キーを削除する"""
-        text = text.replace(f"<{IGNORE_TAG}>", "").replace(f"</{IGNORE_TAG}>", "")
-        return text
 
     @sleep_and_retry
     @limits(calls=RATE_LIMIT_CALLS, period=RATE_LIMIT_PERIOD)
@@ -108,25 +73,17 @@ class DeepLService:
         if cached_data is not None:
             return cached_data
 
-        # ビートボクサー名を翻訳から除外
-        text_with_ignore_key = self.add_ignore_key(text, beatboxer_name)
-
         result = self.translator.translate_text(
-            text=text_with_ignore_key,
+            text=text,
             source_lang="EN",
             target_lang=target_lang_upper,
-            ignore_tags=[IGNORE_TAG],
-            tag_handling="xml",
             formality="prefer_more",
         )
 
-        # 除外キーを削除
-        text_ignore_key_removed = self.remove_ignore_key(result.text)
-
         # キャッシュに保存
-        flask_cache.set(cache_key, text_ignore_key_removed)
+        flask_cache.set(cache_key, result.text)
 
-        return text_ignore_key_removed
+        return result.text
 
 
 # グローバルインスタンス
