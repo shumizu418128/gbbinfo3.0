@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-19 17:06+0900\n"
+"POT-Creation-Date: 2026-01-23 22:35+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -211,7 +211,7 @@ msgstr "시드권 - GBB"
 #: templates/2026/rule.html:270 templates/2026/rule.html:305
 #: templates/common/cancels.html:23 templates/common/japan.html:22
 #: templates/common/korea.html:22 templates/common/participants.html:44
-#: templates/common/participants.html:123 templates/common/result.html:67
+#: templates/common/participants.html:123 templates/common/result.html:65
 #: templates/participant_detail/participant_detail.html:154
 #: templates/participant_detail/participant_detail.html:218
 msgid "名前"
@@ -250,7 +250,7 @@ msgstr "출전권"
 #: templates/2026/timetable.html:138 templates/2026/timetable.html:142
 #: templates/2026/timetable.html:146 templates/common/cancels.html:38
 #: templates/common/participants.html:19 templates/common/participants.html:84
-#: templates/common/result.html:83
+#: templates/common/result.html:81
 msgid "発表次第更新"
 msgstr "발표되는 대로 업데이트"
 
@@ -665,7 +665,7 @@ msgstr "비공식 정보 사이트"
 #: templates/common/result.html:13 templates/includes/notice.html:9
 #: templates/includes/popup_no_info.html:7
 msgid "最終更新"
-msgstr "최종 업데이트"
+msgstr "최종 수정"
 
 #: templates/2024/top.html:66 templates/2025/rule.html:240
 #: templates/2025/ticket.html:19 templates/2025/timetable.html:238
@@ -700,7 +700,7 @@ msgstr "모두 함께 감상회"
 #: templates/2026/top.html:80 templates/2026/top.html:140
 #: templates/2026/top.html:145 templates/common/result.html:3
 #: templates/common/result.html:4 templates/common/result.html:5
-#: templates/common/result.html:9 templates/common/result.html:107
+#: templates/common/result.html:9 templates/common/result.html:105
 #: templates/includes/hamburger_menu.html:25
 #: templates/others/translation.html:24
 #: templates/participant_detail/participant_detail.html:180
@@ -898,7 +898,7 @@ msgstr ""
 "있는지\"를 확인하는 역할을 합니다."
 
 #: templates/2025/ticket.html:16 templates/common/japan.html:50
-#: templates/common/korea.html:50 templates/common/result.html:109
+#: templates/common/korea.html:50 templates/common/result.html:107
 #: templates/others/translation.html:19
 msgid "ルール & 審査員"
 msgstr "규칙 & 심사위원"
@@ -1765,7 +1765,7 @@ msgstr "홈으로 돌아가기"
 #: templates/2026/timetable.html:125 templates/2026/top.html:102
 #: templates/2026/wildcards.html:12 templates/2026/wildcards.html:59
 #: templates/base.html:239 templates/common/participants.html:24
-#: templates/common/result.html:110 templates/includes/hamburger_menu.html:9
+#: templates/common/result.html:108 templates/includes/hamburger_menu.html:9
 #: templates/includes/participants_form.html:13
 #, python-brace-format
 msgid "{Wildcard}結果"
@@ -1780,7 +1780,7 @@ msgstr "{Wildcard} 결과"
 #: templates/2026/stream.html:18 templates/2026/timetable.html:125
 #: templates/2026/top.html:102 templates/2026/wildcards.html:12
 #: templates/2026/wildcards.html:59 templates/base.html:239
-#: templates/common/result.html:110 templates/includes/hamburger_menu.html:9
+#: templates/common/result.html:108 templates/includes/hamburger_menu.html:9
 msgid "出場者"
 msgstr "출전자"
 
@@ -1816,12 +1816,12 @@ msgstr "톱 페이지"
 
 #: templates/common/cancels.html:42 templates/common/japan.html:59
 #: templates/common/korea.html:59 templates/common/participants.html:100
-#: templates/common/result.html:98
+#: templates/common/result.html:96
 msgid "その他の年度を確認："
 msgstr "기타 연도를 확인:"
 
 #: templates/common/cancels.html:52 templates/common/japan.html:49
-#: templates/common/korea.html:49 templates/common/result.html:108
+#: templates/common/korea.html:49 templates/common/result.html:106
 msgid "出場権詳細"
 msgstr "출전권 상세"
 
@@ -1896,25 +1896,25 @@ msgstr "검색 결과"
 msgid "全出場者を地図にマッピングしました。"
 msgstr "전체 출전자를 지도에 매핑했습니다."
 
-#: templates/common/result.html:19 templates/common/result.html:88
+#: templates/common/result.html:19 templates/common/result.html:86
 #: templates/includes/participants_form.html:3
 msgid "部門選択"
 msgstr "부문 선택"
 
-#: templates/common/result.html:30
+#: templates/common/result.html:29
 #, python-brace-format
 msgid "{SHOWCASE}部門は、バトルを行わないため、結果はありません。"
 msgstr "{SHOWCASE} 부문은 배틀을 하지 않기 때문에 결과가 없습니다."
 
-#: templates/common/result.html:38
+#: templates/common/result.html:36
 msgid "勝ち"
 msgstr "승리"
 
-#: templates/common/result.html:40
+#: templates/common/result.html:38
 msgid "負け"
 msgstr "패배"
 
-#: templates/common/result.html:66
+#: templates/common/result.html:64
 msgid "順位"
 msgstr "순위"
 
