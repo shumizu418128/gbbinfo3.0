@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-23 22:35+0900\n"
+"POT-Creation-Date: 2026-01-23 23:19+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: be <LL@li.org>\n"
@@ -1924,7 +1924,7 @@ msgstr "Вынікі {Wildcard}"
 #: templates/2026/wildcards.html:59 templates/base.html:239
 #: templates/common/result.html:108 templates/includes/hamburger_menu.html:9
 msgid "出場者"
-msgstr "Удзельнік"
+msgstr "Удзельнікі"
 
 #: templates/base.html:258
 msgid "GBBINFO-JPN開発者 Twitter"
@@ -1965,7 +1965,7 @@ msgstr "Праглядзець іншыя гады:"
 #: templates/common/cancels.html:52 templates/common/japan.html:49
 #: templates/common/korea.html:49 templates/common/result.html:106
 msgid "出場権詳細"
-msgstr "Падрабязнi кваліфікацыі"
+msgstr "Падрабязнасці кваліфікацыі"
 
 #: templates/common/cancels.html:53 templates/common/japan.html:51
 #: templates/common/korea.html:51 templates/common/participants.html:91
@@ -2041,7 +2041,7 @@ msgstr "Усех удзельнікаў былі нанесены на карт�
 #: templates/common/result.html:19 templates/common/result.html:86
 #: templates/includes/participants_form.html:3
 msgid "部門選択"
-msgstr "Выбар аддзела"
+msgstr "Выбар катэгорыі"
 
 #: templates/common/result.html:29
 #, python-brace-format
