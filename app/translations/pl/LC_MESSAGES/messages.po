@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-19 17:06+0900\n"
+"POT-Creation-Date: 2026-01-23 23:19+0900\n"
 "PO-Revision-Date: 2025-10-29 10:38+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: pl <LL@li.org>\n"
@@ -226,7 +226,7 @@ msgstr "Prawo sezonowe - GBB"
 #: templates/2026/rule.html:270 templates/2026/rule.html:305
 #: templates/common/cancels.html:23 templates/common/japan.html:22
 #: templates/common/korea.html:22 templates/common/participants.html:44
-#: templates/common/participants.html:123 templates/common/result.html:67
+#: templates/common/participants.html:123 templates/common/result.html:65
 #: templates/participant_detail/participant_detail.html:154
 #: templates/participant_detail/participant_detail.html:218
 msgid "名前"
@@ -265,7 +265,7 @@ msgstr "Prawo startu"
 #: templates/2026/timetable.html:138 templates/2026/timetable.html:142
 #: templates/2026/timetable.html:146 templates/common/cancels.html:38
 #: templates/common/participants.html:19 templates/common/participants.html:84
-#: templates/common/result.html:83
+#: templates/common/result.html:81
 msgid "発表次第更新"
 msgstr "Aktualizacja po ogłoszeniu"
 
@@ -723,7 +723,7 @@ msgstr "Wspólne oglądanie"
 #: templates/2026/top.html:80 templates/2026/top.html:140
 #: templates/2026/top.html:145 templates/common/result.html:3
 #: templates/common/result.html:4 templates/common/result.html:5
-#: templates/common/result.html:9 templates/common/result.html:107
+#: templates/common/result.html:9 templates/common/result.html:105
 #: templates/includes/hamburger_menu.html:25
 #: templates/others/translation.html:24
 #: templates/participant_detail/participant_detail.html:180
@@ -946,7 +946,7 @@ msgstr ""
 "sprawdzającej, czy przestrzegane są zasady."
 
 #: templates/2025/ticket.html:16 templates/common/japan.html:50
-#: templates/common/korea.html:50 templates/common/result.html:109
+#: templates/common/korea.html:50 templates/common/result.html:107
 #: templates/others/translation.html:19
 msgid "ルール & 審査員"
 msgstr "Zasady & Sędziowie"
@@ -1918,7 +1918,7 @@ msgstr "Powrót do strony głównej"
 #: templates/2026/timetable.html:125 templates/2026/top.html:102
 #: templates/2026/wildcards.html:12 templates/2026/wildcards.html:59
 #: templates/base.html:239 templates/common/participants.html:24
-#: templates/common/result.html:110 templates/includes/hamburger_menu.html:9
+#: templates/common/result.html:108 templates/includes/hamburger_menu.html:9
 #: templates/includes/participants_form.html:13
 #, python-brace-format
 msgid "{Wildcard}結果"
@@ -1933,7 +1933,7 @@ msgstr "{Wildcard} wynik"
 #: templates/2026/stream.html:18 templates/2026/timetable.html:125
 #: templates/2026/top.html:102 templates/2026/wildcards.html:12
 #: templates/2026/wildcards.html:59 templates/base.html:239
-#: templates/common/result.html:110 templates/includes/hamburger_menu.html:9
+#: templates/common/result.html:108 templates/includes/hamburger_menu.html:9
 msgid "出場者"
 msgstr "Uczestnicy"
 
@@ -1969,12 +1969,12 @@ msgstr "Strona główna"
 
 #: templates/common/cancels.html:42 templates/common/japan.html:59
 #: templates/common/korea.html:59 templates/common/participants.html:100
-#: templates/common/result.html:98
+#: templates/common/result.html:96
 msgid "その他の年度を確認："
 msgstr "Sprawdź inne lata:"
 
 #: templates/common/cancels.html:52 templates/common/japan.html:49
-#: templates/common/korea.html:49 templates/common/result.html:108
+#: templates/common/korea.html:49 templates/common/result.html:106
 msgid "出場権詳細"
 msgstr "Szczegóły praw startu"
 
@@ -2049,25 +2049,25 @@ msgstr "Wyniki wyszukiwania"
 msgid "全出場者を地図にマッピングしました。"
 msgstr "Wszyscy uczestnicy zostali zaznaczeni na mapie."
 
-#: templates/common/result.html:19 templates/common/result.html:88
+#: templates/common/result.html:19 templates/common/result.html:86
 #: templates/includes/participants_form.html:3
 msgid "部門選択"
 msgstr "Wybór kategorii"
 
-#: templates/common/result.html:30
+#: templates/common/result.html:29
 #, python-brace-format
 msgid "{SHOWCASE}部門は、バトルを行わないため、結果はありません。"
 msgstr "{SHOWCASE} Dział nie wykonuje żadnych bitew, więc nie ma wyników."
 
-#: templates/common/result.html:38
+#: templates/common/result.html:36
 msgid "勝ち"
 msgstr "Wygrana"
 
-#: templates/common/result.html:40
+#: templates/common/result.html:38
 msgid "負け"
 msgstr "Przegrana"
 
-#: templates/common/result.html:66
+#: templates/common/result.html:64
 msgid "順位"
 msgstr "Pozycja"
 
