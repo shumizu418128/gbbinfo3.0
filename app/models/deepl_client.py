@@ -9,7 +9,7 @@ RATE_LIMIT_CALLS = 5
 RATE_LIMIT_PERIOD = 1
 
 # DeepL APIのコンテキストとカスタム指示 英語推奨
-CONTEXT = "This text is intended to provide information about Beatboxers {name} participating in the GBB (Grand Beatbox Battle)."
+CONTEXT = "This text is intended to provide information about Beatboxer {name} participating in the GBB (Grand Beatbox Battle)."
 CUSTOM_INSTRUCTIONS = (
     "Do not translate the name ({name}); leave it as is in the original."
 )
