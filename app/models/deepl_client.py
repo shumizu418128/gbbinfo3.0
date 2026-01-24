@@ -82,7 +82,7 @@ class DeepLService:
             target_lang=target_lang_upper,
             formality="prefer_more",
             context=CONTEXT.format(name=beatboxer_name),
-            custom_instructions=CUSTOM_INSTRUCTIONS.format(name=beatboxer_name),
+            custom_instructions=[CUSTOM_INSTRUCTIONS.format(name=beatboxer_name)],
         )
 
         # キャッシュに保存
