@@ -8,8 +8,11 @@ from ratelimit import limits, sleep_and_retry
 RATE_LIMIT_CALLS = 5
 RATE_LIMIT_PERIOD = 1
 
-# 絶対にBeatboxer名と被らないよう冗長なタグを使用
-IGNORE_TAG = "_ignore_beatboxer_name_tag_"
+# DeepL APIのコンテキストとカスタム指示 英語推奨
+CONTEXT = "This text is intended to provide information about Beatboxers {name} participating in the GBB (Grand Beatbox Battle)."
+CUSTOM_INSTRUCTIONS = (
+    "Do not translate the name ({name}); leave it as is in the original."
+)
 
 
 class DeepLService:
@@ -78,6 +81,8 @@ class DeepLService:
             source_lang="EN",
             target_lang=target_lang_upper,
             formality="prefer_more",
+            context=CONTEXT.format(name=beatboxer_name),
+            custom_instructions=CUSTOM_INSTRUCTIONS.format(name=beatboxer_name),
         )
 
         # キャッシュに保存
