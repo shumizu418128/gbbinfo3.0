@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-23 23:19+0900\n"
+"POT-Creation-Date: 2026-01-25 17:15+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -198,7 +198,7 @@ msgstr "잊혀진 {TagTeamLoopstation}..."
 #: templates/2024/rule.html:135 templates/2025/rule.html:130
 #, python-brace-format
 msgid "{Wildcard}を勝ち上がる以外の方法でGBB出場権を得る方法（シード権）と、その該当者は以下の通りです。"
-msgstr "{Wildcard}를 이기는 것 외에 GBB 출전권을 얻는 방법(시드권)과 그 해당자는 다음과 같습니다."
+msgstr "{Wildcard}를 통과하는 것 외에 GBB 출전권을 얻는 방법(시드권)과 그 해당자는 다음과 같습니다."
 
 #: templates/2024/rule.html:137 templates/2025/rule.html:133
 msgid "シード権 - GBB"
@@ -287,7 +287,8 @@ msgstr "출전자 목록"
 #: templates/2024/rule.html:224
 #, python-brace-format
 msgid "シード権を持つ人が辞退した場合、原則として、該当シード権は消滅し、{Wildcard}下位からの繰り上げが行われます。"
-msgstr "시드권을 가진 사람이 기권할 경우, 원칙적으로 해당 시드권은 소멸하며, {Wildcard}하위에서부터 올라가게 됩니다."
+msgstr ""
+"시드권을 가진 사람이 사퇴할 경우, 원칙적으로 해당 시드권은 소멸하며, {Wildcard} 하위 순위에서 승격이 이루어집니다."
 
 #: templates/2024/rule.html:240 templates/2025/rule.html:256
 #: templates/2025/wildcard_regulation.html:207 templates/2026/rule.html:440
@@ -867,8 +868,8 @@ msgstr "시드권 대회에서 GBB 출전권이 주어지는 것은, 예외 없�
 msgid ""
 "例：シード権大会優勝者が、すでに{Wildcard}で出場権を獲得していた場合、シード権大会2位ではなく、{Wildcard}下位からの繰り上げが行われます。"
 msgstr ""
-"예: 시드권 대회 우승자가 이미 {Wildcard}로 출전권을 획득한 경우, 시드권 대회 2위가 아닌 {Wildcard} 하위부터 순위가"
-" 올라갑니다."
+"예: 시드권 대회 우승자가 이미 {Wildcard}로 출전권을 획득한 경우, 시드권 대회 2위가 아닌 {Wildcard} 하위 순위에서 "
+"승격이 이루어집니다."
 
 #: templates/2025/rule.html:257 templates/2025/wildcard_regulation.html:208
 msgid "制限時間を使い切らず余らせた場合、3秒につき最終順位を1つ下げる"
@@ -1094,7 +1095,7 @@ msgstr "주최자는 보호자 동반에 드는 비용(비자, 항공편, 호텔
 #: templates/2025/wildcard_regulation.html:128
 #, python-brace-format
 msgid "上記要件を満たさない、同意できない場合は失格となり、{Wildcard}下位からの繰り上げが行われる"
-msgstr "위의 요건을 충족하지 않거나 동의할 수 없는 경우 실격 처리되며, {Wildcard} 하위에서 올라옵니다."
+msgstr "위의 요건을 충족하지 않거나 동의할 수 없는 경우 실격 처리되며, {Wildcard} 하위 순위에서 승격이 이루어집니다."
 
 #: templates/2025/wildcard_regulation.html:138
 #, python-brace-format
@@ -1294,7 +1295,7 @@ msgstr "이 부문에서는 배틀을 하지 않습니다."
 #: templates/2026/rule.html:158
 #, python-brace-format
 msgid "{Wildcard}の審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価されます。"
-msgstr "{Wildcard}의 심사는 다른 부서와 별도의 기준으로 진행되며, 스토리, 예술성, 독창성 등으로 평가됩니다."
+msgstr "{Wildcard}의 심사는 다른 부문과 별도의 기준으로 진행되며, 스토리, 예술성, 독창성 등으로 평가됩니다."
 
 #: templates/2026/rule.html:161
 #, python-brace-format
@@ -1326,8 +1327,8 @@ msgstr ""
 msgid ""
 "{ComebackWildcard}は、通常の{SoloWildcard}ランキングで出場枠を獲得できなかった{Beatboxer}のうち1名が、特別枠として出場権を獲得する制度です。"
 msgstr ""
-"{ComebackWildcard}는, 일반적인 {SoloWildcard} 랭킹에서 출전권을 획득하지 못한 분 중 1명이 특별권으로 "
-"출전권을 획득하는 제도입니다."
+"{ComebackWildcard}는, 일반적인 {SoloWildcard} 랭킹에서 출전권을 획득하지 못한 {Beatboxer} 중 1명이"
+" 특별권으로 출전권을 획득하는 제도입니다."
 
 #: templates/2026/rule.html:185 templates/2026/rule.html:370
 msgid "対象"
@@ -1352,7 +1353,7 @@ msgstr "5명의 심사위원이 대상자 중에서 각자 1명을 자유롭게 
 #: templates/2026/rule.html:195
 #, python-brace-format
 msgid "※5名全員が同じ{Beatboxer}を指名した場合、その時点で出場者が確定します。"
-msgstr "※5명 전원이 같은 아티스트를 지명한 경우, 그 시점에서 출전자가 확정됩니다."
+msgstr "※5명 전원이 같은 {Beatboxer}를 지명한 경우, 그 시점에서 출전자가 확정됩니다."
 
 #: templates/2026/rule.html:198
 #, python-brace-format
@@ -1383,11 +1384,11 @@ msgid ""
 "{YouTube}メンバーシップ会員（計6つのランキング）をポイント化して合計し、合計スコアが最も高い1名がGBB {year}に出場権を獲得します。"
 msgstr ""
 "심사위원 5명 + {Swissbeatbox} {YouTube} 멤버십 회원(총 6개의 랭킹)을 포인트화하여 합산하고, 합계 스코어가 가장"
-" 높은 1명이 GBB {year}에 출전합니다."
+" 높은 1명이 GBB {year} 출전권을 획득합니다."
 
 #: templates/2026/rule.html:222
 msgid "GBB出場権獲得条件"
-msgstr "GBB 출전 자격 조건"
+msgstr "GBB 출전권 획득 조건"
 
 #: templates/2026/rule.html:224
 msgid "GBB出場権を得る方法は、以下の通りです。"
@@ -1458,12 +1459,12 @@ msgstr "{rank}위까지"
 #: templates/2026/rule.html:393
 #, python-brace-format
 msgid "{rank}位以下の繰り上げは一切無し"
-msgstr "{rank}위 이하에 대한 교체 없음"
+msgstr "{rank}위 이하에 대한 승격 없음"
 
 #: templates/2026/rule.html:383
 #, python-brace-format
 msgid "{rank}位以下の繰り上げは{Swissbeatbox}の個別判断"
-msgstr "{rank}위 이하에 대한 교체는 {Swissbeatbox}의 개별 판단에 따름"
+msgstr "{rank}위 이하에 대한 승격은 {Swissbeatbox}의 개별 판단에 따름"
 
 #: templates/2026/rule.html:398
 msgid "特殊なケース"
@@ -1554,7 +1555,7 @@ msgstr ""
 #: templates/2026/rule.html:606
 #, python-brace-format
 msgid "この「セカンドリーグ」で優勝すれば、GBB {year} {Solo}部門への出場権が得られます。"
-msgstr "이 \"세컨드 리그\"에서 우승하면 GBB {year} {Solo} 부문 출전권이 주어집니다."
+msgstr "이 \"세컨드 리그\"에서 우승하면 GBB {year} {Solo} 부문 출전권을 얻을 수 있습니다."
 
 #: templates/2026/rule.html:610
 #, python-brace-format

@@ -1,17 +1,21 @@
+# Czech translations for PROJECT.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-23 23:19+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2026-01-25 17:15+0900\n"
+"PO-Revision-Date: 2026-01-25 16:50+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: ga <LL@li.org>\n"
-"Language: ga\n"
+"Language-Team: cs <LL@li.org>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=5; plural=(n==1 ? 0 : n==2 ? 1 : n>=3 && n<=6 ? 2 : n>=7 && n<=10 ? 3 : 4);\n"
+"Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: templates/2024/rule.html:3 templates/2024/rule.html:4
@@ -35,20 +39,20 @@ msgstr ""
 #: templates/common/participants.html:137
 #: templates/includes/hamburger_menu.html:11
 msgid "ルール"
-msgstr "Rialacha"
+msgstr "Pravidla"
 
 #: templates/2024/rule.html:11 templates/2025/rule.html:11
 #: templates/2025/wildcard_regulation.html:12 templates/2026/rule.html:11
 #, python-brace-format
 msgid "Swissbeatbox公式サイトにて、GBB {year} で実施される部門・{Wildcard}のルールについて発表がありました。"
 msgstr ""
-"Rinneadh fógra ar shuíomh Gréasáin oifigiúil Swissbeatbox maidir le rialacha"
-" na rannóg agus {Wildcard} a bheidh ar siúl ag GBB {year}."
+"Na oficiálním webu Swissbeatbox byla zveřejněna pravidla pro divize GBB "
+"{year} a {Wildcard}."
 
 #: templates/2024/rule.html:12 templates/2025/rule.html:12
 #: templates/2025/wildcard_regulation.html:13
 msgid "ソースサイト："
-msgstr "Suíomh foinse: "
+msgstr "Zdrojový web:"
 
 #: templates/2024/rule.html:21 templates/2024/rule.html:70
 #: templates/2024/rule.html:129 templates/2024/rule.html:227
@@ -65,14 +69,14 @@ msgstr "Suíomh foinse: "
 #: templates/2025/wildcards.html:112 templates/2026/wildcards.html:76
 #: templates/includes/hamburger_menu.html:24
 msgid "現地観戦計画のたてかた"
-msgstr "Conas plean a dhéanamh chun féachaint go pearsanta"
+msgstr "Jak naplánovat návštěvu na místě"
 
 #: templates/2024/rule.html:26 templates/2024/timetable.html:16
 #: templates/2025/rule.html:26 templates/2025/timetable.html:18
 #: templates/2025/wildcard_regulation.html:26 templates/2026/rule.html:24
 #: templates/2026/timetable.html:27
 msgid "目次"
-msgstr "Clár ábhair"
+msgstr "Obsah"
 
 #: templates/2024/rule.html:30 templates/2024/rule.html:55
 #: templates/2024/wildcards.html:71 templates/2025/rule.html:29
@@ -81,7 +85,7 @@ msgstr "Clár ábhair"
 #: templates/2026/rule.html:27 templates/2026/rule.html:64
 #: templates/2026/wildcards.html:63
 msgid "注意事項"
-msgstr "NÓTAÍ TÁBHACHTA:"
+msgstr "Důležité upozornění"
 
 #: templates/2024/rule.html:34 templates/2024/rule.html:74
 #: templates/2025/rule.html:33 templates/2025/rule.html:70
@@ -89,62 +93,61 @@ msgstr "NÓTAÍ TÁBHACHTA:"
 #: templates/2025/wildcard_regulation.html:81 templates/2026/rule.html:31
 #: templates/2026/rule.html:83
 msgid "開催部門一覧"
-msgstr "Liosta de na ranna a reáchtáladh"
+msgstr "Seznam kategorií"
 
 #: templates/2024/rule.html:38 templates/2024/rule.html:133
 #: templates/2025/rule.html:37 templates/2025/rule.html:128
 msgid "出場シード権 獲得条件"
-msgstr "Coinníollacha chun an ceart síolta a fháil"
+msgstr "Podmínky pro získání seed práva"
 
 #: templates/2024/rule.html:46 templates/2024/rule.html:272
 #: templates/2025/rule.html:45 templates/2025/rule.html:305
 #: templates/2026/rule.html:51 templates/2026/rule.html:482
 msgid "本戦審査員一覧"
-msgstr "Liosta na mBreithiúna Cluiche Deiridh"
+msgstr "Seznam porotců hlavního turnaje"
 
 #: templates/2024/rule.html:50 templates/2024/rule.html:316
 #: templates/2025/rule.html:49 templates/2025/rule.html:361
 #: templates/2026/rule.html:55 templates/2026/rule.html:549
 #, python-brace-format
 msgid "{Wildcard}審査員一覧"
-msgstr "{Wildcard} liosta na mbreithiúna"
+msgstr "Seznam porotců {Wildcard}"
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:56
 #: templates/2026/rule.html:66
 #, python-brace-format
 msgid "以下に示す内容は、あくまでも{Beatbox}ファンが知っておくとよりGBBを楽しめる知識として紹介するものです。"
 msgstr ""
-"Níl sna nithe seo a leanas ach eolas a chuirtear i láthair do lucht leanúna "
-"{Beatbox} chun go mbainfeadh siad níos mó taitneamh as GBB."
+"Níže uvedené informace jsou představeny pouze jako znalosti, které {Beatbox}"
+" fanouškům pomohou lépe si užít GBB."
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:57
 #: templates/2026/rule.html:67
 msgid "一部内容において、わかりやすさを優先します。"
-msgstr "I gcás cuid den ábhar, is fearr soiléireacht a chur chun cinn."
+msgstr "V některých částech dáváme přednost srozumitelnosti."
 
 #: templates/2024/rule.html:58 templates/2025/rule.html:57
 #: templates/2026/rule.html:67
 msgid "これにより、正確さに欠ける表現を用いることがあります。"
-msgstr ""
-"D'fhéadfadh sé seo a bheith ina chúis le húsáid nathanna nach bhfuil cruinn."
+msgstr "Z tohoto důvodu můžeme používat výrazy, kterým chybí přesnost."
 
 #: templates/2024/rule.html:62 templates/2025/rule.html:60
 #: templates/2025/wildcard_regulation.html:65 templates/2026/rule.html:70
 msgid "当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねます。"
 msgstr ""
-"Ní bheidh aon dliteanas orainn as aon damáiste a tharlaíonn de bharr an "
-"ábhair a cuireadh suas ar an suíomh seo."
+"Neneseme žádnou odpovědnost za škody způsobené obsahem zveřejněným na tomto "
+"webu."
 
 #: templates/2024/rule.html:62 templates/2025/rule.html:61
 #: templates/2025/wildcard_regulation.html:66 templates/2026/rule.html:71
 #, python-brace-format
 msgid "{Wildcard}を提出する方は、"
-msgstr "Iad siúd a chuireann {Wildcard} isteach,"
+msgstr "Ti, kteří předkládají {Wildcard},"
 
 #: templates/2024/rule.html:64 templates/2025/rule.html:62
 #: templates/2025/wildcard_regulation.html:67 templates/2026/rule.html:72
 msgid "必ずご自身でルールを今一度ご確認ください。"
-msgstr "Déan cinnte go bhfuil na rialacha seiceáilte agat arís leat féin."
+msgstr "prosím si znovu pečlivě přečtěte pravidla."
 
 #: templates/2024/rule.html:78 templates/2024/rule.html:143
 #: templates/2024/rule.html:169 templates/2024/rule.html:195
@@ -166,27 +169,27 @@ msgstr "Déan cinnte go bhfuil na rialacha seiceáilte agat arís leat féin."
 #: templates/participant_detail/participant_detail.html:115
 #: templates/participant_detail/participant_detail.html:155
 msgid "部門"
-msgstr "Catagóir"
+msgstr "Kategorie"
 
 #: templates/2024/rule.html:80 templates/2025/rule.html:76
 msgid "シード"
-msgstr "Síol"
+msgstr "Seed"
 
 #: templates/2024/rule.html:81 templates/2025/rule.html:77
 #: templates/2026/rule.html:92
 msgid "計"
-msgstr "Iomlán"
+msgstr "Celkem"
 
 #: templates/2024/rule.html:118 templates/2025/rule.html:115
 #: templates/2025/wildcard_regulation.html:113 templates/2026/rule.html:151
 msgid "上記のデータは、ルール発表時現在の情報です。実際は、辞退などにより、出場者数が変動します。"
 msgstr ""
-"Is é seo an fhaisnéis faoin sonraí thuas ag am fógra na rialacha. Go "
-"deimhin, athróidh líon na rannpháirtithe mar gheall ar dhiúltú, etc."
+"Výše uvedená data jsou informace aktuální v době zveřejnění pravidel. Ve "
+"skutečnosti se počet účastníků může měnit kvůli odstoupením atd."
 
 #: templates/2024/rule.html:122 templates/2025/rule.html:119
 msgid "Producerとは"
-msgstr "Léiritheoir"
+msgstr "Co je Producer"
 
 #: templates/2024/rule.html:123 templates/2025/rule.html:121
 #, python-brace-format
@@ -194,26 +197,26 @@ msgid ""
 "{Loopstation}のセカンドデバイス（{Loopstation}に接続する端末）ありの部門で、GBB23で「Producer "
 "showcase」として新設されました。その代わり、{Loopstation}部門においてセカンドデバイスの使用が禁止されます。"
 msgstr ""
-"Cruthaíodh é seo mar rannóg nua, an 'Producer showcase', ag GBB23, le feiste"
-" tánaisteach don {Loopstation} (gléas ceangailte leis an {Loopstation}). Ina"
-" ionad sin, tá cosc ar úsáid feiste tánaisteach sa rannóg {Loopstation}."
+"Kategorie s druhým zařízením {Loopstation} (terminál připojený k "
+"{Loopstation}) byla založena na GBB23 jako \"Producer showcase\". Naopak "
+"použití druhého zařízení je v kategorii {Loopstation} zakázáno."
 
 #: templates/2024/rule.html:126 templates/2025/rule.html:117
 #: templates/2026/rule.html:148
 #, python-brace-format
 msgid "忘れられた{TagTeamLoopstation}..."
-msgstr "Dearmadta {TagTeamLoopstation}..."
+msgstr "Zapomenutý {TagTeamLoopstation}..."
 
 #: templates/2024/rule.html:135 templates/2025/rule.html:130
 #, python-brace-format
 msgid "{Wildcard}を勝ち上がる以外の方法でGBB出場権を得る方法（シード権）と、その該当者は以下の通りです。"
 msgstr ""
-"Seo a leanas na bealaí chun cáilíocht GBB (síolrú) a fháil seachas an "
-"{Wildcard} a bhuachan, agus na daoine ábhartha."
+"Způsoby, jak získat právo účasti na GBB jinak než vítězstvím v {Wildcard} "
+"(seed právo), a jejich držitelé jsou následující."
 
 #: templates/2024/rule.html:137 templates/2025/rule.html:133
 msgid "シード権 - GBB"
-msgstr "Síolchoinne - GBB"
+msgstr "Seed právo - GBB"
 
 #: templates/2024/rule.html:142 templates/2024/rule.html:168
 #: templates/2024/rule.html:194 templates/2025/rule.html:138
@@ -226,7 +229,7 @@ msgstr "Síolchoinne - GBB"
 #: templates/participant_detail/participant_detail.html:154
 #: templates/participant_detail/participant_detail.html:218
 msgid "名前"
-msgstr "ainm"
+msgstr "Jméno"
 
 #: templates/2024/rule.html:144 templates/2024/rule.html:170
 #: templates/2024/rule.html:196 templates/2025/rule.html:140
@@ -240,7 +243,7 @@ msgstr "ainm"
 #: templates/participant_detail/participant_detail.html:132
 #: templates/participant_detail/participant_detail.html:219
 msgid "出場権"
-msgstr "Ceart páirt a ghlacadh"
+msgstr "Právo účasti"
 
 #: templates/2024/rule.html:160 templates/2024/rule.html:186
 #: templates/2024/rule.html:216 templates/2025/rule.html:156
@@ -263,15 +266,15 @@ msgstr "Ceart páirt a ghlacadh"
 #: templates/common/participants.html:19 templates/common/participants.html:84
 #: templates/common/result.html:81
 msgid "発表次第更新"
-msgstr "Nuashonrófar é a luaithe a fhógrófar."
+msgstr "Aktualizováno po zveřejnění"
 
 #: templates/2024/rule.html:163 templates/2025/rule.html:159
 msgid "シード権 - その他"
-msgstr "Seed – eile"
+msgstr "Seed právo - ostatní"
 
 #: templates/2024/rule.html:189 templates/2025/rule.html:189
 msgid "シード権辞退者一覧"
-msgstr "Liosta na ndaoine a d’éirigh as an ‘seed’"
+msgstr "Seznam těch, kteří se vzdali seed práva"
 
 #: templates/2024/rule.html:203 templates/2025/rule.html:203
 #: templates/2026/rule.html:316 templates/common/cancels.html:31
@@ -285,7 +288,7 @@ msgstr "Liosta na ndaoine a d’éirigh as an ‘seed’"
 #: templates/participant_detail/participant_detail.html:163
 #: templates/participant_detail/participant_detail.html:230
 msgid "辞退"
-msgstr "Diúltaigh"
+msgstr "Odstoupení"
 
 #: templates/2024/rule.html:221 templates/2024/timetable.html:100
 #: templates/2024/timetable.html:230 templates/2025/rule.html:221
@@ -293,32 +296,30 @@ msgstr "Diúltaigh"
 #: templates/participant_detail/participant_detail.html:179
 #: templates/participant_detail/participant_detail.html:186
 msgid "出場者一覧"
-msgstr "Liosta na rannpháirtithe"
+msgstr "Seznam účastníků"
 
 #: templates/2024/rule.html:224
 #, python-brace-format
 msgid "シード権を持つ人が辞退した場合、原則として、該当シード権は消滅し、{Wildcard}下位からの繰り上げが行われます。"
 msgstr ""
-"Má tharraingíonn sealbhóir ceart síl siar, mar riail ghinearálta, cuirtear "
-"an ceart síl comhfhreagrach ar ceal, agus déanfar {Wildcard} arduithe céime "
-"ó na céimeanna níos ísle."
+"Pokud se osoba se seed právem vzdá, v zásadě se toto seed právo zruší a "
+"dojde k posunu z nižších pozic {Wildcard}."
 
 #: templates/2024/rule.html:240 templates/2025/rule.html:256
 #: templates/2025/wildcard_regulation.html:207 templates/2026/rule.html:440
 msgid "全部門共通"
-msgstr "Comhchoiteann do gach roinn"
+msgstr "Společné pro všechny kategorie"
 
 #: templates/2024/rule.html:241 templates/2025/rule.html:257
 #: templates/2025/wildcard_regulation.html:208 templates/2026/rule.html:441
 msgid "制限時間を超過した場合、1秒につき最終順位を1つ下げる"
 msgstr ""
-"Má théann tú thar an am teoranta, laghdófar do rangú deiridh faoi 1 as gach "
-"soicind."
+"Při překročení časového limitu se konečné pořadí sníží o 1 za každou sekundu"
 
 #: templates/2024/rule.html:241 templates/2025/rule.html:257
 #: templates/2025/wildcard_regulation.html:208 templates/2026/rule.html:441
 msgid "提出受付開始日時"
-msgstr "Am tosach feidhmithe iarratais"
+msgstr "Datum a čas zahájení přijímání přihlášek"
 
 #: templates/2024/rule.html:245 templates/2024/rule.html:249
 #: templates/2024/rule.html:253 templates/2024/rule.html:257
@@ -334,7 +335,7 @@ msgstr "Am tosach feidhmithe iarratais"
 #: templates/2026/rule.html:457 templates/2026/rule.html:461
 #: templates/2026/rule.html:465 templates/2026/rule.html:469
 msgid "制限時間"
-msgstr "Teorainn ama"
+msgstr "Časový limit"
 
 #: templates/2024/rule.html:245 templates/2024/rule.html:249
 #: templates/2024/rule.html:253 templates/2024/rule.html:257
@@ -350,7 +351,7 @@ msgstr "Teorainn ama"
 #: templates/2026/rule.html:457 templates/2026/rule.html:461
 #: templates/2026/rule.html:465 templates/2026/rule.html:469
 msgid "提出期限"
-msgstr "Spriocdhátaí comhdaigh"
+msgstr "Termín odevzdání"
 
 #: templates/2024/rule.html:245 templates/2024/rule.html:249
 #: templates/2024/rule.html:253 templates/2024/rule.html:257
@@ -366,7 +367,7 @@ msgstr "Spriocdhátaí comhdaigh"
 #: templates/2026/rule.html:457 templates/2026/rule.html:461
 #: templates/2026/rule.html:465 templates/2026/rule.html:469
 msgid "結果発表"
-msgstr "Fógra torthaí"
+msgstr "Zveřejnění výsledků"
 
 #: templates/2024/rule.html:245 templates/2024/rule.html:249
 #: templates/2024/rule.html:253 templates/2024/rule.html:257
@@ -376,27 +377,27 @@ msgstr "Fógra torthaí"
 #: templates/2025/wildcard_regulation.html:224
 #: templates/2025/wildcard_regulation.html:228
 msgid "時間未定"
-msgstr "Uaireanta neamhshocraithe"
+msgstr "Čas není určen"
 
 #: templates/2024/rule.html:253
 msgid "一部例外あり"
-msgstr "Fáil roinnt eisceachtaí"
+msgstr "S některými výjimkami"
 
 #: templates/2024/rule.html:253 templates/2025/rule.html:269
 #: templates/2025/wildcard_regulation.html:220
 msgid "RC505 mki, mkiiのみ"
-msgstr "RC505 mki, mkii amháin"
+msgstr "Pouze RC505 mki, mkii"
 
 #: templates/2024/rule.html:257 templates/2025/rule.html:273
 #: templates/2025/wildcard_regulation.html:224
 msgid "デバイス制限なし"
-msgstr "Gach feiste gan teorainn"
+msgstr "Bez omezení zařízení"
 
 #: templates/2024/rule.html:274 templates/2025/rule.html:307
 #: templates/2026/rule.html:484
 #, python-brace-format
 msgid "{Wildcard}審査員一覧はこちら"
-msgstr "{Wildcard} Liosta na mBreithiúna anseo"
+msgstr "Seznam porotců {Wildcard} je zde"
 
 #: templates/2024/rule.html:280 templates/2024/rule.html:325
 #: templates/2024/top.html:51 templates/2025/rule.html:314
@@ -408,22 +409,22 @@ msgstr "{Wildcard} Liosta na mBreithiúna anseo"
 #: templates/2026/top.html:106 templates/2026/wildcards.html:13
 #: templates/2026/wildcards.html:60 templates/includes/hamburger_menu.html:11
 msgid "審査員"
-msgstr "giúiré"
+msgstr "Porotce"
 
 #: templates/2024/rule.html:306 templates/2025/rule.html:340
 #: templates/2026/rule.html:525
 msgid "審査員不明"
-msgstr "Breitheamh anaithnid"
+msgstr "Porotce neznámý"
 
 #: templates/2024/rule.html:306 templates/2025/rule.html:340
 #: templates/2026/rule.html:525
 msgid "例年発表なし"
-msgstr "Ní fhoilsítear é de ghnáth."
+msgstr "Každoročně se nezveřejňuje"
 
 #: templates/2024/rule.html:318 templates/2025/rule.html:395
 #: templates/2026/rule.html:591
 msgid "本戦審査員一覧はこちら"
-msgstr "Liosta na mbreithiúnais phríomha anseo"
+msgstr "Seznam porotců hlavního turnaje je zde"
 
 #: templates/2024/stream.html:3 templates/2024/stream.html:4
 #: templates/2024/stream.html:5 templates/2024/stream.html:9
@@ -439,18 +440,18 @@ msgstr "Liosta na mbreithiúnais phríomha anseo"
 #: templates/includes/hamburger_menu.html:21
 #: templates/others/translation.html:23
 msgid "当日配信"
-msgstr "Craoladh an lae sin"
+msgstr "Přímý přenos v den konání"
 
 #: templates/2024/stream.html:37 templates/2025/stream.html:29
 #: templates/2026/stream.html:13
 msgid "観戦のお供に"
-msgstr "Le haghaidh féachana"
+msgstr "Pro doprovod při sledování"
 
 #: templates/2024/stream.html:38 templates/2025/stream.html:30
 #: templates/2026/stream.html:14 templates/includes/next_year.html:3
 #, python-brace-format
 msgid "GBB {year} の最新情報をチェックしよう"
-msgstr "Seiceáil na nuashonruithe is déanaí ar GBB {year}"
+msgstr "Zkontrolujte nejnovější informace o GBB {year}"
 
 #: templates/2024/stream.html:40 templates/common/participants.html:3
 #: templates/common/participants.html:4 templates/common/participants.html:5
@@ -458,7 +459,7 @@ msgstr "Seiceáil na nuashonruithe is déanaí ar GBB {year}"
 #: templates/common/participants.html:141 templates/others/translation.html:18
 #, python-brace-format
 msgid "{Wildcard}結果 & 出場者"
-msgstr "{Wildcard} Torthaí & Rannpháirtithe"
+msgstr "{Wildcard} výsledky a účastníci"
 
 #: templates/2024/stream.html:41 templates/2024/timetable.html:3
 #: templates/2024/timetable.html:4 templates/2024/timetable.html:5
@@ -476,7 +477,7 @@ msgstr "{Wildcard} Torthaí & Rannpháirtithe"
 #: templates/includes/hamburger_menu.html:14
 #: templates/others/translation.html:20
 msgid "タイムテーブル"
-msgstr "Amchlár"
+msgstr "Program"
 
 #: templates/2024/ticket.html:3 templates/2024/ticket.html:4
 #: templates/2024/ticket.html:5 templates/2024/ticket.html:9
@@ -487,11 +488,11 @@ msgstr "Amchlár"
 #: templates/2026/ticket.html:5 templates/2026/ticket.html:10
 #: templates/2026/top_7tosmoke.html:35 templates/others/translation.html:22
 msgid "会場 & チケット"
-msgstr "Halla & Ticéidí"
+msgstr "Místo konání a vstupenky"
 
 #: templates/2024/ticket.html:10
 msgid "【完売】公式販売"
-msgstr "【Díolta Amach】Oifigiúil Á dhíol"
+msgstr "【Vyprodáno】Oficiální prodej"
 
 #: templates/2024/ticket.html:11 templates/2024/ticket.html:17
 #: templates/2024/top.html:76 templates/2024/top.html:132
@@ -501,41 +502,40 @@ msgstr "【Díolta Amach】Oifigiúil Á dhíol"
 #: templates/2026/ticket.html:12 templates/2026/top.html:131
 #: templates/includes/hamburger_menu.html:20
 msgid "会場"
-msgstr "Ionad"
+msgstr "Místo konání"
 
 #: templates/2024/ticket.html:13
 msgid "チケットぴあ"
-msgstr "Ticéad Pía"
+msgstr "Ticket Pia"
 
 #: templates/2024/ticket.html:15
 msgid "楽天チケット"
-msgstr "Ticéid Rakuten"
+msgstr "Rakuten Ticket"
 
 #: templates/2024/ticket.html:19 templates/2024/top.html:76
 #: templates/2025/ticket.html:13 templates/2025/top.html:126
 #: templates/2026/top.html:131 templates/includes/hamburger_menu.html:20
 msgid "チケット"
-msgstr "Ticéad"
+msgstr "Vstupenky"
 
 #: templates/2024/timetable.html:11 templates/2025/timetable.html:12
 #: templates/2026/timetable.html:15
 msgid "時刻はあくまでも予定です。"
-msgstr "Is sceideal amháin é an t-am."
+msgstr "Časy jsou pouze plánované."
 
 #: templates/2024/timetable.html:12 templates/2025/timetable.html:13
 msgid "GBB21では、予定から約2時間遅延しました。"
-msgstr "Ag GBB21, cuireadh moill thart ar 2 uair an chloig ar an sceideal."
+msgstr "GBB21 mělo zpoždění přibližně 2 hodiny oproti plánu."
 
 #: templates/2024/timetable.html:13 templates/2025/timetable.html:14
 msgid "GBB23では、本番7日前に日本語版・英語版のタイムテーブルが公開されましたが、日本語版のみ正しく、英語版には誤記が多くみられました。"
 msgstr ""
-"Ag GBB23, foilsíodh an sceideal ama i leagan Seapánach agus i leagan Béarla "
-"7 lá roimh an seoladh, ach bhí an leagan Seapánach ceart amháin, agus bhí go"
-" leor botúin sa leagan Béarla."
+"U GBB23 byl program zveřejněn 7 dní před akcí v japonské a anglické verzi, "
+"ale pouze japonská verze byla správná, anglická verze obsahovala mnoho chyb."
 
 #: templates/2024/timetable.html:36 templates/2024/timetable.html:290
 msgid "出演者一覧"
-msgstr "Liosta Aoithe"
+msgstr "Seznam účinkujících"
 
 #: templates/2024/timetable.html:50 templates/2024/timetable.html:107
 #: templates/2024/timetable.html:164 templates/2024/timetable.html:237
@@ -544,7 +544,7 @@ msgstr "Liosta Aoithe"
 #: templates/2026/timetable.html:48 templates/2026/timetable.html:76
 #: templates/2026/timetable.html:104 templates/2026/timetable.html:132
 msgid "時刻"
-msgstr "am"
+msgstr "Čas"
 
 #: templates/2024/timetable.html:51 templates/2024/timetable.html:108
 #: templates/2024/timetable.html:165 templates/2024/timetable.html:238
@@ -553,7 +553,7 @@ msgstr "am"
 #: templates/2026/timetable.html:49 templates/2026/timetable.html:77
 #: templates/2026/timetable.html:105 templates/2026/timetable.html:133
 msgid "内容"
-msgstr "ábhar"
+msgstr "Obsah"
 
 #: templates/2024/timetable.html:57 templates/2024/timetable.html:114
 #: templates/2024/timetable.html:171 templates/2024/timetable.html:244
@@ -562,19 +562,19 @@ msgstr "ábhar"
 #: templates/2026/timetable.html:55 templates/2026/timetable.html:83
 #: templates/2026/timetable.html:111 templates/2026/timetable.html:139
 msgid "入場開始"
-msgstr "Tús iontrála"
+msgstr "Začátek vstupu"
 
 #: templates/2024/timetable.html:61 templates/2024/timetable.html:118
 #: templates/2024/timetable.html:175 templates/2024/timetable.html:256
 #: templates/2025/timetable.html:265
 msgid "ABEMA配信スタート"
-msgstr "Tá craoladh ABEMA tosaithe"
+msgstr "Začátek přenosu ABEMA"
 
 #: templates/2024/timetable.html:65 templates/2024/timetable.html:122
 #: templates/2024/timetable.html:179 templates/2025/timetable.html:52
 #: templates/2025/timetable.html:121 templates/2025/timetable.html:179
 msgid "サプライズゲスト"
-msgstr "aoi iontais"
+msgstr "Překvapivý host"
 
 #: templates/2024/timetable.html:69 templates/2024/timetable.html:126
 #: templates/2024/timetable.html:183 templates/2024/timetable.html:248
@@ -582,7 +582,7 @@ msgstr "aoi iontais"
 #: templates/2026/timetable.html:87 templates/2026/timetable.html:115
 #: templates/2026/timetable.html:143
 msgid "スタート"
-msgstr "Tosaigh"
+msgstr "Start"
 
 #: templates/2024/timetable.html:77 templates/2024/timetable.html:81
 #: templates/2024/timetable.html:85 templates/2024/timetable.html:146
@@ -590,13 +590,13 @@ msgstr "Tosaigh"
 #: templates/2025/timetable.html:68 templates/2025/timetable.html:84
 #: templates/2025/timetable.html:141 templates/2025/timetable.html:145
 msgid "予選"
-msgstr "Cluicheanna cáilithe"
+msgstr "Kvalifikace"
 
 #: templates/2024/timetable.html:89 templates/2024/timetable.html:199
 #: templates/2024/timetable.html:203 templates/2025/timetable.html:207
 #: templates/2025/timetable.html:211
 msgid "準決勝"
-msgstr "Cluichí leathcheannais"
+msgstr "Semifinále"
 
 #: templates/2024/timetable.html:93 templates/2024/timetable.html:150
 #: templates/2024/timetable.html:219 templates/2024/timetable.html:280
@@ -605,76 +605,76 @@ msgstr "Cluichí leathcheannais"
 #: templates/2026/timetable.html:63 templates/2026/timetable.html:91
 #: templates/2026/timetable.html:119 templates/2026/timetable.html:147
 msgid "終了"
-msgstr "Críoch"
+msgstr "Konec"
 
 #: templates/2024/timetable.html:134 templates/2024/timetable.html:195
 #: templates/2025/timetable.html:133 templates/2025/timetable.html:195
 msgid "準々決勝"
-msgstr "Ceathrú-ceannais"
+msgstr "Čtvrtfinále"
 
 #: templates/2024/timetable.html:138 templates/2024/timetable.html:142
 #: templates/2025/timetable.html:80 templates/2025/timetable.html:203
 msgid "決勝"
-msgstr "Ceannais"
+msgstr "Finále"
 
 #: templates/2024/timetable.html:191 templates/2025/timetable.html:191
 msgid "準決勝・3位決定戦・決勝"
-msgstr "Leathcheannais - Cluiche maidir leis an tríú háit - Cluiche Ceannais"
+msgstr "Semifinále, zápas o 3. místo a finále"
 
 #: templates/2024/timetable.html:207 templates/2024/timetable.html:211
 #: templates/2025/timetable.html:215 templates/2025/timetable.html:219
 msgid "3位決定戦・決勝"
-msgstr "Cluiche an tríú háit / Cluiche ceannais"
+msgstr "Zápas o 3. místo a finále"
 
 #: templates/2024/timetable.html:215 templates/2024/timetable.html:268
 #: templates/2025/timetable.html:227
 msgid "セレモニー"
-msgstr "Searmanas"
+msgstr "Ceremoniál"
 
 #: templates/2024/timetable.html:223
 msgid "アフターパーティー"
-msgstr "cóisir iar-ócáide"
+msgstr "Afterparty"
 
 #: templates/2024/timetable.html:248
 msgid "ソース：会場公式サイト"
-msgstr "Acmhainn: Láithreán gréasáin oifigiúil an áití"
+msgstr "Zdroj: Oficiální web místa konání"
 
 #: templates/2024/timetable.html:256
 msgid "ソース：ABEMA配信ページ"
-msgstr "Foinse: Leathanach Aistrithe ABEMA"
+msgstr "Zdroj: Stránka přenosu ABEMA"
 
 #: templates/2024/timetable.html:256
 msgid "予選開始より遅い理由は不明"
-msgstr "Tá an chúis nach luaithe ná an tosú cáilitheach anaithnid"
+msgstr "Důvod zpoždění oproti začátku kvalifikace není znám"
 
 #: templates/2024/timetable.html:260
 msgid "本戦出場者アナウンス"
-msgstr "Fógra na n-iomaitheoirí sa phríomhchomórtas"
+msgstr "Oznámení účastníků hlavního turnaje"
 
 #: templates/2024/timetable.html:264
 msgid "本戦スタート"
-msgstr "Tosaigh an príomhmhac"
+msgstr "Začátek hlavního turnaje"
 
 #: templates/2024/timetable.html:299
 msgid "各出演者の出演日時は不明です。"
-msgstr "Níl dátaí agus amanna léirithe gach taibheora soiléir."
+msgstr "Datum a čas vystoupení jednotlivých účinkujících nejsou známy."
 
 #: templates/2024/top.html:12 templates/2025/top.html:12
 #: templates/2026/top.html:12
 msgid "開催日"
-msgstr "Dáta an imeachta"
+msgstr "Datum konání"
 
 #: templates/2024/top.html:24 templates/2024/top_7tosmoke.html:12
 #: templates/2025/top.html:24 templates/2025/top_7tosmoke.html:12
 #: templates/2026/top.html:32 templates/2026/top_7tosmoke.html:12
 msgid "公式よりもわかりやすい！"
-msgstr "Níos soiléire ná an oifigeach!"
+msgstr "Srozumitelnější než oficiální!"
 
 #: templates/2024/top.html:24 templates/2024/top_7tosmoke.html:12
 #: templates/2025/top.html:24 templates/2025/top_7tosmoke.html:12
 #: templates/2026/top.html:32 templates/2026/top_7tosmoke.html:12
 msgid "非公式情報サイト"
-msgstr "Suíomh faisnéise neamhoifigiúil"
+msgstr "Neoficiální informační web"
 
 #: templates/2024/top.html:40 templates/2024/top_7tosmoke.html:28
 #: templates/2025/top.html:146 templates/2025/top_7tosmoke.html:28
@@ -684,7 +684,7 @@ msgstr "Suíomh faisnéise neamhoifigiúil"
 #: templates/common/result.html:13 templates/includes/notice.html:9
 #: templates/includes/popup_no_info.html:7
 msgid "最終更新"
-msgstr "Nuashonrú deiridh"
+msgstr "Poslední aktualizace"
 
 #: templates/2024/top.html:66 templates/2025/rule.html:240
 #: templates/2025/ticket.html:19 templates/2025/timetable.html:238
@@ -695,7 +695,7 @@ msgstr "Nuashonrú deiridh"
 #: templates/common/korea.html:9 templates/includes/hamburger_menu.html:16
 #: templates/participant_detail/participant_detail.html:259
 msgid "韓国代表"
-msgstr "Ionadaí na Cóiré Theas"
+msgstr "Jižní Korea"
 
 #: templates/2024/top.html:71 templates/2025/rule.html:242
 #: templates/2025/ticket.html:21 templates/2025/timetable.html:240
@@ -707,11 +707,11 @@ msgstr "Ionadaí na Cóiré Theas"
 #: templates/others/translation.html:21
 #: templates/participant_detail/participant_detail.html:261
 msgid "日本代表"
-msgstr "foireann náisiúnta na Seapáine"
+msgstr "Japonsko"
 
 #: templates/2024/top.html:80
 msgid "みんなで鑑賞会"
-msgstr "Comhchuairt féachana"
+msgstr "Společné sledování"
 
 #: templates/2024/top.html:84 templates/2025/top.html:71
 #: templates/2025/top.html:72 templates/2025/top.html:134
@@ -726,19 +726,19 @@ msgstr "Comhchuairt féachana"
 #: templates/participant_detail/participant_detail.html:187
 #: templates/participant_detail/participant_detail.html:263
 msgid "大会結果"
-msgstr "Torthaí na comórtais"
+msgstr "Výsledky turnaje"
 
 #: templates/2024/top.html:89 templates/2025/top.html:139
 #: templates/2026/top.html:151
 msgid "当サイトURL変更のお知らせ"
-msgstr "Fógra faoi athrú ar URL an láithreáin seo"
+msgstr "Oznámení o změně URL tohoto webu"
 
 #: templates/2024/top.html:90 templates/2025/rule.html:302
 #: templates/2025/top.html:140 templates/2026/rule.html:479
 #: templates/2026/top.html:152
 #, python-brace-format
 msgid "{Wildcard}結果発表配信"
-msgstr "{Wildcard} Craoladh Torthaí"
+msgstr "Přenos zveřejnění výsledků {Wildcard}"
 
 #: templates/2024/top.html:91 templates/2024/wildcards.html:3
 #: templates/2024/wildcards.html:4 templates/2024/wildcards.html:5
@@ -753,115 +753,116 @@ msgstr "{Wildcard} Craoladh Torthaí"
 #: templates/common/participants.html:92 templates/others/translation.html:25
 #, python-brace-format
 msgid "{Wildcard}一覧"
-msgstr "{Wildcard} liosta"
+msgstr "Seznam {Wildcard}"
 
 #: templates/2024/top.html:104 templates/2024/top.html:118
 #: templates/2024/top_7tosmoke.html:46 templates/2025/top.html:170
 #: templates/2025/top.html:184 templates/2025/top_7tosmoke.html:48
 #: templates/2026/top.html:181 templates/2026/top_7tosmoke.html:48
 msgid "お問い合わせ"
-msgstr "Fiosrúchán"
+msgstr "Kontakt"
 
 #: templates/2024/top.html:109 templates/2025/top.html:175
 #: templates/2026/top.html:172
 msgid "これらの情報のほかにも、"
-msgstr "Chomh maith leis an eolas seo,"
+msgstr "Kromě těchto informací také existují:"
 
 #: templates/2024/top.html:111 templates/2025/top.html:177
 #: templates/2026/top.html:174
 msgid "未発表の情報(決まっているが、なぜか公式が発表を渋っている)"
 msgstr ""
-"Faisnéis neamhfhoilsithe (cinntithe, ach ar chúis éigin tá an oifigeach ag "
-"éirí as é a fhógairt)"
+"Nezveřejněné informace (již rozhodnuto, ale oficiální zdroje je z nějakého "
+"důvodu nezveřejňují)"
 
 #: templates/2024/top.html:112 templates/2025/top.html:178
 #: templates/2026/top.html:175
 msgid "未定事項(そもそも決まってすらいない)"
-msgstr "Ní mhíniú fós (níl socraithe go fóill)"
+msgstr "Nedefinované záležitosti (ještě vůbec nerozhodnuto)"
 
 #: templates/2024/top.html:114 templates/2025/top.html:180
 #: templates/2026/top.html:177
 msgid "このような情報が多く存在します。"
-msgstr "Tá an oiread sin faisnéise ann."
+msgstr "Existuje mnoho takových informací."
 
 #: templates/2024/top.html:115 templates/2025/top.html:181
 #: templates/2026/top.html:178
 msgid "GBBの各種情報は、発表が非常に遅いことで有名です。気長に待ちましょう。"
 msgstr ""
-"Tá faisnéis faoi éagsúlacht GBB cáiliúil as a bheith an-mhall le fógairt. "
-"Fan go foighneach."
+"GBB je známé tím, že zveřejňování různých informací je velmi pomalé. Buďme "
+"trpěliví."
 
 #: templates/2024/top.html:119 templates/2025/top.html:190
 msgid "過去のGBBにおいて、下記番号に電話したらGBB詳細情報を教えてくれた、という報告が相次ぎました。"
 msgstr ""
-"In past GBBs, there were numerous reports that calling the numbers below "
-"provided GBB detailed information."
+"V minulých GBB se objevily zprávy, že při volání na níže uvedené číslo "
+"poskytli podrobné informace o GBB."
 
 #: templates/2024/top.html:123 templates/2025/top.html:194
 msgid "場所"
-msgstr "Áit"
+msgstr "Místo"
 
 #: templates/2024/top.html:124 templates/2025/top.html:195
 msgid "電話番号"
-msgstr "Uimhir ghutháin"
+msgstr "Telefonní číslo"
 
 #: templates/2024/top.html:128
 msgid "チケット販売ページ記載の番号"
-msgstr "Uimhir atá scríofa ar leathanach díolacháin na dticéad"
+msgstr "Číslo uvedené na stránce prodeje vstupenek"
 
 #: templates/2024/top.html:140 templates/2025/top.html:215
 msgid "なお上記電話番号は、当サイトとは無関係です。"
-msgstr "Ní bhaineann na huimreacha gutháin thuasluaite leis an suíomh seo."
+msgstr "Výše uvedené telefonní číslo není s tímto webem nijak spojeno."
 
 #: templates/2024/top_7tosmoke.html:33 templates/2025/top_7tosmoke.html:33
 #: templates/2026/top_7tosmoke.html:33
 msgid "7toSmokeとは"
-msgstr "Cad is brí le 7toSmoke"
+msgstr "Co je 7toSmoke"
 
 #: templates/2024/top_7tosmoke.html:34 templates/2025/top_7tosmoke.html:34
 #: templates/2026/top_7tosmoke.html:34
 msgid "7toSmokeルール & 参加方法"
-msgstr "Rialacha 7toSmoke & Conas Clárúcháin"
+msgstr "Pravidla 7toSmoke a způsob účasti"
 
 #: templates/2024/top_7tosmoke.html:41 templates/2025/top_7tosmoke.html:43
 #: templates/2026/top_7tosmoke.html:43
 msgid ""
 "7toSmokeは、GBB本戦に比べて最新情報の公開が非常に遅い傾向にあり、そもそも情報が発表されないまま本番を迎えてしまったケースもあります。"
 msgstr ""
-"7toSmoke bíonn claonadh ann a bheith i bhfad níos moille maidir le heolas is"
-" déanaí a fhoilsiú i gcomparáid leis an bpríomhchomórtas GBB, agus tá "
-"cásanna ann fiú nach mbíonn aon eolas ann sula dtosaíonn an príomhchomórtas "
-"féin."
+"7toSmoke má ve srovnání s hlavním turnajem GBB tendenci velmi pozdě "
+"zveřejňovat nejnovější informace a v některých případech se dokonce stalo, "
+"že se akce konala bez zveřejnění informací."
 
 #: templates/2024/top_7tosmoke.html:42 templates/2025/top_7tosmoke.html:44
 #: templates/2026/top_7tosmoke.html:44
 msgid "諦めましょう。"
-msgstr "Ligimis uainn é."
+msgstr "Vzdávejme to."
 
 #: templates/2024/wildcards.html:10 templates/2025/wildcards.html:11
 msgid "各部門の締め切り期日は、中央ヨーロッパ時刻を基準に表記しています。"
-msgstr "Léirítear spriocdhátaí gach roinne i gCaighdeán Am Lár na hEorpa."
+msgstr ""
+"Termíny uzávěrky pro jednotlivé kategorie jsou uvedeny podle "
+"středoevropského času."
 
 #: templates/2024/wildcards.html:12 templates/2024/wildcards.html:37
 #: templates/2025/wildcards.html:19 templates/2025/wildcards.html:43
 #: templates/2025/wildcards.html:59
 msgid "締め切り"
-msgstr "spriocdháta"
+msgstr "Uzávěrka"
 
 #: templates/2024/wildcards.html:73 templates/2025/wildcards.html:89
 #: templates/2026/wildcards.html:65
 #, python-brace-format
 msgid "今回公開する{Wildcard}一覧は、有志が作成した、非公式のものです。"
 msgstr ""
-"Is liosta neamhoifigiúil é an liosta {Wildcard} seo atá á fhoilsiú anois, a "
-"chruthaigh saorálaithe."
+"Seznam {Wildcard}, který zde zveřejňujeme, je neoficiální a vytvořili ho "
+"dobrovolníci."
 
 #: templates/2024/wildcards.html:78 templates/2025/wildcards.html:94
 #: templates/2026/wildcards.html:69
 msgid "すべて手作業で制作されたものであるため、重複や欠落がある可能性があります。"
 msgstr ""
-"D'fhéadfadh sé go mbeadh cóipeanna nó caillteanais ann toisc gur lámhdhéanta"
-" iad go léir."
+"Vzhledem k tomu, že vše bylo vytvořeno ručně, mohou existovat duplicity nebo"
+" chybějící položky."
 
 #: templates/2024/wildcards.html:81 templates/2025/wildcards.html:97
 #: templates/2026/wildcards.html:72
@@ -869,9 +870,9 @@ msgstr ""
 msgid ""
 "また、この再生リストにある動画が必ずしも{Wildcard}として申請された動画であるとは限りません（毎年必ず出場者の手続きミスで失格者が出ます）。"
 msgstr ""
-"Chomh maith leis sin, ní i gcónaí gur físeáin iad na cinn sa seinmliosta seo"
-" a cuireadh isteach mar {Wildcard} (Gach bliain, bíonn dícháilithe ann i "
-"gcónaí de bharr earráidí nós imeachta ó na rannpháirtithe)."
+"Navíc videa v tomto seznamu reprodukcí nemusí nutně být videa přihlášená "
+"jako {Wildcard} (každý rok se kvůli chybám účastníků v procedurách objevují "
+"diskvalifikace)."
 
 #: templates/2025/rule.html:22 templates/2025/rule.html:125
 #: templates/2025/wildcard_regulation.html:3
@@ -879,113 +880,107 @@ msgstr ""
 #: templates/2025/wildcard_regulation.html:5
 #, python-brace-format
 msgid "【{Beatboxer}向け】{Wildcard}レギュレーション解説"
-msgstr "【Do {Beatboxer}】 Míniú ar Rialacháin {Wildcard}"
+msgstr "【Pro {Beatboxer}】Vysvětlení regulí {Wildcard}"
 
 #: templates/2025/rule.html:225 templates/2026/rule.html:340
 #, python-brace-format
 msgid "GBB出場辞退が発生した場合、{Wildcard}下位からの繰り上げが行われます。"
 msgstr ""
-"Má tharlaíonn tarraingt siar ó GBB, déanfar ardú céime ó na céimeanna níos "
-"ísle de {Wildcard}."
+"Pokud dojde k odstoupení od účasti na GBB, dojde k posunu z nižších pozic "
+"{Wildcard}."
 
 #: templates/2025/rule.html:229
 msgid "いかなる理由があっても、シード権大会2位以下の人に、出場権は与えられません。"
 msgstr ""
-"Is cuma cén fáth, ní thabharfar an ceart chun páirt a ghlacadh do dhaoine a "
-"tháinig sa dara háit nó níos ísle sa chomórtas síl."
+"Z jakéhokoli důvodu se právo účasti neuděluje osobám na 2. místě a níže v "
+"seed turnaji."
 
 #: templates/2025/rule.html:230
 msgid "「シード権大会においてGBB出場権が与えられるのは、例外なく、常に優勝者のみである」とルールに明記されています。"
 msgstr ""
-"Deirtear go sainráite go soiléir sna rialacha, \"Ní bhronntar an ceart chun "
-"páirt a ghlacadh sa GBB i gcomórtas síl, ach amháin don bhuaiteoir, gan "
-"eisceacht.\""
+"V pravidlech je výslovně uvedeno: \"V seed turnaji se právo účasti na GBB "
+"uděluje bez výjimky vždy pouze vítězi.\""
 
 #: templates/2025/rule.html:233
 #, python-brace-format
 msgid ""
 "例：シード権大会優勝者が、すでに{Wildcard}で出場権を獲得していた場合、シード権大会2位ではなく、{Wildcard}下位からの繰り上げが行われます。"
 msgstr ""
-"Mar shampla: Má tá buaiteoir an chomórtais curtha cáilithe cheana féin trí "
-"{Wildcard}, ní bheidh an dara háit sa chomórtas curtha ag dul ar aghaidh, "
-"ach déanfar ardú céime ó na céimeanna níos ísle de {Wildcard}."
+"Příklad: Pokud vítěz seed turnaje již získal právo účasti prostřednictvím "
+"{Wildcard}, dojde k posunu z nižších pozic {Wildcard}, nikoli z 2. místa "
+"seed turnaje."
 
 #: templates/2025/rule.html:257 templates/2025/wildcard_regulation.html:208
 msgid "制限時間を使い切らず余らせた場合、3秒につき最終順位を1つ下げる"
 msgstr ""
-"Má úsáideann tú an t-am atá fágtha, laghdaítear do rátáil deiridh faoi 1 "
-"phointe gach 3 shoicind."
+"Pokud se časový limit nevyčerpá a zbude čas, konečné pořadí se sníží o 1 za "
+"každé 3 sekundy"
 
 #: templates/2025/rule.html:284 templates/2025/wildcard_regulation.html:234
 msgid "※中央ヨーロッパ時間には、サマータイムがあります。2025年のサマータイムは3/30からです。"
-msgstr ""
-"※Tá am solais an tsamhraidh san Eoraip Láir. Tosaíonn am solais an "
-"tsamhraidh 2025 ar 3/30."
+msgstr "※Středoevropský čas má letní čas. Letní čas 2025 začíná 30. března."
 
 #: templates/2025/rule.html:285 templates/2025/wildcard_regulation.html:235
 msgid "Tag Team部門・Crew部門参加希望の方はご注意ください。"
 msgstr ""
-"Tabhair aire, iad siúd ar mian leo páirt a ghlacadh i Rannóg Fhoireann Tag "
-"agus Rannóg Criú."
+"Prosím, věnujte pozornost těm, kteří se chtějí zúčastnit kategorií Tag Team "
+"a Crew."
 
 #: templates/2025/rule.html:343 templates/2026/rule.html:528
 msgid "レフェリー"
-msgstr "Réiteoir"
+msgstr "Rozhodčí"
 
 #: templates/2025/rule.html:351 templates/2026/rule.html:536
 msgid "レフェリーについて"
-msgstr "Maidir leis an réiteoir"
+msgstr "O rozhodčích"
 
 #: templates/2025/rule.html:352 templates/2026/rule.html:537
 msgid ""
 "レフェリーは、GBB23から導入された、審査員とは別のメンバーです。審査員は各出場者の評価を行うのに対し、レフェリーは「ルールを守っているか」を確認する役割を担います。"
 msgstr ""
-"Is saineolóir é an réiteoir, ball eile atá tugtha isteach ó GBB23, murab "
-"ionann agus na breithiúna. Cé go ndéanann na breithiúna measúnú ar gach "
-"iomaitheoir, is é an ról atá ag an réiteoir ná a chinntiú go bhfuil \"na "
-"rialacha á leanúint\"."
+"Rozhodčí jsou členové zavedení od GBB23, kteří jsou odděleni od porotců. "
+"Zatímco porotci hodnotí jednotlivé účastníky, rozhodčí mají roli ověřovat, "
+"zda jsou pravidla dodržována."
 
 #: templates/2025/ticket.html:16 templates/common/japan.html:50
 #: templates/common/korea.html:50 templates/common/result.html:107
 #: templates/others/translation.html:19
 msgid "ルール & 審査員"
-msgstr "Rialacha & Moltóirí"
+msgstr "Pravidla a porotci"
 
 #: templates/2025/timetable.html:15
 msgid "GBB24では、本番約1ヶ月前に公開されましたが、誤記が多くみられました。"
 msgstr ""
-"Ag GBB24, foilsíodh é seo thart ar mhí amháin roimh an seó, ach bhí go leor "
-"botúin cló ann."
+"U GBB24 byl zveřejněn přibližně měsíc před akcí, ale bylo v něm mnoho chyb."
 
 #: templates/2025/timetable.html:56 templates/2025/timetable.html:125
 #: templates/2025/timetable.html:183
 msgid "オープニング"
-msgstr "Oscailt"
+msgstr "Zahájení"
 
 #: templates/2025/timetable.html:72 templates/2025/timetable.html:137
 #: templates/2025/timetable.html:199
 msgid "休憩"
-msgstr "sos"
+msgstr "Přestávka"
 
 #: templates/2025/timetable.html:97
 msgid ""
 "タイムテーブルの終了時刻は19:30になっていますが、なぜか中継配信は21時まで行われるようです。理由は不明です。初日も21時まで行われるのかどうかも不明です。"
 msgstr ""
-"Tá deireadh an sceidil ag 19:30, ach ar chúis éigin, is cosúil go mbeidh an "
-"sruth beo ar siúl go dtí 21:00. Níl an chúis ar eolas. Níl sé soiléir "
-"freisin an mbeidh sé ar siúl go dtí 21:00 an chéad lá freisin."
+"Čas ukončení v programu je 19:30, ale přenos se zdá být prováděn až do "
+"21:00. Důvod není znám. Není také jasné, zda se první den bude konat až do "
+"21:00."
 
 #: templates/2025/timetable.html:274
 msgid "7toSmoke開始時刻と配信スタート時刻が違う理由は不明です。"
 msgstr ""
-"Níl cúis ar eolas cén fáth a bhfuil am tosaithe 7toSmoke agus am tosaithe na"
-" craolta difriúil."
+"Důvod rozdílu mezi časem začátku 7toSmoke a časem začátku přenosu není znám."
 
 #: templates/2025/top.html:38 templates/2025/top.html:48
 #: templates/2025/top.html:69 templates/2026/top.html:47
 #: templates/2026/top.html:58 templates/2026/top.html:73
 msgid "注目キーワード"
-msgstr "Eochairfhocail faoi thrácht"
+msgstr "Klíčová slova"
 
 #: templates/2025/top.html:42 templates/2025/top.html:48
 #: templates/2025/top.html:50 templates/2025/top.html:51
@@ -1008,29 +1003,29 @@ msgstr "Wildcard"
 #: templates/2026/top.html:52 templates/2026/top.html:60
 #: templates/2026/top.html:73 templates/2026/top.html:81
 msgid "結果"
-msgstr "Torthaí"
+msgstr "Výsledky"
 
 #: templates/2025/top.html:51 templates/2025/top.html:78
 #: templates/2026/top.html:61 templates/2026/top.html:86
 msgid "結果発表日"
-msgstr "Dáta fógartha torthaí"
+msgstr "Datum zveřejnění výsledků"
 
 #: templates/2025/top.html:52 templates/2026/top.html:62
 msgid "動画一覧"
-msgstr "Liosta Físeán"
+msgstr "Seznam videí"
 
 #: templates/2025/top.html:56 templates/2026/top.html:66
 msgid "提出締切"
-msgstr "sprioc ama aighneachta"
+msgstr "Uzávěrka odevzdání"
 
 #: templates/2025/top.html:57 templates/2025/top.html:79
 #: templates/2026/top.html:67 templates/2026/top.html:87
 msgid "結果発表配信"
-msgstr "Fógra torthaí"
+msgstr "Přenos zveřejnění výsledků"
 
 #: templates/2025/top.html:59 templates/2026/top.html:69
 msgid "出場枠の数"
-msgstr "Líon na suíochán le bheith san iomaíocht"
+msgstr "Počet míst pro účast"
 
 #: templates/2025/top.html:74 templates/2026/top.html:82
 #: templates/common/japan.html:48 templates/common/korea.html:48
@@ -1038,7 +1033,7 @@ msgstr "Líon na suíochán le bheith san iomaíocht"
 #: templates/participant_detail/participant_detail.html:144
 #: templates/participant_detail/participant_detail.html:257
 msgid "全出場者一覧"
-msgstr "Liosta iomlán na rannpháirtithe"
+msgstr "Seznam všech účastníků"
 
 #: templates/2025/top.html:77 templates/2025/top.html:105
 #: templates/2026/rule.html:299 templates/2026/rule.html:427
@@ -1048,82 +1043,82 @@ msgstr "Liosta iomlán na rannpháirtithe"
 #: templates/common/participants.html:138
 #: templates/includes/hamburger_menu.html:10
 msgid "辞退者一覧"
-msgstr "Liosta na ndiúltóirí"
+msgstr "Seznam těch, kteří odstoupili"
 
 #: templates/2025/top.html:86 templates/2026/top.html:90
 #: templates/includes/popup_early_access.html:8
 #: templates/includes/popup_ended.html:14
 #: templates/includes/popup_no_info.html:10
 msgid "閉じる"
-msgstr "Dún"
+msgstr "Zavřít"
 
 #: templates/2025/top.html:187 templates/2026/top.html:184
 msgid "お探しの情報は、当サイトにありません。下記お問い合わせより、GBB運営に直接お尋ねください。"
 msgstr ""
-"Níl an fhaisnéis atá á lorg agat ar an suíomh seo. Le haghaidh tuilleadh "
-"ceisteanna, déan teagmháil dhíreach le bainistíocht GBB ag an bhfoirm seo a "
-"leanas."
+"Informace, které hledáte, nejsou na tomto webu. Prosím, kontaktujte přímo "
+"organizátory GBB prostřednictvím níže uvedeného kontaktu."
 
 #: templates/2025/top.html:199
 msgid "記載の番号"
-msgstr "uimhir atá scríofa"
+msgstr "Uvedené číslo"
 
 #: templates/2025/top.html:199 templates/2026/ticket.html:13
 msgid "チケット販売ページ"
-msgstr "Leathanach díolacháin ticéad"
+msgstr "Stránka prodeje vstupenek"
 
 #: templates/2025/top.html:203
 #, python-brace-format
 msgid "GBB {year} 会場webサイトに記載のあった番号"
-msgstr "Uimhir a bhí ar shuíomh Gréasáin an ionaid GBB {year}"
+msgstr "Číslo uvedené na webu místa konání GBB {year}"
 
 #: templates/2025/wildcard_regulation.html:9
 msgid "レギュレーション"
-msgstr "rialachán"
+msgstr "Regule"
 
 #: templates/2025/wildcard_regulation.html:16
 #, python-brace-format
 msgid "このページでは、{Wildcard}提出にあたって重要なルールを解説します。"
 msgstr ""
-"Ar an leathanach seo, mínítear rialacha tábhachtacha maidir le {Wildcard} a "
-"chur isteach."
+"Na této stránce vysvětlujeme důležitá pravidla pro předložení {Wildcard}."
 
 #: templates/2025/wildcard_regulation.html:22
 #, python-brace-format
 msgid "【{Beatbox}ファン向け】"
-msgstr "【do lucht leanúna {Beatbox}】"
+msgstr "【Pro fanoušky {Beatbox}】"
 
 #: templates/2025/wildcard_regulation.html:37
 #: templates/2025/wildcard_regulation.html:121
 msgid "年齢制限"
-msgstr "Aois teoranta"
+msgstr "Věkové omezení"
 
 #: templates/2025/wildcard_regulation.html:41
 #, python-brace-format
 msgid "{Wildcard}提出について"
-msgstr "{Wildcard} maidir le cur isteach"
+msgstr "O předložení {Wildcard}"
 
 #: templates/2025/wildcard_regulation.html:45
 #: templates/2025/wildcard_regulation.html:197
 msgid "部門別ルール"
-msgstr "Rialacha de réir roinne"
+msgstr "Pravidla podle kategorií"
 
 #: templates/2025/wildcard_regulation.html:49
 #: templates/2025/wildcard_regulation.html:259
 msgid "失格にならないために"
-msgstr "Chun gan a bheith dícháilithe"
+msgstr "Aby nedošlo k diskvalifikaci"
 
 #: templates/2025/wildcard_regulation.html:61
 #, python-brace-format
 msgid "以下に示す内容は、{Wildcard}を作る{Beatboxer}向けの情報です。"
-msgstr "Seo a leanas faisnéis do {Beatboxer} a dhéanann {Wildcard}."
+msgstr ""
+"Níže uvedené informace jsou určeny pro {Beatboxer}, kteří vytvářejí "
+"{Wildcard}."
 
 #: templates/2025/wildcard_regulation.html:62
 #, python-brace-format
 msgid "当サイト管理人は{Beatboxer}ではありません。また、当サイト管理人はGBB運営と一切無関係です。"
 msgstr ""
-"Ní {Beatboxer} riaráir an tsuímh seo. Chomh maith leis sin, níl aon bhaint "
-"ag riaráir an tsuímh seo le hoibríochtaí GBB ar chor ar bith."
+"Správce tohoto webu není {Beatboxer}. Správce tohoto webu také není nijak "
+"spojen s organizátory GBB."
 
 #: templates/2025/wildcard_regulation.html:70
 msgid ""
@@ -1132,127 +1127,127 @@ msgid ""
 "    As a result, there may be instances of inaccurate translation.\n"
 "    For any questions or concerns, please refer to the official website or social media channels."
 msgstr ""
-"D'úsáideoirí Neamh-Seapánacha:\n"
-"    Tabhair faoi deara le do thoil gur scríobhadh an t-alt seo i Seapáinis ar dtús agus gur aistríodh é ina dhiaidh sin ag úsáid AI.\n"
-"    Dá bharr sin, d'fhéadfadh cásanna d'aistriúchán neamhbheartaithe a bheith ann.\n"
-"    Le haghaidh aon cheisteanna nó imní, féach ar an suíomh Gréasáin oifigiúil nó ar na bealaí meán sóisialta."
+"Pro ne-japonské uživatele:\n"
+"    Upozorňujeme, že tento článek byl původně napsán v japonštině a následně přeložen pomocí AI.\n"
+"    V důsledku toho mohou existovat nepřesnosti v překladu.\n"
+"    V případě jakýchkoli dotazů nebo obav se prosím obracejte na oficiální web nebo kanály sociálních médií."
 
 #: templates/2025/wildcard_regulation.html:123
 msgid "年齢制限: 本番当日、16歳以上であること"
-msgstr "Aois-theoretical: Bí 16 bliana d'aois nó níos sine ar lá na hócáide"
+msgstr "Věkové omezení: V den konání musí být účastník starší 16 let"
 
 #: templates/2025/wildcard_regulation.html:124
 msgid "未成年者(18歳未満)の参加:"
-msgstr "Rannpháirtíocht Mionaoiseach (faoi 18):"
+msgstr "Účast nezletilých (mladších 18 let):"
 
 #: templates/2025/wildcard_regulation.html:126
 msgid "保護者の同伴が必須"
-msgstr "Tá gá le caomhnóir chun dul in éineacht leis."
+msgstr "Doprovod zákonného zástupce je povinný"
 
 #: templates/2025/wildcard_regulation.html:127
 msgid "主催者は、保護者の同伴にかかる費用(ビザ、フライト、ホテル、食事など)を負担しない"
 msgstr ""
-"Ní bheidh an t-eagraí freagrach as costais a bhaineann le tionlacan "
-"tuismitheora (amhail víosaí, eitiltí, óstáin, béilí, etc.)"
+"Organizátoři nehradí náklady na doprovod zákonného zástupce (víza, letenky, "
+"hotel, strava atd.)"
 
 #: templates/2025/wildcard_regulation.html:128
 #, python-brace-format
 msgid "上記要件を満たさない、同意できない場合は失格となり、{Wildcard}下位からの繰り上げが行われる"
 msgstr ""
-"Mura gcomhlíonann tú na riachtanais thuas nó mura n-aontaíonn tú leo, "
-"dícháileofar thú, agus déanfar {Wildcard} ardú céime ó leibhéal níos ísle."
+"Pokud výše uvedené požadavky nejsou splněny nebo není možné s nimi "
+"souhlasit, dojde k diskvalifikaci a dojde k posunu z nižších pozic "
+"{Wildcard}."
 
 #: templates/2025/wildcard_regulation.html:138
 #, python-brace-format
 msgid "{Wildcard}作成・提出について"
-msgstr "{Wildcard} Maidir le cruthú agus cur isteach"
+msgstr "O vytvoření a předložení {Wildcard}"
 
 #: templates/2025/wildcard_regulation.html:140
 #, python-brace-format
 msgid "{Wildcard}動画の内容"
-msgstr "{Wildcard} ábhar an fhíseáin"
+msgstr "Obsah videa {Wildcard}"
 
 #: templates/2025/wildcard_regulation.html:141
 msgid "動画の冒頭で、以下のように自己紹介する"
-msgstr "Ag tús an fhíseáin, tabhair isteach tú féin mar seo a leanas"
+msgstr "Na začátku videa se představte následovně"
 
 #: templates/2025/wildcard_regulation.html:145
 msgid "このルールに関する表記は、原文では非常に強い表現で示されています。"
-msgstr "Tá léiriú na rialacha seo luaite go han-láidir sa bhun téacs."
+msgstr "Toto pravidlo je v originálním textu vyjádřeno velmi silným způsobem."
 
 #: templates/2025/wildcard_regulation.html:146
 msgid "また、過去にこのルールに違反したことで失格処分になった事例があります。"
 msgstr ""
-"Chomh maith leis sin, bhí cásanna ann roimhe seo ina raibh pionós "
-"dícháilithe mar gheall ar mhainneachtain na rialacha seo."
+"V minulosti také došlo k případům diskvalifikace kvůli porušení tohoto "
+"pravidla."
 
 #: templates/2025/wildcard_regulation.html:150
 msgid "録音方法"
-msgstr "Taifeadadh modh"
+msgstr "Způsob nahrávání"
 
 #: templates/2025/wildcard_regulation.html:152
 msgid "カメラにはっきり映っていること (マスクや視覚効果で顔や口を覆わないこと)"
 msgstr ""
-"Ag taispeáint go soiléir ar an gceamara (gan aghaidh nó béal a chlúdach le "
-"maisc nó éifeachtaí amhaircais)"
+"Musíte být jasně vidět na kameře (nezakrývejte obličej ani ústa maskou nebo "
+"vizuálními efekty)"
 
 #: templates/2025/wildcard_regulation.html:153
 msgid "リップシンクやその他のビデオ技術は禁止"
-msgstr "Tá lip-sync agus teicneolaíochtaí físe eile toirmiscthe"
+msgstr "Lip-sync a další video techniky jsou zakázány"
 
 #: templates/2025/wildcard_regulation.html:154
 msgid "撮影と録音は、同時に行うこと"
-msgstr "Tógadh agus taifeadadh a dhéanamh ag an am céanna"
+msgstr "Natáčení a nahrávání musí probíhat současně"
 
 #: templates/2025/wildcard_regulation.html:155
 msgid "基本的なダイナミック (コンプレッション)、EQ プラグイン、リバーブは使用可能。ただし、録音自体は生の状態で行い、後で編集すること"
 msgstr ""
-"Is féidir breisithe bunúsacha ar nós comhbhrú dinimici, breisithe "
-"cothromaithe, agus athshondas a úsáid. Mar sin féin, ba chóir an taifeadadh "
-"féin a dhéanamh beo agus a chur in eagar níos déanaí."
+"Základní dynamika (komprese), EQ pluginy a reverb jsou povoleny. Nahrávání "
+"samotné však musí být provedeno v surovém stavu a následně upraveno"
 
 #: templates/2025/wildcard_regulation.html:156
 msgid "キックとスネアに異なる EQ やコンプレッションを施すなどの自動処理は禁止"
 msgstr ""
-"Tá cosc ar phróiseáil uathoibríoch, mar shampla EQ nó comhbhrú difriúil a "
-"chur i bhfeidhm ar an gcic agus an snare"
+"Automatické zpracování, jako je aplikace různých EQ nebo komprese na kick a "
+"snare, je zakázáno"
 
 #: templates/2025/wildcard_regulation.html:157
 msgid "録音全体を同じように処理すること"
-msgstr "Próiseálfar an taifeadadh iomlán ar an gcaoi chéanna"
+msgstr "Celé nahrávání musí být zpracováno stejným způsobem"
 
 #: templates/2025/wildcard_regulation.html:158
 msgid "歪み、遅延、その他の動的処理、周波数歪み効果は禁止"
 msgstr ""
-"Saobhadh, moille, agus próiseáil dhinimiciúil eile, tá cosc ar éifeachtaí "
-"dífhoirmiúcháin minicíochta"
+"Zkreslení, zpoždění a další dynamické zpracování, efekty frekvenčního "
+"zkreslení jsou zakázány"
 
 #: templates/2025/wildcard_regulation.html:159
 #, python-brace-format
 msgid "上記ルールについて、不正行為の疑いがある場合、{Wildcard}作成に使ったファイルの追加提出を求められる場合あり"
 msgstr ""
-"Maidir leis na rialacha thuas, má tá amhras ann faoi mhí-iompar, féadfar a "
-"iarraidh ort comhaid bhreise a úsáideadh le haghaidh {Wildcard} a chruthú a "
-"chur isteach."
+"Pokud existuje podezření na podvádění týkající se výše uvedených pravidel, "
+"může být požadováno dodatečné předložení souborů použitých k vytvoření "
+"{Wildcard}"
 
 #: templates/2025/wildcard_regulation.html:162
 msgid "提出方法"
-msgstr "Modh cur isteach"
+msgstr "Způsob předložení"
 
 #: templates/2025/wildcard_regulation.html:164
 #, python-brace-format
 msgid "{Wildcard}をYouTubeにアップロード"
-msgstr "{Wildcard} a uaslódáil chuig YouTube"
+msgstr "Nahrát {Wildcard} na YouTube"
 
 #: templates/2025/wildcard_regulation.html:165
 #: templates/2025/wildcard_regulation.html:261
 msgid "Swissbeatbox公式サイトにある申請フォームで提出"
 msgstr ""
-"Foirm iarratais ar shuíomh Gréasáin oifigiúil Swissbeatbox a chur isteach"
+"Předložit pomocí přihlašovacího formuláře na oficiálním webu Swissbeatbox"
 
 #: templates/2025/wildcard_regulation.html:168
 msgid "上記2つが両方できていない場合は、失格"
-msgstr "Mura ndéanfar an dá cheann thuas, cuirfear as oifig thú"
+msgstr "Pokud nejsou splněny oba výše uvedené body, dojde k diskvalifikaci"
 
 #: templates/2025/wildcard_regulation.html:171
 #: templates/2025/wildcard_regulation.html:172
@@ -1261,219 +1256,218 @@ msgstr "Mura ndéanfar an dá cheann thuas, cuirfear as oifig thú"
 #: templates/2025/wildcard_regulation.html:175
 msgid "毎年必ず、申請フォーム入力忘れによる失格者が発生します！！！"
 msgstr ""
-"Gach bliain, bíonn díbheadh ar dhaoine a dhéanann dearmad ar an bhfoirm "
-"iarratais a líonadh isteach!!!"
+"Každý rok se vždy objevují diskvalifikace kvůli zapomenutí vyplnit "
+"přihlašovací formulář!!!"
 
 #: templates/2025/wildcard_regulation.html:177
 msgid "ぜひここのスクリーンショットをとってSNSで拡散してください。推しが失格にならないために..."
 msgstr ""
-"Tóg screenshot anseo le do thoil agus scaip é ar SNS. Chun nach gcaillfidh "
-"do rogha amach..."
+"Prosím, pořiďte screenshot tohoto místa a sdílejte ho na sociálních sítích. "
+"Aby váš oblíbenec nebyl diskvalifikován..."
 
 #: templates/2025/wildcard_regulation.html:179
 msgid "生のオーディオと生のビデオ (カメラのオーディオを含む) の提出が必要"
 msgstr ""
-"Tá gá le físeán amh agus fuaime amh (lena n-áirítear fuaim an cheamara) a "
-"thíolacadh"
+"Je nutné předložit surový audio a surové video (včetně audia z kamery)"
 
 #: templates/2025/wildcard_regulation.html:180
 #, python-brace-format
 msgid "{Solo}以外の全部門は、録画中のスクリーンキャプチャの提出も必要"
 msgstr ""
-"Tá sé riachtanach do gach rannóg seachas {Solo} grianghraf scáileáin ón "
-"taifeadadh a chur isteach freisin."
+"Pro všechny kategorie kromě {Solo} je také nutné předložit screenshoty z "
+"nahrávání"
 
 #: templates/2025/wildcard_regulation.html:181
 msgid "上記2つが無い場合は、失格"
-msgstr "Mura bhfuil an dá cheann thuasluaite ann, beidh tú dícháilithe"
+msgstr "Pokud chybí oba výše uvedené body, dojde k diskvalifikaci"
 
 #: templates/2025/wildcard_regulation.html:184
 #: templates/2025/wildcard_regulation.html:263
 #, python-brace-format
 msgid "{Wildcard}提出は一度のみ。一度提出したら、後から別の{Wildcard}を提出することはできない"
 msgstr ""
-"Ní féidir ach {Wildcard} amháin a chur isteach. Nuair a bheidh sé curtha "
-"isteach, ní féidir {Wildcard} eile a chur isteach ina dhiaidh sin."
+"{Wildcard} lze předložit pouze jednou. Jakmile jednou předložíte, nemůžete "
+"později předložit jiný {Wildcard}"
 
 #: templates/2025/wildcard_regulation.html:185
 #, python-brace-format
 msgid "誤って一度提出した{Wildcard}を削除した場合、失格"
 msgstr ""
-"Má scriosann tú trí dhearmad {Wildcard} a cuireadh isteach uair amháin, "
-"dícháileofar thú."
+"Pokud omylem smažete {Wildcard}, který jste již jednou předložili, dojde k "
+"diskvalifikaci"
 
 #: templates/2025/wildcard_regulation.html:187
 msgid "このルールは、GBB 2019で発生したトラブルの対策として設けられている"
 msgstr ""
-"Cuireadh na rialacha seo i bhfeidhm mar bheart chun freagairt a thabhairt ar"
-" na fadhbanna a tharla ag GBB 2019"
+"Toto pravidlo bylo zavedeno jako opatření proti problémům, které se vyskytly"
+" na GBB 2019"
 
 #: templates/2025/wildcard_regulation.html:239
 #: templates/2025/wildcard_regulation.html:245
 msgid "デバイスルール"
-msgstr "Rialacha gléis"
+msgstr "Pravidla pro zařízení"
 
 #: templates/2025/wildcard_regulation.html:241
 msgid "MIDIコントローラーの使用は禁止"
-msgstr "Tá cosc ar úsáid rialtóirí MIDI"
+msgstr "Použití MIDI kontrolerů je zakázáno"
 
 #: templates/2025/wildcard_regulation.html:242
 msgid "マシン内の追加ケーブルは使用可能 ケーブルはデバイスではないとみなされる"
 msgstr ""
-"Úsáidtear cáblaí breise sa mheaisín\n"
-"Meastar nach bhfuil cáblaí mar ghléasanna"
+"Dodatečné kabely v zařízení jsou povoleny. Kabely nejsou považovány za "
+"zařízení"
 
 #: templates/2025/wildcard_regulation.html:247
 #, python-brace-format
 msgid "{Loopstation}単体での出場は禁止"
-msgstr "{Loopstation} Tá cosc ar pháirt a ghlacadh ina aonar."
+msgstr "Účast pouze s {Loopstation} je zakázána"
 
 #: templates/2025/wildcard_regulation.html:248
 msgid "事前にデバイス構成をSUPPORT@swissbeatbox.comへ申請すること"
-msgstr "Iarr roimh ré cumraíocht an fheiste chuig SUPPORT@swissbeatbox.com"
+msgstr ""
+"Předem musíte požádat o konfiguraci zařízení na SUPPORT@swissbeatbox.com"
 
 #: templates/2025/wildcard_regulation.html:249
 msgid "ボイスソース、ボイストリガーのみ"
-msgstr "Foinse gutha, truiceir gutha amháin"
+msgstr "Pouze hlasové zdroje a hlasové triggery"
 
 #: templates/2025/wildcard_regulation.html:250
 msgid "事前に録音されたサンプルは使用禁止"
-msgstr "Tosaíonn taifeadtaí réamhthaifeadta toirmiscthe"
+msgstr "Předem nahrané samply jsou zakázány"
 
 #: templates/2025/wildcard_regulation.html:251
 msgid "FOH (ミキシング デスク) または録音への出力はステレオ信号である必要があり、マルチチャンネル出力は禁止"
 msgstr ""
-"Ní mór don aschur chuig an FOH (boird mheascadh) nó taifeadadh a bheith ina "
-"comhartha steirió, agus tá cosc ar aschuir ilchainéil"
+"Výstup do FOH (mixing desk) nebo nahrávání musí být stereofonní signál, "
+"vícekanálový výstup je zakázán"
 
 #: templates/2025/wildcard_regulation.html:262
 #, python-brace-format
 msgid "{Wildcard}動画の作成にあたり使用したすべてのファイルを、バックアップ含め保存しておき、いつでも提出できるようにしておく"
 msgstr ""
-"{Wildcard} Coinnigh gach comhad a úsáideadh chun an físeán a chruthú, lena "
-"n-áirítear cúltacaí, sábháilte agus réidh le cur isteach ag am ar bith."
+"Uložte všechny soubory použité k vytvoření videa {Wildcard}, včetně záloh, a"
+" mějte je připravené k předložení kdykoli"
 
 #: templates/2025/wildcard_regulation.html:265
 #, python-brace-format
 msgid "皆さんの{Wildcard}を楽しみにしています！"
-msgstr "Táim ag tnúth le bhur {Wildcard}!"
+msgstr "Těšíme se na vaše {Wildcard}!"
 
 #: templates/2026/rule.html:12
 msgid "ソースサイト"
-msgstr "Suíomh foinse: "
+msgstr "Zdrojový web"
 
 #: templates/2026/rule.html:39 templates/2026/rule.html:84
 #: templates/2026/rule.html:228 templates/2026/rule.html:264
 #: templates/2026/rule.html:416
 msgid "チャレンジャーシリーズ"
-msgstr "Sraith Dúshlán"
+msgstr "Challenger Series"
 
 #: templates/2026/rule.html:43
 msgid "繰り上げ出場について"
-msgstr "Maidir le rannpháirtíocht ardaithe céime"
+msgstr "O posunu účasti"
 
 #: templates/2026/rule.html:59 templates/2026/rule.html:602
 msgid "セカンドリーグ"
-msgstr "An Dara Sraith"
+msgstr "Second League"
 
 #: templates/2026/rule.html:154
 #, python-brace-format
 msgid "{SHOWCASE}とは"
-msgstr "Cad é {SHOWCASE}?"
+msgstr "Co je {SHOWCASE}"
 
 #: templates/2026/rule.html:156
 #, python-brace-format
 msgid "2026年から新部門として「{SHOWCASE}」が追加されました。"
-msgstr "Ó 2026 amach, tá rannóg nua, '{SHOWCASE}', curtha leis."
+msgstr "Od roku 2026 byla jako nová kategorie přidána \"{SHOWCASE}\"."
 
 #: templates/2026/rule.html:157
 msgid "この部門では、バトルを行いません。"
-msgstr "Ní dhéantar cath sa roinn seo."
+msgstr "V této kategorii se nekonají souboje."
 
 #: templates/2026/rule.html:158
 #, python-brace-format
 msgid "{Wildcard}の審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価されます。"
 msgstr ""
-"Déantar breithmheas ar {Wildcard} de réir critéar difriúil ó na ranna eile, "
-"agus déantar é a mheasúnú ar bhonn an scéil, an ghné ealaíonta, an "
-"uathúlacht, srl."
+"Hodnocení {Wildcard} probíhá podle jiných kritérií než u ostatních kategorií"
+" a hodnotí se podle příběhu, uměleckosti, originality atd."
 
 #: templates/2026/rule.html:161
 #, python-brace-format
 msgid "{Solo}部門 決勝トーナメント"
-msgstr "Comórtas ceannais rannóg {Solo}"
+msgstr "Finálový turnaj kategorie {Solo}"
 
 #: templates/2026/rule.html:163
 #, python-brace-format
 msgid "GBB {year} {Solo}部門の決勝トーナメントは8人トーナメントで開催されます。"
 msgstr ""
-"Reáchtálfar comórtas ceannais rannóg GBB {year} {Solo} mar chomórtas 8 "
-"duine."
+"Finálový turnaj kategorie {Solo} GBB {year} se koná jako turnaj pro 8 "
+"účastníků."
 
 #: templates/2026/rule.html:164
 msgid "GBB 2021以来、8人トーナメントで開催するよう、Beatboxerから繰り返し要望を受けている、と説明されています。"
 msgstr ""
-"Mínítear gur iarr Beatboxer-i go rialta go reáchtálfaí comórtas 8 duine ó "
-"GBB 2021."
+"Je vysvětleno, že od GBB 2021 bylo opakovaně požadováno Beatboxery, aby se "
+"konal turnaj pro 8 účastníků."
 
 #: templates/2026/rule.html:167
 msgid "特別ルール"
-msgstr "Rialacha Speisialta"
+msgstr "Speciální pravidla"
 
 #: templates/2026/rule.html:169
 msgid ""
 "合計5人の審査員が採点しますが、その中の最高点と最低点をカットした、残りの3人の平均点を得点とします。極端な評価に左右されない、安定した採点方式です。"
 msgstr ""
-"Scóráil 5 moltóir ar fad, ach baintear an scór is airde agus an scór is "
-"ísle, agus is é meánscór na 3 moltóir eile an scór deiridh. Is córas scórála"
-" cobhsaí é seo nach gcuireann measúnuithe foircneacha isteach air."
+"Celkem 5 porotců hodnotí, ale nejvyšší a nejnižší skóre se odstraní a "
+"výsledné skóre je průměr ze zbývajících 3 porotců. Jedná se o stabilní "
+"hodnoticí systém, který není ovlivněn extrémními hodnoceními."
 
 #: templates/2026/rule.html:182
 #, python-brace-format
 msgid ""
 "{ComebackWildcard}は、通常の{SoloWildcard}ランキングで出場枠を獲得できなかった{Beatboxer}のうち1名が、特別枠として出場権を獲得する制度です。"
 msgstr ""
-"Is córas é {ComebackWildcard} ina bhfaigheann duine amháin de na {Beatboxer}"
-" nár éirigh leo sliotán iontrála a fháil sa ghnáth-rangú {SoloWildcard} "
-"ceart iontrála mar shliotán speisialta."
+"{ComebackWildcard} je systém, ve kterém jeden z {Beatboxer}, kteří nemohli "
+"získat místo v běžném žebříčku {SoloWildcard}, získá právo účasti jako "
+"speciální místo."
 
 #: templates/2026/rule.html:185 templates/2026/rule.html:370
 msgid "対象"
-msgstr "Sprioc"
+msgstr "Cílová skupina"
 
 #: templates/2026/rule.html:187
 msgid "10位〜25位"
-msgstr "10ú go 25ú háit"
+msgstr "10. až 25. místo"
 
 #: templates/2026/rule.html:190
 msgid "選出の流れ"
-msgstr "An próiseas roghnúcháin"
+msgstr "Proces výběru"
 
 #: templates/2026/rule.html:193
 msgid "審査員による指名"
-msgstr "Ainmniú ag breithiúna"
+msgstr "Jmenování porotci"
 
 #: templates/2026/rule.html:194
 msgid "5名の審査員が、対象者の中から各自1名を自由に指名します（最大5名が候補）。"
 msgstr ""
-"Ainmneoidh 5 breitheamh duine amháin go saor as an sprioc (5 iarrthóir ar a "
-"mhéad)."
+"5 porotců si každý volně vybere jednoho z cílové skupiny (maximálně 5 "
+"kandidátů)."
 
 #: templates/2026/rule.html:195
 #, python-brace-format
 msgid "※5名全員が同じ{Beatboxer}を指名した場合、その時点で出場者が確定します。"
 msgstr ""
-"※Má ainmníonn na 5 duine an {Beatboxer} céanna, socraítear an rannpháirtí ag"
-" an bpointe sin."
+"※Pokud všech 5 porotců jmenuje stejného {Beatboxer}, účastník je v tomto "
+"okamžiku určen."
 
 #: templates/2026/rule.html:198
 #, python-brace-format
 msgid "再投票（審査員+{Swissbeatbox} {YouTube}メンバーシップ）"
-msgstr "Vótaíocht arís (breithiúna + ballraíocht {Swissbeatbox} {YouTube})"
+msgstr "Druhé hlasování (porotci + členství {Swissbeatbox} {YouTube})"
 
 #: templates/2026/rule.html:200
 msgid "審査員の票：各審査員が候補者をランキングします。"
-msgstr "Vótaí breithiúna: Rangaíonn gach breitheamh na hiarrthóirí."
+msgstr "Hlasy porotců: Každý porotce seřadí kandidáty."
 
 #: templates/2026/rule.html:201
 #, python-brace-format
@@ -1481,13 +1475,12 @@ msgid ""
 "メンバー票：生配信中に{Swissbeatbox} "
 "{YouTube}メンバーシップ会員が投票し、その結果が「6人目の審査員」の票としてカウントされます。"
 msgstr ""
-"Vótaí ball: Le linn an chraolta bheo, vótálann baill bhallraíochta "
-"{Swissbeatbox} {YouTube}, agus áirítear an toradh mar vóta an \"6ú "
-"breithiúna\"."
+"Hlasy členů: Během živého přenosu hlasují členové členství {Swissbeatbox} "
+"{YouTube} a jejich výsledek se počítá jako hlas \"6. porotce\"."
 
 #: templates/2026/rule.html:205
 msgid "勝者の決定"
-msgstr "Cinneadh an bhuaiteora"
+msgstr "Určení vítěze"
 
 #: templates/2026/rule.html:206
 #, python-brace-format
@@ -1495,182 +1488,178 @@ msgid ""
 "審査員5名 + {Swissbeatbox} "
 "{YouTube}メンバーシップ会員（計6つのランキング）をポイント化して合計し、合計スコアが最も高い1名がGBB {year}に出場権を獲得します。"
 msgstr ""
-"5 breitheamh + baill bhallraíochta {Swissbeatbox} {YouTube} (6 rátáil san "
-"iomlán) a thiontú go pointí agus a shuimiú, agus beidh an duine amháin leis "
-"an scór iomlán is airde ag rannpháirtíocht i GBB {year}."
+"5 porotců + členové členství {Swissbeatbox} {YouTube} (celkem 6 žebříčků) se"
+" převedou na body a sečtou, a ten s nejvyšším celkovým skóre získá právo "
+"účasti na GBB {year}."
 
 #: templates/2026/rule.html:222
 msgid "GBB出場権獲得条件"
-msgstr "Critéir cáilithe don GBB"
+msgstr "Podmínky pro získání práva účasti na GBB"
 
 #: templates/2026/rule.html:224
 msgid "GBB出場権を得る方法は、以下の通りです。"
-msgstr "Seo a leanas an bealach chun cáiliú do GBB."
+msgstr "Způsoby, jak získat právo účasti na GBB, jsou následující."
 
 #: templates/2026/rule.html:227 templates/2026/rule.html:232
 msgid "上位入賞者"
-msgstr "Rannpháirtithe is fearr"
+msgstr "Nejlepší umístění"
 
 #: templates/2026/rule.html:228 templates/2026/rule.html:264
 msgid "優勝者のみ"
-msgstr "Don bhuaiteoir amháin"
+msgstr "Pouze vítěz"
 
 #: templates/2026/rule.html:339
 msgid "繰り上げ出場"
-msgstr "Rannpháirtíocht ardaithe céime"
+msgstr "Posun účasti"
 
 #: templates/2026/rule.html:341
 msgid "基本的には、2026年8月1日を境に対応が変わるのがポイントです。"
-msgstr "Go bunúsach, is é an pointe go n-athraíonn an cás ar 1 Lúnasa 2026."
+msgstr "Základní bod je, že přístup se mění s hranicí 1. srpna 2026."
 
 #: templates/2026/rule.html:343
 msgid "繰り上げ期限"
-msgstr "Spriocdháta ardaithe céime"
+msgstr "Lhůta pro posun"
 
 #: templates/2026/rule.html:347
 msgid "期限"
-msgstr "Spriocdhátaí comhdaigh"
+msgstr "Lhůta"
 
 #: templates/2026/rule.html:348
 msgid "対応"
-msgstr "Cás"
+msgstr "Přístup"
 
 #: templates/2026/rule.html:353
 msgid "2026年8月1日まで"
-msgstr "Go dtí 1 Lúnasa 2026"
+msgstr "Do 1. srpna 2026"
 
 #: templates/2026/rule.html:354
 #, python-brace-format
 msgid "原則として、辞退者が出た場合は{Wildcard}下位からの繰り上げが発生します。"
 msgstr ""
-"Má tharlaíonn tarraingt siar ó GBB, déanfar ardú céime ó na céimeanna níos "
-"ísle de {Wildcard}."
+"V zásadě, pokud dojde k odstoupení, dojde k posunu z nižších pozic "
+"{Wildcard}."
 
 #: templates/2026/rule.html:357
 msgid "2026年8月1日以降"
-msgstr "Ó 1 Lúnasa 2026 ar aghaidh"
+msgstr "Po 1. srpnu 2026"
 
 #: templates/2026/rule.html:358
 #, python-brace-format
 msgid "{Swissbeatbox}が個別に判断します。渡航ビザの取得や移動の手配が間に合うかなど、状況に応じて決定されます。"
 msgstr ""
-"Breithneoidh {Swissbeatbox} go haonarach. Cinneofar de réir na staid, mar "
-"shampla an bhfaighidh tú víosa taistil agus an mbeidh socruithe taistil in "
-"am."
+"{Swissbeatbox} rozhoduje individuálně. Rozhoduje se podle situace, například"
+" zda je možné včas získat cestovní víza nebo zajistit dopravu."
 
 #: templates/2026/rule.html:363
 msgid "繰り上げ対象"
-msgstr "Sprioc ardaithe céime"
+msgstr "Cílová skupina pro posun"
 
 #: templates/2026/rule.html:364
 #, python-brace-format
 msgid "繰り上げの対象となるのは、{Wildcard}の順位が上位の人たちに限定されています。"
 msgstr ""
-"Tá sprioc an ardaithe céime teoranta do dhaoine a bhfuil rangú níos airde "
-"acu sa {Wildcard}."
+"Cílová skupina pro posun je omezena na osoby s vyšším pořadím v {Wildcard}."
 
 #: templates/2026/rule.html:377 templates/2026/rule.html:382
 #: templates/2026/rule.html:387 templates/2026/rule.html:392
 #, python-brace-format
 msgid "{rank}位まで"
-msgstr "Suas go dtí an {rank}ú háit"
+msgstr "Až {rank}. místo"
 
 #: templates/2026/rule.html:378 templates/2026/rule.html:388
 #: templates/2026/rule.html:393
 #, python-brace-format
 msgid "{rank}位以下の繰り上げは一切無し"
-msgstr "Níl aon ardú céime don {rank}ú háit ná níos ísle"
+msgstr "Žádný posun z {rank}. místa a níže"
 
 #: templates/2026/rule.html:383
 #, python-brace-format
 msgid "{rank}位以下の繰り上げは{Swissbeatbox}の個別判断"
 msgstr ""
-"Tá ardú céime don {rank}ú háit ná níos ísle faoi chinneadh aonair "
-"{Swissbeatbox}"
+"Posun z {rank}. místa a níže je individuální rozhodnutí {Swissbeatbox}"
 
 #: templates/2026/rule.html:398
 msgid "特殊なケース"
-msgstr "Cásanna speisialta"
+msgstr "Speciální případy"
 
 #: templates/2026/rule.html:402
 msgid "項目"
-msgstr "Mír"
+msgstr "Položka"
 
 #: templates/2026/rule.html:403
 msgid "説明"
-msgstr "Míniú"
+msgstr "Vysvětlení"
 
 #: templates/2026/rule.html:409
 #, python-brace-format
 msgid "8月1日以降に辞退が発生し、繰り上げができない場合、対戦形式ではなく{Showcase}形式に変更されることがあります。"
 msgstr ""
-"Má tharlaíonn tarraingt siar ó 1 Lúnasa ar aghaidh agus nach féidir ardú "
-"céime a dhéanamh, d'fhéadfadh sé a athrú go foirm {Showcase} seachas foirm "
-"catha."
+"Pokud dojde k odstoupení po 1. srpnu a posun není možný, může být formát "
+"změněn z formátu souboje na formát {Showcase}."
 
 #: templates/2026/rule.html:413
 msgid "優勝者が辞退しても繰り上げはありません。"
-msgstr "Fiú má tharraingíonn an buaiteoir siar, ní bheidh aon ardú céime ann."
+msgstr "Pokud vítěz odstoupí, nedojde k žádnému posunu."
 
 #: templates/2026/rule.html:417
 msgid "辞退が発生した場合、3名までは繰り上げを行いますが、4名以上の辞退には対応しません。"
 msgstr ""
-"Má tharlaíonn tarraingt siar, déanfar ardú céime go dtí 3 duine, ach ní "
-"fhreagrófar do 4 nó níos mó tarraingt siar."
+"Pokud dojde k odstoupení, posun bude proveden až pro 3 osoby, ale pro 4 a "
+"více odstoupení nebude poskytnuta podpora."
 
 #: templates/2026/rule.html:441
 msgid "制限時間を使い切らず余らせた場合、1秒につき最終順位を1つ下げる"
 msgstr ""
-"Má úsáideann tú an t-am atá fágtha, laghdaítear do rátáil deiridh faoi 1 "
-"phointe gach soicind."
+"Pokud se časový limit nevyčerpá a zbude čas, konečné pořadí se sníží o 1 za "
+"každou sekundu"
 
 #: templates/2026/rule.html:445
 msgid "3月28日〜30日"
-msgstr "28–30 Márta"
+msgstr "28. až 30. března"
 
 #: templates/2026/rule.html:445 templates/2026/rule.html:449
 #: templates/2026/rule.html:453 templates/2026/rule.html:457
 #: templates/2026/rule.html:461
 #, python-brace-format
 msgid "{m}分{s}秒以上はペナルティ対象"
-msgstr "Beifear pionós má tá {m} nóiméad {s} soicind nó níos mó."
+msgstr "{m} minut {s} sekund a více je předmětem penalizace"
 
 #: templates/2026/rule.html:445 templates/2026/rule.html:453
 msgid "3月1日"
-msgstr "1 Márta"
+msgstr "1. března"
 
 #: templates/2026/rule.html:449
 msgid "3月14日"
-msgstr "14 Márta"
+msgstr "14. března"
 
 #: templates/2026/rule.html:449
 msgid "3月23日〜24日"
-msgstr "23–24 Márta"
+msgstr "23. až 24. března"
 
 #: templates/2026/rule.html:453
 msgid "3月25日〜27日"
-msgstr "25–27 Márta"
+msgstr "25. až 27. března"
 
 #: templates/2026/rule.html:457
 msgid "5月1日〜2日"
-msgstr "1–2 Bealtaine"
+msgstr "1. až 2. května"
 
 #: templates/2026/rule.html:457 templates/2026/rule.html:461
 msgid "4月12日"
-msgstr "12 Aibreán"
+msgstr "12. dubna"
 
 #: templates/2026/rule.html:461
 msgid "5月3日〜4日"
-msgstr "3–4 Bealtaine"
+msgstr "3. až 4. května"
 
 #: templates/2026/rule.html:513 templates/2026/rule.html:517
 #: templates/2026/rule.html:521
 msgid "審査員なし"
-msgstr "Gan breithiúna"
+msgstr "Bez porotců"
 
 #: templates/2026/rule.html:603
 msgid "正式名称"
-msgstr "Ainm oifigiúil"
+msgstr "Oficiální název"
 
 #: templates/2026/rule.html:605
 #, python-brace-format
@@ -1678,126 +1667,118 @@ msgid ""
 "今年から新たに「セカンドリーグ」が設けられました。セカンドリーグは、中国で開催され、GBB {year} "
 "の{Solo}部門ランナーズアップが招待されます。"
 msgstr ""
-"Cuireadh \"Dara Sraith\" nua ar bun ón mbliain seo. Reáchtálfar an Dara "
-"Sraith sa tSín, agus tabharfar cuireadh do dhaoine a bhí sa dara háit i "
-"rannóg {Solo} GBB {year}."
+"Od letošního roku byla zřízena nová \"Second League\". Second League se koná"
+" v Číně a jsou zváni běžci-up z kategorie {Solo} GBB {year}."
 
 #: templates/2026/rule.html:606
 #, python-brace-format
 msgid "この「セカンドリーグ」で優勝すれば、GBB {year} {Solo}部門への出場権が得られます。"
 msgstr ""
-"Má bhuann tú sa \"Dara Sraith\" seo, gheobhaidh tú áit i rannóg GBB {year} "
-"{Solo}."
+"Pokud vyhrajete tuto \"Second League\", získáte právo účasti na kategorii "
+"{Solo} GBB {year}."
 
 #: templates/2026/rule.html:610
 #, python-brace-format
 msgid "ランナーズアップ：本戦に出場できなかった、{Wildcard}上位入賞者"
 msgstr ""
-"Iomaitheoirí Cúlchiste: Iomaitheoirí barr-rangaithe {Wildcard} nár éirigh "
-"leo páirt a ghlacadh sa phríomhchomórtas."
+"Běžci-up: Nejlepší umístění v {Wildcard}, kteří se nemohli zúčastnit "
+"hlavního turnaje"
 
 #: templates/2026/rule.html:611
 #, python-brace-format
 msgid "例：{Wildcard}出場枠が8枠の場合、9位～16位を指します。"
-msgstr ""
-"Sampla: Má tá 8 sliotán iontrála {Wildcard} ann, tagraíonn sé do na "
-"háiteanna 9ú go 16ú."
+msgstr "Příklad: Pokud je 8 míst pro {Wildcard}, znamená to 9. až 16. místo."
 
 #: templates/2026/rule.html:614
 msgid "当サイトでは、セカンドリーグについての情報は取り扱わない方針です。"
-msgstr "Ní láimhseáiltear faisnéis faoin dara léig ar an suíomh seo."
+msgstr "Tento web nemá v úmyslu poskytovat informace o Second League."
 
 #: templates/2026/rule.html:616
 msgid "ここまで読んでくださった皆様へ"
-msgstr "Do gach duine a léigh go dtí seo"
+msgstr "Všem, kteří dočetli až sem"
 
 #: templates/2026/rule.html:617
 msgid "今年のルールは例年と比べて変化が大きく、理解が難しかったと思います。"
 msgstr ""
-"Sílim go raibh na rialacha i mbliana níos mó athraithe i gcomparáid le "
-"blianta eile agus go raibh sé deacair iad a thuiscint."
+"Myslím, že letošní pravidla měla ve srovnání s předchozími roky velké změny "
+"a bylo obtížné je pochopit."
 
 #: templates/2026/rule.html:618
 msgid "私自身、2時間もかけてこのページを執筆しました。マジで疲れた"
 msgstr ""
-"Scríobh mé féin an leathanach seo le 2 uair an chloig. Bhí mé tuirseach go "
-"fírinneach"
+"Sám jsem strávil 2 hodiny psaním této stránky. Byl jsem opravdu unavený"
 
 #: templates/2026/rule.html:619
 #, python-brace-format
 msgid "そこで、ルールをよりわかりやすく解説してくれる「GBB {year} なんでもチャット」をご用意しました。"
 msgstr ""
-"Dá bhrí sin, táimid tar éis \"GBB {year} comhrá ar bith\" a sholáthar a "
-"mhíneoidh na rialacha níos soiléire."
+"Proto jsme připravili \"GBB {year} chat o čemkoli\", který vysvětluje "
+"pravidla srozumitelněji."
 
 #: templates/2026/rule.html:622
 msgid "なんでもチャット"
-msgstr "Comhrá ar bith"
+msgstr "Chat o čemkoli"
 
 #: templates/2026/rule.html:625
 msgid "ぜひこちらをご活用ください！"
-msgstr "Bain úsáid as seo le do thoil!"
+msgstr "Prosím, využijte to!"
 
 #: templates/2026/ticket.html:11
 msgid "ポーランド・ワルシャワ"
-msgstr "An Pholainn, Vársá"
+msgstr "Polsko, Varšava"
 
 #: templates/2026/timetable.html:16
 msgid "GBBが最後にポーランド・ワルシャワで開催された年は2021年ですが、GBB 2021は予定から約2時間遅延しました。"
 msgstr ""
-"Is é 2021 an bhliain dheireanach a reáchtáladh an GBB sa Pholainn, sa "
-"Varsáiv, ach tharla moill de thart ar 2 uair an chloig ar an GBB 2021 ón "
-"sceideal."
+"Poslední rok, kdy se GBB konalo v Polsku, Varšavě, byl 2021, ale GBB 2021 "
+"mělo zpoždění přibližně 2 hodiny oproti plánu."
 
 #: templates/2026/timetable.html:17
 msgid "なお、GBB 2022は中止され、GBB 2023~2025は、東京で開催されました。"
-msgstr ""
-"Ina theannta sin, cuireadh GBB 2022 ar ceal, agus cuireadh GBB 2023~2025 ar "
-"siúl i Tóiceo."
+msgstr "GBB 2022 bylo zrušeno a GBB 2023~2025 se konalo v Tokiu."
 
 #: templates/2026/top.html:22
 msgid "ページ 先行公開中！"
-msgstr "Leathanach á réamh-fhoilsiú!"
+msgstr "Stránka je předběžně zveřejněna!"
 
 #: templates/2026/top.html:22 templates/includes/ended.html:5
 #: templates/includes/next_year.html:2 templates/includes/popup_ended.html:8
 msgid "終了しました"
-msgstr "Críochnaithe"
+msgstr "Ukončeno"
 
 #: templates/2026/top.html:25 templates/includes/next_year.html:5
 msgid "先行公開"
-msgstr "Rochtain luath"
+msgstr "Předběžné zveřejnění"
 
 #: templates/2026/top.html:196
 msgid "イベントに関する問い合わせ先"
-msgstr "Teagmháil maidir le himeachtaí"
+msgstr "Kontakt pro událost"
 
 #: templates/2026/top.html:200
 msgid "チケットに関する問い合わせ先"
-msgstr "Teagmháil maidir le ticéid"
+msgstr "Kontakt pro vstupenky"
 
 #: templates/2026/top.html:205
 msgid "なお上記問い合わせ先は、当サイトとは無関係です。"
-msgstr "Níl baint ag an teagmháil thuas leis an suíomh seo."
+msgstr "Výše uvedené kontakty nejsou s tímto webem nijak spojeny."
 
 #: templates/2026/wildcards.html:86
 #, python-brace-format
 msgid ""
 "{Wildcard}シーズン中に、「{NOTWildcard}」を称する動画がまれに投稿されます。これは、正式な{Wildcard}エントリーではないものの、{Wildcard}に似た形式で制作された動画です。要するに、遊んでいるだけです。"
 msgstr ""
-"Le linn an tséasúir {Wildcard}, uaireanta postáiltear físeáin a mhaíonn gur "
-"\"{NOTWildcard}\" iad. Ní iontrálacha {Wildcard} oifigiúla iad seo, ach "
-"físeáin a dhéantar i bhformáid cosúil le {Wildcard}. Go hachomair, níl siad "
-"ach ag spraoi."
+"Během sezóny {Wildcard} jsou občas zveřejňována videa označená jako "
+"\"{NOTWildcard}\". Jedná se o videa, která nejsou oficiálními přihláškami "
+"{Wildcard}, ale jsou vytvořena v podobném formátu jako {Wildcard}. Zkrátka, "
+"jen si hrají."
 
 #: templates/base.html:34 templates/base.html:44 templates/base.html:48
 #, python-brace-format
 msgid ""
 "Swissbeatboxが主催する{HumanBeatbox}の世界大会「{GrandBeatboxBattle}」の各種情報を、見やすくまとめたサイトです。"
 msgstr ""
-"Is suíomh é seo ina bhfuil eolas éagsúil curtha le chéile go soiléir faoi "
-"chomórtas domhanda {HumanBeatbox} an {GrandBeatboxBattle}, atá á eagrú ag "
-"Swissbeatbox."
+"Tento web přehledně shrnuje různé informace o světovém turnaji "
+"\"{GrandBeatboxBattle}\" v {HumanBeatbox}, který pořádá Swissbeatbox."
 
 #: templates/2024/rule.html:22 templates/2024/rule.html:71
 #: templates/2024/rule.html:130 templates/2024/rule.html:228
@@ -1833,81 +1814,79 @@ msgstr ""
 #: templates/includes/next_year.html:5
 #: templates/participant_detail/participant_detail.html:145
 msgid "これだけガイド"
-msgstr "Treoir ghonta"
+msgstr "Tento průvodce"
 
 #: templates/base.html:124
 msgid "年度選択"
-msgstr "Rogha bliana"
+msgstr "Výběr roku"
 
 #: templates/base.html:168 templates/includes/notice.html:5
 msgid "翻訳未提供"
-msgstr "Aistriú nár tugadh"
+msgstr "Překlad není k dispozici"
 
 #: templates/base.html:169
 msgid "このページは翻訳が提供されていません。現在は原文の日本語を表示しています。"
 msgstr ""
-"Níor cuireadh aistriúchán ar fáil don leathanach seo. Tá an téacs bunaidh "
-"Seapánach á thaispeáint faoi láthair."
+"Tato stránka nemá k dispozici překlad. Zobrazuje se původní japonský text."
 
 #: templates/base.html:189
 msgid "GBBまでの残り時間"
-msgstr "Am an fágtha go GBB"
+msgstr "Zbývající čas do GBB"
 
 #: templates/base.html:194 templates/base.html:210
 #: templates/includes/bottom_navigation.html:30
 #: templates/includes/bottom_navigation.html:48
 msgid "なんでも検索"
-msgstr "Aimsigh rud ar bith"
+msgstr "Hledat cokoli"
 
 #: templates/base.html:196 templates/includes/bottom_navigation.html:32
 #, python-brace-format
 msgid "GBB {year} の検索のみ可能です"
-msgstr "Ní féidir ach cuardaigh GBB {year} a dhéanamh"
+msgstr "Je možné hledat pouze GBB {year}"
 
 #: templates/base.html:197 templates/includes/bottom_navigation.html:33
 #, python-brace-format
 msgid "GBB {year} は終了しました"
-msgstr "Tá GBB {year} thart"
+msgstr "GBB {year} bylo ukončeno"
 
 #: templates/base.html:201 templates/includes/bottom_navigation.html:37
 #, python-brace-format
 msgid "例：GBB {year} の最終結果は？"
-msgstr "Sampla: Cad iad torthaí deiridh GBB {year}?"
+msgstr "Příklad: Jaké jsou konečné výsledky GBB {year}?"
 
 #: templates/base.html:206 templates/includes/bottom_navigation.html:42
 msgid "GBB最新情報の検索はこちら"
-msgstr "Cuardaigh an fhaisnéis is déanaí ar GBB anseo"
+msgstr "Hledání nejnovějších informací o GBB je zde"
 
 #: templates/base.html:211 templates/includes/bottom_navigation.html:49
 #, python-brace-format
 msgid "GBB {year} について検索してみよう"
-msgstr "Déanaimis cuardach faoi GBB {year}"
+msgstr "Zkusme hledat o GBB {year}"
 
 #: templates/2024/top.html:30 templates/2024/top_7tosmoke.html:18
 #: templates/2025/top.html:29 templates/2025/top_7tosmoke.html:18
 #: templates/2026/top.html:37 templates/2026/top_7tosmoke.html:18
 #: templates/base.html:214 templates/includes/bottom_navigation.html:52
 msgid "例：現地観戦計画のたてかた"
-msgstr ""
-"Sampla: Conas Pleananna a Dhéanamh chun Féachaint ar Imeachtaí go Pearsanta"
+msgstr "Příklad: Jak naplánovat návštěvu na místě"
 
 #: templates/base.html:224
 msgid "ホーム画面に追加"
-msgstr "Cuir leis an scáileán baile"
+msgstr "Přidat na domovskou obrazovku"
 
 #: templates/base.html:227
 msgid "GBBINFO-JPNはPWAに対応しています。"
-msgstr "Tacaíonn GBBINFO-JPN le PWAanna."
+msgstr "GBBINFO-JPN podporuje PWA."
 
 #: templates/base.html:227
 msgid "ブラウザメニューを開き、「ホーム画面に追加」をタップすると、アプリとしてインストールできます。"
 msgstr ""
-"Oscail an roghchlár brabhsála, agus tapáil ar \"Cuir leis an Scáileán "
-"Baile\" chun é a shuiteáil mar aip."
+"Otevřete nabídku prohlížeče a klepněte na \"Přidat na domovskou obrazovku\","
+" abyste mohli nainstalovat jako aplikaci."
 
 #: templates/base.html:233
 msgid "ホームへもどる"
-msgstr "Filleadh abhaile"
+msgstr "Zpět na domovskou stránku"
 
 #: templates/2024/rule.html:220 templates/2024/timetable.html:99
 #: templates/2024/timetable.html:229 templates/2024/top.html:47
@@ -1925,7 +1904,7 @@ msgstr "Filleadh abhaile"
 #: templates/includes/participants_form.html:13
 #, python-brace-format
 msgid "{Wildcard}結果"
-msgstr "{Wildcard} toradh"
+msgstr "{Wildcard} výsledky"
 
 #: templates/2024/top.html:47 templates/2025/rule.html:67
 #: templates/2025/rule.html:358 templates/2025/stream.html:34
@@ -1938,91 +1917,90 @@ msgstr "{Wildcard} toradh"
 #: templates/2026/wildcards.html:59 templates/base.html:239
 #: templates/common/result.html:108 templates/includes/hamburger_menu.html:9
 msgid "出場者"
-msgstr "Rannpháirtí"
+msgstr "Účastníci"
 
 #: templates/base.html:258
 msgid "GBBINFO-JPN開発者 Twitter"
-msgstr "GBBINFO-JPN Forbróirí Twitter"
+msgstr "Twitter vývojáře GBBINFO-JPN"
 
 #: templates/base.html:260
 msgid "GBBINFO-JPNについて"
-msgstr "GBBINFO-JPN faoi"
+msgstr "O GBBINFO-JPN"
 
 #: templates/base.html:262 templates/others/translation.html:3
 #: templates/others/translation.html:4 templates/others/translation.html:5
 #: templates/others/translation.html:10
 msgid "各ページの翻訳提供について"
-msgstr "Maidir le soláthar aistriúcháin do gach leathanach"
+msgstr "O poskytování překladů na jednotlivých stránkách"
 
 #: templates/base.html:286
 msgid "いい景色だろ？"
-msgstr "Tá an radharc go hálainn, nach ea?"
+msgstr "Krásný výhled, že?"
 
 #: templates/common/404.html:14 templates/common/500.html:14
 msgid "まもなくトップページへリダイレクトされます"
-msgstr "Atáir seo chugat chuig an leathanach baile go luath"
+msgstr "Brzy budete přesměrováni na domovskou stránku"
 
 #: templates/common/404.html:14 templates/common/500.html:14
 msgid "リダイレクトされない場合、以下のボタンをご利用ください"
-msgstr "Mura ndíreofar tú, bain úsáid as an gcnaipe seo a leanas"
+msgstr "Pokud nedojde k přesměrování, použijte prosím následující tlačítko"
 
 #: templates/common/404.html:17 templates/common/500.html:17
 msgid "トップページ"
-msgstr "Príomhleathanach"
+msgstr "Domovská stránka"
 
 #: templates/common/cancels.html:42 templates/common/japan.html:59
 #: templates/common/korea.html:59 templates/common/participants.html:100
 #: templates/common/result.html:96
 msgid "その他の年度を確認："
-msgstr "Seiceáil blianta eile:"
+msgstr "Zkontrolujte další roky:"
 
 #: templates/common/cancels.html:52 templates/common/japan.html:49
 #: templates/common/korea.html:49 templates/common/result.html:106
 msgid "出場権詳細"
-msgstr "Sonraí cáilitheachta"
+msgstr "Podrobnosti o právu účasti"
 
 #: templates/common/cancels.html:53 templates/common/japan.html:51
 #: templates/common/korea.html:51 templates/common/participants.html:91
 #, python-brace-format
 msgid "{Wildcard}結果発表日"
-msgstr "{Wildcard} Dáta Fógartha na dTorthaí"
+msgstr "Datum zveřejnění výsledků {Wildcard}"
 
 #: templates/common/japan.html:43
 msgid "日本代表なし"
-msgstr "Gan ionadaíocht ón tSeapáin"
+msgstr "Žádný japonský zástupce"
 
 #: templates/common/japan.html:54 templates/common/korea.html:54
 #: templates/common/participants.html:131
 msgid "出場者世界地図"
-msgstr "Léarscáil dhomhanda na n-iomaitheoirí"
+msgstr "Světová mapa účastníků"
 
 #: templates/common/japan.html:55 templates/common/korea.html:55
 #: templates/common/participants.html:132
 msgid "国旗をタップorクリックすると、詳細を確認できます。"
-msgstr ""
-"Is féidir leat sonraí a fheiceáil trí chliceáil nó faucet ar an mbratach."
+msgstr "Klepnutím nebo kliknutím na vlajku můžete zobrazit podrobnosti."
 
 #: templates/common/korea.html:43
 msgid "韓国代表なし"
-msgstr "An Chóiré Theas gan ionadaíocht"
+msgstr "Žádný jihokorejský zástupce"
 
 #: templates/common/participants.html:26
 msgid "シード権獲得者"
-msgstr "Rannpháirtithe a bhain an ceart síl amach"
+msgstr "Držitelé seed práva"
 
 #: templates/common/participants.html:32
 #: templates/includes/participants_form.html:20
 msgid "出場者のみ"
-msgstr "Rannpháirtithe amháin"
+msgstr "Pouze účastníci"
 
 #: templates/common/participants.html:34
 #: templates/includes/participants_form.html:21
 msgid "辞退者のみ"
-msgstr "Daoine a dhiúltaigh amháin"
+msgstr "Pouze ti, kteří odstoupili"
 
 #: templates/common/participants.html:36
 msgid "出場者 & 辞退者を表示"
-msgstr "Taispeáin rannpháirtithe & tarraingthe siar"
+msgstr "Zobrazit účastníky a ty, kteří odstoupili"
 
 #: templates/common/participants.html:43
 #: templates/participant_detail/participant_detail.html:41
@@ -2030,195 +2008,194 @@ msgstr "Taispeáin rannpháirtithe & tarraingthe siar"
 #: templates/participant_detail/participant_detail.html:123
 #: templates/participant_detail/participant_detail.html:217
 msgid "国"
-msgstr "Tír"
+msgstr "Země"
 
 #: templates/common/participants.html:109
 #: templates/common/participants.html:112
 msgid "出場者検索"
-msgstr "Cuardach rannpháirtí"
+msgstr "Vyhledávání účastníků"
 
 #: templates/common/participants.html:110
 msgid "出場者名を検索できます"
-msgstr "Is féidir leat ainmneacha na rannpháirtithe a chuardach"
+msgstr "Můžete hledat jména účastníků"
 
 #: templates/common/participants.html:110
 msgid "半角英数字推奨"
-msgstr "Le haghaidh leath-leithead alphanumeric molta"
+msgstr "Doporučujeme alfanumerické znaky"
 
 #: templates/common/participants.html:117
 msgid "検索結果"
-msgstr "Torthaí cuardaigh"
+msgstr "Výsledky vyhledávání"
 
 #: templates/common/participants.html:132
 msgid "全出場者を地図にマッピングしました。"
-msgstr "Ghlacamar na rannpháirtithe go léir leis an léarscáil."
+msgstr "Všichni účastníci byli zobrazeni na mapě."
 
 #: templates/common/result.html:19 templates/common/result.html:86
 #: templates/includes/participants_form.html:3
 msgid "部門選択"
-msgstr "Rogha Roinne"
+msgstr "Výběr kategorie"
 
 #: templates/common/result.html:29
 #, python-brace-format
 msgid "{SHOWCASE}部門は、バトルを行わないため、結果はありません。"
-msgstr ""
-"Níl aon torthaí don rannóg {SHOWCASE} toisc nach mbíonn cathanna ar siúl."
+msgstr "Kategorie {SHOWCASE} nekoná souboje, takže nejsou žádné výsledky."
 
 #: templates/common/result.html:36
 msgid "勝ち"
-msgstr "bua"
+msgstr "Výhra"
 
 #: templates/common/result.html:38
 msgid "負け"
-msgstr "caillteanas"
+msgstr "Prohra"
 
 #: templates/common/result.html:64
 msgid "順位"
-msgstr "Rangú"
+msgstr "Pořadí"
 
 #: templates/includes/bottom_navigation.html:24
 msgid "さがす"
-msgstr "cuardaigh"
+msgstr "Hledat"
 
 #: templates/includes/bottom_navigation.html:24
 msgid "とじる"
-msgstr "dún"
+msgstr "Zavřít"
 
 #: templates/includes/early_access.html:3
 #: templates/includes/popup_early_access.html:3
 msgid "先行公開中"
-msgstr "Rochtain luath ar fáil"
+msgstr "Předběžně zveřejněno"
 
 #: templates/includes/early_access.html:4
 #: templates/includes/popup_early_access.html:4
 #, python-brace-format
 msgid "ここは、まだ情報が少ないGBB {year} のページです"
-msgstr "Is seo leathanach GBB {year} nach bhfuil mórán faisnéise ann fós"
+msgstr "Toto je stránka GBB {year}, která má zatím málo informací"
 
 #: templates/includes/early_access.html:6
 #: templates/includes/popup_early_access.html:6
 #, python-brace-format
 msgid "GBB {year} の情報はこちら"
-msgstr "Faisnéis faoi GBB {year} anseo"
+msgstr "Informace o GBB {year} jsou zde"
 
 #: templates/includes/ended.html:3 templates/includes/popup_ended.html:6
 msgid "中止"
-msgstr "Cealaigh"
+msgstr "Zrušeno"
 
 #: templates/includes/ended.html:6 templates/includes/popup_ended.html:9
 #, python-brace-format
 msgid "ここは、すでに終了したGBB {year} のページです"
-msgstr "Seo leathanach de na GBB {year} a chríochnaigh cheana féin"
+msgstr "Toto je stránka GBB {year}, které již skončilo"
 
 #: templates/includes/ended.html:9 templates/includes/popup_ended.html:12
 msgid "GBB最新情報はこちら"
-msgstr "GBB is féidir leat faisnéis is déanaí anseo a fháil"
+msgstr "Nejnovější informace o GBB jsou zde"
 
 #: templates/includes/hamburger_menu.html:3
 #: templates/includes/hamburger_menu.html:6
 msgid "メニュー"
-msgstr "biachlár"
+msgstr "Nabídka"
 
 #: templates/includes/notice.html:4
 msgid "管理人からのお知らせ"
-msgstr "Fógra ón riarthóir"
+msgstr "Oznámení od správce"
 
 #: templates/includes/participants_form.html:10
 msgid "情報選択"
-msgstr "roghnú faisnéise"
+msgstr "Výběr informací"
 
 #: templates/includes/participants_form.html:12
 msgid "全出場者"
-msgstr "Gach iomaitheoir"
+msgstr "Všichni účastníci"
 
 #: templates/includes/participants_form.html:14
 msgid "シード権"
-msgstr "Síolrátha"
+msgstr "Seed právo"
 
 #: templates/includes/participants_form.html:17
 msgid "表示選択"
-msgstr "Rogha taispeána"
+msgstr "Výběr zobrazení"
 
 #: templates/includes/participants_form.html:19
 msgid "出場者・辞退者"
-msgstr "Lucht Rannpháirtíochta / Aistarraingthe"
+msgstr "Účastníci a ti, kteří odstoupili"
 
 #: templates/includes/popup_no_info.html:5
 msgid "情報なし"
-msgstr "Eolas ar bith"
+msgstr "Žádné informace"
 
 #: templates/includes/popup_no_info.html:9
 msgid "お探しの情報は、公式発表がまだ無いため、当サイトのどこにも存在しません。"
 msgstr ""
-"Níl an fhaisnéis atá á lorg agat ar an suíomh seo mar nach bhfuil aon fhógra"
-" oifigiúil ann go fóill."
+"Informace, které hledáte, na tomto webu neexistují, protože oficiální "
+"oznámení ještě nebylo zveřejněno."
 
 #: templates/includes/popup_no_info.html:9
 msgid "公式発表をお待ちください。"
-msgstr "Fanacht ar fhógra oifigiúil."
+msgstr "Prosím, počkejte na oficiální oznámení."
 
 #: templates/others/translation.html:11
 msgid "GBBINFO-JPNは、一部を除き、各ページの翻訳をAI Geminiを用いて提供しています。"
 msgstr ""
-"Tugann GBBINFO-JPN aistriúcháin ar gach leathanach, seachas roinnt, ag baint"
-" úsáide as AI Gemini."
+"GBBINFO-JPN poskytuje překlady na jednotlivých stránkách pomocí AI Gemini, s"
+" výjimkou některých částí."
 
 #: templates/others/translation.html:12
 msgid "AIによる翻訳のため、誤りがある可能性があります。"
-msgstr "D’fhéadfadh botúin a bheith ann mar gheall ar aistriúchán AI."
+msgstr ""
+"Vzhledem k tomu, že se jedná o překlad pomocí AI, mohou se vyskytovat chyby."
 
 #: templates/others/translation.html:13
 msgid "翻訳を提供しているページは、以下の通りです。"
-msgstr "Seo iad na leathanaigh a sholáthraíonn aistriúcháin."
+msgstr "Stránky, které poskytují překlady, jsou následující."
 
 #: templates/others/translation.html:16
 msgid "対応年度：2024年以降"
-msgstr "Bliain atá le teacht: 2024 ar aghaidh"
+msgstr "Podporované roky: 2024 a později"
 
 #: templates/others/translation.html:30
 msgid "なお、翻訳対応言語は、アクセス状況に応じて随時追加予定です。"
 msgstr ""
-"Ina theannta sin, tá sé beartaithe teangacha a thacaíonn le haistriúchán a "
-"chur leis go tráthrialta ag brath ar an staid rochtana."
+"Jazyky s podporou překladu budou přidávány podle přístupů podle potřeby."
 
 #: templates/others/translation.html:32
 msgid "翻訳を提供していないページは、原文である日本語で表示されます。"
 msgstr ""
-"Leathanaigh nach soláthraíonn aistriúchán, cuirfear iad ar taispeáint sa "
-"bhunleagan, is é sin Seapáinis."
+"Stránky, které nemají k dispozici překlad, se zobrazují v původním japonském"
+" textu."
 
 #: templates/participant_detail/participant_detail.html:148
 msgid "過去の出場履歴"
-msgstr "Stair rannpháirtíochta roimhe seo"
+msgstr "Historie minulých účastí"
 
 #: templates/participant_detail/participant_detail.html:193
 msgid "関連サイト"
-msgstr "Suíomhanna gaolmhara"
+msgstr "Související weby"
 
 #: templates/participant_detail/participant_detail.html:201
 msgid "表示されている関連サイトやSNS情報・紹介文は、自動検索によって取得されたものです。"
 msgstr ""
-"Is iad na suíomhanna gaolmhara agus an fhaisnéis meán sóisialta/cur síos a "
-"thaispeántar na cinn a fuarthas trí chuardach uathoibríoch."
+"Zobrazené související weby, informace o SNS a popisy byly získány "
+"automatickým vyhledáváním."
 
 #: templates/participant_detail/participant_detail.html:202
 msgid "内容に誤りが含まれている可能性があります。"
-msgstr "D'fhéadfadh earráidí a bheith sa t-ábhar."
+msgstr "Obsah může obsahovat chyby."
 
 #: templates/participant_detail/participant_detail.html:207
 msgid "もっと調べる"
-msgstr "Tuilleadh eolais"
+msgstr "Zjistit více"
 
 #: templates/participant_detail/participant_detail.html:207
 #: templates/participant_detail/participant_detail.html:210
 #, python-brace-format
 msgid "{name}について、詳しく調べてください"
-msgstr "{name} faoi, déan tuilleadh imscrúdaithe"
+msgstr "Prosím, zjistěte více o {name}"
 
 #: templates/participant_detail/participant_detail.html:210
 msgid "ChatGPTに聞く"
-msgstr "Fiafraigh de ChatGPT"
+msgstr "Zeptat se ChatGPT"
 
 #: templates/participant_detail/participant_detail.html:213
 msgid "他の出場者"
-msgstr "na iomaitheoirí eile"
+msgstr "Jiní účastníci"
