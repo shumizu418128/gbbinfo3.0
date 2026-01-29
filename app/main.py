@@ -396,10 +396,11 @@ def health_check():
 ####################################################################
 @app.errorhandler(404)
 def not_found(error):
-    print(
-        f"404 Not Found: {request.path} | {request.referrer} | {request.user_agent}",
-        flush=True,
-    )
+    if request.referrer:
+        print(
+            f"404 Not Found: {request.path} | {request.referrer} | {request.user_agent}",
+            flush=True,
+        )
     return common.not_found_page_view()
 
 
