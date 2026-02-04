@@ -1,19 +1,19 @@
 {% extends "base.html" %}
-{% block title %}GBB {{ year }} タイムテーブル - GBBINFO-JPN{% endblock %}
-{% block twitter_title %}GBB {{ year }} タイムテーブル - GBBINFO-JPN{% endblock %}
-{% block og_title %}GBB {{ year }} タイムテーブル - GBBINFO-JPN{% endblock %}
+{% block title %}GBB {{ year }} {{_("タイムテーブル")}} - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBB {{ year }} {{_("タイムテーブル")}} - GBBINFO-JPN{% endblock %}
+{% block og_title %}GBB {{ year }} {{_("タイムテーブル")}} - GBBINFO-JPN{% endblock %}
 {% block og_url %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/timetable{% endblock %}
 {% block canonical %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/timetable{% endblock %}
 {% block content %}
-<h1>GBB {{ year }} タイムテーブル</h1>
+<h1>GBB {{ year }} {{_("タイムテーブル")}}</h1>
 
-<p>GBB 2021 開催中、有志の方のご協力により、実際のタイムスタンプを記録しました。</p>
-<a href="https://drive.google.com/file/d/1b8VgRrqR--ePsVqJxva0jWMMvNcNGByy/view" target="_blank" rel="noopener noreferrer">GBB 2021 タイムテーブル PDF版</a>
-<p>なお、7toSmokeのタイムスタンプ記録はありません。</p>
-<p>また、本来発表されていた予定時刻から、ほぼすべてのプログラムが2時間遅れでスタートしています。</p>
+<p>{{_("GBB 2021 開催中、有志の方のご協力により、実際のタイムスタンプを記録しました。")}}</p>
+<a href="https://drive.google.com/file/d/1b8VgRrqR--ePsVqJxva0jWMMvNcNGByy/view" target="_blank" rel="noopener noreferrer">GBB 2021 {{_("タイムテーブル")}} PDF</a>
+<p>{{_("なお、7toSmokeのタイムスタンプ記録はありません。")}}</p>
+<p>{{_("また、本来発表されていた予定時刻から、ほぼすべてのプログラムが2時間遅れでスタートしています。")}}</p>
 
 <div>
-  <h2>目次</h2>
+  <h2>{{_("目次")}}</h2>
 
   <ol>
     <li>
@@ -32,24 +32,24 @@
 </div>
 
 <div class="button-container">
-  <a href="/{{ language }}/others/how_to_plan"><button>現地観戦計画のたてかた</button></a>
-  <a href="/{{ language }}/{{ year }}/top"><button>GBB {{ year }} これだけガイド</button></a>
+  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/top"><button>GBB {{ year }} {{_("これだけガイド")}}</button></a>
 </div>
 
 <h2 id="day1">Day1 - 10/22</h2>
 <table>
   <thead>
     <tr>
-      <th>ワルシャワ時間</th>
-      <th>日本時間</th>
-      <th>内容</th>
+      <th>{{_("ワルシャワ時間")}}</th>
+      <th>{{_("日本時間")}}</th>
+      <th>{{_("内容")}}</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>19:41</td>
       <td>2:41</td>
-      <td>Loopstation 予選</td>
+      <td>Loopstation {{_("予選")}}</td>
     </tr>
     <tr>
       <td>21:47</td>
@@ -59,7 +59,7 @@
     <tr>
       <td>23:27</td>
       <td>6:27</td>
-      <td>Solo 予選</td>
+      <td>Solo {{_("予選")}}</td>
     </tr>
     <tr>
       <td>1:56</td>
@@ -70,29 +70,29 @@
 </table>
 
 <div class="button-container">
-  <a href="/{{ language }}/others/how_to_plan"><button>現地観戦計画のたてかた</button></a>
-  <a href="/{{ language }}/{{ year }}/top"><button>GBB {{ year }} これだけガイド</button></a>
+  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/top"><button>GBB {{ year }} {{_("これだけガイド")}}</button></a>
 </div>
 
 <h2 id="day2">Day2 - 10/23</h2>
 <table>
   <thead>
     <tr>
-      <th>ワルシャワ時間</th>
-      <th>日本時間</th>
-      <th>内容</th>
+      <th>{{_("ワルシャワ時間")}}</th>
+      <th>{{_("日本時間")}}</th>
+      <th>{{_("内容")}}</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>19:04</td>
       <td>2:04</td>
-      <td>Tag Team Loopstation 予選</td>
+      <td>Tag Team Loopstation {{_("予選")}}</td>
     </tr>
     <tr>
       <td>19:41</td>
       <td>2:41</td>
-      <td>Tag Team 予選</td>
+      <td>Tag Team {{_("予選")}}</td>
     </tr>
     <tr>
       <td>21:47</td>
@@ -102,12 +102,12 @@
     <tr>
       <td>22:05</td>
       <td>5:05</td>
-      <td>Loopstation 準々決勝</td>
+      <td>Loopstation {{_("準々決勝")}}</td>
     </tr>
     <tr>
       <td>23:35</td>
       <td>6:35</td>
-      <td>Solo 決勝トーナメント1回戦</td>
+      <td>Solo {{_("決勝トーナメント1回戦")}}</td>
     </tr>
     <tr>
       <td>1:01</td>
@@ -118,17 +118,17 @@
 </table>
 
 <div class="button-container">
-  <a href="/{{ language }}/others/how_to_plan"><button>現地観戦計画のたてかた</button></a>
-  <a href="/{{ language }}/{{ year }}/top"><button>GBB {{ year }} これだけガイド</button></a>
+  <a href="/{{ language }}/others/how_to_plan"><button>{{_("現地観戦計画のたてかた")}}</button></a>
+  <a href="/{{ language }}/{{ year }}/top"><button>GBB {{ year }} {{_("これだけガイド")}}</button></a>
 </div>
 
 <h2 id="day3">Day3 - 10/24</h2>
 <table>
   <thead>
     <tr>
-      <th>ワルシャワ時間</th>
-      <th>日本時間</th>
-      <th>内容</th>
+      <th>{{_("ワルシャワ時間")}}</th>
+      <th>{{_("日本時間")}}</th>
+      <th>{{_("内容")}}</th>
     </tr>
   </thead>
   <tbody>
@@ -140,12 +140,12 @@
     <tr>
       <td>19:39</td>
       <td>2:39</td>
-      <td>Crew 予選</td>
+      <td>Crew {{_("予選")}}</td>
     </tr>
     <tr>
       <td>20:30</td>
       <td>3:30</td>
-      <td>Loopstation 準決勝・3位決定戦・決勝</td>
+      <td>Loopstation {{_("準決勝・3位決定戦・決勝")}}</td>
     </tr>
     <tr>
       <td>23:00</td>
@@ -155,12 +155,12 @@
     <tr>
       <td>0:15</td>
       <td>7:15</td>
-      <td>Tag Team 準決勝・3位決定戦・決勝</td>
+      <td>Tag Team {{_("準決勝・3位決定戦・決勝")}}</td>
     </tr>
     <tr>
       <td>1:03</td>
       <td>8:03</td>
-      <td>Solo 準々決勝・準決勝・3位決定戦・決勝</td>
+      <td>Solo {{_("準々決勝・準決勝・3位決定戦・決勝")}}</td>
     </tr>
     <tr>
       <td>2:30</td>
@@ -170,7 +170,7 @@
   </tbody>
 </table>
 
-<p>GBB 2021 を現地観戦した当サイト管理人の記憶では、Day3 最後のSHOWCASEが終わり、優勝セレモニーも終わった後会場の外に出たところ、きれいな日の出が見えました。それと同時に、頭がくらくらしてきたことも覚えています。</p>
-<p>ホテルに戻って時計を見ると、ワルシャワ時間の朝5時でした。</p>
+<p>{{_("GBB 2021 を現地観戦した当サイト管理人の記憶では、Day3 最後のSHOWCASEが終わり、優勝セレモニーも終わった後会場の外に出たところ、きれいな日の出が見えました。それと同時に、頭がくらくらしてきたことも覚えています。")}}</p>
+<p>{{_("ホテルに戻って時計を見ると、ワルシャワ時間の朝5時でした。")}}</p>
 
 {% endblock %}
