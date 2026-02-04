@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-04 18:48+0900\n"
+"POT-Creation-Date: 2026-02-04 21:03+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: hu <LL@li.org>\n"
@@ -106,7 +106,7 @@ msgstr "Tartalom"
 #: templates/2025/timetable.html:84 templates/2025/timetable.html:141
 #: templates/2025/timetable.html:145
 msgid "予選"
-msgstr "előzetes"
+msgstr "Selejtező"
 
 #: templates/2021/timetable.html:105 templates/2024/timetable.html:134
 #: templates/2024/timetable.html:195 templates/2025/timetable.html:133
