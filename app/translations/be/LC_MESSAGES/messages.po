@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-04 18:09+0900\n"
+"POT-Creation-Date: 2026-02-04 18:22+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: be <LL@li.org>\n"
@@ -106,7 +106,7 @@ msgstr "Змест"
 #: templates/2025/timetable.html:84 templates/2025/timetable.html:141
 #: templates/2025/timetable.html:145
 msgid "予選"
-msgstr "адбора"
+msgstr "Адбор"
 
 #: templates/2021/timetable.html:105 templates/2024/timetable.html:134
 #: templates/2024/timetable.html:195 templates/2025/timetable.html:133
@@ -121,11 +121,11 @@ msgstr "1-ы раўнд фінальнага турніру"
 #: templates/2021/timetable.html:148 templates/2021/timetable.html:158
 #: templates/2024/timetable.html:191 templates/2025/timetable.html:191
 msgid "準決勝・3位決定戦・決勝"
-msgstr "Паўфінал・Матч за 3-е месца・Фінал"
+msgstr "Паўфінал, Матч за 3-е месца, Фінал"
 
 #: templates/2021/timetable.html:163
 msgid "準々決勝・準決勝・3位決定戦・決勝"
-msgstr "Чвэрцьфінал・Паўфінал・Матч за 3-е месца・Фінал"
+msgstr "Чвэрцьфінал, Паўфінал, Матч за 3-е месца, Фінал"
 
 #: templates/2021/timetable.html:173
 msgid ""

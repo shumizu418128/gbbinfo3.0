@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-04 18:09+0900\n"
+"POT-Creation-Date: 2026-02-04 18:22+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ms <LL@li.org>\n"
@@ -74,7 +74,7 @@ msgstr "Kandungan"
 #: templates/2025/top_7tosmoke.html:34 templates/2025/wildcards.html:112
 #: templates/2026/wildcards.html:76 templates/includes/hamburger_menu.html:24
 msgid "現地観戦計画のたてかた"
-msgstr "Cara merancang rancangan menonton secara langsung"
+msgstr "Cara menyusun rencana menonton langsung di lokasi"
 
 #: templates/2021/timetable.html:43 templates/2021/timetable.html:81
 #: templates/2021/timetable.html:129
@@ -125,7 +125,7 @@ msgstr "Separuh akhir, penentuan tempat ketiga, akhir"
 
 #: templates/2021/timetable.html:163
 msgid "準々決勝・準決勝・3位決定戦・決勝"
-msgstr "Perempat akhir, separuh akhir, penentuan tempat ketiga, akhir"
+msgstr "Suku akhir, separuh akhir, penentuan tempat ketiga, akhir"
 
 #: templates/2021/timetable.html:173
 msgid ""

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-04 18:09+0900\n"
+"POT-Creation-Date: 2026-02-04 18:22+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: hi <LL@li.org>\n"
@@ -105,7 +105,7 @@ msgstr "सामग्री"
 #: templates/2025/timetable.html:84 templates/2025/timetable.html:141
 #: templates/2025/timetable.html:145
 msgid "予選"
-msgstr "प्रारंभिक दौर/क्वालीफाइंग राउंड (Qualifying Round)"
+msgstr "प्रारंभिक दौर"
 
 #: templates/2021/timetable.html:105 templates/2024/timetable.html:134
 #: templates/2024/timetable.html:195 templates/2025/timetable.html:133

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-04 18:09+0900\n"
+"POT-Creation-Date: 2026-02-04 18:22+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: es <LL@li.org>\n"
@@ -123,11 +123,11 @@ msgstr "Primera ronda del torneo final"
 #: templates/2021/timetable.html:148 templates/2021/timetable.html:158
 #: templates/2024/timetable.html:191 templates/2025/timetable.html:191
 msgid "準決勝・3位決定戦・決勝"
-msgstr "Semifinales・Partido por el tercer lugar・Final"
+msgstr "Semifinales, Partido por el tercer lugar, Final"
 
 #: templates/2021/timetable.html:163
 msgid "準々決勝・準決勝・3位決定戦・決勝"
-msgstr "Cuartos de final・Semifinales・Partido por el tercer lugar・Final"
+msgstr "Cuartos de final, Semifinales, Partido por el tercer lugar, Final"
 
 #: templates/2021/timetable.html:173
 msgid ""

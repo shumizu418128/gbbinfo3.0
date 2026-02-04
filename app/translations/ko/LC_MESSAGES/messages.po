@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-04 18:09+0900\n"
+"POT-Creation-Date: 2026-02-04 18:22+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -121,7 +121,7 @@ msgstr "준결승・3위 결정전・결승"
 
 #: templates/2021/timetable.html:163
 msgid "準々決勝・準決勝・3位決定戦・決勝"
-msgstr "준준결승・준결승・3위 결정전・결승"
+msgstr "8강전・준결승・3위 결정전・결승"
 
 #: templates/2021/timetable.html:173
 msgid ""
