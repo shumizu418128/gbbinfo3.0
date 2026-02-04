@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-26 15:14+0900\n"
+"POT-Creation-Date: 2026-02-04 18:09+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ta <LL@li.org>\n"
@@ -17,6 +17,135 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.17.0\n"
+
+#: templates/2021/timetable.html:2 templates/2021/timetable.html:3
+#: templates/2021/timetable.html:4 templates/2021/timetable.html:8
+#: templates/2021/timetable.html:11 templates/2024/stream.html:41
+#: templates/2024/timetable.html:3 templates/2024/timetable.html:4
+#: templates/2024/timetable.html:5 templates/2024/timetable.html:9
+#: templates/2024/top.html:17 templates/2024/top.html:57
+#: templates/2024/top_7tosmoke.html:35 templates/2025/stream.html:38
+#: templates/2025/ticket.html:23 templates/2025/timetable.html:3
+#: templates/2025/timetable.html:4 templates/2025/timetable.html:5
+#: templates/2025/timetable.html:10 templates/2025/top.html:17
+#: templates/2025/top.html:107 templates/2025/top_7tosmoke.html:37
+#: templates/2026/stream.html:22 templates/2026/timetable.html:3
+#: templates/2026/timetable.html:4 templates/2026/timetable.html:5
+#: templates/2026/timetable.html:10 templates/2026/timetable.html:20
+#: templates/2026/top.html:17 templates/2026/top.html:111
+#: templates/2026/top_7tosmoke.html:37
+#: templates/includes/hamburger_menu.html:14
+#: templates/others/translation.html:20
+msgid "タイムテーブル"
+msgstr "கால அட்டவணை"
+
+#: templates/2021/timetable.html:10
+msgid "GBB 2021 開催中、有志の方のご協力により、実際のタイムスタンプを記録しました。"
+msgstr ""
+"GBB 2021 நடந்து கொண்டிருந்த போது, சில தன்னார்வலர்களின் உதவியால் நாங்கள் "
+"உண்மையான நேர முத்திரைகளை பதிவு செய்தோம்."
+
+#: templates/2021/timetable.html:12
+msgid "なお、7toSmokeのタイムスタンプ記録はありません。"
+msgstr "அத்துடன், 7toSmoke க்கான தனியான நேர முத்திரைப் பதிவு எங்களிடம் இல்லை."
+
+#: templates/2021/timetable.html:13
+msgid "また、本来発表されていた予定時刻から、ほぼすべてのプログラムが2時間遅れでスタートしています。"
+msgstr ""
+"மேலும், முதலில் அறிவிக்கப்பட்ட திட்டமிட்ட நேரத்திலிருந்து பெரும்பாலான "
+"அனைத்து நிகழ்ச்சிகளும் சுமார் இரண்டு மணி நேரம் தாமதமாகத் தொடங்கின."
+
+#: templates/2021/timetable.html:16 templates/2024/rule.html:26
+#: templates/2024/timetable.html:16 templates/2025/rule.html:26
+#: templates/2025/timetable.html:18 templates/2025/wildcard_regulation.html:26
+#: templates/2026/rule.html:24 templates/2026/timetable.html:27
+msgid "目次"
+msgstr "அட்டவணை"
+
+#: templates/2021/timetable.html:35 templates/2021/timetable.html:73
+#: templates/2021/timetable.html:121 templates/2024/rule.html:21
+#: templates/2024/rule.html:70 templates/2024/rule.html:129
+#: templates/2024/rule.html:227 templates/2024/rule.html:268
+#: templates/2024/rule.html:313 templates/2024/stream.html:42
+#: templates/2024/timetable.html:42 templates/2024/timetable.html:156
+#: templates/2024/timetable.html:286 templates/2024/top.html:53
+#: templates/2024/top_7tosmoke.html:34 templates/2025/rule.html:18
+#: templates/2025/rule.html:66 templates/2025/rule.html:238
+#: templates/2025/rule.html:301 templates/2025/rule.html:357
+#: templates/2025/rule.html:399 templates/2025/stream.html:42
+#: templates/2025/timetable.html:100 templates/2025/timetable.html:236
+#: templates/2025/timetable.html:277 templates/2025/top.html:155
+#: templates/2025/top_7tosmoke.html:34 templates/2025/wildcards.html:112
+#: templates/2026/wildcards.html:76 templates/includes/hamburger_menu.html:24
+msgid "現地観戦計画のたてかた"
+msgstr "நேரில் பார்வைத் திட்டத்தை அமைப்பது எப்படி"
+
+#: templates/2021/timetable.html:43 templates/2021/timetable.html:81
+#: templates/2021/timetable.html:129
+msgid "ワルシャワ時間"
+msgstr "வர்சாவா நேரம்"
+
+#: templates/2021/timetable.html:44 templates/2021/timetable.html:82
+#: templates/2021/timetable.html:130
+msgid "日本時間"
+msgstr "ஜப்பான் நேரம்"
+
+#: templates/2021/timetable.html:45 templates/2021/timetable.html:83
+#: templates/2021/timetable.html:131 templates/2024/timetable.html:51
+#: templates/2024/timetable.html:108 templates/2024/timetable.html:165
+#: templates/2024/timetable.html:238 templates/2025/timetable.html:42
+#: templates/2025/timetable.html:111 templates/2025/timetable.html:169
+#: templates/2025/timetable.html:251 templates/2026/timetable.html:49
+#: templates/2026/timetable.html:77 templates/2026/timetable.html:105
+#: templates/2026/timetable.html:133
+msgid "内容"
+msgstr "உள்ளடக்கம்"
+
+#: templates/2021/timetable.html:52 templates/2021/timetable.html:62
+#: templates/2021/timetable.html:90 templates/2021/timetable.html:95
+#: templates/2021/timetable.html:143 templates/2024/timetable.html:77
+#: templates/2024/timetable.html:81 templates/2024/timetable.html:85
+#: templates/2024/timetable.html:146 templates/2024/timetable.html:252
+#: templates/2025/timetable.html:64 templates/2025/timetable.html:68
+#: templates/2025/timetable.html:84 templates/2025/timetable.html:141
+#: templates/2025/timetable.html:145
+msgid "予選"
+msgstr "தகுதிச் சுற்று"
+
+#: templates/2021/timetable.html:105 templates/2024/timetable.html:134
+#: templates/2024/timetable.html:195 templates/2025/timetable.html:133
+#: templates/2025/timetable.html:195
+msgid "準々決勝"
+msgstr "கால் இறுதி"
+
+#: templates/2021/timetable.html:110
+msgid "決勝トーナメント1回戦"
+msgstr "இறுதி நாக்அவுட் தொடரின் முதல் சுற்று"
+
+#: templates/2021/timetable.html:148 templates/2021/timetable.html:158
+#: templates/2024/timetable.html:191 templates/2025/timetable.html:191
+msgid "準決勝・3位決定戦・決勝"
+msgstr "அரையிறுதி, மூன்றாம் இடத்திற்கான போட்டி, இறுதிப் போட்டி"
+
+#: templates/2021/timetable.html:163
+msgid "準々決勝・準決勝・3位決定戦・決勝"
+msgstr "கால் இறுதி・அரையிறுதி・மூன்றாம் இடத்திற்கான போட்டி・இறுதிப் போட்டி"
+
+#: templates/2021/timetable.html:173
+msgid ""
+"GBB 2021 を現地観戦した当サイト管理人の記憶では、Day3 "
+"最後のSHOWCASEが終わり、優勝セレモニーも終わった後会場の外に出たところ、きれいな日の出が見えました。それと同時に、頭がくらくらしてきたことも覚えています。"
+msgstr ""
+"இந்த தளத்தின் நிர்வாகியான நான் GBB 2021 போட்டியை நேரில் பார்த்த நினைவில், "
+"மூன்றாம் நாள் கடைசி SHOWCASE முடிந்து, வெற்றியாளர் பாராட்டு விழாவும் முடிந்த"
+" பிறகு வெளியில் வந்தபோது, அழகான சூரிய உதயம் கண்ணில் பட்டது. அதே சமயத்தில், "
+"எனக்கு தலை சுழல்வது போலவும் உணர்ந்தேன்."
+
+#: templates/2021/timetable.html:174
+msgid "ホテルに戻って時計を見ると、ワルシャワ時間の朝5時でした。"
+msgstr ""
+"ஹோட்டலுக்குத் திரும்பி மணியைக் பார்த்தபோது, அது வர்சாவா நேரப்படி அதிகாலை 5 "
+"மணி."
 
 #: templates/2024/rule.html:3 templates/2024/rule.html:4
 #: templates/2024/rule.html:5 templates/2024/rule.html:9
@@ -53,30 +182,6 @@ msgstr ""
 #: templates/2025/wildcard_regulation.html:13
 msgid "ソースサイト："
 msgstr "மூலத்தளம்:"
-
-#: templates/2024/rule.html:21 templates/2024/rule.html:70
-#: templates/2024/rule.html:129 templates/2024/rule.html:227
-#: templates/2024/rule.html:268 templates/2024/rule.html:313
-#: templates/2024/stream.html:42 templates/2024/timetable.html:42
-#: templates/2024/timetable.html:156 templates/2024/timetable.html:286
-#: templates/2024/top.html:53 templates/2024/top_7tosmoke.html:34
-#: templates/2025/rule.html:18 templates/2025/rule.html:66
-#: templates/2025/rule.html:238 templates/2025/rule.html:301
-#: templates/2025/rule.html:357 templates/2025/rule.html:399
-#: templates/2025/stream.html:42 templates/2025/timetable.html:100
-#: templates/2025/timetable.html:236 templates/2025/timetable.html:277
-#: templates/2025/top.html:155 templates/2025/top_7tosmoke.html:34
-#: templates/2025/wildcards.html:112 templates/2026/wildcards.html:76
-#: templates/includes/hamburger_menu.html:24
-msgid "現地観戦計画のたてかた"
-msgstr "நேரில் பார்வைத் திட்டத்தை அமைப்பது எப்படி"
-
-#: templates/2024/rule.html:26 templates/2024/timetable.html:16
-#: templates/2025/rule.html:26 templates/2025/timetable.html:18
-#: templates/2025/wildcard_regulation.html:26 templates/2026/rule.html:24
-#: templates/2026/timetable.html:27
-msgid "目次"
-msgstr "அட்டவணை"
 
 #: templates/2024/rule.html:30 templates/2024/rule.html:55
 #: templates/2024/wildcards.html:71 templates/2025/rule.html:29
@@ -462,24 +567,6 @@ msgstr "GBB {year} இன் சமீபத்திய தகவல்கள�
 msgid "{Wildcard}結果 & 出場者"
 msgstr "{Wildcard}முடிவுகள் & பங்கேற்பாளர்கள்"
 
-#: templates/2024/stream.html:41 templates/2024/timetable.html:3
-#: templates/2024/timetable.html:4 templates/2024/timetable.html:5
-#: templates/2024/timetable.html:9 templates/2024/top.html:17
-#: templates/2024/top.html:57 templates/2024/top_7tosmoke.html:35
-#: templates/2025/stream.html:38 templates/2025/ticket.html:23
-#: templates/2025/timetable.html:3 templates/2025/timetable.html:4
-#: templates/2025/timetable.html:5 templates/2025/timetable.html:10
-#: templates/2025/top.html:17 templates/2025/top.html:107
-#: templates/2025/top_7tosmoke.html:37 templates/2026/stream.html:22
-#: templates/2026/timetable.html:3 templates/2026/timetable.html:4
-#: templates/2026/timetable.html:5 templates/2026/timetable.html:10
-#: templates/2026/timetable.html:20 templates/2026/top.html:17
-#: templates/2026/top.html:111 templates/2026/top_7tosmoke.html:37
-#: templates/includes/hamburger_menu.html:14
-#: templates/others/translation.html:20
-msgid "タイムテーブル"
-msgstr "கால அட்டவணை"
-
 #: templates/2024/ticket.html:3 templates/2024/ticket.html:4
 #: templates/2024/ticket.html:5 templates/2024/ticket.html:9
 #: templates/2024/top_7tosmoke.html:33 templates/2025/ticket.html:3
@@ -549,15 +636,6 @@ msgstr "நடிகர்கள் பட்டியல்"
 msgid "時刻"
 msgstr "நேரம்"
 
-#: templates/2024/timetable.html:51 templates/2024/timetable.html:108
-#: templates/2024/timetable.html:165 templates/2024/timetable.html:238
-#: templates/2025/timetable.html:42 templates/2025/timetable.html:111
-#: templates/2025/timetable.html:169 templates/2025/timetable.html:251
-#: templates/2026/timetable.html:49 templates/2026/timetable.html:77
-#: templates/2026/timetable.html:105 templates/2026/timetable.html:133
-msgid "内容"
-msgstr "உள்ளடக்கம்"
-
 #: templates/2024/timetable.html:57 templates/2024/timetable.html:114
 #: templates/2024/timetable.html:171 templates/2024/timetable.html:244
 #: templates/2025/timetable.html:48 templates/2025/timetable.html:117
@@ -587,14 +665,6 @@ msgstr "சர்ப்ரைஸ் விருந்தினர்"
 msgid "スタート"
 msgstr "தொடங்கு"
 
-#: templates/2024/timetable.html:77 templates/2024/timetable.html:81
-#: templates/2024/timetable.html:85 templates/2024/timetable.html:146
-#: templates/2024/timetable.html:252 templates/2025/timetable.html:64
-#: templates/2025/timetable.html:68 templates/2025/timetable.html:84
-#: templates/2025/timetable.html:141 templates/2025/timetable.html:145
-msgid "予選"
-msgstr "தகுதிச் சுற்று"
-
 #: templates/2024/timetable.html:89 templates/2024/timetable.html:199
 #: templates/2024/timetable.html:203 templates/2025/timetable.html:207
 #: templates/2025/timetable.html:211
@@ -610,19 +680,10 @@ msgstr "அரை இறுதி"
 msgid "終了"
 msgstr "முடிந்தது"
 
-#: templates/2024/timetable.html:134 templates/2024/timetable.html:195
-#: templates/2025/timetable.html:133 templates/2025/timetable.html:195
-msgid "準々決勝"
-msgstr "கால் இறுதி"
-
 #: templates/2024/timetable.html:138 templates/2024/timetable.html:142
 #: templates/2025/timetable.html:80 templates/2025/timetable.html:203
 msgid "決勝"
 msgstr "இறுதி"
-
-#: templates/2024/timetable.html:191 templates/2025/timetable.html:191
-msgid "準決勝・3位決定戦・決勝"
-msgstr "அரையிறுதி, மூன்றாம் இடத்திற்கான போட்டி, இறுதிப் போட்டி"
 
 #: templates/2024/timetable.html:207 templates/2024/timetable.html:211
 #: templates/2025/timetable.html:215 templates/2025/timetable.html:219
@@ -1810,16 +1871,17 @@ msgstr ""
 "'{GrandBeatboxBattle}' பற்றிய பல்வேறு தகவல்களை எளிதாகப் பார்க்கும் வகையில் "
 "தொகுக்கப்பட்ட ஒரு தளமாகும்."
 
-#: templates/2024/rule.html:22 templates/2024/rule.html:71
-#: templates/2024/rule.html:130 templates/2024/rule.html:228
-#: templates/2024/rule.html:269 templates/2024/rule.html:314
-#: templates/2024/timetable.html:43 templates/2024/timetable.html:157
-#: templates/2024/timetable.html:287 templates/2024/top.html:3
-#: templates/2024/top.html:4 templates/2024/top.html:5
-#: templates/2024/top.html:96 templates/2025/timetable.html:278
-#: templates/2025/top.html:3 templates/2025/top.html:4
-#: templates/2025/top.html:5 templates/2025/top.html:159
-#: templates/2025/wildcard_regulation.html:20
+#: templates/2021/timetable.html:36 templates/2021/timetable.html:74
+#: templates/2021/timetable.html:122 templates/2024/rule.html:22
+#: templates/2024/rule.html:71 templates/2024/rule.html:130
+#: templates/2024/rule.html:228 templates/2024/rule.html:269
+#: templates/2024/rule.html:314 templates/2024/timetable.html:43
+#: templates/2024/timetable.html:157 templates/2024/timetable.html:287
+#: templates/2024/top.html:3 templates/2024/top.html:4
+#: templates/2024/top.html:5 templates/2024/top.html:96
+#: templates/2025/timetable.html:278 templates/2025/top.html:3
+#: templates/2025/top.html:4 templates/2025/top.html:5
+#: templates/2025/top.html:159 templates/2025/wildcard_regulation.html:20
 #: templates/2025/wildcard_regulation.html:21
 #: templates/2025/wildcard_regulation.html:55
 #: templates/2025/wildcard_regulation.html:56

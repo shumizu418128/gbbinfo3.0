@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-26 15:14+0900\n"
+"POT-Creation-Date: 2026-02-04 18:09+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -13,6 +13,127 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.17.0\n"
+
+#: templates/2021/timetable.html:2 templates/2021/timetable.html:3
+#: templates/2021/timetable.html:4 templates/2021/timetable.html:8
+#: templates/2021/timetable.html:11 templates/2024/stream.html:41
+#: templates/2024/timetable.html:3 templates/2024/timetable.html:4
+#: templates/2024/timetable.html:5 templates/2024/timetable.html:9
+#: templates/2024/top.html:17 templates/2024/top.html:57
+#: templates/2024/top_7tosmoke.html:35 templates/2025/stream.html:38
+#: templates/2025/ticket.html:23 templates/2025/timetable.html:3
+#: templates/2025/timetable.html:4 templates/2025/timetable.html:5
+#: templates/2025/timetable.html:10 templates/2025/top.html:17
+#: templates/2025/top.html:107 templates/2025/top_7tosmoke.html:37
+#: templates/2026/stream.html:22 templates/2026/timetable.html:3
+#: templates/2026/timetable.html:4 templates/2026/timetable.html:5
+#: templates/2026/timetable.html:10 templates/2026/timetable.html:20
+#: templates/2026/top.html:17 templates/2026/top.html:111
+#: templates/2026/top_7tosmoke.html:37
+#: templates/includes/hamburger_menu.html:14
+#: templates/others/translation.html:20
+msgid "タイムテーブル"
+msgstr "타임테이블"
+
+#: templates/2021/timetable.html:10
+msgid "GBB 2021 開催中、有志の方のご協力により、実際のタイムスタンプを記録しました。"
+msgstr "GBB 2021 개최 중 자원봉사자들의 협력으로 실제 타임스탬프를 기록했습니다."
+
+#: templates/2021/timetable.html:12
+msgid "なお、7toSmokeのタイムスタンプ記録はありません。"
+msgstr "참고로 7toSmoke의 타임스탬프 기록은 없습니다."
+
+#: templates/2021/timetable.html:13
+msgid "また、本来発表されていた予定時刻から、ほぼすべてのプログラムが2時間遅れでスタートしています。"
+msgstr "또한 원래 예정된 시간에서 거의 모든 프로그램이 2시간 늦게 시작했습니다."
+
+#: templates/2021/timetable.html:16 templates/2024/rule.html:26
+#: templates/2024/timetable.html:16 templates/2025/rule.html:26
+#: templates/2025/timetable.html:18 templates/2025/wildcard_regulation.html:26
+#: templates/2026/rule.html:24 templates/2026/timetable.html:27
+msgid "目次"
+msgstr "목차"
+
+#: templates/2021/timetable.html:35 templates/2021/timetable.html:73
+#: templates/2021/timetable.html:121 templates/2024/rule.html:21
+#: templates/2024/rule.html:70 templates/2024/rule.html:129
+#: templates/2024/rule.html:227 templates/2024/rule.html:268
+#: templates/2024/rule.html:313 templates/2024/stream.html:42
+#: templates/2024/timetable.html:42 templates/2024/timetable.html:156
+#: templates/2024/timetable.html:286 templates/2024/top.html:53
+#: templates/2024/top_7tosmoke.html:34 templates/2025/rule.html:18
+#: templates/2025/rule.html:66 templates/2025/rule.html:238
+#: templates/2025/rule.html:301 templates/2025/rule.html:357
+#: templates/2025/rule.html:399 templates/2025/stream.html:42
+#: templates/2025/timetable.html:100 templates/2025/timetable.html:236
+#: templates/2025/timetable.html:277 templates/2025/top.html:155
+#: templates/2025/top_7tosmoke.html:34 templates/2025/wildcards.html:112
+#: templates/2026/wildcards.html:76 templates/includes/hamburger_menu.html:24
+msgid "現地観戦計画のたてかた"
+msgstr "현지 관전 계획 세우기"
+
+#: templates/2021/timetable.html:43 templates/2021/timetable.html:81
+#: templates/2021/timetable.html:129
+msgid "ワルシャワ時間"
+msgstr "바르샤바 시간"
+
+#: templates/2021/timetable.html:44 templates/2021/timetable.html:82
+#: templates/2021/timetable.html:130
+msgid "日本時間"
+msgstr "일본 시간"
+
+#: templates/2021/timetable.html:45 templates/2021/timetable.html:83
+#: templates/2021/timetable.html:131 templates/2024/timetable.html:51
+#: templates/2024/timetable.html:108 templates/2024/timetable.html:165
+#: templates/2024/timetable.html:238 templates/2025/timetable.html:42
+#: templates/2025/timetable.html:111 templates/2025/timetable.html:169
+#: templates/2025/timetable.html:251 templates/2026/timetable.html:49
+#: templates/2026/timetable.html:77 templates/2026/timetable.html:105
+#: templates/2026/timetable.html:133
+msgid "内容"
+msgstr "내용"
+
+#: templates/2021/timetable.html:52 templates/2021/timetable.html:62
+#: templates/2021/timetable.html:90 templates/2021/timetable.html:95
+#: templates/2021/timetable.html:143 templates/2024/timetable.html:77
+#: templates/2024/timetable.html:81 templates/2024/timetable.html:85
+#: templates/2024/timetable.html:146 templates/2024/timetable.html:252
+#: templates/2025/timetable.html:64 templates/2025/timetable.html:68
+#: templates/2025/timetable.html:84 templates/2025/timetable.html:141
+#: templates/2025/timetable.html:145
+msgid "予選"
+msgstr "예선"
+
+#: templates/2021/timetable.html:105 templates/2024/timetable.html:134
+#: templates/2024/timetable.html:195 templates/2025/timetable.html:133
+#: templates/2025/timetable.html:195
+msgid "準々決勝"
+msgstr "8강전"
+
+#: templates/2021/timetable.html:110
+msgid "決勝トーナメント1回戦"
+msgstr "결승 토너먼트 1라운드"
+
+#: templates/2021/timetable.html:148 templates/2021/timetable.html:158
+#: templates/2024/timetable.html:191 templates/2025/timetable.html:191
+msgid "準決勝・3位決定戦・決勝"
+msgstr "준결승・3위 결정전・결승"
+
+#: templates/2021/timetable.html:163
+msgid "準々決勝・準決勝・3位決定戦・決勝"
+msgstr "준준결승・준결승・3위 결정전・결승"
+
+#: templates/2021/timetable.html:173
+msgid ""
+"GBB 2021 を現地観戦した当サイト管理人の記憶では、Day3 "
+"最後のSHOWCASEが終わり、優勝セレモニーも終わった後会場の外に出たところ、きれいな日の出が見えました。それと同時に、頭がくらくらしてきたことも覚えています。"
+msgstr ""
+"GBB 2021 현지 관전한 본 사이트 관리자의 기억에 따르면, Day3 마지막 SHOWCASE가 끝나고 우승 세레모니도 끝난 후 회장 "
+"밖으로 나갔을 때, 아름다운 일출이 보였습니다. 그와 동시에 머리가 어지러워지는 것도 기억합니다."
+
+#: templates/2021/timetable.html:174
+msgid "ホテルに戻って時計を見ると、ワルシャワ時間の朝5時でした。"
+msgstr "호텔로 돌아와 시계를 보니 바르샤바 시간 새벽 5시였습니다."
 
 #: templates/2024/rule.html:3 templates/2024/rule.html:4
 #: templates/2024/rule.html:5 templates/2024/rule.html:9
@@ -47,30 +168,6 @@ msgstr "스위스비트박스 공식 홈페이지에서 GBB {year}에서 실시�
 #: templates/2025/wildcard_regulation.html:13
 msgid "ソースサイト："
 msgstr "출처 사이트:"
-
-#: templates/2024/rule.html:21 templates/2024/rule.html:70
-#: templates/2024/rule.html:129 templates/2024/rule.html:227
-#: templates/2024/rule.html:268 templates/2024/rule.html:313
-#: templates/2024/stream.html:42 templates/2024/timetable.html:42
-#: templates/2024/timetable.html:156 templates/2024/timetable.html:286
-#: templates/2024/top.html:53 templates/2024/top_7tosmoke.html:34
-#: templates/2025/rule.html:18 templates/2025/rule.html:66
-#: templates/2025/rule.html:238 templates/2025/rule.html:301
-#: templates/2025/rule.html:357 templates/2025/rule.html:399
-#: templates/2025/stream.html:42 templates/2025/timetable.html:100
-#: templates/2025/timetable.html:236 templates/2025/timetable.html:277
-#: templates/2025/top.html:155 templates/2025/top_7tosmoke.html:34
-#: templates/2025/wildcards.html:112 templates/2026/wildcards.html:76
-#: templates/includes/hamburger_menu.html:24
-msgid "現地観戦計画のたてかた"
-msgstr "현지 관전 계획 세우기"
-
-#: templates/2024/rule.html:26 templates/2024/timetable.html:16
-#: templates/2025/rule.html:26 templates/2025/timetable.html:18
-#: templates/2025/wildcard_regulation.html:26 templates/2026/rule.html:24
-#: templates/2026/timetable.html:27
-msgid "目次"
-msgstr "목차"
 
 #: templates/2024/rule.html:30 templates/2024/rule.html:55
 #: templates/2024/wildcards.html:71 templates/2025/rule.html:29
@@ -445,24 +542,6 @@ msgstr "GBB {year}의 최신 정보를 확인해보세요"
 msgid "{Wildcard}結果 & 出場者"
 msgstr "{Wildcard} 결과 & 참가자"
 
-#: templates/2024/stream.html:41 templates/2024/timetable.html:3
-#: templates/2024/timetable.html:4 templates/2024/timetable.html:5
-#: templates/2024/timetable.html:9 templates/2024/top.html:17
-#: templates/2024/top.html:57 templates/2024/top_7tosmoke.html:35
-#: templates/2025/stream.html:38 templates/2025/ticket.html:23
-#: templates/2025/timetable.html:3 templates/2025/timetable.html:4
-#: templates/2025/timetable.html:5 templates/2025/timetable.html:10
-#: templates/2025/top.html:17 templates/2025/top.html:107
-#: templates/2025/top_7tosmoke.html:37 templates/2026/stream.html:22
-#: templates/2026/timetable.html:3 templates/2026/timetable.html:4
-#: templates/2026/timetable.html:5 templates/2026/timetable.html:10
-#: templates/2026/timetable.html:20 templates/2026/top.html:17
-#: templates/2026/top.html:111 templates/2026/top_7tosmoke.html:37
-#: templates/includes/hamburger_menu.html:14
-#: templates/others/translation.html:20
-msgid "タイムテーブル"
-msgstr "타임테이블"
-
 #: templates/2024/ticket.html:3 templates/2024/ticket.html:4
 #: templates/2024/ticket.html:5 templates/2024/ticket.html:9
 #: templates/2024/top_7tosmoke.html:33 templates/2025/ticket.html:3
@@ -528,15 +607,6 @@ msgstr "출연자 목록"
 msgid "時刻"
 msgstr "시간"
 
-#: templates/2024/timetable.html:51 templates/2024/timetable.html:108
-#: templates/2024/timetable.html:165 templates/2024/timetable.html:238
-#: templates/2025/timetable.html:42 templates/2025/timetable.html:111
-#: templates/2025/timetable.html:169 templates/2025/timetable.html:251
-#: templates/2026/timetable.html:49 templates/2026/timetable.html:77
-#: templates/2026/timetable.html:105 templates/2026/timetable.html:133
-msgid "内容"
-msgstr "내용"
-
 #: templates/2024/timetable.html:57 templates/2024/timetable.html:114
 #: templates/2024/timetable.html:171 templates/2024/timetable.html:244
 #: templates/2025/timetable.html:48 templates/2025/timetable.html:117
@@ -566,14 +636,6 @@ msgstr "서프라이즈 게스트"
 msgid "スタート"
 msgstr "시작"
 
-#: templates/2024/timetable.html:77 templates/2024/timetable.html:81
-#: templates/2024/timetable.html:85 templates/2024/timetable.html:146
-#: templates/2024/timetable.html:252 templates/2025/timetable.html:64
-#: templates/2025/timetable.html:68 templates/2025/timetable.html:84
-#: templates/2025/timetable.html:141 templates/2025/timetable.html:145
-msgid "予選"
-msgstr "예선"
-
 #: templates/2024/timetable.html:89 templates/2024/timetable.html:199
 #: templates/2024/timetable.html:203 templates/2025/timetable.html:207
 #: templates/2025/timetable.html:211
@@ -589,19 +651,10 @@ msgstr "준결승"
 msgid "終了"
 msgstr "종료"
 
-#: templates/2024/timetable.html:134 templates/2024/timetable.html:195
-#: templates/2025/timetable.html:133 templates/2025/timetable.html:195
-msgid "準々決勝"
-msgstr "8강전"
-
 #: templates/2024/timetable.html:138 templates/2024/timetable.html:142
 #: templates/2025/timetable.html:80 templates/2025/timetable.html:203
 msgid "決勝"
 msgstr "결승"
-
-#: templates/2024/timetable.html:191 templates/2025/timetable.html:191
-msgid "準決勝・3位決定戦・決勝"
-msgstr "준결승・3위 결정전・결승"
 
 #: templates/2024/timetable.html:207 templates/2024/timetable.html:211
 #: templates/2025/timetable.html:215 templates/2025/timetable.html:219
@@ -1649,16 +1702,17 @@ msgstr ""
 "Swissbeatbox가 주최하는 {HumanBeatbox} 세계 대회 「{GrandBeatboxBattle}」의 다양한 정보를 보기 "
 "쉽게 정리한 사이트입니다."
 
-#: templates/2024/rule.html:22 templates/2024/rule.html:71
-#: templates/2024/rule.html:130 templates/2024/rule.html:228
-#: templates/2024/rule.html:269 templates/2024/rule.html:314
-#: templates/2024/timetable.html:43 templates/2024/timetable.html:157
-#: templates/2024/timetable.html:287 templates/2024/top.html:3
-#: templates/2024/top.html:4 templates/2024/top.html:5
-#: templates/2024/top.html:96 templates/2025/timetable.html:278
-#: templates/2025/top.html:3 templates/2025/top.html:4
-#: templates/2025/top.html:5 templates/2025/top.html:159
-#: templates/2025/wildcard_regulation.html:20
+#: templates/2021/timetable.html:36 templates/2021/timetable.html:74
+#: templates/2021/timetable.html:122 templates/2024/rule.html:22
+#: templates/2024/rule.html:71 templates/2024/rule.html:130
+#: templates/2024/rule.html:228 templates/2024/rule.html:269
+#: templates/2024/rule.html:314 templates/2024/timetable.html:43
+#: templates/2024/timetable.html:157 templates/2024/timetable.html:287
+#: templates/2024/top.html:3 templates/2024/top.html:4
+#: templates/2024/top.html:5 templates/2024/top.html:96
+#: templates/2025/timetable.html:278 templates/2025/top.html:3
+#: templates/2025/top.html:4 templates/2025/top.html:5
+#: templates/2025/top.html:159 templates/2025/wildcard_regulation.html:20
 #: templates/2025/wildcard_regulation.html:21
 #: templates/2025/wildcard_regulation.html:55
 #: templates/2025/wildcard_regulation.html:56
