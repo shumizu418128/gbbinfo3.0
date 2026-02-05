@@ -295,6 +295,11 @@
 {% else %}
   <p class="unavailable-text">{{_("発表次第更新")}}</p>
 {% endif %}
+<div class="post-it">
+  <p>{{_("いかなる場合も、チャレンジャーシリーズ優勝者以外の人に、出場権は与えられません。")}}<br>
+    {{_("例：チャレンジャーシリーズ優勝者が、すでに{Wildcard}で出場権を獲得していた場合、チャレンジャーシリーズ2位ではなく、{Wildcard}下位からの繰り上げが行われます。").format(Wildcard="Wildcard")}}
+  </p>
+</div>
 
 <h3>{{_("辞退者一覧")}}</h3>
 {% if cancelled|length > 0 %}
@@ -361,7 +366,10 @@
 </table>
 
 <h3>{{_("繰り上げ対象")}}</h3>
-<p>{{_("繰り上げの対象となるのは、{Wildcard}の順位が上位の人たちに限定されています。").format(Wildcard="Wildcard")}}</p>
+<p>
+  {{_("繰り上げの対象となるのは、{Wildcard}の順位が上位の人たちに限定されています。").format(Wildcard="Wildcard")}}<br>
+  {{_("チャレンジャーシリーズ2位以下の人は、繰り上げの対象になりません。")}}
+</p>
 
 <table>
   <thead>
