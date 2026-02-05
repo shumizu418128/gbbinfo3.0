@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-05 12:06+0900\n"
+"POT-Creation-Date: 2026-02-05 13:14+0900\n"
 "PO-Revision-Date: 2025-10-29 23:04+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: et <LL@li.org>\n"
@@ -143,8 +143,8 @@ msgstr ""
 #: templates/2021/timetable.html:174
 msgid "ホテルに戻って時計を見ると、ワルシャワ時間の朝5時でした。"
 msgstr ""
-"Kui ma hotelli tagasi jõudsin ja kellale vaatasin, oli Varssavi aja järgi "
-"kell viis hommikul."
+"Kui ta hotelli tagasi jõudis ja kellale vaatas, oli Varssavi aja järgi kell "
+"viis hommikul."
 
 #: templates/2024/rule.html:3 templates/2024/rule.html:4
 #: templates/2024/rule.html:5 templates/2024/rule.html:9
