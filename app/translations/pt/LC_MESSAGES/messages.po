@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-05 15:43+0900\n"
+"POT-Creation-Date: 2026-02-05 16:17+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: pt <LL@li.org>\n"
@@ -1671,13 +1671,14 @@ msgstr "Até {rank}º lugar"
 #: templates/2026/rule.html:401
 #, python-brace-format
 msgid "{rank}位以下の繰り上げは一切無し"
-msgstr "Sem carryover para posições abaixo de {rank}"
+msgstr "Sem substituição de participantes para posições abaixo de {rank}"
 
 #: templates/2026/rule.html:391
 #, python-brace-format
 msgid "{rank}位以下の繰り上げは{Swissbeatbox}の個別判断"
 msgstr ""
-"Carryover para posições abaixo de {rank} é a critério de {Swissbeatbox}"
+"Substituição de participantes para posições abaixo de {rank} é a critério de"
+" {Swissbeatbox}"
 
 #: templates/2026/rule.html:406
 msgid "特殊なケース"

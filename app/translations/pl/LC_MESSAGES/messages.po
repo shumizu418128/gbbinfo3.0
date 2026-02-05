@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-05 15:43+0900\n"
+"POT-Creation-Date: 2026-02-05 16:17+0900\n"
 "PO-Revision-Date: 2025-10-29 10:38+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: pl <LL@li.org>\n"
@@ -1502,7 +1502,7 @@ msgstr ""
 
 #: templates/2026/rule.html:185 templates/2026/rule.html:378
 msgid "対象"
-msgstr "Obiekt"
+msgstr "Grupa docelowa"
 
 #: templates/2026/rule.html:187
 msgid "10位〜25位"
@@ -1639,7 +1639,7 @@ msgstr ""
 
 #: templates/2026/rule.html:368
 msgid "繰り上げ対象"
-msgstr "Obiekt awansu"
+msgstr "Osoby objęte awansem"
 
 #: templates/2026/rule.html:370
 #, python-brace-format

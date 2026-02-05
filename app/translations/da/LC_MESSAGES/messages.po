@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-05 15:43+0900\n"
+"POT-Creation-Date: 2026-02-05 16:17+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: da <LL@li.org>\n"
@@ -1607,7 +1607,7 @@ msgstr "Indleveringsfrist"
 
 #: templates/2026/rule.html:353
 msgid "対応"
-msgstr "Svar"
+msgstr "Håndtering"
 
 #: templates/2026/rule.html:358
 msgid "2026年8月1日まで"

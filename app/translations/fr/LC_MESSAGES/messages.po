@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-05 15:43+0900\n"
+"POT-Creation-Date: 2026-02-05 16:17+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -417,7 +417,7 @@ msgstr ""
 #: templates/2024/rule.html:240 templates/2025/rule.html:256
 #: templates/2025/wildcard_regulation.html:207 templates/2026/rule.html:448
 msgid "全部門共通"
-msgstr "Commun à tous les départements"
+msgstr "Commun à toutes les catégories"
 
 #: templates/2024/rule.html:241 templates/2025/rule.html:257
 #: templates/2025/wildcard_regulation.html:208 templates/2026/rule.html:449

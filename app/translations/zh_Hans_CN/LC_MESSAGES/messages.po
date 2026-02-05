@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-05 15:43+0900\n"
+"POT-Creation-Date: 2026-02-05 16:17+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh_Hans_CN <LL@li.org>\n"
@@ -1509,12 +1509,12 @@ msgstr "至{rank}位"
 #: templates/2026/rule.html:401
 #, python-brace-format
 msgid "{rank}位以下の繰り上げは一切無し"
-msgstr "第6名以下不进行任何递补"
+msgstr "第{rank}名及以下不进行任何递补"
 
 #: templates/2026/rule.html:391
 #, python-brace-format
 msgid "{rank}位以下の繰り上げは{Swissbeatbox}の個別判断"
-msgstr "第21名及以后名次的递补由{Swissbeatbox}决定。"
+msgstr "第{rank}名及以下的递补由{Swissbeatbox}决定。"
 
 #: templates/2026/rule.html:406
 msgid "特殊なケース"
