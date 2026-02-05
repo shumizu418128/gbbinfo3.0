@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-05 18:11+0900\n"
+"POT-Creation-Date: 2026-02-05 18:21+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: da <LL@li.org>\n"
@@ -993,18 +993,18 @@ msgstr ""
 
 #: templates/2025/rule.html:343 templates/2026/rule.html:536
 msgid "レフェリー"
-msgstr "Referee"
+msgstr "Kampleder"
 
 #: templates/2025/rule.html:351 templates/2026/rule.html:544
 msgid "レフェリーについて"
-msgstr "Om dommeren"
+msgstr "Om kamplederen"
 
 #: templates/2025/rule.html:352 templates/2026/rule.html:545
 msgid ""
 "レフェリーは、GBB23から導入された、審査員とは別のメンバーです。審査員は各出場者の評価を行うのに対し、レフェリーは「ルールを守っているか」を確認する役割を担います。"
 msgstr ""
-"Dommeren er et nyt medlem siden GBB23, adskilt fra dommerpanelet. Mens "
-"dommerpanelet evaluerer hver deltager, er dommerens rolle at sikre, at "
+"Kamplederen er et nyt medlem siden GBB23, adskilt fra dommerpanelet. Mens "
+"dommerpanelet evaluerer hver deltager, er kamplederens rolle at sikre, at "
 "\"reglerne overholdes\"."
 
 #: templates/2025/ticket.html:16 templates/common/japan.html:50
@@ -1110,7 +1110,7 @@ msgstr "Liste over alle deltagere"
 #: templates/common/participants.html:138
 #: templates/includes/hamburger_menu.html:10
 msgid "辞退者一覧"
-msgstr "Liste over afviste personer"
+msgstr "Liste over tilbagetrukne"
 
 #: templates/2025/top.html:86 templates/2026/top.html:89
 #: templates/includes/popup_early_access.html:8

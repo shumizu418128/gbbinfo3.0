@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-05 18:11+0900\n"
+"POT-Creation-Date: 2026-02-05 18:21+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: be <LL@li.org>\n"
@@ -992,7 +992,7 @@ msgstr "рэферы"
 
 #: templates/2025/rule.html:351 templates/2026/rule.html:544
 msgid "レフェリーについて"
-msgstr "пра суддзю"
+msgstr "пра рэферы"
 
 #: templates/2025/rule.html:352 templates/2026/rule.html:545
 msgid ""
