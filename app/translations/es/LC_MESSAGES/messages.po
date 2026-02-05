@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-05 16:17+0900\n"
+"POT-Creation-Date: 2026-02-05 18:11+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: es <LL@li.org>\n"
@@ -416,7 +416,7 @@ msgstr ""
 #: templates/2024/rule.html:240 templates/2025/rule.html:256
 #: templates/2025/wildcard_regulation.html:207 templates/2026/rule.html:448
 msgid "全部門共通"
-msgstr "Común a todos los departamentos"
+msgstr "Común a todas las categorías"
 
 #: templates/2024/rule.html:241 templates/2025/rule.html:257
 #: templates/2025/wildcard_regulation.html:208 templates/2026/rule.html:449
@@ -533,7 +533,7 @@ msgstr "No se anuncia anualmente."
 #: templates/2024/rule.html:318 templates/2025/rule.html:395
 #: templates/2026/rule.html:599
 msgid "本戦審査員一覧はこちら"
-msgstr "La lista de jueces del torneo principal es la siguiente:"
+msgstr "Consulta aquí la lista de jueces del torneo principal"
 
 #: templates/2024/stream.html:3 templates/2024/stream.html:4
 #: templates/2024/stream.html:5 templates/2024/stream.html:9

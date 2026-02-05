@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-05 16:17+0900\n"
+"POT-Creation-Date: 2026-02-05 18:11+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ta <LL@li.org>\n"
@@ -503,7 +503,7 @@ msgstr "சாதனக் கட்டுப்பாடு இல்லை"
 #: templates/2026/rule.html:492
 #, python-brace-format
 msgid "{Wildcard}審査員一覧はこちら"
-msgstr "{Wildcard}న్యాయనిర్ణేతల జాబితా ఇక్కడ ఉంది"
+msgstr "{Wildcard} நீதிபதிகளின் பட்டியல் இங்கே உள்ளது"
 
 #: templates/2024/rule.html:280 templates/2024/rule.html:325
 #: templates/2024/top.html:49 templates/2025/rule.html:314
