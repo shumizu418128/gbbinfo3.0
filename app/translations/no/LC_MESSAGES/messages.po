@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-06 00:41+0900\n"
+"POT-Creation-Date: 2026-02-06 01:14+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: no <LL@li.org>\n"
@@ -501,7 +501,7 @@ msgstr "Ingen enhetsbegrensning"
 #: templates/2026/rule.html:492
 #, python-brace-format
 msgid "{Wildcard}審査員一覧はこちら"
-msgstr "{Wildcard} Se dommerlisten her"
+msgstr "Se dommerlisten for {Wildcard} her"
 
 #: templates/2024/rule.html:280 templates/2024/rule.html:325
 #: templates/2024/top.html:49 templates/2025/rule.html:314
@@ -1447,8 +1447,8 @@ msgstr "Denne avdelingen driver ikke med kamp."
 #, python-brace-format
 msgid "{Wildcard}の審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価されます。"
 msgstr ""
-"{Wildcard} s vurdering utføres etter andre kriterier enn andre avdelinger, "
-"og vurderes basert på historie, kunstnerisk kvalitet og originalitet."
+"{Wildcard}s vurdering utføres etter andre kriterier enn andre avdelinger, og"
+" vurderes basert på historie, kunstnerisk kvalitet og originalitet."
 
 #: templates/2026/rule.html:161
 #, python-brace-format
@@ -1627,7 +1627,7 @@ msgstr ""
 
 #: templates/2026/rule.html:368
 msgid "繰り上げ対象"
-msgstr "Målrettet for opprykk"
+msgstr "Kvalifisert for opprykk"
 
 #: templates/2026/rule.html:370
 #, python-brace-format
@@ -1652,12 +1652,12 @@ msgstr "Opp til {rank}. plass"
 #: templates/2026/rule.html:401
 #, python-brace-format
 msgid "{rank}位以下の繰り上げは一切無し"
-msgstr "Ingen carryover for plasser under {rank}"
+msgstr "Ingen opprykk for plasser under {rank}"
 
 #: templates/2026/rule.html:391
 #, python-brace-format
 msgid "{rank}位以下の繰り上げは{Swissbeatbox}の個別判断"
-msgstr "Carryover for plasser under {rank} er etter {Swissbeatbox}s skjønn"
+msgstr "Opprykk for plasser under {rank} er etter {Swissbeatbox}s skjønn"
 
 #: templates/2026/rule.html:406
 msgid "特殊なケース"

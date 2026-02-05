@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-06 00:41+0900\n"
+"POT-Creation-Date: 2026-02-06 01:14+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ms <LL@li.org>\n"
@@ -133,8 +133,8 @@ msgid ""
 "最後のSHOWCASEが終わり、優勝セレモニーも終わった後会場の外に出たところ、きれいな日の出が見えました。それと同時に、頭がくらくらしてきたことも覚えています。"
 msgstr ""
 "Menurut kenangan admin situs ini yang menyaksikan GBB 2021 secara langsung, "
-"setelah SHOWCASE terakhir pada Hari ke-3 selesai dan upacara pemenang juga "
-"berakhir, saat keluar dari venue, langit pagi yang indah bisa dilihat. Dia "
+"setelah SHOWCASE terakhir pada Hari ke-3 selesai og upacara pemenang juga "
+"berakhir, saat keluar dari venue, matahari terbit yang indah terlihat. Dia "
 "juga ingat merasa pusing pada saat itu."
 
 #: templates/2021/timetable.html:174
@@ -1602,8 +1602,8 @@ msgstr "Penggantian Penyertaan"
 #: templates/2026/rule.html:346
 msgid "基本的には、2026年8月1日を境に対応が変わるのがポイントです。"
 msgstr ""
-"Pada asasnya, perkara penting ialah bahawa tindak balas berubah selepas 1 "
-"Ogos 2026."
+"Pada asasnya, perkara penting ialah bahawa tindakan berubah selepas 1 Ogos "
+"2026."
 
 #: templates/2026/rule.html:348
 msgid "繰り上げ期限"
@@ -1709,7 +1709,7 @@ msgstr ""
 #: templates/2026/rule.html:449
 msgid "制限時間を使い切らず余らせた場合、1秒につき最終順位を1つ下げる"
 msgstr ""
-"Jika masa terhad tidak digunakan sepenuhnya, tempat terakhir akan diturunkan"
+"Jika masa terhad tidak digunakan sepenuhnya, kedudukan akhir akan diturunkan"
 " sebanyak 1 tempat bagi setiap 1 saat yang masih ada."
 
 #: templates/2026/rule.html:453

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-06 00:41+0900\n"
+"POT-Creation-Date: 2026-02-06 01:14+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh_Hans_CN <LL@li.org>\n"
@@ -417,7 +417,7 @@ msgstr "开始受理日期和时间"
 #: templates/2026/rule.html:465 templates/2026/rule.html:469
 #: templates/2026/rule.html:473 templates/2026/rule.html:477
 msgid "制限時間"
-msgstr "截止时间"
+msgstr "时间限制"
 
 #: templates/2024/rule.html:245 templates/2024/rule.html:249
 #: templates/2024/rule.html:253 templates/2024/rule.html:257
@@ -522,7 +522,7 @@ msgstr "本赛评委一览请看这里"
 #: templates/includes/hamburger_menu.html:21
 #: templates/others/translation.html:23
 msgid "当日配信"
-msgstr "当日发布"
+msgstr "当日直播"
 
 #: templates/2024/stream.html:37 templates/2025/stream.html:29
 #: templates/2026/stream.html:13
