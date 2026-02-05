@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-04 21:03+0900\n"
+"POT-Creation-Date: 2026-02-05 12:06+0900\n"
 "PO-Revision-Date: 2026-01-25 16:50+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: cs <LL@li.org>\n"
@@ -78,7 +78,7 @@ msgstr "Obsah"
 #: templates/2025/top_7tosmoke.html:34 templates/2025/wildcards.html:112
 #: templates/2026/wildcards.html:76 templates/includes/hamburger_menu.html:24
 msgid "現地観戦計画のたてかた"
-msgstr "Jak naplánovat návštěvu na místě"
+msgstr "Jak naplánovat sledování na místě"
 
 #: templates/2021/timetable.html:43 templates/2021/timetable.html:81
 #: templates/2021/timetable.html:129
