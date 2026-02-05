@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-05 18:21+0900\n"
+"POT-Creation-Date: 2026-02-06 00:41+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: hi <LL@li.org>\n"
@@ -138,8 +138,7 @@ msgstr ""
 
 #: templates/2021/timetable.html:174
 msgid "ホテルに戻って時計を見ると、ワルシャワ時間の朝5時でした。"
-msgstr ""
-"जब मैं होटल लौटकर घड़ी देखी, तो वह वारसॉ समय के अनुसार सुबह के 5 बजे था।"
+msgstr "जब वह होटल लौटकर घड़ी देखी, तो वारसॉ समय के अनुसार सुबह के 5 बजे थे।"
 
 #: templates/2024/rule.html:3 templates/2024/rule.html:4
 #: templates/2024/rule.html:5 templates/2024/rule.html:9

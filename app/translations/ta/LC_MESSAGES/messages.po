@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-05 18:21+0900\n"
+"POT-Creation-Date: 2026-02-06 00:41+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ta <LL@li.org>\n"
@@ -216,7 +216,7 @@ msgstr "முதன்மை போட்டி நடுவர்கள் ப
 #: templates/2026/rule.html:55 templates/2026/rule.html:557
 #, python-brace-format
 msgid "{Wildcard}審査員一覧"
-msgstr "{Wildcard}அறிஞர்களின் பட்டியல்"
+msgstr "{Wildcard} அறிஞர்களின் பட்டியல்"
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:56
 #: templates/2026/rule.html:66
@@ -247,7 +247,7 @@ msgstr ""
 #: templates/2025/wildcard_regulation.html:66 templates/2026/rule.html:71
 #, python-brace-format
 msgid "{Wildcard}を提出する方は、"
-msgstr "{Wildcard}யை சமர்ப்பிப்பவர்கள்,"
+msgstr "{Wildcard} யை சமர்ப்பிப்பவர்கள்,"
 
 #: templates/2024/rule.html:64 templates/2025/rule.html:62
 #: templates/2025/wildcard_regulation.html:67 templates/2026/rule.html:72
@@ -565,7 +565,7 @@ msgstr "GBB {year} இன் சமீபத்திய தகவல்கள�
 #: templates/common/participants.html:141 templates/others/translation.html:18
 #, python-brace-format
 msgid "{Wildcard}結果 & 出場者"
-msgstr "{Wildcard}முடிவுகள் & பங்கேற்பாளர்கள்"
+msgstr "{Wildcard} முடிவுகள் & பங்கேற்பாளர்கள்"
 
 #: templates/2024/ticket.html:3 templates/2024/ticket.html:4
 #: templates/2024/ticket.html:5 templates/2024/ticket.html:9
@@ -802,7 +802,7 @@ msgstr "வலைத்தள URL மாற்ற அறிவிப்பு"
 #: templates/2026/top.html:149
 #, python-brace-format
 msgid "{Wildcard}結果発表配信"
-msgstr "{Wildcard}முடிவு அறிவிப்பு ஒளிபரப்பு"
+msgstr "{Wildcard} முடிவு அறிவிப்பு ஒளிபரப்பு"
 
 #: templates/2024/top.html:89 templates/2024/wildcards.html:3
 #: templates/2024/wildcards.html:4 templates/2024/wildcards.html:5
@@ -817,7 +817,7 @@ msgstr "{Wildcard}முடிவு அறிவிப்பு ஒளிபர
 #: templates/common/participants.html:92 templates/others/translation.html:25
 #, python-brace-format
 msgid "{Wildcard}一覧"
-msgstr "{Wildcard}பட்டியல்"
+msgstr "{Wildcard} பட்டியல்"
 
 #: templates/2024/top.html:102 templates/2024/top.html:116
 #: templates/2024/top_7tosmoke.html:44 templates/2025/top.html:168
@@ -998,7 +998,7 @@ msgstr "ரெஃபரீ"
 
 #: templates/2025/rule.html:351 templates/2026/rule.html:544
 msgid "レフェリーについて"
-msgstr "ரெஃபரி பற்றி"
+msgstr "ரெஃபரீ பற்றி"
 
 #: templates/2025/rule.html:352 templates/2026/rule.html:545
 msgid ""
@@ -1233,12 +1233,12 @@ msgstr ""
 #: templates/2025/wildcard_regulation.html:138
 #, python-brace-format
 msgid "{Wildcard}作成・提出について"
-msgstr "{Wildcard}உருவாக்குதல் மற்றும் சமர்ப்பித்தல் பற்றி"
+msgstr "{Wildcard} உருவாக்குதல் மற்றும் சமர்ப்பித்தல் பற்றி"
 
 #: templates/2025/wildcard_regulation.html:140
 #, python-brace-format
 msgid "{Wildcard}動画の内容"
-msgstr "{Wildcard}வீடியோ உள்ளடக்கம்"
+msgstr "{Wildcard} வீடியோ உள்ளடக்கம்"
 
 #: templates/2025/wildcard_regulation.html:141
 msgid "動画の冒頭で、以下のように自己紹介する"
@@ -1312,7 +1312,7 @@ msgstr "சமர்ப்பிக்கும் முறை"
 #: templates/2025/wildcard_regulation.html:164
 #, python-brace-format
 msgid "{Wildcard}をYouTubeにアップロード"
-msgstr "{Wildcard}யை யூடியூப்பில் பதிவேற்றுக"
+msgstr "{Wildcard} யை யூடியூப்பில் பதிவேற்றுக"
 
 #: templates/2025/wildcard_regulation.html:165
 #: templates/2025/wildcard_regulation.html:261
@@ -1362,8 +1362,8 @@ msgstr "மேலே உள்ள இரண்டு இல்லாதபட்
 #, python-brace-format
 msgid "{Wildcard}提出は一度のみ。一度提出したら、後から別の{Wildcard}を提出することはできない"
 msgstr ""
-"{Wildcard}சமர்ப்பிப்பு ஒரு முறை மட்டுமே. ஒருமுறை சமர்ப்பித்த பிறகு, பின்னர் "
-"மற்றொரு {Wildcard}ஐ சமர்ப்பிக்க முடியாது"
+"{Wildcard} சமர்ப்பிப்பு ஒரு முறை மட்டுமே. ஒருமுறை சமர்ப்பித்த பிறகு, பின்னர்"
+" மற்றொரு {Wildcard}ஐ சமர்ப்பிக்க முடியாது"
 
 #: templates/2025/wildcard_regulation.html:185
 #, python-brace-format

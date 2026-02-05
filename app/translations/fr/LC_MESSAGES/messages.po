@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-05 18:21+0900\n"
+"POT-Creation-Date: 2026-02-06 00:41+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -1461,7 +1461,7 @@ msgstr "À propos de la participation de remplacement"
 
 #: templates/2026/rule.html:59 templates/2026/rule.html:610
 msgid "セカンドリーグ"
-msgstr "Deuxième ligue"
+msgstr "Seconde Ligue"
 
 #: templates/2026/rule.html:154
 #, python-brace-format

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-05 18:21+0900\n"
+"POT-Creation-Date: 2026-02-06 00:41+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ms <LL@li.org>\n"
@@ -116,7 +116,7 @@ msgstr "Suku akhir"
 
 #: templates/2021/timetable.html:110
 msgid "決勝トーナメント1回戦"
-msgstr "Putaran pertama turnamen final"
+msgstr "Putaran pertama dari turnamen final"
 
 #: templates/2021/timetable.html:148 templates/2021/timetable.html:158
 #: templates/2024/timetable.html:191 templates/2025/timetable.html:191
@@ -390,7 +390,7 @@ msgstr "Senarai pemain yang menarik diri daripada peruntukan"
 #: templates/participant_detail/participant_detail.html:163
 #: templates/participant_detail/participant_detail.html:230
 msgid "辞退"
-msgstr "menolak"
+msgstr "Penarikan diri"
 
 #: templates/2024/rule.html:221 templates/2024/timetable.html:100
 #: templates/2024/timetable.html:230 templates/2025/rule.html:221
@@ -1615,7 +1615,7 @@ msgstr "Tarikh akhir"
 
 #: templates/2026/rule.html:353
 msgid "対応"
-msgstr "Tindak Balas"
+msgstr "Tindakan"
 
 #: templates/2026/rule.html:358
 msgid "2026年8月1日まで"
