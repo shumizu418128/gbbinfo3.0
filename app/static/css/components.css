@@ -153,8 +153,21 @@ button {
     margin: auto;
 }
 
+.nav-dropdown-container:has(.language-option) .nav-dropdown {
+    width: max-content;
+}
+
 .nav-dropdown-container:hover .nav-dropdown {
     display: block;
+}
+
+header nav ul li.nav-dropdown-container svg {
+    fill: rgb(34, 34, 34);
+    transition: fill 0.3s ease;
+}
+
+header nav ul li.nav-dropdown-container:hover svg {
+    fill: white;
 }
 
 .participants-form {
