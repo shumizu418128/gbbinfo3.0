@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-06 01:14+0900\n"
+"POT-Creation-Date: 2026-02-11 01:25+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: it <LL@li.org>\n"
@@ -54,7 +54,8 @@ msgstr ""
 #: templates/2021/timetable.html:16 templates/2024/rule.html:26
 #: templates/2024/timetable.html:16 templates/2025/rule.html:26
 #: templates/2025/timetable.html:18 templates/2025/wildcard_regulation.html:26
-#: templates/2026/rule.html:24 templates/2026/timetable.html:27
+#: templates/2026/rule.html:27 templates/2026/studio_competition.html:15
+#: templates/2026/timetable.html:27
 msgid "目次"
 msgstr "Indice"
 
@@ -158,8 +159,8 @@ msgstr ""
 #: templates/2025/wildcards.html:15 templates/2025/wildcards.html:84
 #: templates/2026/rule.html:3 templates/2026/rule.html:4
 #: templates/2026/rule.html:5 templates/2026/rule.html:9
-#: templates/2026/rule.html:47 templates/2026/rule.html:438
-#: templates/2026/rule.html:443 templates/2026/timetable.html:69
+#: templates/2026/rule.html:50 templates/2026/rule.html:441
+#: templates/2026/rule.html:446 templates/2026/timetable.html:69
 #: templates/2026/top.html:62 templates/2026/top.html:103
 #: templates/2026/wildcards.html:13 templates/2026/wildcards.html:60
 #: templates/common/participants.html:137
@@ -184,16 +185,17 @@ msgstr "Sito sorgente:"
 #: templates/2024/wildcards.html:71 templates/2025/rule.html:29
 #: templates/2025/rule.html:54 templates/2025/wildcard_regulation.html:29
 #: templates/2025/wildcard_regulation.html:59 templates/2025/wildcards.html:87
-#: templates/2026/rule.html:27 templates/2026/rule.html:64
-#: templates/2026/wildcards.html:63
+#: templates/2026/rule.html:30 templates/2026/rule.html:67
+#: templates/2026/studio_competition.html:17
+#: templates/2026/studio_competition.html:23 templates/2026/wildcards.html:63
 msgid "注意事項"
 msgstr "AVVERTENZE"
 
 #: templates/2024/rule.html:34 templates/2024/rule.html:74
 #: templates/2025/rule.html:33 templates/2025/rule.html:70
 #: templates/2025/wildcard_regulation.html:33
-#: templates/2025/wildcard_regulation.html:81 templates/2026/rule.html:31
-#: templates/2026/rule.html:83
+#: templates/2025/wildcard_regulation.html:81 templates/2026/rule.html:34
+#: templates/2026/rule.html:86
 msgid "開催部門一覧"
 msgstr "Elenco delle categorie"
 
@@ -204,19 +206,19 @@ msgstr "Criteri per ottenere il diritto di qualificazione automatica"
 
 #: templates/2024/rule.html:46 templates/2024/rule.html:272
 #: templates/2025/rule.html:45 templates/2025/rule.html:305
-#: templates/2026/rule.html:51 templates/2026/rule.html:490
+#: templates/2026/rule.html:54 templates/2026/rule.html:493
 msgid "本戦審査員一覧"
 msgstr "Elenco dei Giudici della Fase Finale"
 
 #: templates/2024/rule.html:50 templates/2024/rule.html:316
 #: templates/2025/rule.html:49 templates/2025/rule.html:361
-#: templates/2026/rule.html:55 templates/2026/rule.html:557
+#: templates/2026/rule.html:58 templates/2026/rule.html:560
 #, python-brace-format
 msgid "{Wildcard}審査員一覧"
 msgstr "{Wildcard} Elenco dei giudici"
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:56
-#: templates/2026/rule.html:66
+#: templates/2026/rule.html:69 templates/2026/studio_competition.html:25
 #, python-brace-format
 msgid "以下に示す内容は、あくまでも{Beatbox}ファンが知っておくとよりGBBを楽しめる知識として紹介するものです。"
 msgstr ""
@@ -224,30 +226,33 @@ msgstr ""
 "fan di {Beatbox} dovrebbero avere per godersi al meglio il GBB."
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:57
-#: templates/2026/rule.html:67
+#: templates/2026/rule.html:70 templates/2026/studio_competition.html:26
 msgid "一部内容において、わかりやすさを優先します。"
 msgstr "In parte dei contenuti, si privilegia la chiarezza."
 
 #: templates/2024/rule.html:58 templates/2025/rule.html:57
-#: templates/2026/rule.html:67
+#: templates/2026/rule.html:70 templates/2026/studio_competition.html:26
 msgid "これにより、正確さに欠ける表現を用いることがあります。"
 msgstr "Ciò potrebbe comportare l'utilizzo di espressioni imprecise."
 
 #: templates/2024/rule.html:62 templates/2025/rule.html:60
-#: templates/2025/wildcard_regulation.html:65 templates/2026/rule.html:70
+#: templates/2025/wildcard_regulation.html:65 templates/2026/rule.html:73
+#: templates/2026/studio_competition.html:29
 msgid "当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねます。"
 msgstr ""
 "Non ci assumiamo alcuna responsabilità per eventuali danni derivanti dai "
 "contenuti pubblicati su questo sito."
 
 #: templates/2024/rule.html:62 templates/2025/rule.html:61
-#: templates/2025/wildcard_regulation.html:66 templates/2026/rule.html:71
+#: templates/2025/wildcard_regulation.html:66 templates/2026/rule.html:74
+#: templates/2026/studio_competition.html:30
 #, python-brace-format
 msgid "{Wildcard}を提出する方は、"
 msgstr "Coloro che presentano {Wildcard},"
 
 #: templates/2024/rule.html:64 templates/2025/rule.html:62
-#: templates/2025/wildcard_regulation.html:67 templates/2026/rule.html:72
+#: templates/2025/wildcard_regulation.html:67 templates/2026/rule.html:75
+#: templates/2026/studio_competition.html:31
 msgid "必ずご自身でルールを今一度ご確認ください。"
 msgstr "Si prega di rivedere le regole."
 
@@ -260,11 +265,11 @@ msgstr "Si prega di rivedere le regole."
 #: templates/2025/rule.html:313 templates/2025/rule.html:366
 #: templates/2025/wildcard_regulation.html:85
 #: templates/2025/wildcard_regulation.html:142
-#: templates/2025/wildcard_regulation.html:201 templates/2026/rule.html:88
-#: templates/2026/rule.html:237 templates/2026/rule.html:269
-#: templates/2026/rule.html:309 templates/2026/rule.html:377
-#: templates/2026/rule.html:442 templates/2026/rule.html:498
-#: templates/2026/rule.html:562 templates/common/cancels.html:24
+#: templates/2025/wildcard_regulation.html:201 templates/2026/rule.html:91
+#: templates/2026/rule.html:240 templates/2026/rule.html:272
+#: templates/2026/rule.html:312 templates/2026/rule.html:380
+#: templates/2026/rule.html:445 templates/2026/rule.html:501
+#: templates/2026/rule.html:565 templates/common/cancels.html:24
 #: templates/common/japan.html:23 templates/common/korea.html:23
 #: templates/common/participants.html:124
 #: templates/participant_detail/participant_detail.html:33
@@ -278,12 +283,12 @@ msgid "シード"
 msgstr "Testa di serie"
 
 #: templates/2024/rule.html:81 templates/2025/rule.html:77
-#: templates/2026/rule.html:92
+#: templates/2026/rule.html:95
 msgid "計"
 msgstr "Totale"
 
 #: templates/2024/rule.html:118 templates/2025/rule.html:115
-#: templates/2025/wildcard_regulation.html:113 templates/2026/rule.html:151
+#: templates/2025/wildcard_regulation.html:113 templates/2026/rule.html:154
 msgid "上記のデータは、ルール発表時現在の情報です。実際は、辞退などにより、出場者数が変動します。"
 msgstr ""
 "I dati sopra indicati sono quelli attuali al momento dell'annuncio delle "
@@ -306,7 +311,7 @@ msgstr ""
 " sarà vietato nella categoria {Loopstation}."
 
 #: templates/2024/rule.html:126 templates/2025/rule.html:117
-#: templates/2026/rule.html:148
+#: templates/2026/rule.html:151
 #, python-brace-format
 msgid "忘れられた{TagTeamLoopstation}..."
 msgstr "Dimenticato {TagTeamLoopstation}..."
@@ -325,8 +330,8 @@ msgstr "Testa di serie - GBB"
 #: templates/2024/rule.html:142 templates/2024/rule.html:168
 #: templates/2024/rule.html:194 templates/2025/rule.html:138
 #: templates/2025/rule.html:164 templates/2025/rule.html:194
-#: templates/2025/wildcard_regulation.html:142 templates/2026/rule.html:238
-#: templates/2026/rule.html:270 templates/2026/rule.html:310
+#: templates/2025/wildcard_regulation.html:142 templates/2026/rule.html:241
+#: templates/2026/rule.html:273 templates/2026/rule.html:313
 #: templates/common/cancels.html:23 templates/common/japan.html:22
 #: templates/common/korea.html:22 templates/common/participants.html:44
 #: templates/common/participants.html:123 templates/common/result.html:65
@@ -338,8 +343,8 @@ msgstr "Nome"
 #: templates/2024/rule.html:144 templates/2024/rule.html:170
 #: templates/2024/rule.html:196 templates/2025/rule.html:140
 #: templates/2025/rule.html:166 templates/2025/rule.html:196
-#: templates/2026/rule.html:239 templates/2026/rule.html:271
-#: templates/2026/rule.html:311 templates/common/cancels.html:22
+#: templates/2026/rule.html:242 templates/2026/rule.html:274
+#: templates/2026/rule.html:314 templates/common/cancels.html:22
 #: templates/common/japan.html:21 templates/common/korea.html:21
 #: templates/common/participants.html:45
 #: templates/common/participants.html:122
@@ -352,14 +357,14 @@ msgstr "Diritti di partecipazione"
 #: templates/2024/rule.html:160 templates/2024/rule.html:186
 #: templates/2024/rule.html:216 templates/2025/rule.html:156
 #: templates/2025/rule.html:186 templates/2025/rule.html:216
-#: templates/2025/timetable.html:268 templates/2026/rule.html:132
-#: templates/2026/rule.html:139 templates/2026/rule.html:261
-#: templates/2026/rule.html:296 templates/2026/rule.html:335
-#: templates/2026/rule.html:472 templates/2026/rule.html:476
-#: templates/2026/rule.html:505 templates/2026/rule.html:509
-#: templates/2026/rule.html:513 templates/2026/rule.html:517
-#: templates/2026/rule.html:537 templates/2026/rule.html:581
-#: templates/2026/rule.html:589 templates/2026/rule.html:593
+#: templates/2025/timetable.html:268 templates/2026/rule.html:135
+#: templates/2026/rule.html:142 templates/2026/rule.html:264
+#: templates/2026/rule.html:299 templates/2026/rule.html:338
+#: templates/2026/rule.html:475 templates/2026/rule.html:479
+#: templates/2026/rule.html:508 templates/2026/rule.html:512
+#: templates/2026/rule.html:516 templates/2026/rule.html:520
+#: templates/2026/rule.html:540 templates/2026/rule.html:584
+#: templates/2026/rule.html:592 templates/2026/rule.html:596
 #: templates/2026/stream.html:11 templates/2026/timetable.html:54
 #: templates/2026/timetable.html:58 templates/2026/timetable.html:62
 #: templates/2026/timetable.html:82 templates/2026/timetable.html:86
@@ -381,7 +386,7 @@ msgid "シード権辞退者一覧"
 msgstr "Elenco rinunce al seeding"
 
 #: templates/2024/rule.html:203 templates/2025/rule.html:203
-#: templates/2026/rule.html:321 templates/common/cancels.html:31
+#: templates/2026/rule.html:324 templates/common/cancels.html:31
 #: templates/common/japan.html:31 templates/common/korea.html:31
 #: templates/common/participants.html:56
 #: templates/participant_detail/participant_detail.html:23
@@ -396,7 +401,7 @@ msgstr "Rinuncia"
 
 #: templates/2024/rule.html:221 templates/2024/timetable.html:100
 #: templates/2024/timetable.html:230 templates/2025/rule.html:221
-#: templates/2026/rule.html:340 templates/common/cancels.html:51
+#: templates/2026/rule.html:343 templates/common/cancels.html:51
 #: templates/participant_detail/participant_detail.html:179
 #: templates/participant_detail/participant_detail.html:186
 msgid "出場者一覧"
@@ -411,19 +416,19 @@ msgstr ""
 "effettuato un ripescaggio dalle posizioni inferiori della {Wildcard}."
 
 #: templates/2024/rule.html:240 templates/2025/rule.html:256
-#: templates/2025/wildcard_regulation.html:207 templates/2026/rule.html:448
+#: templates/2025/wildcard_regulation.html:207 templates/2026/rule.html:451
 msgid "全部門共通"
 msgstr "Valido per tutte le categorie"
 
 #: templates/2024/rule.html:241 templates/2025/rule.html:257
-#: templates/2025/wildcard_regulation.html:208 templates/2026/rule.html:449
+#: templates/2025/wildcard_regulation.html:208 templates/2026/rule.html:452
 msgid "制限時間を超過した場合、1秒につき最終順位を1つ下げる"
 msgstr ""
 "Se il tempo limite viene superato, la posizione finale scende di 1 per ogni "
 "secondo."
 
 #: templates/2024/rule.html:241 templates/2025/rule.html:257
-#: templates/2025/wildcard_regulation.html:208 templates/2026/rule.html:449
+#: templates/2025/wildcard_regulation.html:208 templates/2026/rule.html:452
 msgid "提出受付開始日時"
 msgstr "Data di inizio presentazione"
 
@@ -436,10 +441,10 @@ msgstr "Data di inizio presentazione"
 #: templates/2025/wildcard_regulation.html:216
 #: templates/2025/wildcard_regulation.html:220
 #: templates/2025/wildcard_regulation.html:224
-#: templates/2025/wildcard_regulation.html:228 templates/2026/rule.html:453
-#: templates/2026/rule.html:457 templates/2026/rule.html:461
-#: templates/2026/rule.html:465 templates/2026/rule.html:469
-#: templates/2026/rule.html:473 templates/2026/rule.html:477
+#: templates/2025/wildcard_regulation.html:228 templates/2026/rule.html:456
+#: templates/2026/rule.html:460 templates/2026/rule.html:464
+#: templates/2026/rule.html:468 templates/2026/rule.html:472
+#: templates/2026/rule.html:476 templates/2026/rule.html:480
 msgid "制限時間"
 msgstr "Limite di tempo"
 
@@ -452,10 +457,10 @@ msgstr "Limite di tempo"
 #: templates/2025/wildcard_regulation.html:216
 #: templates/2025/wildcard_regulation.html:220
 #: templates/2025/wildcard_regulation.html:224
-#: templates/2025/wildcard_regulation.html:228 templates/2026/rule.html:453
-#: templates/2026/rule.html:457 templates/2026/rule.html:461
-#: templates/2026/rule.html:465 templates/2026/rule.html:469
-#: templates/2026/rule.html:473 templates/2026/rule.html:477
+#: templates/2025/wildcard_regulation.html:228 templates/2026/rule.html:456
+#: templates/2026/rule.html:460 templates/2026/rule.html:464
+#: templates/2026/rule.html:468 templates/2026/rule.html:472
+#: templates/2026/rule.html:476 templates/2026/rule.html:480
 msgid "提出期限"
 msgstr "Data di scadenza"
 
@@ -468,10 +473,10 @@ msgstr "Data di scadenza"
 #: templates/2025/wildcard_regulation.html:216
 #: templates/2025/wildcard_regulation.html:220
 #: templates/2025/wildcard_regulation.html:224
-#: templates/2025/wildcard_regulation.html:228 templates/2026/rule.html:453
-#: templates/2026/rule.html:457 templates/2026/rule.html:461
-#: templates/2026/rule.html:465 templates/2026/rule.html:469
-#: templates/2026/rule.html:473 templates/2026/rule.html:477
+#: templates/2025/wildcard_regulation.html:228 templates/2026/rule.html:456
+#: templates/2026/rule.html:460 templates/2026/rule.html:464
+#: templates/2026/rule.html:468 templates/2026/rule.html:472
+#: templates/2026/rule.html:476 templates/2026/rule.html:480
 msgid "結果発表"
 msgstr "Annuncio dei risultati"
 
@@ -500,7 +505,7 @@ msgid "デバイス制限なし"
 msgstr "Nessuna limitazione del dispositivo"
 
 #: templates/2024/rule.html:274 templates/2025/rule.html:307
-#: templates/2026/rule.html:492
+#: templates/2026/rule.html:495
 #, python-brace-format
 msgid "{Wildcard}審査員一覧はこちら"
 msgstr "{Wildcard} Elenco dei giudici qui"
@@ -510,7 +515,7 @@ msgstr "{Wildcard} Elenco dei giudici qui"
 #: templates/2025/rule.html:367 templates/2025/timetable.html:101
 #: templates/2025/top.html:58 templates/2025/top.html:99
 #: templates/2025/wildcards.html:15 templates/2025/wildcards.html:84
-#: templates/2026/rule.html:499 templates/2026/rule.html:563
+#: templates/2026/rule.html:502 templates/2026/rule.html:566
 #: templates/2026/timetable.html:69 templates/2026/top.html:67
 #: templates/2026/top.html:103 templates/2026/wildcards.html:13
 #: templates/2026/wildcards.html:60 templates/includes/hamburger_menu.html:11
@@ -518,17 +523,17 @@ msgid "審査員"
 msgstr "Giudici"
 
 #: templates/2024/rule.html:306 templates/2025/rule.html:340
-#: templates/2026/rule.html:533
+#: templates/2026/rule.html:536
 msgid "審査員不明"
 msgstr "Giudici sconosciuti"
 
 #: templates/2024/rule.html:306 templates/2025/rule.html:340
-#: templates/2026/rule.html:533
+#: templates/2026/rule.html:536
 msgid "例年発表なし"
 msgstr "Ogni anno, nessun annuncio."
 
 #: templates/2024/rule.html:318 templates/2025/rule.html:395
-#: templates/2026/rule.html:599
+#: templates/2026/rule.html:602
 msgid "本戦審査員一覧はこちら"
 msgstr "L'elenco dei giudici della fase finale è qui."
 
@@ -755,7 +760,7 @@ msgstr "Ultimo aggiornamento"
 #: templates/2024/top.html:64 templates/2025/rule.html:240
 #: templates/2025/ticket.html:19 templates/2025/timetable.html:238
 #: templates/2025/top.html:114 templates/2025/wildcards.html:114
-#: templates/2026/rule.html:216 templates/2026/top.html:118
+#: templates/2026/rule.html:219 templates/2026/top.html:118
 #: templates/2026/wildcards.html:78 templates/common/korea.html:3
 #: templates/common/korea.html:4 templates/common/korea.html:5
 #: templates/common/korea.html:9 templates/includes/hamburger_menu.html:16
@@ -766,7 +771,7 @@ msgstr "Rappresentativa coreana"
 #: templates/2024/top.html:69 templates/2025/rule.html:242
 #: templates/2025/ticket.html:21 templates/2025/timetable.html:240
 #: templates/2025/top.html:119 templates/2025/wildcards.html:116
-#: templates/2026/rule.html:218 templates/2026/top.html:123
+#: templates/2026/rule.html:221 templates/2026/top.html:123
 #: templates/2026/wildcards.html:80 templates/common/japan.html:3
 #: templates/common/japan.html:4 templates/common/japan.html:5
 #: templates/common/japan.html:9 templates/includes/hamburger_menu.html:18
@@ -800,7 +805,7 @@ msgid "当サイトURL変更のお知らせ"
 msgstr "Avviso di cambiamento dell'URL del sito"
 
 #: templates/2024/top.html:88 templates/2025/rule.html:302
-#: templates/2025/top.html:138 templates/2026/rule.html:487
+#: templates/2025/top.html:138 templates/2026/rule.html:490
 #: templates/2026/top.html:149
 #, python-brace-format
 msgid "{Wildcard}結果発表配信"
@@ -812,7 +817,7 @@ msgstr "{Wildcard} Trasmissione dei risultati"
 #: templates/2025/rule.html:400 templates/2025/top.html:139
 #: templates/2025/wildcards.html:3 templates/2025/wildcards.html:4
 #: templates/2025/wildcards.html:5 templates/2025/wildcards.html:9
-#: templates/2026/rule.html:20 templates/2026/rule.html:607
+#: templates/2026/rule.html:22 templates/2026/rule.html:610
 #: templates/2026/top.html:150 templates/2026/wildcards.html:3
 #: templates/2026/wildcards.html:4 templates/2026/wildcards.html:5
 #: templates/2026/wildcards.html:9 templates/common/cancels.html:54
@@ -948,7 +953,7 @@ msgstr ""
 msgid "【{Beatboxer}向け】{Wildcard}レギュレーション解説"
 msgstr "Spiegazione del regolamento {Wildcard} per {Beatboxer}"
 
-#: templates/2025/rule.html:225 templates/2026/rule.html:345
+#: templates/2025/rule.html:225 templates/2026/rule.html:348
 #, python-brace-format
 msgid "GBB出場辞退が発生した場合、{Wildcard}下位からの繰り上げが行われます。"
 msgstr ""
@@ -995,15 +1000,15 @@ msgid "Tag Team部門・Crew部門参加希望の方はご注意ください。"
 msgstr ""
 "Attenzione per chi desidera partecipare alle categorie Tag Team e Crew."
 
-#: templates/2025/rule.html:343 templates/2026/rule.html:536
+#: templates/2025/rule.html:343 templates/2026/rule.html:539
 msgid "レフェリー"
 msgstr "arbitro"
 
-#: templates/2025/rule.html:351 templates/2026/rule.html:544
+#: templates/2025/rule.html:351 templates/2026/rule.html:547
 msgid "レフェリーについて"
 msgstr "Informazioni sull'arbitro"
 
-#: templates/2025/rule.html:352 templates/2026/rule.html:545
+#: templates/2025/rule.html:352 templates/2026/rule.html:548
 msgid ""
 "レフェリーは、GBB23から導入された、審査員とは別のメンバーです。審査員は各出場者の評価を行うのに対し、レフェリーは「ルールを守っているか」を確認する役割を担います。"
 msgstr ""
@@ -1108,7 +1113,7 @@ msgid "全出場者一覧"
 msgstr "Lista di tutti i partecipanti"
 
 #: templates/2025/top.html:77 templates/2025/top.html:103
-#: templates/2026/rule.html:304 templates/2026/rule.html:435
+#: templates/2026/rule.html:307 templates/2026/rule.html:438
 #: templates/2026/top.html:84 templates/2026/top.html:107
 #: templates/common/cancels.html:3 templates/common/cancels.html:4
 #: templates/common/cancels.html:5 templates/common/cancels.html:10
@@ -1162,6 +1167,7 @@ msgstr "[{Beatbox} per i fan]"
 
 #: templates/2025/wildcard_regulation.html:37
 #: templates/2025/wildcard_regulation.html:121
+#: templates/2026/studio_competition.html:65
 msgid "年齢制限"
 msgstr "Limitazioni di età"
 
@@ -1436,39 +1442,39 @@ msgstr ""
 msgid "皆さんの{Wildcard}を楽しみにしています！"
 msgstr "Non vedo l'ora di {Wildcard} da parte vostra!"
 
-#: templates/2026/rule.html:12
+#: templates/2026/rule.html:12 templates/2026/studio_competition.html:12
 msgid "ソースサイト"
 msgstr "Sito sorgente:"
 
-#: templates/2026/rule.html:39 templates/2026/rule.html:84
-#: templates/2026/rule.html:228 templates/2026/rule.html:264
-#: templates/2026/rule.html:424
+#: templates/2026/rule.html:42 templates/2026/rule.html:87
+#: templates/2026/rule.html:231 templates/2026/rule.html:267
+#: templates/2026/rule.html:427
 msgid "チャレンジャーシリーズ"
 msgstr "Serie Challenger"
 
-#: templates/2026/rule.html:43
+#: templates/2026/rule.html:46
 msgid "繰り上げ出場について"
 msgstr "Informazioni sul ripescaggio"
 
-#: templates/2026/rule.html:59 templates/2026/rule.html:610
+#: templates/2026/rule.html:62 templates/2026/rule.html:613
 msgid "セカンドリーグ"
 msgstr "Seconda Lega"
 
-#: templates/2026/rule.html:154
+#: templates/2026/rule.html:157
 #, python-brace-format
 msgid "{SHOWCASE}とは"
 msgstr "Che cos'è {SHOWCASE}?"
 
-#: templates/2026/rule.html:156
+#: templates/2026/rule.html:159
 #, python-brace-format
 msgid "2026年から新部門として「{SHOWCASE}」が追加されました。"
 msgstr "A partire dal 2026 è stata aggiunta una nuova sezione: \"{SHOWCASE}\"."
 
-#: templates/2026/rule.html:157
+#: templates/2026/rule.html:160
 msgid "この部門では、バトルを行いません。"
 msgstr "Questa categoria non prevede battaglie."
 
-#: templates/2026/rule.html:158
+#: templates/2026/rule.html:161
 #, python-brace-format
 msgid "{Wildcard}の審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価されます。"
 msgstr ""
@@ -1476,29 +1482,29 @@ msgstr ""
 "agli altri dipartimenti e viene giudicata in base a storia, valore "
 "artistico, originalità e altro."
 
-#: templates/2026/rule.html:161
+#: templates/2026/rule.html:164
 #, python-brace-format
 msgid "{Solo}部門 決勝トーナメント"
 msgstr "Torneo finale categoria {Solo}"
 
-#: templates/2026/rule.html:163
+#: templates/2026/rule.html:166
 #, python-brace-format
 msgid "GBB {year} {Solo}部門の決勝トーナメントは8人トーナメントで開催されます。"
 msgstr ""
 "Il torneo finale della categoria {Solo} del GBB {year} si svolgerà come "
 "torneo a 8 persone."
 
-#: templates/2026/rule.html:164
+#: templates/2026/rule.html:167
 msgid "GBB 2021以来、8人トーナメントで開催するよう、Beatboxerから繰り返し要望を受けている、と説明されています。"
 msgstr ""
 "È spiegato che dal GBB 2021, i Beatboxer hanno ripetutamente richiesto che "
 "si tenga come torneo a 8 persone."
 
-#: templates/2026/rule.html:167
+#: templates/2026/rule.html:170
 msgid "特別ルール"
 msgstr "Regole speciali"
 
-#: templates/2026/rule.html:169
+#: templates/2026/rule.html:172
 msgid ""
 "合計5人の審査員が採点しますが、その中の最高点と最低点をカットした、残りの3人の平均点を得点とします。極端な評価に左右されない、安定した採点方式です。"
 msgstr ""
@@ -1507,7 +1513,7 @@ msgstr ""
 "giudici come punteggio. È un metodo di valutazione stabile che non è "
 "influenzato da valutazioni estreme."
 
-#: templates/2026/rule.html:182
+#: templates/2026/rule.html:185
 #, python-brace-format
 msgid ""
 "{ComebackWildcard}は、通常の{SoloWildcard}ランキングで出場枠を獲得できなかった{Beatboxer}のうち1名が、特別枠として出場権を獲得する制度です。"
@@ -1516,45 +1522,45 @@ msgstr ""
 "sono riusciti a ottenere un posto nella classifica normale {SoloWildcard} "
 "ottiene il diritto di partecipazione come posto speciale."
 
-#: templates/2026/rule.html:185 templates/2026/rule.html:378
+#: templates/2026/rule.html:188 templates/2026/rule.html:381
 msgid "対象"
 msgstr "Idonei"
 
-#: templates/2026/rule.html:187
+#: templates/2026/rule.html:190
 msgid "10位〜25位"
 msgstr "Dal 10° al 25° posto"
 
-#: templates/2026/rule.html:190
+#: templates/2026/rule.html:193
 msgid "選出の流れ"
 msgstr "Processo di selezione"
 
-#: templates/2026/rule.html:193
+#: templates/2026/rule.html:196
 msgid "審査員による指名"
 msgstr "Nomina da parte dei giudici"
 
-#: templates/2026/rule.html:194
+#: templates/2026/rule.html:197
 msgid "5名の審査員が、対象者の中から各自1名を自由に指名します（最大5名が候補）。"
 msgstr ""
 "5 giudici nominano liberamente 1 persona ciascuno tra gli obiettivi (massimo"
 " 5 candidati)."
 
-#: templates/2026/rule.html:195
+#: templates/2026/rule.html:198
 #, python-brace-format
 msgid "※5名全員が同じ{Beatboxer}を指名した場合、その時点で出場者が確定します。"
 msgstr ""
 "※ Se tutti e 5 i giudici nominano lo stesso {Beatboxer}, il partecipante "
 "viene determinato in quel momento."
 
-#: templates/2026/rule.html:198
+#: templates/2026/rule.html:201
 #, python-brace-format
 msgid "再投票（審査員+{Swissbeatbox} {YouTube}メンバーシップ）"
 msgstr "Rivotazione (Giudici + {Swissbeatbox} {YouTube} Membership)"
 
-#: templates/2026/rule.html:200
+#: templates/2026/rule.html:203
 msgid "審査員の票：各審査員が候補者をランキングします。"
 msgstr "Voti dei giudici: ogni giudice classifica i candidati."
 
-#: templates/2026/rule.html:201
+#: templates/2026/rule.html:204
 #, python-brace-format
 msgid ""
 "メンバー票：生配信中に{Swissbeatbox} "
@@ -1564,11 +1570,11 @@ msgstr ""
 "{Swissbeatbox} {YouTube} Membership votano e il risultato viene conteggiato "
 "come voto del \"6° giudice\"."
 
-#: templates/2026/rule.html:205
+#: templates/2026/rule.html:208
 msgid "勝者の決定"
 msgstr "Determinazione del vincitore"
 
-#: templates/2026/rule.html:206
+#: templates/2026/rule.html:209
 #, python-brace-format
 msgid ""
 "審査員5名 + {Swissbeatbox} "
@@ -1578,29 +1584,29 @@ msgstr ""
 "classifiche) vengono convertiti in punti e sommati, e la persona con il "
 "punteggio totale più alto partecipa al GBB {year}."
 
-#: templates/2026/rule.html:222
+#: templates/2026/rule.html:225
 msgid "GBB出場権獲得条件"
 msgstr "Condizioni di qualificazione GBB"
 
-#: templates/2026/rule.html:224
+#: templates/2026/rule.html:227
 msgid "GBB出場権を得る方法は、以下の通りです。"
 msgstr "Il modo per qualificarsi per il GBB è il seguente."
 
-#: templates/2026/rule.html:227 templates/2026/rule.html:232
+#: templates/2026/rule.html:230 templates/2026/rule.html:235
 msgid "上位入賞者"
 msgstr "I migliori classificati"
 
-#: templates/2026/rule.html:228 templates/2026/rule.html:264
+#: templates/2026/rule.html:231 templates/2026/rule.html:267
 msgid "優勝者のみ"
 msgstr "Solo il vincitore"
 
-#: templates/2026/rule.html:299
+#: templates/2026/rule.html:302
 msgid "いかなる場合も、チャレンジャーシリーズ優勝者以外の人に、出場権は与えられません。"
 msgstr ""
 "In nessun caso verrà concessa una qualificazione a qualcuno diverso dal "
 "vincitore della Challenger Series."
 
-#: templates/2026/rule.html:300
+#: templates/2026/rule.html:303
 #, python-brace-format
 msgid ""
 "例：チャレンジャーシリーズ優勝者が、すでに{Wildcard}で出場権を獲得していた場合、チャレンジャーシリーズ2位ではなく、{Wildcard}下位からの繰り上げが行われます。"
@@ -1609,43 +1615,43 @@ msgstr ""
 "qualificazione tramite {Wildcard}, il ripescaggio avverrà dalle posizioni "
 "inferiori di {Wildcard} e non dal 2º classificato della Challenger Series."
 
-#: templates/2026/rule.html:344
+#: templates/2026/rule.html:347
 msgid "繰り上げ出場"
 msgstr "Ripescaggio"
 
-#: templates/2026/rule.html:346
+#: templates/2026/rule.html:349
 msgid "基本的には、2026年8月1日を境に対応が変わるのがポイントです。"
 msgstr ""
 "Fondamentalmente, il punto è che la risposta cambia al 1° agosto 2026."
 
-#: templates/2026/rule.html:348
+#: templates/2026/rule.html:351
 msgid "繰り上げ期限"
 msgstr "Scadenza per il ripescaggio"
 
-#: templates/2026/rule.html:352
+#: templates/2026/rule.html:355
 msgid "期限"
 msgstr "Data di scadenza"
 
-#: templates/2026/rule.html:353
+#: templates/2026/rule.html:356
 msgid "対応"
 msgstr "Risposta"
 
-#: templates/2026/rule.html:358
+#: templates/2026/rule.html:361
 msgid "2026年8月1日まで"
 msgstr "Fino al 1° agosto 2026"
 
-#: templates/2026/rule.html:359
+#: templates/2026/rule.html:362
 #, python-brace-format
 msgid "原則として、辞退者が出た場合は{Wildcard}下位からの繰り上げが発生します。"
 msgstr ""
 "In caso di ritiro dalla partecipazione al GBB, verrà effettuato un "
 "ripescaggio {Wildcard} dalle posizioni inferiori."
 
-#: templates/2026/rule.html:362
+#: templates/2026/rule.html:365
 msgid "2026年8月1日以降"
 msgstr "Dal 1° agosto 2026 in poi"
 
-#: templates/2026/rule.html:363
+#: templates/2026/rule.html:366
 #, python-brace-format
 msgid "{Swissbeatbox}が個別に判断します。渡航ビザの取得や移動の手配が間に合うかなど、状況に応じて決定されます。"
 msgstr ""
@@ -1653,126 +1659,126 @@ msgstr ""
 "seconda della situazione, come se sia possibile ottenere un visto di viaggio"
 " e organizzare il trasporto in tempo."
 
-#: templates/2026/rule.html:368
+#: templates/2026/rule.html:371
 msgid "繰り上げ対象"
 msgstr "Idonei al ripescaggio"
 
-#: templates/2026/rule.html:370
+#: templates/2026/rule.html:373
 #, python-brace-format
 msgid "繰り上げの対象となるのは、{Wildcard}の順位が上位の人たちに限定されています。"
 msgstr ""
 "Il ripescaggio è limitato a coloro che hanno una posizione elevata nella "
 "classifica {Wildcard}."
 
-#: templates/2026/rule.html:371
+#: templates/2026/rule.html:374
 msgid "チャレンジャーシリーズ2位以下の人は、繰り上げの対象になりません。"
 msgstr ""
 "I partecipanti che si classificano al 2º posto o più in basso nella "
 "Challenger Series non sono idonei al ripescaggio."
 
-#: templates/2026/rule.html:385 templates/2026/rule.html:390
-#: templates/2026/rule.html:395 templates/2026/rule.html:400
+#: templates/2026/rule.html:388 templates/2026/rule.html:393
+#: templates/2026/rule.html:398 templates/2026/rule.html:403
 #, python-brace-format
 msgid "{rank}位まで"
 msgstr "Fino al {rank}º posto"
 
-#: templates/2026/rule.html:386 templates/2026/rule.html:396
-#: templates/2026/rule.html:401
+#: templates/2026/rule.html:389 templates/2026/rule.html:399
+#: templates/2026/rule.html:404
 #, python-brace-format
 msgid "{rank}位以下の繰り上げは一切無し"
 msgstr "Nessuna sostituzione per il {rank}º posto o inferiore"
 
-#: templates/2026/rule.html:391
+#: templates/2026/rule.html:394
 #, python-brace-format
 msgid "{rank}位以下の繰り上げは{Swissbeatbox}の個別判断"
 msgstr ""
 "Le sostituzioni per il {rank}º posto o inferiore sono a discrezione di "
 "{Swissbeatbox}"
 
-#: templates/2026/rule.html:406
+#: templates/2026/rule.html:409
 msgid "特殊なケース"
 msgstr "Casi speciali"
 
-#: templates/2026/rule.html:410
+#: templates/2026/rule.html:413
 msgid "項目"
 msgstr "Voce"
 
-#: templates/2026/rule.html:411
+#: templates/2026/rule.html:414
 msgid "説明"
 msgstr "Descrizione"
 
-#: templates/2026/rule.html:417
+#: templates/2026/rule.html:420
 #, python-brace-format
 msgid "8月1日以降に辞退が発生し、繰り上げができない場合、対戦形式ではなく{Showcase}形式に変更されることがあります。"
 msgstr ""
 "Se si verifica un ritiro dopo il 1° agosto e il ripescaggio non è possibile,"
 " potrebbe essere cambiato al formato {Showcase} invece del formato battle."
 
-#: templates/2026/rule.html:421
+#: templates/2026/rule.html:424
 msgid "優勝者が辞退しても繰り上げはありません。"
 msgstr "Anche se il vincitore si ritira, non ci sarà alcun ripescaggio."
 
-#: templates/2026/rule.html:425
+#: templates/2026/rule.html:428
 msgid "辞退が発生した場合、3名までは繰り上げを行いますが、4名以上の辞退には対応しません。"
 msgstr ""
 "Se si verifica un ritiro, verrà effettuato un ripescaggio fino a 3 persone, "
 "ma non verrà gestito un ritiro di 4 o più persone."
 
-#: templates/2026/rule.html:449
+#: templates/2026/rule.html:452
 msgid "制限時間を使い切らず余らせた場合、1秒につき最終順位を1つ下げる"
 msgstr ""
 "Se il tempo limite non viene esaurito, per ogni secondo rimanente si "
 "retrocede di una posizione nella classifica finale."
 
-#: templates/2026/rule.html:453
+#: templates/2026/rule.html:456
 msgid "3月28日〜30日"
 msgstr "28-30 marzo"
 
-#: templates/2026/rule.html:453 templates/2026/rule.html:457
-#: templates/2026/rule.html:461 templates/2026/rule.html:465
-#: templates/2026/rule.html:469
+#: templates/2026/rule.html:456 templates/2026/rule.html:460
+#: templates/2026/rule.html:464 templates/2026/rule.html:468
+#: templates/2026/rule.html:472
 #, python-brace-format
 msgid "{m}分{s}秒以上はペナルティ対象"
 msgstr "Si applica una penalità se {m} minuti {s} secondi o più."
 
-#: templates/2026/rule.html:453 templates/2026/rule.html:461
+#: templates/2026/rule.html:456 templates/2026/rule.html:464
 msgid "3月1日"
 msgstr "1° marzo"
 
-#: templates/2026/rule.html:457
+#: templates/2026/rule.html:460
 msgid "3月14日"
 msgstr "14 marzo"
 
-#: templates/2026/rule.html:457
+#: templates/2026/rule.html:460
 msgid "3月23日〜24日"
 msgstr "23-24 marzo"
 
-#: templates/2026/rule.html:461
+#: templates/2026/rule.html:464
 msgid "3月25日〜27日"
 msgstr "25-27 marzo"
 
-#: templates/2026/rule.html:465
+#: templates/2026/rule.html:468
 msgid "5月1日〜2日"
 msgstr "1-2 maggio"
 
-#: templates/2026/rule.html:465 templates/2026/rule.html:469
+#: templates/2026/rule.html:468 templates/2026/rule.html:472
 msgid "4月12日"
 msgstr "12 aprile"
 
-#: templates/2026/rule.html:469
+#: templates/2026/rule.html:472
 msgid "5月3日〜4日"
 msgstr "3-4 maggio"
 
-#: templates/2026/rule.html:521 templates/2026/rule.html:525
-#: templates/2026/rule.html:529
+#: templates/2026/rule.html:524 templates/2026/rule.html:528
+#: templates/2026/rule.html:532
 msgid "審査員なし"
 msgstr "Senza giuria"
 
-#: templates/2026/rule.html:611
+#: templates/2026/rule.html:614
 msgid "正式名称"
 msgstr "Nome ufficiale"
 
-#: templates/2026/rule.html:613
+#: templates/2026/rule.html:616
 #, python-brace-format
 msgid ""
 "今年から新たに「セカンドリーグ」が設けられました。セカンドリーグは、中国で開催され、GBB {year} "
@@ -1782,60 +1788,162 @@ msgstr ""
 "Seconda Lega si terrà in Cina e inviterà i secondi classificati della "
 "categoria {Solo} del GBB {year}."
 
-#: templates/2026/rule.html:614
+#: templates/2026/rule.html:617
 #, python-brace-format
 msgid "この「セカンドリーグ」で優勝すれば、GBB {year} {Solo}部門への出場権が得られます。"
 msgstr ""
 "Vincendo questa \"Seconda Lega\", si otterrà la qualificazione per la "
 "categoria {Solo} del GBB {year}."
 
-#: templates/2026/rule.html:618
+#: templates/2026/rule.html:621
 #, python-brace-format
 msgid "ランナーズアップ：本戦に出場できなかった、{Wildcard}上位入賞者"
 msgstr ""
 "Piazzati: i {Wildcard} tra i migliori classificati che non hanno potuto "
 "partecipare alla fase finale."
 
-#: templates/2026/rule.html:619
+#: templates/2026/rule.html:622
 #, python-brace-format
 msgid "例：{Wildcard}出場枠が8枠の場合、9位～16位を指します。"
 msgstr ""
 "Esempio: Se i posti disponibili {Wildcard} sono 8, si riferisce ai posti dal"
 " 9° al 16°."
 
-#: templates/2026/rule.html:622
+#: templates/2026/rule.html:625
 msgid "当サイトでは、セカンドリーグについての情報は取り扱わない方針です。"
 msgstr "Questo sito non tratta informazioni riguardanti la seconda lega."
 
-#: templates/2026/rule.html:624
+#: templates/2026/rule.html:627
 msgid "ここまで読んでくださった皆様へ"
 msgstr "A tutti coloro che hanno letto fino a qui"
 
-#: templates/2026/rule.html:625
+#: templates/2026/rule.html:628
 msgid "今年のルールは例年と比べて変化が大きく、理解が難しかったと思います。"
 msgstr ""
 "Penso che le regole di quest'anno siano cambiate molto rispetto agli anni "
 "precedenti e siano state difficili da capire."
 
-#: templates/2026/rule.html:626
+#: templates/2026/rule.html:629
 msgid "私自身、2時間もかけてこのページを執筆しました。マジで疲れた"
 msgstr ""
 "Io stesso ho impiegato 2 ore per scrivere questa pagina. Sono davvero stanco"
 
-#: templates/2026/rule.html:627
+#: templates/2026/rule.html:630
 #, python-brace-format
 msgid "そこで、ルールをよりわかりやすく解説してくれる「GBB {year} なんでもチャット」をご用意しました。"
 msgstr ""
 "Pertanto, abbiamo preparato \"GBB {year} Chat su tutto\" che spiegherà le "
 "regole in modo più comprensibile."
 
-#: templates/2026/rule.html:630
+#: templates/2026/rule.html:633
 msgid "なんでもチャット"
 msgstr "Chat su tutto"
 
-#: templates/2026/rule.html:633
+#: templates/2026/rule.html:636
 msgid "ぜひこちらをご活用ください！"
 msgstr "Per favore, utilizzatelo!"
+
+#: templates/2026/studio_competition.html:11
+#, python-brace-format
+msgid "Swissbeatbox公式サイトで、新カテゴリー「{StudioCompetition}」の{Wildcard}ルールが発表されました。"
+msgstr ""
+"Sul sito ufficiale di Swissbeatbox sono state annunciate le regole della "
+"{Wildcard} per la nuova categoria \"{StudioCompetition}\"."
+
+#: templates/2026/studio_competition.html:37
+#, python-brace-format
+msgid "{StudioCompetition} は、GBB 本戦とは別枠で行われる、新しいカテゴリーです。"
+msgstr ""
+"{StudioCompetition} è una nuova categoria che si svolge separatamente "
+"dall'evento principale del GBB."
+
+#: templates/2026/studio_competition.html:38
+msgid "ステージでのパフォーマンスではなく、スタジオ環境で行われ、「音だけ」に特化しています。"
+msgstr ""
+"Si svolge in un ambiente di studio invece che sul palco e si concentra "
+"specificamente sul \"solo suono\"."
+
+#: templates/2026/studio_competition.html:39
+msgid "審査員は基本的に音だけを聴いて評価し、ビジュアルの情報を極力排除します。"
+msgstr ""
+"I giudici valutano fondamentalmente ascoltando solo il suono, escludendo il "
+"più possibile le informazioni visive."
+
+#: templates/2026/studio_competition.html:47
+msgid "イベント"
+msgstr "Evento"
+
+#: templates/2026/studio_competition.html:48
+msgid "日時（CET）"
+msgstr "Data e ora (CET)"
+
+#: templates/2026/studio_competition.html:53
+msgid "応募開始"
+msgstr "Inizio candidature"
+
+#: templates/2026/studio_competition.html:57
+msgid "応募締切"
+msgstr "Scadenza candidature"
+
+#: templates/2026/studio_competition.html:61
+msgid "出場枠"
+msgstr "Posti disponibili"
+
+#: templates/2026/studio_competition.html:66
+msgid "2026年9月23日の時点で18歳以上"
+msgstr "Avere 18 anni o più al 23 settembre 2026"
+
+#: templates/2026/studio_competition.html:72
+#, python-brace-format
+msgid "※GBB {year} 本戦の審査員は応募できません。"
+msgstr ""
+"Nota: I giudici dell'evento principale del GBB {year} non possono "
+"candidarsi."
+
+#: templates/2026/studio_competition.html:73
+#, python-brace-format
+msgid "通常の {Wildcard} と異なり、この {StudioCompetitionWildcard} は完全非公開で進行します。"
+msgstr ""
+"A differenza delle normali {Wildcard}, questa {StudioCompetitionWildcard} si"
+" svolgerà in modo completamente privato."
+
+#: templates/2026/studio_competition.html:78
+#, python-brace-format
+msgid "Stage I の {Wildcard} で選ばれたベスト5は、スタジオ本戦に招待されます。"
+msgstr ""
+"I 5 migliori selezionati nello Stage I del {Wildcard} saranno invitati alle "
+"finali in studio."
+
+#: templates/2026/studio_competition.html:81
+msgid "スタジオ内には、審査員3名と出場者がいますが、お互いが見えないようになっています。"
+msgstr ""
+"In studio ci sono 3 giudici e un partecipante, ma non possono vedersi tra "
+"loro."
+
+#: templates/2026/studio_competition.html:84
+msgid "審査員は黒い壁の前に座り、出場者のシルエット以外は見えないようになっている"
+msgstr ""
+"I giudici siedono davanti a una parete nera e non possono vedere altro che "
+"la sagoma del partecipante."
+
+#: templates/2026/studio_competition.html:85
+msgid "誰がいつ出るかは、審査員にも出場者にも事前に共有されない"
+msgstr ""
+"L'ordine di apparizione non viene condiviso in anticipo né con i giudici né "
+"con i partecipanti."
+
+#: templates/2026/studio_competition.html:92
+msgid "持ち時間"
+msgstr "Tempo a disposizione"
+
+#: templates/2026/studio_competition.html:100
+#: templates/2026/studio_competition.html:105
+msgid "1名脱落"
+msgstr "1 persona eliminata"
+
+#: templates/2026/studio_competition.html:110
+msgid "最終順位決定"
+msgstr "Determinazione della classifica finale"
 
 #: templates/2026/ticket.html:11
 msgid "ポーランド・ワルシャワ"
@@ -2010,9 +2118,9 @@ msgstr "Torna alla pagina principale"
 #: templates/2025/rule.html:358 templates/2025/stream.html:34
 #: templates/2025/ticket.html:17 templates/2025/timetable.html:159
 #: templates/2025/top.html:95 templates/2025/wildcards.html:14
-#: templates/2025/wildcards.html:83 templates/2026/rule.html:80
-#: templates/2026/rule.html:177 templates/2026/rule.html:339
-#: templates/2026/rule.html:554 templates/2026/stream.html:18
+#: templates/2025/wildcards.html:83 templates/2026/rule.html:83
+#: templates/2026/rule.html:180 templates/2026/rule.html:342
+#: templates/2026/rule.html:557 templates/2026/stream.html:18
 #: templates/2026/timetable.html:125 templates/2026/top.html:99
 #: templates/2026/wildcards.html:12 templates/2026/wildcards.html:59
 #: templates/base.html:239 templates/common/participants.html:24
@@ -2026,8 +2134,8 @@ msgstr "Risultato {Wildcard}"
 #: templates/2025/rule.html:358 templates/2025/stream.html:34
 #: templates/2025/ticket.html:17 templates/2025/timetable.html:159
 #: templates/2025/top.html:95 templates/2025/wildcards.html:14
-#: templates/2025/wildcards.html:83 templates/2026/rule.html:80
-#: templates/2026/rule.html:177 templates/2026/rule.html:554
+#: templates/2025/wildcards.html:83 templates/2026/rule.html:83
+#: templates/2026/rule.html:180 templates/2026/rule.html:557
 #: templates/2026/stream.html:18 templates/2026/timetable.html:125
 #: templates/2026/top.html:99 templates/2026/wildcards.html:12
 #: templates/2026/wildcards.html:59 templates/base.html:239
@@ -2035,21 +2143,21 @@ msgstr "Risultato {Wildcard}"
 msgid "出場者"
 msgstr "Partecipanti"
 
-#: templates/base.html:258
+#: templates/base.html:261
 msgid "GBBINFO-JPN開発者 Twitter"
 msgstr "GBBINFO-JPN sviluppatori Twitter"
 
-#: templates/base.html:260
+#: templates/base.html:263
 msgid "GBBINFO-JPNについて"
 msgstr "Informazioni su GBBINFO-JPN"
 
-#: templates/base.html:262 templates/others/translation.html:3
+#: templates/base.html:265 templates/others/translation.html:3
 #: templates/others/translation.html:4 templates/others/translation.html:5
 #: templates/others/translation.html:10
 msgid "各ページの翻訳提供について"
 msgstr "Per la traduzione di ciascuna pagina"
 
-#: templates/base.html:286
+#: templates/base.html:289
 msgid "いい景色だろ？"
 msgstr "È una bella vista, vero?"
 

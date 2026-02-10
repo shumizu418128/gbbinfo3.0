@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block title %}GBB {{ year }} Studio Competition - GBBINFO-JPN{% endblock %}
+{% block twitter_title %}GBB {{ year }} Studio Competition - GBBINFO-JPN{% endblock %}
+{% block og_title %}GBB {{ year }} Studio Competition - GBBINFO-JPN{% endblock %}
+{% block og_url %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/studio_competition{% endblock %}
+{% block canonical %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/studio_competition{% endblock %}
+{% block content %}
+<h1>GBB {{ year }} Studio Competition</h1>
+<p>
+  {{ _("Swissbeatbox公式サイトで、新カテゴリー「{StudioCompetition}」の{Wildcard}ルールが発表されました。").format(StudioCompetition="Studio Competition", Wildcard="Wildcard") }}<br>
+  <a href="https://swissbeatbox.com/newsfeed/gbb-2026-studio-competition-wildcard-rules/" target="_blank" rel="noopener noreferrer">{{ _("ソースサイト") }}</a>
+</p>
+
+<h2>{{ _("目次") }}</h2>
+<ol>
+  <li><a href="#notice">{{ _("注意事項") }}</a></li>
+  <li><a href="#overview">Studio Competition</a></li>
+  <li><a href="#stage-i">Wildcard（Stage I）</a></li>
+  <li><a href="#stage-ii">Live（Stage II）</a></li>
+</ol>
+
+<h2 id="notice">{{_("注意事項")}}</h2>
+<p>
+  {{_("以下に示す内容は、あくまでも{Beatbox}ファンが知っておくとよりGBBを楽しめる知識として紹介するものです。").format(Beatbox="Beatbox")}}<br />
+  {{_("一部内容において、わかりやすさを優先します。")}}<strong>{{_("これにより、正確さに欠ける表現を用いることがあります。")}}</strong>
+</p>
+<p>
+  {{_("当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねます。")}}<br />
+  {{_("{Wildcard}を提出する方は、").format(Wildcard="Wildcard")}}
+  <strong><span style="color: #ff0000">{{_("必ずご自身でルールを今一度ご確認ください。")}}</span></strong>
+</p>
+
+
+<h2 id="overview">Studio Competition</h2>
+<p>
+  {{ _("{StudioCompetition} は、GBB 本戦とは別枠で行われる、新しいカテゴリーです。").format(StudioCompetition="Studio Competition") }}<br>
+  {{ _("ステージでのパフォーマンスではなく、スタジオ環境で行われ、「音だけ」に特化しています。") }}
+  {{ _("審査員は基本的に音だけを聴いて評価し、ビジュアルの情報を極力排除します。") }}
+</p>
+
+<h2 id="stage-i">Studio Competition Wildcard（Stage I）</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>{{ _("イベント") }}</th>
+      <th>{{ _("日時（CET）") }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ _("応募開始") }}</td>
+      <td>2026-03-21 00:00</td>
+    </tr>
+    <tr>
+      <td>{{ _("応募締切") }}</td>
+      <td>2026-04-22 23:59</td>
+    </tr>
+    <tr>
+      <td>{{ _("出場枠") }}</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>{{ _("年齢制限") }}</td>
+      <td>{{ _("2026年9月23日の時点で18歳以上") }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+  {{ _("※GBB {year} 本戦の審査員は応募できません。").format(year=year) }}<br>
+  {{ _("通常の {Wildcard} と異なり、この {StudioCompetitionWildcard} は完全非公開で進行します。").format(Wildcard="Wildcard", StudioCompetitionWildcard="Studio Competition Wildcard") }}
+</p>
+
+<h2 id="stage-ii">Live（Stage II）</h2>
+<p>
+  {{ _("Stage I の {Wildcard} で選ばれたベスト5は、スタジオ本戦に招待されます。").format(Wildcard="Wildcard") }}
+</p>
+<p>
+  {{ _("スタジオ内には、審査員3名と出場者がいますが、お互いが見えないようになっています。") }}
+</p>
+<ul>
+  <li>{{ _("審査員は黒い壁の前に座り、出場者のシルエット以外は見えないようになっている") }}</li>
+  <li>{{ _("誰がいつ出るかは、審査員にも出場者にも事前に共有されない") }}</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Round</th>
+      <th>{{ _("持ち時間") }}</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Round 1</td>
+      <td>2:00 (±10s)</td>
+      <td>5 → 4<br>{{ _("1名脱落") }}</td>
+    </tr>
+    <tr>
+      <td>Round 2</td>
+      <td>2:00 (±10s)</td>
+      <td>4 → 3<br>{{ _("1名脱落") }}</td>
+    </tr>
+    <tr>
+      <td>Final</td>
+      <td>3:00 (±10s)</td>
+      <td>{{ _("最終順位決定") }}</td>
+    </tr>
+  </tbody>
+</table>
+
+{% endblock %}
