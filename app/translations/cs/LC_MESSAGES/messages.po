@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-06 01:14+0900\n"
+"POT-Creation-Date: 2026-02-11 01:15+0900\n"
 "PO-Revision-Date: 2026-01-25 16:50+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: cs <LL@li.org>\n"
@@ -58,7 +58,8 @@ msgstr ""
 #: templates/2021/timetable.html:16 templates/2024/rule.html:26
 #: templates/2024/timetable.html:16 templates/2025/rule.html:26
 #: templates/2025/timetable.html:18 templates/2025/wildcard_regulation.html:26
-#: templates/2026/rule.html:24 templates/2026/timetable.html:27
+#: templates/2026/rule.html:24 templates/2026/studio_competition.html:15
+#: templates/2026/timetable.html:27
 msgid "目次"
 msgstr "Obsah"
 
@@ -188,7 +189,8 @@ msgstr "Zdrojový web:"
 #: templates/2025/rule.html:54 templates/2025/wildcard_regulation.html:29
 #: templates/2025/wildcard_regulation.html:59 templates/2025/wildcards.html:87
 #: templates/2026/rule.html:27 templates/2026/rule.html:64
-#: templates/2026/wildcards.html:63
+#: templates/2026/studio_competition.html:17
+#: templates/2026/studio_competition.html:23 templates/2026/wildcards.html:63
 msgid "注意事項"
 msgstr "Důležité upozornění"
 
@@ -219,7 +221,7 @@ msgid "{Wildcard}審査員一覧"
 msgstr "Seznam porotců {Wildcard}"
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:56
-#: templates/2026/rule.html:66
+#: templates/2026/rule.html:66 templates/2026/studio_competition.html:25
 #, python-brace-format
 msgid "以下に示す内容は、あくまでも{Beatbox}ファンが知っておくとよりGBBを楽しめる知識として紹介するものです。"
 msgstr ""
@@ -227,17 +229,18 @@ msgstr ""
 " fanouškům pomohou lépe si užít GBB."
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:57
-#: templates/2026/rule.html:67
+#: templates/2026/rule.html:67 templates/2026/studio_competition.html:26
 msgid "一部内容において、わかりやすさを優先します。"
 msgstr "V některých částech dáváme přednost srozumitelnosti."
 
 #: templates/2024/rule.html:58 templates/2025/rule.html:57
-#: templates/2026/rule.html:67
+#: templates/2026/rule.html:67 templates/2026/studio_competition.html:26
 msgid "これにより、正確さに欠ける表現を用いることがあります。"
 msgstr "Z tohoto důvodu můžeme používat výrazy, kterým chybí přesnost."
 
 #: templates/2024/rule.html:62 templates/2025/rule.html:60
 #: templates/2025/wildcard_regulation.html:65 templates/2026/rule.html:70
+#: templates/2026/studio_competition.html:29
 msgid "当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねます。"
 msgstr ""
 "Neneseme žádnou odpovědnost za škody způsobené obsahem zveřejněným na tomto "
@@ -245,12 +248,14 @@ msgstr ""
 
 #: templates/2024/rule.html:62 templates/2025/rule.html:61
 #: templates/2025/wildcard_regulation.html:66 templates/2026/rule.html:71
+#: templates/2026/studio_competition.html:30
 #, python-brace-format
 msgid "{Wildcard}を提出する方は、"
 msgstr "Ti, kteří předkládají {Wildcard},"
 
 #: templates/2024/rule.html:64 templates/2025/rule.html:62
 #: templates/2025/wildcard_regulation.html:67 templates/2026/rule.html:72
+#: templates/2026/studio_competition.html:31
 msgid "必ずご自身でルールを今一度ご確認ください。"
 msgstr "prosím si znovu pečlivě přečtěte pravidla."
 
@@ -1149,6 +1154,7 @@ msgstr "【Pro fanoušky {Beatbox}】"
 
 #: templates/2025/wildcard_regulation.html:37
 #: templates/2025/wildcard_regulation.html:121
+#: templates/2026/studio_competition.html:65
 msgid "年齢制限"
 msgstr "Věkové omezení"
 
@@ -1414,7 +1420,7 @@ msgstr ""
 msgid "皆さんの{Wildcard}を楽しみにしています！"
 msgstr "Těšíme se na vaše {Wildcard}!"
 
-#: templates/2026/rule.html:12
+#: templates/2026/rule.html:12 templates/2026/studio_competition.html:12
 msgid "ソースサイト"
 msgstr "Zdrojový web"
 
@@ -1803,6 +1809,101 @@ msgstr "Chat o čemkoli"
 msgid "ぜひこちらをご活用ください！"
 msgstr "Prosím, využijte to!"
 
+#: templates/2026/studio_competition.html:11
+#, python-brace-format
+msgid "Swissbeatbox公式サイトで、新カテゴリー「{StudioCompetition}」の{Wildcard}ルールが発表されました。"
+msgstr ""
+"Na oficiálním webu Swissbeatbox byla zveřejněna pravidla pro novou kategorii"
+" \"{StudioCompetition}\" a {Wildcard}."
+
+#: templates/2026/studio_competition.html:37
+#, python-brace-format
+msgid "{StudioCompetition} は、GBB 本戦とは別枠で行われる、新しいカテゴリーです。"
+msgstr ""
+"{StudioCompetition} je nová kategorie, která se koná odděleně od hlavního "
+"turnaje GBB."
+
+#: templates/2026/studio_competition.html:38
+msgid "ステージでのパフォーマンスではなく、スタジオ環境で行われ、「音だけ」に特化しています。"
+msgstr ""
+"Namísto výkonu na pódiu se koná v studiovém prostředí a specializuje se "
+"pouze na \"zvuk\"."
+
+#: templates/2026/studio_competition.html:39
+msgid "審査員は基本的に音だけを聴いて評価し、ビジュアルの情報を極力排除します。"
+msgstr ""
+"Porotci hodnotí v zásadě pouze zvuk a maximalizují vyloučení vizuálních "
+"informací."
+
+#: templates/2026/studio_competition.html:47
+msgid "イベント"
+msgstr "Událost"
+
+#: templates/2026/studio_competition.html:48
+msgid "日時（CET）"
+msgstr "Datum a čas (CET)"
+
+#: templates/2026/studio_competition.html:53
+msgid "応募開始"
+msgstr "Začátek přihlášek"
+
+#: templates/2026/studio_competition.html:57
+msgid "応募締切"
+msgstr "Uzávěrka přihlášek"
+
+#: templates/2026/studio_competition.html:61
+msgid "出場枠"
+msgstr "Počet míst pro účast"
+
+#: templates/2026/studio_competition.html:66
+msgid "2026年9月23日の時点で18歳以上"
+msgstr "K 23. září 2026 musí být starší 18 let"
+
+#: templates/2026/studio_competition.html:72
+#, python-brace-format
+msgid "※GBB {year} 本戦の審査員は応募できません。"
+msgstr "※Porotci hlavního turnaje GBB {year} se nemohou přihlásit."
+
+#: templates/2026/studio_competition.html:73
+#, python-brace-format
+msgid "通常の {Wildcard} と異なり、この {StudioCompetitionWildcard} は完全非公開で進行します。"
+msgstr ""
+"Na rozdíl od běžného {Wildcard} se tento {StudioCompetitionWildcard} koná "
+"zcela neveřejně."
+
+#: templates/2026/studio_competition.html:78
+#, python-brace-format
+msgid "Stage I の {Wildcard} で選ばれたベスト5は、スタジオ本戦に招待されます。"
+msgstr ""
+"Nejlepších 5 vybraných v {Wildcard} Stage I bude pozváno do studia hlavního "
+"turnaje."
+
+#: templates/2026/studio_competition.html:81
+msgid "スタジオ内には、審査員3名と出場者がいますが、お互いが見えないようになっています。"
+msgstr "V studiu jsou 3 porotci a účastníci, ale navzájem se nevidí."
+
+#: templates/2026/studio_competition.html:84
+msgid "審査員は黒い壁の前に座り、出場者のシルエット以外は見えないようになっている"
+msgstr "Porotci sedí před černou stěnou a nevidí nic kromě siluet účastníků"
+
+#: templates/2026/studio_competition.html:85
+msgid "誰がいつ出るかは、審査員にも出場者にも事前に共有されない"
+msgstr ""
+"Kdo a kdy vystoupí, není sdíleno předem ani s porotci, ani s účastníky"
+
+#: templates/2026/studio_competition.html:92
+msgid "持ち時間"
+msgstr "Časový limit"
+
+#: templates/2026/studio_competition.html:100
+#: templates/2026/studio_competition.html:105
+msgid "1名脱落"
+msgstr "1 účastník vypadne"
+
+#: templates/2026/studio_competition.html:110
+msgid "最終順位決定"
+msgstr "Určení konečného pořadí"
+
 #: templates/2026/ticket.html:11
 msgid "ポーランド・ワルシャワ"
 msgstr "Polsko, Varšava"
@@ -1887,7 +1988,7 @@ msgstr ""
 #: templates/2026/timetable.html:153 templates/2026/top.html:3
 #: templates/2026/top.html:4 templates/2026/top.html:5
 #: templates/2026/top.html:25 templates/2026/top.html:165
-#: templates/base.html:122 templates/base.html:233
+#: templates/base.html:122 templates/base.html:234
 #: templates/includes/hamburger_menu.html:8
 #: templates/includes/next_year.html:5
 #: templates/participant_detail/participant_detail.html:145
@@ -1898,45 +1999,45 @@ msgstr "Tento průvodce"
 msgid "年度選択"
 msgstr "Výběr roku"
 
-#: templates/base.html:168 templates/includes/notice.html:5
+#: templates/base.html:169 templates/includes/notice.html:5
 msgid "翻訳未提供"
 msgstr "Překlad není k dispozici"
 
-#: templates/base.html:169
+#: templates/base.html:170
 msgid "このページは翻訳が提供されていません。現在は原文の日本語を表示しています。"
 msgstr ""
 "Tato stránka nemá k dispozici překlad. Zobrazuje se původní japonský text."
 
-#: templates/base.html:189
+#: templates/base.html:190
 msgid "GBBまでの残り時間"
 msgstr "Zbývající čas do GBB"
 
-#: templates/base.html:194 templates/base.html:210
+#: templates/base.html:195 templates/base.html:211
 #: templates/includes/bottom_navigation.html:30
 #: templates/includes/bottom_navigation.html:48
 msgid "なんでも検索"
 msgstr "Hledat cokoli"
 
-#: templates/base.html:196 templates/includes/bottom_navigation.html:32
+#: templates/base.html:197 templates/includes/bottom_navigation.html:32
 #, python-brace-format
 msgid "GBB {year} の検索のみ可能です"
 msgstr "Je možné hledat pouze GBB {year}"
 
-#: templates/base.html:197 templates/includes/bottom_navigation.html:33
+#: templates/base.html:198 templates/includes/bottom_navigation.html:33
 #, python-brace-format
 msgid "GBB {year} は終了しました"
 msgstr "GBB {year} bylo ukončeno"
 
-#: templates/base.html:201 templates/includes/bottom_navigation.html:37
+#: templates/base.html:202 templates/includes/bottom_navigation.html:37
 #, python-brace-format
 msgid "例：GBB {year} の最終結果は？"
 msgstr "Příklad: Jaké jsou konečné výsledky GBB {year}?"
 
-#: templates/base.html:206 templates/includes/bottom_navigation.html:42
+#: templates/base.html:207 templates/includes/bottom_navigation.html:42
 msgid "GBB最新情報の検索はこちら"
 msgstr "Hledání nejnovějších informací o GBB je zde"
 
-#: templates/base.html:211 templates/includes/bottom_navigation.html:49
+#: templates/base.html:212 templates/includes/bottom_navigation.html:49
 #, python-brace-format
 msgid "GBB {year} について検索してみよう"
 msgstr "Zkusme hledat o GBB {year}"
@@ -1944,25 +2045,25 @@ msgstr "Zkusme hledat o GBB {year}"
 #: templates/2024/top.html:30 templates/2024/top_7tosmoke.html:18
 #: templates/2025/top.html:29 templates/2025/top_7tosmoke.html:18
 #: templates/2026/top.html:37 templates/2026/top_7tosmoke.html:18
-#: templates/base.html:214 templates/includes/bottom_navigation.html:52
+#: templates/base.html:215 templates/includes/bottom_navigation.html:52
 msgid "例：現地観戦計画のたてかた"
 msgstr "Příklad: Jak naplánovat návštěvu na místě"
 
-#: templates/base.html:224
+#: templates/base.html:225
 msgid "ホーム画面に追加"
 msgstr "Přidat na domovskou obrazovku"
 
-#: templates/base.html:227
+#: templates/base.html:228
 msgid "GBBINFO-JPNはPWAに対応しています。"
 msgstr "GBBINFO-JPN podporuje PWA."
 
-#: templates/base.html:227
+#: templates/base.html:228
 msgid "ブラウザメニューを開き、「ホーム画面に追加」をタップすると、アプリとしてインストールできます。"
 msgstr ""
 "Otevřete nabídku prohlížeče a klepněte na \"Přidat na domovskou obrazovku\","
 " abyste mohli nainstalovat jako aplikaci."
 
-#: templates/base.html:233
+#: templates/base.html:234
 msgid "ホームへもどる"
 msgstr "Zpět na domovskou stránku"
 
@@ -1977,7 +2078,7 @@ msgstr "Zpět na domovskou stránku"
 #: templates/2026/rule.html:554 templates/2026/stream.html:18
 #: templates/2026/timetable.html:125 templates/2026/top.html:99
 #: templates/2026/wildcards.html:12 templates/2026/wildcards.html:59
-#: templates/base.html:239 templates/common/participants.html:24
+#: templates/base.html:240 templates/common/participants.html:24
 #: templates/common/result.html:108 templates/includes/hamburger_menu.html:9
 #: templates/includes/participants_form.html:13
 #, python-brace-format
@@ -1992,26 +2093,26 @@ msgstr "{Wildcard} výsledky"
 #: templates/2026/rule.html:177 templates/2026/rule.html:554
 #: templates/2026/stream.html:18 templates/2026/timetable.html:125
 #: templates/2026/top.html:99 templates/2026/wildcards.html:12
-#: templates/2026/wildcards.html:59 templates/base.html:239
+#: templates/2026/wildcards.html:59 templates/base.html:240
 #: templates/common/result.html:108 templates/includes/hamburger_menu.html:9
 msgid "出場者"
 msgstr "Účastníci"
 
-#: templates/base.html:258
+#: templates/base.html:262
 msgid "GBBINFO-JPN開発者 Twitter"
 msgstr "Twitter vývojáře GBBINFO-JPN"
 
-#: templates/base.html:260
+#: templates/base.html:264
 msgid "GBBINFO-JPNについて"
 msgstr "O GBBINFO-JPN"
 
-#: templates/base.html:262 templates/others/translation.html:3
+#: templates/base.html:266 templates/others/translation.html:3
 #: templates/others/translation.html:4 templates/others/translation.html:5
 #: templates/others/translation.html:10
 msgid "各ページの翻訳提供について"
 msgstr "O poskytování překladů na jednotlivých stránkách"
 
-#: templates/base.html:286
+#: templates/base.html:290
 msgid "いい景色だろ？"
 msgstr "Krásný výhled, že?"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-06 01:14+0900\n"
+"POT-Creation-Date: 2026-02-11 01:15+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: it <LL@li.org>\n"
@@ -54,7 +54,8 @@ msgstr ""
 #: templates/2021/timetable.html:16 templates/2024/rule.html:26
 #: templates/2024/timetable.html:16 templates/2025/rule.html:26
 #: templates/2025/timetable.html:18 templates/2025/wildcard_regulation.html:26
-#: templates/2026/rule.html:24 templates/2026/timetable.html:27
+#: templates/2026/rule.html:24 templates/2026/studio_competition.html:15
+#: templates/2026/timetable.html:27
 msgid "目次"
 msgstr "Indice"
 
@@ -185,7 +186,8 @@ msgstr "Sito sorgente:"
 #: templates/2025/rule.html:54 templates/2025/wildcard_regulation.html:29
 #: templates/2025/wildcard_regulation.html:59 templates/2025/wildcards.html:87
 #: templates/2026/rule.html:27 templates/2026/rule.html:64
-#: templates/2026/wildcards.html:63
+#: templates/2026/studio_competition.html:17
+#: templates/2026/studio_competition.html:23 templates/2026/wildcards.html:63
 msgid "注意事項"
 msgstr "AVVERTENZE"
 
@@ -216,7 +218,7 @@ msgid "{Wildcard}審査員一覧"
 msgstr "{Wildcard} Elenco dei giudici"
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:56
-#: templates/2026/rule.html:66
+#: templates/2026/rule.html:66 templates/2026/studio_competition.html:25
 #, python-brace-format
 msgid "以下に示す内容は、あくまでも{Beatbox}ファンが知っておくとよりGBBを楽しめる知識として紹介するものです。"
 msgstr ""
@@ -224,17 +226,18 @@ msgstr ""
 "fan di {Beatbox} dovrebbero avere per godersi al meglio il GBB."
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:57
-#: templates/2026/rule.html:67
+#: templates/2026/rule.html:67 templates/2026/studio_competition.html:26
 msgid "一部内容において、わかりやすさを優先します。"
 msgstr "In parte dei contenuti, si privilegia la chiarezza."
 
 #: templates/2024/rule.html:58 templates/2025/rule.html:57
-#: templates/2026/rule.html:67
+#: templates/2026/rule.html:67 templates/2026/studio_competition.html:26
 msgid "これにより、正確さに欠ける表現を用いることがあります。"
 msgstr "Ciò potrebbe comportare l'utilizzo di espressioni imprecise."
 
 #: templates/2024/rule.html:62 templates/2025/rule.html:60
 #: templates/2025/wildcard_regulation.html:65 templates/2026/rule.html:70
+#: templates/2026/studio_competition.html:29
 msgid "当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねます。"
 msgstr ""
 "Non ci assumiamo alcuna responsabilità per eventuali danni derivanti dai "
@@ -242,12 +245,14 @@ msgstr ""
 
 #: templates/2024/rule.html:62 templates/2025/rule.html:61
 #: templates/2025/wildcard_regulation.html:66 templates/2026/rule.html:71
+#: templates/2026/studio_competition.html:30
 #, python-brace-format
 msgid "{Wildcard}を提出する方は、"
 msgstr "Coloro che presentano {Wildcard},"
 
 #: templates/2024/rule.html:64 templates/2025/rule.html:62
 #: templates/2025/wildcard_regulation.html:67 templates/2026/rule.html:72
+#: templates/2026/studio_competition.html:31
 msgid "必ずご自身でルールを今一度ご確認ください。"
 msgstr "Si prega di rivedere le regole."
 
@@ -1162,6 +1167,7 @@ msgstr "[{Beatbox} per i fan]"
 
 #: templates/2025/wildcard_regulation.html:37
 #: templates/2025/wildcard_regulation.html:121
+#: templates/2026/studio_competition.html:65
 msgid "年齢制限"
 msgstr "Limitazioni di età"
 
@@ -1436,7 +1442,7 @@ msgstr ""
 msgid "皆さんの{Wildcard}を楽しみにしています！"
 msgstr "Non vedo l'ora di {Wildcard} da parte vostra!"
 
-#: templates/2026/rule.html:12
+#: templates/2026/rule.html:12 templates/2026/studio_competition.html:12
 msgid "ソースサイト"
 msgstr "Sito sorgente:"
 
@@ -1837,6 +1843,108 @@ msgstr "Chat su tutto"
 msgid "ぜひこちらをご活用ください！"
 msgstr "Per favore, utilizzatelo!"
 
+#: templates/2026/studio_competition.html:11
+#, python-brace-format
+msgid "Swissbeatbox公式サイトで、新カテゴリー「{StudioCompetition}」の{Wildcard}ルールが発表されました。"
+msgstr ""
+"Sul sito ufficiale di Swissbeatbox sono state annunciate le regole della "
+"{Wildcard} per la nuova categoria \"{StudioCompetition}\"."
+
+#: templates/2026/studio_competition.html:37
+#, python-brace-format
+msgid "{StudioCompetition} は、GBB 本戦とは別枠で行われる、新しいカテゴリーです。"
+msgstr ""
+"{StudioCompetition} è una nuova categoria che si svolge separatamente "
+"dall'evento principale del GBB."
+
+#: templates/2026/studio_competition.html:38
+msgid "ステージでのパフォーマンスではなく、スタジオ環境で行われ、「音だけ」に特化しています。"
+msgstr ""
+"Si svolge in un ambiente di studio invece che sul palco e si concentra "
+"specificamente sul \"solo suono\"."
+
+#: templates/2026/studio_competition.html:39
+msgid "審査員は基本的に音だけを聴いて評価し、ビジュアルの情報を極力排除します。"
+msgstr ""
+"I giudici valutano fondamentalmente ascoltando solo il suono, escludendo il "
+"più possibile le informazioni visive."
+
+#: templates/2026/studio_competition.html:47
+msgid "イベント"
+msgstr "Evento"
+
+#: templates/2026/studio_competition.html:48
+msgid "日時（CET）"
+msgstr "Data e ora (CET)"
+
+#: templates/2026/studio_competition.html:53
+msgid "応募開始"
+msgstr "Inizio candidature"
+
+#: templates/2026/studio_competition.html:57
+msgid "応募締切"
+msgstr "Scadenza candidature"
+
+#: templates/2026/studio_competition.html:61
+msgid "出場枠"
+msgstr "Posti disponibili"
+
+#: templates/2026/studio_competition.html:66
+msgid "2026年9月23日の時点で18歳以上"
+msgstr "Avere 18 anni o più al 23 settembre 2026"
+
+#: templates/2026/studio_competition.html:72
+#, python-brace-format
+msgid "※GBB {year} 本戦の審査員は応募できません。"
+msgstr ""
+"Nota: I giudici dell'evento principale del GBB {year} non possono "
+"candidarsi."
+
+#: templates/2026/studio_competition.html:73
+#, python-brace-format
+msgid "通常の {Wildcard} と異なり、この {StudioCompetitionWildcard} は完全非公開で進行します。"
+msgstr ""
+"A differenza delle normali {Wildcard}, questa {StudioCompetitionWildcard} si"
+" svolgerà in modo completamente privato."
+
+#: templates/2026/studio_competition.html:78
+#, python-brace-format
+msgid "Stage I の {Wildcard} で選ばれたベスト5は、スタジオ本戦に招待されます。"
+msgstr ""
+"I 5 migliori selezionati nello Stage I del {Wildcard} saranno invitati alle "
+"finali in studio."
+
+#: templates/2026/studio_competition.html:81
+msgid "スタジオ内には、審査員3名と出場者がいますが、お互いが見えないようになっています。"
+msgstr ""
+"In studio ci sono 3 giudici e un partecipante, ma non possono vedersi tra "
+"loro."
+
+#: templates/2026/studio_competition.html:84
+msgid "審査員は黒い壁の前に座り、出場者のシルエット以外は見えないようになっている"
+msgstr ""
+"I giudici siedono davanti a una parete nera e non possono vedere altro che "
+"la sagoma del partecipante."
+
+#: templates/2026/studio_competition.html:85
+msgid "誰がいつ出るかは、審査員にも出場者にも事前に共有されない"
+msgstr ""
+"L'ordine di apparizione non viene condiviso in anticipo né con i giudici né "
+"con i partecipanti."
+
+#: templates/2026/studio_competition.html:92
+msgid "持ち時間"
+msgstr "Tempo a disposizione"
+
+#: templates/2026/studio_competition.html:100
+#: templates/2026/studio_competition.html:105
+msgid "1名脱落"
+msgstr "1 persona eliminata"
+
+#: templates/2026/studio_competition.html:110
+msgid "最終順位決定"
+msgstr "Determinazione della classifica finale"
+
 #: templates/2026/ticket.html:11
 msgid "ポーランド・ワルシャワ"
 msgstr "Varsavia, Polonia"
@@ -1924,7 +2032,7 @@ msgstr ""
 #: templates/2026/timetable.html:153 templates/2026/top.html:3
 #: templates/2026/top.html:4 templates/2026/top.html:5
 #: templates/2026/top.html:25 templates/2026/top.html:165
-#: templates/base.html:122 templates/base.html:233
+#: templates/base.html:122 templates/base.html:234
 #: templates/includes/hamburger_menu.html:8
 #: templates/includes/next_year.html:5
 #: templates/participant_detail/participant_detail.html:145
@@ -1935,46 +2043,46 @@ msgstr "Guida"
 msgid "年度選択"
 msgstr "Selezione annuale"
 
-#: templates/base.html:168 templates/includes/notice.html:5
+#: templates/base.html:169 templates/includes/notice.html:5
 msgid "翻訳未提供"
 msgstr "Traduzione non fornita"
 
-#: templates/base.html:169
+#: templates/base.html:170
 msgid "このページは翻訳が提供されていません。現在は原文の日本語を表示しています。"
 msgstr ""
 "Questa pagina non offre traduzioni. Al momento, viene visualizzato il testo "
 "originale giapponese."
 
-#: templates/base.html:189
+#: templates/base.html:190
 msgid "GBBまでの残り時間"
 msgstr "Tempo rimanente fino a GBB"
 
-#: templates/base.html:194 templates/base.html:210
+#: templates/base.html:195 templates/base.html:211
 #: templates/includes/bottom_navigation.html:30
 #: templates/includes/bottom_navigation.html:48
 msgid "なんでも検索"
 msgstr "Cerca"
 
-#: templates/base.html:196 templates/includes/bottom_navigation.html:32
+#: templates/base.html:197 templates/includes/bottom_navigation.html:32
 #, python-brace-format
 msgid "GBB {year} の検索のみ可能です"
 msgstr "È possibile cercare solo GBB {year}"
 
-#: templates/base.html:197 templates/includes/bottom_navigation.html:33
+#: templates/base.html:198 templates/includes/bottom_navigation.html:33
 #, python-brace-format
 msgid "GBB {year} は終了しました"
 msgstr "GBB {year} è terminato."
 
-#: templates/base.html:201 templates/includes/bottom_navigation.html:37
+#: templates/base.html:202 templates/includes/bottom_navigation.html:37
 #, python-brace-format
 msgid "例：GBB {year} の最終結果は？"
 msgstr "Esempio: Qual è il risultato finale di GBB {year}?"
 
-#: templates/base.html:206 templates/includes/bottom_navigation.html:42
+#: templates/base.html:207 templates/includes/bottom_navigation.html:42
 msgid "GBB最新情報の検索はこちら"
 msgstr "Cerca qui le ultime informazioni su GBB."
 
-#: templates/base.html:211 templates/includes/bottom_navigation.html:49
+#: templates/base.html:212 templates/includes/bottom_navigation.html:49
 #, python-brace-format
 msgid "GBB {year} について検索してみよう"
 msgstr "Prova a cercare informazioni su GBB {year}"
@@ -1982,25 +2090,25 @@ msgstr "Prova a cercare informazioni su GBB {year}"
 #: templates/2024/top.html:30 templates/2024/top_7tosmoke.html:18
 #: templates/2025/top.html:29 templates/2025/top_7tosmoke.html:18
 #: templates/2026/top.html:37 templates/2026/top_7tosmoke.html:18
-#: templates/base.html:214 templates/includes/bottom_navigation.html:52
+#: templates/base.html:215 templates/includes/bottom_navigation.html:52
 msgid "例：現地観戦計画のたてかた"
 msgstr "Esempio: Come pianificare la visione dal vivo"
 
-#: templates/base.html:224
+#: templates/base.html:225
 msgid "ホーム画面に追加"
 msgstr "Aggiungi alla schermata Home"
 
-#: templates/base.html:227
+#: templates/base.html:228
 msgid "GBBINFO-JPNはPWAに対応しています。"
 msgstr "GBBINFO-JPN supporta le PWA."
 
-#: templates/base.html:227
+#: templates/base.html:228
 msgid "ブラウザメニューを開き、「ホーム画面に追加」をタップすると、アプリとしてインストールできます。"
 msgstr ""
 "Apri il menu del browser e tocca 'Aggiungi a schermata Home' per installarlo"
 " come app."
 
-#: templates/base.html:233
+#: templates/base.html:234
 msgid "ホームへもどる"
 msgstr "Torna alla pagina principale"
 
@@ -2015,7 +2123,7 @@ msgstr "Torna alla pagina principale"
 #: templates/2026/rule.html:554 templates/2026/stream.html:18
 #: templates/2026/timetable.html:125 templates/2026/top.html:99
 #: templates/2026/wildcards.html:12 templates/2026/wildcards.html:59
-#: templates/base.html:239 templates/common/participants.html:24
+#: templates/base.html:240 templates/common/participants.html:24
 #: templates/common/result.html:108 templates/includes/hamburger_menu.html:9
 #: templates/includes/participants_form.html:13
 #, python-brace-format
@@ -2030,26 +2138,26 @@ msgstr "Risultato {Wildcard}"
 #: templates/2026/rule.html:177 templates/2026/rule.html:554
 #: templates/2026/stream.html:18 templates/2026/timetable.html:125
 #: templates/2026/top.html:99 templates/2026/wildcards.html:12
-#: templates/2026/wildcards.html:59 templates/base.html:239
+#: templates/2026/wildcards.html:59 templates/base.html:240
 #: templates/common/result.html:108 templates/includes/hamburger_menu.html:9
 msgid "出場者"
 msgstr "Partecipanti"
 
-#: templates/base.html:258
+#: templates/base.html:262
 msgid "GBBINFO-JPN開発者 Twitter"
 msgstr "GBBINFO-JPN sviluppatori Twitter"
 
-#: templates/base.html:260
+#: templates/base.html:264
 msgid "GBBINFO-JPNについて"
 msgstr "Informazioni su GBBINFO-JPN"
 
-#: templates/base.html:262 templates/others/translation.html:3
+#: templates/base.html:266 templates/others/translation.html:3
 #: templates/others/translation.html:4 templates/others/translation.html:5
 #: templates/others/translation.html:10
 msgid "各ページの翻訳提供について"
 msgstr "Per la traduzione di ciascuna pagina"
 
-#: templates/base.html:286
+#: templates/base.html:290
 msgid "いい景色だろ？"
 msgstr "È una bella vista, vero?"
 
