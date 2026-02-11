@@ -7,6 +7,7 @@
 {% block canonical %}https://gbbinfo-jpn.onrender.com/{{ language }}/{{ year }}/studio_competition{% endblock %}
 {% block content %}
 <h1>GBB {{ year }} Studio Competition</h1>
+
 <p>
   {{ _("Swissbeatbox公式サイトで、新カテゴリー「{StudioCompetition}」の{Wildcard}ルールが発表されました。").format(StudioCompetition="Studio Competition", Wildcard="Wildcard") }}<br>
   <a href="https://swissbeatbox.com/newsfeed/gbb-2026-studio-competition-wildcard-rules/" target="_blank" rel="noopener noreferrer">{{ _("ソースサイト") }}</a>
@@ -44,18 +45,18 @@
 <table>
   <thead>
     <tr>
-      <th>{{ _("イベント") }}</th>
-      <th>{{ _("日時（CET）") }}</th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>{{ _("応募開始") }}</td>
-      <td>2026-03-21 00:00</td>
+      <td>2026-03-21 00:00 CET</td>
     </tr>
     <tr>
       <td>{{ _("応募締切") }}</td>
-      <td>2026-04-22 23:59</td>
+      <td>2026-04-22 23:59 CEST</td>
     </tr>
     <tr>
       <td>{{ _("出場枠") }}</td>
