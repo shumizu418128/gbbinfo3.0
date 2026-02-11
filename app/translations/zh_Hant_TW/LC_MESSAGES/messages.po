@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-11 01:25+0900\n"
+"POT-Creation-Date: 2026-02-11 22:51+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh_Hant_TW <LL@li.org>\n"
@@ -1668,14 +1668,6 @@ msgstr "不是在舞台上表演，而是在錄音室環境中進行，完全專
 #: templates/2026/studio_competition.html:39
 msgid "審査員は基本的に音だけを聴いて評価し、ビジュアルの情報を極力排除します。"
 msgstr "評審基本上只聽聲音來評價，儘量排除視覺資訊。"
-
-#: templates/2026/studio_competition.html:47
-msgid "イベント"
-msgstr "活動"
-
-#: templates/2026/studio_competition.html:48
-msgid "日時（CET）"
-msgstr "日期與時間（CET）"
 
 #: templates/2026/studio_competition.html:53
 msgid "応募開始"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-11 01:25+0900\n"
+"POT-Creation-Date: 2026-02-11 22:51+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ta <LL@li.org>\n"
@@ -1864,14 +1864,6 @@ msgid "審査員は基本的に音だけを聴いて評価し、ビジュアル�
 msgstr ""
 "நீதிபதிகள் அடிப்படையில் ஒலியை மட்டுமே கேட்டு மதிப்பிடுகிறார்கள், மற்றும் "
 "காட்சி தகவல்களை முடிந்தவரை விலக்குகிறார்கள்."
-
-#: templates/2026/studio_competition.html:47
-msgid "イベント"
-msgstr "நிகழ்வு"
-
-#: templates/2026/studio_competition.html:48
-msgid "日時（CET）"
-msgstr "தேதி மற்றும் நேரம் (CET)"
 
 #: templates/2026/studio_competition.html:53
 msgid "応募開始"
