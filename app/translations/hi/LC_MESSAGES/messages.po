@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-11 22:51+0900\n"
+"POT-Creation-Date: 2026-02-11 23:01+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: hi <LL@li.org>\n"
@@ -29,7 +29,7 @@ msgstr ""
 #: templates/2026/timetable.html:4 templates/2026/timetable.html:5
 #: templates/2026/timetable.html:10 templates/2026/timetable.html:20
 #: templates/2026/top.html:17 templates/2026/top.html:111
-#: templates/2026/top_7tosmoke.html:37
+#: templates/2026/top_7tosmoke.html:36
 #: templates/includes/hamburger_menu.html:14
 #: templates/others/translation.html:20
 msgid "タイムテーブル"
@@ -53,7 +53,7 @@ msgstr ""
 #: templates/2021/timetable.html:16 templates/2024/rule.html:26
 #: templates/2024/timetable.html:16 templates/2025/rule.html:26
 #: templates/2025/timetable.html:18 templates/2025/wildcard_regulation.html:26
-#: templates/2026/rule.html:27 templates/2026/studio_competition.html:15
+#: templates/2026/rule.html:27 templates/2026/studio_competition.html:16
 #: templates/2026/timetable.html:27
 msgid "目次"
 msgstr "विषयसूची"
@@ -182,8 +182,8 @@ msgstr "स्रोत साइट:"
 #: templates/2025/rule.html:54 templates/2025/wildcard_regulation.html:29
 #: templates/2025/wildcard_regulation.html:59 templates/2025/wildcards.html:87
 #: templates/2026/rule.html:30 templates/2026/rule.html:67
-#: templates/2026/studio_competition.html:17
-#: templates/2026/studio_competition.html:23 templates/2026/wildcards.html:63
+#: templates/2026/studio_competition.html:18
+#: templates/2026/studio_competition.html:24 templates/2026/wildcards.html:63
 msgid "注意事項"
 msgstr "ध्यान दें"
 
@@ -214,7 +214,7 @@ msgid "{Wildcard}審査員一覧"
 msgstr "{Wildcard} न्यायाधीशों की सूची"
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:56
-#: templates/2026/rule.html:69 templates/2026/studio_competition.html:25
+#: templates/2026/rule.html:69 templates/2026/studio_competition.html:26
 #, python-brace-format
 msgid "以下に示す内容は、あくまでも{Beatbox}ファンが知っておくとよりGBBを楽しめる知識として紹介するものです。"
 msgstr ""
@@ -222,18 +222,18 @@ msgstr ""
 "प्रशंसक जानकर GBB का अधिक आनंद ले सकते हैं।"
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:57
-#: templates/2026/rule.html:70 templates/2026/studio_competition.html:26
+#: templates/2026/rule.html:70 templates/2026/studio_competition.html:27
 msgid "一部内容において、わかりやすさを優先します。"
 msgstr "कुछ हिस्से में, स्पष्टता को प्राथमिकता दी जाएगी।"
 
 #: templates/2024/rule.html:58 templates/2025/rule.html:57
-#: templates/2026/rule.html:70 templates/2026/studio_competition.html:26
+#: templates/2026/rule.html:70 templates/2026/studio_competition.html:27
 msgid "これにより、正確さに欠ける表現を用いることがあります。"
 msgstr "इसके कारण, कुछ अभिव्यक्तियाँ सटीक नहीं हो सकती हैं।"
 
 #: templates/2024/rule.html:62 templates/2025/rule.html:60
 #: templates/2025/wildcard_regulation.html:65 templates/2026/rule.html:73
-#: templates/2026/studio_competition.html:29
+#: templates/2026/studio_competition.html:30
 msgid "当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねます。"
 msgstr ""
 "इस साइट पर प्रकाशित सामग्री से हुई किसी भी प्रकार की क्षति के लिए हम कोई "
@@ -241,14 +241,14 @@ msgstr ""
 
 #: templates/2024/rule.html:62 templates/2025/rule.html:61
 #: templates/2025/wildcard_regulation.html:66 templates/2026/rule.html:74
-#: templates/2026/studio_competition.html:30
+#: templates/2026/studio_competition.html:31
 #, python-brace-format
 msgid "{Wildcard}を提出する方は、"
 msgstr "{Wildcard} जमा करने वाले,"
 
 #: templates/2024/rule.html:64 templates/2025/rule.html:62
 #: templates/2025/wildcard_regulation.html:67 templates/2026/rule.html:75
-#: templates/2026/studio_competition.html:31
+#: templates/2026/studio_competition.html:32
 msgid "必ずご自身でルールを今一度ご確認ください。"
 msgstr "कृपया स्वयं नियमों को एक बार फिर से जांच लें।"
 
@@ -540,7 +540,7 @@ msgstr "यहां मुख्य प्रतियोगिता के �
 #: templates/2026/stream.html:4 templates/2026/stream.html:5
 #: templates/2026/stream.html:9 templates/2026/timetable.html:97
 #: templates/2026/timetable.html:124 templates/2026/top.html:132
-#: templates/2026/top_7tosmoke.html:38
+#: templates/2026/top_7tosmoke.html:37
 #: templates/includes/hamburger_menu.html:21
 #: templates/others/translation.html:23
 msgid "当日配信"
@@ -572,7 +572,7 @@ msgstr "{Wildcard} परिणाम और प्रतिभागी"
 #: templates/2025/ticket.html:9 templates/2025/top_7tosmoke.html:33
 #: templates/2026/ticket.html:3 templates/2026/ticket.html:4
 #: templates/2026/ticket.html:5 templates/2026/ticket.html:10
-#: templates/2026/top_7tosmoke.html:33 templates/others/translation.html:22
+#: templates/2026/top_7tosmoke.html:32 templates/others/translation.html:22
 msgid "会場 & チケット"
 msgstr "स्थान और टिकट"
 
@@ -739,7 +739,7 @@ msgstr "अनौपचारिक सूचना स्थल"
 
 #: templates/2024/top.html:38 templates/2024/top_7tosmoke.html:26
 #: templates/2025/top.html:144 templates/2025/top_7tosmoke.html:26
-#: templates/2026/top.html:155 templates/2026/top_7tosmoke.html:26
+#: templates/2026/top.html:155 templates/2026/top_7tosmoke.html:25
 #: templates/common/cancels.html:14 templates/common/japan.html:13
 #: templates/common/korea.html:13 templates/common/participants.html:14
 #: templates/common/result.html:13 templates/includes/notice.html:9
@@ -819,7 +819,7 @@ msgstr "{Wildcard} सूची"
 #: templates/2024/top.html:102 templates/2024/top.html:116
 #: templates/2024/top_7tosmoke.html:44 templates/2025/top.html:168
 #: templates/2025/top.html:182 templates/2025/top_7tosmoke.html:46
-#: templates/2026/top.html:178 templates/2026/top_7tosmoke.html:46
+#: templates/2026/top.html:178 templates/2026/top_7tosmoke.html:45
 msgid "お問い合わせ"
 msgstr "संपर्क करें"
 
@@ -875,17 +875,17 @@ msgid "なお上記電話番号は、当サイトとは無関係です。"
 msgstr "कृपया ध्यान दें कि उपरोक्त टेलीफोन नंबर इस साइट से संबद्ध नहीं हैं।"
 
 #: templates/2024/top_7tosmoke.html:31 templates/2025/top_7tosmoke.html:31
-#: templates/2026/top_7tosmoke.html:31
+#: templates/2026/top_7tosmoke.html:30
 msgid "7toSmokeとは"
 msgstr "7toSmoke क्या है?"
 
 #: templates/2024/top_7tosmoke.html:32 templates/2025/top_7tosmoke.html:32
-#: templates/2026/top_7tosmoke.html:32
+#: templates/2026/top_7tosmoke.html:31
 msgid "7toSmokeルール & 参加方法"
 msgstr "7toSmoke नियम & भाग लेने का तरीका"
 
 #: templates/2024/top_7tosmoke.html:39 templates/2025/top_7tosmoke.html:41
-#: templates/2026/top_7tosmoke.html:41
+#: templates/2026/top_7tosmoke.html:40
 msgid ""
 "7toSmokeは、GBB本戦に比べて最新情報の公開が非常に遅い傾向にあり、そもそも情報が発表されないまま本番を迎えてしまったケースもあります。"
 msgstr ""
@@ -894,7 +894,7 @@ msgstr ""
 "ही मुख्य कार्यक्रम शुरू हो गया।"
 
 #: templates/2024/top_7tosmoke.html:40 templates/2025/top_7tosmoke.html:42
-#: templates/2026/top_7tosmoke.html:42
+#: templates/2026/top_7tosmoke.html:41
 msgid "諦めましょう。"
 msgstr "हार मान लेते हैं।"
 
@@ -1149,7 +1149,7 @@ msgstr "【{Beatbox} फैंस के लिए】"
 
 #: templates/2025/wildcard_regulation.html:37
 #: templates/2025/wildcard_regulation.html:121
-#: templates/2026/studio_competition.html:65
+#: templates/2026/studio_competition.html:66
 msgid "年齢制限"
 msgstr "आयु सीमा"
 
@@ -1409,7 +1409,7 @@ msgstr ""
 msgid "皆さんの{Wildcard}を楽しみにしています！"
 msgstr "मैं आप सभी के {Wildcard} का इंतजार कर रहा हूँ!"
 
-#: templates/2026/rule.html:12 templates/2026/studio_competition.html:12
+#: templates/2026/rule.html:12 templates/2026/studio_competition.html:13
 msgid "ソースサイト"
 msgstr "स्रोत साइट:"
 
@@ -1803,95 +1803,95 @@ msgstr "कुछ भी चैट"
 msgid "ぜひこちらをご活用ください！"
 msgstr "कृपया इसका उपयोग करें!"
 
-#: templates/2026/studio_competition.html:11
+#: templates/2026/studio_competition.html:12
 #, python-brace-format
 msgid "Swissbeatbox公式サイトで、新カテゴリー「{StudioCompetition}」の{Wildcard}ルールが発表されました。"
 msgstr ""
 "Swissbeatbox की आधिकारिक वेबसाइट पर, नई श्रेणी \"{StudioCompetition}\" और "
 "{Wildcard} के नियमों की घोषणा की गई है।"
 
-#: templates/2026/studio_competition.html:37
+#: templates/2026/studio_competition.html:38
 #, python-brace-format
 msgid "{StudioCompetition} は、GBB 本戦とは別枠で行われる、新しいカテゴリーです。"
 msgstr ""
 "{StudioCompetition} एक नई श्रेणी है जो GBB मुख्य प्रतियोगिता से अलग आयोजित "
 "की जाती है।"
 
-#: templates/2026/studio_competition.html:38
+#: templates/2026/studio_competition.html:39
 msgid "ステージでのパフォーマンスではなく、スタジオ環境で行われ、「音だけ」に特化しています。"
 msgstr ""
 "यह स्टेज पर प्रदर्शन के बजाय स्टूडियो वातावरण में आयोजित किया जाता है और "
 "विशेष रूप से \"ध्वनि\" पर केंद्रित है।"
 
-#: templates/2026/studio_competition.html:39
+#: templates/2026/studio_competition.html:40
 msgid "審査員は基本的に音だけを聴いて評価し、ビジュアルの情報を極力排除します。"
 msgstr ""
 "जूरी मूल रूप से केवल ध्वनि सुनकर मूल्यांकन करती है और दृश्य जानकारी को "
 "अधिकतम रूप से बाहर करती है।"
 
-#: templates/2026/studio_competition.html:53
+#: templates/2026/studio_competition.html:54
 msgid "応募開始"
 msgstr "आवेदन शुरू"
 
-#: templates/2026/studio_competition.html:57
+#: templates/2026/studio_competition.html:58
 msgid "応募締切"
 msgstr "आवेदन की अंतिम तारीख"
 
-#: templates/2026/studio_competition.html:61
+#: templates/2026/studio_competition.html:62
 msgid "出場枠"
 msgstr "प्रतियोगिता में भाग लेने के स्थानों की संख्या"
 
-#: templates/2026/studio_competition.html:66
+#: templates/2026/studio_competition.html:67
 msgid "2026年9月23日の時点で18歳以上"
 msgstr "23 सितंबर 2026 तक 18 वर्ष या उससे अधिक आयु का होना चाहिए"
 
-#: templates/2026/studio_competition.html:72
+#: templates/2026/studio_competition.html:73
 #, python-brace-format
 msgid "※GBB {year} 本戦の審査員は応募できません。"
 msgstr "※GBB {year} मुख्य प्रतियोगिता के जूरी सदस्य आवेदन नहीं कर सकते।"
 
-#: templates/2026/studio_competition.html:73
+#: templates/2026/studio_competition.html:74
 #, python-brace-format
 msgid "通常の {Wildcard} と異なり、この {StudioCompetitionWildcard} は完全非公開で進行します。"
 msgstr ""
 "सामान्य {Wildcard} के विपरीत, यह {StudioCompetitionWildcard} पूरी तरह से "
 "गोपनीय रूप से आयोजित किया जाता है।"
 
-#: templates/2026/studio_competition.html:78
+#: templates/2026/studio_competition.html:79
 #, python-brace-format
 msgid "Stage I の {Wildcard} で選ばれたベスト5は、スタジオ本戦に招待されます。"
 msgstr ""
 "{Wildcard} Stage I में चुने गए शीर्ष 5 को स्टूडियो मुख्य प्रतियोगिता में "
 "आमंत्रित किया जाएगा।"
 
-#: templates/2026/studio_competition.html:81
+#: templates/2026/studio_competition.html:82
 msgid "スタジオ内には、審査員3名と出場者がいますが、お互いが見えないようになっています。"
 msgstr ""
 "स्टूडियो में 3 न्यायाधीश और प्रतिभागी हैं, लेकिन वे एक दूसरे को नहीं देख "
 "सकते।"
 
-#: templates/2026/studio_competition.html:84
+#: templates/2026/studio_competition.html:85
 msgid "審査員は黒い壁の前に座り、出場者のシルエット以外は見えないようになっている"
 msgstr ""
 "न्यायाधीश काली दीवार के सामने बैठते हैं, और प्रतिभागियों के सिल्हूट के अलावा"
 " कुछ भी नहीं देख सकते।"
 
-#: templates/2026/studio_competition.html:85
+#: templates/2026/studio_competition.html:86
 msgid "誰がいつ出るかは、審査員にも出場者にも事前に共有されない"
 msgstr ""
 "कौन कब प्रदर्शन करेगा, यह न्यायाधीशों या प्रतिभागियों को पहले से नहीं बताया "
 "जाता।"
 
-#: templates/2026/studio_competition.html:92
+#: templates/2026/studio_competition.html:93
 msgid "持ち時間"
 msgstr "समय सीमा"
 
-#: templates/2026/studio_competition.html:100
-#: templates/2026/studio_competition.html:105
+#: templates/2026/studio_competition.html:101
+#: templates/2026/studio_competition.html:106
 msgid "1名脱落"
 msgstr "1 व्यक्ति बाहर"
 
-#: templates/2026/studio_competition.html:110
+#: templates/2026/studio_competition.html:111
 msgid "最終順位決定"
 msgstr "अंतिम रैंकिंग निर्धारण"
 
@@ -2039,7 +2039,7 @@ msgstr "GBB {year} के बारे में खोजें"
 
 #: templates/2024/top.html:30 templates/2024/top_7tosmoke.html:18
 #: templates/2025/top.html:29 templates/2025/top_7tosmoke.html:18
-#: templates/2026/top.html:37 templates/2026/top_7tosmoke.html:18
+#: templates/2026/top.html:37 templates/2026/top_7tosmoke.html:17
 #: templates/base.html:214 templates/includes/bottom_navigation.html:52
 msgid "例：現地観戦計画のたてかた"
 msgstr "उदाहरण: स्थानीय यात्रा की योजना कैसे बनाएं"

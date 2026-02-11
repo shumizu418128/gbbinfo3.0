@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-11 22:51+0900\n"
+"POT-Creation-Date: 2026-02-11 23:01+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: de <LL@li.org>\n"
@@ -29,7 +29,7 @@ msgstr ""
 #: templates/2026/timetable.html:4 templates/2026/timetable.html:5
 #: templates/2026/timetable.html:10 templates/2026/timetable.html:20
 #: templates/2026/top.html:17 templates/2026/top.html:111
-#: templates/2026/top_7tosmoke.html:37
+#: templates/2026/top_7tosmoke.html:36
 #: templates/includes/hamburger_menu.html:14
 #: templates/others/translation.html:20
 msgid "タイムテーブル"
@@ -56,7 +56,7 @@ msgstr ""
 #: templates/2021/timetable.html:16 templates/2024/rule.html:26
 #: templates/2024/timetable.html:16 templates/2025/rule.html:26
 #: templates/2025/timetable.html:18 templates/2025/wildcard_regulation.html:26
-#: templates/2026/rule.html:27 templates/2026/studio_competition.html:15
+#: templates/2026/rule.html:27 templates/2026/studio_competition.html:16
 #: templates/2026/timetable.html:27
 msgid "目次"
 msgstr "Inhaltsverzeichnis"
@@ -189,8 +189,8 @@ msgstr "Quell-Website:"
 #: templates/2025/rule.html:54 templates/2025/wildcard_regulation.html:29
 #: templates/2025/wildcard_regulation.html:59 templates/2025/wildcards.html:87
 #: templates/2026/rule.html:30 templates/2026/rule.html:67
-#: templates/2026/studio_competition.html:17
-#: templates/2026/studio_competition.html:23 templates/2026/wildcards.html:63
+#: templates/2026/studio_competition.html:18
+#: templates/2026/studio_competition.html:24 templates/2026/wildcards.html:63
 msgid "注意事項"
 msgstr "Wichtiger Hinweis"
 
@@ -221,7 +221,7 @@ msgid "{Wildcard}審査員一覧"
 msgstr "{Wildcard} Jury-Liste"
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:56
-#: templates/2026/rule.html:69 templates/2026/studio_competition.html:25
+#: templates/2026/rule.html:69 templates/2026/studio_competition.html:26
 #, python-brace-format
 msgid "以下に示す内容は、あくまでも{Beatbox}ファンが知っておくとよりGBBを楽しめる知識として紹介するものです。"
 msgstr ""
@@ -229,19 +229,19 @@ msgstr ""
 "{Beatbox}-Fans helfen soll, GBB noch mehr zu genießen."
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:57
-#: templates/2026/rule.html:70 templates/2026/studio_competition.html:26
+#: templates/2026/rule.html:70 templates/2026/studio_competition.html:27
 msgid "一部内容において、わかりやすさを優先します。"
 msgstr ""
 "Um der Übersichtlichkeit willen wird ein Teil des Inhalts vereinfacht."
 
 #: templates/2024/rule.html:58 templates/2025/rule.html:57
-#: templates/2026/rule.html:70 templates/2026/studio_competition.html:26
+#: templates/2026/rule.html:70 templates/2026/studio_competition.html:27
 msgid "これにより、正確さに欠ける表現を用いることがあります。"
 msgstr "Dies kann zu ungenauen Formulierungen führen."
 
 #: templates/2024/rule.html:62 templates/2025/rule.html:60
 #: templates/2025/wildcard_regulation.html:65 templates/2026/rule.html:73
-#: templates/2026/studio_competition.html:29
+#: templates/2026/studio_competition.html:30
 msgid "当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねます。"
 msgstr ""
 "Wir übernehmen keine Haftung für Schäden, die durch die auf dieser Website "
@@ -249,14 +249,14 @@ msgstr ""
 
 #: templates/2024/rule.html:62 templates/2025/rule.html:61
 #: templates/2025/wildcard_regulation.html:66 templates/2026/rule.html:74
-#: templates/2026/studio_competition.html:30
+#: templates/2026/studio_competition.html:31
 #, python-brace-format
 msgid "{Wildcard}を提出する方は、"
 msgstr "Wer {Wildcard} einreicht,"
 
 #: templates/2024/rule.html:64 templates/2025/rule.html:62
 #: templates/2025/wildcard_regulation.html:67 templates/2026/rule.html:75
-#: templates/2026/studio_competition.html:31
+#: templates/2026/studio_competition.html:32
 msgid "必ずご自身でルールを今一度ご確認ください。"
 msgstr "Bitte überprüfen Sie die Regeln noch einmal selbst."
 
@@ -551,7 +551,7 @@ msgstr "Die Liste der Juroren des Hauptturniers finden Sie hier"
 #: templates/2026/stream.html:4 templates/2026/stream.html:5
 #: templates/2026/stream.html:9 templates/2026/timetable.html:97
 #: templates/2026/timetable.html:124 templates/2026/top.html:132
-#: templates/2026/top_7tosmoke.html:38
+#: templates/2026/top_7tosmoke.html:37
 #: templates/includes/hamburger_menu.html:21
 #: templates/others/translation.html:23
 msgid "当日配信"
@@ -583,7 +583,7 @@ msgstr "{Wildcard} Ergebnisse & Teilnehmer"
 #: templates/2025/ticket.html:9 templates/2025/top_7tosmoke.html:33
 #: templates/2026/ticket.html:3 templates/2026/ticket.html:4
 #: templates/2026/ticket.html:5 templates/2026/ticket.html:10
-#: templates/2026/top_7tosmoke.html:33 templates/others/translation.html:22
+#: templates/2026/top_7tosmoke.html:32 templates/others/translation.html:22
 msgid "会場 & チケット"
 msgstr "Veranstaltungsort & Ticket"
 
@@ -751,7 +751,7 @@ msgstr "Inoffizielle Informationsseite"
 
 #: templates/2024/top.html:38 templates/2024/top_7tosmoke.html:26
 #: templates/2025/top.html:144 templates/2025/top_7tosmoke.html:26
-#: templates/2026/top.html:155 templates/2026/top_7tosmoke.html:26
+#: templates/2026/top.html:155 templates/2026/top_7tosmoke.html:25
 #: templates/common/cancels.html:14 templates/common/japan.html:13
 #: templates/common/korea.html:13 templates/common/participants.html:14
 #: templates/common/result.html:13 templates/includes/notice.html:9
@@ -831,7 +831,7 @@ msgstr "{Wildcard} Liste"
 #: templates/2024/top.html:102 templates/2024/top.html:116
 #: templates/2024/top_7tosmoke.html:44 templates/2025/top.html:168
 #: templates/2025/top.html:182 templates/2025/top_7tosmoke.html:46
-#: templates/2026/top.html:178 templates/2026/top_7tosmoke.html:46
+#: templates/2026/top.html:178 templates/2026/top_7tosmoke.html:45
 msgid "お問い合わせ"
 msgstr "Kontakt"
 
@@ -891,17 +891,17 @@ msgstr ""
 "Website in Verbindung steht."
 
 #: templates/2024/top_7tosmoke.html:31 templates/2025/top_7tosmoke.html:31
-#: templates/2026/top_7tosmoke.html:31
+#: templates/2026/top_7tosmoke.html:30
 msgid "7toSmokeとは"
 msgstr "Was ist 7toSmoke?"
 
 #: templates/2024/top_7tosmoke.html:32 templates/2025/top_7tosmoke.html:32
-#: templates/2026/top_7tosmoke.html:32
+#: templates/2026/top_7tosmoke.html:31
 msgid "7toSmokeルール & 参加方法"
 msgstr "7toSmoke Regeln & Teilnahme"
 
 #: templates/2024/top_7tosmoke.html:39 templates/2025/top_7tosmoke.html:41
-#: templates/2026/top_7tosmoke.html:41
+#: templates/2026/top_7tosmoke.html:40
 msgid ""
 "7toSmokeは、GBB本戦に比べて最新情報の公開が非常に遅い傾向にあり、そもそも情報が発表されないまま本番を迎えてしまったケースもあります。"
 msgstr ""
@@ -911,7 +911,7 @@ msgstr ""
 "veröffentlicht wurden."
 
 #: templates/2024/top_7tosmoke.html:40 templates/2025/top_7tosmoke.html:42
-#: templates/2026/top_7tosmoke.html:42
+#: templates/2026/top_7tosmoke.html:41
 msgid "諦めましょう。"
 msgstr "Gib es auf."
 
@@ -1173,7 +1173,7 @@ msgstr "【{Beatbox} für Fans】"
 
 #: templates/2025/wildcard_regulation.html:37
 #: templates/2025/wildcard_regulation.html:121
-#: templates/2026/studio_competition.html:65
+#: templates/2026/studio_competition.html:66
 msgid "年齢制限"
 msgstr "Altersbeschränkung"
 
@@ -1446,7 +1446,7 @@ msgstr ""
 msgid "皆さんの{Wildcard}を楽しみにしています！"
 msgstr "Wir freuen uns auf Ihre {Wildcard}!"
 
-#: templates/2026/rule.html:12 templates/2026/studio_competition.html:12
+#: templates/2026/rule.html:12 templates/2026/studio_competition.html:13
 msgid "ソースサイト"
 msgstr "Quell-Website:"
 
@@ -1850,96 +1850,96 @@ msgstr "Alles-Chat"
 msgid "ぜひこちらをご活用ください！"
 msgstr "Bitte nutzen Sie dies!"
 
-#: templates/2026/studio_competition.html:11
+#: templates/2026/studio_competition.html:12
 #, python-brace-format
 msgid "Swissbeatbox公式サイトで、新カテゴリー「{StudioCompetition}」の{Wildcard}ルールが発表されました。"
 msgstr ""
 "Auf der offiziellen Swissbeatbox-Website wurden die {Wildcard}-Regeln für "
 "die neue Kategorie „{StudioCompetition}“ bekannt gegeben."
 
-#: templates/2026/studio_competition.html:37
+#: templates/2026/studio_competition.html:38
 #, python-brace-format
 msgid "{StudioCompetition} は、GBB 本戦とは別枠で行われる、新しいカテゴリーです。"
 msgstr ""
 "{StudioCompetition} ist eine neue Kategorie, die getrennt vom GBB-Hauptevent"
 " stattfindet."
 
-#: templates/2026/studio_competition.html:38
+#: templates/2026/studio_competition.html:39
 msgid "ステージでのパフォーマンスではなく、スタジオ環境で行われ、「音だけ」に特化しています。"
 msgstr ""
 "Sie findet in einer Studioumgebung statt, nicht auf der Bühne, und "
 "konzentriert sich speziell auf den „reinen Klang“."
 
-#: templates/2026/studio_competition.html:39
+#: templates/2026/studio_competition.html:40
 msgid "審査員は基本的に音だけを聴いて評価し、ビジュアルの情報を極力排除します。"
 msgstr ""
 "Die Jury bewertet grundsätzlich nur nach dem Gehör und schließt visuelle "
 "Informationen weitestgehend aus."
 
-#: templates/2026/studio_competition.html:53
+#: templates/2026/studio_competition.html:54
 msgid "応募開始"
 msgstr "Bewerbungsstart"
 
-#: templates/2026/studio_competition.html:57
+#: templates/2026/studio_competition.html:58
 msgid "応募締切"
 msgstr "Bewerbungsschluss"
 
-#: templates/2026/studio_competition.html:61
+#: templates/2026/studio_competition.html:62
 msgid "出場枠"
 msgstr "Teilnehmerplätze"
 
-#: templates/2026/studio_competition.html:66
+#: templates/2026/studio_competition.html:67
 msgid "2026年9月23日の時点で18歳以上"
 msgstr "Mindestens 18 Jahre alt zum 23. September 2026"
 
-#: templates/2026/studio_competition.html:72
+#: templates/2026/studio_competition.html:73
 #, python-brace-format
 msgid "※GBB {year} 本戦の審査員は応募できません。"
 msgstr ""
 "Hinweis: Juroren des GBB {year} Hauptevents können sich nicht bewerben."
 
-#: templates/2026/studio_competition.html:73
+#: templates/2026/studio_competition.html:74
 #, python-brace-format
 msgid "通常の {Wildcard} と異なり、この {StudioCompetitionWildcard} は完全非公開で進行します。"
 msgstr ""
 "Im Gegensatz zum normalen {Wildcard} verläuft dieses "
 "{StudioCompetitionWildcard} vollständig privat."
 
-#: templates/2026/studio_competition.html:78
+#: templates/2026/studio_competition.html:79
 #, python-brace-format
 msgid "Stage I の {Wildcard} で選ばれたベスト5は、スタジオ本戦に招待されます。"
 msgstr ""
 "Die besten 5, die im Stage I {Wildcard} ausgewählt wurden, werden zum "
 "Studio-Finale eingeladen."
 
-#: templates/2026/studio_competition.html:81
+#: templates/2026/studio_competition.html:82
 msgid "スタジオ内には、審査員3名と出場者がいますが、お互いが見えないようになっています。"
 msgstr ""
 "Im Studio befinden sich 3 Juroren und ein Teilnehmer, die sich jedoch "
 "gegenseitig nicht sehen können."
 
-#: templates/2026/studio_competition.html:84
+#: templates/2026/studio_competition.html:85
 msgid "審査員は黒い壁の前に座り、出場者のシルエット以外は見えないようになっている"
 msgstr ""
 "Die Juroren sitzen vor einer schwarzen Wand und können außer der Silhouette "
 "des Teilnehmers nichts sehen."
 
-#: templates/2026/studio_competition.html:85
+#: templates/2026/studio_competition.html:86
 msgid "誰がいつ出るかは、審査員にも出場者にも事前に共有されない"
 msgstr ""
 "Weder den Juroren noch den Teilnehmern wird im Voraus mitgeteilt, wer wann "
 "antritt."
 
-#: templates/2026/studio_competition.html:92
+#: templates/2026/studio_competition.html:93
 msgid "持ち時間"
 msgstr "Zeitlimit"
 
-#: templates/2026/studio_competition.html:100
-#: templates/2026/studio_competition.html:105
+#: templates/2026/studio_competition.html:101
+#: templates/2026/studio_competition.html:106
 msgid "1名脱落"
 msgstr "1 Person scheidet aus"
 
-#: templates/2026/studio_competition.html:110
+#: templates/2026/studio_competition.html:111
 msgid "最終順位決定"
 msgstr "Festlegung der Endplatzierung"
 
@@ -2089,7 +2089,7 @@ msgstr "Lass uns nach GBB {year} suchen"
 
 #: templates/2024/top.html:30 templates/2024/top_7tosmoke.html:18
 #: templates/2025/top.html:29 templates/2025/top_7tosmoke.html:18
-#: templates/2026/top.html:37 templates/2026/top_7tosmoke.html:18
+#: templates/2026/top.html:37 templates/2026/top_7tosmoke.html:17
 #: templates/base.html:214 templates/includes/bottom_navigation.html:52
 msgid "例：現地観戦計画のたてかた"
 msgstr "Wie man den Besuch vor Ort plant"

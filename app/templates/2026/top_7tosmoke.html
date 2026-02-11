@@ -14,7 +14,6 @@
 
 {% if is_latest_year is true %}
   <form id="search-form-top" class="search-container" action="/{{ year }}/search" method="POST">
-
     <input type="text" name="question" id="question-top" placeholder="{{ _('例：現地観戦計画のたてかた') }}" required>
     <button type="submit"></button>
   </form>
