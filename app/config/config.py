@@ -109,7 +109,18 @@ YOUTUBE_CHANNEL_PATTERN = (
     r"^(https?:\/\/)?(www\.)?youtube\.com\/(c\/|channel\/|user\/|@)[a-zA-Z0-9_-]+\/?$"
 )
 INSTAGRAM_ACCOUNT_PATTERN = r"^(https?:\/\/)?(www\.)?instagram\.com\/[a-zA-Z0-9_.]+\/?$"
-FACEBOOK_ACCOUNT_PATTERN = r"^(https?:\/\/)?(www\.)?facebook\.com\/[a-zA-Z0-9_.]+\/?$"
+FACEBOOK_ACCOUNT_PATTERN = (
+    r"^(https?:\/\/)?((www|m)\.)?facebook\.com\/[a-zA-Z0-9_.]+\/?$"
+)
+SPOTIFY_ACCOUNT_PATTERN = (
+    r"^(https?:\/\/)?(open\.)?spotify\.com\/artist\/[a-zA-Z0-9]+\/?$"
+)
+TWITTER_ACCOUNT_PATTERN = (
+    r"^(https?:\/\/)?(www\.)?(twitter\.com|x\.com)\/[a-zA-Z0-9_]+\/?$"
+)
+SOUNDCLOUD_ACCOUNT_PATTERN = (
+    r"^(https?:\/\/)?(www\.)?soundcloud\.com\/[a-zA-Z0-9_-]+\/?$"
+)
 
 BAN_WORDS = ["HATEN", "BEATCITY", "BCJ", "JPN CUP", "WIKI", "/PLAYLIST"]
 
