@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-15 13:59+0900\n"
+"POT-Creation-Date: 2026-02-15 14:41+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: es <LL@li.org>\n"
@@ -1518,8 +1518,8 @@ msgstr ""
 msgid ""
 "{ComebackWildcard}は、通常の{SoloWildcard}ランキングで出場枠を獲得できなかった{Beatboxer}のうち1名が、特別枠として出場権を獲得する制度です。"
 msgstr ""
-"{ComebackWildcard} es un sistema mediante el cual una persona que no pudo "
-"obtener una plaza en el ranking normal de {SoloWildcard} puede obtener el "
+"{ComebackWildcard} es un sistema mediante el cual un {Beatboxer} que no pudo"
+" obtener una plaza en el ranking normal de {SoloWildcard} puede obtener el "
 "derecho a participar como plaza especial."
 
 #: templates/2026/rule.html:188 templates/2026/rule.html:380
@@ -1548,8 +1548,8 @@ msgstr ""
 #, python-brace-format
 msgid "※5名全員が同じ{Beatboxer}を指名した場合、その時点で出場者が確定します。"
 msgstr ""
-"※Si los 5 jueces nominan al mismo artista, el participante se determina en "
-"ese momento."
+"※Si los 5 jueces nominan al mismo {Beatboxer}, el participante se determina "
+"en ese momento."
 
 #: templates/2026/rule.html:201
 #, python-brace-format
@@ -1723,7 +1723,8 @@ msgstr ""
 #: templates/2026/rule.html:423
 #, python-brace-format
 msgid "GBB {year} {SevenToSmoke}優勝者が辞退しても繰り上げはありません。"
-msgstr "No hay ascenso aunque el ganador se retire."
+msgstr ""
+"No hay ascenso aunque el ganador de GBB {year} {SevenToSmoke} se retire."
 
 #: templates/2026/rule.html:431
 #, python-brace-format

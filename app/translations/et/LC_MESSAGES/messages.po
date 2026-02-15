@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-15 13:59+0900\n"
+"POT-Creation-Date: 2026-02-15 14:41+0900\n"
 "PO-Revision-Date: 2025-10-29 23:04+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: et <LL@li.org>\n"
@@ -1487,9 +1487,9 @@ msgstr ""
 msgid ""
 "{ComebackWildcard}は、通常の{SoloWildcard}ランキングで出場枠を獲得できなかった{Beatboxer}のうち1名が、特別枠として出場権を獲得する制度です。"
 msgstr ""
-"{ComebackWildcard} on süsteem, kus üks neist, kes ei saanud tavalisest "
-"{SoloWildcard} edetabelist osalemise kohta, saab erivõimalusena osalemise "
-"õiguse."
+"{ComebackWildcard} on süsteem, kus üks {Beatboxer} neist, kes ei saanud "
+"tavalisest {SoloWildcard} edetabelist osalemise kohta, saab erivõimalusena "
+"osalemise õiguse."
 
 #: templates/2026/rule.html:188 templates/2026/rule.html:380
 msgid "対象"
@@ -1517,8 +1517,8 @@ msgstr ""
 #, python-brace-format
 msgid "※5名全員が同じ{Beatboxer}を指名した場合、その時点で出場者が確定します。"
 msgstr ""
-"※Kui kõik 5 liiget nimetavad sama kunstniku, määratakse osaleja sel hetkel "
-"kindlaks."
+"※Kui kõik 5 liiget nimetavad sama {Beatboxer}, määratakse osaleja sel hetkel"
+" kindlaks."
 
 #: templates/2026/rule.html:201
 #, python-brace-format
@@ -1690,7 +1690,8 @@ msgstr ""
 #: templates/2026/rule.html:423
 #, python-brace-format
 msgid "GBB {year} {SevenToSmoke}優勝者が辞退しても繰り上げはありません。"
-msgstr "Isegi kui võitja loobub, ei toimu edasiliikumist."
+msgstr ""
+"Isegi kui GBB {year} {SevenToSmoke} võitja loobub, ei toimu edasiliikumist."
 
 #: templates/2026/rule.html:431
 #, python-brace-format

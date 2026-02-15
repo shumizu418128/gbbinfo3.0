@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-15 13:59+0900\n"
+"POT-Creation-Date: 2026-02-15 14:41+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: en <LL@li.org>\n"
@@ -1493,7 +1493,7 @@ msgstr ""
 msgid ""
 "{ComebackWildcard}は、通常の{SoloWildcard}ランキングで出場枠を獲得できなかった{Beatboxer}のうち1名が、特別枠として出場権を獲得する制度です。"
 msgstr ""
-"{ComebackWildcard} is a system where one person who could not obtain a "
+"{ComebackWildcard} is a system where one {Beatboxer} who could not obtain a "
 "participation slot in the regular {SoloWildcard} ranking can obtain "
 "participation rights as a special slot."
 
@@ -1523,8 +1523,8 @@ msgstr ""
 #, python-brace-format
 msgid "※5名全員が同じ{Beatboxer}を指名した場合、その時点で出場者が確定します。"
 msgstr ""
-"※If all five judges nominate the same artist, the participant is determined "
-"at that point."
+"※If all five judges nominate the same {Beatboxer}, the participant is "
+"determined at that point."
 
 #: templates/2026/rule.html:201
 #, python-brace-format
@@ -1695,7 +1695,9 @@ msgstr ""
 #: templates/2026/rule.html:423
 #, python-brace-format
 msgid "GBB {year} {SevenToSmoke}優勝者が辞退しても繰り上げはありません。"
-msgstr "There will be no replacement even if the winner withdraws."
+msgstr ""
+"There will be no replacement even if the GBB {year} {SevenToSmoke} winner "
+"withdraws."
 
 #: templates/2026/rule.html:431
 #, python-brace-format

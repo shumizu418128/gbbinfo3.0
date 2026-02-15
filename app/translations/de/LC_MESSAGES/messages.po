@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-15 13:59+0900\n"
+"POT-Creation-Date: 2026-02-15 14:41+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: de <LL@li.org>\n"
@@ -1521,7 +1521,7 @@ msgstr ""
 msgid ""
 "{ComebackWildcard}は、通常の{SoloWildcard}ランキングで出場枠を獲得できなかった{Beatboxer}のうち1名が、特別枠として出場権を獲得する制度です。"
 msgstr ""
-"{ComebackWildcard} ist ein System, bei dem eine Person, die keinen "
+"{ComebackWildcard} ist ein System, bei dem ein {Beatboxer}, der keinen "
 "Teilnahmeplatz in der regulären {SoloWildcard}-Rangliste erhalten konnte, "
 "als Sonderplatz Teilnahmeberechtigung erhält."
 
@@ -1551,8 +1551,8 @@ msgstr ""
 #, python-brace-format
 msgid "※5名全員が同じ{Beatboxer}を指名した場合、その時点で出場者が確定します。"
 msgstr ""
-"※Wenn alle fünf Juroren denselben Künstler nominieren, wird der Teilnehmer "
-"zu diesem Zeitpunkt festgelegt."
+"※Wenn alle fünf Juroren denselben {Beatboxer} nominieren, wird der "
+"Teilnehmer zu diesem Zeitpunkt festgelegt."
 
 #: templates/2026/rule.html:201
 #, python-brace-format

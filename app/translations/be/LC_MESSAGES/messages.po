@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-15 13:59+0900\n"
+"POT-Creation-Date: 2026-02-15 14:41+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: be <LL@li.org>\n"
@@ -1494,13 +1494,13 @@ msgstr ""
 msgid ""
 "{ComebackWildcard}は、通常の{SoloWildcard}ランキングで出場枠を獲得できなかった{Beatboxer}のうち1名が、特別枠として出場権を獲得する制度です。"
 msgstr ""
-"{ComebackWildcard} - гэта сістэма, пры якой адзін з тых, хто не змог "
-"атрымаць месца ў звычайным рэйтынгу {SoloWildcard}, атрымлівае права на "
-"ўдзел у якасці спецыяльнага месца."
+"{ComebackWildcard} - гэта сістэма, пры якой адзін {Beatboxer} з тых, хто не "
+"змог атрымаць месца ў звычайным рэйтынгу {SoloWildcard}, атрымлівае права на"
+" ўдзел у якасці спецыяльнага месца."
 
 #: templates/2026/rule.html:188 templates/2026/rule.html:380
 msgid "対象"
-msgstr "Аб'ект"
+msgstr "адпаведная асоба"
 
 #: templates/2026/rule.html:190
 msgid "10位〜25位"
@@ -1524,7 +1524,7 @@ msgstr ""
 #, python-brace-format
 msgid "※5名全員が同じ{Beatboxer}を指名した場合、その時点で出場者が確定します。"
 msgstr ""
-"※ Калі ўсе 5 суддзяў выбіраюць аднаго і таго ж артыста, удзельнік "
+"※ Калі ўсе 5 суддзяў выбіраюць аднаго і таго ж {Beatboxer}, удзельнік "
 "вызначаецца на гэтым этапе."
 
 #: templates/2026/rule.html:201
@@ -1793,8 +1793,8 @@ msgstr ""
 #, python-brace-format
 msgid "ランナーズアップ：本戦に出場できなかった、{Wildcard}上位入賞者"
 msgstr ""
-"Віцэ-чэмпіён: пераможца {Wildcard} высокага ўзроўню, які не змог трапіць у "
-"асноўны турнір"
+"Віцэ-чэмпіёны: прызёры {Wildcard} высокага ўзроўню, якія не змаглі трапіць у"
+" асноўны турнір"
 
 #: templates/2026/rule.html:632
 #, python-brace-format

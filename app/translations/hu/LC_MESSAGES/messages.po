@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-15 13:59+0900\n"
+"POT-Creation-Date: 2026-02-15 14:41+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: hu <LL@li.org>\n"
@@ -1496,7 +1496,7 @@ msgid ""
 msgstr ""
 "A {ComebackWildcard} egy olyan rendszer, amelyben azok közül, akik a "
 "szokásos {SoloWildcard} rangsorban nem szereztek indulási helyet, egy "
-"személy különleges helyként szerzi meg az indulási jogot."
+"{Beatboxer} különleges helyként szerzi meg az indulási jogot."
 
 #: templates/2026/rule.html:188 templates/2026/rule.html:380
 msgid "対象"
@@ -1524,7 +1524,7 @@ msgstr ""
 #, python-brace-format
 msgid "※5名全員が同じ{Beatboxer}を指名した場合、その時点で出場者が確定します。"
 msgstr ""
-"※Ha mind az 5 zsűritag ugyanazt az előadót jelöli ki, akkor abban a "
+"※Ha mind az 5 zsűritag ugyanazt a {Beatboxer}-t jelöli ki, akkor abban a "
 "pillanatban meghatározódik a résztvevő."
 
 #: templates/2026/rule.html:201
@@ -1695,7 +1695,9 @@ msgstr ""
 #: templates/2026/rule.html:423
 #, python-brace-format
 msgid "GBB {year} {SevenToSmoke}優勝者が辞退しても繰り上げはありません。"
-msgstr "Még ha a győztes visszalép, akkor sincs felkerülés."
+msgstr ""
+"Még ha a GBB {year} {SevenToSmoke} győztes visszalép, akkor sincs "
+"felkerülés."
 
 #: templates/2026/rule.html:431
 #, python-brace-format
