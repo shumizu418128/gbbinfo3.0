@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-15 14:41+0900\n"
+"POT-Creation-Date: 2026-02-15 14:50+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: be <LL@li.org>\n"
@@ -1793,8 +1793,8 @@ msgstr ""
 #, python-brace-format
 msgid "ランナーズアップ：本戦に出場できなかった、{Wildcard}上位入賞者"
 msgstr ""
-"Віцэ-чэмпіёны: прызёры {Wildcard} высокага ўзроўню, якія не змаглі трапіць у"
-" асноўны турнір"
+"Ранерс-ап: удзельнікі, якія занялі высокія месцы ў {Wildcard}, але не змаглі"
+" трапіць у асноўны турнір"
 
 #: templates/2026/rule.html:632
 #, python-brace-format

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-15 14:41+0900\n"
+"POT-Creation-Date: 2026-02-15 14:50+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: hu <LL@li.org>\n"
@@ -1696,8 +1696,7 @@ msgstr ""
 #, python-brace-format
 msgid "GBB {year} {SevenToSmoke}優勝者が辞退しても繰り上げはありません。"
 msgstr ""
-"Még ha a GBB {year} {SevenToSmoke} győztes visszalép, akkor sincs "
-"felkerülés."
+"Ha a GBB {year} {SevenToSmoke} győztese visszalép, akkor sincs felkerülés."
 
 #: templates/2026/rule.html:431
 #, python-brace-format

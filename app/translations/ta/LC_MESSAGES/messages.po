@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-15 14:41+0900\n"
+"POT-Creation-Date: 2026-02-15 14:50+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ta <LL@li.org>\n"
@@ -1709,8 +1709,9 @@ msgstr ""
 #, python-brace-format
 msgid "チャレンジャーシリーズ優勝者が辞退した場合、3名までは{Wildcard}下位からの繰り上げを行いますが、4名以上の辞退には対応しません。"
 msgstr ""
-"விலகல் ஏற்பட்டால், 3 பேர் வரை {Wildcard} கீழ் இருந்து பதிலீடு செய்வோம், "
-"ஆனால் 4 பேர் அல்லது அதற்கு மேற்பட்ட விலகல்களுக்கு பதிலளிக்க மாட்டோம்."
+"சாலஞ்சர் தொடர் வெற்றியாளர் விலகல் ஏற்பட்டால், 3 பேர் வரை {Wildcard} கீழ் "
+"இருந்து பதிலீடு செய்வோம், ஆனால் 4 பேர் அல்லது அதற்கு மேற்பட்ட விலகல்களுக்கு "
+"பதிலளிக்க மாட்டோம்."
 
 #: templates/2026/rule.html:423
 #, python-brace-format
