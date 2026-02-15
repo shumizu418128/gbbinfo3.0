@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-15 14:50+0900\n"
+"POT-Creation-Date: 2026-02-15 16:00+0900\n"
 "PO-Revision-Date: 2026-01-25 16:50+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: cs <LL@li.org>\n"
@@ -1633,7 +1633,7 @@ msgstr "Cílová skupina pro posun"
 
 #: templates/2026/rule.html:372
 #, python-brace-format
-msgid "繰り上げの対象となるのは、{Wildcard}の順位が上位の人たちに限定されています。"
+msgid "繰り上げの対象となるのは、原則として{Wildcard}の順位が上位の人たちに限定されています。"
 msgstr ""
 "Cílová skupina pro posun je omezena na osoby s vyšším pořadím v {Wildcard}."
 

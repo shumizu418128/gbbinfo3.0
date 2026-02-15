@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-15 14:50+0900\n"
+"POT-Creation-Date: 2026-02-15 16:00+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: no <LL@li.org>\n"
@@ -1631,7 +1631,7 @@ msgstr "Kvalifisert for opprykk"
 
 #: templates/2026/rule.html:372
 #, python-brace-format
-msgid "繰り上げの対象となるのは、{Wildcard}の順位が上位の人たちに限定されています。"
+msgid "繰り上げの対象となるのは、原則として{Wildcard}の順位が上位の人たちに限定されています。"
 msgstr ""
 "De som er kvalifisert for opprykk er begrenset til de med høyest rangering i"
 " {Wildcard}."
