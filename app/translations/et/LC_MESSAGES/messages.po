@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-15 16:15+0900\n"
+"POT-Creation-Date: 2026-02-15 16:58+0900\n"
 "PO-Revision-Date: 2025-10-29 23:04+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: et <LL@li.org>\n"
@@ -1428,7 +1428,7 @@ msgstr "Edasiliikumise osalemise kohta"
 
 #: templates/2026/rule.html:62 templates/2026/rule.html:623
 msgid "セカンドリーグ"
-msgstr "Teine liiga"
+msgstr "Teine Liiga"
 
 #: templates/2026/rule.html:157
 #, python-brace-format

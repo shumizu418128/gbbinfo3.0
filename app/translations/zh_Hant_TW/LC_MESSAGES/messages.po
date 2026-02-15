@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-15 16:15+0900\n"
+"POT-Creation-Date: 2026-02-15 16:58+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh_Hant_TW <LL@li.org>\n"
@@ -939,16 +939,16 @@ msgstr "希望參加Tag Team部門・Crew部門的人請注意。"
 
 #: templates/2025/rule.html:343 templates/2026/rule.html:549
 msgid "レフェリー"
-msgstr "裁判員"
+msgstr "裁判（主審）"
 
 #: templates/2025/rule.html:351 templates/2026/rule.html:557
 msgid "レフェリーについて"
-msgstr "關於裁判員"
+msgstr "關於裁判（主審）"
 
 #: templates/2025/rule.html:352 templates/2026/rule.html:558
 msgid ""
 "レフェリーは、GBB23から導入された、審査員とは別のメンバーです。審査員は各出場者の評価を行うのに対し、レフェリーは「ルールを守っているか」を確認する役割を担います。"
-msgstr "裁判員是從GBB23導入的，與評審是不同的成員。 評審負責對每位參賽者進行評分，而裁判員則負責確認「是否遵守規則」。"
+msgstr "裁判（主審）是從GBB23導入的，與評審是不同的成員。評審負責對每位參賽者進行評分，而裁判（主審）則負責確認「是否遵守規則」。"
 
 #: templates/2025/ticket.html:16 templates/common/japan.html:50
 #: templates/common/korea.html:50 templates/common/result.html:107

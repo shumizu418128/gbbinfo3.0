@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-15 16:15+0900\n"
+"POT-Creation-Date: 2026-02-15 16:58+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: da <LL@li.org>\n"
@@ -1438,7 +1438,7 @@ msgstr "Om oprykning til deltagelse"
 
 #: templates/2026/rule.html:62 templates/2026/rule.html:623
 msgid "セカンドリーグ"
-msgstr "Anden Division"
+msgstr "Anden Liga"
 
 #: templates/2026/rule.html:157
 #, python-brace-format

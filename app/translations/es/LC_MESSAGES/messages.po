@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-15 16:15+0900\n"
+"POT-Creation-Date: 2026-02-15 16:58+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: es <LL@li.org>\n"
@@ -1824,8 +1824,8 @@ msgstr ""
 #, python-brace-format
 msgid "ランナーズアップ：本戦に出場できなかった、{Wildcard}上位入賞者"
 msgstr ""
-"Suplentes: los {Wildcard} mejor clasificados que no pudieron participar en "
-"la fase principal."
+"Mejores clasificados: los {Wildcard} que no pudieron participar en la fase "
+"principal."
 
 #: templates/2026/rule.html:632
 #, python-brace-format
