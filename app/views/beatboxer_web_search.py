@@ -8,6 +8,9 @@ from app.config.config import (
     BAN_WORDS,
     FACEBOOK_ACCOUNT_PATTERN,
     INSTAGRAM_ACCOUNT_PATTERN,
+    SOUNDCLOUD_ACCOUNT_PATTERN,
+    SPOTIFY_ACCOUNT_PATTERN,
+    TWITTER_ACCOUNT_PATTERN,
     YOUTUBE_CHANNEL_PATTERN,
 )
 from app.models.deepl_client import deepl_service
@@ -206,9 +209,12 @@ def beatboxer_tavily_search(
         is_account_url = (
             ("@" in item["url"])
             or ("@" in item["title"])
-            or bool(re.match(YOUTUBE_CHANNEL_PATTERN, item["url"]))
-            or bool(re.match(INSTAGRAM_ACCOUNT_PATTERN, item["url"]))
             or bool(re.match(FACEBOOK_ACCOUNT_PATTERN, item["url"]))
+            or bool(re.match(INSTAGRAM_ACCOUNT_PATTERN, item["url"]))
+            or bool(re.match(SOUNDCLOUD_ACCOUNT_PATTERN, item["url"]))
+            or bool(re.match(SPOTIFY_ACCOUNT_PATTERN, item["url"]))
+            or bool(re.match(TWITTER_ACCOUNT_PATTERN, item["url"]))
+            or bool(re.match(YOUTUBE_CHANNEL_PATTERN, item["url"]))
         )
         is_new_domain = primary_domain not in account_domains_seen
 
