@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-15 16:00+0900\n"
+"POT-Creation-Date: 2026-02-15 16:15+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: no <LL@li.org>\n"
@@ -1496,7 +1496,7 @@ msgstr ""
 
 #: templates/2026/rule.html:188 templates/2026/rule.html:380
 msgid "対象"
-msgstr "Mål"
+msgstr "Kvalifiserte"
 
 #: templates/2026/rule.html:190
 msgid "10位〜25位"
@@ -1765,7 +1765,7 @@ msgstr "3.-4. mai"
 #: templates/2026/rule.html:534 templates/2026/rule.html:538
 #: templates/2026/rule.html:542
 msgid "審査員なし"
-msgstr "Ingen dommer"
+msgstr "Ingen dommere"
 
 #: templates/2026/rule.html:624
 msgid "正式名称"
@@ -1791,7 +1791,7 @@ msgstr ""
 #, python-brace-format
 msgid "ランナーズアップ：本戦に出場できなかった、{Wildcard}上位入賞者"
 msgstr ""
-"Andreplass: De {Wildcard} topplasserte deltakerne som ikke klarte å "
+"Andreplasserte: De {Wildcard}-topplasserte deltakerne som ikke klarte å "
 "kvalifisere seg til hovedkonkurransen."
 
 #: templates/2026/rule.html:632

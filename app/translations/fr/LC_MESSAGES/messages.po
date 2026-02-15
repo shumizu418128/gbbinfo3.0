@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-15 16:00+0900\n"
+"POT-Creation-Date: 2026-02-15 16:15+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -1466,7 +1466,7 @@ msgstr "À propos de la participation de remplacement"
 
 #: templates/2026/rule.html:62 templates/2026/rule.html:623
 msgid "セカンドリーグ"
-msgstr "Seconde Ligue"
+msgstr "Second League"
 
 #: templates/2026/rule.html:157
 #, python-brace-format
@@ -1818,15 +1818,15 @@ msgid ""
 "今年から新たに「セカンドリーグ」が設けられました。セカンドリーグは、中国で開催され、GBB {year} "
 "の{Solo}部門ランナーズアップが招待されます。"
 msgstr ""
-"À partir de cette année, une nouvelle \"Seconde Ligue\" a été établie. La "
-"Seconde Ligue se tiendra en Chine et les finalistes du GBB {year} dans la "
+"À partir de cette année, une nouvelle \"Second League\" a été établie. La "
+"Second League se tiendra en Chine et les finalistes du GBB {year} dans la "
 "catégorie {Solo} seront invités."
 
 #: templates/2026/rule.html:627
 #, python-brace-format
 msgid "この「セカンドリーグ」で優勝すれば、GBB {year} {Solo}部門への出場権が得られます。"
 msgstr ""
-"En remportant cette « Seconde Ligue », vous obtiendrez le droit de "
+"En remportant cette « Second League », vous obtiendrez le droit de "
 "participer au GBB {year} {Solo}."
 
 #: templates/2026/rule.html:631
@@ -1845,7 +1845,7 @@ msgstr ""
 
 #: templates/2026/rule.html:635
 msgid "当サイトでは、セカンドリーグについての情報は取り扱わない方針です。"
-msgstr "Ce site ne traite pas les informations concernant la deuxième ligue."
+msgstr "Ce site ne traite pas les informations concernant la Second League."
 
 #: templates/2026/rule.html:636
 #, python-brace-format

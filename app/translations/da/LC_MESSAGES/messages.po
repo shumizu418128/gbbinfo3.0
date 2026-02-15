@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-15 16:00+0900\n"
+"POT-Creation-Date: 2026-02-15 16:15+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: da <LL@li.org>\n"
@@ -1503,7 +1503,7 @@ msgstr ""
 
 #: templates/2026/rule.html:188 templates/2026/rule.html:380
 msgid "対象"
-msgstr "Mål"
+msgstr "Målgruppe"
 
 #: templates/2026/rule.html:190
 msgid "10位〜25位"
@@ -1634,13 +1634,13 @@ msgstr ""
 
 #: templates/2026/rule.html:370
 msgid "繰り上げ対象"
-msgstr "Oprykningsmål"
+msgstr "Oprykningsberettigede"
 
 #: templates/2026/rule.html:372
 #, python-brace-format
 msgid "繰り上げの対象となるのは、原則として{Wildcard}の順位が上位の人たちに限定されています。"
 msgstr ""
-"Målet for oprykning er begrænset til dem, der har høje placeringer i "
+"Oprykning gælder som udgangspunkt kun deltagere med høje placeringer i "
 "{Wildcard}-rangeringen."
 
 #: templates/2026/rule.html:373

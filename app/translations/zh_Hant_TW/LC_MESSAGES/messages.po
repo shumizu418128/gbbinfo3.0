@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-15 16:00+0900\n"
+"POT-Creation-Date: 2026-02-15 16:15+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh_Hant_TW <LL@li.org>\n"
@@ -939,11 +939,11 @@ msgstr "希望參加Tag Team部門・Crew部門的人請注意。"
 
 #: templates/2025/rule.html:343 templates/2026/rule.html:549
 msgid "レフェリー"
-msgstr "裁判"
+msgstr "裁判員"
 
 #: templates/2025/rule.html:351 templates/2026/rule.html:557
 msgid "レフェリーについて"
-msgstr "關於裁判"
+msgstr "關於裁判員"
 
 #: templates/2025/rule.html:352 templates/2026/rule.html:558
 msgid ""

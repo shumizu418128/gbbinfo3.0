@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-15 16:00+0900\n"
+"POT-Creation-Date: 2026-02-15 16:15+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: es <LL@li.org>\n"
@@ -1697,7 +1697,7 @@ msgstr "Casos especiales"
 
 #: templates/2026/rule.html:412
 msgid "項目"
-msgstr "Artículo"
+msgstr "Ítem"
 
 #: templates/2026/rule.html:413
 msgid "説明"

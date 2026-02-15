@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-15 16:00+0900\n"
+"POT-Creation-Date: 2026-02-15 16:15+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ta <LL@li.org>\n"
@@ -1620,7 +1620,7 @@ msgstr "பதிலீட்டு காலக்கெடு"
 
 #: templates/2026/rule.html:354
 msgid "期限"
-msgstr "சமர்ப்பிக்கும் காலக்கெடு"
+msgstr "காலக்கெடு"
 
 #: templates/2026/rule.html:355
 msgid "対応"
