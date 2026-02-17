@@ -76,19 +76,24 @@ class DeepLService:
         if cached_data is not None:
             return cached_data
 
-        result = self.translator.translate_text(
-            text=text,
-            source_lang="EN",
-            target_lang=target_lang_upper,
-            formality="prefer_more",
-            context=CONTEXT.format(name=beatboxer_name),
-            custom_instructions=[CUSTOM_INSTRUCTIONS.format(name=beatboxer_name)],
-        )
+        try:
+            result = self.translator.translate_text(
+                text=text,
+                source_lang="EN",
+                target_lang=target_lang_upper,
+                formality="prefer_more",
+                context=CONTEXT.format(name=beatboxer_name),
+                custom_instructions=[CUSTOM_INSTRUCTIONS.format(name=beatboxer_name)],
+            )
 
-        # キャッシュに保存
-        flask_cache.set(cache_key, result.text)
+            # キャッシュに保存
+            flask_cache.set(cache_key, result.text)
 
-        return result.text
+            return result.text
+
+        # エラーは無くても困らないので握りつぶす
+        except Exception:
+            return
 
 
 # グローバルインスタンス
