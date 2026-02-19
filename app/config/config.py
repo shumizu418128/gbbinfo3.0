@@ -99,6 +99,11 @@ FOLIUM_CUSTOM_CSS = """
     }
 </style>
 """
+NASA_GIBS_ATTR = '<a href="https://earthdata.nasa.gov">NASA GIBS (Global Imagery Browse Services)</a>'
+NASA_GIBS_TILES = (
+    "https://gibs-{s}.earthdata.nasa.gov/wmts/epsg3857/best/"
+    "VIIRS_CityLights_2012/default//GoogleMapsCompatible_Level8/{z}/{y}/{x}.jpg"
+)
 
 MULTI_COUNTRY_TEAM_ISO_CODE = 9999
 ISO_CODE_NOT_FOUND = "beatboxer_dataにiso_codeが存在しません Participantテーブルを取得する際に、iso_codeを取得してください"
