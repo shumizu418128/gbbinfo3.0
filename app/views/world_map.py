@@ -8,6 +8,8 @@ from app.config.config import (
     FLAG_CODE,
     FOLIUM_CUSTOM_CSS,
     MULTI_COUNTRY_TEAM_ISO_CODE,
+    NASA_GIBS_ATTR,
+    NASA_GIBS_TILES,
 )
 from app.models.supabase_client import supabase_service
 from app.util.locale import get_validated_language
@@ -88,11 +90,10 @@ def world_map_view(year: int):
         else:
             participants_per_country[participant["iso_code"]].append(participant)
 
-    # mapを作成
+    # mapを作成（NASA GIBS VIIRS Earth at Night 2012）
+    # 公式: https://nasa-gibs.github.io/gibs-api-docs/ / Leaflet例: epsg3857/best, subdomains
     map_center = [20, 0]
     beatboxer_map = folium.Map(
-        tiles="https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}",
-        attr="Tiles &copy; Esri &mdash; Source: US National Park Service",
         location=map_center,
         zoom_start=2,
         zoom_control=True,
@@ -100,11 +101,23 @@ def world_map_view(year: int):
         min_zoom=1,
         max_zoom=8,
         max_bounds=True,
+        tiles=None,
         options={
-            "zoomSnap": 0.1,  # ズームのステップを0.1に設定
-            "zoomDelta": 0.1,  # ズームの増減を0.1に設定
+            "zoomSnap": 0.1,
+            "zoomDelta": 0.1,
         },
     )
+    folium.TileLayer(
+        tiles=NASA_GIBS_TILES,
+        attr=NASA_GIBS_ATTR,
+        subdomains=["a", "b", "c"],
+        min_zoom=1,
+        max_zoom=8,
+        name="NASA VIIRS Earth at Night 2012",
+        overlay=False,
+        control=False,
+        show=True,
+    ).add_to(beatboxer_map)
 
     beatboxer_map.get_root().header.add_child(folium.Element(FOLIUM_CUSTOM_CSS))
 
