@@ -21,12 +21,3 @@
         <option value="only_cancelled" {% if cancel == 'only_cancelled' %}selected{% endif %}>{{_("辞退者のみ")}}</option>
     </select>
 </form>
-
-<form method="GET" class="participants-form">
-    <label for="year">{{_("その他の年度を確認：")}}</label>
-    <select name="year" id="year" class="filter-select" onchange="redirect_year('participants')">
-        {% for y in available_years %}
-            <option value="{{ y }}" {% if year == y %}selected{% endif %}>{{ y }}</option>
-        {% endfor %}
-    </select>
-</form>
