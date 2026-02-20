@@ -50,7 +50,7 @@ class TavilyService:
             return cached_data
 
         results = self.client.search(
-            query=f"GBB {year} {question}",
+            query=f"{year} {question}",
             max_results=5,
             include_domains=["gbbinfo-jpn.onrender.com"],
         )
