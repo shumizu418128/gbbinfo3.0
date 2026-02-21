@@ -6,6 +6,8 @@ pytest 共通設定。
 インポートしても、別スレッドが with を抜けた後の本物の Supabase を参照して
 KeyError になることを防ぐ。
 """
+import app.context_processors  # noqa: F401 - patch が app.context_processors を参照する前にモジュールを読み込む
+
 from unittest.mock import patch
 
 _patch_bg_tasks = patch(
