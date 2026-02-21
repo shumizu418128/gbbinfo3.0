@@ -12,6 +12,7 @@ from unittest.mock import patch
 from app.config.config import LANGUAGE_CHOICES
 
 # Supabaseサービスをモックしてからapp.mainをインポート
+# （バックグラウンドスレッドの無効化は conftest.py で一括パッチ）
 with patch("app.context_processors.supabase_service") as mock_supabase:
     # get_available_years()とget_participant_id()のためのモックデータ
     def mock_get_data(*args, **kwargs):
