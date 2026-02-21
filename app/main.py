@@ -3,6 +3,14 @@ import os
 from datetime import datetime
 from functools import lru_cache
 
+# Flask 3 で削除された locked_cached_property の互換（flask-babel が参照する）
+import flask.helpers
+
+if not hasattr(flask.helpers, "locked_cached_property"):
+    from werkzeug.utils import cached_property
+
+    flask.helpers.locked_cached_property = cached_property
+
 from flask import (
     Flask,
     request,
