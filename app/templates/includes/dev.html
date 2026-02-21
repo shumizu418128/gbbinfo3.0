@@ -182,8 +182,8 @@ function showDebugInfo() {
     url: "{{ request.url|default('') }}",
   };
 
-  // セッション情報
-  const sessionData = {{ session|tojson }};
+  // セッション情報（LocalProxy は tojson で直接シリアライズできないため dict に変換）
+  const sessionData = {{ session|session_to_dict|tojson }};
 
   // 環境情報
   const environmentData = {

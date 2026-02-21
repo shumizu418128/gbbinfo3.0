@@ -3,6 +3,14 @@ import os
 from datetime import datetime
 from functools import lru_cache
 
+# Flask 3 で削除された locked_cached_property の互換（flask-babel が参照する）
+import flask.helpers
+
+if not hasattr(flask.helpers, "locked_cached_property"):
+    from werkzeug.utils import cached_property
+
+    flask.helpers.locked_cached_property = cached_property
+
 from flask import (
     Flask,
     request,
@@ -48,6 +56,15 @@ sitemapper = Sitemapper()
 
 app = Flask(__name__)
 sitemapper.init_app(app)
+
+
+@app.template_filter("session_to_dict")
+def session_to_dict(val):
+    """Flask の session (LocalProxy) を dict に変換し、tojson でシリアライズ可能にする。"""
+    try:
+        return dict(val)
+    except (RuntimeError, TypeError):
+        return {}
 
 
 ####################################################################
