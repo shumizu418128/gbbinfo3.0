@@ -89,7 +89,7 @@ class DeepLService:
             # キャッシュに保存
             flask_cache.set(cache_key, result.text)
 
-            return result.text
+            return result.text.replace("様", "", 1)  # 日本語の敬称を削除
 
         # エラーは無くても困らないので握りつぶす
         except Exception:
