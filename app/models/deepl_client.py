@@ -87,9 +87,12 @@ class DeepLService:
             )
 
             # キャッシュに保存
-            flask_cache.set(cache_key, result.text)
+            translated_text = result.text
+            if target_lang_upper == "JA":
+                translated_text = translated_text.replace("様", "")
 
-            return result.text
+            flask_cache.set(cache_key, translated_text)
+            return translated_text
 
         # エラーは無くても困らないので握りつぶす
         except Exception:
