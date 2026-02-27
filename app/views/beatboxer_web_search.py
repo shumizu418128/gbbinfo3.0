@@ -304,15 +304,8 @@ def translate_tavily_answer(beatboxer_id: int, mode: str, language_code: str):
     """
     ALLOWED_LANGUAGES = ["ja", "ko"]
 
-    CONVERT_LANGUAGES = {
-        "zh_Hans_CN": "zh-hans",
-        "zh_Hant_TW": "zh-hant",
-    }
-
     # 対応言語を確認、無い場合は英語にフォールバック
-    if CONVERT_LANGUAGES.get(language_code) is not None:
-        language_code = CONVERT_LANGUAGES[language_code]
-    elif language_code not in ALLOWED_LANGUAGES:
+    if language_code not in ALLOWED_LANGUAGES:
         language_code = "en"
 
     # まずキャッシュを取得
