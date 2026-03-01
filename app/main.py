@@ -55,16 +55,6 @@ _waitress_queue_logger.disabled = True
 sitemapper = Sitemapper()
 
 app = Flask(__name__)
-sitemapper.init_app(app)
-
-
-@app.template_filter("session_to_dict")
-def session_to_dict(val):
-    """Flask の session (LocalProxy) を dict に変換し、tojson でシリアライズ可能にする。"""
-    try:
-        return dict(val)
-    except (RuntimeError, TypeError):
-        return {}
 
 
 ####################################################################
@@ -119,6 +109,18 @@ else:
     IS_PULL_REQUEST = False
     IS_LOCAL = False
     SITEMAP_GZIP = True
+
+sitemapper.init_app(app)
+
+
+@app.template_filter("session_to_dict")
+def session_to_dict(val):
+    """Flask の session (LocalProxy) を dict に変換し、tojson でシリアライズ可能にする。"""
+    try:
+        return dict(val)
+    except (RuntimeError, TypeError):
+        return {}
+
 
 try:
     flask_cache = Cache(app)
