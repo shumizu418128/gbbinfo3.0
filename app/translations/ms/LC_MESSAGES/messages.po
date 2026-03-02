@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-03-01 22:23+0900\n"
+"POT-Creation-Date: 2026-03-02 15:14+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ms <LL@li.org>\n"
@@ -73,7 +73,7 @@ msgstr "Kandungan"
 #: templates/2025/timetable.html:100 templates/2025/timetable.html:236
 #: templates/2025/timetable.html:277 templates/2025/top.html:155
 #: templates/2025/top_7tosmoke.html:34 templates/2025/wildcards.html:112
-#: templates/2026/wildcards.html:162 templates/includes/hamburger_menu.html:24
+#: templates/2026/wildcards.html:173 templates/includes/hamburger_menu.html:24
 msgid "現地観戦計画のたてかた"
 msgstr "Cara menyusun rencana menonton langsung di lokasi"
 
@@ -157,11 +157,9 @@ msgstr ""
 #: templates/2025/wildcards.html:15 templates/2025/wildcards.html:84
 #: templates/2026/rule.html:3 templates/2026/rule.html:4
 #: templates/2026/rule.html:5 templates/2026/rule.html:9
-#: templates/2026/rule.html:50 templates/2026/rule.html:451
-#: templates/2026/rule.html:456 templates/2026/timetable.html:69
-#: templates/2026/top.html:62 templates/2026/top.html:103
-#: templates/2026/wildcards.html:13 templates/2026/wildcards.html:146
-#: templates/common/participants.html:136
+#: templates/2026/timetable.html:69 templates/2026/top.html:62
+#: templates/2026/top.html:103 templates/2026/wildcards.html:13
+#: templates/2026/wildcards.html:157 templates/common/participants.html:136
 #: templates/includes/hamburger_menu.html:11
 msgid "ルール"
 msgstr "Peraturan"
@@ -185,7 +183,7 @@ msgstr "Laman sumber:"
 #: templates/2025/wildcard_regulation.html:59 templates/2025/wildcards.html:87
 #: templates/2026/rule.html:30 templates/2026/rule.html:67
 #: templates/2026/studio_competition.html:18
-#: templates/2026/studio_competition.html:24 templates/2026/wildcards.html:149
+#: templates/2026/studio_competition.html:24 templates/2026/wildcards.html:160
 msgid "注意事項"
 msgstr "Perhatian"
 
@@ -493,12 +491,13 @@ msgid "一部例外あり"
 msgstr "Kecuali beberapa pengecualian"
 
 #: templates/2024/rule.html:253 templates/2025/rule.html:269
-#: templates/2025/wildcard_regulation.html:220
+#: templates/2025/wildcard_regulation.html:220 templates/2026/rule.html:474
+#: templates/2026/rule.html:486
 msgid "RC505 mki, mkiiのみ"
 msgstr "RC505 hanya mki, mkii"
 
 #: templates/2024/rule.html:257 templates/2025/rule.html:273
-#: templates/2025/wildcard_regulation.html:224
+#: templates/2025/wildcard_regulation.html:224 templates/2026/rule.html:482
 msgid "デバイス制限なし"
 msgstr "Tiada had peranti"
 
@@ -516,7 +515,7 @@ msgstr "Senarai hakim {Wildcard} ada di sini"
 #: templates/2026/rule.html:512 templates/2026/rule.html:576
 #: templates/2026/timetable.html:69 templates/2026/top.html:67
 #: templates/2026/top.html:103 templates/2026/wildcards.html:13
-#: templates/2026/wildcards.html:146 templates/includes/hamburger_menu.html:11
+#: templates/2026/wildcards.html:157 templates/includes/hamburger_menu.html:11
 msgid "審査員"
 msgstr "Juri"
 
@@ -756,7 +755,7 @@ msgstr "Kemas kini terakhir"
 #: templates/2025/ticket.html:19 templates/2025/timetable.html:238
 #: templates/2025/top.html:114 templates/2025/wildcards.html:114
 #: templates/2026/rule.html:219 templates/2026/top.html:118
-#: templates/2026/wildcards.html:164 templates/common/korea.html:3
+#: templates/2026/wildcards.html:175 templates/common/korea.html:3
 #: templates/common/korea.html:4 templates/common/korea.html:5
 #: templates/common/korea.html:9 templates/includes/hamburger_menu.html:16
 #: templates/participant_detail/participant_detail.html:259
@@ -767,7 +766,7 @@ msgstr "Wakil Korea Selatan"
 #: templates/2025/ticket.html:21 templates/2025/timetable.html:240
 #: templates/2025/top.html:119 templates/2025/wildcards.html:116
 #: templates/2026/rule.html:221 templates/2026/top.html:123
-#: templates/2026/wildcards.html:166 templates/common/japan.html:3
+#: templates/2026/wildcards.html:177 templates/common/japan.html:3
 #: templates/common/japan.html:4 templates/common/japan.html:5
 #: templates/common/japan.html:9 templates/includes/hamburger_menu.html:18
 #: templates/others/translation.html:21
@@ -917,7 +916,7 @@ msgid "締め切り"
 msgstr "tarikh akhir"
 
 #: templates/2024/wildcards.html:73 templates/2025/wildcards.html:89
-#: templates/2026/wildcards.html:151
+#: templates/2026/wildcards.html:162
 #, python-brace-format
 msgid "今回公開する{Wildcard}一覧は、有志が作成した、非公式のものです。"
 msgstr ""
@@ -925,14 +924,14 @@ msgstr ""
 "dibuat oleh sukarelawan."
 
 #: templates/2024/wildcards.html:78 templates/2025/wildcards.html:94
-#: templates/2026/wildcards.html:155
+#: templates/2026/wildcards.html:166
 msgid "すべて手作業で制作されたものであるため、重複や欠落がある可能性があります。"
 msgstr ""
 "Oleh kerana semuanya dibuat secara manual, terdapat kemungkinan berlakunya "
 "penduaan atau kehilangan."
 
 #: templates/2024/wildcards.html:81 templates/2025/wildcards.html:97
-#: templates/2026/wildcards.html:158
+#: templates/2026/wildcards.html:169
 #, python-brace-format
 msgid ""
 "また、この再生リストにある動画が必ずしも{Wildcard}として申請された動画であるとは限りません（毎年必ず出場者の手続きミスで失格者が出ます）。"
@@ -1440,6 +1439,11 @@ msgstr "Siri Challenger"
 #: templates/2026/rule.html:46
 msgid "繰り上げ出場について"
 msgstr "Mengenai Penggantian Penyertaan"
+
+#: templates/2026/rule.html:50 templates/2026/rule.html:451
+#: templates/2026/rule.html:456
+msgid "締め切り・ルール"
+msgstr "Tarikh akhir dan peraturan"
 
 #: templates/2026/rule.html:62 templates/2026/rule.html:623
 msgid "セカンドリーグ"
@@ -1998,13 +2002,13 @@ msgstr ""
 " laman web ini."
 
 #: templates/2026/wildcards.html:16 templates/2026/wildcards.html:20
-#: templates/2026/wildcards.html:38 templates/2026/wildcards.html:56
-#: templates/2026/wildcards.html:74 templates/2026/wildcards.html:92
-#: templates/2026/wildcards.html:110 templates/2026/wildcards.html:128
+#: templates/2026/wildcards.html:39 templates/2026/wildcards.html:58
+#: templates/2026/wildcards.html:77 templates/2026/wildcards.html:96
+#: templates/2026/wildcards.html:117 templates/2026/wildcards.html:136
 msgid "再生リスト"
 msgstr "Senarai main"
 
-#: templates/2026/wildcards.html:172
+#: templates/2026/wildcards.html:183
 #, python-brace-format
 msgid ""
 "{Wildcard}シーズン中に、「{NOTWildcard}」を称する動画がまれに投稿されます。これは、正式な{Wildcard}エントリーではないものの、{Wildcard}に似た形式で制作された動画です。要するに、遊んでいるだけです。"
@@ -2139,7 +2143,7 @@ msgstr "Kembali ke halaman utama"
 #: templates/2026/rule.html:180 templates/2026/rule.html:342
 #: templates/2026/rule.html:567 templates/2026/stream.html:18
 #: templates/2026/timetable.html:125 templates/2026/top.html:99
-#: templates/2026/wildcards.html:12 templates/2026/wildcards.html:145
+#: templates/2026/wildcards.html:12 templates/2026/wildcards.html:156
 #: templates/base.html:239 templates/common/participants.html:24
 #: templates/common/result.html:108 templates/includes/hamburger_menu.html:9
 #: templates/includes/participants_form.html:13
@@ -2155,7 +2159,7 @@ msgstr "{Wildcard} hasil"
 #: templates/2026/rule.html:180 templates/2026/rule.html:567
 #: templates/2026/stream.html:18 templates/2026/timetable.html:125
 #: templates/2026/top.html:99 templates/2026/wildcards.html:12
-#: templates/2026/wildcards.html:145 templates/base.html:239
+#: templates/2026/wildcards.html:156 templates/base.html:239
 #: templates/common/result.html:108 templates/includes/hamburger_menu.html:9
 msgid "出場者"
 msgstr "Peserta"
