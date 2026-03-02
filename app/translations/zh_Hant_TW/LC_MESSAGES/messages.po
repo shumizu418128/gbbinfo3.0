@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-15 16:58+0900\n"
+"POT-Creation-Date: 2026-03-02 15:14+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh_Hant_TW <LL@li.org>\n"
@@ -73,7 +73,7 @@ msgstr "目錄"
 #: templates/2025/timetable.html:100 templates/2025/timetable.html:236
 #: templates/2025/timetable.html:277 templates/2025/top.html:155
 #: templates/2025/top_7tosmoke.html:34 templates/2025/wildcards.html:112
-#: templates/2026/wildcards.html:76 templates/includes/hamburger_menu.html:24
+#: templates/2026/wildcards.html:173 templates/includes/hamburger_menu.html:24
 msgid "現地観戦計画のたてかた"
 msgstr "如何制定現場觀賽計畫"
 
@@ -154,11 +154,9 @@ msgstr "回到飯店看了一下時鐘，已經是華沙時間清晨 5 點。"
 #: templates/2025/wildcards.html:15 templates/2025/wildcards.html:84
 #: templates/2026/rule.html:3 templates/2026/rule.html:4
 #: templates/2026/rule.html:5 templates/2026/rule.html:9
-#: templates/2026/rule.html:50 templates/2026/rule.html:451
-#: templates/2026/rule.html:456 templates/2026/timetable.html:69
-#: templates/2026/top.html:62 templates/2026/top.html:103
-#: templates/2026/wildcards.html:13 templates/2026/wildcards.html:60
-#: templates/common/participants.html:137
+#: templates/2026/timetable.html:69 templates/2026/top.html:62
+#: templates/2026/top.html:103 templates/2026/wildcards.html:13
+#: templates/2026/wildcards.html:157 templates/common/participants.html:136
 #: templates/includes/hamburger_menu.html:11
 msgid "ルール"
 msgstr "規則"
@@ -180,7 +178,7 @@ msgstr "來源網站："
 #: templates/2025/wildcard_regulation.html:59 templates/2025/wildcards.html:87
 #: templates/2026/rule.html:30 templates/2026/rule.html:67
 #: templates/2026/studio_competition.html:18
-#: templates/2026/studio_competition.html:24 templates/2026/wildcards.html:63
+#: templates/2026/studio_competition.html:24 templates/2026/wildcards.html:160
 msgid "注意事項"
 msgstr "注意事項"
 
@@ -260,7 +258,7 @@ msgstr "請務必再次確認自己的規則。"
 #: templates/2026/rule.html:455 templates/2026/rule.html:511
 #: templates/2026/rule.html:575 templates/common/cancels.html:24
 #: templates/common/japan.html:23 templates/common/korea.html:23
-#: templates/common/participants.html:124
+#: templates/common/participants.html:115
 #: templates/participant_detail/participant_detail.html:33
 #: templates/participant_detail/participant_detail.html:115
 #: templates/participant_detail/participant_detail.html:155
@@ -316,7 +314,7 @@ msgstr "種子權 - GBB"
 #: templates/2026/rule.html:273 templates/2026/rule.html:313
 #: templates/common/cancels.html:23 templates/common/japan.html:22
 #: templates/common/korea.html:22 templates/common/participants.html:44
-#: templates/common/participants.html:123 templates/common/result.html:65
+#: templates/common/participants.html:114 templates/common/result.html:65
 #: templates/participant_detail/participant_detail.html:154
 #: templates/participant_detail/participant_detail.html:218
 msgid "名前"
@@ -329,7 +327,7 @@ msgstr "姓名"
 #: templates/2026/rule.html:314 templates/common/cancels.html:22
 #: templates/common/japan.html:21 templates/common/korea.html:21
 #: templates/common/participants.html:45
-#: templates/common/participants.html:122
+#: templates/common/participants.html:113
 #: templates/participant_detail/participant_detail.html:50
 #: templates/participant_detail/participant_detail.html:132
 #: templates/participant_detail/participant_detail.html:219
@@ -472,12 +470,13 @@ msgid "一部例外あり"
 msgstr "有部分例外"
 
 #: templates/2024/rule.html:253 templates/2025/rule.html:269
-#: templates/2025/wildcard_regulation.html:220
+#: templates/2025/wildcard_regulation.html:220 templates/2026/rule.html:474
+#: templates/2026/rule.html:486
 msgid "RC505 mki, mkiiのみ"
 msgstr "僅限RC505 mki, mkii"
 
 #: templates/2024/rule.html:257 templates/2025/rule.html:273
-#: templates/2025/wildcard_regulation.html:224
+#: templates/2025/wildcard_regulation.html:224 templates/2026/rule.html:482
 msgid "デバイス制限なし"
 msgstr "無設備限制"
 
@@ -495,7 +494,7 @@ msgstr "這裡是{Wildcard}評審名單"
 #: templates/2026/rule.html:512 templates/2026/rule.html:576
 #: templates/2026/timetable.html:69 templates/2026/top.html:67
 #: templates/2026/top.html:103 templates/2026/wildcards.html:13
-#: templates/2026/wildcards.html:60 templates/includes/hamburger_menu.html:11
+#: templates/2026/wildcards.html:157 templates/includes/hamburger_menu.html:11
 msgid "審査員"
 msgstr "評審"
 
@@ -544,7 +543,7 @@ msgstr "查看 GBB {year} 的最新資訊"
 #: templates/2024/stream.html:40 templates/common/participants.html:3
 #: templates/common/participants.html:4 templates/common/participants.html:5
 #: templates/common/participants.html:10
-#: templates/common/participants.html:141 templates/others/translation.html:18
+#: templates/common/participants.html:140 templates/others/translation.html:18
 #, python-brace-format
 msgid "{Wildcard}結果 & 出場者"
 msgstr "{Wildcard} 結果與參賽者"
@@ -732,7 +731,7 @@ msgstr "最後更新"
 #: templates/2025/ticket.html:19 templates/2025/timetable.html:238
 #: templates/2025/top.html:114 templates/2025/wildcards.html:114
 #: templates/2026/rule.html:219 templates/2026/top.html:118
-#: templates/2026/wildcards.html:78 templates/common/korea.html:3
+#: templates/2026/wildcards.html:175 templates/common/korea.html:3
 #: templates/common/korea.html:4 templates/common/korea.html:5
 #: templates/common/korea.html:9 templates/includes/hamburger_menu.html:16
 #: templates/participant_detail/participant_detail.html:259
@@ -743,7 +742,7 @@ msgstr "韓國代表"
 #: templates/2025/ticket.html:21 templates/2025/timetable.html:240
 #: templates/2025/top.html:119 templates/2025/wildcards.html:116
 #: templates/2026/rule.html:221 templates/2026/top.html:123
-#: templates/2026/wildcards.html:80 templates/common/japan.html:3
+#: templates/2026/wildcards.html:177 templates/common/japan.html:3
 #: templates/common/japan.html:4 templates/common/japan.html:5
 #: templates/common/japan.html:9 templates/includes/hamburger_menu.html:18
 #: templates/others/translation.html:21
@@ -881,18 +880,18 @@ msgid "締め切り"
 msgstr "截止日期"
 
 #: templates/2024/wildcards.html:73 templates/2025/wildcards.html:89
-#: templates/2026/wildcards.html:65
+#: templates/2026/wildcards.html:162
 #, python-brace-format
 msgid "今回公開する{Wildcard}一覧は、有志が作成した、非公式のものです。"
 msgstr "這次公開的{Wildcard}一覽是，由有志者製作的，非官方的。"
 
 #: templates/2024/wildcards.html:78 templates/2025/wildcards.html:94
-#: templates/2026/wildcards.html:69
+#: templates/2026/wildcards.html:166
 msgid "すべて手作業で制作されたものであるため、重複や欠落がある可能性があります。"
 msgstr "由於所有內容均為手工製作，因此可能會有重複或缺失。"
 
 #: templates/2024/wildcards.html:81 templates/2025/wildcards.html:97
-#: templates/2026/wildcards.html:72
+#: templates/2026/wildcards.html:169
 #, python-brace-format
 msgid ""
 "また、この再生リストにある動画が必ずしも{Wildcard}として申請された動画であるとは限りません（毎年必ず出場者の手続きミスで失格者が出ます）。"
@@ -1043,7 +1042,7 @@ msgstr "所有參賽者名單"
 #: templates/2026/top.html:84 templates/2026/top.html:107
 #: templates/common/cancels.html:3 templates/common/cancels.html:4
 #: templates/common/cancels.html:5 templates/common/cancels.html:10
-#: templates/common/participants.html:138
+#: templates/common/participants.html:137
 #: templates/includes/hamburger_menu.html:10
 msgid "辞退者一覧"
 msgstr "辭退者一覽"
@@ -1320,6 +1319,11 @@ msgstr "挑戰者系列"
 #: templates/2026/rule.html:46
 msgid "繰り上げ出場について"
 msgstr "關於遞補參賽"
+
+#: templates/2026/rule.html:50 templates/2026/rule.html:451
+#: templates/2026/rule.html:456
+msgid "締め切り・ルール"
+msgstr "截止日期與規則"
 
 #: templates/2026/rule.html:62 templates/2026/rule.html:623
 msgid "セカンドリーグ"
@@ -1784,7 +1788,14 @@ msgstr "關於票務的聯絡方式"
 msgid "なお上記問い合わせ先は、当サイトとは無関係です。"
 msgstr "請注意，上述聯絡方式與本網站無關。"
 
-#: templates/2026/wildcards.html:86
+#: templates/2026/wildcards.html:16 templates/2026/wildcards.html:20
+#: templates/2026/wildcards.html:39 templates/2026/wildcards.html:58
+#: templates/2026/wildcards.html:77 templates/2026/wildcards.html:96
+#: templates/2026/wildcards.html:117 templates/2026/wildcards.html:136
+msgid "再生リスト"
+msgstr "播放清單"
+
+#: templates/2026/wildcards.html:183
 #, python-brace-format
 msgid ""
 "{Wildcard}シーズン中に、「{NOTWildcard}」を称する動画がまれに投稿されます。これは、正式な{Wildcard}エントリーではないものの、{Wildcard}に似た形式で制作された動画です。要するに、遊んでいるだけです。"
@@ -1912,7 +1923,7 @@ msgstr "返回主頁"
 #: templates/2026/rule.html:180 templates/2026/rule.html:342
 #: templates/2026/rule.html:567 templates/2026/stream.html:18
 #: templates/2026/timetable.html:125 templates/2026/top.html:99
-#: templates/2026/wildcards.html:12 templates/2026/wildcards.html:59
+#: templates/2026/wildcards.html:12 templates/2026/wildcards.html:156
 #: templates/base.html:239 templates/common/participants.html:24
 #: templates/common/result.html:108 templates/includes/hamburger_menu.html:9
 #: templates/includes/participants_form.html:13
@@ -1928,7 +1939,7 @@ msgstr "{Wildcard}結果公布"
 #: templates/2026/rule.html:180 templates/2026/rule.html:567
 #: templates/2026/stream.html:18 templates/2026/timetable.html:125
 #: templates/2026/top.html:99 templates/2026/wildcards.html:12
-#: templates/2026/wildcards.html:59 templates/base.html:239
+#: templates/2026/wildcards.html:156 templates/base.html:239
 #: templates/common/result.html:108 templates/includes/hamburger_menu.html:9
 msgid "出場者"
 msgstr "參賽者"
@@ -1964,7 +1975,7 @@ msgid "トップページ"
 msgstr "主頁"
 
 #: templates/common/cancels.html:42 templates/common/japan.html:59
-#: templates/common/korea.html:59 templates/common/participants.html:100
+#: templates/common/korea.html:59 templates/common/participants.html:126
 #: templates/common/result.html:96
 msgid "その他の年度を確認："
 msgstr "查看其他年度："
@@ -1985,12 +1996,12 @@ msgid "日本代表なし"
 msgstr "無日本代表"
 
 #: templates/common/japan.html:54 templates/common/korea.html:54
-#: templates/common/participants.html:131
+#: templates/common/participants.html:121
 msgid "出場者世界地図"
 msgstr "參賽者世界地圖"
 
 #: templates/common/japan.html:55 templates/common/korea.html:55
-#: templates/common/participants.html:132
+#: templates/common/participants.html:122
 msgid "国旗をタップorクリックすると、詳細を確認できます。"
 msgstr "點擊或點擊國旗可以查看詳細資訊。"
 
@@ -2024,24 +2035,24 @@ msgstr "顯示出場者與辭退者"
 msgid "国"
 msgstr "國家"
 
-#: templates/common/participants.html:109
-#: templates/common/participants.html:112
+#: templates/common/participants.html:100
+#: templates/common/participants.html:103
 msgid "出場者検索"
 msgstr "參賽者搜尋"
 
-#: templates/common/participants.html:110
+#: templates/common/participants.html:101
 msgid "出場者名を検索できます"
 msgstr "您可以搜索參賽者名稱"
 
-#: templates/common/participants.html:110
+#: templates/common/participants.html:101
 msgid "半角英数字推奨"
 msgstr "建議使用半角英數字"
 
-#: templates/common/participants.html:117
+#: templates/common/participants.html:108
 msgid "検索結果"
 msgstr "搜尋結果"
 
-#: templates/common/participants.html:132
+#: templates/common/participants.html:122
 msgid "全出場者を地図にマッピングしました。"
 msgstr "所有參賽者已在地圖上標示。"
 
