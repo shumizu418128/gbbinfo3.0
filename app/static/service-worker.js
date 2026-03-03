@@ -53,27 +53,3 @@ workbox.routing.registerRoute(
         ],
     })
 );
-
-self.addEventListener('fetch', (event) => {
-    // 特定のファイルをキャッシュする条件を追加
-    const alwaysCacheFiles = ['/static/images/icon/icon-search.webp', '/static/images/icon/icon-close.webp', '/static/images/icon/icon-home.webp']; // 常にキャッシュするファイルのパス
-
-    // リクエストされた URL がキャッシュ対象のファイルかどうかを確認
-    const requestUrl = new URL(event.request.url);
-    if (alwaysCacheFiles.includes(requestUrl.pathname)) {
-        event.respondWith(caches.open(CACHE).then((cache) => {
-            return cache.match(event.request).then((cachedResp) => {
-                if (cachedResp) {
-                    return cachedResp; // キャッシュがあれば返す
-                }
-                return fetch(event.request).then((networkResp) => {
-                    cache.put(event.request, networkResp.clone()); // ネットワークから取得したレスポンスをキャッシュに保存
-                    return networkResp;
-                });
-            });
-        }));
-    } else {
-        // その他のリクエストは通常の処理を行う
-        return fetch(event.request);
-    }
-});
