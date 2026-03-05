@@ -89,7 +89,7 @@ class DeepLService:
             # キャッシュに保存
             translated_text = result.text
             if target_lang_upper == "JA":
-                translated_text = translated_text.replace("様", "")
+                translated_text = translated_text.replace("様", "").replace("氏", "")
 
             flask_cache.set(cache_key, translated_text)
             return translated_text
