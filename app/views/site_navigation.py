@@ -28,7 +28,7 @@ def create_url(results: list[dict], year: int) -> str:
         str: 生成された内部URL。クエリパラメータがある場合は含まれます。
             結果が空の場合は空文字列を返します。
     """
-    url = ""
+    url = "/"
 
     for result in results:
         search_result_url = result.get("url", "")
