@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+import os
 
 LANGUAGE_CHOICES = [
     ("ja", "日本語"),
@@ -158,3 +159,27 @@ HOUR = 60 * MINUTE
 LAST_UPDATED = datetime.now(timezone(timedelta(hours=9)))
 
 ALL_DATA = "*"
+
+
+class ProductionConfig:
+    BABEL_DEFAULT_LOCALE = "ja"
+    BABEL_SUPPORTED_LOCALES = SUPPORTED_LOCALES
+    BABEL_DEFAULT_TIMEZONE = "Asia/Tokyo"
+    BABEL_TRANSLATION_DIRECTORIES = str(BASE_DIR / "app" / "translations")
+    CACHE_DEFAULT_TIMEOUT = 20 * MINUTE
+    CACHE_TYPE = "RedisCache"
+    CACHE_REDIS_URL = os.getenv("REDIS_URL")
+    DEBUG = False
+    SECRET_KEY = os.getenv("SECRET_KEY")
+    TEMPLATES_AUTO_RELOAD = False
+
+
+class PRConfig(ProductionConfig):
+    CACHE_REDIS_URL = os.getenv("REDIS_PR_URL")
+
+
+class TestConfig(ProductionConfig):
+    CACHE_TYPE = "null"
+    DEBUG = True
+    SECRET_KEY = "test"
+    TEMPLATES_AUTO_RELOAD = True
