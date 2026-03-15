@@ -21,10 +21,10 @@ from flask_caching import Cache
 from flask_sitemapper import Sitemapper
 
 from app.config.config import (
-    BASE_DIR,
     HOUR,
-    MINUTE,
-    SUPPORTED_LOCALES,
+    PRConfig,
+    ProductionConfig,
+    TestConfig,
 )
 from app.context_processors import (
     common_variables,
@@ -60,30 +60,6 @@ app = Flask(__name__)
 ####################################################################
 # MARK: 設定
 ####################################################################
-class ProductionConfig:
-    BABEL_DEFAULT_LOCALE = "ja"
-    BABEL_SUPPORTED_LOCALES = SUPPORTED_LOCALES
-    BABEL_DEFAULT_TIMEZONE = "Asia/Tokyo"
-    BABEL_TRANSLATION_DIRECTORIES = str(BASE_DIR / "app" / "translations")
-    CACHE_DEFAULT_TIMEOUT = 20 * MINUTE
-    CACHE_TYPE = "RedisCache"
-    CACHE_REDIS_URL = os.getenv("REDIS_URL")
-    DEBUG = False
-    SECRET_KEY = os.getenv("SECRET_KEY")
-    TEMPLATES_AUTO_RELOAD = False
-
-
-class PRConfig(ProductionConfig):
-    CACHE_REDIS_URL = os.getenv("REDIS_PR_URL")
-
-
-class TestConfig(ProductionConfig):
-    CACHE_TYPE = "null"
-    DEBUG = True
-    SECRET_KEY = "test"
-    TEMPLATES_AUTO_RELOAD = True
-
-
 # テスト環境ではキャッシュを無効化
 # ローカル環境にはこの環境変数を設定してある
 if os.getenv("ENVIRONMENT_CHECK") == "qawsedrftgyhujikolp":
