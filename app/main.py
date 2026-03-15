@@ -74,17 +74,14 @@ if os.getenv("ENVIRONMENT_CHECK") == "qawsedrftgyhujikolp":
     app.config.from_object(TestConfig)
     IS_PULL_REQUEST = False
     IS_LOCAL = True
-    SITEMAP_GZIP = False
 elif os.getenv("IS_PULL_REQUEST") == "true":
     app.config.from_object(PRConfig)
     IS_PULL_REQUEST = True
     IS_LOCAL = False
-    SITEMAP_GZIP = True
 else:
     app.config.from_object(ProductionConfig)
     IS_PULL_REQUEST = False
     IS_LOCAL = False
-    SITEMAP_GZIP = True
 
 sitemapper.init_app(app)
 
@@ -333,7 +330,7 @@ def common_content(lang, year, content):
 ####################################################################
 @app.route("/sitemap.xml")
 def sitemap_xml():
-    return sitemapper.generate(gzip=SITEMAP_GZIP)
+    return sitemapper.generate(gzip=True)
 
 
 @app.route("/.well-known/discord")
