@@ -132,18 +132,18 @@
       <td>2</td>
     </tr>
     <tr>
-      <td>SHOWCASE<br>(loopstation)<br><br>{{_("発表次第更新")}}</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>SHOWCASE<br>(loopstation)</td>
+      <td><a href="#showcase-detail-section">??</a></td>
+      <td>0</td>
+      <td>0</td>
+      <td><a href="#showcase-detail-section">??</a></td>
     </tr>
     <tr>
-      <td>SHOWCASE<br>(solo)<br><br>{{_("発表次第更新")}}</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>SHOWCASE<br>(solo)</td>
+      <td><a href="#showcase-detail-section">??</a></td>
+      <td>0</td>
+      <td>0</td>
+      <td><a href="#showcase-detail-section">??</a></td>
     </tr>
   </tbody>
 </table>
@@ -154,22 +154,20 @@
   {{_("上記のデータは、ルール発表時現在の情報です。実際は、辞退などにより、出場者数が変動します。")}}
 </p>
 
-<h3>{{_("{SHOWCASE}とは").format(SHOWCASE="SHOWCASE")}}</h3>
+<h3 id="showcase-detail-section">{{_("{SHOWCASE}とは").format(SHOWCASE="SHOWCASE")}}</h3>
 <p>
   {{_("2026年から新部門として「{SHOWCASE}」が追加されました。").format(SHOWCASE="SHOWCASE")}}<br />
   {{_("この部門では、バトルを行いません。")}}<br />
   {{_("{Wildcard}の審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価されます。").format(Wildcard="Wildcard")}}
+</p>
+<p>
+  {{_("{SHOWCASE} {Solo}部門と{SHOWCASE} {Loopstation}部門の出場者数は明らかにせず、{Swissbeatbox}の裁量で決定される、と説明されています。").format(SHOWCASE="SHOWCASE", Solo="Solo", Loopstation="Loopstation", Swissbeatbox="Swissbeatbox")}}
 </p>
 
 <h3>{{_("{Solo}部門 決勝トーナメント").format(Solo="Solo")}}</h3>
 <p>
   {{_("GBB {year} {Solo}部門の決勝トーナメントは8人トーナメントで開催されます。").format(year=year, Solo="Solo")}}<br />
   {{_("GBB 2021以来、8人トーナメントで開催するよう、Beatboxerから繰り返し要望を受けている、と説明されています。")}}
-</p>
-
-<h3>Solo & Loopstation {{_("特別ルール")}}</h3>
-<p>
-  {{_("合計5人の審査員が採点しますが、その中の最高点と最低点をカットした、残りの3人の平均点を得点とします。極端な評価に左右されない、安定した採点方式です。")}}
 </p>
 
 <div class="button-container">
@@ -482,15 +480,71 @@
       <td style="font-size: 14px;">{{_("制限時間")}} 3:30~5:00 (±0s)<br />{{_("{m}分{s}秒以上はペナルティ対象").format(m="5", s="01")}}<br />{{_("提出期限")}} {{_("4月12日")}} 23:59 CET<br />{{_("結果発表")}} {{_("5月3日〜4日")}}<br>{{_("デバイス制限なし")}}</td>
     </tr>
     <tr>
-      <td>SHOWCASE<br>(loopstation)<br><br>{{_("発表次第更新")}}</td>
-      <td style="font-size: 14px;">{{_("制限時間")}} <br />{{_("提出期限")}} <br />{{_("結果発表")}} <br>{{_("RC505 mki, mkiiのみ")}}</td>
+      <td>SHOWCASE<br>(loopstation)</td>
+      <td style="font-size: 14px;">{{_("新規撮影時: 制限時間5~10分 / 過去の映像(過去16カ月以内): 制限時間3分以上")}}<br />{{_("提出期限")}} {{_("不明")}}<br />{{_("結果発表")}} {{_("遅くとも夏ごろまでに発表予定")}}<br>{{_("デバイス制限なし")}}</td>
     </tr>
     <tr>
-      <td>SHOWCASE<br>(solo)<br><br>{{_("発表次第更新")}}</td>
-      <td style="font-size: 14px;">{{_("制限時間")}} <br />{{_("提出期限")}} <br />{{_("結果発表")}} </td>
+      <td>SHOWCASE<br>(solo)</td>
+      <td style="font-size: 14px;">{{_("新規撮影時: 制限時間5~10分 / 過去の映像(過去16カ月以内): 制限時間3分以上")}}<br />{{_("提出期限")}} {{_("不明")}}<br />{{_("結果発表")}} {{_("遅くとも夏ごろまでに発表予定")}}</td>
     </tr>
   </tbody>
 </table>
+
+<h3>Solo<br>Loopstation<br>{{_("特別ルール")}}</h3>
+<p>
+  {{_("合計5人の審査員が採点しますが、その中の最高点と最低点をカットした、残りの3人の平均点を得点とします。極端な評価に左右されない、安定した採点方式です。")}}
+</p>
+
+<h3>SHOWCASE (loopstation)<br>SHOWCASE (solo)<br>{{_("参加条件")}}</h3>
+<p>{{ _("以下の条件のうちいずれか1つ以上を満たす方が応募可能です。") }}</p>
+<table>
+  <thead>
+    <tr>
+      <th>{{_("参加条件")}}</th>
+      <th>{{_("詳細")}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{_("過去のGBB出場経験")}}</td>
+      <td style="text-align: left;">
+        <ul>
+          <li>{{_("GBB 2019以降のの本戦ステージに出場したことがある")}}</li>
+          <li>{{_("{SevenToSmoke}は優勝者のみ対象").format(SevenToSmoke="7toSmoke")}}</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Wildcard {{_("ランキング")}}</td>
+      <td style="text-align: left;">
+        <ul>
+          <li>Solo: {{_("GBB 2019以降でトップ30に入賞したことがある")}}</li>
+          <li>Loopstation: {{_("GBB 2019以降でトップ20に入賞したことがある")}}</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>{{_("プロのパフォーマー")}}</td>
+      <td style="text-align: left;">
+        <ul>
+          <li>{{_("プロフェッショナルなライブショーを披露できる")}}</li>
+          <li>{{_("過去12ヶ月以内にそのショーを実際に公演している")}}</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>{{_("GBB {year} 本戦審査員").format(year=year)}}<br>({{_("Wildcard審査員は対象外")}})</td>
+      <td>
+        {{_("審査業務等に支障がなければ応募可能")}}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+  {{_("GBB {year} 出場が決定している方、または選考中の方は応募できません。").format(year=year)}}<br>
+  {{_("また、GBB {year} 開催日時点で18歳未満の方は応募できません。").format(year=year)}}
+</p>
 
 <div class="button-container">
   <a href="/{{ language }}/travel/top"><button style="background-image: url('/static/images/button/zenhit.webp');" class="button-with-background-image">
@@ -530,11 +584,11 @@
       <td>{{_("発表次第更新")}}</td>
     </tr>
     <tr>
-      <td>SHOWCASE<br>(loopstation)</td>
+      <td>SHOWCASE<br>(producer)</td>
       <td>{{_("審査員なし")}}</td>
     </tr>
     <tr>
-      <td>SHOWCASE<br>(producer)</td>
+      <td>SHOWCASE<br>(loopstation)</td>
       <td>{{_("審査員なし")}}</td>
     </tr>
     <tr>
@@ -599,11 +653,11 @@
     </tr>
     <tr>
       <td>SHOWCASE<br>(loopstation)</td>
-      <td>{{_("発表次第更新")}}</td>
+      <td>{{_("{Swissbeatbox}による非公開審査").format(Swissbeatbox="Swissbeatbox")}}</td>
     </tr>
     <tr>
       <td>SHOWCASE<br>(solo)</td>
-      <td>{{_("発表次第更新")}}</td>
+      <td>{{_("{Swissbeatbox}による非公開審査").format(Swissbeatbox="Swissbeatbox")}}</td>
     </tr>
   </tbody>
 </table>
