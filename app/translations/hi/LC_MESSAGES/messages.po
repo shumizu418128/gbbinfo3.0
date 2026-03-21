@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-03-22 00:19+0900\n"
+"POT-Creation-Date: 2026-03-22 00:55+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: hi <LL@li.org>\n"
@@ -1544,7 +1544,7 @@ msgstr ""
 
 #: templates/2026/rule.html:207
 msgid "勝者の決定"
-msgstr "केवल विजेता"
+msgstr "विजेता का निर्धारण"
 
 #: templates/2026/rule.html:208
 #, python-brace-format

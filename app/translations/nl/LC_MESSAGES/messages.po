@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-03-22 00:19+0900\n"
+"POT-Creation-Date: 2026-03-22 00:55+0900\n"
 "PO-Revision-Date: 2026-03-18 18:08+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: nl <LL@li.org>\n"
@@ -1845,8 +1845,7 @@ msgstr "Heeft die show daadwerkelijk in de afgelopen 12 maanden uitgevoerd"
 #: templates/2026/rule.html:537
 #, python-brace-format
 msgid "GBB {year} 本戦審査員"
-msgstr ""
-"Juryleden van het hoofdtoernooi van GBB {year} kunnen zich niet aanmelden."
+msgstr "Juryleden van het hoofdtoernooi van GBB {year}"
 
 #: templates/2026/rule.html:537
 msgid "Wildcard審査員は対象外"

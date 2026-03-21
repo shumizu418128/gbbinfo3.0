@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-03-22 00:19+0900\n"
+"POT-Creation-Date: 2026-03-22 00:55+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: it <LL@li.org>\n"
@@ -1548,8 +1548,8 @@ msgstr "Nomina da parte dei giudici"
 #: templates/2026/rule.html:196
 msgid "5名の審査員が、対象者の中から各自1名を自由に指名します（最大5名が候補）。"
 msgstr ""
-"5 giudici nominano liberamente 1 persona ciascuno tra gli obiettivi (massimo"
-" 5 candidati)."
+"5 giudici nominano liberamente 1 persona ciascuno tra i candidati idonei "
+"(massimo 5 candidati)."
 
 #: templates/2026/rule.html:197
 #, python-brace-format
