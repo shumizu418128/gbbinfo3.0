@@ -89,6 +89,8 @@ class DeepLService:
             # キャッシュに保存
             translated_text = result.text
             if target_lang_upper == "JA":
+                # 「様々な」は「さまざまな」に揃える
+                translated_text = translated_text.replace("様々な", "さまざまな")
                 translated_text = translated_text.replace("様", "").replace("氏", "")
 
             flask_cache.set(cache_key, translated_text)
