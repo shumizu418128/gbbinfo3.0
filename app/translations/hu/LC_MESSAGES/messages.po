@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-03-22 00:55+0900\n"
+"POT-Creation-Date: 2026-03-22 01:00+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: hu <LL@li.org>\n"
@@ -1896,7 +1896,7 @@ msgid ""
 "の{Solo}部門ランナーズアップが招待されます。"
 msgstr ""
 "Idén új „Második Liga” került bevezetésre. A Második Ligát Kínában rendezik "
-"meg, és a GBB {year} {Solo} kategóriájának második helyezettjei kapnak "
+"meg, és a GBB {year} {Solo} kategóriájának runners-up résztvevői kapnak "
 "meghívást."
 
 #: templates/2026/rule.html:682
@@ -1910,8 +1910,8 @@ msgstr ""
 #, python-brace-format
 msgid "ランナーズアップ：本戦に出場できなかった、{Wildcard}上位入賞者"
 msgstr ""
-"Pótjelöltek: a főversenyre nem kvalifikált, {Wildcard} kategória "
-"legelőkelőbb helyezettjei"
+"Runners-up: a főversenyre nem kvalifikált, {Wildcard} kategória legelőkelőbb"
+" helyezettjei"
 
 #: templates/2026/rule.html:687
 #, python-brace-format

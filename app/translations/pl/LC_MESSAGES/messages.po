@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-03-22 00:55+0900\n"
+"POT-Creation-Date: 2026-03-22 01:00+0900\n"
 "PO-Revision-Date: 2025-10-29 10:38+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: pl <LL@li.org>\n"
@@ -1902,7 +1902,7 @@ msgid ""
 "の{Solo}部門ランナーズアップが招待されます。"
 msgstr ""
 "Od tego roku ustanowiono nową „Drugą Ligę”. Druga Liga odbędzie się w "
-"Chinach, a zaproszeni zostaną finaliści GBB {year} w kategorii {Solo}."
+"Chinach, a zaproszeni zostaną runners-up GBB {year} w kategorii {Solo}."
 
 #: templates/2026/rule.html:682
 #, python-brace-format
@@ -1915,8 +1915,8 @@ msgstr ""
 #, python-brace-format
 msgid "ランナーズアップ：本戦に出場できなかった、{Wildcard}上位入賞者"
 msgstr ""
-"Zdobywca drugiego miejsca: kwalifikanci, którzy nie dotarli do finału, "
-"najwyżej sklasyfikowani zawodnicy z {Wildcard}"
+"Runners-up: najwyżej sklasyfikowani zawodnicy z {Wildcard}, którzy nie "
+"zakwalifikowali się do finału"
 
 #: templates/2026/rule.html:687
 #, python-brace-format

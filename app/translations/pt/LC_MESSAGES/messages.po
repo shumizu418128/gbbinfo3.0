@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-03-22 00:55+0900\n"
+"POT-Creation-Date: 2026-03-22 01:00+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: pt <LL@li.org>\n"
@@ -1005,8 +1005,8 @@ msgstr "Sobre o árbitro"
 msgid ""
 "レフェリーは、GBB23から導入された、審査員とは別のメンバーです。審査員は各出場者の評価を行うのに対し、レフェリーは「ルールを守っているか」を確認する役割を担います。"
 msgstr ""
-"O referee, introduzido do GBB23, é um membro diferente dos juízes. Enquanto "
-"os juízes avaliam cada participante, o referee tem o papel de verificar se "
+"O árbitro, introduzido no GBB23, é um membro diferente dos juízes. Enquanto "
+"os juízes avaliam cada participante, o árbitro tem o papel de verificar se "
 "as \"regras estão sendo seguidas\"."
 
 #: templates/2025/ticket.html:16 templates/common/japan.html:50
@@ -1915,8 +1915,8 @@ msgid ""
 "の{Solo}部門ランナーズアップが招待されます。"
 msgstr ""
 "A partir deste ano, foi introduzida uma nova \"Segunda Liga\". A Segunda "
-"Liga será realizada na China e os segundos classificados do GBB {year} "
-"{Solo} serão convidados."
+"Liga será realizada na China e os runners-up do GBB {year} {Solo} serão "
+"convidados."
 
 #: templates/2026/rule.html:682
 #, python-brace-format
@@ -1929,8 +1929,8 @@ msgstr ""
 #, python-brace-format
 msgid "ランナーズアップ：本戦に出場できなかった、{Wildcard}上位入賞者"
 msgstr ""
-"Runners-up: Vencedores de alta classificação que não puderam participar do "
-"evento principal, {Wildcard}"
+"Runners-up: Competidores mais bem classificados de {Wildcard} que não "
+"puderam se classificar para o evento principal"
 
 #: templates/2026/rule.html:687
 #, python-brace-format

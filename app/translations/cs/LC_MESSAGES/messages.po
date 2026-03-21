@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-03-22 00:55+0900\n"
+"POT-Creation-Date: 2026-03-22 01:00+0900\n"
 "PO-Revision-Date: 2026-01-25 16:50+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: cs <LL@li.org>\n"
@@ -1887,7 +1887,7 @@ msgid ""
 "の{Solo}部門ランナーズアップが招待されます。"
 msgstr ""
 "Od letošního roku byla zřízena nová \"Second League\". Second League se koná"
-" v Číně a jsou zváni vicemistři kategorie {Solo} GBB {year}."
+" v Číně a jsou zváni postupující náhradníci kategorie {Solo} GBB {year}."
 
 #: templates/2026/rule.html:682
 #, python-brace-format
@@ -1900,8 +1900,8 @@ msgstr ""
 #, python-brace-format
 msgid "ランナーズアップ：本戦に出場できなかった、{Wildcard}上位入賞者"
 msgstr ""
-"Vicemistři: Nejlepší umístění v {Wildcard}, kteří se nemohli zúčastnit "
-"hlavního turnaje."
+"Postupující náhradníci: Nejlépe umístění v {Wildcard}, kteří se nemohli "
+"zúčastnit hlavního turnaje."
 
 #: templates/2026/rule.html:687
 #, python-brace-format

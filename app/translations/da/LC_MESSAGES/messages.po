@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-03-22 00:55+0900\n"
+"POT-Creation-Date: 2026-03-22 01:00+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: da <LL@li.org>\n"
@@ -1898,7 +1898,8 @@ msgid ""
 "の{Solo}部門ランナーズアップが招待されます。"
 msgstr ""
 "Fra i år er en ny 'Anden Liga' blevet etableret. Anden Liga afholdes i Kina,"
-" og runner-up fra GBB {year}'s {Solo}-kategori inviteres."
+" og de højest placerede wildcard-deltagere fra GBB {year}'s {Solo}-kategori "
+"inviteres."
 
 #: templates/2026/rule.html:682
 #, python-brace-format
@@ -1911,7 +1912,7 @@ msgstr ""
 #, python-brace-format
 msgid "ランナーズアップ：本戦に出場できなかった、{Wildcard}上位入賞者"
 msgstr ""
-"Andenpladser: {Wildcard} højt placerede deltagere, der ikke kunne deltage i "
+"Runners-up: {Wildcard} højt placerede deltagere, der ikke kunne deltage i "
 "hovedturneringen."
 
 #: templates/2026/rule.html:687

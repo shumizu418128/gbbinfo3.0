@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-03-22 00:55+0900\n"
+"POT-Creation-Date: 2026-03-22 01:00+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: no <LL@li.org>\n"
@@ -997,9 +997,9 @@ msgstr "Om dommeren"
 msgid ""
 "レフェリーは、GBB23から導入された、審査員とは別のメンバーです。審査員は各出場者の評価を行うのに対し、レフェリーは「ルールを守っているか」を確認する役割を担います。"
 msgstr ""
-"Dommeren, introdusert fra GBB23, er et eget medlem av juryen. Mens juryen "
-"evaluerer hver deltaker, har dommeren rollen som å bekrefte at \"reglene "
-"følges\"."
+"Dommeren, introdusert fra GBB23, er et eget medlem adskilt fra juryen. Mens "
+"juryen evaluerer hver deltaker, har dommeren rollen som å bekrefte at "
+"\"reglene følges\"."
 
 #: templates/2025/ticket.html:16 templates/common/japan.html:50
 #: templates/common/korea.html:50 templates/common/result.html:107
@@ -1892,7 +1892,7 @@ msgid ""
 "の{Solo}部門ランナーズアップが招待されます。"
 msgstr ""
 "Fra i år er en ny «Second League» blitt etablert. Second League arrangeres i"
-" Kina, og inviterer andreplassene fra GBB {year} i {Solo}-kategorien."
+" Kina, og inviterer runners-up fra GBB {year} i {Solo}-kategorien."
 
 #: templates/2026/rule.html:682
 #, python-brace-format
@@ -1905,7 +1905,7 @@ msgstr ""
 #, python-brace-format
 msgid "ランナーズアップ：本戦に出場できなかった、{Wildcard}上位入賞者"
 msgstr ""
-"Andreplasserte: De {Wildcard}-topplasserte deltakerne som ikke klarte å "
+"Runners-up: De {Wildcard}-topplasserte deltakerne som ikke klarte å "
 "kvalifisere seg til hovedkonkurransen."
 
 #: templates/2026/rule.html:687

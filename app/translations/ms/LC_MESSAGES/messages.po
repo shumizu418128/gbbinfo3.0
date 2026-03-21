@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-03-22 00:55+0900\n"
+"POT-Creation-Date: 2026-03-22 01:00+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ms <LL@li.org>\n"
@@ -1912,7 +1912,8 @@ msgid ""
 "の{Solo}部門ランナーズアップが招待されます。"
 msgstr ""
 "Bermula tahun ini, Liga Kedua yang baharu telah diwujudkan. Liga Kedua akan "
-"diadakan di China, dan naib juara kategori {Solo} GBB {year} akan dijemput."
+"diadakan di China, dan peserta runners-up kategori {Solo} GBB {year} akan "
+"dijemput."
 
 #: templates/2026/rule.html:682
 #, python-brace-format
@@ -1925,8 +1926,8 @@ msgstr ""
 #, python-brace-format
 msgid "ランナーズアップ：本戦に出場できなかった、{Wildcard}上位入賞者"
 msgstr ""
-"Naib Juara: Pemenang tempat teratas {Wildcard} yang tidak dapat bertanding "
-"dalam pertandingan utama"
+"Runners-up: Peserta kedudukan tertinggi {Wildcard} yang tidak dapat "
+"bertanding dalam pertandingan utama"
 
 #: templates/2026/rule.html:687
 #, python-brace-format

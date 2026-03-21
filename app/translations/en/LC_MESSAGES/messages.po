@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-03-22 00:55+0900\n"
+"POT-Creation-Date: 2026-03-22 01:00+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: en <LL@li.org>\n"
@@ -1460,14 +1460,14 @@ msgstr "A new division, \"{SHOWCASE}\", has been added starting in 2026."
 
 #: templates/2026/rule.html:161
 msgid "この部門では、バトルを行いません。"
-msgstr "This department does not engage in battles."
+msgstr "This division does not engage in battles."
 
 #: templates/2026/rule.html:162
 #, python-brace-format
 msgid "{Wildcard}の審査は他部門と別の基準で行われ、ストーリー、芸術性、独自性などで評価されます。"
 msgstr ""
 "The review of {Wildcard} is conducted with different criteria than other "
-"departments and is evaluated on story, artistry, originality, etc."
+"divisions and is evaluated on story, artistry, originality, etc."
 
 #: templates/2026/rule.html:165
 #, python-brace-format

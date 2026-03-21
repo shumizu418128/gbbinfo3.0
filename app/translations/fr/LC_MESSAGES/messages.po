@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-03-22 00:55+0900\n"
+"POT-Creation-Date: 2026-03-22 01:00+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -1933,7 +1933,7 @@ msgid ""
 "の{Solo}部門ランナーズアップが招待されます。"
 msgstr ""
 "À partir de cette année, une nouvelle \"Second League\" a été établie. La "
-"Second League se tiendra en Chine et les finalistes du GBB {year} dans la "
+"Second League se tiendra en Chine et les runners-up du GBB {year} dans la "
 "catégorie {Solo} seront invités."
 
 #: templates/2026/rule.html:682
@@ -1947,7 +1947,7 @@ msgstr ""
 #, python-brace-format
 msgid "ランナーズアップ：本戦に出場できなかった、{Wildcard}上位入賞者"
 msgstr ""
-"Finalistes : Les participants les mieux classés de {Wildcard} qui n'ont pas "
+"Runners-up : Les participants les mieux classés de {Wildcard} qui n'ont pas "
 "pu participer à la compétition principale."
 
 #: templates/2026/rule.html:687
