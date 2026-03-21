@@ -9,7 +9,8 @@
 <h1>GBB {{ year }} {{_("ルール")}}</h1>
 <p>
   {{ _("Swissbeatbox公式サイトにて、GBB {year} で実施される部門・{Wildcard}のルールについて発表がありました。").format(year=year, Wildcard="Wildcard") }}<br />
-  <a href="https://swissbeatbox.com/newsfeed/gbb-2026-wildcard-competition/" target="_blank" rel="noopener noreferrer">{{ _("ソースサイト") }}</a>
+  <a href="https://swissbeatbox.com/newsfeed/gbb-2026-wildcard-competition/" target="_blank" rel="noopener noreferrer">{{ _("ソースサイト") }}</a><br>
+  <a href="https://swissbeatbox.com/newsfeed/gbb26-showcase-wildcard/" target="_blank" rel="noopener noreferrer">{{ _("{SHOWCASE} {Wildcard}ソースサイト").format(SHOWCASE="SHOWCASE", Wildcard="Wildcard") }}</a>
 </p>
 
 <div class="button-container">
@@ -133,17 +134,17 @@
     </tr>
     <tr>
       <td>SHOWCASE<br>(loopstation)</td>
-      <td><a href="#showcase-detail-section">??</a></td>
+      <td><a href="#showcase-detail-section">{{_("不明")}}</a></td>
       <td>0</td>
       <td>0</td>
-      <td><a href="#showcase-detail-section">??</a></td>
+      <td><a href="#showcase-detail-section">{{_("不明")}}</a></td>
     </tr>
     <tr>
       <td>SHOWCASE<br>(solo)</td>
-      <td><a href="#showcase-detail-section">??</a></td>
+      <td><a href="#showcase-detail-section">{{_("不明")}}</a></td>
       <td>0</td>
       <td>0</td>
-      <td><a href="#showcase-detail-section">??</a></td>
+      <td><a href="#showcase-detail-section">{{_("不明")}}</a></td>
     </tr>
   </tbody>
 </table>
@@ -481,11 +482,11 @@
     </tr>
     <tr>
       <td>SHOWCASE<br>(loopstation)</td>
-      <td style="font-size: 14px;">{{_("新規撮影時: 制限時間5~10分 / 過去の映像(過去16カ月以内): 制限時間3分以上")}}<br />{{_("提出期限")}} {{_("不明")}}<br />{{_("結果発表")}} {{_("遅くとも夏ごろまでに発表予定")}}<br>{{_("デバイス制限なし")}}</td>
+      <td style="font-size: 14px;">{{_("新規撮影時: 制限時間5~10分 / 過去の映像(過去16ヶ月以内): 制限時間3分以上")}}<br />{{_("提出期限")}} {{_("不明")}}<br />{{_("結果発表")}} {{_("遅くとも夏ごろまでに発表予定")}}<br>{{_("デバイス制限なし")}}</td>
     </tr>
     <tr>
       <td>SHOWCASE<br>(solo)</td>
-      <td style="font-size: 14px;">{{_("新規撮影時: 制限時間5~10分 / 過去の映像(過去16カ月以内): 制限時間3分以上")}}<br />{{_("提出期限")}} {{_("不明")}}<br />{{_("結果発表")}} {{_("遅くとも夏ごろまでに発表予定")}}</td>
+      <td style="font-size: 14px;">{{_("新規撮影時: 制限時間5~10分 / 過去の映像(過去16ヶ月以内): 制限時間3分以上")}}<br />{{_("提出期限")}} {{_("不明")}}<br />{{_("結果発表")}} {{_("遅くとも夏ごろまでに発表予定")}}</td>
     </tr>
   </tbody>
 </table>
@@ -509,7 +510,7 @@
       <td>{{_("過去のGBB出場経験")}}</td>
       <td style="text-align: left;">
         <ul>
-          <li>{{_("GBB 2019以降のの本戦ステージに出場したことがある")}}</li>
+          <li>{{_("GBB 2019以降の本戦ステージに出場したことがある")}}</li>
           <li>{{_("{SevenToSmoke}は優勝者のみ対象").format(SevenToSmoke="7toSmoke")}}</li>
         </ul>
       </td>
