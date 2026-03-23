@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-03-22 01:16+0900\n"
+"POT-Creation-Date: 2026-03-23 18:35+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: pt <LL@li.org>\n"
@@ -1462,13 +1462,13 @@ msgstr "Desconhecido"
 #: templates/2026/rule.html:158
 #, python-brace-format
 msgid "{SHOWCASE}とは"
-msgstr "{SHOWCASE} o que é"
+msgstr "O que é {SHOWCASE}"
 
 #: templates/2026/rule.html:160
 #, python-brace-format
 msgid "2026年から新部門として「{SHOWCASE}」が追加されました。"
 msgstr ""
-"A partir de 2026, foi adicionado o \"{SHOWCASE}\" como um novo departamento."
+"A partir de 2026, foi adicionada a \"{SHOWCASE}\" como uma nova categoria."
 
 #: templates/2026/rule.html:161
 msgid "この部門では、バトルを行いません。"

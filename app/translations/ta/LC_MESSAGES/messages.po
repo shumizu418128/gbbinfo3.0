@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-03-22 01:16+0900\n"
+"POT-Creation-Date: 2026-03-23 18:35+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ta <LL@li.org>\n"
@@ -216,7 +216,7 @@ msgstr "முதன்மை போட்டி நடுவர்கள் ப
 #: templates/2026/rule.html:59 templates/2026/rule.html:625
 #, python-brace-format
 msgid "{Wildcard}審査員一覧"
-msgstr "{Wildcard} அறிஞர்களின் பட்டியல்"
+msgstr "{Wildcard} நீதிபதிகள் பட்டியல்"
 
 #: templates/2024/rule.html:57 templates/2025/rule.html:56
 #: templates/2026/rule.html:70 templates/2026/studio_competition.html:26
@@ -286,7 +286,7 @@ msgstr "விதைகள்"
 #: templates/2024/rule.html:81 templates/2025/rule.html:77
 #: templates/2026/rule.html:96
 msgid "計"
-msgstr "கணக்கிடு"
+msgstr "மொத்தம்"
 
 #: templates/2024/rule.html:118 templates/2025/rule.html:115
 #: templates/2025/wildcard_regulation.html:113 templates/2026/rule.html:155
@@ -1932,8 +1932,8 @@ msgstr ""
 #, python-brace-format
 msgid "ランナーズアップ：本戦に出場できなかった、{Wildcard}上位入賞者"
 msgstr ""
-"இரண்டாம் இடம்: முக்கிய போட்டியில் பங்கேற்க முடியாத, {Wildcard} உயர் தரவரிசை "
-"பெற்றவர்"
+"ரன்னர்ஸ்-அப் / மேல்நிலை வெற்றியாளர்கள்: முக்கிய போட்டியில் பங்கேற்க முடியாத,"
+" {Wildcard} உயர் தரவரிசை பெற்றவர்கள்"
 
 #: templates/2026/rule.html:687
 #, python-brace-format

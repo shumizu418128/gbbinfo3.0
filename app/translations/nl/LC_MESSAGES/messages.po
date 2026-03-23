@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-03-22 01:16+0900\n"
+"POT-Creation-Date: 2026-03-23 18:35+0900\n"
 "PO-Revision-Date: 2026-03-18 18:08+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: nl <LL@li.org>\n"
@@ -1739,7 +1739,7 @@ msgstr "28–30 maart"
 #: templates/2026/rule.html:481
 #, python-brace-format
 msgid "{m}分{s}秒以上はペナルティ対象"
-msgstr "Meer dan {m} min. {s} sec. = penalty"
+msgstr "van {m} min. {s} sec. of meer = penalty"
 
 #: templates/2026/rule.html:465 templates/2026/rule.html:473
 msgid "3月1日"

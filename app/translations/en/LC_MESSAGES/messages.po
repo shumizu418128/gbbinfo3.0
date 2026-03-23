@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-03-22 01:16+0900\n"
+"POT-Creation-Date: 2026-03-23 18:35+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: en <LL@li.org>\n"
@@ -1422,7 +1422,7 @@ msgstr "Source site"
 #: templates/2026/rule.html:13
 #, python-brace-format
 msgid "{SHOWCASE} {Wildcard}ソースサイト"
-msgstr "{SHOWCASE} {Wildcard} Source Site"
+msgstr "{SHOWCASE} {Wildcard} Source site"
 
 #: templates/2026/rule.html:43 templates/2026/rule.html:88
 #: templates/2026/rule.html:230 templates/2026/rule.html:266
@@ -1919,7 +1919,7 @@ msgstr ""
 
 #: templates/2026/rule.html:690
 msgid "当サイトでは、セカンドリーグについての情報は取り扱わない方針です。"
-msgstr "This site does not handle information about the second league."
+msgstr "This site does not handle information about the Second League."
 
 #: templates/2026/rule.html:691
 #, python-brace-format

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-03-22 01:16+0900\n"
+"POT-Creation-Date: 2026-03-23 18:35+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: hu <LL@li.org>\n"
@@ -1896,8 +1896,8 @@ msgid ""
 "の{Solo}部門ランナーズアップが招待されます。"
 msgstr ""
 "Idén új „Második Liga” került bevezetésre. A Második Ligát Kínában rendezik "
-"meg, és a GBB {year} {Solo} kategóriájának runners-up résztvevői kapnak "
-"meghívást."
+"meg, és a GBB {year} {Solo} kategóriájának főversenyre nem kvalifikált "
+"legelőkelőbb helyezettjei kapnak meghívást."
 
 #: templates/2026/rule.html:682
 #, python-brace-format
@@ -1943,7 +1943,7 @@ msgstr "Mindenkinek, aki idáig elolvasta"
 #: templates/2026/rule.html:694
 msgid "今年のルールは例年と比べて変化が大きく、理解が難しかったと思います。"
 msgstr ""
-"Az idén szabályok az előző évekhez képest jelentősen változtak, és nehezen "
+"Az idei szabályok az előző évekhez képest jelentősen változtak, és nehezen "
 "érthetőek voltak."
 
 #: templates/2026/rule.html:695
