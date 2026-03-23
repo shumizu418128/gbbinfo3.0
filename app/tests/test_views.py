@@ -6,7 +6,6 @@ python -m pytest app/tests/test_views.py -v
 
 import json
 import unittest
-from datetime import datetime
 from unittest.mock import patch
 
 # Supabaseサービスをモックしてからapp.mainをインポート
@@ -40,7 +39,9 @@ class ViewsTestCase(unittest.TestCase):
         self.client = app.test_client()
         self.app_context = app.app_context()
         self.app_context.push()
-        self.year = datetime.now().year
+        # Supabaseモック側の Year は 2025 固定のため、テストも 2025 に揃える
+        # （実行日で変わる datetime.now().year だと環境依存になり得る）
+        self.year = 2025
 
     def tearDown(self):
         """テスト後のクリーンアップ"""
@@ -173,7 +174,10 @@ class ViewsTestCase(unittest.TestCase):
     @patch("app.views.participants.supabase_service")
     @patch("app.views.participants.get_available_years")
     def test_participants_view_with_comeback_wildcard(
-        self, mock_get_available_years, mock_supabase_participants, mock_context_supabase
+        self,
+        mock_get_available_years,
+        mock_supabase_participants,
+        mock_context_supabase,
     ):
         """
         participants_viewでCOMEBACK Wildcardを含む出場者データが正しくソートされることを確認
@@ -252,17 +256,19 @@ class ViewsTestCase(unittest.TestCase):
             return []
 
         mock_supabase_participants.get_data.side_effect = mock_get_data_side_effect
-        
+
         # context_processorsのsupabase_serviceもモック（get_translated_urls用）
         def mock_context_get_data_side_effect(*args, **kwargs):
             table = kwargs.get("table")
             pandas_flag = kwargs.get("pandas", False)
-            
+
             if table == "Year" and pandas_flag:
                 # get_translated_urls用のDataFrame
-                return pd.DataFrame([{"year": self.year}, {"year": 2025}, {"year": 2024}])
+                return pd.DataFrame(
+                    [{"year": self.year}, {"year": 2025}, {"year": 2024}]
+                )
             return []
-        
+
         mock_context_supabase.get_data.side_effect = mock_context_get_data_side_effect
 
         with self.client.session_transaction() as sess:

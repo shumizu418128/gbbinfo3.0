@@ -1,7 +1,6 @@
 import copy
 import os
 import unittest
-from datetime import datetime
 from unittest.mock import MagicMock, patch
 
 # app.main import 時に sitemap 初期化で supabase が呼ばれるため、
@@ -36,7 +35,8 @@ class WorldMapCacheTestCase(unittest.TestCase):
         self.client = app.test_client()
         self.app_context = app.app_context()
         self.app_context.push()
-        self.year = datetime.now().year
+        # テストでモックしている `Year` の値に固定して環境依存性を排除する
+        self.year = 2025
 
         with self.client.session_transaction() as sess:
             sess["language"] = "ja"

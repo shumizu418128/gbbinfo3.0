@@ -6,7 +6,6 @@ python -m pytest app/tests/test_supabase_error_handling.py -v
 
 import json
 import unittest
-from datetime import datetime
 from unittest.mock import patch
 
 # Supabaseサービスをモックしてからapp.mainをインポート
@@ -38,7 +37,9 @@ class SupabaseErrorHandlingTestCase(unittest.TestCase):
         self.client = app.test_client()
         self.app_context = app.app_context()
         self.app_context.push()
-        self.year = datetime.now().year
+        # Supabaseモック側の Year は 2025 固定のため、テストも 2025 に揃える
+        # （実行日で変わる datetime.now().year だと環境依存になり得る）
+        self.year = 2025
 
     def tearDown(self):
         """テスト後のクリーンアップ"""

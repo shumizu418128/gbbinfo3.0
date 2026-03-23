@@ -39,6 +39,8 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
         self.client = app.test_client()
         self.app_context = app.app_context()
         self.app_context.push()
+        # `participant_detail` のリダイレクト先は現在年（datetime.now().year）を使うため、
+        # テスト期待値も実行時の現在年に合わせる
         self.year = datetime.now().year
 
     def tearDown(self):
@@ -474,6 +476,7 @@ class TestParticipantDetailWithIsoCodeZero(unittest.TestCase):
         同じ部門の出場者一覧で、COMEBACK Wildcardが正しくソートされることを確認
         COMEBACK Wildcardは1位の上として処理されるため、最上位に表示される
         """
+
         # context_processors用のモック設定
         def mock_get_data(**kwargs):
             # pandas=Trueが指定されている場合はpandas DataFrameを返す
