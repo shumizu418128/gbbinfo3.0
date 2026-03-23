@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-03-22 01:00+0900\n"
+"POT-Creation-Date: 2026-03-22 01:16+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: da <LL@li.org>\n"
@@ -1459,7 +1459,7 @@ msgstr "Hvad er {SHOWCASE}?"
 #: templates/2026/rule.html:160
 #, python-brace-format
 msgid "2026年から新部門として「{SHOWCASE}」が追加されました。"
-msgstr "Fra 2026 vil \"{SHOWCASE}\" blive tilføjet som en ny afdeling."
+msgstr "Fra 2026 er \"{SHOWCASE}\" blevet tilføjet som en ny afdeling."
 
 #: templates/2026/rule.html:161
 msgid "この部門では、バトルを行いません。"

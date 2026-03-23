@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-03-22 01:00+0900\n"
+"POT-Creation-Date: 2026-03-22 01:16+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: hu <LL@li.org>\n"
@@ -1821,7 +1821,7 @@ msgstr "Részt vett a GBB 2019 vagy későbbi főverseny színpadán"
 #: templates/2026/rule.html:514
 #, python-brace-format
 msgid "{SevenToSmoke}は優勝者のみ対象"
-msgstr "Csak a {SevenToSmoke} győzteseinek"
+msgstr "Csak a {SevenToSmoke} győztesei jogosultak"
 
 #: templates/2026/rule.html:519
 msgid "ランキング"

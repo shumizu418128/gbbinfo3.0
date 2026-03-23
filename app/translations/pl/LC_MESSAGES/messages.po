@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-03-22 01:00+0900\n"
+"POT-Creation-Date: 2026-03-22 01:16+0900\n"
 "PO-Revision-Date: 2025-10-29 10:38+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: pl <LL@li.org>\n"
@@ -1916,7 +1916,7 @@ msgstr ""
 msgid "ランナーズアップ：本戦に出場できなかった、{Wildcard}上位入賞者"
 msgstr ""
 "Runners-up: najwyżej sklasyfikowani zawodnicy z {Wildcard}, którzy nie "
-"zakwalifikowali się do finału"
+"zakwalifikowali się do turnieju głównego"
 
 #: templates/2026/rule.html:687
 #, python-brace-format
