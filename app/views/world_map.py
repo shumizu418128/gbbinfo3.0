@@ -36,12 +36,6 @@ def world_map_view(year: int):
     """
     language = get_validated_language(session)
 
-    map_save_path = os.path.join(
-        "app", "templates", str(year), "world_map", f"{language}.html"
-    )
-    if os.path.exists(map_save_path):
-        return render_template(f"{year}/world_map/{language}.html")
-
     try:
         participants_data = supabase_service.get_data(
             table="Participant",
@@ -56,6 +50,13 @@ def world_map_view(year: int):
         )
     except Exception:
         abort(500)
+    participants_data_hash = hash(str(participants_data))
+
+    map_save_path = os.path.join(
+        "app", "templates", str(year), "world_map", f"{language}_{participants_data_hash}.html"
+    )
+    if os.path.exists(map_save_path):
+        return render_template(f"{year}/world_map/{language}_{participants_data_hash}.html")
 
     participants_per_country = defaultdict(list)
 
@@ -198,4 +199,4 @@ def world_map_view(year: int):
         ).add_to(beatboxer_map)
 
     beatboxer_map.save(map_save_path)
-    return render_template(f"{year}/world_map/{language}.html")
+    return render_template(f"{year}/world_map/{language}_{participants_data_hash}.html")
