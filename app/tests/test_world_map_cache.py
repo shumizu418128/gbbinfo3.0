@@ -67,7 +67,8 @@ class WorldMapCacheTestCase(unittest.TestCase):
                 "id": 1,
                 "name": "alpha",
                 "iso_code": 392,
-                "Category": {"name": "Solo", "is_team": False},
+                "ticket_class": "Solo",
+                "Category": {"id": 1, "name": "Solo", "is_team": False},
                 "ParticipantMember": [],
             }
         ]
@@ -160,7 +161,8 @@ class WorldMapCacheTestCase(unittest.TestCase):
                 "id": 1,
                 "name": "alpha",
                 "iso_code": 392,
-                "Category": {"name": "Solo", "is_team": False},
+                "ticket_class": "Solo",
+                "Category": {"id": 1, "name": "Solo", "is_team": False},
                 "ParticipantMember": [],
             }
         ]
@@ -169,7 +171,8 @@ class WorldMapCacheTestCase(unittest.TestCase):
                 "id": 2,
                 "name": "beta",
                 "iso_code": 392,
-                "Category": {"name": "Solo", "is_team": False},
+                "ticket_class": "Solo",
+                "Category": {"id": 1, "name": "Solo", "is_team": False},
                 "ParticipantMember": [],
             }
         ]

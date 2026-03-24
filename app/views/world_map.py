@@ -40,7 +40,7 @@ def world_map_view(year: int):
     try:
         participants_data = supabase_service.get_data(
             table="Participant",
-            columns=["id", "name", "iso_code", "ticket_class", "is_cancelled"],
+            columns=["id", "name", "iso_code", "ticket_class"],
             order_by="category",
             join_tables={
                 "Category": ["id", "name", "is_team"],
@@ -69,7 +69,6 @@ def world_map_view(year: int):
     # 出場者データをソート
     participants_data.sort(
         key=lambda x: (
-            x["is_cancelled"],  # キャンセルした人は下
             x["Category"]["id"],  # カテゴリでソート
             "Wildcard" in x["ticket_class"],  # Wildcard通過者は下
             wildcard_rank_sort(x),  # Wildcardのランキング順にする
