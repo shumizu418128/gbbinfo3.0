@@ -13,6 +13,7 @@ from app.config.config import (
 )
 from app.models.supabase_client import supabase_service
 from app.util.locale import get_validated_language
+from app.util.participant_edit import wildcard_rank_sort
 
 
 # MARK: 世界地図
@@ -39,7 +40,7 @@ def world_map_view(year: int):
     try:
         participants_data = supabase_service.get_data(
             table="Participant",
-            columns=["id", "name", "iso_code"],
+            columns=["id", "name", "iso_code", "ticket_class"],
             order_by="category",
             join_tables={
                 "Category": ["id", "name", "is_team"],
@@ -52,11 +53,28 @@ def world_map_view(year: int):
         abort(500)
     participants_data_hash = hash(str(participants_data))
 
+    # マップを保存するパスを作成
     map_save_path = os.path.join(
-        "app", "templates", str(year), "world_map", f"{language}_{participants_data_hash}.html"
+        "app",
+        "templates",
+        str(year),
+        "world_map",
+        f"{language}_{participants_data_hash}.html",
     )
     if os.path.exists(map_save_path):
-        return render_template(f"{year}/world_map/{language}_{participants_data_hash}.html")
+        return render_template(
+            f"{year}/world_map/{language}_{participants_data_hash}.html"
+        )
+
+    # 出場者データをソート
+    participants_data.sort(
+        key=lambda x: (
+            x["Category"]["id"],  # カテゴリでソート
+            "Wildcard" in x["ticket_class"],  # Wildcard通過者は下
+            wildcard_rank_sort(x),  # Wildcardのランキング順にする
+            "GBB" not in x["ticket_class"],  # GBBによるシードは上
+        )
+    )
 
     participants_per_country = defaultdict(list)
 
