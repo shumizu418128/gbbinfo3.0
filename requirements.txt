@@ -10,7 +10,7 @@ redis[hiredis]==6.4.0
 supabase==2.16.0
 
 # Environment Variables
-python-dotenv==1.0.1
+python-dotenv==1.2.2
 
 # AI/ML APIs
 deepl==1.26.0
